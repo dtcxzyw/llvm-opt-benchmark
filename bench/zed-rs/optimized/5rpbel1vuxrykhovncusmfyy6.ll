@@ -68,7 +68,7 @@ define void @"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_flags..FeatureF
   br i1 %.sroa.0.0.i.i, label %_ZN4gpui3app10AppContext14default_global17h280c1aa96a1c9c01E.exit, label %28
 
 28:                                               ; preds = %.noexc5
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff20e9471b54650fa5e1a5e2600c3d6b.3.llvm.1472880013965367466) #8
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff20e9471b54650fa5e1a5e2600c3d6b.3.llvm.1472880013965367466) #8
           to label %.noexc6 unwind label %35
 
 .noexc6:                                          ; preds = %28
@@ -159,7 +159,7 @@ define void @"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_flags..FeatureF
   br i1 %.sroa.0.0.i.i, label %_ZN4gpui3app10AppContext14default_global17h280c1aa96a1c9c01E.exit, label %27
 
 27:                                               ; preds = %15
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff20e9471b54650fa5e1a5e2600c3d6b.3.llvm.1472880013965367466) #8
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff20e9471b54650fa5e1a5e2600c3d6b.3.llvm.1472880013965367466) #8
   unreachable
 
 _ZN4gpui3app10AppContext14default_global17h280c1aa96a1c9c01E.exit: ; preds = %15
@@ -205,7 +205,7 @@ define noundef zeroext i1 @"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_f
   br i1 %.sroa.0.0.i5.i, label %23, label %22
 
 22:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h1401a57f2fb4fe3cE.llvm.1472880013965367466.exit.i"
-  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff20e9471b54650fa5e1a5e2600c3d6b.2.llvm.1472880013965367466) #8
+  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff20e9471b54650fa5e1a5e2600c3d6b.2.llvm.1472880013965367466) #8
   unreachable
 
 _ZN4gpui3app10AppContext10try_global17ha29a55b25d695981E.exit.thread: ; preds = %1, %7

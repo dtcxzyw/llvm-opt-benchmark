@@ -51546,7 +51546,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 1082:                                             ; preds = %1081
   %1083 = load ptr, ptr %591, align 8
-  %1084 = load ptr, ptr %spec.select.i456, align 8
+  %1084 = load ptr, ptr %1033, align 8
   %1085 = getelementptr inbounds nuw i8, ptr %spec.select.i456, i64 8
   %1086 = load ptr, ptr %1085, align 8
   %1087 = load ptr, ptr %61, align 8

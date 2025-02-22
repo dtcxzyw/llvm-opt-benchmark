@@ -6973,7 +6973,7 @@ sortslice_memcpy.exit.i59:                        ; preds = %295, %.critedge.i56
 
 307:                                              ; preds = %sortslice_memcpy.exit.i59
   %308 = getelementptr i8, ptr %spec.select276.i, i64 -8
-  %309 = load ptr, ptr %spec.select276.i, align 8, !tbaa !112
+  %309 = load ptr, ptr %303, align 8, !tbaa !112
   %310 = getelementptr i8, ptr %spec.select.i58, i64 -8
   store ptr %309, ptr %291, align 8, !tbaa !112
   br label %sortslice_copy_decr.exit.i

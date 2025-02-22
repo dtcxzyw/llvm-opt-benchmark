@@ -2564,10 +2564,10 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %20, %13, %2
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = or disjoint i32 %39, %42
-  %.not87 = icmp eq i32 %43, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph86
+  %.not88 = icmp eq i32 %43, 0
+  br i1 %.not88, label %._crit_edge, label %.lr.ph87
 
-.lr.ph86:                                         ; preds = %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
+.lr.ph87:                                         ; preds = %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = add i32 %43, -1
@@ -2577,12 +2577,12 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %20, %13, %2
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %51
 
-51:                                               ; preds = %.lr.ph86, %187
-  %52 = phi i32 [ 0, %.lr.ph86 ], [ %207, %187 ]
-  %.085 = phi i1 [ false, %.lr.ph86 ], [ %.1, %187 ]
-  %.04784 = phi i1 [ false, %.lr.ph86 ], [ %.148, %187 ]
-  %.05083 = phi ptr [ %44, %.lr.ph86 ], [ %205, %187 ]
-  %.05182 = phi i32 [ 0, %.lr.ph86 ], [ %208, %187 ]
+51:                                               ; preds = %.lr.ph87, %187
+  %52 = phi i32 [ 0, %.lr.ph87 ], [ %207, %187 ]
+  %.086 = phi i1 [ false, %.lr.ph87 ], [ %.1, %187 ]
+  %.04785 = phi i1 [ false, %.lr.ph87 ], [ %.148, %187 ]
+  %.05083 = phi ptr [ %44, %.lr.ph87 ], [ %205, %187 ]
+  %.05182 = phi i32 [ 0, %.lr.ph87 ], [ %208, %187 ]
   %53 = load ptr, ptr %7, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load i32, ptr %54, align 8
@@ -2605,7 +2605,7 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %20, %13, %2
   br i1 %66, label %67, label %187
 
 67:                                               ; preds = %60
-  br i1 %.04784, label %.loopexit, label %68
+  br i1 %.04785, label %.loopexit, label %68
 
 68:                                               ; preds = %67
   %69 = load i8, ptr %57, align 1
@@ -2619,8 +2619,8 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %20, %13, %2
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 88
   %76 = load i32, ptr %75, align 8
-  %.not88 = icmp eq i32 %76, 0
-  br i1 %.not88, label %.loopexit, label %.lr.ph.preheader
+  %.not89 = icmp eq i32 %76, 0
+  br i1 %.not89, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %71
   %wide.trip.count = zext i32 %76 to i64
@@ -2769,7 +2769,7 @@ _ZN25hb_sanitize_with_object_tC2IPKN3AAT12KerxSubTableEEEP21hb_sanitize_context_
           to label %142 unwind label %174
 
 142:                                              ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN3AAT12KerxSubTableEEEP21hb_sanitize_context_tRKT_.exit
-  %143 = or i1 %.085, %141
+  %143 = or i1 %.086, %141
   %144 = load ptr, ptr %47, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load ptr, ptr %145, align 8
@@ -2870,8 +2870,8 @@ _ZN11hb_buffer_t7reverseEv.exit73:                ; preds = %.lr.ph.i10.i.i61, %
   br label %187
 
 187:                                              ; preds = %60, %51, %_ZN11hb_buffer_t7reverseEv.exit73
-  %.148 = phi i1 [ %.04784, %51 ], [ %.2, %_ZN11hb_buffer_t7reverseEv.exit73 ], [ %.04784, %60 ]
-  %.1 = phi i1 [ %.085, %51 ], [ %143, %_ZN11hb_buffer_t7reverseEv.exit73 ], [ %.085, %60 ]
+  %.148 = phi i1 [ %.04785, %51 ], [ %.2, %_ZN11hb_buffer_t7reverseEv.exit73 ], [ %.04785, %60 ]
+  %.1 = phi i1 [ %.086, %51 ], [ %143, %_ZN11hb_buffer_t7reverseEv.exit73 ], [ %.086, %60 ]
   %188 = load i8, ptr %.05083, align 1
   %189 = zext i8 %188 to i64
   %190 = shl nuw nsw i64 %189, 24
@@ -2894,8 +2894,8 @@ _ZN11hb_buffer_t7reverseEv.exit73:                ; preds = %.lr.ph.i10.i.i61, %
   %207 = add i32 %206, 1
   store i32 %207, ptr %25, align 4
   %208 = add nuw i32 %.05182, 1
-  %exitcond90.not = icmp eq i32 %208, %43
-  br i1 %exitcond90.not, label %._crit_edge, label %51, !llvm.loop !21
+  %exitcond91.not = icmp eq i32 %208, %43
+  br i1 %exitcond91.not, label %._crit_edge, label %51, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %187, %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
   %.0.lcssa = phi i1 [ false, %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit ], [ %.1, %187 ]

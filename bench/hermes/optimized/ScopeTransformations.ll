@@ -314,20 +314,18 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 for.body.i.i:                                     ; preds = %for.body.i, %for.inc.i.i
   %__begin1.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %3, %for.body.i ]
   %5 = load ptr, ptr %__begin1.07.i.i, align 8
-  %6 = icmp eq ptr %5, null
   %add.ptr.i4.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %spec.select.i.i = select i1 %6, ptr null, ptr %add.ptr.i4.i
-  %7 = load i8, ptr %spec.select.i.i, align 8
-  %8 = add i8 %7, -109
-  %9 = icmp ult i8 %8, -107
-  br i1 %9, label %for.inc.i.i, label %if.then.i.i
+  %6 = load i8, ptr %add.ptr.i4.i, align 8
+  %7 = add i8 %6, -109
+  %8 = icmp ult i8 %7, -107
+  br i1 %8, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
-  %10 = load ptr, ptr %Parent.i.i.i, align 8
-  %Parent.i5.i.i = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %11 = load ptr, ptr %Parent.i5.i.i, align 8
-  %cmp6.not.i.i = icmp eq ptr %11, %F
+  %Parent.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %9 = load ptr, ptr %Parent.i.i.i, align 8
+  %Parent.i5.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %10 = load ptr, ptr %Parent.i5.i.i, align 8
+  %cmp6.not.i.i = icmp eq ptr %10, %F
   br i1 %cmp6.not.i.i, label %for.inc.i.i, label %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
@@ -344,50 +342,50 @@ _ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit: ; pred
   %cmp.not4.i = phi i8 [ 0, %entry ], [ 1, %if.then.i.i ], [ 0, %for.inc.i ]
   %innerScopes_.i = getelementptr inbounds nuw i8, ptr %scopeDesc, i64 48
   %Size.i = getelementptr inbounds nuw i8, ptr %scopeDesc, i64 56
-  %12 = load i32, ptr %Size.i, align 8
-  %conv.i = zext i32 %12 to i64
-  %tobool.not.i.i.i = icmp eq i32 %12, 0
+  %11 = load i32, ptr %Size.i, align 8
+  %conv.i = zext i32 %11 to i64
+  %tobool.not.i.i.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit
   %sub.i.i.i.i.i = add nuw nsw i64 %conv.i, 63
-  %13 = lshr i64 %sub.i.i.i.i.i, 3
-  %mul.i.i.i.i.i.i = and i64 %13, 1073741816
+  %12 = lshr i64 %sub.i.i.i.i.i, 3
+  %mul.i.i.i.i.i.i = and i64 %12, 1073741816
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #10
-  %14 = lshr i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.idx.i.i = and i64 %14, 1073741816
+  %13 = lshr i64 %sub.i.i.i.i.i, 3
+  %add.ptr.i.idx.i.i = and i64 %13, 1073741816
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i, i8 0, i64 %add.ptr.i.idx.i.i, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %scopeDescHasEscapingVar.055 = phi i8 [ %scopeDescHasEscapingVar.1, %for.inc ], [ %cmp.not4.i, %for.body.preheader ]
   %i.054 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %15 = load ptr, ptr %innerScopes_.i, align 8
-  %arrayidx.i49 = getelementptr inbounds nuw ptr, ptr %15, i64 %i.054
-  %16 = load ptr, ptr %arrayidx.i49, align 8
-  %function_.i = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %17 = load ptr, ptr %function_.i, align 8
-  %cmp7.not = icmp eq ptr %17, %F
+  %14 = load ptr, ptr %innerScopes_.i, align 8
+  %arrayidx.i49 = getelementptr inbounds nuw ptr, ptr %14, i64 %i.054
+  %15 = load ptr, ptr %arrayidx.i49, align 8
+  %function_.i = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %16 = load ptr, ptr %function_.i, align 8
+  %cmp7.not = icmp eq ptr %16, %F
   br i1 %cmp7.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %call8 = tail call noundef i32 @_ZN6hermes11ScopeMerger13optimizeScopeEPNS_8FunctionEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %F, ptr noundef nonnull %16)
-  %dynamic_.i = getelementptr inbounds nuw i8, ptr %16, i64 232
-  %18 = load i8, ptr %dynamic_.i, align 8
-  %tobool.i = trunc i8 %18 to i1
+  %call8 = tail call noundef i32 @_ZN6hermes11ScopeMerger13optimizeScopeEPNS_8FunctionEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %F, ptr noundef nonnull %15)
+  %dynamic_.i = getelementptr inbounds nuw i8, ptr %15, i64 232
+  %17 = load i8, ptr %dynamic_.i, align 8
+  %tobool.i = trunc i8 %17 to i1
   %cmp10 = icmp ne i32 %call8, 0
   %or.cond = and i1 %cmp10, %tobool.i
   br i1 %or.cond, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  tail call void @_ZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr poison, ptr noundef nonnull %scopeDesc, ptr noundef nonnull %16)
+  tail call void @_ZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr poison, ptr noundef nonnull %scopeDesc, ptr noundef nonnull %15)
   %spec.select = select i1 %cmp10, i8 1, i8 %scopeDescHasEscapingVar.055
   %div.i.i.i.i.i.udiv64 = lshr i64 %i.054, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %div.i.i.i.i.i.udiv64
   %conv4.i.i.i.i.i = and i64 %i.054, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  %19 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %or.i = or i64 %19, %shl.i.i.i
+  %18 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %or.i = or i64 %18, %shl.i.i.i
   store i64 %or.i, ptr %add.ptr.i.i.i.i.i, align 8
   br label %for.inc
 
@@ -404,7 +402,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp2356.not, label %if.then.i.i.i, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %for.end
-  %add.i.i = zext i32 %12 to i64
+  %add.i.i = zext i32 %11 to i64
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc35
@@ -418,18 +416,18 @@ lor.rhs:                                          ; preds = %for.body24
   %add.ptr.i.i.i.i.i32 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %div.i.i.i.i.i31.udiv65
   %conv4.i.i.i.i.i36 = and i64 %i19.058, 63
   %shl.i.i.i37 = shl nuw i64 1, %conv4.i.i.i.i.i36
-  %20 = load i64, ptr %add.ptr.i.i.i.i.i32, align 8
-  %and.i = and i64 %20, %shl.i.i.i37
+  %19 = load i64, ptr %add.ptr.i.i.i.i.i32, align 8
+  %and.i = and i64 %19, %shl.i.i.i37
   %tobool.i41.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i41.not, label %if.then30, label %for.inc35
 
 if.then30:                                        ; preds = %for.body24, %lor.rhs
-  %21 = load ptr, ptr %innerScopes_.i, align 8
-  %arrayidx.i43 = getelementptr inbounds nuw ptr, ptr %21, i64 %i19.058
-  %22 = load ptr, ptr %arrayidx.i43, align 8
+  %20 = load ptr, ptr %innerScopes_.i, align 8
+  %arrayidx.i43 = getelementptr inbounds nuw ptr, ptr %20, i64 %i19.058
+  %21 = load ptr, ptr %arrayidx.i43, align 8
   %inc32 = add i64 %curr.057, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %21, i64 %curr.057
-  store ptr %22, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %20, i64 %curr.057
+  store ptr %21, ptr %arrayidx.i, align 8
   br label %for.inc35
 
 for.inc35:                                        ; preds = %lor.rhs, %if.then30
@@ -440,18 +438,18 @@ for.inc35:                                        ; preds = %lor.rhs, %if.then30
 
 for.end37:                                        ; preds = %for.inc35
   %.pre63 = load i32, ptr %Size.i, align 8
-  %23 = zext i32 %.pre63 to i64
-  %cmp.i = icmp ult i64 %curr.1, %23
+  %22 = zext i32 %.pre63 to i64
+  %cmp.i = icmp ult i64 %curr.1, %22
   br i1 %cmp.i, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end37
-  %cmp5.i = icmp ugt i64 %curr.1, %23
+  %cmp5.i = icmp ugt i64 %curr.1, %22
   br i1 %cmp5.i, label %if.then6.i, label %if.then.i.i.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %Capacity.i.i = getelementptr inbounds nuw i8, ptr %scopeDesc, i64 60
-  %24 = load i32, ptr %Capacity.i.i, align 4
-  %conv.i15.i = zext i32 %24 to i64
+  %23 = load i32, ptr %Capacity.i.i, align 4
+  %conv.i15.i = zext i32 %23 to i64
   %cmp8.i = icmp ugt i64 %curr.1, %conv.i15.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end.i
 
@@ -463,16 +461,16 @@ if.then9.i:                                       ; preds = %if.then6.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9.i, %if.then6.i
-  %conv.i17.pre-phi.i = phi i64 [ %.pre22.i, %if.then9.i ], [ %23, %if.then6.i ]
+  %conv.i17.pre-phi.i = phi i64 [ %.pre22.i, %if.then9.i ], [ %22, %if.then6.i ]
   %cmp13.not20.i = icmp eq i64 %curr.1, %conv.i17.pre-phi.i
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
-  %25 = load ptr, ptr %innerScopes_.i, align 8
-  %add.ptr.i.i43 = getelementptr ptr, ptr %25, i64 %conv.i17.pre-phi.i
-  %26 = sub i64 %curr.1, %conv.i17.pre-phi.i
-  %27 = shl i64 %26, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i43, i8 0, i64 %27, i1 false)
+  %24 = load ptr, ptr %innerScopes_.i, align 8
+  %add.ptr.i.i43 = getelementptr ptr, ptr %24, i64 %conv.i17.pre-phi.i
+  %25 = sub i64 %curr.1, %conv.i17.pre-phi.i
+  %26 = shl i64 %25, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i43, i8 0, i64 %26, i1 false)
   br label %if.end15.sink.split.i
 
 if.end15.sink.split.i:                            ; preds = %for.body.preheader.i, %if.end.i, %for.end37
@@ -486,8 +484,8 @@ if.then.i.i.i:                                    ; preds = %if.end15.sink.split
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit, %if.then.i.i.i
   %scopeDescHasEscapingVar.0.lcssa8390115 = phi i8 [ %scopeDescHasEscapingVar.1, %if.then.i.i.i ], [ %cmp.not4.i, %_ZN6hermesL24hasAtLeastOneEscapingVarEPNS_8FunctionEPNS_9ScopeDescE.exit ]
-  %28 = and i8 %scopeDescHasEscapingVar.0.lcssa8390115, 1
-  %cond = zext nneg i8 %28 to i32
+  %27 = and i8 %scopeDescHasEscapingVar.0.lcssa8390115, 1
+  %cond = zext nneg i8 %27 to i32
   ret i32 %cond
 }
 

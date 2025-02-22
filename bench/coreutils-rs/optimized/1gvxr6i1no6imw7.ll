@@ -1025,7 +1025,7 @@ define void @_ZN11uu_basename8basename17hcb46eee7073df0d1E(ptr noalias noundef w
   br i1 %trunc, label %70, label %71
 
 70:                                               ; preds = %64
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.12) #11
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.12) #11
           to label %72 unwind label %.loopexit.split-lp
 
 71:                                               ; preds = %64

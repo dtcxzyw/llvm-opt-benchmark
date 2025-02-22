@@ -8711,33 +8711,31 @@ _ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyE
 
 32:                                               ; preds = %.lr.ph, %32
   %.sroa.06.012 = phi ptr [ %.sroa.06.010, %.lr.ph ], [ %.sroa.06.0, %32 ]
-  %33 = icmp eq ptr %.sroa.06.012, null
-  %34 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 -56
-  %35 = select i1 %33, ptr null, ptr %34
+  %33 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 -56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  %36 = call ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %35, ptr nonnull @.str.40, i64 36) #26
-  store ptr %36, ptr %4, align 8
-  %37 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
-  %38 = extractvalue { ptr, i64 } %37, 0
-  %39 = extractvalue { ptr, i64 } %37, 1
+  %34 = call ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %33, ptr nonnull @.str.40, i64 36) #26
+  store ptr %34, ptr %4, align 8
+  %35 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
+  %36 = extractvalue { ptr, i64 } %35, 0
+  %37 = extractvalue { ptr, i64 } %35, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
-  %40 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %35) #26
-  %41 = extractvalue { ptr, i64 } %40, 0
-  %42 = extractvalue { ptr, i64 } %40, 1
-  %43 = call { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_(ptr %41, i64 %42, ptr %38, i64 %39)
-  %44 = extractvalue { ptr, i64 } %43, 0
-  store ptr %44, ptr %5, align 8
-  %45 = extractvalue { ptr, i64 } %43, 1
-  store i64 %45, ptr %31, align 8
+  %38 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(136) %33) #26
+  %39 = extractvalue { ptr, i64 } %38, 0
+  %40 = extractvalue { ptr, i64 } %38, 1
+  %41 = call { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_(ptr %39, i64 %40, ptr %36, i64 %37)
+  %42 = extractvalue { ptr, i64 } %41, 0
+  store ptr %42, ptr %5, align 8
+  %43 = extractvalue { ptr, i64 } %41, 1
+  store i64 %43, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #26, !noalias !499
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26, !noalias !499
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS2_S4_S6_S8_Lb0EEEbEOS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.556") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %2), !noalias !499
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #26, !noalias !499
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #26, !noalias !499
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 8
-  %.sroa.06.0 = load ptr, ptr %46, align 8, !tbaa !496
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 8
+  %.sroa.06.0 = load ptr, ptr %44, align 8, !tbaa !496
   %.not9 = icmp eq ptr %.sroa.06.0, %30
   br i1 %.not9, label %.loopexit, label %32
 

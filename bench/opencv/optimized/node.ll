@@ -965,11 +965,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNK3ade6HandleINS_4EdgeEEptEv.exit:              ; preds = %29, %42, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   %.fr.i.i.i.i.i = freeze i32 %13
-  %.not.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %14
-  %47 = icmp ne ptr %spec.select.i.i, null
+  %.not.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i, 0
+  %47 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   tail call void @llvm.assume(i1 %47)
-  tail call void @_ZNK3ade4Edge7srcNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle.55") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  tail call void @_ZNK3ade4Edge7srcNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle.55") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
   ret void
 }
 
@@ -1064,11 +1064,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNK3ade6HandleINS_4EdgeEEptEv.exit:              ; preds = %29, %42, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   %.fr.i.i.i.i.i = freeze i32 %13
-  %.not.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %14
-  %47 = icmp ne ptr %spec.select.i.i, null
+  %.not.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i, 0
+  %47 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   tail call void @llvm.assume(i1 %47)
-  tail call void @_ZNK3ade4Edge7dstNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle.55") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  tail call void @_ZNK3ade4Edge7dstNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle.55") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
   ret void
 }
 

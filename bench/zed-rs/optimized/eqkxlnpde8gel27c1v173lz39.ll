@@ -110,7 +110,7 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
 31:                                               ; preds = %19, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$gpui..text_system..font_fallbacks..FontFallbacks$GT$$GT$17h0ede3d25883c69e4E.exit"
   %.sroa.03.2 = phi i8 [ 1, %19 ], [ 0, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$gpui..text_system..font_fallbacks..FontFallbacks$GT$$GT$17h0ede3d25883c69e4E.exit" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  invoke void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) @anon.c2874306f840af312fd4e9248a3b7c6c.21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
+  invoke void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 4 dereferenceable(20) @anon.c2874306f840af312fd4e9248a3b7c6c.21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
           to label %72 unwind label %52
 
 "_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h18b632a83a65c827E.exit": ; preds = %25, %22, %30

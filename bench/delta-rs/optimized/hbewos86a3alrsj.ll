@@ -1735,7 +1735,7 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17ha3b9f43afdcf6cbdE"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h7a3092079bb18926E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.277d2319ecda5e0dbed08aadd6c353ea.37.llvm.781570702869656532)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h7a3092079bb18926E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.277d2319ecda5e0dbed08aadd6c353ea.37.llvm.781570702869656532)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5
@@ -1781,7 +1781,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17he9a3fa6c32aa7214E"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h7a3092079bb18926E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.277d2319ecda5e0dbed08aadd6c353ea.37.llvm.781570702869656532)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h7a3092079bb18926E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.277d2319ecda5e0dbed08aadd6c353ea.37.llvm.781570702869656532)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5
@@ -2318,7 +2318,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h27a
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.277d2319ecda5e0dbed08aadd6c353ea.41.llvm.781570702869656532) #23
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.277d2319ecda5e0dbed08aadd6c353ea.41.llvm.781570702869656532) #23
   unreachable
 
 22:                                               ; preds = %17

@@ -4471,8 +4471,8 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.thread.i: ; preds =
   %1109 = load i32, ptr %1108, align 4
   %1110 = and i32 %1109, 127
   %1111 = icmp eq i32 %1110, 8
-  %.not.not1.i.i = icmp ne ptr %.val76.val.i, null
-  %.not.not.not.i.i = and i1 %.not.not1.i.i, %1111
+  %.not1.i.i = icmp ne ptr %.val76.val.i, null
+  %.not.not.not.i.i = and i1 %.not1.i.i, %1111
   br i1 %.not.not.not.i.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker10isCapturedEPKN5clang11ParmVarDeclE.exit.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker10isCapturedEPKN5clang11ParmVarDeclE.exit.thread.i
 
 _ZNK12_GLOBAL__N_117CalledOnceChecker10isCapturedEPKN5clang11ParmVarDeclE.exit.i: ; preds = %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.thread.i

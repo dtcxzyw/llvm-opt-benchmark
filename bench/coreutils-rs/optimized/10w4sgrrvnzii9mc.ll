@@ -639,7 +639,7 @@ define hidden void @"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$10drop_
   br i1 %or.cond, label %11, label %12
 
 10:                                               ; preds = %2
-  tail call void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3b559f6646478dda803a9263d6d6866c.14.llvm.1321408711200081325) #21
+  tail call void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b559f6646478dda803a9263d6d6866c.14.llvm.1321408711200081325) #21
   unreachable
 
 11:                                               ; preds = %5
@@ -711,7 +711,7 @@ define hidden void @"_ZN9itertools11groupbylazy24GroupBy$LT$K$C$I$C$F$GT$4step17
           to label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h5ad3f1d240ee0fb8E.llvm.1321408711200081325.exit" unwind label %37
 
 34:                                               ; preds = %3
-  tail call void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3b559f6646478dda803a9263d6d6866c.15.llvm.1321408711200081325) #21
+  tail call void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b559f6646478dda803a9263d6d6866c.15.llvm.1321408711200081325) #21
   unreachable
 
 "_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h5ad3f1d240ee0fb8E.llvm.1321408711200081325.exit.sink.split": ; preds = %24, %.thread, %6
@@ -1765,7 +1765,7 @@ define hidden noundef i64 @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$
   br i1 %trunc, label %10, label %9
 
 9:                                                ; preds = %2
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3b559f6646478dda803a9263d6d6866c.16) #21
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b559f6646478dda803a9263d6d6866c.16) #21
   unreachable
 
 10:                                               ; preds = %2

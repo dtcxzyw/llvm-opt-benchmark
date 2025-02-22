@@ -15955,7 +15955,7 @@ _ZN5glTF28Accessor14GetMaxByteSizeEv.exit.i101.i: ; preds = %_ZNK10glTFCommon3Re
 
 859:                                              ; preds = %882, %.lr.ph.i104.i
   %.051109.i105.i = phi i64 [ 0, %.lr.ph.i104.i ], [ %886, %882 ]
-  %860 = load ptr, ptr %spec.select, align 8
+  %860 = load ptr, ptr %308, align 8
   %861 = getelementptr inbounds nuw i32, ptr %860, i64 %.051109.i105.i
   %862 = load i32, ptr %861, align 4
   %863 = zext i32 %862 to i64
@@ -16545,7 +16545,7 @@ _ZN5glTF28Accessor14GetMaxByteSizeEv.exit.i165.i: ; preds = %_ZNK10glTFCommon3Re
 
 1124:                                             ; preds = %1147, %.lr.ph.i168.i
   %.051109.i169.i = phi i64 [ 0, %.lr.ph.i168.i ], [ %1151, %1147 ]
-  %1125 = load ptr, ptr %spec.select, align 8
+  %1125 = load ptr, ptr %308, align 8
   %1126 = getelementptr inbounds nuw i32, ptr %1125, i64 %.051109.i169.i
   %1127 = load i32, ptr %1126, align 4
   %1128 = zext i32 %1127 to i64
@@ -73110,10 +73110,10 @@ define linkonce_odr hidden void @_ZN9rapidjson22GenericSchemaValidatorINS_21Gene
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   %5 = select i1 %3, ptr null, ptr %4
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(220) %5) #37
-  tail call void @free(ptr noundef nonnull %5) #37
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(220) %4) #37
+  tail call void @free(ptr noundef %5) #37
   ret void
 }
 

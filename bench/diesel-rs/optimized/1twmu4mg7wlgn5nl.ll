@@ -43,7 +43,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.80199
   store ptr @anon.f05583c20e936c7444078a8b9c1f847e.2.llvm.8019910602108487998, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f05583c20e936c7444078a8b9c1f847e.4.llvm.8019910602108487998) #10
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f05583c20e936c7444078a8b9c1f847e.4.llvm.8019910602108487998) #10
   unreachable
 }
 

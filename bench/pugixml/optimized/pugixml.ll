@@ -8449,7 +8449,7 @@ lpad:                                             ; preds = %if.then6, %_ZN4pugi
   br i1 %tobool.not.i, label %_ZN4pugi4impl12_GLOBAL__N_112auto_deleterIvED2Ev.exit, label %if.then.i31
 
 if.then.i31:                                      ; preds = %lpad
-  invoke void %0(ptr noundef nonnull %cond)
+  invoke void %0(ptr noundef nonnull %contents)
           to label %_ZN4pugi4impl12_GLOBAL__N_112auto_deleterIvED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i31
@@ -10650,7 +10650,7 @@ cleanup:                                          ; preds = %if.then6
   br i1 %tobool.not.i81, label %return, label %if.then.i82
 
 if.then.i82:                                      ; preds = %cleanup
-  invoke void %0(ptr noundef nonnull %cond)
+  invoke void %0(ptr noundef nonnull %contents)
           to label %return unwind label %terminate.lpad.i83
 
 terminate.lpad.i83:                               ; preds = %if.then.i82
@@ -42791,7 +42791,7 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.i: ; preds = %if.en
   br i1 %tobool.not.i, label %if.end21, label %if.then15.i
 
 if.then15.i:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i, ptr nonnull readonly align 1 %spec.select, i64 %and.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i, ptr nonnull readonly align 1 %2, i64 %and.i, i1 false)
   %21 = load ptr, ptr %alloc, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16

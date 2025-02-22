@@ -107,7 +107,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.15
   store ptr @anon.192a8ff4166f849ebb9d4b84cea5e7d4.3.llvm.15929013083558354740, ptr %14, align 8, !alias.scope !4, !noalias !7
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8, !alias.scope !4, !noalias !7
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.6.llvm.15929013083558354740) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.6.llvm.15929013083558354740) #12
   unreachable
 }
 
@@ -742,7 +742,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17hb815c0a45d16dcc6E.llvm.
   store ptr @anon.192a8ff4166f849ebb9d4b84cea5e7d4.3.llvm.15929013083558354740, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %13, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.16.llvm.15929013083558354740) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.16.llvm.15929013083558354740) #12
   unreachable
 
 14:                                               ; preds = %3
@@ -756,7 +756,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17hb815c0a45d16dcc6E.llvm.
   store ptr @anon.192a8ff4166f849ebb9d4b84cea5e7d4.3.llvm.15929013083558354740, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %18, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.19.llvm.15929013083558354740) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.19.llvm.15929013083558354740) #12
   unreachable
 
 19:                                               ; preds = %3
@@ -907,7 +907,7 @@ define hidden { i1, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17hf8c7f0
   store ptr @anon.192a8ff4166f849ebb9d4b84cea5e7d4.3.llvm.15929013083558354740, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %51, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.22) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.22) #12
   unreachable
 
 52:                                               ; preds = %13, %12, %11, %10, %9
@@ -921,7 +921,7 @@ define hidden { i1, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17hf8c7f0
   store ptr @anon.192a8ff4166f849ebb9d4b84cea5e7d4.3.llvm.15929013083558354740, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %56, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.25) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.25) #12
   unreachable
 }
 
@@ -1065,7 +1065,7 @@ define hidden { i1, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h2
   store ptr @anon.192a8ff4166f849ebb9d4b84cea5e7d4.3.llvm.15929013083558354740, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %51, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.26) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.26) #12
   unreachable
 
 52:                                               ; preds = %13, %12, %11, %10, %9
@@ -1079,7 +1079,7 @@ define hidden { i1, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h2
   store ptr @anon.192a8ff4166f849ebb9d4b84cea5e7d4.3.llvm.15929013083558354740, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %56, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.27) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.27) #12
   unreachable
 }
 
@@ -1158,7 +1158,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -1244,7 +1244,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -1347,7 +1347,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -1524,7 +1524,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -1610,7 +1610,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -1713,7 +1713,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -1890,7 +1890,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -1976,7 +1976,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -2079,7 +2079,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -2256,7 +2256,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -2342,7 +2342,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -2445,7 +2445,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -2622,7 +2622,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -2708,7 +2708,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -2811,7 +2811,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -2988,7 +2988,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -3074,7 +3074,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -3177,7 +3177,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -3354,7 +3354,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -3440,7 +3440,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -3543,7 +3543,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -3720,7 +3720,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -3806,7 +3806,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -3909,7 +3909,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -4086,7 +4086,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -4172,7 +4172,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -4275,7 +4275,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -4452,7 +4452,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -4538,7 +4538,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -4641,7 +4641,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -4818,7 +4818,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -4904,7 +4904,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -5007,7 +5007,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -5184,7 +5184,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -5270,7 +5270,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -5373,7 +5373,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -5550,7 +5550,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -5636,7 +5636,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -5739,7 +5739,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -5916,7 +5916,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -6002,7 +6002,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -6105,7 +6105,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -6282,7 +6282,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -6368,7 +6368,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -6471,7 +6471,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -6648,7 +6648,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -6734,7 +6734,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -6837,7 +6837,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -7014,7 +7014,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -7100,7 +7100,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -7203,7 +7203,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -7380,7 +7380,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -7466,7 +7466,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -7569,7 +7569,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -7746,7 +7746,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -7832,7 +7832,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -7935,7 +7935,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -8112,7 +8112,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -8198,7 +8198,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -8301,7 +8301,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -8478,7 +8478,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -8564,7 +8564,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -8667,7 +8667,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -8844,7 +8844,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -8930,7 +8930,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -9033,7 +9033,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -9210,7 +9210,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -9296,7 +9296,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -9399,7 +9399,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -9576,7 +9576,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -9662,7 +9662,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -9765,7 +9765,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -9942,7 +9942,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -10028,7 +10028,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -10131,7 +10131,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -10308,7 +10308,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -10394,7 +10394,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -10497,7 +10497,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -10674,7 +10674,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -10760,7 +10760,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -10863,7 +10863,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -11040,7 +11040,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -11126,7 +11126,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -11229,7 +11229,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -11406,7 +11406,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -11492,7 +11492,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -11595,7 +11595,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -11772,7 +11772,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -11858,7 +11858,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -11961,7 +11961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -12138,7 +12138,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -12224,7 +12224,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -12327,7 +12327,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -12504,7 +12504,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -12590,7 +12590,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -12693,7 +12693,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -12870,7 +12870,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -12956,7 +12956,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -13059,7 +13059,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -13236,7 +13236,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -13322,7 +13322,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -13425,7 +13425,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -13602,7 +13602,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -13688,7 +13688,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -13791,7 +13791,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -13968,7 +13968,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -14054,7 +14054,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -14157,7 +14157,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -14334,7 +14334,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %46, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 46:                                               ; preds = %36
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.31) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %36
@@ -14420,7 +14420,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit101
   br i1 %.not161, label %70, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107"
 
 70:                                               ; preds = %60
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.36) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit107": ; preds = %60
@@ -14523,7 +14523,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
   br i1 %.not162, label %103, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116"
 
 103:                                              ; preds = %93
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.39) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit116": ; preds = %93
@@ -19101,7 +19101,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -19202,7 +19202,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -19275,7 +19275,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -19457,7 +19457,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -19596,7 +19596,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -19697,7 +19697,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -19770,7 +19770,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -19952,7 +19952,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -20091,7 +20091,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -20192,7 +20192,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -20265,7 +20265,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -20447,7 +20447,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -20586,7 +20586,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -20687,7 +20687,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -20760,7 +20760,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -20942,7 +20942,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -21081,7 +21081,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -21182,7 +21182,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -21255,7 +21255,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -21437,7 +21437,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -21576,7 +21576,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -21677,7 +21677,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -21750,7 +21750,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -21932,7 +21932,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -22071,7 +22071,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -22172,7 +22172,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -22245,7 +22245,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -22427,7 +22427,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -22566,7 +22566,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -22667,7 +22667,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -22740,7 +22740,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -22922,7 +22922,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -23061,7 +23061,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -23162,7 +23162,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -23235,7 +23235,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -23417,7 +23417,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -23556,7 +23556,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -23657,7 +23657,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -23730,7 +23730,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -23912,7 +23912,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -24051,7 +24051,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -24152,7 +24152,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -24225,7 +24225,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -24407,7 +24407,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -24546,7 +24546,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -24647,7 +24647,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -24720,7 +24720,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -24902,7 +24902,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -25041,7 +25041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -25142,7 +25142,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -25215,7 +25215,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -25397,7 +25397,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -25536,7 +25536,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -25637,7 +25637,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -25710,7 +25710,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -25892,7 +25892,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -26031,7 +26031,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -26132,7 +26132,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -26205,7 +26205,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -26387,7 +26387,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -26526,7 +26526,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -26627,7 +26627,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -26700,7 +26700,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -26882,7 +26882,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -27021,7 +27021,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -27122,7 +27122,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -27195,7 +27195,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -27377,7 +27377,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -27516,7 +27516,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -27617,7 +27617,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -27690,7 +27690,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -27872,7 +27872,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -28011,7 +28011,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -28112,7 +28112,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -28185,7 +28185,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -28367,7 +28367,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -28506,7 +28506,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -28607,7 +28607,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -28680,7 +28680,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -28862,7 +28862,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -29001,7 +29001,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -29102,7 +29102,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -29175,7 +29175,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -29357,7 +29357,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -29496,7 +29496,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -29597,7 +29597,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -29670,7 +29670,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -29852,7 +29852,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -29991,7 +29991,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -30092,7 +30092,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -30165,7 +30165,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -30347,7 +30347,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -30486,7 +30486,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -30587,7 +30587,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -30660,7 +30660,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -30842,7 +30842,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -30981,7 +30981,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -31082,7 +31082,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -31155,7 +31155,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -31337,7 +31337,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -31476,7 +31476,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -31577,7 +31577,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -31650,7 +31650,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -31832,7 +31832,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -31971,7 +31971,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -32072,7 +32072,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -32145,7 +32145,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -32327,7 +32327,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -32466,7 +32466,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -32567,7 +32567,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -32640,7 +32640,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -32822,7 +32822,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -32961,7 +32961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -33062,7 +33062,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -33135,7 +33135,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -33317,7 +33317,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -33456,7 +33456,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -33557,7 +33557,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -33630,7 +33630,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -33812,7 +33812,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -33951,7 +33951,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -34052,7 +34052,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -34125,7 +34125,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -34307,7 +34307,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -34446,7 +34446,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -34547,7 +34547,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -34620,7 +34620,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -34802,7 +34802,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -34941,7 +34941,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -35042,7 +35042,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -35115,7 +35115,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -35297,7 +35297,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -35436,7 +35436,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -35537,7 +35537,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -35610,7 +35610,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -35792,7 +35792,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -35931,7 +35931,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -36032,7 +36032,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -36105,7 +36105,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -36287,7 +36287,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -36426,7 +36426,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -36527,7 +36527,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -36600,7 +36600,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -36782,7 +36782,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -36921,7 +36921,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %49, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.52) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %39
@@ -37022,7 +37022,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %84, label %90, label %_ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i
 
 85:                                               ; preds = %71
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.43) #12
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %79
@@ -37095,7 +37095,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
   br i1 %.not88, label %117, label %119
 
 117:                                              ; preds = %107
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.44) #12
           to label %118 unwind label %91
 
 118:                                              ; preds = %117
@@ -37277,7 +37277,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br i1 %.not89, label %179, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33"
 
 179:                                              ; preds = %169
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.48) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33": ; preds = %169
@@ -37436,7 +37436,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -37501,7 +37501,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17haefa05a611f47c73E.exit"
@@ -37516,7 +37516,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17haefa05a611f47c73E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -37613,7 +37613,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -37678,7 +37678,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5a1b08f7e974247fE.exit"
@@ -37693,7 +37693,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5a1b08f7e974247fE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -37790,7 +37790,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -37855,7 +37855,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h68a8358e92c56177E.exit"
@@ -37870,7 +37870,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h68a8358e92c56177E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -37967,7 +37967,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -38032,7 +38032,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8bc2461742b686a0E.exit"
@@ -38047,7 +38047,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8bc2461742b686a0E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -38144,7 +38144,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -38209,7 +38209,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf4a9f8d3868e2f32E.exit"
@@ -38224,7 +38224,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf4a9f8d3868e2f32E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -38321,7 +38321,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -38386,7 +38386,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hff6a2c4f2cccc387E.exit"
@@ -38401,7 +38401,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hff6a2c4f2cccc387E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -38498,7 +38498,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -38563,7 +38563,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8667e343b2b88320E.exit"
@@ -38578,7 +38578,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8667e343b2b88320E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -38675,7 +38675,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -38740,7 +38740,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6c4a2bba0fd0c0b8E.exit"
@@ -38755,7 +38755,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6c4a2bba0fd0c0b8E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -38852,7 +38852,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -38917,7 +38917,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hde6f51c21c354193E.exit"
@@ -38932,7 +38932,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hde6f51c21c354193E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -39029,7 +39029,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -39094,7 +39094,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h424e38cb36fa1fd7E.exit"
@@ -39109,7 +39109,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h424e38cb36fa1fd7E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -39206,7 +39206,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -39271,7 +39271,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h315346ca810488efE.exit"
@@ -39286,7 +39286,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h315346ca810488efE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -39383,7 +39383,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -39448,7 +39448,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hdacb9a76c04d24c1E.exit"
@@ -39463,7 +39463,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hdacb9a76c04d24c1E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -39560,7 +39560,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -39625,7 +39625,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h354fabbbdf3767c1E.exit"
@@ -39640,7 +39640,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h354fabbbdf3767c1E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -39737,7 +39737,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -39802,7 +39802,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha5002c00f7885966E.exit"
@@ -39817,7 +39817,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha5002c00f7885966E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -39914,7 +39914,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -39979,7 +39979,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h212a9e6566531badE.exit"
@@ -39994,7 +39994,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h212a9e6566531badE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -40091,7 +40091,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -40156,7 +40156,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h865603f353c9cabdE.exit"
@@ -40171,7 +40171,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h865603f353c9cabdE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -40268,7 +40268,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -40333,7 +40333,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha9202757bb671efbE.exit"
@@ -40348,7 +40348,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha9202757bb671efbE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -40445,7 +40445,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -40510,7 +40510,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5aad4f28d77509a4E.exit"
@@ -40525,7 +40525,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5aad4f28d77509a4E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -40622,7 +40622,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -40687,7 +40687,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd5d3f8620d904221E.exit"
@@ -40702,7 +40702,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd5d3f8620d904221E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -40799,7 +40799,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -40864,7 +40864,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1969788013a41113E.exit"
@@ -40879,7 +40879,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1969788013a41113E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -40976,7 +40976,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -41041,7 +41041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7c5e218d75f401e6E.exit"
@@ -41056,7 +41056,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7c5e218d75f401e6E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -41153,7 +41153,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -41218,7 +41218,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1d4c7f6016336967E.exit"
@@ -41233,7 +41233,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1d4c7f6016336967E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -41330,7 +41330,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -41395,7 +41395,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he8a1b99cc6172d60E.exit"
@@ -41410,7 +41410,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he8a1b99cc6172d60E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -41507,7 +41507,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -41572,7 +41572,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h34217ace567c4d36E.exit"
@@ -41587,7 +41587,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h34217ace567c4d36E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -41684,7 +41684,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -41749,7 +41749,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h057128c946cdf2d8E.exit"
@@ -41764,7 +41764,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h057128c946cdf2d8E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -41861,7 +41861,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -41926,7 +41926,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h44d8f15ae80a169bE.exit"
@@ -41941,7 +41941,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h44d8f15ae80a169bE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -42038,7 +42038,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -42103,7 +42103,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hba0500020a4a66ceE.exit"
@@ -42118,7 +42118,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hba0500020a4a66ceE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -42215,7 +42215,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -42280,7 +42280,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb273815e7f03ad99E.exit"
@@ -42295,7 +42295,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb273815e7f03ad99E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -42392,7 +42392,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -42457,7 +42457,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf69eb7d8d81cf57eE.exit"
@@ -42472,7 +42472,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf69eb7d8d81cf57eE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -42569,7 +42569,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -42634,7 +42634,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc0048a548a0cf47aE.exit"
@@ -42649,7 +42649,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc0048a548a0cf47aE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -42746,7 +42746,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -42811,7 +42811,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he41f3c00f906757bE.exit"
@@ -42826,7 +42826,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he41f3c00f906757bE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -42923,7 +42923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -42988,7 +42988,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6052dc69741b68afE.exit"
@@ -43003,7 +43003,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6052dc69741b68afE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -43100,7 +43100,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -43165,7 +43165,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd87181c3305f9dfeE.exit"
@@ -43180,7 +43180,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd87181c3305f9dfeE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -43277,7 +43277,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -43342,7 +43342,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h302b6a5406c85476E.exit"
@@ -43357,7 +43357,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h302b6a5406c85476E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -43454,7 +43454,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -43519,7 +43519,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5e99ff36dccc25aeE.exit"
@@ -43534,7 +43534,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5e99ff36dccc25aeE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -43631,7 +43631,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -43696,7 +43696,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h371f5249ecca7b6dE.exit"
@@ -43711,7 +43711,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h371f5249ecca7b6dE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -43808,7 +43808,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %52, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 52:                                               ; preds = %42
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.53) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %42
@@ -43873,7 +43873,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 68:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.57) #12
   unreachable
 
 69:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5ffac3dd3530f2a5E.exit"
@@ -43888,7 +43888,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   ret void
 
 75:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5ffac3dd3530f2a5E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %39, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.59) #12
   unreachable
 }
 
@@ -43990,7 +43990,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -44055,7 +44055,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc0048a548a0cf47aE.exit"
@@ -44073,7 +44073,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc0048a548a0cf47aE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -44115,7 +44115,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -44264,7 +44264,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -44329,7 +44329,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h424e38cb36fa1fd7E.exit"
@@ -44347,7 +44347,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h424e38cb36fa1fd7E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -44389,7 +44389,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -44538,7 +44538,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -44603,7 +44603,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf69eb7d8d81cf57eE.exit"
@@ -44621,7 +44621,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf69eb7d8d81cf57eE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -44663,7 +44663,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -44812,7 +44812,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -44877,7 +44877,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hde6f51c21c354193E.exit"
@@ -44895,7 +44895,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hde6f51c21c354193E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -44937,7 +44937,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -45086,7 +45086,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -45151,7 +45151,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h354fabbbdf3767c1E.exit"
@@ -45169,7 +45169,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h354fabbbdf3767c1E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -45211,7 +45211,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -45360,7 +45360,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -45425,7 +45425,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h315346ca810488efE.exit"
@@ -45443,7 +45443,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h315346ca810488efE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -45485,7 +45485,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -45634,7 +45634,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -45699,7 +45699,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd87181c3305f9dfeE.exit"
@@ -45717,7 +45717,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd87181c3305f9dfeE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -45759,7 +45759,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -45908,7 +45908,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -45973,7 +45973,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha5002c00f7885966E.exit"
@@ -45991,7 +45991,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha5002c00f7885966E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -46033,7 +46033,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -46182,7 +46182,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -46247,7 +46247,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6052dc69741b68afE.exit"
@@ -46265,7 +46265,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6052dc69741b68afE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -46307,7 +46307,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -46456,7 +46456,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -46521,7 +46521,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5a1b08f7e974247fE.exit"
@@ -46539,7 +46539,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5a1b08f7e974247fE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -46581,7 +46581,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -46730,7 +46730,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -46795,7 +46795,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb273815e7f03ad99E.exit"
@@ -46813,7 +46813,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb273815e7f03ad99E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -46855,7 +46855,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -47004,7 +47004,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -47069,7 +47069,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf4a9f8d3868e2f32E.exit"
@@ -47087,7 +47087,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hf4a9f8d3868e2f32E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -47129,7 +47129,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -47278,7 +47278,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -47343,7 +47343,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h44d8f15ae80a169bE.exit"
@@ -47361,7 +47361,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h44d8f15ae80a169bE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -47403,7 +47403,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -47552,7 +47552,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -47617,7 +47617,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1969788013a41113E.exit"
@@ -47635,7 +47635,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1969788013a41113E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -47677,7 +47677,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -47826,7 +47826,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -47891,7 +47891,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5e99ff36dccc25aeE.exit"
@@ -47909,7 +47909,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5e99ff36dccc25aeE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -47951,7 +47951,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -48100,7 +48100,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -48165,7 +48165,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hff6a2c4f2cccc387E.exit"
@@ -48183,7 +48183,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hff6a2c4f2cccc387E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -48225,7 +48225,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -48374,7 +48374,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -48439,7 +48439,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5ffac3dd3530f2a5E.exit"
@@ -48457,7 +48457,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5ffac3dd3530f2a5E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -48499,7 +48499,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -48648,7 +48648,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -48713,7 +48713,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h865603f353c9cabdE.exit"
@@ -48731,7 +48731,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h865603f353c9cabdE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -48773,7 +48773,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -48922,7 +48922,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -48987,7 +48987,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17haefa05a611f47c73E.exit"
@@ -49005,7 +49005,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17haefa05a611f47c73E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -49047,7 +49047,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -49196,7 +49196,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -49261,7 +49261,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hba0500020a4a66ceE.exit"
@@ -49279,7 +49279,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hba0500020a4a66ceE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -49321,7 +49321,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -49470,7 +49470,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -49535,7 +49535,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1d4c7f6016336967E.exit"
@@ -49553,7 +49553,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h1d4c7f6016336967E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -49595,7 +49595,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -49744,7 +49744,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -49809,7 +49809,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5aad4f28d77509a4E.exit"
@@ -49827,7 +49827,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h5aad4f28d77509a4E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -49869,7 +49869,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -50018,7 +50018,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -50083,7 +50083,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h371f5249ecca7b6dE.exit"
@@ -50101,7 +50101,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h371f5249ecca7b6dE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -50143,7 +50143,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -50292,7 +50292,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -50357,7 +50357,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he8a1b99cc6172d60E.exit"
@@ -50375,7 +50375,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he8a1b99cc6172d60E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -50417,7 +50417,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -50566,7 +50566,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -50631,7 +50631,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h212a9e6566531badE.exit"
@@ -50649,7 +50649,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h212a9e6566531badE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -50691,7 +50691,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -50840,7 +50840,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -50905,7 +50905,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he41f3c00f906757bE.exit"
@@ -50923,7 +50923,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17he41f3c00f906757bE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -50965,7 +50965,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -51114,7 +51114,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -51179,7 +51179,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha9202757bb671efbE.exit"
@@ -51197,7 +51197,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17ha9202757bb671efbE.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -51239,7 +51239,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -51388,7 +51388,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -51453,7 +51453,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h34217ace567c4d36E.exit"
@@ -51471,7 +51471,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h34217ace567c4d36E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -51513,7 +51513,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -51662,7 +51662,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -51727,7 +51727,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h302b6a5406c85476E.exit"
@@ -51745,7 +51745,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h302b6a5406c85476E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -51787,7 +51787,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -51936,7 +51936,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -52001,7 +52001,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8bc2461742b686a0E.exit"
@@ -52019,7 +52019,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8bc2461742b686a0E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -52061,7 +52061,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -52210,7 +52210,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -52275,7 +52275,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7c5e218d75f401e6E.exit"
@@ -52293,7 +52293,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7c5e218d75f401e6E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -52335,7 +52335,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -52484,7 +52484,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -52549,7 +52549,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6c4a2bba0fd0c0b8E.exit"
@@ -52567,7 +52567,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h6c4a2bba0fd0c0b8E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -52609,7 +52609,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -52758,7 +52758,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -52823,7 +52823,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h057128c946cdf2d8E.exit"
@@ -52841,7 +52841,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h057128c946cdf2d8E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -52883,7 +52883,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -53032,7 +53032,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -53097,7 +53097,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h68a8358e92c56177E.exit"
@@ -53115,7 +53115,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h68a8358e92c56177E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -53157,7 +53157,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -53306,7 +53306,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -53371,7 +53371,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd5d3f8620d904221E.exit"
@@ -53389,7 +53389,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hd5d3f8620d904221E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -53431,7 +53431,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -53580,7 +53580,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -53645,7 +53645,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hdacb9a76c04d24c1E.exit"
@@ -53663,7 +53663,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hdacb9a76c04d24c1E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -53705,7 +53705,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90
@@ -53854,7 +53854,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %56, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 56:                                               ; preds = %46
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.60) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %46
@@ -53919,7 +53919,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 72:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.64) #12
   unreachable
 
 73:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8667e343b2b88320E.exit"
@@ -53937,7 +53937,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %82, label %84, label %.critedge81
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8667e343b2b88320E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.66) #12
   unreachable
 
 84:                                               ; preds = %73
@@ -53979,7 +53979,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
   br i1 %.not118, label %100, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92"
 
 100:                                              ; preds = %90
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.192a8ff4166f849ebb9d4b84cea5e7d4.29, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.192a8ff4166f849ebb9d4b84cea5e7d4.67) #12
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit92": ; preds = %90

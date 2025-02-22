@@ -18445,7 +18445,7 @@ define internal i32 @nl80211_get_key(ptr readnone captures(none) %0, ptr noundef
   br i1 %57, label %100, label %103
 
 100:                                              ; preds = %99
-  %101 = call i32 @nla_put(ptr noundef nonnull %81, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %56) #26
+  %101 = call i32 @nla_put(ptr noundef nonnull %81, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %55) #26
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %132
 
@@ -18760,8 +18760,8 @@ define internal i32 @nl80211_set_key(ptr readnone captures(none) %0, ptr noundef
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %162, null
   %164 = getelementptr i8, ptr %162, i64 4
-  %165 = select i1 %163, ptr null, ptr %164
-  %166 = icmp eq ptr %165, null
+  %165 = icmp eq ptr %164, null
+  %166 = or i1 %163, %165
   %167 = icmp samesign ugt i32 %25, 1
   %168 = or i1 %167, %166
   br i1 %168, label %select.unfold, label %169
@@ -18783,7 +18783,7 @@ define internal i32 @nl80211_set_key(ptr readnone captures(none) %0, ptr noundef
 
 176:                                              ; preds = %169
   %177 = trunc nuw i32 %25 to i8
-  %178 = call fastcc i32 @rdev_add_key(ptr noundef %5, ptr noundef %7, i32 noundef -1, i8 noundef zeroext %177, i1 noundef zeroext true, ptr noundef nonnull %165, ptr noundef nonnull %3)
+  %178 = call fastcc i32 @rdev_add_key(ptr noundef %5, ptr noundef %7, i32 noundef -1, i8 noundef zeroext %177, i1 noundef zeroext true, ptr noundef nonnull %164, ptr noundef nonnull %3)
   br label %select.unfold
 
 select.unfold:                                    ; preds = %171, %175, %89, %93, %83, %87, %72, %76, %61, %56, %52, %49, %49, %49, %49, %49, %49, %176, %159, %154, %150, %147, %144, %141, %136, %128, %123, %120, %117, %112, %104, %94, %44, %35, %23, %17

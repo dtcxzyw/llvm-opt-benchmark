@@ -9173,7 +9173,7 @@ define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %
 
 57:                                               ; preds = %53
   %58 = shl nuw nsw i64 %17, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %47, i8 -1, i64 %58, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 -1, i64 %58, i1 false)
   br label %59
 
 59:                                               ; preds = %57, %53, %27
@@ -9639,7 +9639,7 @@ define hidden noundef zeroext i1 @mi_manage_os_memory(ptr noundef %0, i64 nounde
 
 45:                                               ; preds = %22
   %46 = shl nuw nsw i64 %15, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %39, i8 -1, i64 %46, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %38, i8 -1, i64 %46, i1 false)
   br label %47
 
 47:                                               ; preds = %22, %45

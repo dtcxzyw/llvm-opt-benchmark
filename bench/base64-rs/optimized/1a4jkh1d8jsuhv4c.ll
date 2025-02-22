@@ -54,7 +54,7 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
   br i1 %.not4, label %10, label %22
 
 21:                                               ; preds = %8
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %9, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed0a7902a43aae889103a61b6651f3dd.1.llvm.18260278607425210501) #5
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %9, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed0a7902a43aae889103a61b6651f3dd.1.llvm.18260278607425210501) #5
   unreachable
 
 22:                                               ; preds = %18

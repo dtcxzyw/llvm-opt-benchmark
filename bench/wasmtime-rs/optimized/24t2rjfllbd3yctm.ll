@@ -285,7 +285,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$wasmtime_types..error..WasmError$
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %5, align 8
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.18, i64 noundef 18, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.19, i64 noundef 7, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.20, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.21, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.22)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.18, i64 noundef 18, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.19, i64 noundef 7, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.20, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.21, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %22
 
@@ -293,7 +293,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$wasmtime_types..error..WasmError$
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %4, align 8
-  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.23, i64 noundef 11, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.24)
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.23, i64 noundef 11, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %22
 
@@ -305,7 +305,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$wasmtime_types..error..WasmError$
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %3, align 8
-  %21 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.26, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.24)
+  %21 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.26, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %22
 
@@ -608,7 +608,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   ]
 
 119:                                              ; preds = %.noexc
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.0, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.2) #17
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.09cab552210edbec1339be4548c43be9.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.2) #17
           to label %.noexc460 unwind label %.loopexit.split-lp
 
 .noexc460:                                        ; preds = %119
@@ -647,7 +647,7 @@ define void @_ZN14cranelift_wasm17module_translator16translate_module17hd35a17ad
   ]
 
 129:                                              ; preds = %120
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %121, i64 noundef %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.3) #17
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %121, i64 noundef %122, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.3) #17
           to label %161 unwind label %156, !noalias !68
 
 130:                                              ; preds = %124
@@ -1831,7 +1831,7 @@ common.resume:                                    ; preds = %91, %477, %485, %17
   store ptr null, ptr %103, align 8, !alias.scope !122, !noalias !125
   store ptr %34, ptr %104, align 8, !alias.scope !122, !noalias !125
   store i64 1, ptr %105, align 8, !alias.scope !122, !noalias !125
-  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %35, i64 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.09cab552210edbec1339be4548c43be9.33, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log17__private_api_log17h060dd45788dbf6e5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %35, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(56) @anon.09cab552210edbec1339be4548c43be9.33, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %410 unwind label %403
 
 410:                                              ; preds = %409
@@ -1984,7 +1984,7 @@ common.resume:                                    ; preds = %91, %477, %485, %17
   store ptr %28, ptr %454, align 8, !alias.scope !158, !noalias !161
   %455 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i64 1, ptr %455, align 8, !alias.scope !158, !noalias !161
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.36) #17
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09cab552210edbec1339be4548c43be9.36) #17
           to label %456 unwind label %435
 
 456:                                              ; preds = %450

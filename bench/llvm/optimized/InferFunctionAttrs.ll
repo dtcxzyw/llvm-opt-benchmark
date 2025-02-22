@@ -29,92 +29,90 @@ define dso_local void @_ZN4llvm22InferFunctionAttrsPass3runERNS_6ModuleERNS_15An
   %.not18.i = icmp eq ptr %.sroa.012.017.i, %9
   br i1 %.not18.i, label %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %4, %26
-  %.sroa.012.020.i = phi ptr [ %.sroa.012.0.i, %26 ], [ %.sroa.012.017.i, %4 ]
-  %.019.i = phi i1 [ %.1.i, %26 ], [ false, %4 ]
-  %10 = icmp eq ptr %.sroa.012.020.i, null
-  %11 = getelementptr inbounds i8, ptr %.sroa.012.020.i, i64 -56
-  %12 = select i1 %10, ptr null, ptr %11
-  %13 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
-  br i1 %13, label %14, label %26
+.lr.ph.i:                                         ; preds = %4, %24
+  %.sroa.012.020.i = phi ptr [ %.sroa.012.0.i, %24 ], [ %.sroa.012.017.i, %4 ]
+  %.019.i = phi i1 [ %.1.i, %24 ], [ false, %4 ]
+  %10 = getelementptr inbounds i8, ptr %.sroa.012.020.i, i64 -56
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
+  br i1 %11, label %12, label %24
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %12, i32 noundef 48) #3
-  br i1 %15, label %26, label %16
+12:                                               ; preds = %.lr.ph.i
+  %13 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 48) #3
+  br i1 %13, label %24, label %14
+
+14:                                               ; preds = %12
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %10, i32 noundef 23) #3
+  br i1 %15, label %21, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %12, i32 noundef 23) #3
-  br i1 %17, label %23, label %18
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %10) #3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = tail call noundef zeroext i1 @_ZN4llvm29inferNonMandatoryLibFuncAttrsERNS_8FunctionERKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(80) %18) #3
+  %20 = or i1 %.019.i, %19
+  br label %21
 
-18:                                               ; preds = %16
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %12) #3
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = tail call noundef zeroext i1 @_ZN4llvm29inferNonMandatoryLibFuncAttrsERNS_8FunctionERKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 8 dereferenceable(80) %20) #3
-  %22 = or i1 %.019.i, %21
-  br label %23
+21:                                               ; preds = %16, %14
+  %.2.i = phi i1 [ %.019.i, %14 ], [ %20, %16 ]
+  %22 = tail call noundef zeroext i1 @_ZN4llvm25inferAttributesFromOthersERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %10) #3
+  %23 = or i1 %.2.i, %22
+  br label %24
 
-23:                                               ; preds = %18, %16
-  %.2.i = phi i1 [ %.019.i, %16 ], [ %22, %18 ]
-  %24 = tail call noundef zeroext i1 @_ZN4llvm25inferAttributesFromOthersERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %12) #3
-  %25 = or i1 %.2.i, %24
-  br label %26
-
-26:                                               ; preds = %23, %14, %.lr.ph.i
-  %.1.i = phi i1 [ %.019.i, %14 ], [ %25, %23 ], [ %.019.i, %.lr.ph.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.012.020.i, i64 8
-  %.sroa.012.0.i = load ptr, ptr %27, align 8, !tbaa !9
+24:                                               ; preds = %21, %12, %.lr.ph.i
+  %.1.i = phi i1 [ %.019.i, %12 ], [ %23, %21 ], [ %.019.i, %.lr.ph.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.012.020.i, i64 8
+  %.sroa.012.0.i = load ptr, ptr %25, align 8, !tbaa !9
   %.not.i = icmp eq ptr %.sroa.012.0.i, %9
   br i1 %.not.i, label %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit, label %.lr.ph.i
 
-_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit: ; preds = %26
-  br i1 %.1.i, label %38, label %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit.thread
+_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit: ; preds = %24
+  br i1 %.1.i, label %36, label %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit.thread
 
 _ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit.thread: ; preds = %4, %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !12, !alias.scope !16
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %28, align 8, !tbaa !19, !alias.scope !16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %30, align 8, !tbaa !20, !alias.scope !16
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %31, align 4, !tbaa !21, !alias.scope !16
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %33, ptr %32, align 8, !tbaa !12, !alias.scope !16
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %34, align 8, !tbaa !19, !alias.scope !16
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %35, align 4, !tbaa !22, !alias.scope !16
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %36, align 8, !tbaa !20, !alias.scope !16
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %37, align 4, !tbaa !21, !alias.scope !16
-  store i32 1, ptr %29, align 4, !tbaa !22, !alias.scope !16, !noalias !23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %26, align 8, !tbaa !19, !alias.scope !16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %28, align 8, !tbaa !20, !alias.scope !16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %29, align 4, !tbaa !21, !alias.scope !16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %31, ptr %30, align 8, !tbaa !12, !alias.scope !16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %32, align 8, !tbaa !19, !alias.scope !16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %33, align 4, !tbaa !22, !alias.scope !16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %34, align 8, !tbaa !20, !alias.scope !16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %35, align 4, !tbaa !21, !alias.scope !16
+  store i32 1, ptr %27, align 4, !tbaa !22, !alias.scope !16, !noalias !23
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !26, !alias.scope !16, !noalias !23
-  br label %48
+  br label %46
 
-38:                                               ; preds = %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, i8 0, i64 64, i1 false), !alias.scope !27
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %40, ptr %0, align 8, !tbaa !12, !alias.scope !27
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %41, align 8, !tbaa !19, !alias.scope !27
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %42, align 4, !tbaa !22, !alias.scope !27
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %43, align 4, !tbaa !21, !alias.scope !27
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %45, ptr %44, align 8, !tbaa !12, !alias.scope !27
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %46, align 8, !tbaa !19, !alias.scope !27
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %47, align 4, !tbaa !21, !alias.scope !27
-  br label %48
+36:                                               ; preds = %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, i8 0, i64 64, i1 false), !alias.scope !27
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %38, ptr %0, align 8, !tbaa !12, !alias.scope !27
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %39, align 8, !tbaa !19, !alias.scope !27
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %40, align 4, !tbaa !22, !alias.scope !27
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %41, align 4, !tbaa !21, !alias.scope !27
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %43, ptr %42, align 8, !tbaa !12, !alias.scope !27
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %44, align 8, !tbaa !19, !alias.scope !27
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %45, align 4, !tbaa !21, !alias.scope !27
+  br label %46
 
-48:                                               ; preds = %38, %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit.thread
+46:                                               ; preds = %36, %_ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE.exit.thread
   ret void
 }
 

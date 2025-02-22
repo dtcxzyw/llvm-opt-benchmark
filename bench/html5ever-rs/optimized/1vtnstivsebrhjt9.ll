@@ -285,7 +285,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
   br label %"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h8a2a64c0c2b0f2a5E.exit"
 
 34:                                               ; preds = %19
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %21, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #12, !noalias !27
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %21, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #12, !noalias !27
   unreachable
 
 "_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h8a2a64c0c2b0f2a5E.exit": ; preds = %15, %25, %29
@@ -338,7 +338,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
   br label %"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h7fd38847e947a07dE.exit"
 
 59:                                               ; preds = %44
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %46, i64 noundef %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #12, !noalias !35
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %46, i64 noundef %48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #12, !noalias !35
   unreachable
 
 "_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h7fd38847e947a07dE.exit": ; preds = %40, %50, %54
@@ -389,7 +389,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
   br label %"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17hc165d92be6a13123E.exit"
 
 84:                                               ; preds = %69
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %71, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #12, !noalias !42
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %71, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #12, !noalias !42
   unreachable
 
 "_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17hc165d92be6a13123E.exit": ; preds = %65, %75, %79

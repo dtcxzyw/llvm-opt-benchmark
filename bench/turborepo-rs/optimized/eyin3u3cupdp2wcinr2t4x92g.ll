@@ -1642,7 +1642,7 @@ define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNt
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %11
-  invoke void @_ZN4core9panicking5panic17hf0253255755711c0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.24, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.26) #35
+  invoke void @_ZN4core9panicking5panic17hf0253255755711c0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.24, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.26) #35
           to label %.noexc.i unwind label %22, !noalias !528
 
 .noexc.i:                                         ; preds = %15
@@ -1734,13 +1734,13 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
   store ptr %6, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i, align 8, !noalias !568
   store i64 1, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i, align 8, !noalias !568
   store ptr null, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i, align 8, !noalias !568
-  %29 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.b8e0f5578a6bfba239528c7cbe29a91a.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5), !noalias !569
+  %29 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.b8e0f5578a6bfba239528c7cbe29a91a.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5), !noalias !569
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !564
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !553
   br i1 %29, label %30, label %_RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map12map_try_foldRRNtNtCseG2FYMysgNb_3wax5token7LiteralRINtNtCs68wO5nsWeTG_5alloc6borrow3CoweEuINtNtNtBa_3ops9try_trait17NeverShortCircuituENCNvMsS_B13_NtB13_15LiteralSequence4text0NCINvMB2i_B2f_10wrap_mut_2uB1B_NCINvNvNtNtNtB8_6traits8iterator8Iterator8for_each4callB1B_NCNvYINtB4_3MapINtNtNtBa_5slice4iter4IterB10_EB2Y_ENtCslyFhtC9DD08_9itertools9Itertools4join0E0E0E0B15_.exit.i
 
 30:                                               ; preds = %_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit.i.i.i.i.i
-  call void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.8, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b8e0f5578a6bfba239528c7cbe29a91a.7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.6) #35, !noalias !547
+  call void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.8, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b8e0f5578a6bfba239528c7cbe29a91a.7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.6) #35, !noalias !547
   unreachable
 
 _RNCINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map12map_try_foldRRNtNtCseG2FYMysgNb_3wax5token7LiteralRINtNtCs68wO5nsWeTG_5alloc6borrow3CoweEuINtNtNtBa_3ops9try_trait17NeverShortCircuituENCNvMsS_B13_NtB13_15LiteralSequence4text0NCINvMB2i_B2f_10wrap_mut_2uB1B_NCINvNvNtNtNtB8_6traits8iterator8Iterator8for_each4callB1B_NCNvYINtB4_3MapINtNtNtBa_5slice4iter4IterB10_EB2Y_ENtCslyFhtC9DD08_9itertools9Itertools4join0E0E0E0B15_.exit.i: ; preds = %_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit.i.i.i.i.i
@@ -2707,7 +2707,7 @@ define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterRNtNt
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %16
-  invoke void @_ZN4core9panicking5panic17hf0253255755711c0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.24, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.26) #35
+  invoke void @_ZN4core9panicking5panic17hf0253255755711c0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.24, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.26) #35
           to label %.noexc unwind label %29
 
 .noexc:                                           ; preds = %20
@@ -5129,7 +5129,7 @@ define hidden noundef zeroext i1 @_RNCINvNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8ad
   store i64 1, ptr %.sroa.8.0..sroa_idx.i.i.i.i, align 8, !noalias !1851
   %.sroa.10.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx.i.i.i.i, align 8, !noalias !1851
-  %36 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %.val5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.b8e0f5578a6bfba239528c7cbe29a91a.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %36 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %.val5, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.b8e0f5578a6bfba239528c7cbe29a91a.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit.i.i.i.i unwind label %26, !noalias !1836
 
 _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit.i.i.i.i: ; preds = %29
@@ -5138,7 +5138,7 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit.i.i.i.i
-  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.8, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b8e0f5578a6bfba239528c7cbe29a91a.7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.6) #35
+  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.8, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b8e0f5578a6bfba239528c7cbe29a91a.7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.6) #35
           to label %.noexc.i.i.i.i unwind label %26, !noalias !1836
 
 .noexc.i.i.i.i:                                   ; preds = %37
@@ -6769,7 +6769,7 @@ define void @_RNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBb_5s
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !2285
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !2285
-  %34 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.b8e0f5578a6bfba239528c7cbe29a91a.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
+  %34 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.b8e0f5578a6bfba239528c7cbe29a91a.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
           to label %_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit unwind label %37
 
 35:                                               ; preds = %18
@@ -6789,7 +6789,7 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
   br i1 %34, label %39, label %40
 
 39:                                               ; preds = %_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCseG2FYMysgNb_3wax.exit
-  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.8, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b8e0f5578a6bfba239528c7cbe29a91a.7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.10) #35
+  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.b8e0f5578a6bfba239528c7cbe29a91a.8, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b8e0f5578a6bfba239528c7cbe29a91a.7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b8e0f5578a6bfba239528c7cbe29a91a.10) #35
           to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %39

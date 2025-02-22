@@ -865,7 +865,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %84, %87
   %92 = load ptr, ptr %80, align 8
   %.0.in.i.i = select i1 %83, ptr %80, ptr %92
   %.0.i.i62 = load i64, ptr %.0.in.i.i, align 8, !tbaa !18
-  %93 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef nonnull %.0.i.i.i.i) #11
+  %93 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %3, ptr noundef nonnull %59) #11
   %94 = load i32, ptr %52, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
@@ -1525,7 +1525,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %86, %89
   %94 = load ptr, ptr %82, align 8
   %.0.in.i.i = select i1 %85, ptr %82, ptr %94
   %.0.i.i48 = load i64, ptr %.0.in.i.i, align 8, !tbaa !18
-  %95 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef nonnull %.0.i.i.i.i) #11
+  %95 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef nonnull %61) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = and i64 %.0.i.i48, 4294967295

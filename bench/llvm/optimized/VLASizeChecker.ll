@@ -957,20 +957,21 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 127
-  %35 = add nsw i32 %34, -38
-  %36 = icmp ult i32 %35, 7
-  %spec.select.i.i.i = select i1 %36, ptr %31, ptr null
-  %.not.i = icmp eq ptr %spec.select.i.i.i, null
+  %35 = add nsw i32 %34, -45
+  %36 = icmp ult i32 %35, -7
+  %.not134.i = icmp eq ptr %31, null
+  %.not.i = or i1 %.not134.i, %36
   br i1 %.not.i, label %39, label %37
 
 37:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %38 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 48
   br label %47
 
 39:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   %40 = add nsw i32 %34, -65
   %41 = icmp ult i32 %40, -3
-  br i1 %41, label %.critedge.i, label %42
+  %.not29.not.i = or i1 %.not134.i, %41
+  br i1 %.not29.not.i, label %.critedge.i, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 80
@@ -983,13 +984,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br label %47
 
 47:                                               ; preds = %42, %37
-  %.sroa.0.0.i.sink136.in.i = phi ptr [ %.sroa.0.0.in.i.i, %42 ], [ %38, %37 ]
-  %.sroa.0.0.i.sink136.i = load i64, ptr %.sroa.0.0.i.sink136.in.i, align 8, !tbaa !46
-  %48 = and i64 %.sroa.0.0.i.sink136.i, -16
+  %.sroa.0.0.i.sink137.in.i = phi ptr [ %.sroa.0.0.in.i.i, %42 ], [ %38, %37 ]
+  %.sroa.0.0.i.sink137.i = load i64, ptr %.sroa.0.0.i.sink137.in.i, align 8, !tbaa !46
+  %48 = and i64 %.sroa.0.0.i.sink137.i, -16
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !46
-  %52 = and i64 %.sroa.0.0.i.sink136.i, 7
+  %52 = and i64 %.sroa.0.0.i.sink137.i, 7
   %53 = or i64 %52, %51
   %54 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %25, i64 %53) #17
   %.not.i.i.i.i = icmp eq ptr %54, null
@@ -1101,7 +1102,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i: ; preds
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 240
   %89 = load ptr, ptr %88, align 8, !tbaa !227
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 232
-  %91 = tail call noundef nonnull ptr @_ZN5clang4ento16MemRegionManager12getVarRegionEPKNS_7VarDeclEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(152) %90, ptr noundef nonnull %spec.select.i.i.i, ptr noundef %85) #17
+  %91 = tail call noundef nonnull ptr @_ZN5clang4ento16MemRegionManager12getVarRegionEPKNS_7VarDeclEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(152) %90, ptr noundef nonnull %31, ptr noundef %85) #17
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %8, align 8
   call void @_ZN5clang4ento16setDynamicExtentEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionENS0_20DefinedOrUnknownSValE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %11, ptr noundef nonnull %12, ptr noundef nonnull %91, ptr %.sroa.0.0.copyload.i.i.i.i, i8 %.sroa.2.0.copyload.i.i.i) #17
   %92 = load ptr, ptr %11, align 8, !tbaa !201

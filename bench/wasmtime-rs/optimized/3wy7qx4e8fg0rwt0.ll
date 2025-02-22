@@ -230,7 +230,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br i1 %.not.i.i, label %.noexc, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$7last_kv17h215c660bdd49f611E.exit.i"
 
 .noexc:                                           ; preds = %.lr.ph.i32
-  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.16, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.17) #17
+  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.16, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.17) #17
   unreachable
 
 "_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$7last_kv17h215c660bdd49f611E.exit.i": ; preds = %.lr.ph.i32
@@ -263,7 +263,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br i1 %.not.i6.i, label %.noexc34, label %50
 
 .noexc34:                                         ; preds = %45
-  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.12, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.13) #17
+  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.12, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.13) #17
   unreachable
 
 50:                                               ; preds = %45
@@ -282,7 +282,7 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br i1 %59, label %_ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i, label %.noexc35
 
 .noexc35:                                         ; preds = %50
-  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.6, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.7) #17
+  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.6, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.7) #17
   unreachable
 
 _ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ; preds = %50
@@ -450,7 +450,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h28999f98cd601590E.exit.i.i: ;
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %._crit_edge.thread
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.0, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.5) #17
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e2192d190c206e613b03b2b794f0dab7.0, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2192d190c206e613b03b2b794f0dab7.5) #17
           to label %.noexc40 unwind label %.loopexit.split-lp86
 
 .noexc40:                                         ; preds = %120

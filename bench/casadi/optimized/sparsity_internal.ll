@@ -27671,7 +27671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
 
 _ZSt5equalIPKxS1_EbT_S2_T0_.exit.i:               ; preds = %238
   %gepdiff.i = add i64 %.idx.i, 8
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.ptr.i, ptr nonnull readonly %spec.select.i, i64 %gepdiff.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.ptr.i, ptr nonnull readonly %28, i64 %gepdiff.i)
   %.not9.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i, label %_ZSt5equalIPKxS1_EbT_S2_T0_.exit.thread.i, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit
 

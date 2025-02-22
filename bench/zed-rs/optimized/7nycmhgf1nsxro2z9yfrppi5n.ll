@@ -1121,7 +1121,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %172 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 1, ptr %172, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
-  %173 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.49)
+  %173 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.49)
           to label %174 unwind label %162
 
 174:                                              ; preds = %168
@@ -1637,7 +1637,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %45, label %52, label %55
 
 52:                                               ; preds = %51
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.4, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b954261911f1a69b15f2337178da659a.35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.6) #21
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.4, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b954261911f1a69b15f2337178da659a.35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.6) #21
           to label %.noexc.i unwind label %46, !noalias !243
 
 .noexc.i:                                         ; preds = %52
@@ -1727,7 +1727,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %.noexc9 unwind label %15
 
 .noexc9:                                          ; preds = %23
-  %24 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17haf6c3db39eb6c12aE.llvm.16932917054908776191"(ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.52, i64 noundef 33, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.8c117b5ec9b8bea9ae41c9da5d48b8c8.86.llvm.16932917054908776191, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %24 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17haf6c3db39eb6c12aE.llvm.16932917054908776191"(ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.52, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.8c117b5ec9b8bea9ae41c9da5d48b8c8.86.llvm.16932917054908776191, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
           to label %26 unwind label %15
 
 "_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$7context17hb696f1bf6ce3a145E.exit": ; preds = %20
@@ -2452,7 +2452,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !328
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !338
-  %45 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hee874dfeac589bfaE.llvm.16932917054908776191"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.8c117b5ec9b8bea9ae41c9da5d48b8c8.85.llvm.16932917054908776191, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
+  %45 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hee874dfeac589bfaE.llvm.16932917054908776191"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.8c117b5ec9b8bea9ae41c9da5d48b8c8.85.llvm.16932917054908776191, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %53 unwind label %31
 
 46:                                               ; preds = %.noexc10
@@ -3015,7 +3015,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br i1 %48, label %49, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i"
 
 49:                                               ; preds = %.loopexit26
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.37, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.b954261911f1a69b15f2337178da659a.36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.1) #21
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.37, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b954261911f1a69b15f2337178da659a.36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.1) #21
           to label %.noexc9 unwind label %.thread
 
 .noexc9:                                          ; preds = %49

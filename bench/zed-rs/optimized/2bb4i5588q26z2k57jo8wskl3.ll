@@ -113,7 +113,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h508bbf509cd6ede9E(ptr dea
   br i1 %39, label %.thread, label %32
 
 .thread:                                          ; preds = %35, %24
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.cb9f3d32c566eb88bc634a1a5abca7db.12, i64 noundef 53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cb9f3d32c566eb88bc634a1a5abca7db.14) #9
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.cb9f3d32c566eb88bc634a1a5abca7db.12, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9f3d32c566eb88bc634a1a5abca7db.14) #9
   unreachable
 
 41:                                               ; preds = %32
@@ -409,7 +409,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h508bbf509cd6ede9E(ptr dea
   store ptr null, ptr %.sink.sroa.phi368, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi380, align 8
   store i64 0, ptr %.sink.sroa.phi392, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cb9f3d32c566eb88bc634a1a5abca7db.17) #9
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9f3d32c566eb88bc634a1a5abca7db.17) #9
           to label %.cont unwind label %48
 
 .cont:                                            ; preds = %.invoke

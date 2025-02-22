@@ -9838,54 +9838,54 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau15LintUnknownType5visi
   %21 = getelementptr inbounds nuw i8, ptr %spec.select28, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, %15
-  %..i20 = select i1 %23, ptr %spec.select28, ptr null
   %24 = icmp ne ptr %..i, null
-  %25 = icmp ne ptr %..i20, null
-  %or.cond = and i1 %24, %25
-  br i1 %or.cond, label %26, label %.critedge
+  %25 = icmp ne ptr %spec.select28, null
+  %26 = and i1 %25, %23
+  %or.cond = and i1 %24, %26
+  br i1 %or.cond, label %27, label %.critedge
 
-26:                                               ; preds = %8
-  %27 = getelementptr inbounds nuw i8, ptr %..i, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4
-  %32 = icmp ne i32 %30, %31
-  %.not29 = icmp eq ptr %28, null
-  %.not = or i1 %.not29, %32
-  br i1 %.not, label %.critedge, label %33
+27:                                               ; preds = %8
+  %28 = getelementptr inbounds nuw i8, ptr %..i, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4
+  %33 = icmp ne i32 %31, %32
+  %.not29 = icmp eq ptr %29, null
+  %.not = or i1 %.not29, %33
+  br i1 %.not, label %.critedge, label %34
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %.not.i = icmp eq ptr %35, null
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %.critedge, label %_ZNK4Luau7AstNameeqEPKc.exit
 
-_ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %33
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(5) @.str.82) #26
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %_ZNK4Luau7AstNameeqEPKc.exit23
+_ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %34
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(5) @.str.82) #26
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %_ZNK4Luau7AstNameeqEPKc.exit23
 
-38:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit
+39:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit
   store i32 1, ptr %3, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 2, ptr %39, align 4
-  call void @_ZN4Luau15LintUnknownType12validateTypeEPNS_21AstExprConstantStringESt16initializer_listINS0_8TypeKindEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %..i20, ptr nonnull %3, i64 2, ptr noundef nonnull @.str.83)
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 2, ptr %40, align 4
+  call void @_ZN4Luau15LintUnknownType12validateTypeEPNS_21AstExprConstantStringESt16initializer_listINS0_8TypeKindEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %spec.select28, ptr nonnull %3, i64 2, ptr noundef nonnull @.str.83)
   br label %.critedge
 
 _ZNK4Luau7AstNameeqEPKc.exit23:                   ; preds = %_ZNK4Luau7AstNameeqEPKc.exit
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(7) @.str.84) #26
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.critedge
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(7) @.str.84) #26
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %.critedge
 
-42:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit23
+43:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit23
   store i32 1, ptr %4, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 3, ptr %43, align 4
-  call void @_ZN4Luau15LintUnknownType12validateTypeEPNS_21AstExprConstantStringESt16initializer_listINS0_8TypeKindEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %..i20, ptr nonnull %4, i64 2, ptr noundef nonnull @.str.85)
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 3, ptr %44, align 4
+  call void @_ZN4Luau15LintUnknownType12validateTypeEPNS_21AstExprConstantStringESt16initializer_listINS0_8TypeKindEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %spec.select28, ptr nonnull %4, i64 2, ptr noundef nonnull @.str.85)
   br label %.critedge
 
-.critedge:                                        ; preds = %33, %2, %26, %8, %_ZNK4Luau7AstNameeqEPKc.exit23, %42, %38
+.critedge:                                        ; preds = %34, %2, %27, %8, %_ZNK4Luau7AstNameeqEPKc.exit23, %43, %39
   ret i1 true
 }
 

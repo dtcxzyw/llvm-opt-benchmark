@@ -2717,7 +2717,7 @@ _ZL18shouldSkipFunctionPKN5clang4DeclERKN4llvm8DenseSetIS2_NS3_12DenseMapInfoIS2
   br i1 %.not15.i.i, label %.critedge.i.i, label %343
 
 343:                                              ; preds = %_ZL18shouldSkipFunctionPKN5clang4DeclERKN4llvm8DenseSetIS2_NS3_12DenseMapInfoIS2_vEEEES9_.exit.i.i
-  %344 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl7hasBodyERPKS0_(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %11) #20
+  %344 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl7hasBodyERPKS0_(ptr noundef nonnull align 8 dereferenceable(168) %337, ptr noundef nonnull align 8 dereferenceable(8) %11) #20
   %345 = load ptr, ptr %11, align 8, !tbaa !1065
   %346 = call noundef zeroext i1 @_ZNK5clang8cross_tu27CrossTranslationUnitContext15isImportedAsNewEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(216) %237, ptr noundef %345) #20
   br i1 %346, label %390, label %..critedge_crit_edge.i.i

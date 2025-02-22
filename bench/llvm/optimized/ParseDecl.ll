@@ -30702,7 +30702,7 @@ _ZN5clang6Parser9NextTokenEv.exit653:             ; preds = %1425, %1429
 
 1434:                                             ; preds = %1433
   %1435 = load ptr, ptr %80, align 8, !tbaa !64
-  %1436 = call noundef zeroext i1 @_ZN5clang4Sema19CheckTypeConstraintEPNS_20TemplateIdAnnotationE(ptr noundef nonnull align 8 dereferenceable(17504) %1435, ptr noundef nonnull %spec.select526) #26
+  %1436 = call noundef zeroext i1 @_ZN5clang4Sema19CheckTypeConstraintEPNS_20TemplateIdAnnotationE(ptr noundef nonnull align 8 dereferenceable(17504) %1435, ptr noundef nonnull %1354) #26
   %spec.select527 = select i1 %1436, ptr null, ptr %spec.select526
   br label %1437
 

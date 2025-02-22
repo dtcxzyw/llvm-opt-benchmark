@@ -938,12 +938,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildCFGViewsEv(ptr
   %8 = icmp eq i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8
-  %11 = select i1 %8, ptr null, ptr %10
-  %12 = icmp eq ptr %11, null
+  %11 = icmp eq ptr %10, null
+  %12 = select i1 %8, i1 true, i1 %11
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %1
-  %14 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull @.str.1) #16
+  %14 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull @.str.1) #16
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -1194,10 +1194,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildCFGViewsEv(ptr
   %179 = load i64, ptr %134, align 8
   %180 = zext i8 %175 to i64
   %181 = select i1 %176, i64 %179, i64 %180
-  %182 = load ptr, ptr %11, align 8, !tbaa !22
+  %182 = load ptr, ptr %10, align 8, !tbaa !22
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
-  %185 = call noundef i32 %184(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef %178, i64 noundef %181) #16
+  %185 = call noundef i32 %184(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef %178, i64 noundef %181) #16
   %186 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %187 = icmp eq ptr %186, %130
   br i1 %187, label %.loopexit11, label %136
@@ -1465,12 +1465,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = select i1 %5, ptr null, ptr %7
-  %9 = icmp eq ptr %8, null
+  %8 = icmp eq ptr %7, null
+  %9 = select i1 %5, i1 true, i1 %8
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull @.str.5) #16
+  %11 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull @.str.5) #16
   br label %12
 
 12:                                               ; preds = %10, %1
@@ -1606,7 +1606,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %95 = load i32, ptr %94, align 8, !tbaa !144
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %97 = load i32, ptr %96, align 8, !tbaa !144
-  %98 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull @.str.6, i32 noundef %95, i32 noundef %97) #16
+  %98 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull @.str.6, i32 noundef %95, i32 noundef %97) #16
   br label %99
 
 99:                                               ; preds = %93, %91
@@ -1622,7 +1622,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   br i1 %9, label %106, label %104
 
 104:                                              ; preds = %103
-  %105 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull @.str.7, i32 noundef %27) #16
+  %105 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull @.str.7, i32 noundef %27) #16
   br label %106
 
 106:                                              ; preds = %104, %103, %12
@@ -1644,17 +1644,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %12 = icmp eq i32 %11, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
-  %15 = select i1 %12, ptr null, ptr %14
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false)
   store i8 32, ptr %2, align 8, !tbaa !33
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 519, ptr %16, align 8, !tbaa !33
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %17, ptr %18, align 8, !tbaa !33
-  store i8 0, ptr %17, align 8, !tbaa !33
-  %19 = icmp eq ptr %15, null
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 519, ptr %15, align 8, !tbaa !33
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %16, ptr %17, align 8, !tbaa !33
+  store i8 0, ptr %16, align 8, !tbaa !33
+  %18 = icmp eq ptr %14, null
+  %19 = select i1 %12, i1 true, i1 %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %1
@@ -1664,14 +1664,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   br i1 %23, label %1400, label %31
 
 24:                                               ; preds = %1
-  %25 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull @.str.11) #16
+  %25 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull @.str.11) #16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %27 = load i32, ptr %26, align 8, !tbaa !3
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %24
-  %30 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull @.str.12) #16
+  %30 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull @.str.12) #16
   br label %1400
 
 31:                                               ; preds = %24, %20
@@ -2817,7 +2817,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   br i1 %19, label %.loopexit86, label %883
 
 883:                                              ; preds = %.loopexit99
-  %884 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull @.str.13, i32 noundef %880) #16
+  %884 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull @.str.13, i32 noundef %880) #16
   %885 = icmp eq i32 %34, 0
   br i1 %885, label %.loopexit86, label %886
 
@@ -2843,15 +2843,15 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %901 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18_dumpBlockLivenessERNS0_6StringEPKNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %895) #16
   %902 = load i8, ptr %2, align 8
   %903 = icmp ugt i8 %902, 30
-  %904 = load ptr, ptr %18, align 8
+  %904 = load ptr, ptr %17, align 8
   %905 = select i1 %903, ptr %904, ptr %888
   %906 = load i64, ptr %889, align 8
   %907 = zext i8 %902 to i64
   %908 = select i1 %903, i64 %906, i64 %907
-  %909 = load ptr, ptr %15, align 8, !tbaa !22
+  %909 = load ptr, ptr %14, align 8, !tbaa !22
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 16
   %911 = load ptr, ptr %910, align 8
-  %912 = call noundef i32 %911(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %905, i64 noundef %908) #16
+  %912 = call noundef i32 %911(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef %905, i64 noundef %908) #16
   %913 = add nuw nsw i64 %892, 1
   %914 = icmp eq i64 %913, %890
   br i1 %914, label %.loopexit86, label %891, !llvm.loop !227
@@ -3529,17 +3529,17 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1384 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass14_dumpLiveSpansERNS0_6StringE(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %1385 = load i8, ptr %2, align 8
   %1386 = icmp ugt i8 %1385, 30
-  %1387 = load ptr, ptr %18, align 8
+  %1387 = load ptr, ptr %17, align 8
   %1388 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %1389 = select i1 %1386, ptr %1387, ptr %1388
   %1390 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1391 = load i64, ptr %1390, align 8
   %1392 = zext i8 %1385 to i64
   %1393 = select i1 %1386, i64 %1391, i64 %1392
-  %1394 = load ptr, ptr %15, align 8, !tbaa !22
+  %1394 = load ptr, ptr %14, align 8, !tbaa !22
   %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 16
   %1396 = load ptr, ptr %1395, align 8
-  %1397 = call noundef i32 %1396(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %1389, i64 noundef %1393) #16
+  %1397 = call noundef i32 %1396(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef %1389, i64 noundef %1393) #16
   br label %1398
 
 1398:                                             ; preds = %1382, %1381
@@ -4150,7 +4150,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass17runLocalAllocatorEv
   %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %121
   %124 = load ptr, ptr %123, align 8, !tbaa !10
   %125 = load ptr, ptr %122, align 8, !tbaa !10
-  %126 = call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEPNS0_8InstNodeEPNS0_7RABlockES5_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull %85, ptr noundef %124, ptr noundef %125) #16
+  %126 = call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEPNS0_8InstNodeEPNS0_7RABlockES5_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull %80, ptr noundef %124, ptr noundef %125) #16
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %150, label %.loopexit28
 
@@ -4159,7 +4159,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass17runLocalAllocatorEv
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %128
-  %131 = call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTableEPNS0_8InstNodeERKNS0_10ZoneVectorIPNS0_7RABlockEEES6_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef null) #16
+  %131 = call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTableEPNS0_8InstNodeERKNS0_10ZoneVectorIPNS0_7RABlockEEES6_(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef null) #16
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %150, label %.loopexit28
 
@@ -6006,17 +6006,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass7binPackENS0_8RegGrou
   %17 = icmp eq i32 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %19 = load ptr, ptr %18, align 8
-  %20 = select i1 %17, ptr null, ptr %19
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
   store i8 32, ptr %4, align 8, !tbaa !33
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 519, ptr %21, align 8, !tbaa !33
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %22, ptr %23, align 8, !tbaa !33
-  store i8 0, ptr %22, align 8, !tbaa !33
-  %24 = icmp eq ptr %20, null
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 519, ptr %20, align 8, !tbaa !33
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %21, ptr %22, align 8, !tbaa !33
+  store i8 0, ptr %21, align 8, !tbaa !33
+  %23 = icmp eq ptr %19, null
+  %24 = select i1 %17, i1 true, i1 %23
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %13
@@ -6025,7 +6025,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass7binPackENS0_8RegGrou
   %28 = load i32, ptr %27, align 4, !tbaa !24
   %29 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28), !range !283
   %30 = zext i8 %1 to i32
-  %31 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull @.str.15, i32 noundef %29, i32 noundef %28, i32 noundef %11, i32 noundef %30) #16
+  %31 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull @.str.15, i32 noundef %29, i32 noundef %28, i32 noundef %11, i32 noundef %30) #16
   %32 = load i32, ptr %10, align 8, !tbaa !3
   br label %33
 
@@ -7666,15 +7666,15 @@ split:                                            ; preds = %125, %._crit_edge
   %1128 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, i8 noundef signext 10) #16
   %1129 = load i8, ptr %4, align 8
   %1130 = icmp ugt i8 %1129, 30
-  %1131 = load ptr, ptr %23, align 8
+  %1131 = load ptr, ptr %22, align 8
   %1132 = select i1 %1130, ptr %1131, ptr %1088
   %1133 = load i64, ptr %1089, align 8
   %1134 = zext i8 %1129 to i64
   %1135 = select i1 %1130, i64 %1133, i64 %1134
-  %1136 = load ptr, ptr %20, align 8, !tbaa !22
+  %1136 = load ptr, ptr %19, align 8, !tbaa !22
   %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 16
   %1138 = load ptr, ptr %1137, align 8
-  %1139 = call noundef i32 %1138(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef %1132, i64 noundef %1135) #16
+  %1139 = call noundef i32 %1138(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef %1132, i64 noundef %1135) #16
   br label %1140
 
 1140:                                             ; preds = %.loopexit113, %1091
@@ -7696,7 +7696,7 @@ split:                                            ; preds = %125, %._crit_edge
   br i1 %1149, label %.thread102, label %1152
 
 1150:                                             ; preds = %1145
-  %1151 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull @.str.16) #16
+  %1151 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull @.str.16) #16
   br label %.thread102
 
 1152:                                             ; preds = %1148, %1145
@@ -7835,17 +7835,17 @@ split:                                            ; preds = %125, %._crit_edge
   %1253 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, i8 noundef signext 10) #16
   %1254 = load i8, ptr %4, align 8
   %1255 = icmp ugt i8 %1254, 30
-  %1256 = load ptr, ptr %23, align 8
+  %1256 = load ptr, ptr %22, align 8
   %1257 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %1258 = select i1 %1255, ptr %1256, ptr %1257
   %1259 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %1260 = load i64, ptr %1259, align 8
   %1261 = zext i8 %1254 to i64
   %1262 = select i1 %1255, i64 %1260, i64 %1261
-  %1263 = load ptr, ptr %20, align 8, !tbaa !22
+  %1263 = load ptr, ptr %19, align 8, !tbaa !22
   %1264 = getelementptr inbounds nuw i8, ptr %1263, i64 16
   %1265 = load ptr, ptr %1264, align 8
-  %1266 = call noundef i32 %1265(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef %1258, i64 noundef %1262) #16
+  %1266 = call noundef i32 %1265(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef %1258, i64 noundef %1262) #16
   br label %.thread102
 
 .thread102:                                       ; preds = %249, %211, %533, %594, %591, %582, %620, %870, %.thread, %.loopexit, %.loopexit109, %1150, %1148, %1080, %42

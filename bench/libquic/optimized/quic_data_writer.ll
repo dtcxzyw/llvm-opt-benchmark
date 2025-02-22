@@ -33,10 +33,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef non
   %4 = load i64, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !10
-  %or.cond.i.i.not = icmp ugt i64 %6, %4
+  %or.cond.i.not.i = icmp ugt i64 %6, %4
   %7 = load ptr, ptr %0, align 8
-  %.not.i1 = icmp ne ptr %7, null
-  %.not.i = select i1 %or.cond.i.i.not, i1 %.not.i1, i1 false
+  %.not8.i = icmp ne ptr %7, null
+  %.not.i = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
   br i1 %.not.i, label %8, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
 8:                                                ; preds = %2
@@ -57,24 +57,24 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef 
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !10
-  %8 = icmp ugt i64 %5, %7
+  %8 = icmp ule i64 %5, %7
   %9 = sub nuw i64 %7, %5
-  %10 = icmp ult i64 %9, %2
-  %or.cond.i = select i1 %8, i1 true, i1 %10
+  %10 = icmp uge i64 %9, %2
+  %or.cond.i.not = select i1 %8, i1 %10, i1 false
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
-  %.0.i = select i1 %or.cond.i, ptr null, ptr %12
-  %.not = icmp ne ptr %.0.i, null
-  br i1 %.not, label %13, label %16
+  %.not8 = icmp ne ptr %11, null
+  %.not = select i1 %or.cond.i.not, i1 %.not8, i1 false
+  br i1 %.not, label %12, label %16
 
-13:                                               ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i, ptr align 1 %1, i64 %2, i1 false)
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %1, i64 %2, i1 false)
   %14 = load i64, ptr %4, align 8, !tbaa !11
   %15 = add i64 %14, %2
   store i64 %15, ptr %4, align 8, !tbaa !11
   br label %16
 
-16:                                               ; preds = %3, %13
+16:                                               ; preds = %3, %12
   ret i1 %.not
 }
 
@@ -87,10 +87,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef no
   %7 = icmp ule i64 %4, %6
   %8 = sub nuw i64 %6, %4
   %9 = icmp ugt i64 %8, 1
-  %or.cond.i.i.not = select i1 %7, i1 %9, i1 false
+  %or.cond.i.not.i = select i1 %7, i1 %9, i1 false
   %10 = load ptr, ptr %0, align 8
-  %.not.i1 = icmp ne ptr %10, null
-  %.not.i = select i1 %or.cond.i.i.not, i1 %.not.i1, i1 false
+  %.not8.i = icmp ne ptr %10, null
+  %.not.i = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
   br i1 %.not.i, label %11, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
 11:                                               ; preds = %2
@@ -114,10 +114,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef no
   %7 = icmp ule i64 %4, %6
   %8 = sub nuw i64 %6, %4
   %9 = icmp ugt i64 %8, 3
-  %or.cond.i.i.not = select i1 %7, i1 %9, i1 false
+  %or.cond.i.not.i = select i1 %7, i1 %9, i1 false
   %10 = load ptr, ptr %0, align 8
-  %.not.i1 = icmp ne ptr %10, null
-  %.not.i = select i1 %or.cond.i.i.not, i1 %.not.i1, i1 false
+  %.not8.i = icmp ne ptr %10, null
+  %.not.i = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
   br i1 %.not.i, label %11, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
 11:                                               ; preds = %2
@@ -141,10 +141,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr noundef no
   %7 = icmp ule i64 %4, %6
   %8 = sub nuw i64 %6, %4
   %9 = icmp ugt i64 %8, 3
-  %or.cond.i.i.not.i = select i1 %7, i1 %9, i1 false
+  %or.cond.i.not.i.i = select i1 %7, i1 %9, i1 false
   %10 = load ptr, ptr %0, align 8
-  %.not.i1.i = icmp ne ptr %10, null
-  %.not.i.i = select i1 %or.cond.i.i.not.i, i1 %.not.i1.i, i1 false
+  %.not8.i.i = icmp ne ptr %10, null
+  %.not.i.i = select i1 %or.cond.i.not.i.i, i1 %.not8.i.i, i1 false
   br i1 %.not.i.i, label %11, label %_ZN3net14QuicDataWriter11WriteUInt32Ej.exit
 
 11:                                               ; preds = %2
@@ -158,10 +158,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr noundef no
   %17 = icmp ule i64 %15, %16
   %18 = sub nuw i64 %16, %15
   %19 = icmp ugt i64 %18, 1
-  %or.cond.i.i.not.i4 = select i1 %17, i1 %19, i1 false
+  %or.cond.i.not.i.i4 = select i1 %17, i1 %19, i1 false
   %20 = load ptr, ptr %0, align 8
-  %.not.i1.i5 = icmp ne ptr %20, null
-  %.not.i.i6 = select i1 %or.cond.i.i.not.i4, i1 %.not.i1.i5, i1 false
+  %.not8.i.i5 = icmp ne ptr %20, null
+  %.not.i.i6 = select i1 %or.cond.i.not.i.i4, i1 %.not8.i.i5, i1 false
   br i1 %.not.i.i6, label %21, label %_ZN3net14QuicDataWriter11WriteUInt32Ej.exit
 
 21:                                               ; preds = %11
@@ -188,10 +188,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr noundef no
   %7 = icmp ule i64 %4, %6
   %8 = sub nuw i64 %6, %4
   %9 = icmp ugt i64 %8, 7
-  %or.cond.i.i.not = select i1 %7, i1 %9, i1 false
+  %or.cond.i.not.i = select i1 %7, i1 %9, i1 false
   %10 = load ptr, ptr %0, align 8
-  %.not.i1 = icmp ne ptr %10, null
-  %.not.i = select i1 %or.cond.i.i.not, i1 %.not.i1, i1 false
+  %.not8.i = icmp ne ptr %10, null
+  %.not.i = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
   br i1 %.not.i, label %11, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
 11:                                               ; preds = %2
@@ -220,21 +220,21 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter13WriteUFloat16Em(ptr noundef 
   br i1 %7, label %20, label %.preheader
 
 .preheader:                                       ; preds = %6, %.preheader
-  %.037 = phi i32 [ %14, %.preheader ], [ 16, %6 ]
-  %.01336 = phi i16 [ %.1, %.preheader ], [ 0, %6 ]
-  %.01435 = phi i64 [ %.115, %.preheader ], [ %1, %6 ]
-  %8 = add nuw nsw i32 %.037, 11
+  %.034 = phi i32 [ %14, %.preheader ], [ 16, %6 ]
+  %.01333 = phi i16 [ %.1, %.preheader ], [ 0, %6 ]
+  %.01432 = phi i64 [ %.115, %.preheader ], [ %1, %6 ]
+  %8 = add nuw nsw i32 %.034, 11
   %9 = zext nneg i32 %8 to i64
-  %.014.highbits = lshr i64 %.01435, %9
+  %.014.highbits = lshr i64 %.01432, %9
   %.not19 = icmp eq i64 %.014.highbits, 0
-  %10 = trunc nuw nsw i32 %.037 to i16
-  %11 = zext nneg i32 %.037 to i64
+  %10 = trunc nuw nsw i32 %.034 to i16
+  %11 = zext nneg i32 %.034 to i64
   %12 = select i1 %.not19, i64 0, i64 %11
-  %.115 = lshr i64 %.01435, %12
+  %.115 = lshr i64 %.01432, %12
   %13 = select i1 %.not19, i16 0, i16 %10
-  %.1 = add i16 %13, %.01336
-  %14 = lshr i32 %.037, 1
-  %.not = icmp samesign ult i32 %.037, 2
+  %.1 = add i16 %13, %.01333
+  %14 = lshr i32 %.034, 1
+  %.not = icmp samesign ult i32 %.034, 2
   br i1 %.not, label %15, label %.preheader, !llvm.loop !12
 
 15:                                               ; preds = %.preheader
@@ -253,10 +253,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter13WriteUFloat16Em(ptr noundef 
   %25 = icmp ule i64 %22, %24
   %26 = sub nuw i64 %24, %22
   %27 = icmp ugt i64 %26, 1
-  %or.cond.i.i.not = select i1 %25, i1 %27, i1 false
+  %or.cond.i.not.i = select i1 %25, i1 %27, i1 false
   %28 = load ptr, ptr %0, align 8
-  %.not.i2332 = icmp ne ptr %28, null
-  %.not.i23 = select i1 %or.cond.i.i.not, i1 %.not.i2332, i1 false
+  %.not8.i = icmp ne ptr %28, null
+  %.not.i23 = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
   br i1 %.not.i23, label %29, label %_ZN3net14QuicDataWriter10WriteBytesEPKvm.exit
 
 29:                                               ; preds = %20
@@ -286,10 +286,10 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter18WriteStringPiece16EN4base16B
   %10 = icmp ule i64 %7, %9
   %11 = sub nuw i64 %9, %7
   %12 = icmp ugt i64 %11, 1
-  %or.cond.i.i.not.i = select i1 %10, i1 %12, i1 false
+  %or.cond.i.not.i.i = select i1 %10, i1 %12, i1 false
   %13 = load ptr, ptr %0, align 8
-  %.not.i1.i = icmp ne ptr %13, null
-  %.not.i.i = select i1 %or.cond.i.i.not.i, i1 %.not.i1.i, i1 false
+  %.not8.i.i = icmp ne ptr %13, null
+  %.not.i.i = select i1 %or.cond.i.not.i.i, i1 %.not8.i.i, i1 false
   br i1 %.not.i.i, label %14, label %_ZN3net14QuicDataWriter11WriteUInt16Et.exit
 
 14:                                               ; preds = %5
@@ -300,14 +300,14 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter18WriteStringPiece16EN4base16B
   %18 = add i64 %17, 2
   store i64 %18, ptr %6, align 8, !tbaa !11
   %19 = load i64, ptr %8, align 8, !tbaa !10
-  %20 = icmp ugt i64 %18, %19
+  %20 = icmp ule i64 %18, %19
   %21 = sub nuw i64 %19, %18
-  %22 = icmp ult i64 %21, %2
-  %or.cond.i.i = select i1 %20, i1 true, i1 %22
+  %22 = icmp uge i64 %21, %2
+  %or.cond.i.not.i = select i1 %20, i1 %22, i1 false
   %23 = load ptr, ptr %0, align 8
-  %.not.i.not4 = icmp eq ptr %23, null
-  %.not.i.not = select i1 %or.cond.i.i, i1 true, i1 %.not.i.not4
-  br i1 %.not.i.not, label %_ZN3net14QuicDataWriter11WriteUInt16Et.exit, label %24
+  %.not8.i = icmp ne ptr %23, null
+  %.not.i = select i1 %or.cond.i.not.i, i1 %.not8.i, i1 false
+  br i1 %.not.i, label %24, label %_ZN3net14QuicDataWriter11WriteUInt16Et.exit
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %18
@@ -347,24 +347,24 @@ define noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr nou
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !10
-  %8 = icmp ugt i64 %5, %7
+  %8 = icmp ule i64 %5, %7
   %9 = sub nuw i64 %7, %5
-  %10 = icmp ult i64 %9, %2
-  %or.cond.i = select i1 %8, i1 true, i1 %10
+  %10 = icmp uge i64 %9, %2
+  %or.cond.i.not = select i1 %8, i1 %10, i1 false
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
-  %.0.i = select i1 %or.cond.i, ptr null, ptr %12
-  %.not = icmp ne ptr %.0.i, null
-  br i1 %.not, label %13, label %16
+  %.not8 = icmp ne ptr %11, null
+  %.not = select i1 %or.cond.i.not, i1 %.not8, i1 false
+  br i1 %.not, label %12, label %16
 
-13:                                               ; preds = %3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i, i8 %1, i64 %2, i1 false)
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %5
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 %1, i64 %2, i1 false)
   %14 = load i64, ptr %4, align 8, !tbaa !11
   %15 = add i64 %14, %2
   store i64 %15, ptr %4, align 8, !tbaa !11
   br label %16
 
-16:                                               ; preds = %3, %13
+16:                                               ; preds = %3, %12
   ret i1 %.not
 }
 

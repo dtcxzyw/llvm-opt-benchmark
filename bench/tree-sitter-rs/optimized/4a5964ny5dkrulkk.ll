@@ -235,7 +235,7 @@ define hidden noundef align 8 ptr @_ZN4core5error19request_by_type_tag17h4d13796
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8, !invariant.load !10, !nonnull !10
-  call void %5(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a54aa8873fbd92473dbc03edff194313.5.llvm.3880057261058166598)
+  call void %5(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a54aa8873fbd92473dbc03edff194313.5.llvm.3880057261058166598)
   %6 = load ptr, ptr %3, align 8, !align !53, !noundef !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret ptr %6

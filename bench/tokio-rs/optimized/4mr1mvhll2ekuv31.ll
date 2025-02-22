@@ -43,7 +43,7 @@ define hidden void @"_ZN140_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %2
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.83bf329950e474bb467ac0f5a2cb947a.0, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.11) #15, !noalias !20
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.83bf329950e474bb467ac0f5a2cb947a.0, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.11) #15, !noalias !20
   unreachable
 
 33:                                               ; preds = %2
@@ -385,7 +385,7 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h845f8ff4d732a3e7E"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5
@@ -431,7 +431,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17hfc3807725b86567aE"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5
@@ -539,7 +539,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !alias.scope !139, !noalias !142, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10), !noalias !147
+  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10), !noalias !147
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = sub i64 %7, %6
@@ -615,7 +615,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10), !noalias !159
+  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10), !noalias !159
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = sub i64 %7, %6
@@ -807,7 +807,7 @@ define hidden void @"_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   store i64 %8, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %11, align 8
-  %12 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10)
+  %12 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb6be71bf4d53f390E(i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.83bf329950e474bb467ac0f5a2cb947a.10)
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %2

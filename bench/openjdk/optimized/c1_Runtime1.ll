@@ -2948,7 +2948,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZNK5frame6senderEP
   br i1 %52, label %53, label %63
 
 53:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %54 = call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %..i) #14
+  %54 = call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %20) #14
   %55 = and i32 %1, -2147483400
   %56 = icmp eq i32 %55, -2147483640
   %or.cond = and i1 %56, %54

@@ -2538,7 +2538,7 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %57, %60
   br label %77
 
 61:                                               ; preds = %40
-  %62 = load i8, ptr %.0.i.i, align 8, !tbaa !181
+  %62 = load i8, ptr %37, align 8, !tbaa !181
   %63 = icmp eq i8 %62, 0
   br i1 %.not34, label %65, label %64
 

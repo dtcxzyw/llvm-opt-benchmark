@@ -3655,7 +3655,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef %0,
 
 246:                                              ; preds = %245
   %247 = getelementptr inbounds nuw i8, ptr %..1399, i64 1
-  %248 = load i8, ptr %..1399, align 1, !tbaa !12
+  %248 = load i8, ptr %.1399754, align 1, !tbaa !12
   %249 = getelementptr inbounds nuw i8, ptr %.27, i64 1
   store i8 %248, ptr %.27, align 1, !tbaa !12
   br label %250

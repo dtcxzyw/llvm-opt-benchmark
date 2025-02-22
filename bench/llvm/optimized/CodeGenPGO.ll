@@ -759,33 +759,31 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread: ; preds = %37, %26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 340
   %.sroa.0.0.copyload.i = load i32, ptr %56, align 4, !tbaa !439
   %switch.i.i = icmp ult i32 %.sroa.0.0.copyload.i, 10
-  br i1 %switch.i.i, label %57, label %..critedge_crit_edge51
+  br i1 %switch.i.i, label %57, label %..critedge_crit_edge52
 
-..critedge_crit_edge51:                           ; preds = %53
-  %.pre52 = and i64 %1, 7
+..critedge_crit_edge52:                           ; preds = %53
+  %.pre53 = and i64 %1, 7
   br label %.critedge
 
 57:                                               ; preds = %53
   %58 = and i32 %51, 127
-  %59 = icmp eq i32 %58, 36
-  %spec.select.i.i = select i1 %59, ptr %6, ptr null
-  %.not19 = icmp eq ptr %spec.select.i.i, null
+  %59 = icmp ne i32 %58, 36
   %60 = and i64 %1, 7
   %.not20 = icmp eq i64 %60, 1
-  %or.cond44 = or i1 %.not20, %.not19
+  %or.cond44 = or i1 %.not20, %59
   br i1 %or.cond44, label %.critedge, label %61
 
 61:                                               ; preds = %57
-  %62 = tail call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction28IsConstructorDelegationValidEPKNS_18CXXConstructorDeclE(ptr noundef nonnull %spec.select.i.i) #22
+  %62 = tail call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction28IsConstructorDelegationValidEPKNS_18CXXConstructorDeclE(ptr noundef nonnull %6) #22
   br i1 %62, label %94, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %61
   %.pre = load i32, ptr %50, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge51, %..critedge_crit_edge, %57
-  %.pre-phi = phi i64 [ %.pre52, %..critedge_crit_edge51 ], [ %60, %..critedge_crit_edge ], [ %60, %57 ]
-  %63 = phi i32 [ %51, %..critedge_crit_edge51 ], [ %.pre, %..critedge_crit_edge ], [ %51, %57 ]
+.critedge:                                        ; preds = %..critedge_crit_edge52, %..critedge_crit_edge, %57
+  %.pre-phi = phi i64 [ %.pre53, %..critedge_crit_edge52 ], [ %60, %..critedge_crit_edge ], [ %60, %57 ]
+  %63 = phi i32 [ %51, %..critedge_crit_edge52 ], [ %.pre, %..critedge_crit_edge ], [ %51, %57 ]
   %64 = and i32 %63, 127
   %65 = icmp ne i32 %64, 34
   %.not21 = icmp eq i64 %.pre-phi, 2
@@ -4299,7 +4297,7 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertP
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !1139
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4319,41 +4317,39 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertP
   br i1 %.not.i, label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = icmp eq ptr %.sroa.0.0.copyload.i, null
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 -24
-  %13 = select i1 %11, ptr null, ptr %12
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm11Instruction17getStableDebugLocEv(ptr noundef nonnull align 8 dereferenceable(72) %13) #22
-  %15 = load ptr, ptr %14, align 8, !tbaa !1136
-  store ptr %15, ptr %3, align 8, !tbaa !1136
-  %.not.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i, label %16
+  %11 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 -24
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm11Instruction17getStableDebugLocEv(ptr noundef nonnull align 8 dereferenceable(72) %11) #22
+  %13 = load ptr, ptr %12, align 8, !tbaa !1136
+  store ptr %13, ptr %3, align 8, !tbaa !1136
+  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i, label %14
 
-16:                                               ; preds = %10
-  %17 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %15, i64 1) #22
+14:                                               ; preds = %10
+  %15 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %13, i64 1) #22
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !1136
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit.i
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %16, %10
-  %18 = phi ptr [ null, %10 ], [ %.pre.i, %16 ]
-  call void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 0, ptr noundef %18)
-  %19 = load ptr, ptr %3, align 8, !tbaa !1136
-  %.not.i.i.i.i3.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i3.i, label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit, label %20
+_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %14, %10
+  %16 = phi ptr [ null, %10 ], [ %.pre.i, %14 ]
+  call void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 0, ptr noundef %16)
+  %17 = load ptr, ptr %3, align 8, !tbaa !1136
+  %.not.i.i.i.i3.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i3.i, label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit, label %18
 
-20:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %19) #22
+18:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %17) #22
   br label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit
 
-_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit: ; preds = %5, %_ZN4llvm8DebugLocC2ERKS0_.exit.i, %20
+_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit: ; preds = %5, %_ZN4llvm8DebugLocC2ERKS0_.exit.i, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %23
+  br label %21
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %22, i8 0, i64 18, i1 false)
-  br label %23
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %20, i8 0, i64 18, i1 false)
+  br label %21
 
-23:                                               ; preds = %21, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit
+21:                                               ; preds = %19, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit
   ret void
 }
 

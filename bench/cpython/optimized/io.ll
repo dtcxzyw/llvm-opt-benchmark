@@ -115,32 +115,32 @@ thread-pre-split:                                 ; preds = %_mpd_strneq.exit, %
   br i1 %27, label %thread-pre-split, label %.preheader.i, !llvm.loop !14
 
 .preheader.i:                                     ; preds = %thread-pre-split, %_mpd_strneq.exit
+  %28 = phi i8 [ %25, %_mpd_strneq.exit ], [ %.pr, %thread-pre-split ]
   %.0.i.lcssa = phi ptr [ %24, %_mpd_strneq.exit ], [ %26, %thread-pre-split ]
-  %28 = tail call ptr @__ctype_b_loc() #19
-  %29 = load ptr, ptr %28, align 8, !tbaa !15
-  br label %30
+  %29 = tail call ptr @__ctype_b_loc() #19
+  %30 = load ptr, ptr %29, align 8, !tbaa !15
+  br label %31
 
-30:                                               ; preds = %30, %.preheader.i
-  %.1.i = phi ptr [ %36, %30 ], [ %.0.i.lcssa, %.preheader.i ]
-  %31 = load i8, ptr %.1.i, align 1, !tbaa !11
-  %32 = zext i8 %31 to i64
-  %33 = getelementptr i16, ptr %29, i64 %32
-  %34 = load i16, ptr %33, align 2, !tbaa !17
-  %35 = and i16 %34, 2048
-  %.not.i98 = icmp eq i16 %35, 0
-  %36 = getelementptr i8, ptr %.1.i, i64 1
-  br i1 %.not.i98, label %scan_payload.exit, label %30, !llvm.loop !19
+31:                                               ; preds = %31, %.preheader.i
+  %.1.i = phi ptr [ %37, %31 ], [ %.0.i.lcssa, %.preheader.i ]
+  %32 = load i8, ptr %.1.i, align 1, !tbaa !11
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr i16, ptr %30, i64 %33
+  %35 = load i16, ptr %34, align 2, !tbaa !17
+  %36 = and i16 %35, 2048
+  %.not.i98 = icmp eq i16 %36, 0
+  %37 = getelementptr i8, ptr %.1.i, i64 1
+  br i1 %.not.i98, label %scan_payload.exit, label %31, !llvm.loop !19
 
-scan_payload.exit:                                ; preds = %30
-  %.not169 = icmp eq i8 %31, 0
-  br i1 %.not169, label %37, label %_mpd_strneq.exit130.thread
+scan_payload.exit:                                ; preds = %31
+  %.not169 = icmp eq i8 %32, 0
+  br i1 %.not169, label %38, label %_mpd_strneq.exit130.thread
 
-37:                                               ; preds = %scan_payload.exit
-  %38 = load i8, ptr %.0.i.lcssa, align 1, !tbaa !11
-  %39 = icmp eq i8 %38, 0
+38:                                               ; preds = %scan_payload.exit
+  %39 = icmp eq i8 %28, 0
   br i1 %39, label %221, label %40
 
-40:                                               ; preds = %37
+40:                                               ; preds = %38
   %41 = ptrtoint ptr %.1.i to i64
   %42 = ptrtoint ptr %.0.i.lcssa to i64
   %43 = sub i64 %41, %42
@@ -192,32 +192,32 @@ thread-pre-split158:                              ; preds = %_mpd_strneq.exit107
   br i1 %62, label %thread-pre-split158, label %.preheader.i109, !llvm.loop !14
 
 .preheader.i109:                                  ; preds = %thread-pre-split158, %_mpd_strneq.exit107
+  %63 = phi i8 [ %60, %_mpd_strneq.exit107 ], [ %.pr159, %thread-pre-split158 ]
   %.0.i108.lcssa = phi ptr [ %59, %_mpd_strneq.exit107 ], [ %61, %thread-pre-split158 ]
-  %63 = tail call ptr @__ctype_b_loc() #19
-  %64 = load ptr, ptr %63, align 8, !tbaa !15
-  br label %65
+  %64 = tail call ptr @__ctype_b_loc() #19
+  %65 = load ptr, ptr %64, align 8, !tbaa !15
+  br label %66
 
-65:                                               ; preds = %65, %.preheader.i109
-  %.1.i110 = phi ptr [ %71, %65 ], [ %.0.i108.lcssa, %.preheader.i109 ]
-  %66 = load i8, ptr %.1.i110, align 1, !tbaa !11
-  %67 = zext i8 %66 to i64
-  %68 = getelementptr i16, ptr %64, i64 %67
-  %69 = load i16, ptr %68, align 2, !tbaa !17
-  %70 = and i16 %69, 2048
-  %.not.i111 = icmp eq i16 %70, 0
-  %71 = getelementptr i8, ptr %.1.i110, i64 1
-  br i1 %.not.i111, label %scan_payload.exit112, label %65, !llvm.loop !19
+66:                                               ; preds = %66, %.preheader.i109
+  %.1.i110 = phi ptr [ %72, %66 ], [ %.0.i108.lcssa, %.preheader.i109 ]
+  %67 = load i8, ptr %.1.i110, align 1, !tbaa !11
+  %68 = zext i8 %67 to i64
+  %69 = getelementptr i16, ptr %65, i64 %68
+  %70 = load i16, ptr %69, align 2, !tbaa !17
+  %71 = and i16 %70, 2048
+  %.not.i111 = icmp eq i16 %71, 0
+  %72 = getelementptr i8, ptr %.1.i110, i64 1
+  br i1 %.not.i111, label %scan_payload.exit112, label %66, !llvm.loop !19
 
-scan_payload.exit112:                             ; preds = %65
-  %.not = icmp eq i8 %66, 0
-  br i1 %.not, label %72, label %_mpd_strneq.exit130.thread
+scan_payload.exit112:                             ; preds = %66
+  %.not = icmp eq i8 %67, 0
+  br i1 %.not, label %73, label %_mpd_strneq.exit130.thread
 
-72:                                               ; preds = %scan_payload.exit112
-  %73 = load i8, ptr %.0.i108.lcssa, align 1, !tbaa !11
-  %74 = icmp eq i8 %73, 0
+73:                                               ; preds = %scan_payload.exit112
+  %74 = icmp eq i8 %63, 0
   br i1 %74, label %221, label %75
 
-75:                                               ; preds = %72
+75:                                               ; preds = %73
   %76 = ptrtoint ptr %.1.i110 to i64
   %77 = ptrtoint ptr %.0.i108.lcssa to i64
   %78 = sub i64 %76, %77
@@ -573,7 +573,7 @@ _mpd_strneq.exit130.thread:                       ; preds = %113, %108, %107, %1
   tail call void @mpd_seterror(ptr noundef %0, i32 noundef 2, ptr noundef %3) #18
   br label %221
 
-221:                                              ; preds = %_mpd_strneq.exit107, %_mpd_strneq.exit, %72, %37, %_mpd_strneq.exit130.thread, %string_to_coeff.exit, %190, %_mpd_strneq.exit130
+221:                                              ; preds = %_mpd_strneq.exit107, %_mpd_strneq.exit, %73, %38, %_mpd_strneq.exit130.thread, %string_to_coeff.exit, %190, %_mpd_strneq.exit130
   ret void
 }
 

@@ -71,7 +71,7 @@ default.unreachable:                              ; preds = %6
 12:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h10d209aa274776bcE.exit.i"
   %13 = tail call noundef nonnull align 8 ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.14096182879495530979(i64 noundef 8, i64 noundef 8), !noalias !29
   store ptr %1, ptr %13, align 8, !noalias !29
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he53f6f1029a0c997E.llvm.14096182879495530979"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i.i, ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f36adec41952fde5a13097aa67cb98f8.6.llvm.14096182879495530979), !noalias !27
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he53f6f1029a0c997E.llvm.14096182879495530979"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i.i, ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f36adec41952fde5a13097aa67cb98f8.6.llvm.14096182879495530979), !noalias !27
   br label %16
 
 14:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h10d209aa274776bcE.exit.i"
@@ -153,7 +153,7 @@ default.unreachable:                              ; preds = %6
 12:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h10d209aa274776bcE.exit.i"
   %13 = tail call noundef nonnull align 8 ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.14096182879495530979(i64 noundef 8, i64 noundef 8), !noalias !55
   store ptr %1, ptr %13, align 8, !noalias !55
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he53f6f1029a0c997E.llvm.14096182879495530979"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i.i, ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f36adec41952fde5a13097aa67cb98f8.6.llvm.14096182879495530979), !noalias !54
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he53f6f1029a0c997E.llvm.14096182879495530979"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i.i, ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f36adec41952fde5a13097aa67cb98f8.6.llvm.14096182879495530979), !noalias !54
   br label %16
 
 14:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h10d209aa274776bcE.exit.i"

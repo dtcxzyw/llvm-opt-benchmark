@@ -236,7 +236,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builde
   br label %.loopexit
 
 22:                                               ; preds = %14
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.8.0, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.238f40eb7e04f467d49c7e22f14da91c.1) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.8.0, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.238f40eb7e04f467d49c7e22f14da91c.1) #13
   unreachable
 }
 
@@ -287,7 +287,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
   br label %.loopexit
 
 24:                                               ; preds = %16
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.8.025, i64 noundef %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.238f40eb7e04f467d49c7e22f14da91c.1) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.8.025, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.238f40eb7e04f467d49c7e22f14da91c.1) #13
   unreachable
 }
 

@@ -56,7 +56,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   br i1 %12, label %16, label %17
 
 16:                                               ; preds = %15
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e7e19ce6defa0d31114765854adb5f3b.1, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.3) #15
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e7e19ce6defa0d31114765854adb5f3b.1, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.3) #15
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %16
@@ -546,7 +546,7 @@ define hidden void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20
   br i1 %17, label %21, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3518cfd2f1ecabbaE.llvm.16246278855177356632.exit"
 
 21:                                               ; preds = %20
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e7e19ce6defa0d31114765854adb5f3b.1, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.3) #15
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e7e19ce6defa0d31114765854adb5f3b.1, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.3) #15
           to label %.noexc.i unwind label %18, !noalias !163
 
 .noexc.i:                                         ; preds = %21
@@ -604,7 +604,7 @@ define hidden void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20
   store ptr @anon.e7e19ce6defa0d31114765854adb5f3b.6.llvm.16246278855177356632, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %36, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.22.llvm.16246278855177356632) #15
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.22.llvm.16246278855177356632) #15
   unreachable
 }
 
@@ -661,7 +661,7 @@ define hidden void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20
   br i1 %16, label %20, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h3518cfd2f1ecabbaE.llvm.16246278855177356632.exit"
 
 20:                                               ; preds = %19
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e7e19ce6defa0d31114765854adb5f3b.1, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.3) #15
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e7e19ce6defa0d31114765854adb5f3b.1, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.3) #15
           to label %.noexc.i unwind label %17, !noalias !199
 
 .noexc.i:                                         ; preds = %20
@@ -698,7 +698,7 @@ define hidden void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20
   store ptr @anon.e7e19ce6defa0d31114765854adb5f3b.6.llvm.16246278855177356632, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %28, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.22.llvm.16246278855177356632) #15
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7e19ce6defa0d31114765854adb5f3b.22.llvm.16246278855177356632) #15
   unreachable
 }
 

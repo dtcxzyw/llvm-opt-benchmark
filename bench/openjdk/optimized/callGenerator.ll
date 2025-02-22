@@ -1901,10 +1901,10 @@ _ZN8GraphKit12set_argumentEjP4Node.exit130:       ; preds = %327, %317, %_ZN4Nod
   br i1 %.not114, label %378, label %373
 
 373:                                              ; preds = %342
-  %374 = load ptr, ptr %371, align 8
+  %374 = load ptr, ptr %367, align 8
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 96
   %376 = load ptr, ptr %375, align 8
-  %377 = call noundef ptr %376(ptr noundef nonnull align 8 dereferenceable(44) %371) #8
+  %377 = call noundef ptr %376(ptr noundef nonnull align 8 dereferenceable(44) %367) #8
   br label %378
 
 378:                                              ; preds = %373, %342, %._crit_edge

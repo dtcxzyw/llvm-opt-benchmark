@@ -1061,7 +1061,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i.i, label %8, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$12generic_view17h28276a51744411f0E.llvm.4752837998330011175.exit"
 
 8:                                                ; preds = %4
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !85
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !85
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$12generic_view17h28276a51744411f0E.llvm.4752837998330011175.exit": ; preds = %4
@@ -1093,7 +1093,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i.i, label %10, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$12generic_view17h76f558ee08c1142dE.llvm.4752837998330011175.exit"
 
 10:                                               ; preds = %4
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !106
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !106
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$12generic_view17h76f558ee08c1142dE.llvm.4752837998330011175.exit": ; preds = %4
@@ -1121,7 +1121,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !116
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !116
   unreachable
 
 10:                                               ; preds = %5
@@ -1130,7 +1130,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i, label %12, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17hccea3ed52acfdde7E.llvm.4752837998330011175.exit"
 
 12:                                               ; preds = %10
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !116
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !116
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17hccea3ed52acfdde7E.llvm.4752837998330011175.exit": ; preds = %10
@@ -1158,7 +1158,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !134
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !134
   unreachable
 
 10:                                               ; preds = %5
@@ -1169,7 +1169,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i, label %14, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit"
 
 14:                                               ; preds = %10
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !134
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !134
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit": ; preds = %10
@@ -1198,7 +1198,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i.i, label %8, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h80970aa5b15fe700E.llvm.4752837998330011175.exit"
 
 8:                                                ; preds = %3
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !157
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !157
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h80970aa5b15fe700E.llvm.4752837998330011175.exit": ; preds = %3
@@ -1273,7 +1273,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i.i, label %10, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h1aca1fff716b5f86E.llvm.4752837998330011175.exit"
 
 10:                                               ; preds = %4
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !208
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !208
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h1aca1fff716b5f86E.llvm.4752837998330011175.exit": ; preds = %4
@@ -1301,7 +1301,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !218
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !218
   unreachable
 
 10:                                               ; preds = %5
@@ -1312,7 +1312,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i, label %14, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit"
 
 14:                                               ; preds = %10
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !218
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !218
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit": ; preds = %10
@@ -1339,7 +1339,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not.i, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !233
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !233
   unreachable
 
 10:                                               ; preds = %5
@@ -1348,7 +1348,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i, label %12, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17hccea3ed52acfdde7E.llvm.4752837998330011175.exit"
 
 12:                                               ; preds = %10
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !233
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !233
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17hccea3ed52acfdde7E.llvm.4752837998330011175.exit": ; preds = %10
@@ -1376,7 +1376,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not.i, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !251
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18, !noalias !251
   unreachable
 
 11:                                               ; preds = %6
@@ -1387,7 +1387,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i, label %15, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit"
 
 15:                                               ; preds = %11
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !251
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !251
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit": ; preds = %11
@@ -1418,7 +1418,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not, label %14, label %15
 
 14:                                               ; preds = %7
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18
   unreachable
 
 15:                                               ; preds = %7
@@ -1432,7 +1432,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1, label %22, label %23
 
 22:                                               ; preds = %15
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18
   unreachable
 
 23:                                               ; preds = %15
@@ -1451,7 +1451,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not, label %14, label %15
 
 14:                                               ; preds = %7
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.10.llvm.4752837998330011175) #18
   unreachable
 
 15:                                               ; preds = %7
@@ -1462,7 +1462,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1, label %19, label %20
 
 19:                                               ; preds = %15
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18
   unreachable
 
 20:                                               ; preds = %15
@@ -1478,7 +1478,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
   br i1 %.not1.i, label %7, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit"
 
 7:                                                ; preds = %3
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !279
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !279
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$17assert_view_index17h69fc531360e6185dE.llvm.4752837998330011175.exit": ; preds = %3
@@ -1654,7 +1654,7 @@ define hidden noundef double @"_ZN8nalgebra4base4blas69_$LT$impl$u20$nalgebra..b
   store ptr %5, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %104, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.21.llvm.4752837998330011175) #18
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.21.llvm.4752837998330011175) #18
   unreachable
 
 .split.us:                                        ; preds = %.preheader.us141, %.lr.ph138.us, %.preheader117.split, %._crit_edge.us
@@ -2091,7 +2091,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   br i1 %.not1.i.i.i, label %.split.us, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit"
 
 .split.us:                                        ; preds = %23, %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$19columns_generic_mut17hc7f61ebe3b4262c7E.llvm.4752837998330011175.exit"
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !568
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !568
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit": ; preds = %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$19columns_generic_mut17hc7f61ebe3b4262c7E.llvm.4752837998330011175.exit"
@@ -2122,7 +2122,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   store ptr %5, ptr %125, align 8, !noalias !577
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %126, align 8, !noalias !577
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.21.llvm.4752837998330011175) #18, !noalias !507
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.21.llvm.4752837998330011175) #18, !noalias !507
   unreachable
 }
 
@@ -2289,7 +2289,7 @@ define hidden noundef double @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra
   store ptr %6, ptr %104, align 8, !noalias !648
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %105, align 8, !noalias !648
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.21.llvm.4752837998330011175) #18
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.21.llvm.4752837998330011175) #18
   unreachable
 
 "_ZN8nalgebra4base4blas69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$4dotx17h92ec9b9f6d6e1d3eE.llvm.4752837998330011175.exit": ; preds = %.preheader.us46, %.lr.ph43.us, %.preheader22.split, %._crit_edge.us
@@ -2361,7 +2361,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   br i1 %.not1.i.i.i.not.not, label %.split.us, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit"
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !686
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !686
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit": ; preds = %.lr.ph.split
@@ -2379,7 +2379,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !682
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !682
-  call void @_ZN4core9panicking13assert_failed17h2b3cead4b1add94aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.16) #18, !noalias !682
+  call void @_ZN4core9panicking13assert_failed17h2b3cead4b1add94aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.16) #18, !noalias !682
   unreachable
 }
 
@@ -2420,7 +2420,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   br i1 %.not1.i.i.i, label %17, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit"
 
 17:                                               ; preds = %16
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !706
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.8.llvm.4752837998330011175, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c16ec26a086e09edb08393af91730684.11.llvm.4752837998330011175) #18, !noalias !706
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit": ; preds = %16

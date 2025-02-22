@@ -1085,7 +1085,7 @@ _ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit188: ; preds = %_ZNKSt7__cxx11
   br i1 %400, label %390, label %.thread277
 
 .loopexit:                                        ; preds = %390, %386
-  %401 = tail call { i64, i8 } @_ZNK4llvm8BitsInit23convertInitializerToIntEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i189) #14
+  %401 = tail call { i64, i8 } @_ZNK4llvm8BitsInit23convertInitializerToIntEv(ptr noundef nonnull align 8 dereferenceable(40) %44) #14
   %402 = extractvalue { i64, i8 } %401, 1
   %403 = trunc nuw i8 %402 to i1
   br i1 %403, label %404, label %.thread277

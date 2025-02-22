@@ -736,7 +736,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %10, 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hd38ce7106b3d5d3eE(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 {
-  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
+  %3 = tail call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
   ret i1 %3
 }
 
@@ -1667,25 +1667,25 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @"_ZN108_$LT$mini_lsm_starter..lsm_iterator..LsmIterator$u20$as$u20$mini_lsm_starter..iterators..StorageIterator$GT$8is_valid17h5ee805ffc80757cfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.17) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.17) #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef { ptr, i64 } @"_ZN108_$LT$mini_lsm_starter..lsm_iterator..LsmIterator$u20$as$u20$mini_lsm_starter..iterators..StorageIterator$GT$3key17hc34e0433b4253881E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.18) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.18) #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef { ptr, i64 } @"_ZN108_$LT$mini_lsm_starter..lsm_iterator..LsmIterator$u20$as$u20$mini_lsm_starter..iterators..StorageIterator$GT$5value17hb95474830a34a38cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.19) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.19) #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @"_ZN108_$LT$mini_lsm_starter..lsm_iterator..LsmIterator$u20$as$u20$mini_lsm_starter..iterators..StorageIterator$GT$4next17hf9c2c0ac61f0247dE"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(40) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.20) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.20) #23
   unreachable
 }
 
@@ -1701,7 +1701,7 @@ define noalias noundef nonnull ptr @_ZN16mini_lsm_starter8manifest8Manifest20add
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.22) #23
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.22) #23
           to label %65 unwind label %7
 
 7:                                                ; preds = %2
@@ -1893,25 +1893,25 @@ default.unreachable4.i.i:                         ; preds = %11
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef { ptr, i64 } @"_ZN16mini_lsm_starter4mvcc3txn155_$LT$impl$u20$mini_lsm_starter..iterators..StorageIterator$u20$for$u20$mini_lsm_starter..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$5value17h94e67a1f8c16dff4E"(ptr noundef nonnull readnone align 8 captures(none) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.24) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.24) #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef { ptr, i64 } @"_ZN16mini_lsm_starter4mvcc3txn155_$LT$impl$u20$mini_lsm_starter..iterators..StorageIterator$u20$for$u20$mini_lsm_starter..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$3key17hffed0cce982653b8E"(ptr noundef nonnull readnone align 8 captures(none) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.25) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.25) #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @"_ZN16mini_lsm_starter4mvcc3txn155_$LT$impl$u20$mini_lsm_starter..iterators..StorageIterator$u20$for$u20$mini_lsm_starter..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$8is_valid17h0fc08db640b31853E"(ptr noundef nonnull readnone align 8 captures(none) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.26) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.26) #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @"_ZN16mini_lsm_starter4mvcc3txn155_$LT$impl$u20$mini_lsm_starter..iterators..StorageIterator$u20$for$u20$mini_lsm_starter..mvcc..txn..ouroboros_impl_txn_local_iterator..TxnLocalIterator$GT$4next17h8ce9b3ccfa2f6b71E"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(192) %0) unnamed_addr #12 {
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.27) #23
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.f30f1c08c07e5db6070a4dccd6401c05.15, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f30f1c08c07e5db6070a4dccd6401c05.27) #23
   unreachable
 }
 

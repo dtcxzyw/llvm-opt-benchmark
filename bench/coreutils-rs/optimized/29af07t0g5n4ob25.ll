@@ -460,7 +460,7 @@ define void @_ZN7uu_comm4comm17h56c35c3df2f4775bE(ptr noalias noundef align 8 de
   br label %115
 
 117:                                              ; preds = %101
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.2017e7f75baa88644315c7e5bf963c16.9, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2017e7f75baa88644315c7e5bf963c16.11) #16
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.2017e7f75baa88644315c7e5bf963c16.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2017e7f75baa88644315c7e5bf963c16.11) #16
           to label %118 unwind label %.loopexit.split-lp
 
 118:                                              ; preds = %117

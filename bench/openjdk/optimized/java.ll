@@ -372,11 +372,10 @@ _ZNK10MethodData20parameters_type_dataEv.exit.i:  ; preds = %89
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %108 = load ptr, ptr %107, align 8
   %109 = call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(16) %105) #18
-  %..i.i17.i = select i1 %109, ptr %105, ptr null
-  %110 = load ptr, ptr %..i.i17.i, align 8
+  %110 = load ptr, ptr %105, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 144
   %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(32) %..i.i17.i, ptr noundef nonnull %1, ptr noundef null) #18
+  call void %112(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull %1, ptr noundef null) #18
   br label %_ZNK10MethodData20parameters_type_dataEv.exit.thread.i
 
 _ZNK10MethodData20parameters_type_dataEv.exit.thread.i: ; preds = %_ZNK10MethodData20parameters_type_dataEv.exit.i, %89, %86, %.preheader.i

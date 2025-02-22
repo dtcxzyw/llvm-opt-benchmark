@@ -902,7 +902,7 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
   br i1 %.not145, label %195, label %175
 
 175:                                              ; preds = %39
-  %176 = load i64, ptr %22, align 8
+  %176 = load i64, ptr %21, align 8
   %177 = load ptr, ptr %24, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load ptr, ptr %178, align 8

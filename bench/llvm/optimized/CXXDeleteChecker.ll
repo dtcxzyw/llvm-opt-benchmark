@@ -2352,13 +2352,13 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116CXXDeleteChecker12checkPreStmtE
   %20 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %38, label %21
+  br i1 %.not, label %37, label %21
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !117
   %24 = call noundef i32 @_ZNK5clang12FunctionDecl21getOverloadedOperatorEv(ptr noundef nonnull align 8 dereferenceable(168) %23) #18
-  switch i32 %24, label %38 [
+  switch i32 %24, label %37 [
     i32 4, label %25
     i32 2, label %25
   ]
@@ -2366,25 +2366,23 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116CXXDeleteChecker12checkPreStmtE
 25:                                               ; preds = %21, %21
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !397
-  %28 = add i32 %27, -27
-  %29 = icmp ult i32 %28, -13
-  %spec.select.i = select i1 %29, ptr null, ptr %20
+  %28 = add i32 %27, -14
+  %29 = icmp ult i32 %28, 13
   %30 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %20) #18
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !397
   %.not.i = icmp eq i32 %32, 10
-  %33 = icmp ne ptr %spec.select.i, null
-  %or.cond3 = and i1 %.not.i, %33
-  br i1 %or.cond3, label %34, label %38
+  %or.cond3 = and i1 %29, %.not.i
+  br i1 %or.cond3, label %33, label %37
 
-34:                                               ; preds = %25
-  %35 = load ptr, ptr %0, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %30) #18
-  br label %38
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %0, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %20, ptr noundef nonnull %30) #18
+  br label %37
 
-38:                                               ; preds = %21, %25, %34, %3
+37:                                               ; preds = %21, %25, %33, %3
   ret void
 }
 

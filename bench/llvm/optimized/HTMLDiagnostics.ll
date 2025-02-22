@@ -8614,7 +8614,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit225:              ; preds = %385, %383, %_ZN4llv
 _ZN4llvm11raw_ostreamlsEPKc.exit229:              ; preds = %396, %394, %_ZN4llvm11raw_ostreamlsEPKc.exit188
   %399 = load i32, ptr %62, align 8, !tbaa !408
   %.not313 = icmp eq i32 %399, 2
-  %spec.select.i.i = select i1 %.not313, ptr %3, ptr null
   br i1 %.not313, label %400, label %536
 
 400:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit229
@@ -8885,7 +8884,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit258:              ; preds = %521, %519, %_ZN4llv
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit262
 
 _ZN4llvm11raw_ostreamlsEPKc.exit262:              ; preds = %532, %530, %_ZN4llvm11raw_ostreamlsEPKc.exit242
-  %535 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115HTMLDiagnostics17ProcessMacroPieceERN4llvm11raw_ostreamERKN5clang4ento24PathDiagnosticMacroPieceEj(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(216) %spec.select.i.i, i32 noundef 0)
+  %535 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115HTMLDiagnostics17ProcessMacroPieceERN4llvm11raw_ostreamERKN5clang4ento24PathDiagnosticMacroPieceEj(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(216) %3, i32 noundef 0)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit284
 
 536:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit229

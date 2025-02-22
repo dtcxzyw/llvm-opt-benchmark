@@ -1575,7 +1575,7 @@ _ZN4absl4Cord9InlineRep8set_dataEPKcm.exit:       ; preds = %19, %26, %43
   br i1 %.not.i34, label %47, label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit, !prof !59
 
 47:                                               ; preds = %_ZN4absl4Cord9InlineRep8set_dataEPKcm.exit
-  tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %.0.i)
+  tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %8)
   br label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit
 
 .critedge:                                        ; preds = %10
@@ -1735,7 +1735,7 @@ _ZN4absl4Cord9InlineRep7SetTreeEPNS_13cord_internal7CordRepERKNS2_16CordzUpdateS
   br i1 %.not.i44, label %114, label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit45, !prof !59
 
 114:                                              ; preds = %_ZN4absl4Cord9InlineRep7SetTreeEPNS_13cord_internal7CordRepERKNS2_16CordzUpdateScopeE.exit
-  invoke void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %.0.i)
+  invoke void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %8)
           to label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit45 unwind label %104
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit45: ; preds = %_ZN4absl4Cord9InlineRep7SetTreeEPNS_13cord_internal7CordRepERKNS2_16CordzUpdateScopeE.exit, %114
@@ -3190,7 +3190,7 @@ _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %178, %_ZNK4absl13co
   br i1 %.not.i.i45, label %267, label %_ZN4absl13cord_internal13RemoveCrcNodeEPNS0_7CordRepE.exit46, !prof !59
 
 267:                                              ; preds = %262
-  tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %.0.i.i42)
+  tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %84)
   br label %_ZN4absl13cord_internal13RemoveCrcNodeEPNS0_7CordRepE.exit46
 
 _ZN4absl13cord_internal13RemoveCrcNodeEPNS0_7CordRepE.exit46: ; preds = %248, %260, %262, %267

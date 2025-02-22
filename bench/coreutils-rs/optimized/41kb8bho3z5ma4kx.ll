@@ -71,7 +71,7 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   br i1 %20, label %24, label %27
 
 24:                                               ; preds = %23
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.660faaeeb336070695183abb87c1f814.6, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.8) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.660faaeeb336070695183abb87c1f814.6, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.8) #17
           to label %.noexc.i.i unwind label %21, !noalias !15
 
 .noexc.i.i:                                       ; preds = %24
@@ -191,7 +191,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17h7dbe9b5229afd60f
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h0417e8fbb40bc836E.exit": ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !19
-  %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h0bf40e37c33fa406E(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.1)
+  %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h0bf40e37c33fa406E(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.1)
   ret ptr %18
 }
 
@@ -241,7 +241,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   br i1 %12, label %16, label %17
 
 16:                                               ; preds = %15
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.660faaeeb336070695183abb87c1f814.6, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.8) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.660faaeeb336070695183abb87c1f814.6, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.8) #17
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %16
@@ -629,7 +629,7 @@ define hidden void @"_ZN11uu_realpath28canonicalize_relative_option28_$u7b$$u7b$
   br i1 %18, label %22, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17he96840896e708e88E.llvm.8532532497214568479.exit"
 
 22:                                               ; preds = %21
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.660faaeeb336070695183abb87c1f814.6, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.8) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.660faaeeb336070695183abb87c1f814.6, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.660faaeeb336070695183abb87c1f814.8) #17
           to label %.noexc.i unwind label %19, !noalias !61
 
 .noexc.i:                                         ; preds = %22

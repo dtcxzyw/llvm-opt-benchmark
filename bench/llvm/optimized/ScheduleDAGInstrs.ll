@@ -6740,10 +6740,10 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit.i.i:  ; preds = %567
   br i1 %594, label %.critedge.i.i, label %595
 
 595:                                              ; preds = %592
-  %596 = load ptr, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !3
+  %596 = load ptr, ptr %591, align 8, !tbaa !3
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 32
   %598 = load ptr, ptr %597, align 8
-  %599 = call noundef zeroext i1 %598(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(696) %561) #25
+  %599 = call noundef zeroext i1 %598(ptr noundef nonnull align 8 dereferenceable(16) %591, ptr noundef nonnull align 8 dereferenceable(696) %561) #25
   br i1 %599, label %.critedge.i.i, label %600
 
 600:                                              ; preds = %595

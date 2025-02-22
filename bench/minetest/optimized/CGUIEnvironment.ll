@@ -2570,7 +2570,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %vtable = load ptr, ptr %spec.store.select, align 8, !tbaa !11
+  %vtable = load ptr, ptr %element, align 8, !tbaa !11
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %spec.store.select, i64 %vbase.offset
@@ -2610,7 +2610,7 @@ if.then20:                                        ; preds = %if.then10
   br i1 %tobool.not, label %if.end28, label %if.then22
 
 if.then22:                                        ; preds = %if.then20
-  %vtable23 = load ptr, ptr %spec.store.select, align 8, !tbaa !11
+  %vtable23 = load ptr, ptr %element, align 8, !tbaa !11
   %vbase.offset.ptr24 = getelementptr i8, ptr %vtable23, i64 -24
   %vbase.offset25 = load i64, ptr %vbase.offset.ptr24, align 8
   %add.ptr26 = getelementptr inbounds i8, ptr %spec.store.select, i64 %vbase.offset25
@@ -2702,14 +2702,14 @@ if.end50:                                         ; preds = %if.then45, %if.then
   store ptr %11, ptr %Element55, align 8, !tbaa !30
   %EventType56 = getelementptr inbounds nuw i8, ptr %e51, i64 24
   store i32 1, ptr %EventType56, align 8, !tbaa !30
-  %vtable57 = load ptr, ptr %spec.store.select, align 8, !tbaa !11
+  %vtable57 = load ptr, ptr %element, align 8, !tbaa !11
   %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 16
   %14 = load ptr, ptr %vfn58, align 8
-  %call59 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(308) %spec.store.select, ptr noundef nonnull align 8 dereferenceable(56) %e51) #23
+  %call59 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(308) %element, ptr noundef nonnull align 8 dereferenceable(56) %e51) #23
   br i1 %call59, label %if.then62, label %if.end81
 
 if.then62:                                        ; preds = %if.end50
-  %vtable63 = load ptr, ptr %spec.store.select, align 8, !tbaa !11
+  %vtable63 = load ptr, ptr %element, align 8, !tbaa !11
   %vbase.offset.ptr64 = getelementptr i8, ptr %vtable63, i64 -24
   %vbase.offset65 = load i64, ptr %vbase.offset.ptr64, align 8
   %add.ptr66 = getelementptr inbounds i8, ptr %spec.store.select, i64 %vbase.offset65

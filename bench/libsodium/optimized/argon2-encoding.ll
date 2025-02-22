@@ -107,7 +107,7 @@ decode_decimal.exit:                              ; preds = %._crit_edge.i
   br i1 %spec.select, label %sub_0176, label %.thread
 
 sub_0176:                                         ; preds = %decode_decimal.exit
-  %49 = load i8, ptr %spec.select174, align 1
+  %49 = load i8, ptr %42, align 1
   %.not194 = icmp eq i8 %49, 36
   br i1 %.not194, label %sub_1177, label %.thread
 

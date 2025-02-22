@@ -580,7 +580,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont82
   %mul.i.i.i.i = shl nuw i64 %retval.0.i.i.i.i, 1
   %cond.i.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %add.i.i.i, i64 %mul.i.i.i.i)
   %cond.i3.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i.i.i, i64 %cond.i.i.i.i)
-  invoke void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i87, i64 noundef %cond.i3.i.i.i.i)
+  invoke void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %mStorage.i52, i64 noundef %cond.i3.i.i.i.i)
           to label %.noexc89 unwind label %lpad65
 
 .noexc89:                                         ; preds = %if.then.i.i.i.i
@@ -592,7 +592,7 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i.i.i: ; preds = %.noexc89, %i
   %44 = phi i64 [ %.pre23.i.i.i, %.noexc89 ], [ %40, %invoke.cont82 ]
   %45 = phi i8 [ %.pre.i.i.i, %.noexc89 ], [ %43, %invoke.cont82 ]
   %tobool.i.i13.i.i.i = icmp slt i8 %45, 0
-  %46 = load ptr, ptr %spec.select.i.i87, align 8
+  %46 = load ptr, ptr %mStorage.i52, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 %44
   %conv.i.i.i15.i.i.i = zext nneg i8 %45 to i64
   %sub.i.i.i16.i.i.i = sub nsw i64 23, %conv.i.i.i15.i.i.i
@@ -632,7 +632,7 @@ invoke.cont85:                                    ; preds = %cond.false.i.i.i.i,
 
 land.rhs.i109:                                    ; preds = %invoke.cont85
   %spec.select.i.i93 = select i1 %cmp.not.i.i91, ptr %mStorage.i52, ptr null
-  %52 = load ptr, ptr %spec.select.i.i93, align 8
+  %52 = load ptr, ptr %mStorage.i52, align 8
   %spec.select.i.i.i110 = select i1 %tobool.i.i.i.i103, ptr %52, ptr %spec.select.i.i93
   %lhsc = load i8, ptr %spec.select.i.i.i110, align 1
   %cmp4.i112 = icmp eq i8 %lhsc, 97
@@ -890,7 +890,7 @@ invoke.cont24:                                    ; preds = %invoke.cont20
 
 land.rhs.i:                                       ; preds = %invoke.cont24
   %spec.select.i.i19 = select i1 %cmp.not.i.i17, ptr %mStorage.i9, ptr null
-  %10 = load ptr, ptr %spec.select.i.i19, align 8
+  %10 = load ptr, ptr %mStorage.i9, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %10, ptr %spec.select.i.i19
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %spec.select.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.15, i64 6)
   %cmp4.i = icmp eq i32 %bcmp.i, 0

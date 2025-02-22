@@ -231,14 +231,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_4DeclEEEDaPT0_.exit:
   %2 = load ptr, ptr %1, align 8, !tbaa !39
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !40, !nonnull !34, !noundef !34
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %6 = load i32, ptr %5, align 4
-  %7 = and i32 %6, 127
-  %8 = add nsw i32 %7, -38
-  %9 = icmp ult i32 %8, 7
-  %spec.select.i.i.i = select i1 %9, ptr %4, ptr null
-  %10 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i.i) #9
-  ret ptr %10
+  %5 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %4) #9
+  ret ptr %5
 }
 
 declare noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #4
@@ -249,14 +243,8 @@ define dso_local noundef ptr @_ZNK5clang15CXXForRangeStmt12getRangeInitEv(ptr no
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !40, !nonnull !34, !noundef !34
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 127
-  %9 = add nsw i32 %8, -38
-  %10 = icmp ult i32 %9, 7
-  %spec.select.i.i.i.i = select i1 %10, ptr %5, ptr null
-  %11 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i.i.i) #9
-  ret ptr %11
+  %6 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %5) #9
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

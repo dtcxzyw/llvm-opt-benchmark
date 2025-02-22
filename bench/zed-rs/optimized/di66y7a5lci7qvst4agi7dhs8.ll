@@ -2054,7 +2054,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
   store ptr inttoptr (i64 8 to ptr), ptr %23, align 8, !noalias !779
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %24, align 8, !noalias !779
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !779
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !779
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc72e1df62cac29b9E.exit": ; preds = %17
@@ -2119,7 +2119,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
   store ptr inttoptr (i64 8 to ptr), ptr %23, align 8, !noalias !815
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %24, align 8, !noalias !815
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !815
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !815
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc98f0db37e7ff64dE.exit": ; preds = %17
@@ -2228,7 +2228,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
   store ptr inttoptr (i64 8 to ptr), ptr %23, align 8, !noalias !863
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %24, align 8, !noalias !863
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !863
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !863
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc8b1f298ccf2d1beE.exit": ; preds = %17
@@ -2293,7 +2293,7 @@ define hidden void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..
   store ptr inttoptr (i64 8 to ptr), ptr %23, align 8, !noalias !899
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %24, align 8, !noalias !899
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !899
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !899
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9313571c11e0050bE.exit": ; preds = %17
@@ -2483,7 +2483,7 @@ define hidden { i64, ptr } @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..
   store ptr inttoptr (i64 8 to ptr), ptr %22, align 8, !noalias !986
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %23, align 8, !noalias !986
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !986
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !986
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h866db1902e306e02E.exit": ; preds = %16
@@ -2594,7 +2594,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$
   store ptr inttoptr (i64 8 to ptr), ptr %22, align 8, !noalias !1041
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %23, align 8, !noalias !1041
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !1041
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !1041
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbe41a0c954c80e07E.exit": ; preds = %16
@@ -2659,7 +2659,7 @@ define hidden { i64, ptr } @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..
   store ptr inttoptr (i64 8 to ptr), ptr %22, align 8, !noalias !1075
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %23, align 8, !noalias !1075
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !1075
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8845fdbbb421455d67a2af2322404b97.11.llvm.531992751332406584) #44, !noalias !1075
   unreachable
 
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hda759da08d27039aE.exit": ; preds = %16
@@ -3583,7 +3583,7 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   ]
 
 28:                                               ; preds = %20
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.39) #44, !noalias !1218
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.39) #44, !noalias !1218
   unreachable
 
 .thread14.i:                                      ; preds = %.thread.thread.i, %20
@@ -3666,7 +3666,7 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   ]
 
 22:                                               ; preds = %14
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.42) #44, !noalias !1237
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.42) #44, !noalias !1237
   unreachable
 
 .thread13.i:                                      ; preds = %.thread.thread.i, %14
@@ -3756,7 +3756,7 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   ]
 
 27:                                               ; preds = %19
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.35) #44, !noalias !1256
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.35) #44, !noalias !1256
   unreachable
 
 .thread.i:                                        ; preds = %"_ZN4core3ptr363drop_in_place$LT$core..task..poll..Poll$LT$worktree..BackgroundScanner..run..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$worktree..ScanRequest$C$anyhow..Error$GT$$C$core..result..Result$LT$alloc..sync..Arc$LT$std..path..Path$GT$$C$async_channel..RecvError$GT$$C$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$$GT$17h4d77ec7bf5b5e364E.exit.thread.i", %19
@@ -3838,7 +3838,7 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   ]
 
 22:                                               ; preds = %14
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.45) #44, !noalias !1274
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.45) #44, !noalias !1274
   unreachable
 
 .thread13.i:                                      ; preds = %.thread.thread.i, %14
@@ -5225,7 +5225,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h5b227ec1d7
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hc2041a3988c12216E.exit"
-  %39 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h6e32fd96e5cc54eaE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.979b2f4c25efc3f0839931d992fd7de6.62.llvm.14582701375544310392)
+  %39 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h6e32fd96e5cc54eaE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.979b2f4c25efc3f0839931d992fd7de6.62.llvm.14582701375544310392)
           to label %"_ZN4core3ptr71drop_in_place$LT$$LP$gpui..taffy..LayoutId$C$gpui..style..Style$RP$$GT$17h0bffa79d29a38252E.exit" unwind label %44
 
 40:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hc2041a3988c12216E.exit"
@@ -5668,7 +5668,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h99ae0e06ac
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h9ddb6d5d3150b555E.exit"
-  %38 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h909ce37ccd62fb9bE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.979b2f4c25efc3f0839931d992fd7de6.62.llvm.14582701375544310392)
+  %38 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h909ce37ccd62fb9bE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.979b2f4c25efc3f0839931d992fd7de6.62.llvm.14582701375544310392)
           to label %.noexc.i unwind label %49
 
 .noexc.i:                                         ; preds = %37
@@ -15101,7 +15101,7 @@ define hidden void @"_ZN8worktree17BackgroundScanner3run28_$u7b$$u7b$closure$u7d
   ]
 
 27:                                               ; preds = %19
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.35) #44
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.35) #44
   unreachable
 
 .thread:                                          ; preds = %"_ZN4core3ptr363drop_in_place$LT$core..task..poll..Poll$LT$worktree..BackgroundScanner..run..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..result..Result$LT$worktree..ScanRequest$C$anyhow..Error$GT$$C$core..result..Result$LT$alloc..sync..Arc$LT$std..path..Path$GT$$C$async_channel..RecvError$GT$$C$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$$GT$17h4d77ec7bf5b5e364E.exit.thread", %19
@@ -15403,7 +15403,7 @@ define hidden void @"_ZN8worktree17BackgroundScanner9scan_dirs28_$u7b$$u7b$closu
   ]
 
 28:                                               ; preds = %20
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.39) #44
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.39) #44
   unreachable
 
 .thread14:                                        ; preds = %.thread.thread, %20
@@ -15688,7 +15688,7 @@ define hidden void @"_ZN8worktree17BackgroundScanner22update_ignore_statuses28_$
   ]
 
 22:                                               ; preds = %14
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.42) #44
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.42) #44
   unreachable
 
 .thread13:                                        ; preds = %.thread.thread, %14
@@ -15920,7 +15920,7 @@ define hidden void @"_ZN8worktree17BackgroundScanner23update_git_repositories28_
   ]
 
 22:                                               ; preds = %14
-  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.45) #44
+  call void @_ZN3std9panicking11begin_panic17h28caa01c9a4f3d24E(ptr noalias noundef nonnull readonly align 1 @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.33, i64 noundef 79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a28d2e2a1ab41c3ee7d34b7d05bc668.45) #44
   unreachable
 
 .thread13:                                        ; preds = %.thread.thread, %14

@@ -8040,7 +8040,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_watch(ptr noundef %0, i
   %11 = alloca [128 x i8], align 16
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
-  br i1 %1, label %.preheader.preheader, label %253
+  br i1 %1, label %.preheader.preheader, label %252
 
 .preheader.preheader:                             ; preds = %4
   %14 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #16
@@ -8353,113 +8353,111 @@ copy_previous_query.exit:                         ; preds = %109
 
 .thread.i:                                        ; preds = %137
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  br label %160
+  br label %159
 
 140:                                              ; preds = %137
   %141 = call i64 @strspn(ptr noundef nonnull %138, ptr noundef nonnull @.str.294) #17
   %142 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #17
-  %143 = icmp eq i64 %141, %142
-  %spec.store.select.i = select i1 %143, ptr null, ptr %138
-  %144 = icmp ne ptr %spec.store.select.i, null
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  %146 = load i16, ptr %145, align 2
-  %147 = icmp ne i16 %146, 0
-  %or.cond.i = select i1 %144, i1 %147, i1 false
-  br i1 %or.cond.i, label %148, label %160
+  %143 = icmp ne i64 %141, %142
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %145 = load i16, ptr %144, align 2
+  %146 = icmp ne i16 %145, 0
+  %or.cond.i = select i1 %143, i1 %146, i1 false
+  br i1 %or.cond.i, label %147, label %159
 
-148:                                              ; preds = %140
-  %149 = load ptr, ptr @stdin, align 8
-  %150 = call i32 @fileno(ptr noundef %149) #16
-  %151 = call i32 @isatty(i32 noundef %150) #16
-  %.not69.i = icmp eq i32 %151, 0
-  br i1 %.not69.i, label %160, label %152
+147:                                              ; preds = %140
+  %148 = load ptr, ptr @stdin, align 8
+  %149 = call i32 @fileno(ptr noundef %148) #16
+  %150 = call i32 @isatty(i32 noundef %149) #16
+  %.not69.i = icmp eq i32 %150, 0
+  br i1 %.not69.i, label %159, label %151
 
-152:                                              ; preds = %148
-  %153 = load ptr, ptr @stdout, align 8
-  %154 = call i32 @fileno(ptr noundef %153) #16
-  %155 = call i32 @isatty(i32 noundef %154) #16
-  %.not70.i = icmp eq i32 %155, 0
-  br i1 %.not70.i, label %160, label %156
+151:                                              ; preds = %147
+  %152 = load ptr, ptr @stdout, align 8
+  %153 = call i32 @fileno(ptr noundef %152) #16
+  %154 = call i32 @isatty(i32 noundef %153) #16
+  %.not70.i = icmp eq i32 %154, 0
+  br i1 %.not70.i, label %159, label %155
 
-156:                                              ; preds = %152
-  %157 = call i32 @fflush(ptr noundef null)
+155:                                              ; preds = %151
+  %156 = call i32 @fflush(ptr noundef null)
   call void @disable_sigpipe_trap() #16
-  %158 = call noalias ptr @popen(ptr noundef nonnull %spec.store.select.i, ptr noundef nonnull @.str.147)
-  %.not71.i = icmp eq ptr %158, null
-  br i1 %.not71.i, label %159, label %161
+  %157 = call noalias ptr @popen(ptr noundef nonnull %138, ptr noundef nonnull @.str.147)
+  %.not71.i = icmp eq ptr %157, null
+  br i1 %.not71.i, label %158, label %160
 
-159:                                              ; preds = %156
+158:                                              ; preds = %155
   call void @restore_sigpipe_trap() #16
+  br label %159
+
+159:                                              ; preds = %158, %151, %147, %140, %.thread.i
+  %.ph.i = phi ptr [ %139, %.thread.i ], [ %144, %140 ], [ %144, %147 ], [ %144, %151 ], [ %144, %158 ]
+  store i16 0, ptr %.ph.i, align 2
   br label %160
 
-160:                                              ; preds = %159, %152, %148, %140, %.thread.i
-  %.ph.i = phi ptr [ %139, %.thread.i ], [ %145, %140 ], [ %145, %148 ], [ %145, %152 ], [ %145, %159 ]
-  store i16 0, ptr %.ph.i, align 2
-  br label %161
+160:                                              ; preds = %159, %155
+  %.not7287.i = phi i1 [ true, %159 ], [ false, %155 ]
+  %.05385.i = phi ptr [ null, %159 ], [ %157, %155 ]
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %162 = load ptr, ptr %161, align 8
+  %.not73.i = icmp eq ptr %162, null
+  br i1 %.not73.i, label %167, label %163
 
-161:                                              ; preds = %160, %156
-  %.not7287.i = phi i1 [ true, %160 ], [ false, %156 ]
-  %.05385.i = phi ptr [ null, %160 ], [ %158, %156 ]
-  %162 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %163 = load ptr, ptr %162, align 8
-  %.not73.i = icmp eq ptr %163, null
-  br i1 %.not73.i, label %168, label %164
+163:                                              ; preds = %160
+  %164 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %162) #17
+  %165 = shl i64 %164, 32
+  %sext.i = add i64 %165, 1099511627776
+  %166 = ashr exact i64 %sext.i, 32
+  br label %167
 
-164:                                              ; preds = %161
-  %165 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %163) #17
-  %166 = shl i64 %165, 32
-  %sext.i = add i64 %166, 1099511627776
-  %167 = ashr exact i64 %sext.i, 32
-  br label %168
-
-168:                                              ; preds = %164, %161
-  %169 = phi i64 [ %167, %164 ], [ 256, %161 ]
-  %170 = call ptr @pg_malloc(i64 noundef %169) #16
+167:                                              ; preds = %163, %160
+  %168 = phi i64 [ %166, %163 ], [ 256, %160 ]
+  %169 = call ptr @pg_malloc(i64 noundef %168) #16
   br i1 %135, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %168
-  %171 = sitofp i64 %.051113.lcssa to double
-  %172 = fdiv double %171, 1.000000e+03
-  %173 = icmp eq i64 %.051113.lcssa, 0
-  br i1 %173, label %.lr.ph.split.us.split.i, label %.lr.ph.split.i, !llvm.loop !26
+.lr.ph.i:                                         ; preds = %167
+  %170 = sitofp i64 %.051113.lcssa to double
+  %171 = fdiv double %170, 1.000000e+03
+  %172 = icmp eq i64 %.051113.lcssa, 0
+  br i1 %172, label %.lr.ph.split.us.split.i, label %.lr.ph.split.i, !llvm.loop !26
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.i
   br i1 %.not73.i, label %.lr.ph.split.us.split.split.us.i, label %.lr.ph.split.us.split.split.i
 
-.lr.ph.split.us.split.split.us.i:                 ; preds = %.lr.ph.split.us.split.i, %188
-  %.055103.us.us.i = phi i32 [ %.257.us.us.i, %188 ], [ %.047114.lcssa, %.lr.ph.split.us.split.i ]
+.lr.ph.split.us.split.split.us.i:                 ; preds = %.lr.ph.split.us.split.i, %187
+  %.055103.us.us.i = phi i32 [ %.257.us.us.i, %187 ], [ %.047114.lcssa, %.lr.ph.split.us.split.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #16
-  %174 = call i64 @time(ptr noundef null) #16
-  store i64 %174, ptr %10, align 8
-  %175 = call ptr @localtime(ptr noundef nonnull %10) #16
-  %176 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %175) #16
-  %177 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %170, i64 noundef %169, ptr noundef nonnull @.str.297, ptr noundef nonnull %11, double noundef %172) #16
-  store ptr %170, ptr %162, align 8
-  %178 = load ptr, ptr %2, align 8
-  %179 = call i32 @PSQLexecWatch(ptr noundef %178, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
-  %180 = icmp slt i32 %179, 1
-  br i1 %180, label %.loopexit.sink.split.i, label %181
+  %173 = call i64 @time(ptr noundef null) #16
+  store i64 %173, ptr %10, align 8
+  %174 = call ptr @localtime(ptr noundef nonnull %10) #16
+  %175 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %174) #16
+  %176 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %169, i64 noundef %168, ptr noundef nonnull @.str.297, ptr noundef nonnull %11, double noundef %171) #16
+  store ptr %169, ptr %161, align 8
+  %177 = load ptr, ptr %2, align 8
+  %178 = call i32 @PSQLexecWatch(ptr noundef %177, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
+  %179 = icmp slt i32 %178, 1
+  br i1 %179, label %.loopexit.sink.split.i, label %180
 
-181:                                              ; preds = %.lr.ph.split.us.split.split.us.i
+180:                                              ; preds = %.lr.ph.split.us.split.split.us.i
   %.not74.us.us.i = icmp eq i32 %.055103.us.us.i, 0
-  br i1 %.not74.us.us.i, label %185, label %182
+  br i1 %.not74.us.us.i, label %184, label %181
 
-182:                                              ; preds = %181
-  %183 = add i32 %.055103.us.us.i, -1
-  %184 = icmp slt i32 %183, 1
-  br i1 %184, label %.loopexit.sink.split.i, label %185
+181:                                              ; preds = %180
+  %182 = add i32 %.055103.us.us.i, -1
+  %183 = icmp slt i32 %182, 1
+  br i1 %183, label %.loopexit.sink.split.i, label %184
 
-185:                                              ; preds = %182, %181
-  %.257.us.us.i = phi i32 [ %183, %182 ], [ 0, %181 ]
-  br i1 %.not7287.i, label %188, label %186
+184:                                              ; preds = %181, %180
+  %.257.us.us.i = phi i32 [ %182, %181 ], [ 0, %180 ]
+  br i1 %.not7287.i, label %187, label %185
 
-186:                                              ; preds = %185
-  %187 = call i32 @ferror(ptr noundef nonnull %.05385.i) #16
-  %.not75.us.us.i = icmp eq i32 %187, 0
-  br i1 %.not75.us.us.i, label %188, label %.loopexit.sink.split.i
+185:                                              ; preds = %184
+  %186 = call i32 @ferror(ptr noundef nonnull %.05385.i) #16
+  %.not75.us.us.i = icmp eq i32 %186, 0
+  br i1 %.not75.us.us.i, label %187, label %.loopexit.sink.split.i
 
-188:                                              ; preds = %186, %185
+187:                                              ; preds = %185, %184
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   br label %.lr.ph.split.us.split.split.us.i
@@ -8467,67 +8465,67 @@ copy_previous_query.exit:                         ; preds = %109
 .lr.ph.split.us.split.split.i:                    ; preds = %.lr.ph.split.us.split.i
   br i1 %.not7287.i, label %.lr.ph.split.us.split.split.split.us.i, label %.lr.ph.split.us.split.split.split.i
 
-.lr.ph.split.us.split.split.split.us.i:           ; preds = %.lr.ph.split.us.split.split.i, %200
-  %.055103.us.us106.i = phi i32 [ %.257.us.us108.i, %200 ], [ %.047114.lcssa, %.lr.ph.split.us.split.split.i ]
+.lr.ph.split.us.split.split.split.us.i:           ; preds = %.lr.ph.split.us.split.split.i, %199
+  %.055103.us.us106.i = phi i32 [ %.257.us.us108.i, %199 ], [ %.047114.lcssa, %.lr.ph.split.us.split.split.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #16
-  %189 = call i64 @time(ptr noundef null) #16
-  store i64 %189, ptr %10, align 8
-  %190 = call ptr @localtime(ptr noundef nonnull %10) #16
-  %191 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %190) #16
-  %192 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %170, i64 noundef %169, ptr noundef nonnull @.str.296, ptr noundef nonnull %163, ptr noundef nonnull %11, double noundef %172) #16
-  store ptr %170, ptr %162, align 8
-  %193 = load ptr, ptr %2, align 8
-  %194 = call i32 @PSQLexecWatch(ptr noundef %193, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
-  %195 = icmp slt i32 %194, 1
-  br i1 %195, label %.loopexit.sink.split.i, label %196
+  %188 = call i64 @time(ptr noundef null) #16
+  store i64 %188, ptr %10, align 8
+  %189 = call ptr @localtime(ptr noundef nonnull %10) #16
+  %190 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %189) #16
+  %191 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %169, i64 noundef %168, ptr noundef nonnull @.str.296, ptr noundef nonnull %162, ptr noundef nonnull %11, double noundef %171) #16
+  store ptr %169, ptr %161, align 8
+  %192 = load ptr, ptr %2, align 8
+  %193 = call i32 @PSQLexecWatch(ptr noundef %192, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
+  %194 = icmp slt i32 %193, 1
+  br i1 %194, label %.loopexit.sink.split.i, label %195
 
-196:                                              ; preds = %.lr.ph.split.us.split.split.split.us.i
+195:                                              ; preds = %.lr.ph.split.us.split.split.split.us.i
   %.not74.us.us107.i = icmp eq i32 %.055103.us.us106.i, 0
-  br i1 %.not74.us.us107.i, label %200, label %197
+  br i1 %.not74.us.us107.i, label %199, label %196
 
-197:                                              ; preds = %196
-  %198 = add i32 %.055103.us.us106.i, -1
-  %199 = icmp slt i32 %198, 1
-  br i1 %199, label %.loopexit.sink.split.i, label %200
+196:                                              ; preds = %195
+  %197 = add i32 %.055103.us.us106.i, -1
+  %198 = icmp slt i32 %197, 1
+  br i1 %198, label %.loopexit.sink.split.i, label %199
 
-200:                                              ; preds = %197, %196
-  %.257.us.us108.i = phi i32 [ %198, %197 ], [ 0, %196 ]
+199:                                              ; preds = %196, %195
+  %.257.us.us108.i = phi i32 [ %197, %196 ], [ 0, %195 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   br label %.lr.ph.split.us.split.split.split.us.i
 
-.lr.ph.split.us.split.split.split.i:              ; preds = %.lr.ph.split.us.split.split.i, %214
-  %.055103.us.i = phi i32 [ %.257.us.i, %214 ], [ %.047114.lcssa, %.lr.ph.split.us.split.split.i ]
+.lr.ph.split.us.split.split.split.i:              ; preds = %.lr.ph.split.us.split.split.i, %213
+  %.055103.us.i = phi i32 [ %.257.us.i, %213 ], [ %.047114.lcssa, %.lr.ph.split.us.split.split.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #16
-  %201 = call i64 @time(ptr noundef null) #16
-  store i64 %201, ptr %10, align 8
-  %202 = call ptr @localtime(ptr noundef nonnull %10) #16
-  %203 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %202) #16
-  %204 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %170, i64 noundef %169, ptr noundef nonnull @.str.296, ptr noundef nonnull %163, ptr noundef nonnull %11, double noundef %172) #16
-  store ptr %170, ptr %162, align 8
-  %205 = load ptr, ptr %2, align 8
-  %206 = call i32 @PSQLexecWatch(ptr noundef %205, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
-  %207 = icmp slt i32 %206, 1
-  br i1 %207, label %.loopexit.sink.split.i, label %208
+  %200 = call i64 @time(ptr noundef null) #16
+  store i64 %200, ptr %10, align 8
+  %201 = call ptr @localtime(ptr noundef nonnull %10) #16
+  %202 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %201) #16
+  %203 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %169, i64 noundef %168, ptr noundef nonnull @.str.296, ptr noundef nonnull %162, ptr noundef nonnull %11, double noundef %171) #16
+  store ptr %169, ptr %161, align 8
+  %204 = load ptr, ptr %2, align 8
+  %205 = call i32 @PSQLexecWatch(ptr noundef %204, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
+  %206 = icmp slt i32 %205, 1
+  br i1 %206, label %.loopexit.sink.split.i, label %207
 
-208:                                              ; preds = %.lr.ph.split.us.split.split.split.i
+207:                                              ; preds = %.lr.ph.split.us.split.split.split.i
   %.not74.us.i = icmp eq i32 %.055103.us.i, 0
-  br i1 %.not74.us.i, label %212, label %209
+  br i1 %.not74.us.i, label %211, label %208
 
-209:                                              ; preds = %208
-  %210 = add i32 %.055103.us.i, -1
-  %211 = icmp slt i32 %210, 1
-  br i1 %211, label %.loopexit.sink.split.i, label %212
+208:                                              ; preds = %207
+  %209 = add i32 %.055103.us.i, -1
+  %210 = icmp slt i32 %209, 1
+  br i1 %210, label %.loopexit.sink.split.i, label %211
 
-212:                                              ; preds = %209, %208
-  %.257.us.i = phi i32 [ %210, %209 ], [ 0, %208 ]
-  %213 = call i32 @ferror(ptr noundef nonnull %.05385.i) #16
-  %.not75.us.i = icmp eq i32 %213, 0
-  br i1 %.not75.us.i, label %214, label %.loopexit.sink.split.i
+211:                                              ; preds = %208, %207
+  %.257.us.i = phi i32 [ %209, %208 ], [ 0, %207 ]
+  %212 = call i32 @ferror(ptr noundef nonnull %.05385.i) #16
+  %.not75.us.i = icmp eq i32 %212, 0
+  br i1 %.not75.us.i, label %213, label %.loopexit.sink.split.i
 
-214:                                              ; preds = %212
+213:                                              ; preds = %211
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   br label %.lr.ph.split.us.split.split.split.i
@@ -8536,57 +8534,57 @@ copy_previous_query.exit:                         ; preds = %109
   %.055103.i = phi i32 [ %.257.i, %.thread90.i ], [ %.047114.lcssa, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #16
-  %215 = call i64 @time(ptr noundef null) #16
-  store i64 %215, ptr %10, align 8
-  %216 = call ptr @localtime(ptr noundef nonnull %10) #16
-  %217 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %216) #16
-  br i1 %.not73.i, label %220, label %218
+  %214 = call i64 @time(ptr noundef null) #16
+  store i64 %214, ptr %10, align 8
+  %215 = call ptr @localtime(ptr noundef nonnull %10) #16
+  %216 = call i64 @strftime(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.295, ptr noundef %215) #16
+  br i1 %.not73.i, label %219, label %217
 
-218:                                              ; preds = %.lr.ph.split.i
-  %219 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %170, i64 noundef %169, ptr noundef nonnull @.str.296, ptr noundef nonnull %163, ptr noundef nonnull %11, double noundef %172) #16
-  br label %222
+217:                                              ; preds = %.lr.ph.split.i
+  %218 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %169, i64 noundef %168, ptr noundef nonnull @.str.296, ptr noundef nonnull %162, ptr noundef nonnull %11, double noundef %171) #16
+  br label %221
 
-220:                                              ; preds = %.lr.ph.split.i
-  %221 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %170, i64 noundef %169, ptr noundef nonnull @.str.297, ptr noundef nonnull %11, double noundef %172) #16
-  br label %222
+219:                                              ; preds = %.lr.ph.split.i
+  %220 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %169, i64 noundef %168, ptr noundef nonnull @.str.297, ptr noundef nonnull %11, double noundef %171) #16
+  br label %221
 
-222:                                              ; preds = %220, %218
-  store ptr %170, ptr %162, align 8
-  %223 = load ptr, ptr %2, align 8
-  %224 = call i32 @PSQLexecWatch(ptr noundef %223, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
-  %225 = icmp slt i32 %224, 1
-  br i1 %225, label %.loopexit.sink.split.i, label %226
+221:                                              ; preds = %219, %217
+  store ptr %169, ptr %161, align 8
+  %222 = load ptr, ptr %2, align 8
+  %223 = call i32 @PSQLexecWatch(ptr noundef %222, ptr noundef nonnull %5, ptr noundef %.05385.i, i32 noundef %.043115.lcssa) #16
+  %224 = icmp slt i32 %223, 1
+  br i1 %224, label %.loopexit.sink.split.i, label %225
 
-226:                                              ; preds = %222
+225:                                              ; preds = %221
   %.not74.i = icmp eq i32 %.055103.i, 0
-  br i1 %.not74.i, label %230, label %227
+  br i1 %.not74.i, label %229, label %226
 
-227:                                              ; preds = %226
-  %228 = add i32 %.055103.i, -1
-  %229 = icmp slt i32 %228, 1
-  br i1 %229, label %.loopexit.sink.split.i, label %230
+226:                                              ; preds = %225
+  %227 = add i32 %.055103.i, -1
+  %228 = icmp slt i32 %227, 1
+  br i1 %228, label %.loopexit.sink.split.i, label %229
 
-230:                                              ; preds = %227, %226
-  %.257.i = phi i32 [ %228, %227 ], [ 0, %226 ]
-  br i1 %.not7287.i, label %233, label %231
+229:                                              ; preds = %226, %225
+  %.257.i = phi i32 [ %227, %226 ], [ 0, %225 ]
+  br i1 %.not7287.i, label %232, label %230
 
-231:                                              ; preds = %230
-  %232 = call i32 @ferror(ptr noundef nonnull %.05385.i) #16
-  %.not75.i = icmp eq i32 %232, 0
-  br i1 %.not75.i, label %233, label %.loopexit.sink.split.i
+230:                                              ; preds = %229
+  %231 = call i32 @ferror(ptr noundef nonnull %.05385.i) #16
+  %.not75.i = icmp eq i32 %231, 0
+  br i1 %.not75.i, label %232, label %.loopexit.sink.split.i
 
-233:                                              ; preds = %231, %230
-  %234 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %8, ptr noundef null) #16
-  %235 = load volatile i32, ptr @cancel_pressed, align 4
-  %.not76.not.i = icmp eq i32 %235, 0
+232:                                              ; preds = %230, %229
+  %233 = call i32 @sigprocmask(i32 noundef 0, ptr noundef nonnull %8, ptr noundef null) #16
+  %234 = load volatile i32, ptr @cancel_pressed, align 4
+  %.not76.not.i = icmp eq i32 %234, 0
   br i1 %.not76.not.i, label %.preheader.i, label %.loopexit.sink.split.sink.split.i
 
-.preheader.i:                                     ; preds = %233, %.critedge.i
+.preheader.i:                                     ; preds = %232, %.critedge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
-  %236 = call i32 @sigwait(ptr noundef nonnull %6, ptr noundef nonnull %12) #16
-  %237 = tail call ptr @__errno_location() #18
-  store i32 %236, ptr %237, align 4
-  switch i32 %236, label %.loopexit.critedge.i [
+  %235 = call i32 @sigwait(ptr noundef nonnull %6, ptr noundef nonnull %12) #16
+  %236 = tail call ptr @__errno_location() #18
+  store i32 %235, ptr %236, align 4
+  switch i32 %235, label %.loopexit.critedge.i [
     i32 0, label %.thread90.i
     i32 4, label %.critedge.i
   ], !llvm.loop !27
@@ -8597,12 +8595,12 @@ copy_previous_query.exit:                         ; preds = %109
   br label %.loopexit.sink.split.sink.split.i
 
 .thread90.i:                                      ; preds = %.preheader.i
-  %238 = load i32, ptr %12, align 4
+  %237 = load i32, ptr %12, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
-  %239 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #16
+  %238 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
-  switch i32 %238, label %.lr.ph.split.i [
+  switch i32 %237, label %.lr.ph.split.i [
     i32 17, label %.loopexit.i
     i32 2, label %.loopexit.i
   ]
@@ -8611,43 +8609,43 @@ copy_previous_query.exit:                         ; preds = %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
   br label %.preheader.i
 
-.loopexit.sink.split.sink.split.i:                ; preds = %233, %.loopexit.critedge.i
-  %240 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #16
+.loopexit.sink.split.sink.split.i:                ; preds = %232, %.loopexit.critedge.i
+  %239 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %8, ptr noundef null) #16
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %231, %227, %222, %212, %209, %.lr.ph.split.us.split.split.split.i, %197, %.lr.ph.split.us.split.split.split.us.i, %186, %182, %.lr.ph.split.us.split.split.us.i, %.loopexit.sink.split.sink.split.i
-  %.151.ph.i = phi i32 [ %224, %.loopexit.sink.split.sink.split.i ], [ %179, %.lr.ph.split.us.split.split.us.i ], [ %179, %182 ], [ %179, %186 ], [ %194, %.lr.ph.split.us.split.split.split.us.i ], [ %194, %197 ], [ %206, %.lr.ph.split.us.split.split.split.i ], [ %206, %209 ], [ %206, %212 ], [ %224, %222 ], [ %224, %227 ], [ %224, %231 ]
+.loopexit.sink.split.i:                           ; preds = %230, %226, %221, %211, %208, %.lr.ph.split.us.split.split.split.i, %196, %.lr.ph.split.us.split.split.split.us.i, %185, %181, %.lr.ph.split.us.split.split.us.i, %.loopexit.sink.split.sink.split.i
+  %.151.ph.i = phi i32 [ %223, %.loopexit.sink.split.sink.split.i ], [ %178, %.lr.ph.split.us.split.split.us.i ], [ %178, %181 ], [ %178, %185 ], [ %193, %.lr.ph.split.us.split.split.split.us.i ], [ %193, %196 ], [ %205, %.lr.ph.split.us.split.split.split.i ], [ %205, %208 ], [ %205, %211 ], [ %223, %221 ], [ %223, %226 ], [ %223, %230 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.thread90.i, %.thread90.i, %.loopexit.sink.split.i, %168
-  %.151.i = phi i32 [ 0, %168 ], [ %.151.ph.i, %.loopexit.sink.split.i ], [ %224, %.thread90.i ], [ %224, %.thread90.i ]
-  br i1 %.not7287.i, label %243, label %241
+.loopexit.i:                                      ; preds = %.thread90.i, %.thread90.i, %.loopexit.sink.split.i, %167
+  %.151.i = phi i32 [ 0, %167 ], [ %.151.ph.i, %.loopexit.sink.split.i ], [ %223, %.thread90.i ], [ %223, %.thread90.i ]
+  br i1 %.not7287.i, label %242, label %240
 
-241:                                              ; preds = %.loopexit.i
-  %242 = call i32 @pclose(ptr noundef nonnull %.05385.i)
+240:                                              ; preds = %.loopexit.i
+  %241 = call i32 @pclose(ptr noundef nonnull %.05385.i)
   call void @restore_sigpipe_trap() #16
-  br label %248
+  br label %247
 
-243:                                              ; preds = %.loopexit.i
-  %244 = load ptr, ptr @stdout, align 8
-  %245 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %244, ptr noundef nonnull @.str.238) #16
-  %246 = load ptr, ptr @stdout, align 8
-  %247 = call i32 @fflush(ptr noundef %246)
-  br label %248
+242:                                              ; preds = %.loopexit.i
+  %243 = load ptr, ptr @stdout, align 8
+  %244 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %243, ptr noundef nonnull @.str.238) #16
+  %245 = load ptr, ptr @stdout, align 8
+  %246 = call i32 @fflush(ptr noundef %245)
+  br label %247
 
-248:                                              ; preds = %243, %241
+247:                                              ; preds = %242, %240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %249 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %9, ptr noundef null) #16
-  %250 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #16
-  call void @pg_free(ptr noundef %170) #16
-  %251 = icmp sgt i32 %.151.i, -1
-  %252 = select i1 %251, i32 2, i32 5
+  %248 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %9, ptr noundef null) #16
+  %249 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %6, ptr noundef null) #16
+  call void @pg_free(ptr noundef %169) #16
+  %250 = icmp sgt i32 %.151.i, -1
+  %251 = select i1 %250, i32 2, i32 5
   br label %do_watch.exit
 
-do_watch.exit:                                    ; preds = %117, %248
-  %.052.i = phi i32 [ 5, %117 ], [ %252, %248 ]
+do_watch.exit:                                    ; preds = %117, %247
+  %.052.i = phi i32 [ 5, %117 ], [ %251, %247 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #16
@@ -8666,20 +8664,20 @@ do_watch.exit:                                    ; preds = %117, %248
   call void @psql_scan_reset(ptr noundef %0) #16
   br label %ignore_slash_options.exit
 
-253:                                              ; preds = %4
-  %254 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #16
-  %.not2.i = icmp eq ptr %254, null
+252:                                              ; preds = %4
+  %253 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #16
+  %.not2.i = icmp eq ptr %253, null
   br i1 %.not2.i, label %ignore_slash_options.exit, label %.lr.ph.i76
 
-.lr.ph.i76:                                       ; preds = %253, %.lr.ph.i76
-  %255 = phi ptr [ %256, %.lr.ph.i76 ], [ %254, %253 ]
-  tail call void @free(ptr noundef nonnull %255) #16
-  %256 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #16
-  %.not.i77 = icmp eq ptr %256, null
+.lr.ph.i76:                                       ; preds = %252, %.lr.ph.i76
+  %254 = phi ptr [ %255, %.lr.ph.i76 ], [ %253, %252 ]
+  tail call void @free(ptr noundef nonnull %254) #16
+  %255 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #16
+  %.not.i77 = icmp eq ptr %255, null
   br i1 %.not.i77, label %ignore_slash_options.exit, label %.lr.ph.i76, !llvm.loop !10
 
-ignore_slash_options.exit:                        ; preds = %.lr.ph.i76, %253, %.loopexit
-  %.5 = phi i32 [ %.4, %.loopexit ], [ 2, %253 ], [ 2, %.lr.ph.i76 ]
+ignore_slash_options.exit:                        ; preds = %.lr.ph.i76, %252, %.loopexit
+  %.5 = phi i32 [ %.4, %.loopexit ], [ 2, %252 ], [ 2, %.lr.ph.i76 ]
   ret i32 %.5
 }
 

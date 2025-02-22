@@ -23410,10 +23410,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i169
 
 138:                                              ; preds = %130
-  %139 = load ptr, ptr %spec.select316, align 8, !tbaa !14
+  %139 = load ptr, ptr %.sroa.0261.10, align 8, !tbaa !14
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %spec.select316)
+  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.10)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i169
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i169: ; preds = %138, %136
@@ -23606,10 +23606,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit184: ; preds
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i188
 
 228:                                              ; preds = %220
-  %229 = load ptr, ptr %spec.select319, align 8, !tbaa !14
+  %229 = load ptr, ptr %.sroa.0261.1350, align 8, !tbaa !14
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
-  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %spec.select319)
+  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.1350)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i188
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i188: ; preds = %228, %226
@@ -23868,10 +23868,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i199._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i209
 
 332:                                              ; preds = %324
-  %333 = load ptr, ptr %spec.select323, align 8, !tbaa !14
+  %333 = load ptr, ptr %.sroa.0261.4418, align 8, !tbaa !14
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 72
   %335 = load ptr, ptr %334, align 8
-  %336 = invoke noundef i32 %335(ptr noundef nonnull align 8 dereferenceable(64) %spec.select323)
+  %336 = invoke noundef i32 %335(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.4418)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i209 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i209: ; preds = %332, %330
@@ -24080,10 +24080,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i224._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i234
 
 430:                                              ; preds = %422
-  %431 = load ptr, ptr %spec.select327, align 8, !tbaa !14
+  %431 = load ptr, ptr %.sroa.0261.7446, align 8, !tbaa !14
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 72
   %433 = load ptr, ptr %432, align 8
-  %434 = invoke noundef i32 %433(ptr noundef nonnull align 8 dereferenceable(64) %spec.select327)
+  %434 = invoke noundef i32 %433(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.7446)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i234 unwind label %.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i234: ; preds = %430, %428
@@ -24650,10 +24650,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i170
 
 138:                                              ; preds = %130
-  %139 = load ptr, ptr %spec.select315, align 8, !tbaa !14
+  %139 = load ptr, ptr %.sroa.0262.10, align 8, !tbaa !14
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %spec.select315)
+  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0262.10)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i170
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i170: ; preds = %138, %136
@@ -24846,10 +24846,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit185: ; preds
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i189
 
 228:                                              ; preds = %220
-  %229 = load ptr, ptr %spec.select318, align 8, !tbaa !14
+  %229 = load ptr, ptr %.sroa.0262.1348, align 8, !tbaa !14
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
-  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %spec.select318)
+  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0262.1348)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i189
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i189: ; preds = %228, %226
@@ -25095,10 +25095,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i200._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i210
 
 334:                                              ; preds = %326
-  %335 = load ptr, ptr %spec.select322, align 8, !tbaa !14
+  %335 = load ptr, ptr %.sroa.0262.4416, align 8, !tbaa !14
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 72
   %337 = load ptr, ptr %336, align 8
-  %338 = invoke noundef i32 %337(ptr noundef nonnull align 8 dereferenceable(64) %spec.select322)
+  %338 = invoke noundef i32 %337(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0262.4416)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i210 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i210: ; preds = %334, %332
@@ -25323,10 +25323,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i225._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i235
 
 433:                                              ; preds = %425
-  %434 = load ptr, ptr %spec.select325, align 8, !tbaa !14
+  %434 = load ptr, ptr %.sroa.0262.7444, align 8, !tbaa !14
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 72
   %436 = load ptr, ptr %435, align 8
-  %437 = invoke noundef i32 %436(ptr noundef nonnull align 8 dereferenceable(64) %spec.select325)
+  %437 = invoke noundef i32 %436(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0262.7444)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i235 unwind label %.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i235: ; preds = %433, %431
@@ -25888,10 +25888,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168
 
 138:                                              ; preds = %130
-  %139 = load ptr, ptr %spec.select313, align 8, !tbaa !14
+  %139 = load ptr, ptr %.sroa.0260.10, align 8, !tbaa !14
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %spec.select313)
+  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.10)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168: ; preds = %138, %136
@@ -26084,10 +26084,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit183: ; preds
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187
 
 228:                                              ; preds = %220
-  %229 = load ptr, ptr %spec.select316, align 8, !tbaa !14
+  %229 = load ptr, ptr %.sroa.0260.1346, align 8, !tbaa !14
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
-  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %spec.select316)
+  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.1346)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187: ; preds = %228, %226
@@ -26328,10 +26328,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i198._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208
 
 329:                                              ; preds = %321
-  %330 = load ptr, ptr %spec.select320, align 8, !tbaa !14
+  %330 = load ptr, ptr %.sroa.0260.4414, align 8, !tbaa !14
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 72
   %332 = load ptr, ptr %331, align 8
-  %333 = invoke noundef i32 %332(ptr noundef nonnull align 8 dereferenceable(64) %spec.select320)
+  %333 = invoke noundef i32 %332(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.4414)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208: ; preds = %329, %327
@@ -26553,10 +26553,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i223._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233
 
 425:                                              ; preds = %417
-  %426 = load ptr, ptr %spec.select323, align 8, !tbaa !14
+  %426 = load ptr, ptr %.sroa.0260.7442, align 8, !tbaa !14
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 72
   %428 = load ptr, ptr %427, align 8
-  %429 = invoke noundef i32 %428(ptr noundef nonnull align 8 dereferenceable(64) %spec.select323)
+  %429 = invoke noundef i32 %428(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.7442)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233 unwind label %.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233: ; preds = %425, %423
@@ -27118,10 +27118,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168
 
 138:                                              ; preds = %130
-  %139 = load ptr, ptr %spec.select315, align 8, !tbaa !14
+  %139 = load ptr, ptr %.sroa.0260.10, align 8, !tbaa !14
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %spec.select315)
+  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.10)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168: ; preds = %138, %136
@@ -27314,10 +27314,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit183: ; preds
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187
 
 228:                                              ; preds = %220
-  %229 = load ptr, ptr %spec.select318, align 8, !tbaa !14
+  %229 = load ptr, ptr %.sroa.0260.1349, align 8, !tbaa !14
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
-  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %spec.select318)
+  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.1349)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187: ; preds = %228, %226
@@ -27560,10 +27560,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i198._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208
 
 331:                                              ; preds = %323
-  %332 = load ptr, ptr %spec.select322, align 8, !tbaa !14
+  %332 = load ptr, ptr %.sroa.0260.4417, align 8, !tbaa !14
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %334 = load ptr, ptr %333, align 8
-  %335 = invoke noundef i32 %334(ptr noundef nonnull align 8 dereferenceable(64) %spec.select322)
+  %335 = invoke noundef i32 %334(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.4417)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208: ; preds = %331, %329
@@ -27787,10 +27787,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i223._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233
 
 429:                                              ; preds = %421
-  %430 = load ptr, ptr %spec.select326, align 8, !tbaa !14
+  %430 = load ptr, ptr %.sroa.0260.7445, align 8, !tbaa !14
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 72
   %432 = load ptr, ptr %431, align 8
-  %433 = invoke noundef i32 %432(ptr noundef nonnull align 8 dereferenceable(64) %spec.select326)
+  %433 = invoke noundef i32 %432(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.7445)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233 unwind label %.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233: ; preds = %429, %427
@@ -28352,10 +28352,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i169
 
 138:                                              ; preds = %130
-  %139 = load ptr, ptr %spec.select316, align 8, !tbaa !14
+  %139 = load ptr, ptr %.sroa.0261.10, align 8, !tbaa !14
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %spec.select316)
+  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.10)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i169
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i169: ; preds = %138, %136
@@ -28548,10 +28548,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit184: ; preds
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i188
 
 228:                                              ; preds = %220
-  %229 = load ptr, ptr %spec.select319, align 8, !tbaa !14
+  %229 = load ptr, ptr %.sroa.0261.1350, align 8, !tbaa !14
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
-  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %spec.select319)
+  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.1350)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i188
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i188: ; preds = %228, %226
@@ -28795,10 +28795,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i199._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i209
 
 332:                                              ; preds = %324
-  %333 = load ptr, ptr %spec.select323, align 8, !tbaa !14
+  %333 = load ptr, ptr %.sroa.0261.4418, align 8, !tbaa !14
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 72
   %335 = load ptr, ptr %334, align 8
-  %336 = invoke noundef i32 %335(ptr noundef nonnull align 8 dereferenceable(64) %spec.select323)
+  %336 = invoke noundef i32 %335(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.4418)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i209 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i209: ; preds = %332, %330
@@ -29022,10 +29022,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i224._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i234
 
 430:                                              ; preds = %422
-  %431 = load ptr, ptr %spec.select327, align 8, !tbaa !14
+  %431 = load ptr, ptr %.sroa.0261.7446, align 8, !tbaa !14
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 72
   %433 = load ptr, ptr %432, align 8
-  %434 = invoke noundef i32 %433(ptr noundef nonnull align 8 dereferenceable(64) %spec.select327)
+  %434 = invoke noundef i32 %433(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0261.7446)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i234 unwind label %.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i234: ; preds = %430, %428
@@ -29587,10 +29587,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168
 
 138:                                              ; preds = %130
-  %139 = load ptr, ptr %spec.select315, align 8, !tbaa !14
+  %139 = load ptr, ptr %.sroa.0260.10, align 8, !tbaa !14
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %spec.select315)
+  %142 = call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.10)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i168: ; preds = %138, %136
@@ -29783,10 +29783,10 @@ _ZStneIwSt11char_traitsIwEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit183: ; preds
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187
 
 228:                                              ; preds = %220
-  %229 = load ptr, ptr %spec.select318, align 8, !tbaa !14
+  %229 = load ptr, ptr %.sroa.0260.1349, align 8, !tbaa !14
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
-  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %spec.select318)
+  %232 = call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.1349)
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i187: ; preds = %228, %226
@@ -30029,10 +30029,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i198._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208
 
 331:                                              ; preds = %323
-  %332 = load ptr, ptr %spec.select322, align 8, !tbaa !14
+  %332 = load ptr, ptr %.sroa.0260.4417, align 8, !tbaa !14
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %334 = load ptr, ptr %333, align 8
-  %335 = invoke noundef i32 %334(ptr noundef nonnull align 8 dereferenceable(64) %spec.select322)
+  %335 = invoke noundef i32 %334(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.4417)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i208: ; preds = %331, %329
@@ -30256,10 +30256,10 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i5.i.i223._crit_edge:
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233
 
 429:                                              ; preds = %421
-  %430 = load ptr, ptr %spec.select326, align 8, !tbaa !14
+  %430 = load ptr, ptr %.sroa.0260.7445, align 8, !tbaa !14
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 72
   %432 = load ptr, ptr %431, align 8
-  %433 = invoke noundef i32 %432(ptr noundef nonnull align 8 dereferenceable(64) %spec.select326)
+  %433 = invoke noundef i32 %432(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0260.7445)
           to label %_ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233 unwind label %.loopexit
 
 _ZNSt15basic_streambufIwSt11char_traitsIwEE5sgetcEv.exit.i.i233: ; preds = %429, %427

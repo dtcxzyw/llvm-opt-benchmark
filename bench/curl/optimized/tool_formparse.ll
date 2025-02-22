@@ -841,7 +841,7 @@ tool_mime_new.exit.i:                             ; preds = %145
   br i1 %.not151, label %185, label %179
 
 179:                                              ; preds = %178
-  %180 = call noalias ptr @strdup(ptr noundef nonnull %spec.select) #15
+  %180 = call noalias ptr @strdup(ptr noundef nonnull %18) #15
   %181 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   store ptr %180, ptr %181, align 8, !tbaa !16
   %.not152 = icmp eq ptr %180, null

@@ -2967,9 +2967,8 @@ define dso_local i32 @Curl_http_target(ptr noundef readonly captures(none) %0, p
   %9 = load ptr, ptr %8, align 8, !tbaa !96
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   %11 = load ptr, ptr %10, align 8, !tbaa !78
-  %.not = icmp eq ptr %11, null
-  %spec.select = select i1 %.not, ptr %7, ptr %11
-  %spec.select98 = select i1 %.not, ptr %9, ptr null
+  %.not = icmp ne ptr %11, null
+  %spec.select = select i1 %.not, ptr %11, ptr %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 920
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 9
@@ -3103,11 +3102,12 @@ define dso_local i32 @Curl_http_target(ptr noundef readonly captures(none) %0, p
   br i1 %.not96, label %70, label %73
 
 70:                                               ; preds = %68
-  %.not97 = icmp eq ptr %spec.select98, null
+  %.not97104 = icmp eq ptr %9, null
+  %.not97 = select i1 %.not, i1 true, i1 %.not97104
   br i1 %.not97, label %73, label %71
 
 71:                                               ; preds = %70
-  %72 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull %spec.select98) #11
+  %72 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull %9) #11
   br label %73
 
 73:                                               ; preds = %67, %.thread, %71, %70, %68

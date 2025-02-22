@@ -966,18 +966,18 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i: ;
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i32, ptr %84, align 8, !tbaa !88
   %86 = and i32 %85, -4
-  %.not.i.i = icmp eq i32 %86, 20
-  %spec.select.i.i = select i1 %.not.i.i, ptr %83, ptr null
-  %.not59.i = icmp eq ptr %spec.select.i.i, null
+  %.not.i.i = icmp ne i32 %86, 20
+  %.not59129.i = icmp eq ptr %83, null
+  %.not59.i = or i1 %.not59129.i, %.not.i.i
   br i1 %.not59.i, label %100, label %87
 
 87:                                               ; preds = %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i
   %88 = load ptr, ptr %13, align 8, !tbaa !232
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #18
-  %89 = load ptr, ptr %spec.select.i.i, align 8, !tbaa !7
+  %89 = load ptr, ptr %83, align 8, !tbaa !7
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 112
   %91 = load ptr, ptr %90, align 8
-  %92 = call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(56) %spec.select.i.i) #18
+  %92 = call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(56) %83) #18
   %93 = load ptr, ptr %2, align 8, !tbaa !98
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 664
   %95 = load ptr, ptr %94, align 8, !tbaa !242
@@ -1019,10 +1019,10 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.i: ;
 
 111:                                              ; preds = %101
   %112 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull @.str.6)
-  %113 = load ptr, ptr %spec.select.i.i, align 8, !tbaa !7
+  %113 = load ptr, ptr %83, align 8, !tbaa !7
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 112
   %115 = load ptr, ptr %114, align 8
-  %116 = call noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(56) %spec.select.i.i) #18
+  %116 = call noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(56) %83) #18
   call void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef nonnull align 8 dereferenceable(48) %16) #18
   %117 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull @.str.7)
   br label %118

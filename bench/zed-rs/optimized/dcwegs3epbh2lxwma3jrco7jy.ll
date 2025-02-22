@@ -147,7 +147,7 @@ define void @_ZN7snippet7Snippet5parse17hefe7ef05339a1f0bE(ptr dead_on_unwind no
   %49 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %47, ptr %49, align 8, !noalias !18
   store i64 3, ptr %20, align 8, !noalias !18
-  %50 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h3eadc0800dbdfc88E.llvm.16793924758687372153"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.633f2baa86eb349ec842fc5dabdb7881.24.llvm.16793924758687372153, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
+  %50 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h3eadc0800dbdfc88E.llvm.16793924758687372153"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.633f2baa86eb349ec842fc5dabdb7881.24.llvm.16793924758687372153, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
           to label %65 unwind label %196
 
 51:                                               ; preds = %42
@@ -679,17 +679,17 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
 
 24:                                               ; preds = %.lr.ph, %210
   %25 = phi ptr [ %16, %.lr.ph ], [ %211, %210 ]
-  %.sroa.0.0221 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.1, %210 ]
-  %.sroa.20.0220 = phi i64 [ %2, %.lr.ph ], [ %.sroa.20.1, %210 ]
-  %26 = load i8, ptr %.sroa.0.0221, align 1, !noalias !142, !noundef !4
+  %.sroa.0.0223 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.1, %210 ]
+  %.sroa.20.0222 = phi i64 [ %2, %.lr.ph ], [ %.sroa.20.1, %210 ]
+  %26 = load i8, ptr %.sroa.0.0223, align 1, !noalias !142, !noundef !4
   %27 = icmp sgt i8 %26, -1
   br i1 %27, label %38, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit12.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit12.i": ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 1
   %29 = and i8 %26, 31
   %30 = zext nneg i8 %29 to i32
-  %31 = icmp ne i64 %.sroa.20.0220, 1
+  %31 = icmp ne i64 %.sroa.20.0222, 1
   tail call void @llvm.assume(i1 %31)
   %32 = load i8, ptr %28, align 1, !noalias !142, !noundef !4
   %33 = shl nuw nsw i32 %30, 6
@@ -704,8 +704,8 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br label %61
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit14.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit12.i"
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 2
-  %41 = icmp ne i64 %.sroa.20.0220, 2
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 2
+  %41 = icmp ne i64 %.sroa.20.0222, 2
   tail call void @llvm.assume(i1 %41)
   %42 = load i8, ptr %40, align 1, !noalias !142, !noundef !4
   %43 = shl nuw nsw i32 %35, 6
@@ -718,8 +718,8 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %49, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit16.i", label %61
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit16.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit14.i"
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 3
-  %51 = icmp ne i64 %.sroa.20.0220, 3
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 3
+  %51 = icmp ne i64 %.sroa.20.0222, 3
   tail call void @llvm.assume(i1 %51)
   %52 = load i8, ptr %50, align 1, !noalias !142, !noundef !4
   %53 = shl nuw nsw i32 %30, 18
@@ -731,7 +731,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   %59 = or disjoint i32 %58, %54
   br label %61
 
-._crit_edge:                                      ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit74, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit, %210, %.thread318, %6
+._crit_edge:                                      ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit74, %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit, %210, %.thread324, %6
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %60, align 8
@@ -766,7 +766,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
 
 .lr.ph.i.i.i:                                     ; preds = %64, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h515e478d607dd677E.exit.loopexit.i.i.i"
   %66 = phi i64 [ %109, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h515e478d607dd677E.exit.loopexit.i.i.i" ], [ 0, %64 ]
-  %67 = phi ptr [ %105, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h515e478d607dd677E.exit.loopexit.i.i.i" ], [ %.sroa.0.0221, %64 ]
+  %67 = phi ptr [ %105, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h515e478d607dd677E.exit.loopexit.i.i.i" ], [ %.sroa.0.0223, %64 ]
   %68 = ptrtoint ptr %67 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 1
@@ -843,52 +843,52 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %112, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h34785e2544eff082E.exit", label %110
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h34785e2544eff082E.exit": ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h515e478d607dd677E.exit.loopexit.i.i.i", %111
-  %113 = phi i64 [ %66, %111 ], [ %.sroa.20.0220, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h515e478d607dd677E.exit.loopexit.i.i.i" ]
+  %113 = phi i64 [ %66, %111 ], [ %.sroa.20.0222, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h515e478d607dd677E.exit.loopexit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14), !noalias !148
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %296, label %115
 
 115:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h34785e2544eff082E.exit"
-  %116 = icmp ult i64 %113, %.sroa.20.0220
+  %116 = icmp ult i64 %113, %.sroa.20.0222
   br i1 %116, label %117, label %121
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %.sroa.0.0221, i64 %113
+  %118 = getelementptr inbounds i8, ptr %.sroa.0.0223, i64 %113
   %119 = load i8, ptr %118, align 1, !alias.scope !181, !noalias !184, !noundef !4
   %120 = icmp sgt i8 %119, -65
   br i1 %120, label %296, label %295
 
 121:                                              ; preds = %115
-  %122 = icmp eq i64 %113, %.sroa.20.0220
+  %122 = icmp eq i64 %113, %.sroa.20.0222
   br i1 %122, label %296, label %295
 
 123:                                              ; preds = %61
-  %.not144 = icmp eq i64 %.sroa.20.0220, 1
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 1
+  %.not144 = icmp eq i64 %.sroa.20.0222, 1
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 1
   br i1 %.not144, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99.thread", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit": ; preds = %123
   %125 = load i8, ptr %124, align 1, !alias.scope !186, !noundef !4
   %126 = icmp sgt i8 %125, -65
-  %127 = add i64 %.sroa.20.0220, -1
+  %127 = add i64 %.sroa.20.0222, -1
   br i1 %126, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99", label %134
 
 128:                                              ; preds = %61
-  %.not142 = icmp eq i64 %.sroa.20.0220, 1
+  %.not142 = icmp eq i64 %.sroa.20.0222, 1
   br i1 %.not142, label %248, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit62"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit62": ; preds = %128
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 1
   %130 = load i8, ptr %129, align 1, !alias.scope !189, !noundef !4
   %131 = icmp sgt i8 %130, -65
-  %132 = add i64 %.sroa.20.0220, -1
+  %132 = add i64 %.sroa.20.0222, -1
   br i1 %131, label %214, label %213
 
 133:                                              ; preds = %61
   br i1 %3, label %292, label %280
 
 134:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit"
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0221, i64 noundef %.sroa.20.0220, i64 noundef 1, i64 noundef %.sroa.20.0220, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.24) #13
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0223, i64 noundef %.sroa.20.0222, i64 noundef 1, i64 noundef %.sroa.20.0222, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.24) #13
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99.thread": ; preds = %123
@@ -904,9 +904,9 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
 
 138:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99.thread", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99"
   %139 = phi i64 [ %135, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99.thread" ], [ %136, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99" ]
-  %.ph313 = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99.thread" ], [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99" ]
+  %.ph301321 = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99.thread" ], [ %127, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd03d6845ecef932aE.exit99" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !204
-  call fastcc void @_ZN7snippet9parse_int17hb618848ca3f92ca2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %.ph313), !noalias !205
+  call fastcc void @_ZN7snippet9parse_int17hb618848ca3f92ca2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %.ph301321), !noalias !205
   %140 = load ptr, ptr %21, align 8, !noalias !204, !noundef !4
   %141 = icmp eq ptr %140, null
   br i1 %141, label %147, label %146
@@ -917,7 +917,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %.not145, label %.critedge, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit94"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit94": ; preds = %142
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 2
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 2
   %144 = load i8, ptr %143, align 1, !alias.scope !206, !noalias !205, !noundef !4
   %145 = icmp sgt i8 %144, -65
   br i1 %145, label %.critedge, label %167
@@ -985,12 +985,12 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br label %202
 
 167:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit94"
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %127, i64 noundef 1, i64 noundef %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.30) #13, !noalias !205
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %127, i64 noundef 1, i64 noundef %127, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.30) #13, !noalias !205
   unreachable
 
 .critedge:                                        ; preds = %142, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit94"
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 2
-  %169 = add i64 %.sroa.20.0220, -2
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 2
+  %169 = add i64 %.sroa.20.0222, -2
   call fastcc void @_ZN7snippet9parse_int17hb618848ca3f92ca2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %168, i64 noundef %169), !noalias !205
   %170 = load ptr, ptr %19, align 8, !noalias !204, !noundef !4
   %171 = icmp eq ptr %170, null
@@ -1042,7 +1042,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %182, label %.critedge151, label %183
 
 183:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit83"
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %170, i64 noundef %.sroa.638.0.copyload.i, i64 noundef 1, i64 noundef %.sroa.638.0.copyload.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.31) #13, !noalias !205
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %170, i64 noundef %.sroa.638.0.copyload.i, i64 noundef 1, i64 noundef %.sroa.638.0.copyload.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.31) #13, !noalias !205
   unreachable
 
 .critedge151:                                     ; preds = %179, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit83"
@@ -1085,7 +1085,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %199, label %201, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit80.thread"
 
 201:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit80"
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i131, i64 noundef %.sroa.16.1.i130, i64 noundef 1, i64 noundef %.sroa.16.1.i130, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.34) #13, !noalias !209
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i131, i64 noundef %.sroa.16.1.i130, i64 noundef 1, i64 noundef %.sroa.16.1.i130, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.34) #13, !noalias !209
   unreachable
 
 202:                                              ; preds = %"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$10or_default17h92da62391db5f09dE.exit", %165
@@ -1116,7 +1116,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %212, label %._crit_edge, label %24
 
 213:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit62"
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0221, i64 noundef %.sroa.20.0220, i64 noundef 1, i64 noundef %.sroa.20.0220, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.25) #13
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0223, i64 noundef %.sroa.20.0222, i64 noundef 1, i64 noundef %.sroa.20.0222, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.25) #13
   unreachable
 
 214:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit62"
@@ -1124,7 +1124,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %215, label %226, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit12.i64"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit12.i64": ; preds = %214
-  %216 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 2
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 2
   %217 = and i8 %130, 31
   %218 = zext nneg i8 %217 to i32
   %219 = icmp ne i64 %132, 1
@@ -1142,7 +1142,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br label %256
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit14.i67": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit12.i64"
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 3
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 3
   %229 = icmp ne i64 %132, 2
   tail call void @llvm.assume(i1 %229)
   %230 = load i8, ptr %228, align 1, !noalias !233, !noundef !4
@@ -1156,7 +1156,7 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   br i1 %237, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit16.i68", label %256
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit16.i68": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2e45460b9480945E.exit14.i67"
-  %238 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 4
   %239 = icmp ne i64 %132, 3
   tail call void @llvm.assume(i1 %239)
   %240 = load i8, ptr %238, align 1, !noalias !233, !noundef !4
@@ -1173,13 +1173,13 @@ define internal fastcc void @_ZN7snippet13parse_snippet17h115d1f9287b059bbE(ptr 
   %249 = load i64, ptr %17, align 8, !alias.scope !236, !noundef !4
   %250 = load i64, ptr %4, align 8, !alias.scope !236, !noundef !4
   %251 = icmp eq i64 %249, %250
-  br i1 %251, label %252, label %.thread318
+  br i1 %251, label %252, label %.thread324
 
 252:                                              ; preds = %248
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hee2bc4e37d96365eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  br label %.thread318
+  br label %.thread324
 
-.thread318:                                       ; preds = %252, %248
+.thread324:                                       ; preds = %252, %248
   %253 = load ptr, ptr %18, align 8, !alias.scope !236, !nonnull !4, !noundef !4
   %254 = getelementptr inbounds i8, ptr %253, i64 %249
   store i8 92, ptr %254, align 1
@@ -1218,10 +1218,10 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %258, %263
   br i1 %.not143, label %._crit_edge, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit72"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit72": ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit
-  %267 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 2
+  %267 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 2
   %268 = load i8, ptr %267, align 1, !alias.scope !246, !noundef !4
   %269 = icmp slt i8 %268, -64
-  %270 = add i64 %.sroa.20.0220, -2
+  %270 = add i64 %.sroa.20.0222, -2
   br i1 %269, label %279, label %210
 
 271:                                              ; preds = %256
@@ -1243,7 +1243,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit73: ; preds = %271, %275
   br label %210
 
 279:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit72"
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %129, i64 noundef %132, i64 noundef 1, i64 noundef %132, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.26) #13
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %129, i64 noundef %132, i64 noundef 1, i64 noundef %132, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.26) #13
   unreachable
 
 280:                                              ; preds = %133
@@ -1262,33 +1262,33 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit74: ; preds = %280, %284
   store i8 125, ptr %286, align 1
   %287 = add i64 %281, 1
   store i64 %287, ptr %17, align 8, !alias.scope !254
-  %.not = icmp eq i64 %.sroa.20.0220, 1
+  %.not = icmp eq i64 %.sroa.20.0222, 1
   br i1 %.not, label %._crit_edge, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit77"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit77": ; preds = %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit74
-  %288 = getelementptr inbounds nuw i8, ptr %.sroa.0.0221, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %.sroa.0.0223, i64 1
   %289 = load i8, ptr %288, align 1, !alias.scope !259, !noundef !4
   %290 = icmp slt i8 %289, -64
-  %291 = add i64 %.sroa.20.0220, -1
+  %291 = add i64 %.sroa.20.0222, -1
   br i1 %290, label %294, label %210
 
 292:                                              ; preds = %133
-  store ptr %.sroa.0.0221, ptr %0, align 8
+  store ptr %.sroa.0.0223, ptr %0, align 8
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.20.0220, ptr %293, align 8
+  store i64 %.sroa.20.0222, ptr %293, align 8
   br label %63
 
 294:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hd30f76576d92798aE.exit77"
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0221, i64 noundef %.sroa.20.0220, i64 noundef 1, i64 noundef %.sroa.20.0220, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.27) #13
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0223, i64 noundef %.sroa.20.0222, i64 noundef 1, i64 noundef %.sroa.20.0222, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.27) #13
   unreachable
 
 295:                                              ; preds = %121, %117
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0221, i64 noundef %.sroa.20.0220, i64 noundef 0, i64 noundef %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.29) #13
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0223, i64 noundef %.sroa.20.0222, i64 noundef 0, i64 noundef %113, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.29) #13
   unreachable
 
 296:                                              ; preds = %121, %117, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h34785e2544eff082E.exit"
-  %297 = sub nuw i64 %.sroa.20.0220, %113
-  %298 = getelementptr inbounds i8, ptr %.sroa.0.0221, i64 %113
+  %297 = sub nuw i64 %.sroa.20.0222, %113
+  %298 = getelementptr inbounds i8, ptr %.sroa.0.0223, i64 %113
   %299 = load i64, ptr %17, align 8, !alias.scope !262, !noundef !4
   %300 = load i64, ptr %4, align 8, !alias.scope !262, !noundef !4
   %301 = sub i64 %300, %299
@@ -1304,7 +1304,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit74: ; preds = %280, %284
   %304 = phi i64 [ %.pre.i, %303 ], [ %299, %296 ]
   %305 = load ptr, ptr %18, align 8, !alias.scope !262, !nonnull !4, !noundef !4
   %306 = getelementptr inbounds i8, ptr %305, i64 %304
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %306, ptr nonnull readonly align 1 %.sroa.0.0221, i64 %113, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %306, ptr nonnull readonly align 1 %.sroa.0.0223, i64 %113, i1 false)
   %307 = load i64, ptr %17, align 8, !alias.scope !262, !noundef !4
   %308 = add i64 %307, %113
   store i64 %308, ptr %17, align 8, !alias.scope !262
@@ -1430,7 +1430,7 @@ define internal fastcc void @_ZN7snippet9parse_int17hb618848ca3f92ca2E(ptr dead_
   ret void
 
 70:                                               ; preds = %67, %63
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %spec.select, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.29) #13
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %spec.select, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbb922842f55a364d156472541a937b3.29) #13
   unreachable
 
 71:                                               ; preds = %67, %63

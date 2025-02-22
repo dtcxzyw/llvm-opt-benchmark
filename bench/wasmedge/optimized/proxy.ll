@@ -1653,15 +1653,12 @@ _ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit.i: ;
   br i1 %.not.i, label %15, label %_ZN8WasmEdge8Executor8Executor16refGetFuncSymbolERNS_7Runtime12StackManagerENS_10RefVariantE.exit
 
 15:                                               ; preds = %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit.i
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = icmp eq i8 %5, 1
-  %spec.select.i.i.i.i = select i1 %17, ptr %16, ptr null
-  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 16
-  %19 = load ptr, ptr %18, align 8, !noalias !61
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %17 = load ptr, ptr %16, align 8, !noalias !61
   br label %_ZN8WasmEdge8Executor8Executor16refGetFuncSymbolERNS_7Runtime12StackManagerENS_10RefVariantE.exit
 
 _ZN8WasmEdge8Executor8Executor16refGetFuncSymbolERNS_7Runtime12StackManagerENS_10RefVariantE.exit: ; preds = %15, %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit.i
-  %.sink.i = phi ptr [ %19, %15 ], [ null, %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit.i ]
+  %.sink.i = phi ptr [ %17, %15 ], [ null, %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit.i ]
   ret ptr %.sink.i
 }
 
@@ -1975,7 +1972,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @_ZN8WasmEdge8Executor8Executor18tableGetFuncSymbolERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.83") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.102", align 16
   %8 = invoke noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3)
-          to label %9 unwind label %103
+          to label %9 unwind label %101
 
 9:                                                ; preds = %6
   %10 = icmp ne ptr %8, null
@@ -1989,7 +1986,7 @@ define void @_ZN8WasmEdge8Executor8Executor18tableGetFuncSymbolERNS_7Runtime12St
   store i8 0, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1036, ptr %14, align 8
-  br label %102
+  br label %100
 
 15:                                               ; preds = %9
   call void @_ZNK8WasmEdge7Runtime8Instance13TableInstance10getRefAddrEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.102") align 16 %7, ptr noundef nonnull align 16 dereferenceable(64) %8, i32 noundef %5) #25
@@ -2005,7 +2002,7 @@ define void @_ZN8WasmEdge8Executor8Executor18tableGetFuncSymbolERNS_7Runtime12St
   store i8 0, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1035, ptr %22, align 8
-  br label %102
+  br label %100
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2104,7 +2101,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit: ; preds = %_ZNSt1
   store i8 0, ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1037, ptr %81, align 8
-  br label %102
+  br label %100
 
 82:                                               ; preds = %61, %74
   %83 = getelementptr inbounds nuw i8, ptr %52, i64 88
@@ -2139,27 +2136,24 @@ _ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit: ; p
   store i8 1, ptr %0, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %95, align 8
-  br label %102
+  br label %100
 
 96:                                               ; preds = %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit
-  %97 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %98 = icmp eq i8 %84, 1
-  %spec.select.i.i.i = select i1 %98, ptr %97, ptr null
-  %99 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 16
-  %100 = load ptr, ptr %99, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %98 = load ptr, ptr %97, align 8
   store i8 1, ptr %0, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %100, ptr %101, align 8
-  br label %102
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %98, ptr %99, align 8
+  br label %100
 
-102:                                              ; preds = %96, %94, %80, %21, %13
+100:                                              ; preds = %96, %94, %80, %21, %13
   ret void
 
-103:                                              ; preds = %6
-  %104 = landingpad { ptr, i32 }
+101:                                              ; preds = %6
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  tail call void @__clang_call_terminate(ptr %105) #26
+  %103 = extractvalue { ptr, i32 } %102, 0
+  tail call void @__clang_call_terminate(ptr %103) #26
   unreachable
 }
 
@@ -2353,185 +2347,169 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9mat
 7:                                                ; preds = %4
   switch i8 %5, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit [
     i8 96, label %8
-    i8 95, label %60
-    i8 94, label %109
+    i8 95, label %54
+    i8 94, label %97
   ]
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %11 = load i8, ptr %10, align 8
-  %12 = icmp eq i8 %11, 1
-  %spec.select.i.i.i = select i1 %12, ptr %9, ptr null
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %15 = load i8, ptr %14, align 8
-  %16 = icmp eq i8 %15, 1
-  %spec.select.i.i.i26 = select i1 %16, ptr %13, ptr null
-  %17 = load ptr, ptr %spec.select.i.i.i26, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i26, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = ptrtoint ptr %17 to i64
-  %22 = sub i64 %20, %21
-  %23 = ashr exact i64 %22, 3
-  %24 = load ptr, ptr %spec.select.i.i.i, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %24 to i64
-  %29 = sub i64 %27, %28
-  %.not.i = icmp eq i64 %22, %29
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = ptrtoint ptr %11 to i64
+  %16 = sub i64 %14, %15
+  %17 = ashr exact i64 %16, 3
+  %18 = load ptr, ptr %9, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %22 = ptrtoint ptr %18 to i64
+  %23 = sub i64 %21, %22
+  %.not.i = icmp eq i64 %16, %23
   br i1 %.not.i, label %.preheader.i, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
 .preheader.i:                                     ; preds = %8
-  %.not16.i = icmp eq ptr %19, %17
+  %.not16.i = icmp eq ptr %13, %11
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
 
-30:                                               ; preds = %.lr.ph.i
-  %31 = add i32 %.013.i, 1
-  %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %23, %32
-  br i1 %33, label %.lr.ph.i, label %.loopexit, !llvm.loop !84
+24:                                               ; preds = %.lr.ph.i
+  %25 = add i32 %.013.i, 1
+  %26 = zext i32 %25 to i64
+  %27 = icmp ugt i64 %17, %26
+  br i1 %27, label %.lr.ph.i, label %.loopexit, !llvm.loop !84
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %30
-  %34 = phi i64 [ %32, %30 ], [ 0, %.preheader.i ]
-  %.013.i = phi i32 [ %31, %30 ], [ 0, %.preheader.i ]
-  %35 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %17, i64 %34
-  %36 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %24, i64 %34
-  %37 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %36) #25
-  br i1 %37, label %30, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+.lr.ph.i:                                         ; preds = %.preheader.i, %24
+  %28 = phi i64 [ %26, %24 ], [ 0, %.preheader.i ]
+  %.013.i = phi i32 [ %25, %24 ], [ 0, %.preheader.i ]
+  %29 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %11, i64 %28
+  %30 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %18, i64 %28
+  %31 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %29, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %30) #25
+  br i1 %31, label %24, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-.loopexit:                                        ; preds = %30, %.preheader.i
-  %38 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 32
+.loopexit:                                        ; preds = %24, %.preheader.i
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %33 to i64
+  %38 = sub i64 %36, %37
+  %39 = ashr exact i64 %38, 3
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %39 to i64
-  %44 = sub i64 %42, %43
-  %45 = ashr exact i64 %44, 3
-  %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i26, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i26, i64 32
-  %49 = load ptr, ptr %48, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = ptrtoint ptr %47 to i64
-  %52 = sub i64 %50, %51
-  %.not.i27 = icmp eq i64 %44, %52
-  br i1 %.not.i27, label %.preheader.i29, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %43 = load ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %41 to i64
+  %46 = sub i64 %44, %45
+  %.not.i26 = icmp eq i64 %38, %46
+  br i1 %.not.i26, label %.preheader.i28, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-.preheader.i29:                                   ; preds = %.loopexit
-  %.not16.i30 = icmp eq ptr %41, %39
-  br i1 %.not16.i30, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, label %.lr.ph.i31
+.preheader.i28:                                   ; preds = %.loopexit
+  %.not16.i29 = icmp eq ptr %35, %33
+  br i1 %.not16.i29, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, label %.lr.ph.i30
 
-.lr.ph.i31:                                       ; preds = %.preheader.i29, %.lr.ph.i31
-  %53 = phi i64 [ %58, %.lr.ph.i31 ], [ 0, %.preheader.i29 ]
-  %.013.i32 = phi i32 [ %57, %.lr.ph.i31 ], [ 0, %.preheader.i29 ]
-  %54 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %39, i64 %53
-  %55 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %47, i64 %53
-  %56 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %54, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %55) #25
-  %57 = add i32 %.013.i32, 1
-  %58 = zext i32 %57 to i64
-  %59 = icmp ugt i64 %45, %58
-  %or.cond = select i1 %56, i1 %59, i1 false
-  br i1 %or.cond, label %.lr.ph.i31, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, !llvm.loop !84
+.lr.ph.i30:                                       ; preds = %.preheader.i28, %.lr.ph.i30
+  %47 = phi i64 [ %52, %.lr.ph.i30 ], [ 0, %.preheader.i28 ]
+  %.013.i31 = phi i32 [ %51, %.lr.ph.i30 ], [ 0, %.preheader.i28 ]
+  %48 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %33, i64 %47
+  %49 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %41, i64 %47
+  %50 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %48, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(8) %49) #25
+  %51 = add i32 %.013.i31, 1
+  %52 = zext i32 %51 to i64
+  %53 = icmp ugt i64 %39, %52
+  %or.cond = select i1 %50, i1 %53, i1 false
+  br i1 %or.cond, label %.lr.ph.i30, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, !llvm.loop !84
 
-60:                                               ; preds = %7
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %63 = load i8, ptr %62, align 8
-  %64 = icmp eq i8 %63, 0
-  %spec.select.i.i.i34 = select i1 %64, ptr %61, ptr null
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %67 = load i8, ptr %66, align 8
-  %68 = icmp eq i8 %67, 0
-  %spec.select.i.i.i35 = select i1 %68, ptr %65, ptr null
-  %69 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i35, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %spec.select.i.i.i35, align 8
-  %72 = ptrtoint ptr %70 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i34, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %spec.select.i.i.i34, align 8
-  %78 = ptrtoint ptr %76 to i64
-  %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %81 = icmp ult i64 %74, %80
-  br i1 %81, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, label %.preheader
+54:                                               ; preds = %7
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %56, align 8
+  %60 = ptrtoint ptr %58 to i64
+  %61 = ptrtoint ptr %59 to i64
+  %62 = sub i64 %60, %61
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %55, align 8
+  %66 = ptrtoint ptr %64 to i64
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %69 = icmp ult i64 %62, %68
+  br i1 %69, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, label %.preheader
 
-.preheader:                                       ; preds = %60
-  %.not75 = icmp eq ptr %76, %77
-  br i1 %.not75, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, label %.lr.ph
+.preheader:                                       ; preds = %54
+  %.not70 = icmp eq ptr %64, %65
+  br i1 %.not70, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %99
-  %82 = phi ptr [ %103, %99 ], [ %77, %.preheader ]
-  %83 = phi i64 [ %101, %99 ], [ 0, %.preheader ]
-  %.02469 = phi i32 [ %100, %99 ], [ 0, %.preheader ]
-  %84 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %82, i64 %83
-  %85 = load ptr, ptr %spec.select.i.i.i35, align 8
-  %86 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %85, i64 %83
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %88 = load i8, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %90 = load i8, ptr %89, align 4
-  %91 = icmp eq i8 %88, %90
-  br i1 %91, label %92, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+.lr.ph:                                           ; preds = %.preheader, %87
+  %70 = phi ptr [ %91, %87 ], [ %65, %.preheader ]
+  %71 = phi i64 [ %89, %87 ], [ 0, %.preheader ]
+  %.02464 = phi i32 [ %88, %87 ], [ 0, %.preheader ]
+  %72 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %70, i64 %71
+  %73 = load ptr, ptr %56, align 8
+  %74 = getelementptr inbounds nuw %"class.WasmEdge::AST::FieldType", ptr %73, i64 %71
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %76 = load i8, ptr %75, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %78 = load i8, ptr %77, align 4
+  %79 = icmp eq i8 %76, %78
+  br i1 %79, label %80, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-92:                                               ; preds = %.lr.ph
-  %93 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %84, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %86) #25
-  %94 = load i8, ptr %87, align 4
-  %95 = icmp eq i8 %94, 1
-  br i1 %95, label %96, label %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit
+80:                                               ; preds = %.lr.ph
+  %81 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %72, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %74) #25
+  %82 = load i8, ptr %75, align 4
+  %83 = icmp eq i8 %82, 1
+  br i1 %83, label %84, label %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit
 
-96:                                               ; preds = %92
-  %97 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %86, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %84) #25
-  %98 = and i1 %93, %97
-  br i1 %98, label %99, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+84:                                               ; preds = %80
+  %85 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %74, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %72) #25
+  %86 = and i1 %81, %85
+  br i1 %86, label %87, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit: ; preds = %92
-  br i1 %93, label %99, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit: ; preds = %80
+  br i1 %81, label %87, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-99:                                               ; preds = %96, %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit
-  %100 = add i32 %.02469, 1
-  %101 = zext i32 %100 to i64
-  %102 = load ptr, ptr %75, align 8
-  %103 = load ptr, ptr %spec.select.i.i.i34, align 8
-  %104 = ptrtoint ptr %102 to i64
-  %105 = ptrtoint ptr %103 to i64
-  %106 = sub i64 %104, %105
-  %107 = sdiv exact i64 %106, 12
-  %108 = icmp ugt i64 %107, %101
-  br i1 %108, label %.lr.ph, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, !llvm.loop !85
+87:                                               ; preds = %84, %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit
+  %88 = add i32 %.02464, 1
+  %89 = zext i32 %88 to i64
+  %90 = load ptr, ptr %63, align 8
+  %91 = load ptr, ptr %55, align 8
+  %92 = ptrtoint ptr %90 to i64
+  %93 = ptrtoint ptr %91 to i64
+  %94 = sub i64 %92, %93
+  %95 = sdiv exact i64 %94, 12
+  %96 = icmp ugt i64 %95, %89
+  br i1 %96, label %.lr.ph, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit, !llvm.loop !85
 
-109:                                              ; preds = %7
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %112 = load ptr, ptr %110, align 8
-  %113 = load ptr, ptr %111, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %115 = load i8, ptr %114, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %117 = load i8, ptr %116, align 4
-  %118 = icmp eq i8 %115, %117
-  br i1 %118, label %119, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+97:                                               ; preds = %7
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %100 = load ptr, ptr %98, align 8
+  %101 = load ptr, ptr %99, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %103 = load i8, ptr %102, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %105 = load i8, ptr %104, align 4
+  %106 = icmp eq i8 %103, %105
+  br i1 %106, label %107, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-119:                                              ; preds = %109
-  %120 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %112, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %113) #25
-  %121 = load i8, ptr %114, align 4
-  %122 = icmp eq i8 %121, 1
-  br i1 %122, label %123, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
+107:                                              ; preds = %97
+  %108 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %100, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %101) #25
+  %109 = load i8, ptr %102, align 4
+  %110 = icmp eq i8 %109, 1
+  br i1 %110, label %111, label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-123:                                              ; preds = %119
-  %124 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %113, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %112) #25
-  %125 = and i1 %120, %124
+111:                                              ; preds = %107
+  %112 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %101, ptr %0, i64 %1, ptr noundef nonnull align 4 dereferenceable(9) %100) #25
+  %113 = and i1 %108, %112
   br label %_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit
 
-_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit: ; preds = %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit, %99, %96, %.lr.ph, %.lr.ph.i, %.lr.ph.i31, %.preheader, %123, %119, %109, %.preheader.i29, %.loopexit, %8, %7, %60, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %60 ], [ false, %7 ], [ false, %8 ], [ false, %.loopexit ], [ true, %.preheader.i29 ], [ %125, %123 ], [ %120, %119 ], [ false, %109 ], [ true, %.preheader ], [ %56, %.lr.ph.i31 ], [ false, %.lr.ph.i ], [ false, %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit ], [ true, %99 ], [ false, %96 ], [ false, %.lr.ph ]
+_ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEESB_.exit: ; preds = %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit, %87, %84, %.lr.ph, %.lr.ph.i, %.lr.ph.i30, %.preheader, %111, %107, %97, %.preheader.i28, %.loopexit, %8, %7, %54, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %54 ], [ false, %7 ], [ false, %8 ], [ false, %.loopexit ], [ true, %.preheader.i28 ], [ %113, %111 ], [ %108, %107 ], [ false, %97 ], [ true, %.preheader ], [ %50, %.lr.ph.i30 ], [ false, %.lr.ph.i ], [ false, %_ZZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS0_13CompositeTypeESB_ENKUlRKNS0_9FieldTypeESE_E_clESE_SE_.exit ], [ true, %87 ], [ false, %84 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -5269,21 +5247,18 @@ _ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit: ; p
   %.08.i.i.i = phi i64 [ 3, %13 ], [ %.1.i.i.i, %15 ]
   %17 = sext i8 %8 to i64
   %.not = icmp eq i64 %.08.i.i.i, %17
-  br i1 %.not, label %18, label %23
+  br i1 %.not, label %18, label %21
 
 18:                                               ; preds = %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %20 = icmp eq i8 %8, 1
-  %spec.select.i.i.i = select i1 %20, ptr %19, ptr null
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 16
-  %22 = load ptr, ptr %21, align 8
-  br label %23
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %20 = load ptr, ptr %19, align 8
+  br label %21
 
-23:                                               ; preds = %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit, %18
-  %.sink = phi ptr [ %22, %18 ], [ null, %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit ]
+21:                                               ; preds = %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit, %18
+  %.sink = phi ptr [ %20, %18 ], [ null, %_ZNK8WasmEdge7Runtime8Instance16FunctionInstance18isCompiledFunctionEv.exit ]
   store i8 1, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %24, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %22, align 8
   ret void
 }
 
@@ -32827,49 +32802,33 @@ switch.lookup:
   %switch.downshift = lshr i24 7367530, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   %4 = load i8, ptr %2, align 8
-  %switch.tableidx21 = add nsw i8 %4, -94
-  %switch.cast22 = zext i8 %switch.tableidx21 to i24
-  %switch.shiftamt23 = shl nuw nsw i24 %switch.cast22, 3
-  %switch.downshift24 = lshr i24 7367530, %switch.shiftamt23
-  %switch.masked25 = trunc i24 %switch.downshift24 to i8
-  %.not = icmp eq i8 %switch.masked, %switch.masked25
-  br i1 %.not, label %5, label %27
+  %switch.tableidx18 = add nsw i8 %4, -94
+  %switch.cast19 = zext i8 %switch.tableidx18 to i24
+  %switch.shiftamt20 = shl nuw nsw i24 %switch.cast19, 3
+  %switch.downshift21 = lshr i24 7367530, %switch.shiftamt20
+  %switch.masked22 = trunc i24 %switch.downshift21 to i8
+  %.not = icmp eq i8 %switch.masked, %switch.masked22
+  br i1 %.not, label %5, label %15
 
 5:                                                ; preds = %switch.lookup
   %switch = icmp eq i8 %3, 96
-  br i1 %switch, label %6, label %16
+  br i1 %switch, label %6, label %10
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %9 = load i8, ptr %8, align 8
-  %10 = icmp eq i8 %9, 1
-  %spec.select.i.i.i = select i1 %10, ptr %7, ptr null
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %13 = load i8, ptr %12, align 8
-  %14 = icmp eq i8 %13, 1
-  %spec.select.i.i.i13 = select i1 %14, ptr %11, ptr null
-  %15 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKNS0_12FunctionTypeESB_E_clESB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i13)
-  br label %27
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKNS0_12FunctionTypeESB_E_clESB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
+  br label %15
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load i8, ptr %19, align 8
-  %21 = icmp eq i8 %20, 0
-  %spec.select.i.i.i14 = select i1 %21, ptr %18, ptr null
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %24 = load i8, ptr %23, align 8
-  %25 = icmp eq i8 %24, 0
-  %spec.select.i.i.i15 = select i1 %25, ptr %22, ptr null
-  %26 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKSt6vectorINS0_9FieldTypeESaISA_EESE_E_clESE_SE_(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i14, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i15)
-  br label %27
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = tail call noundef zeroext i1 @_ZZN8WasmEdge3AST11TypeMatcher14isRecTypeEqualEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEEjS8_jjENKUlRKSt6vectorINS0_9FieldTypeESaISA_EESE_E_clESE_SE_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  br label %15
 
-27:                                               ; preds = %switch.lookup, %16, %6
-  %.0 = phi i1 [ %26, %16 ], [ %15, %6 ], [ false, %switch.lookup ]
+15:                                               ; preds = %switch.lookup, %10, %6
+  %.0 = phi i1 [ %14, %10 ], [ %9, %6 ], [ false, %switch.lookup ]
   ret i1 %.0
 }
 

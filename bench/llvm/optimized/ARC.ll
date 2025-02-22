@@ -529,14 +529,14 @@ _ZNK12_GLOBAL__N_110ARCABIInfo11updateStateERKN5clang7CodeGen10ABIArgInfoENS1_8Q
   %74 = load ptr, ptr %73, align 16, !tbaa !36, !noalias !54
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i8, ptr %75, align 16, !noalias !54
-  %77 = icmp eq i8 %76, 47
-  %spec.select.i.i.i.i.i = select i1 %77, ptr %74, ptr null
-  %.not.i28 = icmp eq ptr %spec.select.i.i.i.i.i, null
+  %77 = icmp ne i8 %76, 47
+  %.not78.i = icmp eq ptr %74, null
+  %.not.i28 = or i1 %.not78.i, %77
   br i1 %.not.i28, label %95, label %78
 
 78:                                               ; preds = %67
   %79 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang7CodeGen7ABIInfo9getCXXABIEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #13, !noalias !54
-  %80 = call noundef i32 @_ZN5clang7CodeGen15getRecordArgABIEPKNS_10RecordTypeERNS0_8CGCXXABIE(ptr noundef nonnull %spec.select.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %79) #13, !noalias !54
+  %80 = call noundef i32 @_ZN5clang7CodeGen15getRecordArgABIEPKNS_10RecordTypeERNS0_8CGCXXABIE(ptr noundef nonnull %74, ptr noundef nonnull align 8 dereferenceable(24) %79) #13, !noalias !54
   switch i32 %80, label %._crit_edge.i [
     i32 2, label %81
     i32 1, label %85
@@ -546,9 +546,9 @@ _ZNK12_GLOBAL__N_110ARCABIInfo11updateStateERKN5clang7CodeGen10ABIArgInfoENS1_8Q
   %.pre.i = load ptr, ptr %69, align 16, !tbaa !36, !noalias !54
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.sroa.0.0.copyload.i.i.i.i49.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !32, !noalias !54
-  %.pre82.i = and i64 %.sroa.0.0.copyload.i.i.i.i49.pre.i, -16
-  %.pre83.i = inttoptr i64 %.pre82.i to ptr
-  %.pre = load ptr, ptr %.pre83.i, align 16, !tbaa !36, !noalias !54
+  %.pre83.i = and i64 %.sroa.0.0.copyload.i.i.i.i49.pre.i, -16
+  %.pre84.i = inttoptr i64 %.pre83.i to ptr
+  %.pre = load ptr, ptr %.pre84.i, align 16, !tbaa !36, !noalias !54
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre62 = load i8, ptr %.phi.trans.insert, align 16, !noalias !54
   br label %95
@@ -654,12 +654,12 @@ _ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i:     ; preds = %_ZNK5clang8QualType
   br i1 %.not.i28, label %144, label %129
 
 129:                                              ; preds = %128
-  %130 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %spec.select.i.i.i.i.i) #13, !noalias !54
+  %130 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %74) #13, !noalias !54
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 72
   %132 = load i64, ptr %131, align 8, !noalias !54
   %133 = and i64 %132, 8388608
-  %.not78.i = icmp eq i64 %133, 0
-  br i1 %.not78.i, label %144, label %134
+  %.not79.i = icmp eq i64 %133, 0
+  br i1 %.not79.i, label %144, label %134
 
 134:                                              ; preds = %129
   call void @llvm.experimental.noalias.scope.decl(metadata !67)

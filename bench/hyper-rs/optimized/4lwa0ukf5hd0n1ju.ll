@@ -187,7 +187,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   store ptr %12, ptr %4, align 8, !noalias !65
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.0.i.i.i, ptr %26, align 8, !noalias !65
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e3fd6697359ea4b074a4c36e76bfe89c.24, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3fd6697359ea4b074a4c36e76bfe89c.25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3fd6697359ea4b074a4c36e76bfe89c.28) #10
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.e3fd6697359ea4b074a4c36e76bfe89c.24, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3fd6697359ea4b074a4c36e76bfe89c.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3fd6697359ea4b074a4c36e76bfe89c.28) #10
           to label %29 unwind label %27, !noalias !65
 
 27:                                               ; preds = %25

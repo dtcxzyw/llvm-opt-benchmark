@@ -504,7 +504,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   br i1 %.not.i.i, label %25, label %22
 
 22:                                               ; preds = %.noexc12
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bfefb9a4c2df72a054720e9de596f40f.5.llvm.17524819724888147029) #14
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bfefb9a4c2df72a054720e9de596f40f.5.llvm.17524819724888147029) #14
           to label %.noexc13 unwind label %23
 
 .noexc13:                                         ; preds = %22

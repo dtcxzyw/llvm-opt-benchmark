@@ -1814,9 +1814,9 @@ define hidden noundef zeroext i1 @_ZN13ArrayCopyNode16finish_transformEP8PhaseGV
   br i1 %37, label %38, label %116
 
 38:                                               ; preds = %30
-  tail call void @_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %22, ptr noundef %4)
+  tail call void @_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %22, ptr noundef %4)
   %39 = tail call noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 0) #10
-  tail call void @_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef %39, ptr noundef %3)
+  tail call void @_ZN12PhaseIterGVN12replace_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %39, ptr noundef %3)
   br label %116
 
 40:                                               ; preds = %7
@@ -1831,11 +1831,11 @@ define hidden noundef zeroext i1 @_ZN13ArrayCopyNode16finish_transformEP8PhaseGV
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %42) #10
+  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %42) #10
   %48 = getelementptr inbounds nuw i8, ptr %..i, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull %42) #10
-  call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %42, ptr noundef %47) #10
+  call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %42, ptr noundef %47) #10
   br label %51
 
 51:                                               ; preds = %43, %40
@@ -1845,11 +1845,11 @@ define hidden noundef zeroext i1 @_ZN13ArrayCopyNode16finish_transformEP8PhaseGV
   br i1 %.not29, label %58, label %54
 
 54:                                               ; preds = %51
-  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %53) #10
+  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %53) #10
   %55 = getelementptr inbounds nuw i8, ptr %..i, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull %53) #10
-  call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %53, ptr noundef %4) #10
+  call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %53, ptr noundef %4) #10
   br label %58
 
 58:                                               ; preds = %54, %51
@@ -1859,11 +1859,11 @@ define hidden noundef zeroext i1 @_ZN13ArrayCopyNode16finish_transformEP8PhaseGV
   br i1 %.not30, label %65, label %61
 
 61:                                               ; preds = %58
-  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %60) #10
+  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %60) #10
   %62 = getelementptr inbounds nuw i8, ptr %..i, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull %60) #10
-  call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %60, ptr noundef %3) #10
+  call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %60, ptr noundef %3) #10
   br label %65
 
 65:                                               ; preds = %61, %58

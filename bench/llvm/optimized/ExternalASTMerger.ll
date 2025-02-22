@@ -4624,25 +4624,25 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang17ExternalASTMerger12Compl
   br i1 %.not3, label %20, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %9) #23
+  %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %8) #23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 18200
   %16 = load ptr, ptr %15, align 8, !tbaa !636
   %17 = load ptr, ptr %16, align 8, !tbaa !461
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %9) #19
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %8) #19
   br label %20
 
 20:                                               ; preds = %13, %2
-  %21 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %9) #19
+  %21 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %8) #19
   %.not = icmp ne ptr %21, null
   br i1 %.not, label %22, label %48
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %.0.val, align 8, !tbaa !49
-  %24 = tail call noundef ptr @_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %9, ptr noundef %23) #19
+  %24 = tail call noundef ptr @_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %8, ptr noundef %23) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  call void @_ZN5clang11ASTImporter16ImportDefinitionEPNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %9) #19
+  call void @_ZN5clang11ASTImporter16ImportDefinitionEPNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %8) #19
   %25 = load ptr, ptr %6, align 8, !tbaa !459
   %.not4 = icmp eq ptr %25, null
   br i1 %.not4, label %_ZN4llvm5ErrorD2Ev.exit11, label %26
@@ -4686,7 +4686,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang17ExternalASTMerger12Compl
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %22, %34, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   %40 = load ptr, ptr %.0.val, align 8, !tbaa !49
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 74
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %42 = load i8, ptr %41, align 2
   %43 = and i8 %42, 1
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 74
@@ -4723,13 +4723,13 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang17ExternalASTMerger12Compl
   br i1 %.not5, label %20, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %9) #23
+  %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %8) #23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 18200
   %16 = load ptr, ptr %15, align 8, !tbaa !636
   %17 = load ptr, ptr %16, align 8, !tbaa !461
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %9) #19
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %8) #19
   br label %20
 
 20:                                               ; preds = %13, %2
@@ -4760,9 +4760,9 @@ _ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang17ObjCI
 
 31:                                               ; preds = %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit
   %32 = load ptr, ptr %.0.val, align 8, !tbaa !446
-  %33 = tail call noundef ptr @_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %9, ptr noundef %32) #19
+  %33 = tail call noundef ptr @_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %8, ptr noundef %32) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  call void @_ZN5clang11ASTImporter16ImportDefinitionEPNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %9) #19
+  call void @_ZN5clang11ASTImporter16ImportDefinitionEPNS_4DeclE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(280360) %0, ptr noundef nonnull %8) #19
   %34 = load ptr, ptr %6, align 8, !tbaa !459
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %35

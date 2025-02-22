@@ -2661,7 +2661,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.thread.i:
   store ptr @anon.13eb5d01c31d2ad83fe1bd96278e8616.3, ptr %13, align 8, !noalias !799
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %14, align 8, !noalias !799
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.13eb5d01c31d2ad83fe1bd96278e8616.6) #19
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.13eb5d01c31d2ad83fe1bd96278e8616.6) #19
           to label %.noexc3 unwind label %15
 
 .noexc3:                                          ; preds = %.noexc2
@@ -11343,7 +11343,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..blocking..po
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4427)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !alias.scope !4430, !noalias !4433, !noundef !4
-  %4 = invoke { i64, i64 } @_ZN4core5slice5index5range17h605e7a3a892c941aE(i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c4ef75f68f11b730a5914ab63e31d916.29.llvm.5846782993716646778)
+  %4 = invoke { i64, i64 } @_ZN4core5slice5index5range17h605e7a3a892c941aE(i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4ef75f68f11b730a5914ab63e31d916.29.llvm.5846782993716646778)
           to label %.noexc.i unwind label %52, !noalias !4424
 
 .noexc.i:                                         ; preds = %1
@@ -14361,7 +14361,7 @@ define hidden void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.16543861
   store ptr @anon.13eb5d01c31d2ad83fe1bd96278e8616.3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.13eb5d01c31d2ad83fe1bd96278e8616.25) #19
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.13eb5d01c31d2ad83fe1bd96278e8616.25) #19
   unreachable
 
 9:                                                ; preds = %1

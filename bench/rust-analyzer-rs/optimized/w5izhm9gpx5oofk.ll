@@ -87,7 +87,7 @@ default.unreachable27:                            ; preds = %14, %3
   ]
 
 17:                                               ; preds = %8
-  tail call void @_ZN4core5slice5index31slice_start_index_overflow_fail17h19aded8e44765e48E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.94d1474cb3d461c144a60781f1921fff.2) #9
+  tail call void @_ZN4core5slice5index31slice_start_index_overflow_fail17h19aded8e44765e48E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94d1474cb3d461c144a60781f1921fff.2) #9
   unreachable
 
 18:                                               ; preds = %14
@@ -106,7 +106,7 @@ default.unreachable27:                            ; preds = %14, %3
   br label %28
 
 27:                                               ; preds = %18
-  tail call void @_ZN4core5slice5index29slice_end_index_overflow_fail17heef64b12073e1de3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.94d1474cb3d461c144a60781f1921fff.3) #9
+  tail call void @_ZN4core5slice5index29slice_end_index_overflow_fail17heef64b12073e1de3E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94d1474cb3d461c144a60781f1921fff.3) #9
   unreachable
 
 28:                                               ; preds = %18, %14, %24

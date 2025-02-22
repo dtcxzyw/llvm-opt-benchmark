@@ -819,7 +819,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7vputils24isUniformAcrossVFsAndUFsE
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit17, %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit15, %1
-  %.tr = phi ptr [ %0, %1 ], [ %117, %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit15 ], [ %121, %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit17 ]
+  %.tr = phi ptr [ %0, %1 ], [ %114, %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit15 ], [ %118, %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit17 ]
   %2 = tail call noundef ptr @_ZNK4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %.tr) #15
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", label %3
@@ -975,82 +975,79 @@ _ZN4llvm5VPlan14getCanonicalIVEv.exit:            ; preds = %62, %71
   %.0.i = phi ptr [ %67, %62 ], [ %77, %71 ]
   %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 120
   %79 = load ptr, ptr %78, align 8, !tbaa !125
-  %80 = icmp ne ptr %79, null
-  %81 = getelementptr inbounds i8, ptr %79, i64 -24
-  %82 = select i1 %80, ptr %81, ptr null
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 96
-  %84 = icmp eq ptr %83, %.tr
-  %85 = select i1 %80, i1 %84, i1 false
-  br i1 %85, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", label %86
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
+  %81 = icmp eq ptr %.tr, %80
+  br i1 %81, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", label %82
 
-86:                                               ; preds = %_ZN4llvm5VPlan14getCanonicalIVEv.exit
-  %87 = load ptr, ptr %82, align 8, !tbaa !12
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(152) %82) #15
-  %91 = icmp eq ptr %.tr, %90
-  br i1 %91, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", label %92
+82:                                               ; preds = %_ZN4llvm5VPlan14getCanonicalIVEv.exit
+  %83 = getelementptr inbounds i8, ptr %79, i64 -24
+  %84 = load ptr, ptr %83, align 8, !tbaa !12
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(152) %83) #15
+  %88 = icmp eq ptr %.tr, %87
+  br i1 %88, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", label %89
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %94 = load i8, ptr %93, align 8, !tbaa !46
-  %95 = icmp ne i8 %94, 1
-  %.not.i11 = or i1 %.not, %95
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %91 = load i8, ptr %90, align 8, !tbaa !46
+  %92 = icmp ne i8 %91, 1
+  %.not.i11 = or i1 %.not, %92
   br i1 %.not.i11, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPDerivedIVRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_1EERS4_OT0_.exit", label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit"
 
-"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPDerivedIVRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_1EERS4_OT0_.exit": ; preds = %92
-  %96 = icmp ne i8 %94, 9
-  %.not.i12 = or i1 %.not, %96
-  br i1 %.not.i12, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPReplicateRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_2EERS4_OT0_.exit", label %97
+"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPDerivedIVRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_1EERS4_OT0_.exit": ; preds = %89
+  %93 = icmp ne i8 %91, 9
+  %.not.i12 = or i1 %.not, %93
+  br i1 %.not.i12, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPReplicateRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_2EERS4_OT0_.exit", label %94
 
-97:                                               ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPDerivedIVRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_1EERS4_OT0_.exit"
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %99 = load i8, ptr %98, align 8, !tbaa !155, !range !158, !noundef !159
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %101, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit"
+94:                                               ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPDerivedIVRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_1EERS4_OT0_.exit"
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %96 = load i8, ptr %95, align 8, !tbaa !155, !range !158, !noundef !159
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %98, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit"
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %103 = load ptr, ptr %102, align 8, !tbaa !141
-  %104 = load i8, ptr %103, align 8, !tbaa !142
-  %105 = add i8 %104, -61
-  %spec.select.i.i = icmp ult i8 %105, 2
-  br i1 %spec.select.i.i, label %106, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit"
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %100 = load ptr, ptr %99, align 8, !tbaa !141
+  %101 = load i8, ptr %100, align 8, !tbaa !142
+  %102 = add i8 %101, -61
+  %spec.select.i.i = icmp ult i8 %102, 2
+  br i1 %spec.select.i.i, label %103, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit"
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %108 = load ptr, ptr %107, align 8, !tbaa !3
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %110 = load i32, ptr %109, align 8, !tbaa !9
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %108, i64 %111
-  %113 = tail call fastcc noundef zeroext i1 @"_ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_"(ptr noundef %108, ptr noundef %112)
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %105 = load ptr, ptr %104, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %107 = load i32, ptr %106, align 8, !tbaa !9
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
+  %110 = tail call fastcc noundef zeroext i1 @"_ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_"(ptr noundef %105, ptr noundef %109)
   br label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit"
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPReplicateRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_2EERS4_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPDerivedIVRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_1EERS4_OT0_.exit"
-  %114 = icmp ne i8 %94, 10
-  %.not.i13 = or i1 %.not, %114
+  %111 = icmp ne i8 %91, 10
+  %.not.i13 = or i1 %.not, %111
   br i1 %.not.i13, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_18VPScalarCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", label %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit15
 
 _ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit15: ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPReplicateRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_2EERS4_OT0_.exit"
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %116 = load ptr, ptr %115, align 8, !tbaa !3
-  %117 = load ptr, ptr %116, align 8, !tbaa !27
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %113 = load ptr, ptr %112, align 8, !tbaa !3
+  %114 = load ptr, ptr %113, align 8, !tbaa !27
   br label %tailrecurse
 
 "_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_18VPScalarCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPReplicateRecipeEZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_2EERS4_OT0_.exit"
-  %118 = icmp ne i8 %94, 16
-  %.not.i14 = or i1 %.not, %118
+  %115 = icmp ne i8 %91, 16
+  %.not.i14 = or i1 %.not, %115
   br i1 %.not.i14, label %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", label %_ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit17
 
 _ZNSt8optionalIbE7emplaceIJbEEENSt9enable_ifIX18is_constructible_vIbDpT_EERbE4typeEDpOS3_.exit17: ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_18VPScalarCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit"
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %120 = load ptr, ptr %119, align 8, !tbaa !3
-  %121 = load ptr, ptr %120, align 8, !tbaa !27
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %117 = load ptr, ptr %116, align 8, !tbaa !3
+  %118 = load ptr, ptr %117, align 8, !tbaa !27
   br label %tailrecurse
 
-"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_18VPScalarCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", %92, %106, %101, %97, %"_ZSt13__find_if_notIPPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZNS0_7vputils24isUniformAcrossVFsAndUFsES2_E3$_0EEET_SA_SA_T0_.exit", %_ZN4llvm17VPlanPatternMatch5matchINS_12VPRecipeBaseENS0_12Recipe_matchISt5tupleIJNS0_11class_matchINS_7VPValueEEEEELj77ELb0EJNS_13VPInstructionEEEEEEbPT_RKT0_.exit, %_ZN4llvm5VPlan14getCanonicalIVEv.exit, %86, %tailrecurse
-  %.0 = phi i1 [ true, %tailrecurse ], [ %61, %"_ZSt13__find_if_notIPPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZNS0_7vputils24isUniformAcrossVFsAndUFsES2_E3$_0EEET_SA_SA_T0_.exit" ], [ false, %_ZN4llvm17VPlanPatternMatch5matchINS_12VPRecipeBaseENS0_12Recipe_matchISt5tupleIJNS0_11class_matchINS_7VPValueEEEEELj77ELb0EJNS_13VPInstructionEEEEEEbPT_RKT0_.exit ], [ true, %86 ], [ true, %_ZN4llvm5VPlan14getCanonicalIVEv.exit ], [ false, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_18VPScalarCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit" ], [ true, %92 ], [ false, %101 ], [ false, %97 ], [ %113, %106 ]
+"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_17VPWidenCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit": ; preds = %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_18VPScalarCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit", %89, %103, %98, %94, %"_ZSt13__find_if_notIPPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZNS0_7vputils24isUniformAcrossVFsAndUFsES2_E3$_0EEET_SA_SA_T0_.exit", %_ZN4llvm17VPlanPatternMatch5matchINS_12VPRecipeBaseENS0_12Recipe_matchISt5tupleIJNS0_11class_matchINS_7VPValueEEEEELj77ELb0EJNS_13VPInstructionEEEEEEbPT_RKT0_.exit, %_ZN4llvm5VPlan14getCanonicalIVEv.exit, %82, %tailrecurse
+  %.0 = phi i1 [ true, %tailrecurse ], [ %61, %"_ZSt13__find_if_notIPPN4llvm7VPValueEN9__gnu_cxx5__ops10_Iter_predIZNS0_7vputils24isUniformAcrossVFsAndUFsES2_E3$_0EEET_SA_SA_T0_.exit" ], [ false, %_ZN4llvm17VPlanPatternMatch5matchINS_12VPRecipeBaseENS0_12Recipe_matchISt5tupleIJNS0_11class_matchINS_7VPValueEEEEELj77ELb0EJNS_13VPInstructionEEEEEEbPT_RKT0_.exit ], [ true, %82 ], [ true, %_ZN4llvm5VPlan14getCanonicalIVEv.exit ], [ false, %"_ZN4llvm10TypeSwitchIPKNS_12VPRecipeBaseEbE4CaseINS_18VPScalarCastRecipeERZNS_7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueEE3$_3EERS4_OT0_.exit" ], [ true, %89 ], [ false, %98 ], [ false, %94 ], [ %110, %103 ]
   ret i1 %.0
 }
 

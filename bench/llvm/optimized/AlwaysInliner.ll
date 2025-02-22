@@ -1273,77 +1273,75 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; pred
   br i1 %.not69, label %.lr.ph45.split.us, label %.lr.ph45.split
 
 .lr.ph45.split.us:                                ; preds = %.lr.ph45, %.lr.ph45.split.us
-  %.06443.us = phi ptr [ %415, %.lr.ph45.split.us ], [ %401, %.lr.ph45 ]
+  %.06443.us = phi ptr [ %413, %.lr.ph45.split.us ], [ %401, %.lr.ph45 ]
   %405 = load ptr, ptr %.06443.us, align 8, !tbaa !190
   %406 = icmp eq ptr %405, null
   %407 = getelementptr inbounds nuw i8, ptr %405, i64 56
   %spec.select.i.i.i.i.us = select i1 %406, ptr null, ptr %407
-  %408 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.us, i64 -56
-  %409 = select i1 %406, ptr null, ptr %408
+  %408 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.us, i64 8
+  %409 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.us, i64 -56
   call void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %409) #16
-  %410 = getelementptr inbounds nuw i8, ptr %409, i64 56
-  %411 = load ptr, ptr %410, align 8, !tbaa !189
-  %412 = getelementptr inbounds nuw i8, ptr %409, i64 64
-  %413 = load ptr, ptr %412, align 8, !tbaa !50
-  store ptr %411, ptr %413, align 8, !tbaa !189
-  %414 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  store ptr %413, ptr %414, align 8, !tbaa !50
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %410, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm8FunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %408) #16
-  call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %408) #16
-  %415 = getelementptr inbounds nuw i8, ptr %.06443.us, i64 8
-  %.not.us = icmp eq ptr %415, %404
+  %410 = load ptr, ptr %407, align 8, !tbaa !189
+  %411 = load ptr, ptr %408, align 8, !tbaa !50
+  store ptr %410, ptr %411, align 8, !tbaa !189
+  %412 = getelementptr inbounds nuw i8, ptr %410, i64 8
+  store ptr %411, ptr %412, align 8, !tbaa !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %407, i8 0, i64 16, i1 false)
+  call void @_ZN4llvm8FunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %409) #16
+  call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %409) #16
+  %413 = getelementptr inbounds nuw i8, ptr %.06443.us, i64 8
+  %.not.us = icmp eq ptr %413, %404
   br i1 %.not.us, label %.loopexit, label %.lr.ph45.split.us
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45, %.lr.ph45.split
-  %.06443 = phi ptr [ %425, %.lr.ph45.split ], [ %401, %.lr.ph45 ]
-  %416 = load ptr, ptr %.06443, align 8, !tbaa !190
-  %417 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %416) #16
-  %418 = extractvalue { ptr, i64 } %417, 0
-  %419 = extractvalue { ptr, i64 } %417, 1
-  call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE5clearERS1_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(136) %416, ptr %418, i64 %419) #16
-  call void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %416) #16
-  %420 = getelementptr inbounds nuw i8, ptr %416, i64 56
-  %421 = load ptr, ptr %420, align 8, !tbaa !189
-  %422 = getelementptr inbounds nuw i8, ptr %416, i64 64
-  %423 = load ptr, ptr %422, align 8, !tbaa !50
-  store ptr %421, ptr %423, align 8, !tbaa !189
-  %424 = getelementptr inbounds nuw i8, ptr %421, i64 8
-  store ptr %423, ptr %424, align 8, !tbaa !50
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %420, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm8FunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %416) #16
-  call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %416) #16
-  %425 = getelementptr inbounds nuw i8, ptr %.06443, i64 8
-  %.not = icmp eq ptr %425, %404
+  %.06443 = phi ptr [ %423, %.lr.ph45.split ], [ %401, %.lr.ph45 ]
+  %414 = load ptr, ptr %.06443, align 8, !tbaa !190
+  %415 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %414) #16
+  %416 = extractvalue { ptr, i64 } %415, 0
+  %417 = extractvalue { ptr, i64 } %415, 1
+  call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE5clearERS1_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(136) %414, ptr %416, i64 %417) #16
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 56
+  %419 = getelementptr inbounds nuw i8, ptr %414, i64 64
+  call void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %414) #16
+  %420 = load ptr, ptr %418, align 8, !tbaa !189
+  %421 = load ptr, ptr %419, align 8, !tbaa !50
+  store ptr %420, ptr %421, align 8, !tbaa !189
+  %422 = getelementptr inbounds nuw i8, ptr %420, i64 8
+  store ptr %421, ptr %422, align 8, !tbaa !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %418, i8 0, i64 16, i1 false)
+  call void @_ZN4llvm8FunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %414) #16
+  call void @_ZN4llvm4UserdlEPv(ptr noundef nonnull %414) #16
+  %423 = getelementptr inbounds nuw i8, ptr %.06443, i64 8
+  %.not = icmp eq ptr %423, %404
   br i1 %.not, label %.loopexit, label %.lr.ph45.split
 
 .loopexit:                                        ; preds = %.lr.ph45.split, %.lr.ph45.split.us, %6, %400, %._crit_edge40
   %.5 = phi i1 [ %.1, %._crit_edge40 ], [ %.1, %400 ], [ false, %6 ], [ true, %.lr.ph45.split.us ], [ true, %.lr.ph45.split ]
-  %426 = load ptr, ptr %14, align 8, !tbaa !46
-  %427 = icmp eq ptr %426, %27
-  br i1 %427, label %_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit, label %428
+  %424 = load ptr, ptr %14, align 8, !tbaa !46
+  %425 = icmp eq ptr %424, %27
+  br i1 %425, label %_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit, label %426
 
-428:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %426) #16
+426:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %424) #16
   br label %_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit: ; preds = %.loopexit, %428
+_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit: ; preds = %.loopexit, %426
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #16
-  %429 = load ptr, ptr %23, align 8, !tbaa !46
-  %430 = icmp eq ptr %429, %24
-  br i1 %430, label %_ZN4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EED2Ev.exit, label %431
+  %427 = load ptr, ptr %23, align 8, !tbaa !46
+  %428 = icmp eq ptr %427, %24
+  br i1 %428, label %_ZN4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EED2Ev.exit, label %429
 
-431:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit
-  call void @free(ptr noundef %429) #16
+429:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit
+  call void @free(ptr noundef %427) #16
   br label %_ZN4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EED2Ev.exit
 
-_ZN4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit, %431
-  %432 = load ptr, ptr %13, align 8, !tbaa !58
-  %433 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %434 = load i32, ptr %433, align 8, !tbaa !56
-  %435 = zext i32 %434 to i64
-  %436 = shl nuw nsw i64 %435, 3
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %432, i64 noundef %436, i64 noundef 8) #16
+_ZN4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_8FunctionELj16EED2Ev.exit, %429
+  %430 = load ptr, ptr %13, align 8, !tbaa !58
+  %431 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %432 = load i32, ptr %431, align 8, !tbaa !56
+  %433 = zext i32 %432 to i64
+  %434 = shl nuw nsw i64 %433, 3
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %430, i64 noundef %434, i64 noundef 8) #16
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %13) #16
   ret i1 %.5
 }

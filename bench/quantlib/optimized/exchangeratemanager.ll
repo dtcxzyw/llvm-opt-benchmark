@@ -7247,7 +7247,6 @@ _ZNK8QuantLib19ExchangeRateManager5fetchERKNS_8CurrencyES3_RKNS_4DateE.exit90: ;
   %__first.sroa.0.0.lcssa.i.i.i.i83 = phi ptr [ %51, %_ZNSt3mapIlNSt7__cxx114listIN8QuantLib19ExchangeRateManager5EntryESaIS4_EEESt4lessIlESaISt4pairIKlS6_EEEixEOl.exit.i69 ], [ %54, %while.body.i.i.i.i81 ], [ %__first.sroa.0.03.i.i.i.i75, %land.rhs.i.i.i.i74 ]
   %cmp.i.i84 = icmp eq ptr %__first.sroa.0.0.lcssa.i.i.i.i83, %second.i.i71
   %_M_storage.i.i.i85 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i.i83, i64 16
-  %spec.select.i86 = select i1 %cmp.i.i84, ptr null, ptr %_M_storage.i.i.i85
   br i1 %cmp.i.i84, label %for.inc, label %if.then45
 
 if.then45:                                        ; preds = %_ZNK8QuantLib19ExchangeRateManager5fetchERKNS_8CurrencyES3_RKNS_4DateE.exit90
@@ -7309,7 +7308,7 @@ while.body.i.i:                                   ; preds = %invoke.cont48, %whi
   br i1 %cmp.not.i.i95, label %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit, label %while.body.i.i, !llvm.loop !60
 
 _ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit:       ; preds = %while.body.i.i, %invoke.cont48
-  invoke void @_ZN8QuantLib12ExchangeRate5chainERKS0_S2_(ptr dead_on_unwind writable sret(%"class.QuantLib::ExchangeRate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %spec.select.i86, ptr noundef nonnull align 8 dereferenceable(80) %tail)
+  invoke void @_ZN8QuantLib12ExchangeRate5chainERKS0_S2_(ptr dead_on_unwind writable sret(%"class.QuantLib::ExchangeRate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %_M_storage.i.i.i85, ptr noundef nonnull align 8 dereferenceable(80) %tail)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %_ZNSt7__cxx1110_List_baseIiSaIiEED2Ev.exit

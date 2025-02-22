@@ -319,10 +319,10 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
   br i1 %128, label %129, label %.thread.i
 
 129:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i.thread, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
-  %130 = load ptr, ptr %spec.select.i25.i, align 8, !tbaa !25, !noalias !56
+  %130 = load ptr, ptr %107, align 8, !tbaa !25, !noalias !56
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
   %132 = load ptr, ptr %131, align 8, !noalias !56
-  %133 = call i64 %132(ptr noundef nonnull align 8 dereferenceable(56) %spec.select.i25.i) #12, !noalias !56
+  %133 = call i64 %132(ptr noundef nonnull align 8 dereferenceable(56) %107) #12, !noalias !56
   %134 = and i64 %133, -16
   %135 = inttoptr i64 %134 to ptr
   %136 = load ptr, ptr %135, align 16, !tbaa !66, !noalias !56

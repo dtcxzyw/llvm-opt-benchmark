@@ -6836,7 +6836,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..WindowType$G
 
 .body:                                            ; preds = %30, %.body1, %5
   %.pn.i = phi { ptr, i32 } [ %6, %5 ], [ %20, %30 ], [ %20, %.body1 ]
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #13
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef align 8 dereferenceable(88) %0) #13
           to label %common.resume8 unwind label %34
 
 34:                                               ; preds = %.body, %5
@@ -20034,7 +20034,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$sqlparser..ast..que
 
 .body:                                            ; preds = %56, %.body3, %.body1
   %.pn.i = phi { ptr, i32 } [ %20, %.body1 ], [ %46, %56 ], [ %46, %.body3 ]
-  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #13
+  invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..WindowFrame$GT$$GT$17h63a987ff809ea896E"(ptr noalias noundef align 8 dereferenceable(88) %0) #13
           to label %common.resume17 unwind label %60
 
 60:                                               ; preds = %.body, %.body1
@@ -26738,7 +26738,7 @@ define hidden void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.11705908
   store ptr @anon.e5fdeadb8859cd7386531c222a14f45a.0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e5fdeadb8859cd7386531c222a14f45a.9) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fdeadb8859cd7386531c222a14f45a.9) #17
   unreachable
 
 9:                                                ; preds = %1
@@ -26766,7 +26766,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14126)
-  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2829e111bcc42843E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d4f87ee8efdac0f9ee4332b4a31f9922.1.llvm.9410018135934927389), !noalias !14129
+  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2829e111bcc42843E(i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4f87ee8efdac0f9ee4332b4a31f9922.1.llvm.9410018135934927389), !noalias !14129
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = sub i64 %7, %6
@@ -31100,7 +31100,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !alias.scope !14979, !noalias !14982, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14984)
-  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2829e111bcc42843E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d4f87ee8efdac0f9ee4332b4a31f9922.1.llvm.9410018135934927389), !noalias !14987
+  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2829e111bcc42843E(i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4f87ee8efdac0f9ee4332b4a31f9922.1.llvm.9410018135934927389), !noalias !14987
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = sub i64 %7, %6

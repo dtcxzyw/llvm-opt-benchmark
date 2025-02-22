@@ -5074,7 +5074,7 @@ Kit_TruthCopy.exit:                               ; preds = %Kit_TruthCopy.exit.
   br i1 %114, label %115, label %155
 
 115:                                              ; preds = %.critedge
-  %116 = load i32, ptr %84, align 4, !tbaa !20
+  %116 = load i32, ptr %83, align 4, !tbaa !20
   switch i32 %116, label %155 [
     i32 -976894523, label %117
     i32 976894522, label %120
@@ -6711,7 +6711,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 87:                                               ; preds = %83
   %88 = and i32 %84, 134217279
   store i32 %88, ptr %.tr650.ph, align 4
-  %89 = load i32, ptr %23, align 4, !tbaa !20
+  %89 = load i32, ptr %22, align 4, !tbaa !20
   %90 = icmp eq i32 %89, 1431655765
   %.pre903 = load i16, ptr %10, align 4, !tbaa !49
   br i1 %90, label %91, label %93

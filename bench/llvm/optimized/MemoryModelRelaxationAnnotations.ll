@@ -73,111 +73,113 @@ define dso_local void @_ZN4llvm12MMRAMetadataC2EPNS_6MDNodeE(ptr noundef nonnull
   %10 = load i8, ptr %1, align 4, !tbaa !3
   %11 = icmp eq i8 %10, 5
   %spec.select.i.i = select i1 %11, ptr %1, ptr null
-  %12 = load i8, ptr %spec.select.i.i, align 4, !tbaa !3
-  %.not.i = icmp eq i8 %12, 5
-  %13 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -16
-  %14 = load i64, ptr %13, align 8
-  br i1 %.not.i, label %15, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+  br i1 %11, label %12, label %._ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread_crit_edge
 
-15:                                               ; preds = %9
-  %16 = and i64 %14, 2
-  %.not.i.i.i = icmp eq i64 %16, 0
+._ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread_crit_edge: ; preds = %9
+  %.pre = load i64, ptr inttoptr (i64 -16 to ptr), align 16
+  br label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %1, i64 -16
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 2
+  %.not.i.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i.i, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i
 
-_ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %15
-  %17 = and i64 %14, 960
-  %18 = icmp eq i64 %17, 128
-  br i1 %18, label %_ZNK4llvm6MDNode10getOperandEj.exit.i, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+_ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %12
+  %16 = and i64 %14, 960
+  %17 = icmp eq i64 %16, 128
+  br i1 %17, label %_ZNK4llvm6MDNode10getOperandEj.exit.i, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
-_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -24
-  %20 = load i32, ptr %19, align 8, !tbaa !9
-  %21 = icmp eq i32 %20, 2
-  br i1 %21, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %1, i64 -24
+  %19 = load i32, ptr %18, align 8, !tbaa !9
+  %20 = icmp eq i32 %19, 2
+  br i1 %20, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
-  %22 = lshr i64 %14, 2
-  %23 = and i64 %22, 15
-  %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = load i8, ptr %26, align 4, !tbaa !3
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+  %21 = lshr i64 %14, 2
+  %22 = and i64 %21, 15
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
+  %26 = load i8, ptr %25, align 4, !tbaa !3
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
 _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i
-  %29 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -32
-  %30 = load ptr, ptr %29, align 8, !tbaa !15
-  %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %32 = load i8, ptr %31, align 4, !tbaa !3
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+  %28 = getelementptr inbounds i8, ptr %1, i64 -32
+  %29 = load ptr, ptr %28, align 8, !tbaa !15
+  %30 = load ptr, ptr %29, align 8, !tbaa !12
+  %31 = load i8, ptr %30, align 4, !tbaa !3
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
 _ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !12
-  %36 = load i8, ptr %35, align 4, !tbaa !3
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %44, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !12
+  %35 = load i8, ptr %34, align 4, !tbaa !3
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %43, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
 _ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i
-  %38 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %40 = load i8, ptr %39, align 4, !tbaa !3
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.thread, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !12
+  %39 = load i8, ptr %38, align 4, !tbaa !3
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %.thread, label %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
 
 .thread:                                          ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
-  %42 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -32
-  %43 = load ptr, ptr %42, align 8, !tbaa !15
+  %41 = getelementptr inbounds i8, ptr %1, i64 -32
+  %42 = load ptr, ptr %41, align 8, !tbaa !15
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i18
 
-44:                                               ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
+43:                                               ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
-  %45 = lshr i64 %14, 2
-  %46 = and i64 %45, 15
-  %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %47
+  %44 = lshr i64 %14, 2
+  %45 = and i64 %44, 15
+  %46 = sub nsw i64 0, %45
+  %47 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %46
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i18
 
-_ZNK4llvm6MDNode10getOperandEj.exit.i18:          ; preds = %44, %.thread
-  %.sroa.0.0.i.i.i = phi ptr [ %48, %44 ], [ %43, %.thread ]
-  %49 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !12
-  %50 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #13
-  %51 = load i64, ptr %13, align 8
-  %52 = and i64 %51, 2
-  %.not.i.i3.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i3.i, label %56, label %53
+_ZNK4llvm6MDNode10getOperandEj.exit.i18:          ; preds = %43, %.thread
+  %.sroa.0.0.i.i.i = phi ptr [ %47, %43 ], [ %42, %.thread ]
+  %48 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !12
+  %49 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #13
+  %50 = load i64, ptr %13, align 8
+  %51 = and i64 %50, 2
+  %.not.i.i3.i = icmp eq i64 %51, 0
+  br i1 %.not.i.i3.i, label %55, label %52
 
-53:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i18
-  %54 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -32
-  %55 = load ptr, ptr %54, align 8, !tbaa !15
+52:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i18
+  %53 = getelementptr inbounds i8, ptr %1, i64 -32
+  %54 = load ptr, ptr %53, align 8, !tbaa !15
   br label %"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_.exit"
 
-56:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i18
-  %57 = lshr i64 %51, 2
-  %58 = and i64 %57, 15
-  %59 = sub nsw i64 0, %58
-  %60 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %59
+55:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i18
+  %56 = lshr i64 %50, 2
+  %57 = and i64 %56, 15
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %58
   br label %"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_.exit"
 
-"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_.exit": ; preds = %53, %56
-  %.sroa.0.0.i.i4.i = phi ptr [ %60, %56 ], [ %55, %53 ]
-  %61 = extractvalue { ptr, i64 } %50, 1
-  %62 = extractvalue { ptr, i64 } %50, 0
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !12
-  %65 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #13
-  %66 = extractvalue { ptr, i64 } %65, 0
-  %67 = extractvalue { ptr, i64 } %65, 1
-  store ptr %62, ptr %8, align 8, !tbaa !16
+"_ZZN4llvm12MMRAMetadataC1EPNS_6MDNodeEENK3$_0clES2_.exit": ; preds = %52, %55
+  %.sroa.0.0.i.i4.i = phi ptr [ %59, %55 ], [ %54, %52 ]
+  %60 = extractvalue { ptr, i64 } %49, 1
+  %61 = extractvalue { ptr, i64 } %49, 0
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !12
+  %64 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #13
+  %65 = extractvalue { ptr, i64 } %64, 0
+  %66 = extractvalue { ptr, i64 } %64, 1
+  store ptr %61, ptr %8, align 8, !tbaa !16
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %61, ptr %.sroa.44.0..sroa_idx.i, align 8, !tbaa !18
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %66, ptr %68, align 8, !tbaa !16
+  store i64 %60, ptr %.sroa.44.0..sroa_idx.i, align 8, !tbaa !18
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %65, ptr %67, align 8, !tbaa !16
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %67, ptr %.sroa.42.0..sroa_idx.i, align 8, !tbaa !18
+  store i64 %66, ptr %.sroa.42.0..sroa_idx.i, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13, !noalias !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #13, !noalias !20
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefES3_ENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEES2_INS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.7") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !20
@@ -186,8 +188,9 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i18:          ; preds = %44, %.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
   br label %.loopexit
 
-_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread: ; preds = %9, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
-  %69 = and i64 %14, 2
+_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread: ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32, %._ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread_crit_edge, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit
+  %68 = phi i64 [ %.pre, %._ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread_crit_edge ], [ %14, %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i ], [ %14, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ], [ %14, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ %14, %_ZNK4llvm6MDNode10getOperandEj.exit.i ], [ %14, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit ], [ %14, %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread32 ]
+  %69 = and i64 %68, 2
   %.not.i.i = icmp eq i64 %69, 0
   br i1 %.not.i.i, label %76, label %70
 
@@ -201,11 +204,11 @@ _ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread: ; preds = %9, %_ZN4l
 
 76:                                               ; preds = %_ZN4llvm12MMRAMetadata7isTagMDEPKNS_8MetadataE.exit.thread
   %77 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -16
-  %78 = lshr i64 %14, 2
+  %78 = lshr i64 %68, 2
   %79 = and i64 %78, 15
   %80 = sub nsw i64 0, %79
   %81 = getelementptr inbounds %"class.llvm::MDOperand", ptr %77, i64 %80
-  %82 = lshr i64 %14, 6
+  %82 = lshr i64 %68, 6
   %83 = and i64 %82, 15
   br label %_ZNK4llvm6MDNode8operandsEv.exit
 

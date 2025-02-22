@@ -364,110 +364,108 @@ _ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES
   %.030 = phi i1 [ %.1, %.critedge32 ], [ false, %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES5_EE.exit.split ]
   %.sroa.016.029 = phi ptr [ %.sroa.016.1, %.critedge32 ], [ %25, %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES5_EE.exit.split ]
   %31 = load ptr, ptr %.sroa.016.029, align 8, !tbaa !140
-  %32 = icmp eq ptr %31, null
-  %33 = getelementptr inbounds i8, ptr %31, i64 -8
-  %34 = select i1 %32, ptr null, ptr %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !141
-  %37 = icmp ne ptr %36, null
-  %38 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %34, %38
-  %or.cond = select i1 %37, i1 true, i1 %.not
-  br i1 %or.cond, label %39, label %.sink.split, !llvm.loop !142
+  %32 = getelementptr inbounds i8, ptr %31, i64 -8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !141
+  %35 = icmp ne ptr %34, null
+  %36 = load ptr, ptr %27, align 8
+  %.not = icmp eq ptr %32, %36
+  %or.cond = select i1 %35, i1 true, i1 %.not
+  br i1 %or.cond, label %37, label %.sink.split, !llvm.loop !142
 
-39:                                               ; preds = %.lr.ph
-  %40 = load i8, ptr %9, align 4, !tbaa !13, !range !144, !noalias !145, !noundef !148
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+37:                                               ; preds = %.lr.ph
+  %38 = load i8, ptr %9, align 4, !tbaa !13, !range !144, !noalias !145, !noundef !148
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !145
-  %44 = load i32, ptr %7, align 4, !tbaa !11, !noalias !145
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
-  %.not36.i.i = icmp eq i32 %44, 0
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !145
+  %42 = load i32, ptr %7, align 4, !tbaa !11, !noalias !145
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
+  %.not36.i.i = icmp eq i32 %42, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %42, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %48, %.critedge.i.i ], [ %43, %42 ]
-  %47 = load ptr, ptr %.02937.i.i, align 8, !tbaa !149, !noalias !145
-  %.not17.i.i = icmp eq ptr %47, %34
+.lr.ph.i.i:                                       ; preds = %40, %.critedge.i.i
+  %.02937.i.i = phi ptr [ %46, %.critedge.i.i ], [ %41, %40 ]
+  %45 = load ptr, ptr %.02937.i.i, align 8, !tbaa !149, !noalias !145
+  %.not17.i.i = icmp eq ptr %45, %32
   br i1 %.not17.i.i, label %.critedge32, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
-  %.not.i.i = icmp eq ptr %48, %46
+  %46 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %.not.i.i = icmp eq ptr %46, %44
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !150
 
-._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %42
-  %49 = load i32, ptr %6, align 8, !tbaa !10, !noalias !145
-  %50 = icmp ult i32 %44, %49
-  br i1 %50, label %.critedge, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %40
+  %47 = load i32, ptr %6, align 8, !tbaa !10, !noalias !145
+  %48 = icmp ult i32 %42, %47
+  br i1 %48, label %.critedge, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 .critedge:                                        ; preds = %._crit_edge.i.i
-  %51 = add nuw i32 %44, 1
-  store i32 %51, ptr %7, align 4, !tbaa !11, !noalias !145
-  store ptr %34, ptr %46, align 8, !tbaa !149, !noalias !145
-  br label %55
+  %49 = add nuw i32 %42, 1
+  store i32 %49, ptr %7, align 4, !tbaa !11, !noalias !145
+  store ptr %32, ptr %44, align 8, !tbaa !149, !noalias !145
+  br label %53
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i, %39
-  %52 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull %34) #19, !noalias !145
-  %53 = extractvalue { ptr, i8 } %52, 1
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %.critedge32
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i, %37
+  %50 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull %32) #19, !noalias !145
+  %51 = extractvalue { ptr, i8 } %50, 1
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %53, label %.critedge32
 
-55:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_120SelectionDAGLegalize10LegalizeOpEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %34)
-  %56 = load ptr, ptr %35, align 8, !tbaa !141
-  %57 = icmp ne ptr %56, null
-  %58 = load ptr, ptr %27, align 8
-  %.not13 = icmp eq ptr %34, %58
-  %or.cond25 = select i1 %57, i1 true, i1 %.not13
+53:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  call fastcc void @_ZN12_GLOBAL__N_120SelectionDAGLegalize10LegalizeOpEPN4llvm6SDNodeE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %32)
+  %54 = load ptr, ptr %33, align 8, !tbaa !141
+  %55 = icmp ne ptr %54, null
+  %56 = load ptr, ptr %27, align 8
+  %.not13 = icmp eq ptr %32, %56
+  %or.cond25 = select i1 %55, i1 true, i1 %.not13
   br i1 %or.cond25, label %.critedge32, label %.sink.split
 
-.sink.split:                                      ; preds = %55, %.lr.ph
-  %.1.ph = phi i1 [ %.030, %.lr.ph ], [ true, %55 ]
-  %59 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !137
-  call void @_ZN4llvm12SelectionDAG10DeleteNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %34) #19
+.sink.split:                                      ; preds = %53, %.lr.ph
+  %.1.ph = phi i1 [ %.030, %.lr.ph ], [ true, %53 ]
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !137
+  call void @_ZN4llvm12SelectionDAG10DeleteNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %32) #19
   br label %.critedge32
 
-.critedge32:                                      ; preds = %.lr.ph.i.i, %.sink.split, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %55
-  %.sroa.016.1 = phi ptr [ %31, %55 ], [ %31, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %60, %.sink.split ], [ %31, %.lr.ph.i.i ]
-  %.1 = phi i1 [ true, %55 ], [ %.030, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.1.ph, %.sink.split ], [ %.030, %.lr.ph.i.i ]
-  %61 = load ptr, ptr %26, align 8, !tbaa !137
-  %.not26 = icmp eq ptr %.sroa.016.1, %61
+.critedge32:                                      ; preds = %.lr.ph.i.i, %.sink.split, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %53
+  %.sroa.016.1 = phi ptr [ %31, %53 ], [ %31, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %58, %.sink.split ], [ %31, %.lr.ph.i.i ]
+  %.1 = phi i1 [ true, %53 ], [ %.030, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.1.ph, %.sink.split ], [ %.030, %.lr.ph.i.i ]
+  %59 = load ptr, ptr %26, align 8, !tbaa !137
+  %.not26 = icmp eq ptr %.sroa.016.1, %59
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .split.us:                                        ; preds = %._crit_edge, %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES5_EE.exit.split, %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerC2ERS0_St8functionIFvPNS_6SDNodeES5_EE.exit
   call void @_ZN4llvm12SelectionDAG15RemoveDeadNodesEv(ptr noundef nonnull align 8 dereferenceable(952) %0) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #19
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm12SelectionDAG22DAGNodeDeletedListenerE, i64 16), ptr %2, align 8, !tbaa !121
-  %62 = load ptr, ptr %17, align 8, !tbaa !127
-  %.not.i.i14 = icmp eq ptr %62, null
-  br i1 %.not.i.i14, label %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit, label %63
+  %60 = load ptr, ptr %17, align 8, !tbaa !127
+  %.not.i.i14 = icmp eq ptr %60, null
+  br i1 %.not.i.i14, label %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit, label %61
 
-63:                                               ; preds = %.split.us
-  %64 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #19
+61:                                               ; preds = %.split.us
+  %62 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 noundef 3) #19
   br label %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit
 
-_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit: ; preds = %.split.us, %63
+_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit: ; preds = %.split.us, %61
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm12SelectionDAG17DAGUpdateListenerE, i64 16), ptr %2, align 8, !tbaa !121
-  %65 = load ptr, ptr %11, align 8, !tbaa !117
-  %66 = load ptr, ptr %14, align 8, !tbaa !151
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 744
-  store ptr %65, ptr %67, align 8, !tbaa !14
+  %63 = load ptr, ptr %11, align 8, !tbaa !117
+  %64 = load ptr, ptr %14, align 8, !tbaa !151
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 744
+  store ptr %63, ptr %65, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #19
-  %68 = load i8, ptr %9, align 4, !tbaa !13, !range !144, !noundef !148
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %70
+  %66 = load i8, ptr %9, align 4, !tbaa !13, !range !144, !noundef !148
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %68
 
-70:                                               ; preds = %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit
-  %71 = load ptr, ptr %1, align 8, !tbaa !3
-  call void @free(ptr noundef %71) #19
+68:                                               ; preds = %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit
+  %69 = load ptr, ptr %1, align 8, !tbaa !3
+  call void @free(ptr noundef %69) #19
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit, %70
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm12SelectionDAG22DAGNodeDeletedListenerD2Ev.exit, %68
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #19
   ret void
 }

@@ -323,33 +323,33 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h702
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i.i, %27
   %9 = phi i64 [ %24, %27 ], [ %.lcssa444751, %.lr.ph.i.i ]
-  %.sroa.7.049.i.i = sub nuw i64 %2, %9
-  %.sroa.0.050.i.i = getelementptr inbounds i8, ptr %1, i64 %9
-  %10 = icmp ult i64 %.sroa.7.049.i.i, 16
+  %.sroa.7.047.i.i = sub nuw i64 %2, %9
+  %.sroa.0.048.i.i = getelementptr inbounds i8, ptr %1, i64 %9
+  %10 = icmp ult i64 %.sroa.7.047.i.i, 16
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %.lr.ph.split.split.i.i
-  %12 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %.sroa.13.40.extract.trunc, ptr noalias noundef nonnull readonly align 1 %.sroa.0.050.i.i, i64 noundef %.sroa.7.049.i.i)
+  %12 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %.sroa.13.40.extract.trunc, ptr noalias noundef nonnull readonly align 1 %.sroa.0.048.i.i, i64 noundef %.sroa.7.047.i.i)
           to label %.noexc14 unwind label %.loopexit
 
 13:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.7.049.i.i, 0
+  %.not.i.i.i = icmp eq i64 %.sroa.7.047.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %13, %17
   %.05.i.i.i = phi i64 [ %18, %17 ], [ 0, %13 ]
-  %14 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.050.i.i, i64 0, i64 %.05.i.i.i
+  %14 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.048.i.i, i64 0, i64 %.05.i.i.i
   %15 = load i8, ptr %14, align 1, !alias.scope !17, !noalias !20, !noundef !5
   %16 = icmp eq i8 %15, %.sroa.13.40.extract.trunc
   br i1 %16, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = add nuw nsw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.7.049.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.7.047.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %17, %.lr.ph.i.i.i, %13
-  %.0.lcssa.i.i.i = phi i64 [ 0, %13 ], [ %.sroa.7.049.i.i, %17 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %13 ], [ %.sroa.7.047.i.i, %17 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.0.0.i24.i.i = phi i64 [ 0, %13 ], [ 0, %17 ], [ 1, %.lr.ph.i.i.i ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i24.i.i, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.0.lcssa.i.i.i, 1
@@ -834,7 +834,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h9f8
   br i1 %140, label %142, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %136, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i"
-  invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.03.sroa.12.0.copyload, i64 noundef %.sroa.03.sroa.13.0.copyload, i64 noundef %.sroa.4.1, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.22) #16
+  invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.03.sroa.12.0.copyload, i64 noundef %.sroa.03.sroa.13.0.copyload, i64 noundef %.sroa.4.1, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.22) #16
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %.loopexit.i.i
@@ -936,7 +936,7 @@ _ZN4core3str11validations15next_code_point17hcba652dd4152b0b8E.exit.thread.i.i.i
   %191 = phi i64 [ %umax.i, %.split192.us ], [ %umax.i41, %.split180.us ], [ %73, %72 ], [ %75, %74 ], [ %34, %33 ], [ %37, %36 ]
   %192 = phi i64 [ %.sroa.03.sroa.13.0.copyload, %.split192.us ], [ %.sroa.03.sroa.13.0.copyload, %.split180.us ], [ %.sroa.03.sroa.15.0.copyload, %72 ], [ %.sroa.03.sroa.13.0.copyload, %74 ], [ %.sroa.03.sroa.15.0.copyload, %33 ], [ %.sroa.03.sroa.13.0.copyload, %36 ]
   %193 = phi ptr [ @anon.30a06547abaf6ed0f9caf43711ac6463.12, %.split192.us ], [ @anon.30a06547abaf6ed0f9caf43711ac6463.12, %.split180.us ], [ @anon.30a06547abaf6ed0f9caf43711ac6463.9, %72 ], [ @anon.30a06547abaf6ed0f9caf43711ac6463.10, %74 ], [ @anon.30a06547abaf6ed0f9caf43711ac6463.9, %33 ], [ @anon.30a06547abaf6ed0f9caf43711ac6463.10, %36 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %191, i64 noundef %192, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %193) #16
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %191, i64 noundef %192, ptr noalias noundef readonly align 8 dereferenceable(24) %193) #16
           to label %.split185.us.cont unwind label %.loopexit.split-lp
 
 .split185.us.cont:                                ; preds = %.split185.us.invoke
@@ -1122,7 +1122,7 @@ define internal fastcc void @_ZN10uu_hashsum14create_blake2b17h4132e965d80a0e68E
   br i1 %32, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit, label %33
 
 33:                                               ; preds = %19
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !132
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !132
   unreachable
 
 34:                                               ; preds = %13
@@ -1159,7 +1159,7 @@ define internal fastcc void @_ZN10uu_hashsum14create_blake2b17h4132e965d80a0e68E
   store ptr %5, ptr %41, align 8, !alias.scope !147, !noalias !150
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %42, align 8, !alias.scope !147, !noalias !150
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !153
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !153
   unreachable
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit: ; preds = %19
@@ -1386,7 +1386,7 @@ define internal fastcc void @_ZN10uu_hashsum11create_sha317h1cf20ffc87587037E(pt
   br i1 %34, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit, label %35
 
 35:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !190
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !190
   unreachable
 
 36:                                               ; preds = %15
@@ -1423,7 +1423,7 @@ define internal fastcc void @_ZN10uu_hashsum11create_sha317h1cf20ffc87587037E(pt
   store ptr %5, ptr %43, align 8, !alias.scope !204, !noalias !207
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %44, align 8, !alias.scope !204, !noalias !207
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !210
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !210
   unreachable
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit.thread: ; preds = %2, %18
@@ -1694,7 +1694,7 @@ define internal fastcc void @_ZN10uu_hashsum15create_shake12817h07cf0a742a028749
   br i1 %30, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit, label %31
 
 31:                                               ; preds = %17
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !253
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !253
   unreachable
 
 32:                                               ; preds = %11
@@ -1731,7 +1731,7 @@ define internal fastcc void @_ZN10uu_hashsum15create_shake12817h07cf0a742a028749
   store ptr %4, ptr %39, align 8, !alias.scope !267, !noalias !270
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 2, ptr %40, align 8, !alias.scope !267, !noalias !270
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !273
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !273
   unreachable
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit.thread: ; preds = %2, %14
@@ -1861,7 +1861,7 @@ define internal fastcc void @_ZN10uu_hashsum15create_shake25617hda99c8f3b448f56c
   br i1 %30, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit, label %31
 
 31:                                               ; preds = %17
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !296
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.582f8476c571fe01b0f570030ac5a67b.5.llvm.14448701277813532603, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.582f8476c571fe01b0f570030ac5a67b.7.llvm.14448701277813532603) #16, !noalias !296
   unreachable
 
 32:                                               ; preds = %11
@@ -1898,7 +1898,7 @@ define internal fastcc void @_ZN10uu_hashsum15create_shake25617hda99c8f3b448f56c
   store ptr %4, ptr %39, align 8, !alias.scope !310, !noalias !313
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 2, ptr %40, align 8, !alias.scope !310, !noalias !313
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !316
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f67c31de405f7d08fd050e4bc5ee2c23.4.llvm.18210411355117371203) #16, !noalias !316
   unreachable
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h7ef51eff09cb2465E.exit.thread: ; preds = %2, %14
@@ -2431,7 +2431,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 40:                                               ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(96) %19, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19)
-  %41 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.73, i64 noundef 3, ptr noundef nonnull align 1 %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.74, i64 noundef 128)
+  %41 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.73, i64 noundef 3, ptr noundef nonnull align 1 %38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.74, i64 noundef 128)
           to label %42 unwind label %29
 
 42:                                               ; preds = %40
@@ -2466,7 +2466,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 56:                                               ; preds = %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 8 dereferenceable(104) %18, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %18)
-  %57 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.71, i64 noundef 4, ptr noundef nonnull align 1 %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.72, i64 noundef 160)
+  %57 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.71, i64 noundef 4, ptr noundef nonnull align 1 %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.72, i64 noundef 160)
           to label %58 unwind label %29
 
 58:                                               ; preds = %56
@@ -2501,7 +2501,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 72:                                               ; preds = %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %70, ptr noundef nonnull align 8 dereferenceable(112) %17, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %17)
-  %73 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.69, i64 noundef 6, ptr noundef nonnull align 1 %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.70, i64 noundef 224)
+  %73 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.69, i64 noundef 6, ptr noundef nonnull align 1 %70, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.70, i64 noundef 224)
           to label %74 unwind label %29
 
 74:                                               ; preds = %72
@@ -2536,7 +2536,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 88:                                               ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %86, ptr noundef nonnull align 8 dereferenceable(112) %16, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %16)
-  %89 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.67, i64 noundef 6, ptr noundef nonnull align 1 %86, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.68, i64 noundef 256)
+  %89 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.67, i64 noundef 6, ptr noundef nonnull align 1 %86, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.68, i64 noundef 256)
           to label %90 unwind label %29
 
 90:                                               ; preds = %88
@@ -2571,7 +2571,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 104:                                              ; preds = %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %102, ptr noundef nonnull align 16 dereferenceable(224) %15, i64 224, i1 false)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %15)
-  %105 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.65, i64 noundef 6, ptr noundef nonnull align 1 %102, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.66, i64 noundef 384)
+  %105 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.65, i64 noundef 6, ptr noundef nonnull align 1 %102, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.66, i64 noundef 384)
           to label %106 unwind label %29
 
 106:                                              ; preds = %104
@@ -2606,7 +2606,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 120:                                              ; preds = %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %118, ptr noundef nonnull align 16 dereferenceable(224) %14, i64 224, i1 false)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %14)
-  %121 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.63, i64 noundef 6, ptr noundef nonnull align 1 %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.64, i64 noundef 512)
+  %121 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.63, i64 noundef 6, ptr noundef nonnull align 1 %118, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.64, i64 noundef 512)
           to label %122 unwind label %29
 
 122:                                              ; preds = %120
@@ -2650,7 +2650,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 138:                                              ; preds = %132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %134, ptr noundef nonnull align 16 dereferenceable(240) %13, i64 240, i1 false)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %13)
-  %139 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.25, i64 noundef 6, ptr noundef nonnull align 1 %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.26, i64 noundef 512)
+  %139 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.25, i64 noundef 6, ptr noundef nonnull align 1 %134, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.26, i64 noundef 512)
           to label %140 unwind label %29
 
 140:                                              ; preds = %138
@@ -2705,7 +2705,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 160:                                              ; preds = %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1912) %152, ptr noundef nonnull align 8 dereferenceable(1912) %12, i64 1912, i1 false)
   call void @llvm.lifetime.end.p0(i64 1912, ptr nonnull %12)
-  %161 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.61, i64 noundef 6, ptr noundef nonnull align 1 %152, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.62, i64 noundef 256)
+  %161 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.61, i64 noundef 6, ptr noundef nonnull align 1 %152, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.62, i64 noundef 256)
           to label %162 unwind label %29
 
 162:                                              ; preds = %160
@@ -2784,7 +2784,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 194:                                              ; preds = %192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %193, ptr noundef nonnull align 8 dereferenceable(360) %10, i64 360, i1 false)
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %10)
-  %195 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.31, i64 noundef 8, ptr noundef nonnull align 1 %193, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.32, i64 noundef 224)
+  %195 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.31, i64 noundef 8, ptr noundef nonnull align 1 %193, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.32, i64 noundef 224)
           to label %196 unwind label %29
 
 196:                                              ; preds = %194
@@ -2817,7 +2817,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 208:                                              ; preds = %206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %207, ptr noundef nonnull align 8 dereferenceable(352) %9, i64 352, i1 false)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %9)
-  %209 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.33, i64 noundef 8, ptr noundef nonnull align 1 %207, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.34, i64 noundef 256)
+  %209 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.33, i64 noundef 8, ptr noundef nonnull align 1 %207, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.34, i64 noundef 256)
           to label %210 unwind label %29
 
 210:                                              ; preds = %208
@@ -2850,7 +2850,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 222:                                              ; preds = %220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %221, ptr noundef nonnull align 8 dereferenceable(320) %8, i64 320, i1 false)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %8)
-  %223 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.35, i64 noundef 8, ptr noundef nonnull align 1 %221, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.36, i64 noundef 384)
+  %223 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.35, i64 noundef 8, ptr noundef nonnull align 1 %221, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.36, i64 noundef 384)
           to label %224 unwind label %29
 
 224:                                              ; preds = %222
@@ -2883,7 +2883,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
 236:                                              ; preds = %234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %235, ptr noundef nonnull align 8 dereferenceable(288) %7, i64 288, i1 false)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %7)
-  %237 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.37, i64 noundef 8, ptr noundef nonnull align 1 %235, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.38, i64 noundef 512)
+  %237 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.37, i64 noundef 8, ptr noundef nonnull align 1 %235, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.38, i64 noundef 512)
           to label %238 unwind label %29
 
 238:                                              ; preds = %236
@@ -2940,7 +2940,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %259, ptr noundef nonnull align 8 dereferenceable(384) %6, i64 384, i1 false)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
   %261 = load i64, ptr %249, align 8, !noundef !5
-  %262 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.41, i64 noundef 8, ptr noundef nonnull align 1 %259, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.42, i64 noundef %261)
+  %262 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.41, i64 noundef 8, ptr noundef nonnull align 1 %259, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.42, i64 noundef %261)
           to label %263 unwind label %29
 
 263:                                              ; preds = %260
@@ -2998,7 +2998,7 @@ define internal fastcc void @_ZN10uu_hashsum27create_algorithm_from_flags17he987
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %285, ptr noundef nonnull align 8 dereferenceable(352) %5, i64 352, i1 false)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %5)
   %287 = load i64, ptr %275, align 8, !noundef !5
-  %288 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.44, i64 noundef 8, ptr noundef nonnull align 1 %285, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.45, i64 noundef %287)
+  %288 = invoke fastcc { ptr, ptr } @"_ZN10uu_hashsum27create_algorithm_from_flags28_$u7b$$u7b$closure$u7d$$u7d$17hc34e1c501b3396caE"(ptr noalias noundef align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.30a06547abaf6ed0f9caf43711ac6463.44, i64 noundef 8, ptr noundef nonnull align 1 %285, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.45, i64 noundef %287)
           to label %289 unwind label %29
 
 289:                                              ; preds = %286
@@ -6567,7 +6567,7 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
   br label %18
 
 74:                                               ; preds = %18
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.146) #16
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.146) #16
   unreachable
 
 75:                                               ; preds = %18
@@ -6630,7 +6630,7 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
           to label %100 unwind label %98
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h1c9a4707155b2780E.exit.thread": ; preds = %86, %79, %75, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i"
-  call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, i64 noundef %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.148) #16
+  call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, i64 noundef %26, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.148) #16
   unreachable
 
 97:                                               ; preds = %143, %98
@@ -6654,7 +6654,7 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
   br i1 %trunc103, label %107, label %106
 
 106:                                              ; preds = %100
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.150) #16
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.150) #16
           to label %123 unwind label %98
 
 107:                                              ; preds = %100
@@ -6707,7 +6707,7 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
           to label %.noexc126 unwind label %98
 
 .thread143:                                       ; preds = %118, %111, %107, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i124", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i123"
-  invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, i64 noundef %103, i64 noundef %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.148) #16
+  invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, i64 noundef %103, i64 noundef %105, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.148) #16
           to label %123 unwind label %98
 
 .noexc126:                                        ; preds = %124
@@ -6780,7 +6780,7 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
   br i1 %trunc104, label %152, label %151
 
 151:                                              ; preds = %145
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.152) #16
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.152) #16
           to label %123 unwind label %143
 
 152:                                              ; preds = %145
@@ -6829,7 +6829,7 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
   br i1 %.not.i137, label %170, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4e0bf090b4b6f4caE.exit"
 
 .thread147:                                       ; preds = %163, %156, %152, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i135", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i134"
-  invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, i64 noundef %148, i64 noundef %150, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.148) #16
+  invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23, i64 noundef %148, i64 noundef %150, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30a06547abaf6ed0f9caf43711ac6463.148) #16
           to label %123 unwind label %143
 
 170:                                              ; preds = %168

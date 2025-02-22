@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN87_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$core..default..Default$GT$7default17h7ee994612540c909E"(ptr dead_on_unwind noalias noundef writable sret([824 x i8]) align 8 captures(none) dereferenceable(824) %0) unnamed_addr #0 {
-  tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(824) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
+  tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(824) %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i32 0, ptr %2, align 8, !alias.scope !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 812
@@ -28,7 +28,7 @@ define void @"_ZN87_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3new17hc149c9c2e58f141eE(ptr dead_on_unwind noalias noundef writable writeonly sret([824 x i8]) align 8 captures(none) dereferenceable(824) %0) unnamed_addr #0 {
-  tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
+  tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 812
@@ -155,7 +155,7 @@ define void @"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
           to label %33 unwind label %211
 
 33:                                               ; preds = %3
-  %34 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hb1ff3c51f92bcf6aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.4)
+  %34 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hb1ff3c51f92bcf6aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.4)
           to label %35 unwind label %211
 
 35:                                               ; preds = %33
@@ -255,7 +255,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %14), !noalias !11
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %13), !noalias !11
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %12), !noalias !11
-  invoke void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.5)
+  invoke void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.5)
           to label %64 unwind label %.thread31.i, !noalias !22
 
 .thread31.i:                                      ; preds = %_ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i
@@ -373,7 +373,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %16, ptr noundef nonnull align 8 dereferenceable(720) %15, i64 720, i1 false), !alias.scope !45, !noalias !11
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %15), !noalias !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !11
-  invoke void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) @anon.9a791927a891cbca8257d074220c7b7f.6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  invoke void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %11, ptr noalias noundef readonly align 4 dereferenceable(20) @anon.9a791927a891cbca8257d074220c7b7f.6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
           to label %105 unwind label %113, !noalias !47
 
 105:                                              ; preds = %103

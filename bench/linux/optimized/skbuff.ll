@@ -10464,7 +10464,7 @@ define dso_local ptr @skb_dequeue(ptr noundef %0) #0 align 16 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store volatile ptr %14, ptr %15, align 8
   store volatile ptr %12, ptr %14, align 8
   br label %16
@@ -10497,7 +10497,7 @@ define dso_local ptr @skb_dequeue_tail(ptr noundef %0) #0 align 16 {
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store volatile ptr %15, ptr %16, align 8
   store volatile ptr %13, ptr %15, align 8
   br label %17

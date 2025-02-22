@@ -565,7 +565,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17h5ad8c6440318f046
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h0673f22189d6443dE.exit": ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !88
-  %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h0bf40e37c33fa406E(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.583879a8f71c633ffbae0a69c9217bb3.6)
+  %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h0bf40e37c33fa406E(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.583879a8f71c633ffbae0a69c9217bb3.6)
   ret ptr %18
 }
 
@@ -596,7 +596,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.50942
   store ptr @anon.583879a8f71c633ffbae0a69c9217bb3.11.llvm.509426865870779508, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.583879a8f71c633ffbae0a69c9217bb3.13.llvm.509426865870779508) #23
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.583879a8f71c633ffbae0a69c9217bb3.13.llvm.509426865870779508) #23
   unreachable
 
 15:                                               ; preds = %5
@@ -641,7 +641,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.50
   store ptr @anon.583879a8f71c633ffbae0a69c9217bb3.11.llvm.509426865870779508, ptr %14, align 8, !alias.scope !97, !noalias !100
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8, !alias.scope !97, !noalias !100
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.583879a8f71c633ffbae0a69c9217bb3.14.llvm.509426865870779508) #23
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.583879a8f71c633ffbae0a69c9217bb3.14.llvm.509426865870779508) #23
   unreachable
 }
 

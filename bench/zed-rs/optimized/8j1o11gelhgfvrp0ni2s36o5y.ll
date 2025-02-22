@@ -431,7 +431,7 @@ _ZN5serde2de10EnumAccess7variant17hd41a8cfd13bc6663E.exit.i: ; preds = %42
 74:                                               ; preds = %66, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6527be1de9f342d6E.llvm.2471798985521550805.exit.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   store i8 11, ptr %17, align 8
-  %75 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hc7b711cca3f78176E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17, ptr noundef nonnull align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.2)
+  %75 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hc7b711cca3f78176E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17, ptr noundef nonnull align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.2)
           to label %81 unwind label %72
 
 76:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6527be1de9f342d6E.llvm.2471798985521550805.exit.i"
@@ -537,7 +537,7 @@ _ZN5serde2de10EnumAccess7variant17hd41a8cfd13bc6663E.exit.i: ; preds = %42
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   store i8 11, ptr %15, align 8
-  %101 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hc7b711cca3f78176E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef nonnull align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.2)
+  %101 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hc7b711cca3f78176E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef nonnull align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.2)
           to label %102 unwind label %83
 
 102:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$$GT$17h069f1a0856e1a4bbE.exit"
@@ -677,7 +677,7 @@ _ZN5serde2de10EnumAccess7variant17hd41a8cfd13bc6663E.exit.i: ; preds = %42
           to label %.body.thread115 unwind label %136
 
 140:                                              ; preds = %23
-  %141 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17h19b07a4a33b81cf1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.2)
+  %141 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17h19b07a4a33b81cf1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.2)
           to label %142 unwind label %138
 
 142:                                              ; preds = %140
@@ -914,7 +914,7 @@ define hidden void @"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserial
   br i1 %27, label %34, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54ca2bb4807319caE.llvm.16403958082728167663.exit"
 
 34:                                               ; preds = %33
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.9, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd7cb62bc60155e1434b007ab2d45fb9.11) #23
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.9, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd7cb62bc60155e1434b007ab2d45fb9.11) #23
           to label %.noexc.i unwind label %28, !noalias !226
 
 .noexc.i:                                         ; preds = %34
@@ -1076,7 +1076,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   br i1 %12, label %19, label %20
 
 19:                                               ; preds = %18
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.9, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd7cb62bc60155e1434b007ab2d45fb9.11) #23
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.bd7cb62bc60155e1434b007ab2d45fb9.9, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd7cb62bc60155e1434b007ab2d45fb9.11) #23
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %19
@@ -2455,7 +2455,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_map17h3c58be5e6d128006E(ptr dead_
   %5 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i8 11, ptr %5, align 8
-  %6 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17h19b07a4a33b81cf1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.25.llvm.16403958082728167663)
+  %6 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17h19b07a4a33b81cf1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.25.llvm.16403958082728167663)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
@@ -2469,7 +2469,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_map17hc9f9dbba1799f50dE.llvm.1640
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i8 11, ptr %4, align 8
-  %5 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17h19b07a4a33b81cf1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.25.llvm.16403958082728167663)
+  %5 = invoke noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17h19b07a4a33b81cf1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.bd7cb62bc60155e1434b007ab2d45fb9.25.llvm.16403958082728167663)
           to label %14 unwind label %6
 
 6:                                                ; preds = %2
@@ -5703,7 +5703,7 @@ define hidden void @"_ZN5theme6schema1_84_$LT$impl$u20$serde..ser..Serialize$u20
   br i1 %27, label %_ZN5serde3ser12SerializeMap15serialize_entry17ha6f36a4fe6d75434E.exit.thread, label %28
 
 .invoke:                                          ; preds = %554, %534, %514, %496, %119, %99, %79, %61, %43, %22
-  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.31e6615533442f7d7e493c9bae39a2e6.16.llvm.8576893829024864589, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.31e6615533442f7d7e493c9bae39a2e6.18.llvm.8576893829024864589) #23
+  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.31e6615533442f7d7e493c9bae39a2e6.16.llvm.8576893829024864589, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.31e6615533442f7d7e493c9bae39a2e6.18.llvm.8576893829024864589) #23
           to label %.cont unwind label %742
 
 .cont:                                            ; preds = %.invoke
@@ -7491,7 +7491,7 @@ define hidden void @"_ZN5theme6schema1_85_$LT$impl$u20$serde..de..Deserialize$u2
   br label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17h72dc5181b4f0f0bbE.exit"
 
 7:                                                ; preds = %2
-  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.4.llvm.3612665634329711074), !noalias !1869
+  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.4.llvm.3612665634329711074), !noalias !1869
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !alias.scope !1869, !noalias !1872
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !1869, !noalias !1872
@@ -21748,7 +21748,7 @@ define hidden void @"_ZN5theme6schema1_86_$LT$impl$u20$serde..de..Deserialize$u2
   ]
 
 7:                                                ; preds = %2
-  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.16.llvm.3612665634329711074), !noalias !2695
+  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.16.llvm.3612665634329711074), !noalias !2695
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !alias.scope !2695, !noalias !2698
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !2695, !noalias !2698
@@ -22438,7 +22438,7 @@ define hidden void @"_ZN5theme6schema1_89_$LT$impl$u20$serde..de..Deserialize$u2
   ]
 
 7:                                                ; preds = %2
-  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.17.llvm.3612665634329711074), !noalias !2910
+  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17hba8257f0550212bdE.llvm.3612665634329711074"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d2e6e73d165e47c6e1b0863a0648eff7.17.llvm.3612665634329711074), !noalias !2910
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !alias.scope !2910, !noalias !2913
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !2910, !noalias !2913

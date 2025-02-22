@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull ptr @_ZN23assistant_slash_command22slash_command_registry20SlashCommandRegistry6global17h7db675dde99ba00fE(ptr noalias noundef readonly align 8 dereferenceable(1176) %0) unnamed_addr #0 {
-  %2 = tail call noundef align 8 dereferenceable(8) ptr @_ZN4gpui3app10AppContext6global17h2f51183e4d5a34d0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5dfc030fbda5c916859e34bcd971226e.19)
+  %2 = tail call noundef align 8 dereferenceable(8) ptr @_ZN4gpui3app10AppContext6global17h2f51183e4d5a34d0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5dfc030fbda5c916859e34bcd971226e.19)
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = atomicrmw add ptr %3, i64 1 monotonic, align 8
   %5 = icmp slt i64 %4, 0
@@ -77,7 +77,7 @@ define noundef nonnull ptr @_ZN23assistant_slash_command22slash_command_registry
   br i1 %.sroa.0.0.i.i, label %_ZN4gpui3app10AppContext14default_global17hc6ca85de609b3044E.exit, label %26
 
 26:                                               ; preds = %14
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.84d08b48f30825dd577d249ad6e4cdd6.4.llvm.17534509975804802710) #13
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.84d08b48f30825dd577d249ad6e4cdd6.4.llvm.17534509975804802710) #13
   unreachable
 
 _ZN4gpui3app10AppContext14default_global17hc6ca85de609b3044E.exit: ; preds = %14

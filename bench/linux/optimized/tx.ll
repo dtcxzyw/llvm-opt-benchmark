@@ -987,7 +987,7 @@ define dso_local noundef zeroext i1 @ieee80211_tx_prepare_skb(ptr noundef %0, pt
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   store volatile ptr %53, ptr %54, align 8
   store volatile ptr %51, ptr %53, align 8
   %.pre = load ptr, ptr %42, align 8
@@ -6195,7 +6195,7 @@ codel_dequeue_func.exit38:                        ; preds = %475
   %869 = getelementptr inbounds nuw i8, ptr %863, i64 8
   %870 = load ptr, ptr %869, align 8
   %871 = getelementptr inbounds nuw i8, ptr %868, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %863, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %861, i8 0, i64 16, i1 false)
   store volatile ptr %870, ptr %871, align 8
   store volatile ptr %868, ptr %870, align 8
   %.pre137 = load ptr, ptr %83, align 8
@@ -8703,7 +8703,7 @@ define dso_local void @__ieee80211_subif_start_xmit(ptr noundef %0, ptr noundef 
   %172 = phi ptr [ %167, %169 ], [ %173, %171 ]
   %173 = load ptr, ptr %172, align 8
   store ptr null, ptr %172, align 8
-  call void @__ieee80211_xmit_fast(ptr noundef %8, ptr noundef nonnull %44, ptr noundef nonnull %90, ptr noundef nonnull %172, i1 zeroext poison, ptr noundef nonnull %6, ptr noundef nonnull %170)
+  call void @__ieee80211_xmit_fast(ptr noundef %8, ptr noundef nonnull %42, ptr noundef nonnull %90, ptr noundef nonnull %172, i1 zeroext poison, ptr noundef nonnull %6, ptr noundef nonnull %170)
   %174 = icmp eq ptr %173, null
   br i1 %174, label %.thread16, label %171, !llvm.loop !151
 
@@ -14933,7 +14933,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %342 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %334, i8 0, i64 16, i1 false)
   store volatile ptr %343, ptr %344, align 8
   store volatile ptr %341, ptr %343, align 8
   br label %345

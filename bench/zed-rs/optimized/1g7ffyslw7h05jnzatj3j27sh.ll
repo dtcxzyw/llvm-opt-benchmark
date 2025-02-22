@@ -27,7 +27,7 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br i1 %.not.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.0.llvm.9353262432280078261)
+  %7 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.0.llvm.9353262432280078261)
           to label %.thread unwind label %8
 
 8:                                                ; preds = %6
@@ -114,7 +114,7 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 13:                                               ; preds = %6
-  %14 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.1.llvm.9353262432280078261)
+  %14 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.1.llvm.9353262432280078261)
           to label %27 unwind label %18
 
 15:                                               ; preds = %6
@@ -255,7 +255,7 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 13:                                               ; preds = %6
-  %14 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.2.llvm.9353262432280078261)
+  %14 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.2.llvm.9353262432280078261)
           to label %27 unwind label %18
 
 15:                                               ; preds = %6
@@ -396,7 +396,7 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   ]
 
 13:                                               ; preds = %6
-  %14 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.3.llvm.9353262432280078261)
+  %14 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h638c86005ef1e6e2E.llvm.9353262432280078261"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1fde204467abb43ae180b2a030024869.3.llvm.9353262432280078261)
           to label %27 unwind label %18
 
 15:                                               ; preds = %6

@@ -1197,16 +1197,11 @@ define internal void @_ZN12_GLOBAL__N_116EarliestCaptures11tooManyUsesEv(ptr nou
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !153
-  %7 = icmp eq ptr %6, null
-  %8 = getelementptr inbounds i8, ptr %6, i64 -24
-  %9 = select i1 %7, ptr null, ptr %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !154
-  %12 = icmp eq ptr %11, null
-  %13 = getelementptr inbounds i8, ptr %11, i64 -24
-  %14 = select i1 %12, ptr null, ptr %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !94
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !154
+  %9 = getelementptr inbounds i8, ptr %8, i64 -24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %10, align 8, !tbaa !94
   ret void
 }
 

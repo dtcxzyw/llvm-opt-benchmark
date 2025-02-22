@@ -477,26 +477,26 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
 
 12:                                               ; preds = %4
   %13 = tail call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %1) #15
-  %.not125138 = icmp eq ptr %13, null
-  br i1 %.not125138, label %.loopexit, label %.lr.ph141
+  %.not126139 = icmp eq ptr %13, null
+  br i1 %.not126139, label %.loopexit, label %.lr.ph142
 
-.lr.ph141:                                        ; preds = %12
+.lr.ph142:                                        ; preds = %12
   %14 = add i64 %2, 1
   br label %15
 
-15:                                               ; preds = %.lr.ph141, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit
-  %.sroa.0110.0139 = phi ptr [ %13, %.lr.ph141 ], [ %.sroa.0110.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0139, i64 68
+15:                                               ; preds = %.lr.ph142, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit
+  %.sroa.0110.0140 = phi ptr [ %13, %.lr.ph142 ], [ %.sroa.0110.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0140, i64 68
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
-  %.not126 = icmp eq i32 %18, 0
-  br i1 %.not126, label %32, label %19
+  %.not127 = icmp eq i32 %18, 0
+  br i1 %.not127, label %32, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %22 = load ptr, ptr %21, align 8, !tbaa !24
-  %23 = tail call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0110.0139) #15
+  %23 = tail call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0110.0140) #15
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit, label %25
 
@@ -511,13 +511,13 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDa
   br label %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit
 
 32:                                               ; preds = %15
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0139, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0140, i64 48
   %.sroa.0.0.copyload.i61 = load i64, ptr %33, align 8, !tbaa !12
   tail call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDataENS_8QualTypeENS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 %.sroa.0.0.copyload.i61, i64 %2)
   br label %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit
 
 _ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit: ; preds = %25, %19, %32
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0139, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0140, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %34, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %36 = inttoptr i64 %35 to ptr
@@ -543,18 +543,16 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclEN
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %42, %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit
   %.sroa.0110.2 = phi ptr [ %36, %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit ], [ %45, %42 ], [ %.sroa.0110.1, %.lr.ph.i.i ]
-  %.not125 = icmp eq ptr %.sroa.0110.2, null
-  br i1 %.not125, label %.loopexit, label %15
+  %.not126 = icmp eq ptr %.sroa.0110.2, null
+  br i1 %.not126, label %.loopexit, label %15
 
 46:                                               ; preds = %4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 127
-  %50 = add nsw i32 %49, -57
-  %51 = icmp ult i32 %50, 3
-  %spec.select.i.i = select i1 %51, ptr %1, ptr null
-  %.not = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not, label %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread, label %52
+  %50 = add nsw i32 %49, -60
+  %51 = icmp ult i32 %50, -3
+  br i1 %51, label %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread, label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -588,11 +586,11 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br label %70
 
 70:                                               ; preds = %58, %52
-  %71 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i)
+  %71 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %72 = extractvalue { ptr, ptr } %71, 0
   %73 = extractvalue { ptr, ptr } %71, 1
-  %.not57128 = icmp eq ptr %72, %73
-  br i1 %.not57128, label %._crit_edge, label %.lr.ph
+  %.not57129 = icmp eq ptr %72, %73
+  br i1 %.not57129, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %117, %70
   %74 = load ptr, ptr %53, align 8, !tbaa !704
@@ -608,15 +606,15 @@ _ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit:  ; preds = %._crit_edge
   br i1 %.not.i, label %119, label %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread
 
 .lr.ph:                                           ; preds = %70, %117
-  %.0129 = phi ptr [ %118, %117 ], [ %72, %70 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0129, i64 12
+  %.0130 = phi ptr [ %118, %117 ], [ %72, %70 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.0130, i64 12
   %81 = load i8, ptr %80, align 4
   %82 = and i8 %81, 1
   %.not122 = icmp eq i8 %82, 0
   br i1 %.not122, label %83, label %117
 
 83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %.0129, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.0130, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !722
   %.sroa.0.0.copyload.i.i = load i64, ptr %85, align 8, !tbaa !12
   %86 = and i64 %.sroa.0.0.copyload.i.i, -16
@@ -678,7 +676,7 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit: ; pr
   br label %117
 
 117:                                              ; preds = %.lr.ph, %_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit
-  %118 = getelementptr inbounds nuw i8, ptr %.0129, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %.0130, i64 24
   %.not57 = icmp eq ptr %118, %73
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
@@ -708,31 +706,31 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit: ; pr
 
 _ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread: ; preds = %._crit_edge, %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit, %119, %46
   %132 = call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %1) #15
-  %.not123130 = icmp eq ptr %132, null
-  br i1 %.not123130, label %._crit_edge133, label %.lr.ph132
+  %.not123131 = icmp eq ptr %132, null
+  br i1 %.not123131, label %._crit_edge134, label %.lr.ph133
 
-.lr.ph132:                                        ; preds = %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread
+.lr.ph133:                                        ; preds = %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %134 = add i64 %2, 1
   br label %135
 
-._crit_edge133:                                   ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit83, %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread
-  br i1 %.not, label %.loopexit, label %188
+._crit_edge134:                                   ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit83, %_ZNK5clang15ASTRecordLayout11hasOwnVBPtrEv.exit.thread
+  br i1 %51, label %.loopexit, label %188
 
-135:                                              ; preds = %.lr.ph132, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit83
-  %.sroa.0100.0131 = phi ptr [ %132, %.lr.ph132 ], [ %.sroa.0100.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit83 ]
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0131, i64 28
+135:                                              ; preds = %.lr.ph133, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit83
+  %.sroa.0100.0132 = phi ptr [ %132, %.lr.ph133 ], [ %.sroa.0100.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit83 ]
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0132, i64 28
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 32768
   %.not.i.i.i = icmp eq i32 %138, 0
   br i1 %.not.i.i.i, label %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i, label %139
 
 139:                                              ; preds = %135
-  %140 = call noundef ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0100.0131) #15
+  %140 = call noundef ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0100.0132) #15
   br label %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i
 
 _ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i:  ; preds = %139, %135
-  %.0.i.i.i = phi ptr [ %140, %139 ], [ %.sroa.0100.0131, %135 ]
+  %.0.i.i.i = phi ptr [ %140, %139 ], [ %.sroa.0100.0132, %135 ]
   %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 68
   %142 = load i32, ptr %141, align 4
   %143 = icmp ult i32 %142, 16
@@ -751,17 +749,17 @@ _ZNK5clang9FieldDecl13getFieldIndexEv.exit:       ; preds = %_ZNK5clang9FieldDec
   %149 = zext i32 %147 to i64
   %150 = getelementptr inbounds nuw i64, ptr %148, i64 %149
   %151 = load i64, ptr %150, align 8, !tbaa !776
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0131, i64 68
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0132, i64 68
   %153 = load i32, ptr %152, align 4
   %154 = and i32 %153, 1
-  %.not124 = icmp eq i32 %154, 0
-  br i1 %.not124, label %169, label %155
+  %.not125 = icmp eq i32 %154, 0
+  br i1 %.not125, label %169, label %155
 
 155:                                              ; preds = %_ZNK5clang9FieldDecl13getFieldIndexEv.exit
   %156 = load ptr, ptr %0, align 8, !tbaa !13
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 144
   %158 = load ptr, ptr %157, align 8, !tbaa !24
-  %159 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0100.0131) #15
+  %159 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0100.0132) #15
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit76, label %161
 
@@ -777,7 +775,7 @@ _ZNK5clang9FieldDecl13getFieldIndexEv.exit:       ; preds = %_ZNK5clang9FieldDec
   br label %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit76
 
 169:                                              ; preds = %_ZNK5clang9FieldDecl13getFieldIndexEv.exit
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0131, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0132, i64 48
   %.sroa.0.0.copyload.i77 = load i64, ptr %170, align 8, !tbaa !12
   %171 = load ptr, ptr %0, align 8, !tbaa !13
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 144
@@ -788,7 +786,7 @@ _ZNK5clang9FieldDecl13getFieldIndexEv.exit:       ; preds = %_ZNK5clang9FieldDec
   br label %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit76
 
 _ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit76: ; preds = %161, %155, %169
-  %176 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0131, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0132, i64 8
   %.0.copyload.i.i.i.i.i.i78 = load i64, ptr %176, align 8
   %177 = and i64 %.0.copyload.i.i.i.i.i.i78, -8
   %178 = inttoptr i64 %177 to ptr
@@ -815,22 +813,22 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclEN
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit83: ; preds = %.lr.ph.i.i80, %184, %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit76
   %.sroa.0100.2 = phi ptr [ %178, %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering15addBitFieldDataEPKNS_9FieldDeclENS_9CharUnitsEm.exit76 ], [ %187, %184 ], [ %.sroa.0100.1, %.lr.ph.i.i80 ]
   %.not123 = icmp eq ptr %.sroa.0100.2, null
-  br i1 %.not123, label %._crit_edge133, label %135
+  br i1 %.not123, label %._crit_edge134, label %135
 
-188:                                              ; preds = %._crit_edge133
-  %189 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl6vbasesEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i)
+188:                                              ; preds = %._crit_edge134
+  %189 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl6vbasesEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %190 = extractvalue { ptr, ptr } %189, 0
   %191 = extractvalue { ptr, ptr } %189, 1
-  %.not58134 = icmp eq ptr %190, %191
-  br i1 %.not58134, label %.loopexit, label %.lr.ph137
+  %.not58135 = icmp eq ptr %190, %191
+  br i1 %.not58135, label %.loopexit, label %.lr.ph138
 
-.lr.ph137:                                        ; preds = %188
+.lr.ph138:                                        ; preds = %188
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 72
   br label %193
 
-193:                                              ; preds = %.lr.ph137, %_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit
-  %.055135 = phi ptr [ %190, %.lr.ph137 ], [ %227, %_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit ]
-  %194 = getelementptr inbounds nuw i8, ptr %.055135, i64 16
+193:                                              ; preds = %.lr.ph138, %_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit
+  %.055136 = phi ptr [ %190, %.lr.ph138 ], [ %227, %_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit ]
+  %194 = getelementptr inbounds nuw i8, ptr %.055136, i64 16
   %195 = load ptr, ptr %194, align 8, !tbaa !722
   %.sroa.0.0.copyload.i.i84 = load i64, ptr %195, align 8, !tbaa !12
   %196 = and i64 %.sroa.0.0.copyload.i.i84, -16
@@ -889,11 +887,11 @@ _ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit: ; p
   %225 = load ptr, ptr %224, align 8, !tbaa !24
   %226 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %225, ptr noundef nonnull %206) #15
   call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering12addTypedDataEPKNS_10RecordDeclENS_9CharUnitsERKNS_15ASTRecordLayoutE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull %206, i64 %222, ptr noundef nonnull align 8 dereferenceable(80) %226)
-  %227 = getelementptr inbounds nuw i8, ptr %.055135, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %.055136, i64 24
   %.not58 = icmp eq ptr %227, %191
   br i1 %.not58, label %.loopexit, label %193
 
-.loopexit:                                        ; preds = %_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %188, %12, %._crit_edge133
+.loopexit:                                        ; preds = %_ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %188, %12, %._crit_edge134
   ret void
 }
 

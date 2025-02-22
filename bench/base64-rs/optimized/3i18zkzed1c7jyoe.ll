@@ -167,7 +167,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %49, label %51, label %54, !prof !22
 
 50:                                               ; preds = %37
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.1.lcssa, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.76) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.1.lcssa, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.76) #13
   unreachable
 
 51:                                               ; preds = %40
@@ -176,7 +176,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %53, label %55, label %66, !prof !22
 
 54:                                               ; preds = %40
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %48, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.78) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %48, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.78) #13
   unreachable
 
 55:                                               ; preds = %51
@@ -194,7 +194,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %65, label %67, label %70, !prof !22
 
 66:                                               ; preds = %51
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %52, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.80) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %52, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.80) #13
   unreachable
 
 67:                                               ; preds = %55
@@ -203,7 +203,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br label %.sink.split
 
 70:                                               ; preds = %55
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %64, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.83) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %64, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.83) #13
   unreachable
 
 .sink.split:                                      ; preds = %67, %92
@@ -242,7 +242,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br i1 %90, label %92, label %95, !prof !22
 
 91:                                               ; preds = %78
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.1.lcssa, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.86) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.1.lcssa, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.86) #13
   unreachable
 
 92:                                               ; preds = %80
@@ -251,7 +251,7 @@ define noundef i64 @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u
   br label %.sink.split
 
 95:                                               ; preds = %80
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %89, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.89) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %89, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.543452bd7b4262aa2fc81bbfabe7b065.89) #13
   unreachable
 
 96:                                               ; preds = %33
@@ -546,7 +546,7 @@ define void @"_ZN90_$LT$base64..engine..general_purpose..GeneralPurpose$u20$as$u
   br i1 %.not4.i.i, label %18, label %30
 
 29:                                               ; preds = %16
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %17, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed0a7902a43aae889103a61b6651f3dd.1.llvm.18260278607425210501) #13, !noalias !71
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %17, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed0a7902a43aae889103a61b6651f3dd.1.llvm.18260278607425210501) #13, !noalias !71
   unreachable
 
 30:                                               ; preds = %26

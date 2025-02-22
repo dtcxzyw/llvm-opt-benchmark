@@ -5128,7 +5128,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
   tail call void @llvm.experimental.noalias.scope.decl(metadata !964)
   %1919 = getelementptr inbounds nuw i8, ptr %1660, i64 136
   %1920 = load ptr, ptr %1919, align 8, !invariant.load !8, !alias.scope !967, !noalias !968, !nonnull !8
-  call void %1920(ptr noundef nonnull align 1 %1918, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6d981bbdd211541ce803f2c721ad95e.31.llvm.2546880118954093015), !noalias !970
+  call void %1920(ptr noundef nonnull align 1 %1918, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b6d981bbdd211541ce803f2c721ad95e.31.llvm.2546880118954093015), !noalias !970
   %1921 = call fastcc { i64, i64 } @"_ZN9siphasher6sip12815Hasher$LT$S$GT$9finish12817h81e672425a684f02E"(ptr noalias noundef readonly align 8 dereferenceable(72) %4), !noalias !957
   %1922 = extractvalue { i64, i64 } %1921, 0
   %1923 = extractvalue { i64, i64 } %1921, 1

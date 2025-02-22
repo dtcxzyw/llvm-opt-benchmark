@@ -8995,7 +8995,7 @@ if.end600:                                        ; preds = %if.else599, %if.the
   store ptr %call.i, ptr %ref.tmp601, align 8
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %block_key602) #34
   store i64 %call2.i, ptr %size_.i1024, align 8
-  invoke void @_ZNK7rocksdb15BlockBasedTable30SaveLookupContextOrTraceRecordINS_11Block_kDataEEENSt9enable_ifIXooeqsrT_15kCacheEntryRoleLNS_14CacheEntryRoleE13ELb1EEvE4typeERKNS_5SliceEbRKNS_11ReadOptionsEPKS4_PNS_23BlockCacheLookupContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp601, i1 noundef zeroext %lnot605, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %parsed_block_value.0, ptr noundef nonnull %spec.select1608)
+  invoke void @_ZNK7rocksdb15BlockBasedTable30SaveLookupContextOrTraceRecordINS_11Block_kDataEEENSt9enable_ifIXooeqsrT_15kCacheEntryRoleLNS_14CacheEntryRoleE13ELb1EEvE4typeERKNS_5SliceEbRKNS_11ReadOptionsEPKS4_PNS_23BlockCacheLookupContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp601, i1 noundef zeroext %lnot605, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %parsed_block_value.0, ptr noundef nonnull %add.ptr.i682)
           to label %invoke.cont606 unwind label %lpad370.loopexit.split-lp.loopexit
 
 invoke.cont606:                                   ; preds = %if.end600
@@ -9003,7 +9003,7 @@ invoke.cont606:                                   ; preds = %if.end600
   store ptr %call.i1025, ptr %ref.tmp607, align 8
   %call2.i1027 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %block_key602) #34
   store i64 %call2.i1027, ptr %size_.i1026, align 8
-  invoke void @_ZNK7rocksdb15BlockBasedTable17FinishTraceRecordERKNS_23BlockCacheLookupContextERKNS_5SliceES6_bm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(97) %spec.select1608, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp607, ptr noundef nonnull align 8 dereferenceable(16) %referenced_key, i1 noundef zeroext %does_referenced_key_exist.1, i64 noundef %referenced_data_size.1)
+  invoke void @_ZNK7rocksdb15BlockBasedTable17FinishTraceRecordERKNS_23BlockCacheLookupContextERKNS_5SliceES6_bm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(97) %add.ptr.i682, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp607, ptr noundef nonnull align 8 dereferenceable(16) %referenced_key, i1 noundef zeroext %does_referenced_key_exist.1, i64 noundef %referenced_data_size.1)
           to label %if.end612 unwind label %lpad370.loopexit.split-lp.loopexit
 
 if.end612:                                        ; preds = %for.end586, %invoke.cont606
@@ -9603,10 +9603,10 @@ _ZN7rocksdb10autovectorINS_11BlockHandleELm32EED2Ev.exit: ; preds = %_ZN7rocksdb
   br i1 %cmp.not.i1209, label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i: ; preds = %_ZN7rocksdb10autovectorINS_11BlockHandleELm32EED2Ev.exit
-  %vtable.i.i1210 = load ptr, ptr %spec.select, align 8
+  %vtable.i.i1210 = load ptr, ptr %call2.i230, align 8
   %vfn.i.i1211 = getelementptr inbounds nuw i8, ptr %vtable.i.i1210, i64 8
   %441 = load ptr, ptr %vfn.i.i1211, align 8
-  call void %441(ptr noundef nonnull align 8 dereferenceable(40) %spec.select) #34
+  call void %441(ptr noundef nonnull align 8 dereferenceable(40) %call2.i230) #34
   br label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN7rocksdb10autovectorINS_11BlockHandleELm32EED2Ev.exit, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i
@@ -9709,10 +9709,10 @@ _ZN7rocksdb10autovectorINS_11BlockHandleELm32EED2Ev.exit1241: ; preds = %_ZN7roc
   br i1 %cmp.not.i1242, label %ehcleanup745, label %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i1243
 
 _ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i1243: ; preds = %_ZN7rocksdb10autovectorINS_11BlockHandleELm32EED2Ev.exit1241
-  %vtable.i.i1244 = load ptr, ptr %spec.select, align 8
+  %vtable.i.i1244 = load ptr, ptr %call2.i230, align 8
   %vfn.i.i1245 = getelementptr inbounds nuw i8, ptr %vtable.i.i1244, i64 8
   %448 = load ptr, ptr %vfn.i.i1245, align 8
-  call void %448(ptr noundef nonnull align 8 dereferenceable(40) %spec.select) #34
+  call void %448(ptr noundef nonnull align 8 dereferenceable(40) %call2.i230) #34
   br label %ehcleanup745
 
 ehcleanup745:                                     ; preds = %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i1243, %_ZN7rocksdb10autovectorINS_11BlockHandleELm32EED2Ev.exit1241, %lpad25
@@ -22920,7 +22920,6 @@ invoke.cont3:                                     ; preds = %if.end
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %cmp.not = icmp eq ptr %call2.i19, %iiter_on_stack
-  %spec.select = select i1 %cmp.not, ptr null, ptr %call2.i19
   %vtable9 = load ptr, ptr %this, align 8
   %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 72
   %15 = load ptr, ptr %vfn10, align 8
@@ -23192,14 +23191,15 @@ _ZN7rocksdb14IndexBlockIterD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
 
 ehcleanup:                                        ; preds = %lpad19, %lpad11
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad19 ], [ %34, %lpad11 ]
-  %cmp.not.i26 = icmp eq ptr %spec.select, null
+  %cmp.not.i2638 = icmp eq ptr %call2.i19, null
+  %cmp.not.i26 = or i1 %cmp.not, %cmp.not.i2638
   br i1 %cmp.not.i26, label %ehcleanup66, label %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i27
 
 _ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i27: ; preds = %ehcleanup
-  %vtable.i.i28 = load ptr, ptr %spec.select, align 8
+  %vtable.i.i28 = load ptr, ptr %call2.i19, align 8
   %vfn.i.i29 = getelementptr inbounds nuw i8, ptr %vtable.i.i28, i64 8
   %52 = load ptr, ptr %vfn.i.i29, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(40) %spec.select) #34
+  call void %52(ptr noundef nonnull align 8 dereferenceable(40) %call2.i19) #34
   br label %ehcleanup66
 
 ehcleanup66:                                      ; preds = %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_10IndexValueEEEEclEPS3_.exit.i27, %ehcleanup, %lpad4

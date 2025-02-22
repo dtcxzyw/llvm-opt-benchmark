@@ -580,42 +580,40 @@ define dso_local noundef ptr @_ZN5clang7CodeGen29getCXXDestructorImplicitParamER
   br i1 %.not.i, label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit, label %20
 
 20:                                               ; preds = %8
-  %21 = icmp eq ptr %2, null
-  %22 = getelementptr inbounds i8, ptr %2, i64 -24
-  %23 = select i1 %21, ptr null, ptr %22
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm11Instruction17getStableDebugLocEv(ptr noundef nonnull align 8 dereferenceable(72) %23) #5
-  %25 = load ptr, ptr %24, align 8, !tbaa !326
-  store ptr %25, ptr %9, align 8, !tbaa !326
-  %.not.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i, label %26
+  %21 = getelementptr inbounds i8, ptr %2, i64 -24
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm11Instruction17getStableDebugLocEv(ptr noundef nonnull align 8 dereferenceable(72) %21) #5
+  %23 = load ptr, ptr %22, align 8, !tbaa !326
+  store ptr %23, ptr %9, align 8, !tbaa !326
+  %.not.i.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i, label %24
 
-26:                                               ; preds = %20
-  %27 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %25, i64 1) #5
+24:                                               ; preds = %20
+  %25 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %23, i64 1) #5
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !326
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit.i
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %26, %20
-  %28 = phi ptr [ null, %20 ], [ %.pre.i, %26 ]
-  call void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %16, i32 noundef 0, ptr noundef %28)
-  %29 = load ptr, ptr %9, align 8, !tbaa !326
-  %.not.i.i.i.i3.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i3.i, label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit, label %30
+_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %24, %20
+  %26 = phi ptr [ null, %20 ], [ %.pre.i, %24 ]
+  call void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %16, i32 noundef 0, ptr noundef %26)
+  %27 = load ptr, ptr %9, align 8, !tbaa !326
+  %.not.i.i.i.i3.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i3.i, label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit, label %28
 
-30:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %29) #5
+28:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %27) #5
   br label %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit
 
-_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit: ; preds = %8, %_ZN4llvm8DebugLocC2ERKS0_.exit.i, %30
+_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE.exit: ; preds = %8, %_ZN4llvm8DebugLocC2ERKS0_.exit.i, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %32 = load ptr, ptr %31, align 8, !tbaa !8
-  %33 = load ptr, ptr %32, align 8, !tbaa !10
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 488
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(6496) %10, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #5
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %31 = load ptr, ptr %30, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 488
+  %33 = load ptr, ptr %32, align 8
+  %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(6496) %10, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) #5
   call void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6496) %10) #5
   call void @llvm.lifetime.end.p0(i64 6496, ptr nonnull %10) #5
-  ret ptr %36
+  ret ptr %34
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

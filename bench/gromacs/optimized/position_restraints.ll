@@ -837,7 +837,7 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   br i1 %.not.i, label %155, label %154
 
 154:                                              ; preds = %153
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %61, ptr noundef %97, ptr noundef nonnull %8, ptr noundef nonnull %13)
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %2, ptr noundef %97, ptr noundef nonnull %8, ptr noundef nonnull %13)
   br label %_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.exit
 
 155:                                              ; preds = %153

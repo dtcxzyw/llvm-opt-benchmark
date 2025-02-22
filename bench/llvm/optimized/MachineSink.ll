@@ -3838,7 +3838,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.i: ; preds = %981
   br i1 %1061, label %.thread62.i.i, label %1062
 
 1062:                                             ; preds = %1060
-  %1063 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114MachineSinking31registerPressureSetExceedsLimitEjPKN4llvm19TargetRegisterClassERKNS1_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(1193) %0, i32 noundef 1, ptr noundef nonnull %spec.select200.i.i, ptr noundef nonnull align 8 dereferenceable(288) %1007)
+  %1063 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114MachineSinking31registerPressureSetExceedsLimitEjPKN4llvm19TargetRegisterClassERKNS1_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(1193) %0, i32 noundef 1, ptr noundef nonnull %.5180.i.i, ptr noundef nonnull align 8 dereferenceable(288) %1007)
   br i1 %1063, label %.thread62.i.i, label %.critedge203.i.i
 
 .critedge203.i.i:                                 ; preds = %1062, %1053, %1045, %1005

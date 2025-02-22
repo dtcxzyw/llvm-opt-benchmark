@@ -4578,16 +4578,16 @@ _Py_NewRef.exit:                                  ; preds = %12, %9, %5, %2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @func_set_defaults(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %1, @_Py_NoneStruct
-  %.not33 = icmp eq ptr %1, null
-  %.not = or i1 %4, %.not33
+  %.not18 = icmp eq ptr %1, null
+  %.not = or i1 %4, %.not18
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %1, i64 8
-  %spec.store.select.val = load ptr, ptr %6, align 8, !tbaa !130
-  %7 = getelementptr i8, ptr %spec.store.select.val, i64 168
-  %.val = load i64, ptr %7, align 8, !tbaa !131
-  %8 = and i64 %.val, 67108864
+  %.val = load ptr, ptr %6, align 8, !tbaa !130
+  %7 = getelementptr i8, ptr %.val, i64 168
+  %.val19 = load i64, ptr %7, align 8, !tbaa !131
+  %8 = and i64 %.val19, 67108864
   %.not17 = icmp eq i64 %8, 0
   br i1 %.not17, label %9, label %11
 
@@ -4712,23 +4712,23 @@ func_clear_version.exit.i:                        ; preds = %54, %40
   %67 = load ptr, ptr %66, align 8, !tbaa !9
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8544
   %69 = load i8, ptr %68, align 8, !tbaa !22
-  %.not.i19 = icmp eq i8 %69, 0
-  br i1 %.not.i19, label %notify_func_watchers.exit.i26, label %.lr.ph.i.i20
+  %.not.i21 = icmp eq i8 %69, 0
+  br i1 %.not.i21, label %notify_func_watchers.exit.i28, label %.lr.ph.i.i22
 
-.lr.ph.i.i20:                                     ; preds = %.split16
+.lr.ph.i.i22:                                     ; preds = %.split16
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8480
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %72
 
-72:                                               ; preds = %81, %.lr.ph.i.i20
-  %indvars.iv.i.i21 = phi i64 [ 0, %.lr.ph.i.i20 ], [ %indvars.iv.next.i.i24, %81 ]
-  %.017.i.i22 = phi i8 [ %69, %.lr.ph.i.i20 ], [ %82, %81 ]
-  %73 = and i8 %.017.i.i22, 1
-  %.not14.i.i23 = icmp eq i8 %73, 0
-  br i1 %.not14.i.i23, label %81, label %74
+72:                                               ; preds = %81, %.lr.ph.i.i22
+  %indvars.iv.i.i23 = phi i64 [ 0, %.lr.ph.i.i22 ], [ %indvars.iv.next.i.i26, %81 ]
+  %.017.i.i24 = phi i8 [ %69, %.lr.ph.i.i22 ], [ %82, %81 ]
+  %73 = and i8 %.017.i.i24, 1
+  %.not14.i.i25 = icmp eq i8 %73, 0
+  br i1 %.not14.i.i25, label %81, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr [8 x ptr], ptr %70, i64 0, i64 %indvars.iv.i.i21
+  %75 = getelementptr [8 x ptr], ptr %70, i64 0, i64 %indvars.iv.i.i23
   %76 = load ptr, ptr %75, align 8, !tbaa !21
   %77 = tail call i32 %76(i32 noundef range(i32 0, 5) 3, ptr noundef %0, ptr noundef null) #8
   %78 = icmp slt i32 %77, 0
@@ -4740,36 +4740,36 @@ func_clear_version.exit.i:                        ; preds = %54, %40
   br label %81
 
 81:                                               ; preds = %79, %74, %72
-  %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i21, 1
-  %82 = lshr i8 %.017.i.i22, 1
-  %.not.i.i25 = icmp ult i8 %.017.i.i22, 2
-  br i1 %.not.i.i25, label %notify_func_watchers.exit.i26, label %72, !llvm.loop !123
+  %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i23, 1
+  %82 = lshr i8 %.017.i.i24, 1
+  %.not.i.i27 = icmp ult i8 %.017.i.i24, 2
+  br i1 %.not.i.i27, label %notify_func_watchers.exit.i28, label %72, !llvm.loop !123
 
-notify_func_watchers.exit.i26:                    ; preds = %81, %.split16
+notify_func_watchers.exit.i28:                    ; preds = %81, %.split16
   %83 = getelementptr inbounds nuw i8, ptr %67, i64 222996
   %84 = load i8, ptr %83, align 4, !tbaa !141
-  %.not9.i27 = icmp eq i8 %84, -1
-  br i1 %.not9.i27, label %handle_func_event.exit28, label %85
+  %.not9.i29 = icmp eq i8 %84, -1
+  br i1 %.not9.i29, label %handle_func_event.exit30, label %85
 
-85:                                               ; preds = %notify_func_watchers.exit.i26
+85:                                               ; preds = %notify_func_watchers.exit.i28
   %86 = add nuw i8 %84, 1
   store i8 %86, ptr %83, align 4, !tbaa !141
-  br label %handle_func_event.exit28
+  br label %handle_func_event.exit30
 
-handle_func_event.exit28:                         ; preds = %notify_func_watchers.exit.i26, %85
+handle_func_event.exit30:                         ; preds = %notify_func_watchers.exit.i28, %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %88 = load i32, ptr %87, align 8, !tbaa !119
   %89 = icmp ult i32 %88, 2
-  br i1 %89, label %_PyFunction_ClearVersion.exit30, label %90
+  br i1 %89, label %_PyFunction_ClearVersion.exit32, label %90
 
-90:                                               ; preds = %handle_func_event.exit28
+90:                                               ; preds = %handle_func_event.exit30
   %91 = load ptr, ptr %64, align 8, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !9
   tail call void @_PyEval_StopTheWorld(ptr noundef %93) #8
   %94 = load i32, ptr %87, align 8, !tbaa !119
   %95 = icmp ult i32 %94, 2
-  br i1 %95, label %func_clear_version.exit.i29, label %96
+  br i1 %95, label %func_clear_version.exit.i31, label %96
 
 96:                                               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 14112
@@ -4786,29 +4786,29 @@ handle_func_event.exit28:                         ; preds = %notify_func_watcher
 
 104:                                              ; preds = %103, %96
   store i32 1, ptr %87, align 8, !tbaa !119
-  br label %func_clear_version.exit.i29
+  br label %func_clear_version.exit.i31
 
-func_clear_version.exit.i29:                      ; preds = %104, %90
+func_clear_version.exit.i31:                      ; preds = %104, %90
   tail call void @_PyEval_StartTheWorld(ptr noundef %93) #8
-  br label %_PyFunction_ClearVersion.exit30
+  br label %_PyFunction_ClearVersion.exit32
 
-_PyFunction_ClearVersion.exit30:                  ; preds = %handle_func_event.exit28, %func_clear_version.exit.i29
+_PyFunction_ClearVersion.exit32:                  ; preds = %handle_func_event.exit30, %func_clear_version.exit.i31
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %106 = load ptr, ptr %105, align 8, !tbaa !96
   br label %_Py_XNewRef.exit
 
-_Py_XNewRef.exit:                                 ; preds = %60, %55, %_PyFunction_ClearVersion.exit30
-  %107 = phi ptr [ %105, %_PyFunction_ClearVersion.exit30 ], [ %56, %55 ], [ %56, %60 ]
-  %108 = phi ptr [ %106, %_PyFunction_ClearVersion.exit30 ], [ %57, %55 ], [ %57, %60 ]
-  %phi.call = phi ptr [ null, %_PyFunction_ClearVersion.exit30 ], [ %1, %55 ], [ %1, %60 ]
+_Py_XNewRef.exit:                                 ; preds = %60, %55, %_PyFunction_ClearVersion.exit32
+  %107 = phi ptr [ %105, %_PyFunction_ClearVersion.exit32 ], [ %56, %55 ], [ %56, %60 ]
+  %108 = phi ptr [ %106, %_PyFunction_ClearVersion.exit32 ], [ %57, %55 ], [ %57, %60 ]
+  %phi.call = phi ptr [ null, %_PyFunction_ClearVersion.exit32 ], [ %1, %55 ], [ %1, %60 ]
   store ptr %phi.call, ptr %107, align 8, !tbaa !96
-  %.not.i31 = icmp eq ptr %108, null
-  br i1 %.not.i31, label %Py_XDECREF.exit, label %109
+  %.not.i33 = icmp eq ptr %108, null
+  br i1 %.not.i33, label %Py_XDECREF.exit, label %109
 
 109:                                              ; preds = %_Py_XNewRef.exit
   %110 = load i32, ptr %108, align 8, !tbaa !99
-  %.not.i.i32 = icmp sgt i32 %110, -1
-  br i1 %.not.i.i32, label %111, label %Py_XDECREF.exit
+  %.not.i.i34 = icmp sgt i32 %110, -1
+  br i1 %.not.i.i34, label %111, label %Py_XDECREF.exit
 
 111:                                              ; preds = %109
   %112 = add nsw i32 %110, -1
@@ -4855,16 +4855,16 @@ _Py_NewRef.exit:                                  ; preds = %12, %9, %5, %2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @func_set_kwdefaults(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %1, @_Py_NoneStruct
-  %.not33 = icmp eq ptr %1, null
-  %.not = or i1 %4, %.not33
+  %.not18 = icmp eq ptr %1, null
+  %.not = or i1 %4, %.not18
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %1, i64 8
-  %spec.store.select.val = load ptr, ptr %6, align 8, !tbaa !130
-  %7 = getelementptr i8, ptr %spec.store.select.val, i64 168
-  %.val = load i64, ptr %7, align 8, !tbaa !131
-  %8 = and i64 %.val, 536870912
+  %.val = load ptr, ptr %6, align 8, !tbaa !130
+  %7 = getelementptr i8, ptr %.val, i64 168
+  %.val19 = load i64, ptr %7, align 8, !tbaa !131
+  %8 = and i64 %.val19, 536870912
   %.not17 = icmp eq i64 %8, 0
   br i1 %.not17, label %9, label %11
 
@@ -4989,23 +4989,23 @@ func_clear_version.exit.i:                        ; preds = %54, %40
   %67 = load ptr, ptr %66, align 8, !tbaa !9
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8544
   %69 = load i8, ptr %68, align 8, !tbaa !22
-  %.not.i19 = icmp eq i8 %69, 0
-  br i1 %.not.i19, label %notify_func_watchers.exit.i26, label %.lr.ph.i.i20
+  %.not.i21 = icmp eq i8 %69, 0
+  br i1 %.not.i21, label %notify_func_watchers.exit.i28, label %.lr.ph.i.i22
 
-.lr.ph.i.i20:                                     ; preds = %.split16
+.lr.ph.i.i22:                                     ; preds = %.split16
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8480
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %72
 
-72:                                               ; preds = %81, %.lr.ph.i.i20
-  %indvars.iv.i.i21 = phi i64 [ 0, %.lr.ph.i.i20 ], [ %indvars.iv.next.i.i24, %81 ]
-  %.017.i.i22 = phi i8 [ %69, %.lr.ph.i.i20 ], [ %82, %81 ]
-  %73 = and i8 %.017.i.i22, 1
-  %.not14.i.i23 = icmp eq i8 %73, 0
-  br i1 %.not14.i.i23, label %81, label %74
+72:                                               ; preds = %81, %.lr.ph.i.i22
+  %indvars.iv.i.i23 = phi i64 [ 0, %.lr.ph.i.i22 ], [ %indvars.iv.next.i.i26, %81 ]
+  %.017.i.i24 = phi i8 [ %69, %.lr.ph.i.i22 ], [ %82, %81 ]
+  %73 = and i8 %.017.i.i24, 1
+  %.not14.i.i25 = icmp eq i8 %73, 0
+  br i1 %.not14.i.i25, label %81, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr [8 x ptr], ptr %70, i64 0, i64 %indvars.iv.i.i21
+  %75 = getelementptr [8 x ptr], ptr %70, i64 0, i64 %indvars.iv.i.i23
   %76 = load ptr, ptr %75, align 8, !tbaa !21
   %77 = tail call i32 %76(i32 noundef range(i32 0, 5) 4, ptr noundef %0, ptr noundef null) #8
   %78 = icmp slt i32 %77, 0
@@ -5017,36 +5017,36 @@ func_clear_version.exit.i:                        ; preds = %54, %40
   br label %81
 
 81:                                               ; preds = %79, %74, %72
-  %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i21, 1
-  %82 = lshr i8 %.017.i.i22, 1
-  %.not.i.i25 = icmp ult i8 %.017.i.i22, 2
-  br i1 %.not.i.i25, label %notify_func_watchers.exit.i26, label %72, !llvm.loop !123
+  %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i23, 1
+  %82 = lshr i8 %.017.i.i24, 1
+  %.not.i.i27 = icmp ult i8 %.017.i.i24, 2
+  br i1 %.not.i.i27, label %notify_func_watchers.exit.i28, label %72, !llvm.loop !123
 
-notify_func_watchers.exit.i26:                    ; preds = %81, %.split16
+notify_func_watchers.exit.i28:                    ; preds = %81, %.split16
   %83 = getelementptr inbounds nuw i8, ptr %67, i64 222996
   %84 = load i8, ptr %83, align 4, !tbaa !141
-  %.not9.i27 = icmp eq i8 %84, -1
-  br i1 %.not9.i27, label %handle_func_event.exit28, label %85
+  %.not9.i29 = icmp eq i8 %84, -1
+  br i1 %.not9.i29, label %handle_func_event.exit30, label %85
 
-85:                                               ; preds = %notify_func_watchers.exit.i26
+85:                                               ; preds = %notify_func_watchers.exit.i28
   %86 = add nuw i8 %84, 1
   store i8 %86, ptr %83, align 4, !tbaa !141
-  br label %handle_func_event.exit28
+  br label %handle_func_event.exit30
 
-handle_func_event.exit28:                         ; preds = %notify_func_watchers.exit.i26, %85
+handle_func_event.exit30:                         ; preds = %notify_func_watchers.exit.i28, %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %88 = load i32, ptr %87, align 8, !tbaa !119
   %89 = icmp ult i32 %88, 2
-  br i1 %89, label %_PyFunction_ClearVersion.exit30, label %90
+  br i1 %89, label %_PyFunction_ClearVersion.exit32, label %90
 
-90:                                               ; preds = %handle_func_event.exit28
+90:                                               ; preds = %handle_func_event.exit30
   %91 = load ptr, ptr %64, align 8, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !9
   tail call void @_PyEval_StopTheWorld(ptr noundef %93) #8
   %94 = load i32, ptr %87, align 8, !tbaa !119
   %95 = icmp ult i32 %94, 2
-  br i1 %95, label %func_clear_version.exit.i29, label %96
+  br i1 %95, label %func_clear_version.exit.i31, label %96
 
 96:                                               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 14112
@@ -5063,29 +5063,29 @@ handle_func_event.exit28:                         ; preds = %notify_func_watcher
 
 104:                                              ; preds = %103, %96
   store i32 1, ptr %87, align 8, !tbaa !119
-  br label %func_clear_version.exit.i29
+  br label %func_clear_version.exit.i31
 
-func_clear_version.exit.i29:                      ; preds = %104, %90
+func_clear_version.exit.i31:                      ; preds = %104, %90
   tail call void @_PyEval_StartTheWorld(ptr noundef %93) #8
-  br label %_PyFunction_ClearVersion.exit30
+  br label %_PyFunction_ClearVersion.exit32
 
-_PyFunction_ClearVersion.exit30:                  ; preds = %handle_func_event.exit28, %func_clear_version.exit.i29
+_PyFunction_ClearVersion.exit32:                  ; preds = %handle_func_event.exit30, %func_clear_version.exit.i31
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %106 = load ptr, ptr %105, align 8, !tbaa !96
   br label %_Py_XNewRef.exit
 
-_Py_XNewRef.exit:                                 ; preds = %60, %55, %_PyFunction_ClearVersion.exit30
-  %107 = phi ptr [ %105, %_PyFunction_ClearVersion.exit30 ], [ %56, %55 ], [ %56, %60 ]
-  %108 = phi ptr [ %106, %_PyFunction_ClearVersion.exit30 ], [ %57, %55 ], [ %57, %60 ]
-  %phi.call = phi ptr [ null, %_PyFunction_ClearVersion.exit30 ], [ %1, %55 ], [ %1, %60 ]
+_Py_XNewRef.exit:                                 ; preds = %60, %55, %_PyFunction_ClearVersion.exit32
+  %107 = phi ptr [ %105, %_PyFunction_ClearVersion.exit32 ], [ %56, %55 ], [ %56, %60 ]
+  %108 = phi ptr [ %106, %_PyFunction_ClearVersion.exit32 ], [ %57, %55 ], [ %57, %60 ]
+  %phi.call = phi ptr [ null, %_PyFunction_ClearVersion.exit32 ], [ %1, %55 ], [ %1, %60 ]
   store ptr %phi.call, ptr %107, align 8, !tbaa !96
-  %.not.i31 = icmp eq ptr %108, null
-  br i1 %.not.i31, label %Py_XDECREF.exit, label %109
+  %.not.i33 = icmp eq ptr %108, null
+  br i1 %.not.i33, label %Py_XDECREF.exit, label %109
 
 109:                                              ; preds = %_Py_XNewRef.exit
   %110 = load i32, ptr %108, align 8, !tbaa !99
-  %.not.i.i32 = icmp sgt i32 %110, -1
-  br i1 %.not.i.i32, label %111, label %Py_XDECREF.exit
+  %.not.i.i34 = icmp sgt i32 %110, -1
+  br i1 %.not.i.i34, label %111, label %Py_XDECREF.exit
 
 111:                                              ; preds = %109
   %112 = add nsw i32 %110, -1

@@ -100,31 +100,31 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %7) #8
   %9 = getelementptr i8, ptr %7, i64 -16
-  %10 = select i1 %8, ptr %9, ptr null
-  %11 = load i32, ptr @libata_noacpi, align 4
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %56
+  %10 = load i32, ptr @libata_noacpi, align 4
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %56
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, 131072
-  %17 = icmp eq i64 %16, 0
-  %18 = icmp ne ptr %10, null
-  %19 = and i1 %18, %17
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, 131072
+  %16 = icmp eq i64 %15, 0
+  %17 = icmp ne ptr %9, null
+  %18 = and i1 %8, %17
+  %19 = and i1 %18, %16
   br i1 %19, label %20, label %56
 
-20:                                               ; preds = %13
+20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 14792
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
-  %25 = tail call ptr @acpi_find_child_device(ptr noundef nonnull %10, i64 noundef %24, i1 noundef zeroext false) #8
+  %25 = tail call ptr @acpi_find_child_device(ptr noundef nonnull %9, i64 noundef %24, i1 noundef zeroext false) #8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %20
-  %28 = tail call ptr @acpi_find_child_device(ptr noundef nonnull %10, i64 noundef %24, i1 noundef zeroext false) #8
+  %28 = tail call ptr @acpi_find_child_device(ptr noundef nonnull %9, i64 noundef %24, i1 noundef zeroext false) #8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   br label %30
 
@@ -170,7 +170,7 @@ define dso_local void @ata_acpi_bind_port(ptr noundef %0) local_unnamed_addr #0 
   tail call void @acpi_initialize_hp_context(ptr noundef nonnull %43, ptr noundef nonnull %52, ptr noundef nonnull @ata_acpi_ap_notify_dock, ptr noundef nonnull @ata_acpi_ap_uevent) #8
   br label %56
 
-56:                                               ; preds = %54, %50, %46, %39, %13, %1
+56:                                               ; preds = %54, %50, %46, %39, %12, %1
   ret void
 }
 

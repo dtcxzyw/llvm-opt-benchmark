@@ -4124,7 +4124,7 @@ for.end.i:                                        ; preds = %_ZN4llvh23SmallVect
   br i1 %call85.i, label %if.end87.i, label %if.then86.i
 
 if.then86.i:                                      ; preds = %for.end.i
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i) #12
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i.i) #12
   br label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then86.i, %for.end.i
@@ -4133,7 +4133,7 @@ if.end87.i:                                       ; preds = %if.then86.i, %for.e
   br i1 %call89.i, label %if.end91.i, label %if.then90.i
 
 if.then90.i:                                      ; preds = %if.end87.i
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i35.i) #12
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i34.i) #12
   br label %if.end91.i
 
 if.end91.i:                                       ; preds = %if.then90.i, %if.end87.i

@@ -2720,7 +2720,7 @@ invoke.cont80:                                    ; preds = %if.end5.i137
   br i1 %call.i.i142, label %if.end.i149, label %if.then82
 
 if.then82:                                        ; preds = %invoke.cont80, %if.then78
-  invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp83, ptr noundef nonnull %spec.select59, ptr noundef null, i32 noundef %cond66)
+  invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp83, ptr noundef nonnull %arrayidx, ptr noundef null, i32 noundef %cond66)
           to label %if.end90 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end90:                                         ; preds = %if.then82
@@ -2747,7 +2747,7 @@ invoke.cont93:                                    ; preds = %if.end5.i151
 
 if.then95:                                        ; preds = %if.end.i149, %invoke.cont93, %if.end90
   %numAffixMatchers.2180 = phi i32 [ %numAffixMatchers.2179, %invoke.cont93 ], [ %inc86, %if.end90 ], [ %numAffixMatchers.2179, %if.end.i149 ]
-  invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp96, ptr noundef null, ptr noundef nonnull %spec.select61, i32 noundef %cond66)
+  invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp96, ptr noundef null, ptr noundef nonnull %arrayidx44, i32 noundef %cond66)
           to label %invoke.cont97 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont97:                                    ; preds = %if.then95

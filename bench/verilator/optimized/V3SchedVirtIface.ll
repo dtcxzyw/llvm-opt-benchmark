@@ -4996,7 +4996,7 @@ _ZNSt6vectorISt4pairIPK8AstIfaceP11AstVarScopeESaIS6_EE17_M_realloc_insertIJS6_E
           to label %.noexc9.i.i.i.i unwind label %112
 
 .noexc9.i.i.i.i:                                  ; preds = %.noexc8.i.i.i.i
-  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %87) #26
+  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %76, ptr noundef nonnull align 8 dereferenceable(112) %87) #26
           to label %.noexc10.i.i.i.i unwind label %112
 
 .noexc10.i.i.i.i:                                 ; preds = %.noexc9.i.i.i.i

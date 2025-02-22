@@ -1229,11 +1229,9 @@ _ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit:      ; preds = %90, %92
 
 _ZN16SymbolHandleBaseILb0EED2Ev.exit:             ; preds = %119, %123, %_ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit
   %126 = phi ptr [ null, %_ZN16SymbolHandleBaseILb0EEC2EP6Symbol.exit ], [ null, %123 ], [ %116, %119 ]
-  %.not.i = icmp eq ptr %126, null
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %.0.i = select i1 %.not.i, ptr null, ptr %127
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #12
-  tail call void @_ZN13ConstraintSet17remove_constraintEP16LoaderConstraint(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %13)
+  tail call void @_ZN13ConstraintSet17remove_constraintEP16LoaderConstraint(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull %13)
   ret void
 }
 

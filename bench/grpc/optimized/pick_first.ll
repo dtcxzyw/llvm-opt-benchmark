@@ -3463,10 +3463,9 @@ entry:
   %ref.tmp40 = alloca %"class.grpc_core::RefCountedPtr.195", align 8
   %latest_update_args_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i64, ptr %latest_update_args_, align 8
-  %cmp.i.i = icmp eq i64 %0, 0
+  %cmp.i.i = icmp ne i64 %0, 0
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = load ptr, ptr %1, align 8
-  %addresses.0 = select i1 %cmp.i.i, ptr %2, ptr null
   %3 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24grpc_lb_pick_first_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %land.lhs.true, label %if.end12
@@ -3558,15 +3557,16 @@ lpad16.i.i:                                       ; preds = %invoke.cont14.i.i
   br label %ehcleanup.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont17.i.i, %invoke.cont4.i.i
-  %cmp.i.i9 = icmp eq ptr %addresses.0, null
+  %cmp.i.i995 = icmp eq ptr %2, null
+  %cmp.i.i9 = select i1 %cmp.i.i, i1 true, i1 %cmp.i.i995
   br i1 %cmp.i.i9, label %invoke.cont, label %invoke.cont22.i.i
 
 invoke.cont22.i.i:                                ; preds = %if.end.i.i
   store ptr %call.i11, ptr %ref.tmp21.i.i, align 8, !noalias !45
-  %vtable.i.i = load ptr, ptr %addresses.0, align 8, !noalias !45
+  %vtable.i.i = load ptr, ptr %2, align 8, !noalias !45
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i, align 8, !noalias !45
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %addresses.0, ptr nonnull %ref.tmp21.i.i, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelListC1ENS3_13RefCountedPtrIS5_EEPNS3_25EndpointAddressesIteratorERKNS3_11ChannelArgsEE3$_0vJRKNS3_17EndpointAddressesEEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull %ref.tmp21.i.i, ptr nonnull @"_ZN4absl12lts_2023080219functional_internal12InvokeObjectIZN9grpc_core12_GLOBAL__N_19PickFirst14SubchannelListC1ENS3_13RefCountedPtrIS5_EEPNS3_25EndpointAddressesIteratorERKNS3_11ChannelArgsEE3$_0vJRKNS3_17EndpointAddressesEEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
           to label %invoke.cont unwind label %lpad9.i.i, !noalias !45
 
 ehcleanup.i.i:                                    ; preds = %lpad16.i.i, %lpad9.i.i

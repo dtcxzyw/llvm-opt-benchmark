@@ -1208,7 +1208,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi8LinsolQr5nfactEPvPKd(ptr noundef
   br i1 %exitcond71.not.i, label %_ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit.thread, label %.lr.ph56.split.us.i, !llvm.loop !96
 
 .lr.ph56.split.i:                                 ; preds = %.lr.ph56.i
-  %37 = load i32, ptr %spec.select.i33, align 4, !tbaa !88
+  %37 = load i32, ptr %10, align 4, !tbaa !88
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.split.us.i, label %_ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit
 
@@ -1247,7 +1247,6 @@ _ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit.thread180: ; preds = %.crited
 _ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit: ; preds = %.lr.ph56.split.i
   %44 = zext nneg i32 %37 to i64
   %45 = mul nsw i64 %15, %44
-  store i32 %37, ptr %10, align 4, !tbaa !88
   %.not30 = icmp eq ptr %spec.select.i, null
   br i1 %.not30, label %91, label %46
 

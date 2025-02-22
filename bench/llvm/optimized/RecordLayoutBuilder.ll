@@ -6387,7 +6387,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit195:              ; preds = %193, %191, %167, %1
   store i32 0, ptr %197, align 8, !tbaa !414
   %198 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 4, ptr %198, align 4, !tbaa !415
-  %199 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i)
+  %199 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %200 = extractvalue { ptr, ptr } %199, 0
   %201 = extractvalue { ptr, ptr } %199, 1
   %.not363 = icmp eq ptr %200, %201
@@ -6947,7 +6947,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %458 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %459 = load ptr, ptr %458, align 8, !tbaa !463
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 88
-  %461 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl6vbasesEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i)
+  %461 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl6vbasesEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   %462 = extractvalue { ptr, ptr } %461, 0
   %463 = extractvalue { ptr, ptr } %461, 1
   %invariant.op = add i64 %3, -4
@@ -17061,7 +17061,7 @@ _ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit183.thread: ; preds = %898, %88
 
 925:                                              ; preds = %917
   %926 = load ptr, ptr %0, align 8, !tbaa !611
-  %927 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %926, ptr noundef nonnull %spec.select.i.i.i) #19
+  %927 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %926, ptr noundef nonnull %882) #19
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %922, %925
@@ -17882,7 +17882,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit.thread: ; preds 
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit69
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit26
-  %124 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %108, ptr noundef nonnull %spec.select.i.i.i25) #19
+  %124 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %108, ptr noundef nonnull %119) #19
   %.pre = load ptr, ptr %7, align 8, !tbaa !812
   %.not.i53 = icmp eq ptr %.pre, null
   br i1 %.not.i53, label %125, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit69
@@ -18280,7 +18280,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit42.thread: ; pred
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit154
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit42: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit39
-  %326 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %310, ptr noundef nonnull %spec.select.i.i.i38) #19
+  %326 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %310, ptr noundef nonnull %321) #19
   %.pre211 = load ptr, ptr %8, align 8, !tbaa !812
   %.not.i138 = icmp eq ptr %.pre211, null
   br i1 %.not.i138, label %327, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit154

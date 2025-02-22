@@ -381,7 +381,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1f76a48
   br i1 %58, label %60, label %65
 
 59:                                               ; preds = %49
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %50, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.3) #32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %50, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.3) #32
   unreachable
 
 60:                                               ; preds = %56
@@ -393,7 +393,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1f76a48
   br i1 %.not, label %45, label %66
 
 65:                                               ; preds = %56
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %57, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.4) #32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %57, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.4) #32
   unreachable
 
 66:                                               ; preds = %60
@@ -413,7 +413,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h1f76a48
 74:                                               ; preds = %42
   %75 = add i64 %.sroa.03.0, %22
   %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 %75)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.6) #32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.6) #32
   unreachable
 
 76:                                               ; preds = %68
@@ -775,7 +775,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
 59:                                               ; preds = %57, %53
   %60 = xor i8 %47, 1
   store i8 %60, ptr %18, align 8, !alias.scope !144, !noalias !147
-  call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i, i64 noundef %.val1.i.i.i.i, i64 noundef %48, i64 noundef %.val1.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.8) #32, !noalias !153
+  call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i, i64 noundef %.val1.i.i.i.i, i64 noundef %48, i64 noundef %.val1.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca7b7414eadc5956f5733f5d07030ef2.8) #32, !noalias !153
   unreachable
 
 61:                                               ; preds = %57, %53, %46

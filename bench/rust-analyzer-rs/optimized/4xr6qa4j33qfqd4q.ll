@@ -294,7 +294,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hd2195c3e46bac1ffE
   store ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.12) #22
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.12) #22
   unreachable
 
 13:                                               ; preds = %2
@@ -312,7 +312,7 @@ define hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17hd2195c3e46bac1ffE
   store ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.15) #22
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.15) #22
   unreachable
 
 20:                                               ; preds = %2
@@ -1021,7 +1021,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 .split38.us:                                      ; preds = %65, %36
   %.us-phi = phi i64 [ %40, %36 ], [ %69, %65 ]
   %.us-phi39 = phi i64 [ %21, %36 ], [ %52, %65 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.us-phi39, i64 noundef %.us-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.22) #22
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.us-phi39, i64 noundef %.us-phi, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.22) #22
           to label %81 unwind label %46
 
 85:                                               ; preds = %46
@@ -1212,7 +1212,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 .split38.us:                                      ; preds = %65, %36
   %.us-phi = phi i64 [ %40, %36 ], [ %69, %65 ]
   %.us-phi39 = phi i64 [ %21, %36 ], [ %52, %65 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.us-phi39, i64 noundef %.us-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.22) #22
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.us-phi39, i64 noundef %.us-phi, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.518f0f8e4047b0fec1ad8ab3b728328b.22) #22
           to label %81 unwind label %46
 
 85:                                               ; preds = %46

@@ -80,7 +80,7 @@ for.body.i:                                       ; preds = %for.inc36.i, %for.b
   br i1 %tobool.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %call7.i = call noundef zeroext i1 @_ZN6hermes14isDirectCalleeEPNS_5ValueEPNS_8CallInstE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %spec.select.i.i) #10
+  %call7.i = call noundef zeroext i1 @_ZN6hermes14isDirectCalleeEPNS_5ValueEPNS_8CallInstE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %3) #10
   br i1 %call7.i, label %if.end9.i, label %_ZL17identifyCallsitesPN6hermes8FunctionERN4llvh8DenseSetIPNS_8CallInstENS2_12DenseMapInfoIS5_EEEE.exit.thread
 
 if.end9.i:                                        ; preds = %if.then5.i
@@ -167,7 +167,7 @@ for.body19.i:                                     ; preds = %if.then12.i, %_ZN4l
   br i1 %tobool22.not.i, label %_ZL17identifyCallsitesPN6hermes8FunctionERN4llvh8DenseSetIPNS_8CallInstENS2_12DenseMapInfoIS5_EEEE.exit.thread, label %if.end24.i
 
 if.end24.i:                                       ; preds = %for.body19.i
-  %call29.i = call noundef zeroext i1 @_ZN6hermes14isDirectCalleeEPNS_5ValueEPNS_8CallInstE(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull %spec.select.i19.i) #10
+  %call29.i = call noundef zeroext i1 @_ZN6hermes14isDirectCalleeEPNS_5ValueEPNS_8CallInstE(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull %19) #10
   br i1 %call29.i, label %if.end31.i, label %_ZL17identifyCallsitesPN6hermes8FunctionERN4llvh8DenseSetIPNS_8CallInstENS2_12DenseMapInfoIS5_EEEE.exit.thread
 
 if.end31.i:                                       ; preds = %if.end24.i

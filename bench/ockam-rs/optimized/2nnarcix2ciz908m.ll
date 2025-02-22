@@ -659,7 +659,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   br i1 %.not.i.i.i5, label %"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbd45bb14b95a4243E.exit.thread3.sink.split.i", label %.lr.ph.i.i.i2
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbd45bb14b95a4243E.exit.thread.i": ; preds = %28
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13, !noalias !129
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13, !noalias !129
   unreachable
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbd45bb14b95a4243E.exit.thread3.sink.split.i": ; preds = %.lr.ph.i.i.i2, %35
@@ -685,7 +685,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   br i1 %44, label %45, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17h06cd2f4e787aca35E.llvm.7256458021634512439.exit"
 
 45:                                               ; preds = %.noexc.i.i
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
           to label %.noexc1.i.i unwind label %46, !noalias !130
 
 .noexc1.i.i:                                      ; preds = %45
@@ -848,7 +848,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   br i1 %.not.i.i.i5, label %"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hdc20585e2cf8f96cE.exit.thread3.sink.split.i", label %.lr.ph.i.i.i2
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hdc20585e2cf8f96cE.exit.thread.i": ; preds = %28
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13, !noalias !174
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13, !noalias !174
   unreachable
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hdc20585e2cf8f96cE.exit.thread3.sink.split.i": ; preds = %.lr.ph.i.i.i2, %35
@@ -874,7 +874,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   br i1 %44, label %45, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17h5e400df9f409f83cE.llvm.7256458021634512439.exit"
 
 45:                                               ; preds = %.noexc.i.i
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
           to label %.noexc1.i.i unwind label %46, !noalias !175
 
 .noexc1.i.i:                                      ; preds = %45
@@ -934,7 +934,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h0c1157ffae8bfc16E
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %.noexc
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
           to label %.noexc1 unwind label %11
 
 .noexc1:                                          ; preds = %10
@@ -987,7 +987,7 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17h7758d9beb04097a0E
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %.noexc
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
           to label %.noexc1 unwind label %11
 
 .noexc1:                                          ; preds = %10
@@ -1030,7 +1030,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
   unreachable
 
 7:                                                ; preds = %2
@@ -1049,7 +1049,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
   unreachable
 
 7:                                                ; preds = %2
@@ -1246,7 +1246,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   br i1 %.not.i.i, label %"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbd45bb14b95a4243E.exit.thread3.sink.split", label %.lr.ph.i.i
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbd45bb14b95a4243E.exit.thread": ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13
   unreachable
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hbd45bb14b95a4243E.exit.thread3.sink.split": ; preds = %.lr.ph.i.i, %13
@@ -1272,7 +1272,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   br i1 %22, label %23, label %_ZN5alloc11collections5btree3mem7replace17h7758d9beb04097a0E.llvm.7256458021634512439.exit
 
 23:                                               ; preds = %.noexc.i
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
           to label %.noexc1.i unwind label %24, !noalias !234
 
 .noexc1.i:                                        ; preds = %23
@@ -1343,7 +1343,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   br i1 %.not.i.i, label %"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hdc20585e2cf8f96cE.exit.thread3.sink.split", label %.lr.ph.i.i
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hdc20585e2cf8f96cE.exit.thread": ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.3.llvm.7256458021634512439) #13
   unreachable
 
 "_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17hdc20585e2cf8f96cE.exit.thread3.sink.split": ; preds = %.lr.ph.i.i, %13
@@ -1369,7 +1369,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$all
   br i1 %22, label %23, label %_ZN5alloc11collections5btree3mem7replace17h0c1157ffae8bfc16E.llvm.7256458021634512439.exit
 
 23:                                               ; preds = %.noexc.i
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.2591da033d941ad1a45ba2c983bf5b53.0.llvm.7256458021634512439, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2591da033d941ad1a45ba2c983bf5b53.2.llvm.7256458021634512439) #13
           to label %.noexc1.i unwind label %24, !noalias !253
 
 .noexc1.i:                                        ; preds = %23

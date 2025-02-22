@@ -11784,7 +11784,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA4_cNSt7__cxx1112basic_stri
 
 206:                                              ; preds = %205
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #21
-  %207 = load ptr, ptr %172, align 8
+  %207 = load ptr, ptr %171, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2, i8 0, i64 6, i1 false), !noalias !188
   %208 = load i32, ptr @_ZN4FInt37LuauTableTypeMaximumStringifierLengthE, align 8, !noalias !188
@@ -12340,7 +12340,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA4_cNSt7__cxx1112basic_stri
 
 140:                                              ; preds = %139
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #21
-  %141 = load ptr, ptr %101, align 8
+  %141 = load ptr, ptr %100, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %5)
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %5, i8 0, i64 6, i1 false), !noalias !198
@@ -12774,7 +12774,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA4_cNSt7__cxx1112basic_stri
 
 315:                                              ; preds = %314
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #21
-  %316 = load ptr, ptr %281, align 8
+  %316 = load ptr, ptr %280, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2, i8 0, i64 6, i1 false), !noalias !207
   %317 = load i32, ptr @_ZN4FInt37LuauTableTypeMaximumStringifierLengthE, align 8, !noalias !207
@@ -13501,7 +13501,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA4_cNSt7__cxx1112basic_stri
 
 206:                                              ; preds = %205
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #21
-  %207 = load ptr, ptr %172, align 8
+  %207 = load ptr, ptr %171, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2, i8 0, i64 6, i1 false), !noalias !221
   %208 = load i32, ptr @_ZN4FInt37LuauTableTypeMaximumStringifierLengthE, align 8, !noalias !221

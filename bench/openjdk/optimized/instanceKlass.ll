@@ -10368,7 +10368,7 @@ define hidden void @_ZN13InstanceKlass23clean_implementors_listEv(ptr noundef no
   br i1 %25, label %_ZN12ResourceMarkD2Ev.exit, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %21, ptr nonnull %.0.i) #26, !srcloc !42
+  %27 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %21, ptr nonnull %20) #26, !srcloc !42
   %28 = icmp eq ptr %27, %21
   br i1 %28, label %29, label %9, !llvm.loop !69
 

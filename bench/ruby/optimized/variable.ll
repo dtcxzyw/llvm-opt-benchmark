@@ -1579,7 +1579,7 @@ rb_find_global_entry.exit:                        ; preds = %20, %rb_ractor_main
   unreachable
 
 38:                                               ; preds = %rb_find_global_entry.exit.thread, %rb_find_global_entry.exit
-  %39 = load ptr, ptr %.0.i, align 8, !tbaa !58
+  %39 = load ptr, ptr %24, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !64
   %42 = icmp eq i64 %13, 4
@@ -1606,7 +1606,7 @@ rb_find_global_entry.exit:                        ; preds = %20, %rb_ractor_main
   br i1 %.not27, label %._crit_edge, label %.lr.ph51, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %43
-  %50 = load ptr, ptr %.0.i, align 8, !tbaa !58
+  %50 = load ptr, ptr %24, align 8, !tbaa !58
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !79
   %.not28 = icmp eq i32 %52, 0

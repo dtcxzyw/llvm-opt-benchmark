@@ -10464,16 +10464,16 @@ define void @_ZN3nix5flake8LockFile5checkEv(ptr noundef nonnull readonly align 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit.thread
-  %.sroa.029.039 = phi ptr [ %9, %.lr.ph ], [ %77, %_ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit.thread ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.029.039, i64 56
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.029.039, i64 80
+  %.sroa.029.040 = phi ptr [ %9, %.lr.ph ], [ %77, %_ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit.thread ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.029.040, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.029.040, i64 80
   %16 = load i8, ptr %15, align 8
   %.not = icmp eq i8 %16, 1
   br i1 %.not, label %17, label %_ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit.thread
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.029.039, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.029.040, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
   br i1 %21, label %_ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit.thread, label %22
@@ -10567,7 +10567,7 @@ _ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit:    ; preds = %55, %42, %23
           to label %62 unwind label %.thread32
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.029.039, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.029.040, i64 32
   invoke void @_ZN3nix16concatStringsSepISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEES7_St17basic_string_viewIcS5_ERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i64 1, ptr nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(24) %63)
           to label %_ZN3nix5flake14printInputPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.exit unwind label %68
 
@@ -10630,7 +10630,7 @@ _ZN3nix5flake14printInputPathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_tr
   br label %84
 
 _ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit.thread: ; preds = %17, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %13, %_ZNSt10shared_ptrIN3nix5flake4NodeEED2Ev.exit
-  %77 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.029.039) #36
+  %77 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.029.040) #36
   %78 = icmp eq ptr %77, %10
   br i1 %78, label %._crit_edge, label %13
 

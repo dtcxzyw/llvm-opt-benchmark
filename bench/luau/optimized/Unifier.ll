@@ -17215,7 +17215,7 @@ thread-pre-split:                                 ; preds = %589
   %598 = icmp eq i32 %597, 9
   %599 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %600 = select i1 %598, ptr %599, ptr null
-  %601 = invoke noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %600, ptr noundef nonnull align 8 dereferenceable(32) %435)
+  %601 = invoke noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %599, ptr noundef nonnull align 8 dereferenceable(32) %435)
           to label %602 unwind label %.loopexit.split-lp.loopexit
 
 602:                                              ; preds = %.noexc352
@@ -17297,7 +17297,7 @@ _ZN4Luau8PropertyaSERKS0_.exit:                   ; preds = %622, %.thread.i.i.i
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit360 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit360: ; preds = %.noexc358, %634, %_ZN4Luau8PropertyaSERKS0_.exit, %574, %589, %507
-  %.3 = phi ptr [ %.2691, %507 ], [ %.2691, %574 ], [ %.2691, %589 ], [ %599, %_ZN4Luau8PropertyaSERKS0_.exit ], [ %.2691, %634 ], [ %.2691, %.noexc358 ]
+  %.3 = phi ptr [ %.2691, %507 ], [ %.2691, %574 ], [ %.2691, %589 ], [ %600, %_ZN4Luau8PropertyaSERKS0_.exit ], [ %.2691, %634 ], [ %.2691, %.noexc358 ]
   %635 = invoke noundef ptr @_ZNK4Luau6TxnLog6followEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(128) %42, ptr noundef %.0614)
           to label %636 unwind label %.loopexit.split-lp.loopexit
 
@@ -17901,7 +17901,7 @@ _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3
   %903 = icmp eq i32 %902, 9
   %904 = getelementptr inbounds nuw i8, ptr %901, i64 8
   %905 = select i1 %903, ptr %904, ptr null
-  %906 = invoke noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %905, ptr noundef nonnull align 8 dereferenceable(32) %767)
+  %906 = invoke noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %904, ptr noundef nonnull align 8 dereferenceable(32) %767)
           to label %907 unwind label %940
 
 907:                                              ; preds = %.noexc406
@@ -18037,7 +18037,7 @@ _ZN4Luau8PropertyD2Ev.exit:                       ; preds = %_ZSt8_DestroyIPNSt7
   %955 = icmp eq i32 %954, 9
   %956 = getelementptr inbounds nuw i8, ptr %953, i64 8
   %957 = select i1 %955, ptr %956, ptr null
-  %958 = invoke noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %957, ptr noundef nonnull align 8 dereferenceable(32) %767)
+  %958 = invoke noundef nonnull align 8 dereferenceable(176) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %956, ptr noundef nonnull align 8 dereferenceable(32) %767)
           to label %959 unwind label %.loopexit
 
 959:                                              ; preds = %.noexc423
@@ -18119,7 +18119,7 @@ _ZN4Luau8PropertyaSERKS0_.exit430:                ; preds = %979, %.thread.i.i.i
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit434 unwind label %.loopexit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit434: ; preds = %.noexc432, %991, %_ZN4Luau8PropertyaSERKS0_.exit430, %855, %945, %_ZN4Luau8PropertyD2Ev.exit, %785
-  %.1159 = phi ptr [ %.0158697, %785 ], [ %.0158697, %855 ], [ %905, %_ZN4Luau8PropertyD2Ev.exit ], [ %.0158697, %945 ], [ %956, %_ZN4Luau8PropertyaSERKS0_.exit430 ], [ %.0158697, %991 ], [ %.0158697, %.noexc432 ]
+  %.1159 = phi ptr [ %.0158697, %785 ], [ %.0158697, %855 ], [ %905, %_ZN4Luau8PropertyD2Ev.exit ], [ %.0158697, %945 ], [ %957, %_ZN4Luau8PropertyaSERKS0_.exit430 ], [ %.0158697, %991 ], [ %.0158697, %.noexc432 ]
   %992 = invoke noundef ptr @_ZNK4Luau6TxnLog6followEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(128) %42, ptr noundef %.0614)
           to label %993 unwind label %.loopexit
 

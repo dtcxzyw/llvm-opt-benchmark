@@ -35839,7 +35839,6 @@ define dso_local void @_ZN5clang28FunctionParmMutationAnalyzerC2ERKNS_12Function
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 127
   %.not = icmp eq i32 %15, 36
-  %spec.select.i.i = select i1 %.not, ptr %1, ptr null
   br i1 %.not, label %16, label %.loopexit
 
 16:                                               ; preds = %4
@@ -35872,7 +35871,7 @@ define dso_local void @_ZN5clang28FunctionParmMutationAnalyzerC2ERKNS_12Function
   store ptr %2, ptr %24, align 8, !tbaa !4147
   store ptr %3, ptr %25, align 8, !tbaa !4148
   %34 = load ptr, ptr %26, align 8, !tbaa !2589
-  %35 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i) #25
+  %35 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #25
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
   %.not2949 = icmp eq i32 %35, 0

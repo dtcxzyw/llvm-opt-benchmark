@@ -321,7 +321,7 @@ define internal noundef zeroext i1 @"_ZN55_$LT$std..env..VarError$u20$as$u20$cor
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9d361ea71c0003dddfaa91701e2b6e28.7, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.8)
+  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.9d361ea71c0003dddfaa91701e2b6e28.7, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %10
 
@@ -409,7 +409,7 @@ define void @_ZN25diesel_demo_step_1_sqlite20establish_connection17h993504c02a5f
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !59
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !53
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.9d361ea71c0003dddfaa91701e2b6e28.10, i64 noundef 24, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.12) #14
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.9d361ea71c0003dddfaa91701e2b6e28.10, i64 noundef 24, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.12) #14
           to label %31 unwind label %29, !noalias !59
 
 29:                                               ; preds = %27
@@ -594,7 +594,7 @@ define internal fastcc void @"_ZN25diesel_demo_step_1_sqlite20establish_connecti
   store ptr %6, ptr %11, align 8, !alias.scope !114, !noalias !117
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %12, align 8, !alias.scope !114, !noalias !117
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.15) #14
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d361ea71c0003dddfaa91701e2b6e28.15) #14
           to label %42 unwind label %13
 
 13:                                               ; preds = %2

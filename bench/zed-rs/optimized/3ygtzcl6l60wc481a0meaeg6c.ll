@@ -12,7 +12,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h2537ccc66d41c50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !9
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.712a6f1f99aca75048f25a95726326f7.11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !4
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.712a6f1f99aca75048f25a95726326f7.11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !7
   ret i1 %3
 }

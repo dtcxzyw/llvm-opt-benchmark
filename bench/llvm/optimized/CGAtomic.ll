@@ -5375,8 +5375,8 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction31LValueI
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 16
   %26 = icmp eq i8 %25, 47
-  %.not.not6.i = icmp ne ptr %23, null
-  %.not.not.not.i = and i1 %.not.not6.i, %26
+  %.not6.i = icmp ne ptr %23, null
+  %.not.not.not.i = and i1 %.not6.i, %26
   br i1 %.not.not.not.i, label %27, label %_ZN5clang7CodeGen15CodeGenFunction17hasVolatileMemberENS_8QualTypeE.exit
 
 27:                                               ; preds = %15

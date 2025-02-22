@@ -1852,7 +1852,7 @@ define void @Abc_NodeEdgeDsdPermute(ptr noundef readonly captures(none) %0, ptr 
   %87 = load ptr, ptr %1, align 8, !tbaa !28
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 256
   %89 = load ptr, ptr %88, align 8, !tbaa !9
-  %90 = tail call ptr @Abc_AigXorLookup(ptr noundef %89, ptr noundef nonnull %33, ptr noundef nonnull %84, ptr noundef null) #20
+  %90 = tail call ptr @Abc_AigXorLookup(ptr noundef %89, ptr noundef nonnull %32, ptr noundef nonnull %84, ptr noundef null) #20
   %.not78 = icmp eq ptr %90, null
   br i1 %.not78, label %.thread, label %91
 
@@ -2605,7 +2605,7 @@ Vec_IntFree.exit489:                              ; preds = %Abc_NodeEdgeDsdPush
   %293 = load ptr, ptr %1, align 8, !tbaa !28
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 256
   %295 = load ptr, ptr %294, align 8, !tbaa !9
-  %296 = call ptr @Abc_AigXorLookup(ptr noundef %295, ptr noundef nonnull %283, ptr noundef nonnull %289, ptr noundef nonnull %7) #20
+  %296 = call ptr @Abc_AigXorLookup(ptr noundef %295, ptr noundef nonnull %282, ptr noundef nonnull %289, ptr noundef nonnull %7) #20
   %.pr = load i32, ptr %7, align 4, !tbaa !55
   %297 = icmp eq i32 %.pr, 0
   %.pre569 = load ptr, ptr %103, align 8, !tbaa !99
@@ -3002,7 +3002,7 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %513 = ptrtoint ptr %476 to i64
   %514 = xor i64 %513, 1
   %515 = inttoptr i64 %514 to ptr
-  %516 = call ptr @Abc_AigAndLookup(ptr noundef %511, ptr noundef nonnull %283, ptr noundef %515) #20
+  %516 = call ptr @Abc_AigAndLookup(ptr noundef %511, ptr noundef nonnull %282, ptr noundef %515) #20
   %.not431 = icmp eq ptr %516, null
   br i1 %.not431, label %522, label %517
 
@@ -3073,7 +3073,7 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %558 = load ptr, ptr %1, align 8, !tbaa !28
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 256
   %560 = load ptr, ptr %559, align 8, !tbaa !9
-  %561 = call ptr @Abc_AigAndLookup(ptr noundef %560, ptr noundef nonnull %283, ptr noundef nonnull %476) #20
+  %561 = call ptr @Abc_AigAndLookup(ptr noundef %560, ptr noundef nonnull %282, ptr noundef nonnull %476) #20
   %.not429 = icmp eq ptr %561, null
   br i1 %.not429, label %567, label %562
 
@@ -3367,7 +3367,7 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %735 = load ptr, ptr %1, align 8, !tbaa !28
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 256
   %737 = load ptr, ptr %736, align 8, !tbaa !9
-  %738 = call ptr @Abc_AigMuxLookup(ptr noundef %737, ptr noundef nonnull %718, ptr noundef nonnull %723, ptr noundef nonnull %730, ptr noundef nonnull %7) #20
+  %738 = call ptr @Abc_AigMuxLookup(ptr noundef %737, ptr noundef nonnull %717, ptr noundef nonnull %722, ptr noundef nonnull %730, ptr noundef nonnull %7) #20
   %.pr531.pre = load i32, ptr %7, align 4, !tbaa !55
   %.pre.pre = load ptr, ptr %699, align 8, !tbaa !99
   %739 = icmp eq i32 %.pr531.pre, 0
@@ -3771,7 +3771,7 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %962 = load ptr, ptr %1, align 8, !tbaa !28
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 256
   %964 = load ptr, ptr %963, align 8, !tbaa !9
-  %965 = call ptr @Abc_AigAndLookup(ptr noundef %964, ptr noundef nonnull %718, ptr noundef nonnull %723) #20
+  %965 = call ptr @Abc_AigAndLookup(ptr noundef %964, ptr noundef nonnull %717, ptr noundef nonnull %722) #20
   %.not419 = icmp eq ptr %965, null
   br i1 %.not419, label %971, label %966
 
@@ -3830,7 +3830,7 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %995 = ptrtoint ptr %723 to i64
   %996 = xor i64 %995, 1
   %997 = inttoptr i64 %996 to ptr
-  %998 = call ptr @Abc_AigAndLookup(ptr noundef %994, ptr noundef nonnull %718, ptr noundef %997) #20
+  %998 = call ptr @Abc_AigAndLookup(ptr noundef %994, ptr noundef nonnull %717, ptr noundef %997) #20
   %.not415 = icmp eq ptr %998, null
   br i1 %.not415, label %1004, label %999
 

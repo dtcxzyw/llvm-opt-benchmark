@@ -4182,7 +4182,7 @@ define internal range(i32 -2147483648, 1) i32 @property_init(ptr noundef %0, ptr
   br i1 %.not.i.i.i, label %_Py_XNewRef.exit.i, label %40
 
 40:                                               ; preds = %34
-  %41 = load i32, ptr %spec.store.select.i, align 8, !tbaa !16
+  %41 = load i32, ptr %.039, align 8, !tbaa !16
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %_Py_XNewRef.exit.i, label %43
 
@@ -4218,7 +4218,7 @@ Py_XDECREF.exit.i:                                ; preds = %50, %47, %45, %_Py_
   br i1 %.not.i.i61.i, label %_Py_XNewRef.exit62.i, label %53
 
 53:                                               ; preds = %Py_XDECREF.exit.i
-  %54 = load i32, ptr %spec.store.select4.i, align 8, !tbaa !16
+  %54 = load i32, ptr %.037, align 8, !tbaa !16
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %_Py_XNewRef.exit62.i, label %56
 
@@ -4254,7 +4254,7 @@ Py_XDECREF.exit65.i:                              ; preds = %63, %60, %58, %_Py_
   br i1 %.not.i.i66.i, label %_Py_XNewRef.exit67.i, label %66
 
 66:                                               ; preds = %Py_XDECREF.exit65.i
-  %67 = load i32, ptr %spec.store.select2.i, align 8, !tbaa !16
+  %67 = load i32, ptr %.036, align 8, !tbaa !16
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %_Py_XNewRef.exit67.i, label %69
 
@@ -4355,7 +4355,7 @@ _Py_XNewRef.exit78.i:                             ; preds = %99, %96
   br i1 %.not.i.i.i, label %Py_DECREF.exit57.thread.i, label %102
 
 102:                                              ; preds = %101
-  %103 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %spec.store.select.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38568), ptr noundef nonnull %4) #9
+  %103 = call i32 @PyObject_GetOptionalAttr(ptr noundef nonnull %.039, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 38568), ptr noundef nonnull %4) #9
   %104 = icmp sgt i32 %103, -1
   br i1 %104, label %105, label %property_init_impl.exit
 

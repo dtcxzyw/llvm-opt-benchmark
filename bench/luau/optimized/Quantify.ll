@@ -5369,7 +5369,7 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3ge
   %41 = icmp eq i32 %40, 9
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = select i1 %41, ptr %42, ptr null
-  %44 = call noundef nonnull align 8 dereferenceable(336) ptr @_ZN4Luau9TableTypeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %43, ptr noundef nonnull align 8 dereferenceable(336) %21)
+  %44 = call noundef nonnull align 8 dereferenceable(336) ptr @_ZN4Luau9TableTypeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %42, ptr noundef nonnull align 8 dereferenceable(336) %21)
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 76
   store i32 0, ptr %45, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 80

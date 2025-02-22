@@ -7491,7 +7491,7 @@ cleanup.thread:                                   ; preds = %do.end34, %if.end47
 
 cleanup.cont:                                     ; preds = %do.end120
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #23
-  %24 = load i32, ptr %spec.select.i, align 4
+  %24 = load i32, ptr %snapshot_config_.i, align 4
   %and.i.i.i = and i32 %24, 1
   %cond140 = xor i32 %and.i.i.i, 1
   %call142 = call { ptr, i32 } @_ZN2v815SnapshotCreator10CreateBlobENS0_20FunctionCodeHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %cond140) #23
@@ -7516,7 +7516,7 @@ if.end146:                                        ; preds = %cleanup.cont
   %call148 = call noundef i32 @_ZN2v814ScriptCompiler20CachedDataVersionTagEv() #23
   store i32 %call148, ptr %v8_cache_version_tag, align 8
   %flags = getelementptr inbounds nuw i8, ptr %ref.tmp147, i64 108
-  %27 = load i32, ptr %spec.select.i, align 8
+  %27 = load i32, ptr %snapshot_config_.i, align 8
   store i32 %27, ptr %flags, align 4
   %metadata = getelementptr inbounds nuw i8, ptr %out, i64 8
   %28 = load i8, ptr %ref.tmp147, align 8

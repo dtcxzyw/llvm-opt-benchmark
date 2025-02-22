@@ -422,7 +422,6 @@ get_frags.exit:
   %12 = call i32 @g_hash_table_lookup_extended(ptr noundef %11, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %6)
   %.not.i = icmp eq i32 %12, 0
   %13 = load ptr, ptr %6, align 8
-  %spec.select = select i1 %.not.i, ptr null, ptr %13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8
@@ -451,11 +450,12 @@ get_endlist.exit:                                 ; preds = %get_frags.exit
   br label %21
 
 21:                                               ; preds = %get_endlist.exit.thread, %17, %get_endlist.exit
-  %.not16 = icmp eq ptr %spec.select, null
+  %.not1623 = icmp eq ptr %13, null
+  %.not16 = select i1 %.not.i, i1 true, i1 %.not1623
   br i1 %.not16, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %spec.select, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %13, i8 0, i64 32768, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %21

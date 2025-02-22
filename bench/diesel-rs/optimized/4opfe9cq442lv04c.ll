@@ -387,7 +387,7 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   br i1 %12, label %16, label %17
 
 16:                                               ; preds = %15
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8b8bb35e0804e7012df8eeac24d7961f.5, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.7) #19
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8b8bb35e0804e7012df8eeac24d7961f.5, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.7) #19
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %16
@@ -613,7 +613,7 @@ define hidden void @"_ZN55_$LT$proc_macro2..Ident$u20$as$u20$core..hash..Hash$GT
   br i1 %15, label %19, label %23
 
 19:                                               ; preds = %18
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8b8bb35e0804e7012df8eeac24d7961f.5, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.7) #19
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8b8bb35e0804e7012df8eeac24d7961f.5, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8b8bb35e0804e7012df8eeac24d7961f.7) #19
           to label %.noexc.i unwind label %16, !noalias !133
 
 .noexc.i:                                         ; preds = %19

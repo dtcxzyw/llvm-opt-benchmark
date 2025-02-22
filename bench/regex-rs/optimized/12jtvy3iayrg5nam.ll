@@ -271,7 +271,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %10, ptr %3, align 8, !noalias !16
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %13, align 8, !noalias !16
-  %14 = call noundef align 8 dereferenceable(24) ptr @_ZN4core3fmt8builders10DebugTuple5field17h93f7018964b8f2e6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.af71731a07818c7d8d295102c5fb6fdb.51.llvm.12578941820218715555), !noalias !10
+  %14 = call noundef align 8 dereferenceable(24) ptr @_ZN4core3fmt8builders10DebugTuple5field17h93f7018964b8f2e6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af71731a07818c7d8d295102c5fb6fdb.51.llvm.12578941820218715555), !noalias !10
   %15 = call noundef zeroext i1 @_ZN4core3fmt8builders10DebugTuple6finish17hb754cbe52e06c43eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %14), !noalias !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !16
@@ -4726,7 +4726,7 @@ define void @_ZN12regex_syntax3ast13ClassSetUnion9into_item17h90fb5c343567bde9E(
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %12
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.191.llvm.16653392013706621149, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.48fd4931446a7fcfc57d20f836544bed.209.llvm.16653392013706621149) #37
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.48fd4931446a7fcfc57d20f836544bed.191.llvm.16653392013706621149, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48fd4931446a7fcfc57d20f836544bed.209.llvm.16653392013706621149) #37
           to label %20 unwind label %10
 
 19:                                               ; preds = %12

@@ -22870,7 +22870,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZN5clang11DeclCont
 82:                                               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
   %83 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %71, i64 noundef %73) #18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %.pre165 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !12
+  %.pre167 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !12
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 84:                                               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
@@ -22885,7 +22885,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZN5clang11DeclCont
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %82, %84, %85
-  %88 = phi ptr [ %.pre165, %82 ], [ %87, %85 ], [ %77, %84 ]
+  %88 = phi ptr [ %.pre167, %82 ], [ %87, %85 ], [ %77, %84 ]
   %.0.i90 = phi ptr [ %83, %82 ], [ %2, %85 ], [ %2, %84 ]
   %89 = getelementptr inbounds nuw i8, ptr %.0.i90, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !3

@@ -3542,7 +3542,7 @@ define void @"_ZN81_$LT$test_utils..assert_linear..AssertLinear$u20$as$u20$core.
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d6e621e7d76b58a96df62218b9f11835.15, i64 noundef 41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d6e621e7d76b58a96df62218b9f11835.17) #20
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d6e621e7d76b58a96df62218b9f11835.15, i64 noundef 41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d6e621e7d76b58a96df62218b9f11835.17) #20
   unreachable
 
 9:                                                ; preds = %1
@@ -3585,7 +3585,7 @@ define void @"_ZN81_$LT$test_utils..assert_linear..AssertLinear$u20$as$u20$core.
   store ptr @anon.d6e621e7d76b58a96df62218b9f11835.6, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %28, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d6e621e7d76b58a96df62218b9f11835.20) #20
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d6e621e7d76b58a96df62218b9f11835.20) #20
   unreachable
 
 29:                                               ; preds = %.lr.ph, %29

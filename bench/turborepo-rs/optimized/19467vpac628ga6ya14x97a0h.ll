@@ -131,7 +131,7 @@ define void @_RINvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB6_3MapINtNt
   br i1 %25, label %28, label %31
 
 28:                                               ; preds = %27
-  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.6, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.8) #12
+  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.6, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.8) #12
           to label %.noexc.i.i.i.i unwind label %.loopexit.split-lp.i, !noalias !18
 
 .noexc.i.i.i.i:                                   ; preds = %28
@@ -397,7 +397,7 @@ define hidden void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4ItertENtN
   br i1 %28, label %31, label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.6, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.8) #12
+  invoke void @_ZN4core6result13unwrap_failed17hc6a65fe4227be0f0E(ptr noalias noundef nonnull readonly align 1 @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.6, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.008e0f051dfc3c61a6fed1d9dfbfdd7c.8) #12
           to label %.noexc.i.i.i unwind label %.loopexit.split-lp, !noalias !66
 
 .noexc.i.i.i:                                     ; preds = %31

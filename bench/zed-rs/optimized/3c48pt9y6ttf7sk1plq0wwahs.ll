@@ -569,7 +569,7 @@ define void @_ZN11http_client6github15build_asset_url17he634ed60e0b049ffE(ptr de
   br i1 %115, label %118, label %121
 
 118:                                              ; preds = %"_ZN47_$LT$url..Url$u20$as$u20$core..fmt..Display$GT$3fmt17h601231b016886c27E.exit.i"
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.89cfdab23dad243e5d2b8945e4cb2073.2, i64 noundef 55, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.89cfdab23dad243e5d2b8945e4cb2073.15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.89cfdab23dad243e5d2b8945e4cb2073.4) #13
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.89cfdab23dad243e5d2b8945e4cb2073.2, i64 noundef 55, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.89cfdab23dad243e5d2b8945e4cb2073.15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.89cfdab23dad243e5d2b8945e4cb2073.4) #13
           to label %.noexc.i unwind label %116, !noalias !74
 
 .noexc.i:                                         ; preds = %118

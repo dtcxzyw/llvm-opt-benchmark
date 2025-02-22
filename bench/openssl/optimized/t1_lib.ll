@@ -3313,7 +3313,7 @@ tls1_lookup_md.exit:                              ; preds = %.thread168
   %176 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %175, ptr %176, align 1, !tbaa !141
   %177 = load ptr, ptr %24, align 8, !tbaa !126
-  %178 = call fastcc i32 @sigalg_security_bits(ptr noundef %177, ptr noundef %..0.i)
+  %178 = call fastcc i32 @sigalg_security_bits(ptr noundef %177, ptr noundef %.03.i)
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %186, label %180
 

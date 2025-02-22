@@ -39214,7 +39214,7 @@ _ZN12_GLOBAL__N_14TypeD2Ev.exit:                  ; preds = %135, %_ZNKSt7__cxx1
   %144 = load i8, ptr %143, align 8, !tbaa !523
   %145 = icmp ne i8 %144, 4
   %.not3334 = icmp eq ptr %2, null
-  %.not33 = or i1 %145, %.not3334
+  %.not33 = or i1 %.not3334, %145
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #29
   %146 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %146, ptr %19, align 8, !tbaa !13

@@ -6351,7 +6351,6 @@ _ZN4llvm16dyn_cast_or_nullINS_6object20MachOUniversalBinaryENS1_6BinaryEEEDaPT0_
   %140 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !264
   %.not130 = icmp eq i32 %141, 1
-  %spec.select.i.i.i = select i1 %.not130, ptr %.0126, ptr null
   br i1 %.not130, label %142, label %.critedge
 
 142:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_6object20MachOUniversalBinaryENS1_6BinaryEEEDaPT0_.exit
@@ -6447,7 +6446,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6object15MachOObjectFileESt14default_deleteI
   %176 = load ptr, ptr %3, align 8, !tbaa !88
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %178 = load i64, ptr %177, align 8, !tbaa !75
-  call void @_ZNK4llvm6object20MachOUniversalBinary21getMachOObjectForArchENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.107") align 8 %14, ptr noundef nonnull align 8 dereferenceable(56) %spec.select.i.i.i, ptr %176, i64 %178) #22
+  call void @_ZNK4llvm6object20MachOUniversalBinary21getMachOObjectForArchENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.107") align 8 %14, ptr noundef nonnull align 8 dereferenceable(56) %.0126, ptr %176, i64 %178) #22
   %179 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %180 = load i8, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %13, i64 8

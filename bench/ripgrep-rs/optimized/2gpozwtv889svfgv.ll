@@ -62,7 +62,7 @@ define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..
   br i1 %switch8.i.i.not, label %22, label %24
 
 21:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %10, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.23) #5, !noalias !20
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %10, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.23) #5, !noalias !20
   unreachable
 
 22:                                               ; preds = %12
@@ -82,7 +82,7 @@ define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..
   br i1 %.not.i3, label %32, label %33
 
 32:                                               ; preds = %24
-  tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.34161b2a689b304ee0cbfdce161c7f35.20, i64 noundef 28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.22) #5, !noalias !20
+  tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.34161b2a689b304ee0cbfdce161c7f35.20, i64 noundef 28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.22) #5, !noalias !20
   unreachable
 
 33:                                               ; preds = %24, %22
@@ -148,7 +148,7 @@ define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noal
   br i1 %switch8.i.i.not, label %21, label %23
 
 20:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit"
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %9, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.23) #5, !noalias !37
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hdaca407d67a34612E(i64 noundef %9, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.23) #5, !noalias !37
   unreachable
 
 21:                                               ; preds = %11
@@ -168,7 +168,7 @@ define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noal
   br i1 %.not.i, label %31, label %_ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit.sink.split
 
 31:                                               ; preds = %23
-  tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.34161b2a689b304ee0cbfdce161c7f35.20, i64 noundef 28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.22) #5, !noalias !37
+  tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.34161b2a689b304ee0cbfdce161c7f35.20, i64 noundef 28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.22) #5, !noalias !37
   unreachable
 
 _ZN13grep_searcher5lines8LineStep9next_impl17hdec730b9548f0256E.exit.sink.split: ; preds = %23, %21

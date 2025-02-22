@@ -5788,7 +5788,7 @@ array_get_isnull.exit.thread:                     ; preds = %379, %array_get_isn
   br i1 %.not233, label %.lr.ph94.i.outer, label %.lr.ph.preheader.i260
 
 .lr.ph.preheader.i260:                            ; preds = %540
-  %548 = load i8, ptr %362, align 1
+  %548 = load i8, ptr %361, align 1
   %549 = zext i8 %548 to i32
   br label %.lr.ph.i261
 
@@ -5902,7 +5902,7 @@ array_get_isnull.exit.thread:                     ; preds = %379, %array_get_isn
   br i1 %.not233, label %.lr.ph94.i291.outer, label %.lr.ph.preheader.i266
 
 .lr.ph.preheader.i266:                            ; preds = %586
-  %589 = load i8, ptr %362, align 1
+  %589 = load i8, ptr %361, align 1
   %590 = zext i8 %589 to i32
   br label %.lr.ph.i267
 
@@ -7241,7 +7241,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   br i1 %or.cond.i, label %array_bitmap_copy.exit.i, label %425
 
 425:                                              ; preds = %412
-  %426 = load i8, ptr %399, align 1
+  %426 = load i8, ptr %398, align 1
   %427 = zext i8 %426 to i32
   %.not.i.i = icmp eq ptr %406, null
   br i1 %.not.i.i, label %.lr.ph94.i.outer.i, label %.lr.ph.preheader.i.i

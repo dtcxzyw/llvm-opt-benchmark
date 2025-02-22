@@ -1212,7 +1212,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h61e657a
   br i1 %52, label %54, label %59, !prof !131
 
 53:                                               ; preds = %43
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %44, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.4) #29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %44, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.4) #29
   unreachable
 
 54:                                               ; preds = %50
@@ -1224,7 +1224,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h61e657a
   br i1 %.not26, label %39, label %60
 
 59:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %51, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.5) #29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %51, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.5) #29
   unreachable
 
 60:                                               ; preds = %54
@@ -1249,7 +1249,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h61e657a
 71:                                               ; preds = %62
   %72 = add i64 %.014, %21
   %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 %72)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %umax, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.7) #29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %umax, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.7) #29
   unreachable
 
 73:                                               ; preds = %65
@@ -1807,7 +1807,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br label %33
 
 33:                                               ; preds = %.loopexit.i.i, %25
-  tail call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val5.i, i64 noundef %21, i64 noundef %.val5.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.11) #29, !noalias !191
+  tail call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val5.i, i64 noundef %21, i64 noundef %.val5.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.11) #29, !noalias !191
   unreachable
 
 34:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i.i.i.i", %19
@@ -2460,7 +2460,7 @@ define void @_ZN4ring3rsa15public_exponent14PublicExponent8be_bytes17h10e97e863a
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dba969e7b296abc7f2381ae0fad118ff.14, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.16) #29
+  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dba969e7b296abc7f2381ae0fad118ff.14, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba969e7b296abc7f2381ae0fad118ff.16) #29
   unreachable
 
 11:                                               ; preds = %2
@@ -2567,7 +2567,7 @@ _ZN4ring2ec7suite_b11private_key29generate_private_scalar_bytes17h1d8874a2bd065e
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN4ring2ec7suite_b5curve24p256_public_from_private17h29c45a1b3b189cd4E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #4 {
-  %4 = tail call noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key19public_from_private17hb87cf0c1541a4adfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p25615PRIVATE_KEY_OPS17h70b2070f95c33558E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2)
+  %4 = tail call noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key19public_from_private17hb87cf0c1541a4adfE(ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p25615PRIVATE_KEY_OPS17h70b2070f95c33558E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2)
   ret i1 %4
 }
 
@@ -2615,7 +2615,7 @@ _ZN4ring2ec7suite_b11private_key29generate_private_scalar_bytes17h1d8874a2bd065e
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN4ring2ec7suite_b5curve24p384_public_from_private17h9cc92af95e999910E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #4 {
-  %4 = tail call noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key19public_from_private17hb87cf0c1541a4adfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p38415PRIVATE_KEY_OPS17h32f5a334fe87dd80E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2)
+  %4 = tail call noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key19public_from_private17hb87cf0c1541a4adfE(ptr noalias noundef readonly align 8 dereferenceable(32) @_ZN4ring2ec7suite_b3ops4p38415PRIVATE_KEY_OPS17h32f5a334fe87dd80E, ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2)
   ret i1 %4
 }
 

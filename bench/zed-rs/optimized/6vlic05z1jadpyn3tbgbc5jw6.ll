@@ -147,7 +147,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h036e73206326d431E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -320,7 +320,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h03f748b7cbcfcfc1E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %34
@@ -503,7 +503,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h178d14953919644eE(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -676,7 +676,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2956e03814465df6E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -849,7 +849,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h2e4b20f91e0f215aE(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -1022,7 +1022,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h3e0c7b964f9d1052E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -1195,7 +1195,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h4d00f7132fca9701E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -1368,7 +1368,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5a74643bfbb7f5a4E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -1542,7 +1542,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h5f474fbeabd245e6E(pt
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %.split22.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %51
 
 .noexc:                                           ; preds = %35
@@ -1732,7 +1732,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h653c9560186a4bb6E(pt
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.split23.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %117
 
 .noexc:                                           ; preds = %42
@@ -1845,7 +1845,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit.i.i.i.i: ; preds = %46
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %82
-  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.5defb5d5c27fd7c696716aef214628ff.23, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.25) #10
+  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.5defb5d5c27fd7c696716aef214628ff.23, i64 noundef 45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.25) #10
           to label %91 unwind label %65, !noalias !69
 
 86:                                               ; preds = %82
@@ -2077,7 +2077,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h696910ad2e9aeec0E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -2250,7 +2250,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h884beb736ceb4b47E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -2423,7 +2423,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17h96ae50d53112e8efE(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -2596,7 +2596,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hc1e4895c7fe07988E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -2777,7 +2777,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hc9e1b5590e0c78cdE(pt
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.split23.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %117
 
 .noexc:                                           ; preds = %42
@@ -2890,7 +2890,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit.i.i.i.i: ; preds = %46
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %82
-  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.5defb5d5c27fd7c696716aef214628ff.30, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.31) #10
+  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.5defb5d5c27fd7c696716aef214628ff.30, i64 noundef 44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.31) #10
           to label %91 unwind label %65, !noalias !149
 
 86:                                               ; preds = %82
@@ -3122,7 +3122,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hce4bb431d29294b2E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -3295,7 +3295,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he6d84d73f45e0782E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -3468,7 +3468,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he7f0ad6952ea07faE(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -3641,7 +3641,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he896d918d87d1bf8E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -3822,7 +3822,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he89906be73e1cc87E(pt
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.split23.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %117
 
 .noexc:                                           ; preds = %42
@@ -3935,7 +3935,7 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit.i.i.i.i: ; preds = %46
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %82
-  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.5defb5d5c27fd7c696716aef214628ff.27, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.28) #10
+  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.5defb5d5c27fd7c696716aef214628ff.27, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.28) #10
           to label %91 unwind label %65, !noalias !228
 
 86:                                               ; preds = %82
@@ -4167,7 +4167,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf1857f9f9f238658E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -4340,7 +4340,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf1d29b5b42f9b99eE(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34
@@ -4513,7 +4513,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17hf4aeeef5a6d921b0E(pt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.split21.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5defb5d5c27fd7c696716aef214628ff.7) #10
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %34

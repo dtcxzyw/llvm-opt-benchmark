@@ -5326,29 +5326,29 @@ _ZL21convertTailJumpOpcodej.exit69:               ; preds = %61, %121, %122
   %127 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 28, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #21
   %128 = icmp eq i32 %127, -1
   %129 = load ptr, ptr %11, align 8
-  %130 = zext i32 %127 to i64
-  %131 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %129, i64 %130
-  %132 = select i1 %128, ptr null, ptr %131
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !834
-  %135 = load ptr, ptr %134, align 8, !tbaa !198
-  %136 = tail call noundef zeroext i1 @_ZNK4llvm8Function10hasOptSizeEv(ptr noundef nonnull align 8 dereferenceable(136) %135)
-  %137 = icmp eq ptr %132, null
-  %or.cond.not = or i1 %137, %136
-  br i1 %or.cond.not, label %144, label %138
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %131 = load ptr, ptr %130, align 8, !tbaa !834
+  %132 = load ptr, ptr %131, align 8, !tbaa !198
+  %133 = tail call noundef zeroext i1 @_ZNK4llvm8Function10hasOptSizeEv(ptr noundef nonnull align 8 dereferenceable(136) %132)
+  %134 = icmp eq ptr %129, null
+  %135 = select i1 %128, i1 true, i1 %134
+  %or.cond.not = or i1 %135, %133
+  br i1 %or.cond.not, label %144, label %136
 
-138:                                              ; preds = %126
-  %139 = load i32, ptr %132, align 8
+136:                                              ; preds = %126
+  %137 = zext i32 %127 to i64
+  %138 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %129, i64 %137
+  %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 83886080
   %141 = icmp eq i32 %140, 83886080
   br i1 %141, label %142, label %144
 
-142:                                              ; preds = %138
+142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 8, ptr %143, align 4, !tbaa !833
   br label %144
 
-144:                                              ; preds = %61, %66, %_ZN4llvm6MCInstD2Ev.exit, %_ZN4llvm6MCInstD2Ev.exit62, %_ZN4llvm6MCInstD2Ev.exit63, %_ZL21convertTailJumpOpcodej.exit, %_ZL21convertTailJumpOpcodej.exit67, %_ZL21convertTailJumpOpcodej.exit69, %124, %123, %142, %138, %126, %._crit_edge, %49, %51, %53, %55, %57, %59
+144:                                              ; preds = %61, %66, %_ZN4llvm6MCInstD2Ev.exit, %_ZN4llvm6MCInstD2Ev.exit62, %_ZN4llvm6MCInstD2Ev.exit63, %_ZL21convertTailJumpOpcodej.exit, %_ZL21convertTailJumpOpcodej.exit67, %_ZL21convertTailJumpOpcodej.exit69, %124, %123, %142, %136, %126, %._crit_edge, %49, %51, %53, %55, %57, %59
   ret void
 }
 

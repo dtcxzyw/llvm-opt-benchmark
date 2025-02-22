@@ -16218,7 +16218,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %5, %9
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %14, align 8
   %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
   %.not8 = icmp eq i64 %15, 0
-  br i1 %.not8, label %70, label %29
+  br i1 %.not8, label %_ZNSt10unique_ptrIN4llvm23ReplaceableMetadataImplESt14default_deleteIS1_EED2Ev.exit, label %29
 
 16:                                               ; preds = %.lr.ph, %_ZN4llvm6MDNode10setOperandEjPNS_8MetadataE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm6MDNode10setOperandEjPNS_8MetadataE.exit ]
@@ -16261,7 +16261,7 @@ _ZN4llvm6MDNode10setOperandEjPNS_8MetadataE.exit: ; preds = %_ZN4llvm6MDNode13mu
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = icmp ult i32 %33, 2
-  br i1 %34, label %53, label %35
+  br i1 %34, label %_ZN4llvm23ReplaceableMetadataImpl14resolveAllUsesEb.exit, label %35
 
 35:                                               ; preds = %29
   %36 = shl i32 %33, 1
@@ -16278,7 +16278,7 @@ _ZN4llvm6MDNode10setOperandEjPNS_8MetadataE.exit: ; preds = %_ZN4llvm6MDNode13mu
 
 44:                                               ; preds = %35
   tail call void @_ZN4llvm13SmallDenseMapIPvSt4pairINS_12PointerUnionIJPNS_15MetadataAsValueEPNS_8MetadataEPNS_14DebugValueUserEEEEmELj4ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_SB_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(104) %32)
-  br label %53
+  br label %_ZN4llvm23ReplaceableMetadataImpl14resolveAllUsesEb.exit
 
 45:                                               ; preds = %35
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -16299,7 +16299,7 @@ _ZN4llvm6MDNode10setOperandEjPNS_8MetadataE.exit: ; preds = %_ZN4llvm6MDNode13mu
   store i32 %.pre-phi.i.i, ptr %32, align 8
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 0, ptr %51, align 4, !tbaa !62
-  br label %53
+  br label %_ZN4llvm23ReplaceableMetadataImpl14resolveAllUsesEb.exit
 
 .lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.i
   %.08.i.i = phi ptr [ %52, %.lr.ph.i.i ], [ %48, %45 ]
@@ -16308,38 +16308,40 @@ _ZN4llvm6MDNode10setOperandEjPNS_8MetadataE.exit: ; preds = %_ZN4llvm6MDNode13mu
   %.not.i.i4 = icmp eq ptr %52, %50
   br i1 %.not.i.i4, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !139
 
-53:                                               ; preds = %._crit_edge.i.i, %44, %29
+_ZN4llvm23ReplaceableMetadataImpl14resolveAllUsesEb.exit: ; preds = %29, %44, %._crit_edge.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %14, align 8, !noalias !862
-  %54 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
-  %.not.i.i5 = icmp eq i64 %54, 0
-  %55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
-  %56 = inttoptr i64 %55 to ptr
-  %.0.i.i6 = select i1 %.not.i.i5, ptr null, ptr %56
-  %57 = load ptr, ptr %.0.i.i6, align 8, !tbaa !126, !noalias !862
-  %58 = ptrtoint ptr %57 to i64
-  %59 = and i64 %58, -5
-  store i64 %59, ptr %14, align 8, !tbaa !71, !noalias !862
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 16
+  %53 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
+  %.not.i.i5 = icmp eq i64 %53, 0
+  %54 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
+  %55 = inttoptr i64 %54 to ptr
+  %56 = load ptr, ptr %55, align 8, !tbaa !126, !noalias !862
+  %57 = ptrtoint ptr %56 to i64
+  %58 = and i64 %57, -5
+  store i64 %58, ptr %14, align 8, !tbaa !71, !noalias !862
+  br i1 %.not.i.i5, label %_ZNSt10unique_ptrIN4llvm23ReplaceableMetadataImplESt14default_deleteIS1_EED2Ev.exit, label %59
+
+59:                                               ; preds = %_ZN4llvm23ReplaceableMetadataImpl14resolveAllUsesEb.exit
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 1
   %.not.i.i.i.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i.i.i.i.i, label %63, label %_ZNSt10unique_ptrIN4llvm23ReplaceableMetadataImplESt14default_deleteIS1_EED2Ev.exit
+  br i1 %.not.i.i.i.i.i, label %63, label %_ZNKSt14default_deleteIN4llvm23ReplaceableMetadataImplEEclEPS1_.exit.i
 
-63:                                               ; preds = %53
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 24
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !130
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !132
   %68 = zext i32 %67 to i64
   %69 = mul nuw nsw i64 %68, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %65, i64 noundef %69, i64 noundef 8) #26
+  br label %_ZNKSt14default_deleteIN4llvm23ReplaceableMetadataImplEEclEPS1_.exit.i
+
+_ZNKSt14default_deleteIN4llvm23ReplaceableMetadataImplEEclEPS1_.exit.i: ; preds = %63, %59
+  tail call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef 120) #28
   br label %_ZNSt10unique_ptrIN4llvm23ReplaceableMetadataImplESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm23ReplaceableMetadataImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %53, %63
-  tail call void @_ZdlPvm(ptr noundef nonnull %.0.i.i6, i64 noundef 120) #28
-  br label %70
-
-70:                                               ; preds = %_ZNSt10unique_ptrIN4llvm23ReplaceableMetadataImplESt14default_deleteIS1_EED2Ev.exit, %._crit_edge
+_ZNSt10unique_ptrIN4llvm23ReplaceableMetadataImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm23ReplaceableMetadataImplEEclEPS1_.exit.i, %_ZN4llvm23ReplaceableMetadataImpl14resolveAllUsesEb.exit, %._crit_edge
   ret void
 }
 

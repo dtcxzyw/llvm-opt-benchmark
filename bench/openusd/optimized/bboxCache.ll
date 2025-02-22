@@ -13134,7 +13134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 126:                                              ; preds = %125
   %127 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache35_GetCombinedBBoxForIncludedPurposesERKSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS2_S3_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %48, ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull align 8 dereferenceable(48) %105)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache35_GetCombinedBBoxForIncludedPurposesERKSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS2_S3_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %48, ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull align 8 dereferenceable(48) %104)
           to label %128 unwind label %136
 
 128:                                              ; preds = %126
@@ -13234,7 +13234,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %157 unwind label %113
 
 157:                                              ; preds = %155
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache19_ComputePurposeInfoILb0EEEvPNS0_6_EntryERKNS0_12_PrimContextE(ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull %105, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache19_ComputePurposeInfoILb0EEEvPNS0_6_EntryERKNS0_12_PrimContextE(ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull %104, ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %158 unwind label %113
 
 158:                                              ; preds = %157
@@ -13242,7 +13242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %160 unwind label %113
 
 160:                                              ; preds = %158
-  %161 = getelementptr inbounds nuw i8, ptr %105, i64 48
+  %161 = getelementptr inbounds nuw i8, ptr %102, i64 96
   %162 = load ptr, ptr %161, align 8
   %.not = icmp eq ptr %162, null
   br i1 %.not, label %163, label %179
@@ -13482,7 +13482,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i: ; preds = %247, 
 257:                                              ; preds = %256, %253, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.i, %.noexc183, %193
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %42)
-  %258 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache23_GetBBoxFromExtentsHintERKNS_15UsdGeomModelAPIERKNS_17UsdAttributeQueryEPSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(120) %184, ptr noundef nonnull %105)
+  %258 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache23_GetBBoxFromExtentsHintERKNS_15UsdGeomModelAPIERKNS_17UsdAttributeQueryEPSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(120) %184, ptr noundef nonnull %104)
           to label %259 unwind label %291
 
 259:                                              ; preds = %257
@@ -13544,13 +13544,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i: ; preds = %247, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40)
-  %286 = getelementptr inbounds nuw i8, ptr %105, i64 81
+  %286 = getelementptr inbounds nuw i8, ptr %102, i64 129
   store i8 %.0.i.i, ptr %286, align 1
   %287 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache18_ShouldIncludePrimERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %288 unwind label %291
 
 288:                                              ; preds = %285
-  %289 = getelementptr inbounds nuw i8, ptr %105, i64 82
+  %289 = getelementptr inbounds nuw i8, ptr %102, i64 130
   %290 = zext i1 %287 to i8
   store i8 %290, ptr %289, align 2
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdGeomModelAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #15
@@ -14663,7 +14663,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfToke
 .critedge.i:                                      ; preds = %758, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE11lower_boundERS5_.exit.i, %743
   %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE11lower_boundERS5_.exit.i ], [ %.19.i.i.i.i, %758 ], [ %747, %743 ]
   store ptr %744, ptr %20, align 8
-  %764 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_8GfBBox3dEESt10_Select1stIS5_ENS0_28TfTokenFastArbitraryLessThanESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %105, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
+  %764 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_8GfBBox3dEESt10_Select1stIS5_ENS0_28TfTokenFastArbitraryLessThanESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
           to label %765 unwind label %789
 
 765:                                              ; preds = %758, %.critedge.i
@@ -16778,7 +16778,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfToke
 .critedge.i440:                                   ; preds = %1738, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE11lower_boundERS5_.exit.i438, %1726
   %.08.lcssa.i.i.i10.i441 = phi ptr [ %.19.i.i.i.i433, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEE11lower_boundERS5_.exit.i438 ], [ %.19.i.i.i.i433, %1738 ], [ %1656, %1726 ]
   store ptr %1722, ptr %8, align 8
-  %1744 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_8GfBBox3dEESt10_Select1stIS5_ENS0_28TfTokenFastArbitraryLessThanESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %105, ptr %.08.lcssa.i.i.i10.i441, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %1744 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_8GfBBox3dEESt10_Select1stIS5_ENS0_28TfTokenFastArbitraryLessThanESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr %.08.lcssa.i.i.i10.i441, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %1745 unwind label %.loopexit608
 
 1745:                                             ; preds = %1738, %.critedge.i440
@@ -17028,7 +17028,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache12_Pri
 
 1837:                                             ; preds = %1836
   %1838 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %89) #15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache35_GetCombinedBBoxForIncludedPurposesERKSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS2_S3_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %91, ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull align 8 dereferenceable(48) %105)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache35_GetCombinedBBoxForIncludedPurposesERKSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS2_S3_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %91, ptr noundef nonnull align 8 dereferenceable(522) %0, ptr noundef nonnull align 8 dereferenceable(48) %104)
           to label %1839 unwind label %1850
 
 1839:                                             ; preds = %1837

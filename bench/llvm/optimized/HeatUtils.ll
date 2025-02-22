@@ -69,13 +69,11 @@ define dso_local noundef i64 @_ZN4llvm10getMaxFreqERKNS_8FunctionEPKNS_18BlockFr
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.010.017 = phi ptr [ %.sroa.010.0, %.lr.ph ], [ %.sroa.010.014, %2 ]
   %.016 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %2 ]
-  %5 = icmp eq ptr %.sroa.010.017, null
-  %6 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 -24
-  %7 = select i1 %5, ptr null, ptr %6
-  %8 = tail call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7) #9
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 %.016)
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 8
-  %.sroa.010.0 = load ptr, ptr %9, align 8, !tbaa !18
+  %5 = getelementptr inbounds i8, ptr %.sroa.010.017, i64 -24
+  %6 = tail call i64 @_ZNK4llvm18BlockFrequencyInfo12getBlockFreqEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5) #9
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %6, i64 %.016)
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 8
+  %.sroa.010.0 = load ptr, ptr %7, align 8, !tbaa !18
   %.not13 = icmp eq ptr %.sroa.010.0, %4
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 }

@@ -75,7 +75,7 @@ common.resume:                                    ; preds = %35, %29, %76
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %14
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c5e66eab4a3a0787f8b048287812948e.1) #10
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e66eab4a3a0787f8b048287812948e.1) #10
   unreachable
 
 34:                                               ; preds = %104

@@ -2222,7 +2222,6 @@ for.body83:                                       ; preds = %if.end78, %for.inc9
   %65 = add i8 %64, -109
   %66 = icmp ult i8 %65, -107
   %sub.ptr.i.i.i139 = getelementptr inbounds i8, ptr %call84, i64 -16
-  %spec.select.i140 = select i1 %66, ptr null, ptr %sub.ptr.i.i.i139
   br i1 %66, label %for.inc97, label %if.end88
 
 if.end88:                                         ; preds = %for.body83
@@ -2265,7 +2264,7 @@ if.end13.i.i157:                                  ; preds = %if.end9.i.i153
   br i1 %cmp.i.i.i163, label %if.end94, label %if.end9.i.i153, !llvm.loop !19
 
 if.end94:                                         ; preds = %if.end13.i.i157, %if.end.i.i143
-  %call95 = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull %spec.select.i140)
+  %call95 = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull %sub.ptr.i.i.i139)
   %rem.i166 = and i32 %call95, 63
   %sh_prom.i167 = zext nneg i32 %rem.i166 to i64
   %shl.i168 = shl nuw i64 1, %sh_prom.i167
@@ -10390,7 +10389,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   br i1 %cmp.i.i.i.i98, label %if.end74, label %if.end9.i.i.i, !llvm.loop !25
 
 if.end74:                                         ; preds = %if.end13.i.i.i, %if.end.i.i.i
-  %call75 = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull %spec.select.i)
+  %call75 = call noundef i32 @_ZN6hermes17RegisterAllocator20getInstructionNumberEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1952) %this, ptr noundef nonnull %sub.ptr.i.i.i)
   %add76 = add i32 %call75, 1
   %cmp78 = icmp ult i32 %add76, %add77
   br i1 %cmp78, label %if.then79, label %for.inc89

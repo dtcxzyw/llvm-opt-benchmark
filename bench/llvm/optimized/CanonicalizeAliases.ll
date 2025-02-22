@@ -30,71 +30,69 @@ define dso_local void @_ZN4llvm23CanonicalizeAliasesPass3runERNS_6ModuleERNS_15A
 
 _ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit.thread: ; preds = %4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
-  br label %14
+  br label %12
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.sroa.05.011.i = phi ptr [ %.sroa.05.0.i, %.lr.ph.i ], [ %.sroa.05.09.i, %4 ]
-  %8 = icmp eq ptr %.sroa.05.011.i, null
-  %9 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 -48
-  %10 = select i1 %8, ptr null, ptr %9
-  %11 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117canonicalizeAliasEPN4llvm8ConstantERb(ptr noundef nonnull %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 8
-  %.sroa.05.0.i = load ptr, ptr %12, align 8, !tbaa !7
+  %8 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 -48
+  %9 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117canonicalizeAliasEPN4llvm8ConstantERb(ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 8
+  %.sroa.05.0.i = load ptr, ptr %10, align 8, !tbaa !7
   %.not.i = icmp eq ptr %.sroa.05.0.i, %7
   br i1 %.not.i, label %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit, label %.lr.ph.i
 
 _ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit: ; preds = %.lr.ph.i
   %.pre.i = load i8, ptr %5, align 1, !tbaa !3, !range !11
-  %13 = trunc nuw i8 %.pre.i to i1
+  %11 = trunc nuw i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
-  br i1 %13, label %25, label %14
+  br i1 %11, label %23, label %12
 
-14:                                               ; preds = %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit.thread, %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit
+12:                                               ; preds = %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit.thread, %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !12, !alias.scope !15
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %15, align 8, !tbaa !18, !alias.scope !15
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %17, align 8, !tbaa !19, !alias.scope !15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %18, align 4, !tbaa !20, !alias.scope !15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %20, ptr %19, align 8, !tbaa !12, !alias.scope !15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %21, align 8, !tbaa !18, !alias.scope !15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %22, align 4, !tbaa !21, !alias.scope !15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %23, align 8, !tbaa !19, !alias.scope !15
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %24, align 4, !tbaa !20, !alias.scope !15
-  store i32 1, ptr %16, align 4, !tbaa !21, !alias.scope !15, !noalias !22
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %13, align 8, !tbaa !18, !alias.scope !15
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %15, align 8, !tbaa !19, !alias.scope !15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %16, align 4, !tbaa !20, !alias.scope !15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %18, ptr %17, align 8, !tbaa !12, !alias.scope !15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %19, align 8, !tbaa !18, !alias.scope !15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %20, align 4, !tbaa !21, !alias.scope !15
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %21, align 8, !tbaa !19, !alias.scope !15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %22, align 4, !tbaa !20, !alias.scope !15
+  store i32 1, ptr %14, align 4, !tbaa !21, !alias.scope !15, !noalias !22
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !25, !alias.scope !15, !noalias !22
-  br label %35
+  br label %33
 
-25:                                               ; preds = %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false), !alias.scope !26
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %27, ptr %0, align 8, !tbaa !12, !alias.scope !26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %28, align 8, !tbaa !18, !alias.scope !26
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %29, align 4, !tbaa !21, !alias.scope !26
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %30, align 4, !tbaa !20, !alias.scope !26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %32, ptr %31, align 8, !tbaa !12, !alias.scope !26
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %33, align 8, !tbaa !18, !alias.scope !26
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %34, align 4, !tbaa !20, !alias.scope !26
-  br label %35
+23:                                               ; preds = %_ZN12_GLOBAL__N_119canonicalizeAliasesERN4llvm6ModuleE.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, i8 0, i64 64, i1 false), !alias.scope !26
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %25, ptr %0, align 8, !tbaa !12, !alias.scope !26
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %26, align 8, !tbaa !18, !alias.scope !26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %27, align 4, !tbaa !21, !alias.scope !26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %28, align 4, !tbaa !20, !alias.scope !26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %30, ptr %29, align 8, !tbaa !12, !alias.scope !26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %31, align 8, !tbaa !18, !alias.scope !26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %32, align 4, !tbaa !20, !alias.scope !26
+  br label %33
 
-35:                                               ; preds = %25, %14
+33:                                               ; preds = %23, %12
   ret void
 }
 

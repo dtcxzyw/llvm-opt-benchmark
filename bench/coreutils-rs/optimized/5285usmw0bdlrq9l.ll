@@ -704,7 +704,7 @@ default.unreachable:                              ; preds = %228
   br i1 %239, label %240, label %244
 
 240:                                              ; preds = %237
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %226, i64 noundef %238, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e1a996404b19bc149ff383b4450a68f6.20) #13
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef range(i64 1, 0) %226, i64 noundef %238, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e1a996404b19bc149ff383b4450a68f6.20) #13
           to label %.noexc.i unwind label %.body.i, !noalias !36
 
 .noexc.i:                                         ; preds = %240

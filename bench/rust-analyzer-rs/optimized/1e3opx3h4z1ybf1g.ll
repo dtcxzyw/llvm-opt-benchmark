@@ -48,7 +48,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !38
   store ptr %8, ptr %7, align 8, !noalias !38
   store ptr %1, ptr %16, align 8, !noalias !38
-  %21 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h17668f6fcb9c54fbE.llvm.10481666623736195641(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %20, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8eec831dd6318b13269bac9c4044dd77.6.llvm.10481666623736195641), !noalias !44
+  %21 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h17668f6fcb9c54fbE.llvm.10481666623736195641(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %20, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8eec831dd6318b13269bac9c4044dd77.6.llvm.10481666623736195641), !noalias !44
   %22 = extractvalue { i64, i64 } %21, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !23
@@ -106,7 +106,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !75
   store ptr %4, ptr %3, align 8, !noalias !75
   store ptr %1, ptr %34, align 8, !noalias !75
-  %39 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h17668f6fcb9c54fbE.llvm.10481666623736195641(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %38, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8eec831dd6318b13269bac9c4044dd77.6.llvm.10481666623736195641), !noalias !81
+  %39 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h17668f6fcb9c54fbE.llvm.10481666623736195641(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %38, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8eec831dd6318b13269bac9c4044dd77.6.llvm.10481666623736195641), !noalias !81
   %40 = extractvalue { i64, i64 } %39, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !60

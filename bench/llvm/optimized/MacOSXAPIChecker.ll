@@ -1025,7 +1025,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55.i.i:           ; preds = %109, %107
   %114 = load i32, ptr %113, align 8, !tbaa !95
   %115 = and i32 %114, -2
   %.not153.i.i = icmp eq i32 %115, 22
-  %spec.select.i.i.i.i = select i1 %.not153.i.i, ptr %48, ptr null
   br i1 %.not153.i.i, label %116, label %242
 
 116:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55.i.i
@@ -1203,10 +1202,10 @@ _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread.i.i: ; preds = %183, %_
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit63.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit63.i.i:           ; preds = %205, %203, %194, %192
-  %208 = load ptr, ptr %spec.select.i.i.i.i, align 8, !tbaa !7
+  %208 = load ptr, ptr %48, align 8, !tbaa !7
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 112
   %210 = load ptr, ptr %209, align 8
-  %211 = call noundef ptr %210(ptr noundef nonnull align 8 dereferenceable(56) %spec.select.i.i.i.i) #18
+  %211 = call noundef ptr %210(ptr noundef nonnull align 8 dereferenceable(56) %48) #18
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load i64, ptr %212, align 8, !tbaa !128
   %214 = and i64 %213, 7

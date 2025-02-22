@@ -807,7 +807,7 @@ define hidden void @_ZN6uu_env14split_iterator13SplitIterator15state_delimiter17
   br i1 %.not.i, label %123, label %122
 
 122:                                              ; preds = %118
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60abe728c86cd201b6b12a3448c31f09.34.llvm.16827823597129230134) #11, !noalias !217
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60abe728c86cd201b6b12a3448c31f09.34.llvm.16827823597129230134) #11, !noalias !217
   unreachable
 
 123:                                              ; preds = %118

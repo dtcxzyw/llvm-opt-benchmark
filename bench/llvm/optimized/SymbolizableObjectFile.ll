@@ -1485,8 +1485,8 @@ define dso_local noundef i64 @_ZNK4llvm9symbolize22SymbolizableObjectFile22getMo
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !34
   %6 = icmp ne i32 %5, 10
-  %.not.not6 = icmp eq ptr %3, null
-  %.not.not = or i1 %.not.not6, %6
+  %.not6 = icmp eq ptr %3, null
+  %.not.not = or i1 %.not6, %6
   br i1 %.not.not, label %9, label %7
 
 7:                                                ; preds = %1

@@ -25362,7 +25362,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit77: ;
   br i1 %.not121, label %123, label %121
 
 121:                                              ; preds = %112
-  %122 = call noundef ptr @_ZNK5clang13CXXRecordDecl31getStandardLayoutBaseWithFieldsEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i) #24
+  %122 = call noundef ptr @_ZNK5clang13CXXRecordDecl31getStandardLayoutBaseWithFieldsEv(ptr noundef nonnull align 8 dereferenceable(144) %90) #24
   br label %123
 
 123:                                              ; preds = %121, %112, %106
@@ -25480,7 +25480,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
 
 174:                                              ; preds = %165
   store i32 0, ptr %15, align 8, !tbaa !10
-  %175 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i)
+  %175 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %90)
   %176 = extractvalue { ptr, ptr } %175, 0
   %177 = extractvalue { ptr, ptr } %175, 1
   %.not58128 = icmp eq ptr %176, %177

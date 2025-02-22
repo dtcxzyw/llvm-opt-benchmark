@@ -32,7 +32,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %4
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.0, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.2) #8
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.0, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.2) #8
   unreachable
 
 14:                                               ; preds = %4
@@ -45,7 +45,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %14
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.3, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.4) #8
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.3, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.4) #8
   unreachable
 
 22:                                               ; preds = %14
@@ -85,7 +85,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store ptr %7, ptr %34, align 8, !alias.scope !8, !noalias !11
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 2, ptr %35, align 8, !alias.scope !8, !noalias !11
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.9) #8, !noalias !5
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.9) #8, !noalias !5
   unreachable
 
 _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds = %22
@@ -276,7 +276,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   store ptr @anon.0335a70b866b932772266027cc677848.12, ptr %135, align 8, !noalias !62
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %136, align 8, !noalias !62
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.13) #8, !noalias !65
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.13) #8, !noalias !65
   unreachable
 
 "_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit": ; preds = %49, %64, %70, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i, %109, %116, %120, %125, %129
@@ -308,7 +308,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   br i1 %.not, label %14, label %15
 
 14:                                               ; preds = %5
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.0, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.2) #8
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.0, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.2) #8
   unreachable
 
 15:                                               ; preds = %5
@@ -321,7 +321,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %15
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.3, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.4) #8
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.0335a70b866b932772266027cc677848.3, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.4) #8
   unreachable
 
 23:                                               ; preds = %15
@@ -361,7 +361,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store ptr %8, ptr %35, align 8, !alias.scope !70, !noalias !73
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 2, ptr %36, align 8, !alias.scope !70, !noalias !73
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.9) #8, !noalias !67
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.9) #8, !noalias !67
   unreachable
 
 _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds = %23

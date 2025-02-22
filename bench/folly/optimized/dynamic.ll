@@ -12571,7 +12571,7 @@ _ZN5folly5tryToImEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_
 _ZNKR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit: ; preds = %54, %52
   %61 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !211
-  %63 = load ptr, ptr %spec.select.i.i, align 8, !tbaa !213
+  %63 = load ptr, ptr %21, align 8, !tbaa !213
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %63 to i64
   %66 = sub i64 %64, %65

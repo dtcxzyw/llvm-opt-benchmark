@@ -73,7 +73,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h05703
   ret { i64, i64 } %13
 
 14:                                               ; preds = %4
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30c9c06f269853ad57d492e2e34123fe.0.llvm.13519749256575475785, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #12
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30c9c06f269853ad57d492e2e34123fe.0.llvm.13519749256575475785, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #12
   unreachable
 }
 
@@ -471,7 +471,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.13519
 
 7:                                                ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.13519749256575475785.exit
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.30c9c06f269853ad57d492e2e34123fe.2.llvm.13519749256575475785, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30c9c06f269853ad57d492e2e34123fe.0.llvm.13519749256575475785, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30c9c06f269853ad57d492e2e34123fe.4.llvm.13519749256575475785) #12, !noalias !30
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.30c9c06f269853ad57d492e2e34123fe.2.llvm.13519749256575475785, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30c9c06f269853ad57d492e2e34123fe.0.llvm.13519749256575475785, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30c9c06f269853ad57d492e2e34123fe.4.llvm.13519749256575475785) #12, !noalias !30
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h05703d0259ef8dc9E.llvm.13519749256575475785.exit": ; preds = %0, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.13519749256575475785.exit

@@ -964,7 +964,6 @@ get_tags_and_duplicates.exit:                     ; preds = %303, %236
 find_encoding.exit.i:                             ; preds = %352, %349
   %.0.i.i = phi ptr [ %353, %352 ], [ null, %349 ]
   %355 = getelementptr inbounds nuw i8, ptr %342, i64 2
-  %spec.select.i = select i1 %.not.i.i34, ptr null, ptr %355
   %356 = getelementptr inbounds nuw i8, ptr %324, i64 48
   %357 = load ptr, ptr %356, align 8, !tbaa !103
   %.not85.i = icmp eq ptr %357, null
@@ -1127,8 +1126,8 @@ anonymize_refname.exit.i:                         ; preds = %skip_prefix.exit.i.
   ]
 
 428:                                              ; preds = %426
-  %429 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #20
-  %430 = call ptr @reencode_string_len(ptr noundef nonnull %spec.select.i, i64 noundef %429, ptr noundef nonnull @.str.99, ptr noundef nonnull %.0.i.i, ptr noundef null) #18
+  %429 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %355) #20
+  %430 = call ptr @reencode_string_len(ptr noundef nonnull %355, i64 noundef %429, ptr noundef nonnull @.str.99, ptr noundef nonnull %.0.i.i, ptr noundef null) #18
   br label %434
 
 431:                                              ; preds = %426

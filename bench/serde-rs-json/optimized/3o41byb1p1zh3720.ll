@@ -116,7 +116,7 @@ define noundef align 8 ptr @"_ZN87_$LT$serde_json..value..de..VariantDeserialize
   br i1 %8, label %"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$16deserialize_unit17hf476754e1ce12faeE.exit", label %9
 
 9:                                                ; preds = %6
-  %10 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
+  %10 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
           to label %"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$16deserialize_unit17hf476754e1ce12faeE.exit" unwind label %11
 
 11:                                               ; preds = %9
@@ -232,7 +232,7 @@ define noundef align 8 ptr @"_ZN90_$LT$serde_json..value..de..VariantRefDeserial
   br i1 %6, label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$16deserialize_unit17h3c238fe8469112a9E.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
+  %8 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
   br label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$16deserialize_unit17h3c238fe8469112a9E.exit"
 
 "_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$16deserialize_unit17h3c238fe8469112a9E.exit": ; preds = %4, %7
@@ -680,7 +680,7 @@ _ZN10serde_json4read5error17h163b424e2d9691fcE.exit: ; preds = %.lr.ph.i.i.i, %"
   ]
 
 35:                                               ; preds = %.thread
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa22, i64 noundef %.lcssa, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a356725989ec8dca616dc0cb15d607e7.11) #19
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa22, i64 noundef %.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a356725989ec8dca616dc0cb15d607e7.11) #19
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i7": ; preds = %34
@@ -815,7 +815,7 @@ _ZN10serde_json4read5error17h53e783baf89b9e7dE.exit: ; preds = %.lr.ph.i.i.i, %"
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11", label %47
 
 37:                                               ; preds = %25
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %26, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a356725989ec8dca616dc0cb15d607e7.12) #19
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %26, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a356725989ec8dca616dc0cb15d607e7.12) #19
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb50f686c68ecdff8E.llvm.5010337980914317090.exit.i.i.i11": ; preds = %30

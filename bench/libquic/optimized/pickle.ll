@@ -328,22 +328,22 @@ define noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnu
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 4
+  %8 = icmp ugt i64 %7, 3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = add i64 %6, 4
-  %storemerge.i.i = select i1 %8, i64 %4, i64 %11
-  %.0.i.i = select i1 %8, ptr null, ptr %10
+  %10 = add i64 %6, 4
+  %storemerge.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i = icmp ne ptr %.0.i.i, null
-  br i1 %.not.i, label %12, label %_ZN4base14PickleIterator15ReadBuiltinTypeIiEEbPT_.exit
+  %.not6.i = icmp ne ptr %9, null
+  %.not.i = select i1 %8, i1 %.not6.i, i1 false
+  br i1 %.not.i, label %11, label %_ZN4base14PickleIterator15ReadBuiltinTypeIiEEbPT_.exit
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %.0.i.i, align 4, !tbaa !27
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %13 = load i32, ptr %12, align 4, !tbaa !27
   store i32 %13, ptr %1, align 4, !tbaa !27
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeIiEEbPT_.exit
 
-_ZN4base14PickleIterator15ReadBuiltinTypeIiEEbPT_.exit: ; preds = %2, %12
+_ZN4base14PickleIterator15ReadBuiltinTypeIiEEbPT_.exit: ; preds = %2, %11
   ret i1 %.not.i
 }
 
@@ -354,22 +354,22 @@ define noundef zeroext i1 @_ZN4base14PickleIterator8ReadLongEPl(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 8
+  %8 = icmp ugt i64 %7, 7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = add i64 %6, 8
-  %storemerge.i.i = select i1 %8, i64 %4, i64 %11
-  %.0.i.i = select i1 %8, ptr null, ptr %10
+  %10 = add i64 %6, 8
+  %storemerge.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i = icmp ne ptr %.0.i.i, null
-  br i1 %.not.i, label %12, label %_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit
+  %.not6.i = icmp ne ptr %9, null
+  %.not.i = select i1 %8, i1 %.not6.i, i1 false
+  br i1 %.not.i, label %11, label %_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %.0.i.i, align 1
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %13 = load i64, ptr %12, align 1
   store i64 %13, ptr %1, align 8, !tbaa !28
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit
 
-_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit: ; preds = %2, %12
+_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit: ; preds = %2, %11
   ret i1 %.not.i
 }
 
@@ -380,23 +380,23 @@ define noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt16EPt(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 2
+  %8 = icmp ugt i64 %7, 1
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = icmp ult i64 %7, 4
-  %12 = add i64 %6, 4
-  %storemerge.i.i = select i1 %11, i64 %4, i64 %12
-  %.0.i.i = select i1 %8, ptr null, ptr %10
+  %10 = icmp ult i64 %7, 4
+  %11 = add i64 %6, 4
+  %storemerge.i.i = select i1 %10, i64 %4, i64 %11
   store i64 %storemerge.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i = icmp ne ptr %.0.i.i, null
-  br i1 %.not.i, label %13, label %_ZN4base14PickleIterator15ReadBuiltinTypeItEEbPT_.exit
+  %.not6.i = icmp ne ptr %9, null
+  %.not.i = select i1 %8, i1 %.not6.i, i1 false
+  br i1 %.not.i, label %12, label %_ZN4base14PickleIterator15ReadBuiltinTypeItEEbPT_.exit
 
-13:                                               ; preds = %2
-  %14 = load i16, ptr %.0.i.i, align 2, !tbaa !29
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %14 = load i16, ptr %13, align 2, !tbaa !29
   store i16 %14, ptr %1, align 2, !tbaa !29
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeItEEbPT_.exit
 
-_ZN4base14PickleIterator15ReadBuiltinTypeItEEbPT_.exit: ; preds = %2, %13
+_ZN4base14PickleIterator15ReadBuiltinTypeItEEbPT_.exit: ; preds = %2, %12
   ret i1 %.not.i
 }
 
@@ -407,22 +407,22 @@ define noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 4
+  %8 = icmp ugt i64 %7, 3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = add i64 %6, 4
-  %storemerge.i.i = select i1 %8, i64 %4, i64 %11
-  %.0.i.i = select i1 %8, ptr null, ptr %10
+  %10 = add i64 %6, 4
+  %storemerge.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i = icmp ne ptr %.0.i.i, null
-  br i1 %.not.i, label %12, label %_ZN4base14PickleIterator15ReadBuiltinTypeIjEEbPT_.exit
+  %.not6.i = icmp ne ptr %9, null
+  %.not.i = select i1 %8, i1 %.not6.i, i1 false
+  br i1 %.not.i, label %11, label %_ZN4base14PickleIterator15ReadBuiltinTypeIjEEbPT_.exit
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %.0.i.i, align 4, !tbaa !27
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %13 = load i32, ptr %12, align 4, !tbaa !27
   store i32 %13, ptr %1, align 4, !tbaa !27
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeIjEEbPT_.exit
 
-_ZN4base14PickleIterator15ReadBuiltinTypeIjEEbPT_.exit: ; preds = %2, %12
+_ZN4base14PickleIterator15ReadBuiltinTypeIjEEbPT_.exit: ; preds = %2, %11
   ret i1 %.not.i
 }
 
@@ -433,22 +433,22 @@ define noundef zeroext i1 @_ZN4base14PickleIterator9ReadInt64EPl(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 8
+  %8 = icmp ugt i64 %7, 7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = add i64 %6, 8
-  %storemerge.i.i = select i1 %8, i64 %4, i64 %11
-  %.0.i.i = select i1 %8, ptr null, ptr %10
+  %10 = add i64 %6, 8
+  %storemerge.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i = icmp ne ptr %.0.i.i, null
-  br i1 %.not.i, label %12, label %_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit
+  %.not6.i = icmp ne ptr %9, null
+  %.not.i = select i1 %8, i1 %.not6.i, i1 false
+  br i1 %.not.i, label %11, label %_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %.0.i.i, align 1
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %13 = load i64, ptr %12, align 1
   store i64 %13, ptr %1, align 8
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit
 
-_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit: ; preds = %2, %12
+_ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit: ; preds = %2, %11
   ret i1 %.not.i
 }
 
@@ -459,22 +459,22 @@ define noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt64EPm(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 8
+  %8 = icmp ugt i64 %7, 7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = add i64 %6, 8
-  %storemerge.i.i = select i1 %8, i64 %4, i64 %11
-  %.0.i.i = select i1 %8, ptr null, ptr %10
+  %10 = add i64 %6, 8
+  %storemerge.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i = icmp ne ptr %.0.i.i, null
-  br i1 %.not.i, label %12, label %_ZN4base14PickleIterator15ReadBuiltinTypeImEEbPT_.exit
+  %.not6.i = icmp ne ptr %9, null
+  %.not.i = select i1 %8, i1 %.not6.i, i1 false
+  br i1 %.not.i, label %11, label %_ZN4base14PickleIterator15ReadBuiltinTypeImEEbPT_.exit
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %.0.i.i, align 1
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %13 = load i64, ptr %12, align 1
   store i64 %13, ptr %1, align 8
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeImEEbPT_.exit
 
-_ZN4base14PickleIterator15ReadBuiltinTypeImEEbPT_.exit: ; preds = %2, %12
+_ZN4base14PickleIterator15ReadBuiltinTypeImEEbPT_.exit: ; preds = %2, %11
   ret i1 %.not.i
 }
 
@@ -485,22 +485,22 @@ define noundef zeroext i1 @_ZN4base14PickleIterator9ReadFloatEPf(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 4
+  %8 = icmp ugt i64 %7, 3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = add i64 %6, 4
-  %storemerge.i = select i1 %8, i64 %4, i64 %11
-  %.0.i = select i1 %8, ptr null, ptr %10
+  %10 = add i64 %6, 4
+  %storemerge.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i, ptr %5, align 8, !tbaa !21
-  %.not = icmp ne ptr %.0.i, null
-  br i1 %.not, label %12, label %14
+  %.not6 = icmp ne ptr %9, null
+  %.not = select i1 %8, i1 %.not6, i1 false
+  br i1 %.not, label %11, label %14
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %.0.i, align 1
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %13 = load i32, ptr %12, align 1
   store i32 %13, ptr %1, align 4
   br label %14
 
-14:                                               ; preds = %2, %12
+14:                                               ; preds = %2, %11
   ret i1 %.not
 }
 
@@ -514,22 +514,22 @@ define noundef zeroext i1 @_ZN4base14PickleIterator10ReadDoubleEPd(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 8
+  %8 = icmp ugt i64 %7, 7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %11 = add i64 %6, 8
-  %storemerge.i = select i1 %8, i64 %4, i64 %11
-  %.0.i = select i1 %8, ptr null, ptr %10
+  %10 = add i64 %6, 8
+  %storemerge.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i, ptr %5, align 8, !tbaa !21
-  %.not = icmp ne ptr %.0.i, null
-  br i1 %.not, label %12, label %14
+  %.not6 = icmp ne ptr %9, null
+  %.not = select i1 %8, i1 %.not6, i1 false
+  br i1 %.not, label %11, label %14
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %.0.i, align 1
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
+  %13 = load i64, ptr %12, align 1
   store i64 %13, ptr %1, align 8
   br label %14
 
-14:                                               ; preds = %2, %12
+14:                                               ; preds = %2, %11
   ret i1 %.not
 }
 
@@ -540,14 +540,14 @@ define noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112ba
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 4
+  %8 = icmp ugt i64 %7, 3
   %9 = load ptr, ptr %0, align 8
   %10 = add i64 %6, 4
-  %storemerge.i.i.i = select i1 %8, i64 %4, i64 %10
+  %storemerge.i.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i.i.not14 = icmp eq ptr %9, null
-  %.not.i.i.not = select i1 %8, i1 true, i1 %.not.i.i.not14
-  br i1 %.not.i.i.not, label %_ZN4base14PickleIterator7ReadIntEPi.exit, label %11
+  %.not6.i.i = icmp ne ptr %9, null
+  %.not.i.i = select i1 %8, i1 %.not6.i.i, i1 false
+  br i1 %.not.i.i, label %11, label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
@@ -590,14 +590,14 @@ define noundef zeroext i1 @_ZN4base14PickleIterator15ReadStringPieceEPNS_16Basic
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 4
+  %8 = icmp ugt i64 %7, 3
   %9 = load ptr, ptr %0, align 8
   %10 = add i64 %6, 4
-  %storemerge.i.i.i = select i1 %8, i64 %4, i64 %10
+  %storemerge.i.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i.i.not14 = icmp eq ptr %9, null
-  %.not.i.i.not = select i1 %8, i1 true, i1 %.not.i.i.not14
-  br i1 %.not.i.i.not, label %_ZN4base14PickleIterator7ReadIntEPi.exit, label %11
+  %.not6.i.i = icmp ne ptr %9, null
+  %.not.i.i = select i1 %8, i1 %.not6.i.i, i1 false
+  br i1 %.not.i.i, label %11, label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
@@ -640,14 +640,14 @@ define noundef zeroext i1 @_ZN4base14PickleIterator12ReadString16EPNSt7__cxx1112
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 4
+  %8 = icmp ugt i64 %7, 3
   %9 = load ptr, ptr %0, align 8
   %10 = add i64 %6, 4
-  %storemerge.i.i.i = select i1 %8, i64 %4, i64 %10
+  %storemerge.i.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i.i.not13 = icmp eq ptr %9, null
-  %.not.i.i.not = select i1 %8, i1 true, i1 %.not.i.i.not13
-  br i1 %.not.i.i.not, label %_ZN4base14PickleIterator7ReadIntEPi.exit, label %11
+  %.not6.i.i = icmp ne ptr %9, null
+  %.not.i.i = select i1 %8, i1 %.not6.i.i, i1 false
+  br i1 %.not.i.i, label %11, label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
@@ -697,14 +697,14 @@ define noundef zeroext i1 @_ZN4base14PickleIterator17ReadStringPiece16EPNS_16Bas
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !21
   %7 = sub i64 %4, %6
-  %8 = icmp ult i64 %7, 4
+  %8 = icmp ugt i64 %7, 3
   %9 = load ptr, ptr %0, align 8
   %10 = add i64 %6, 4
-  %storemerge.i.i.i = select i1 %8, i64 %4, i64 %10
+  %storemerge.i.i.i = select i1 %8, i64 %10, i64 %4
   store i64 %storemerge.i.i.i, ptr %5, align 8, !tbaa !21
-  %.not.i.i.not13 = icmp eq ptr %9, null
-  %.not.i.i.not = select i1 %8, i1 true, i1 %.not.i.i.not13
-  br i1 %.not.i.i.not, label %_ZN4base14PickleIterator7ReadIntEPi.exit, label %11
+  %.not6.i.i = icmp ne ptr %9, null
+  %.not.i.i = select i1 %8, i1 %.not6.i.i, i1 false
+  br i1 %.not.i.i, label %11, label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %6
@@ -756,14 +756,14 @@ define noundef zeroext i1 @_ZN4base14PickleIterator8ReadDataEPPKcPi(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !21
   %8 = sub i64 %5, %7
-  %9 = icmp ult i64 %8, 4
+  %9 = icmp ugt i64 %8, 3
   %10 = load ptr, ptr %0, align 8
   %11 = add i64 %7, 4
-  %storemerge.i.i.i = select i1 %9, i64 %5, i64 %11
+  %storemerge.i.i.i = select i1 %9, i64 %11, i64 %5
   store i64 %storemerge.i.i.i, ptr %6, align 8, !tbaa !21
-  %.not.i.i.not8 = icmp eq ptr %10, null
-  %.not.i.i.not = select i1 %9, i1 true, i1 %.not.i.i.not8
-  br i1 %.not.i.i.not, label %_ZN4base14PickleIterator7ReadIntEPi.exit, label %12
+  %.not6.i.i = icmp ne ptr %10, null
+  %.not.i.i = select i1 %9, i1 %.not6.i.i, i1 false
+  br i1 %.not.i.i, label %12, label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %7
@@ -776,25 +776,25 @@ define noundef zeroext i1 @_ZN4base14PickleIterator8ReadDataEPPKcPi(ptr noundef 
   %17 = sub i64 %5, %11
   %18 = zext nneg i32 %14 to i64
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread.i, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.i
+  br i1 %19, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread.i, label %20
 
 _ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread.i: ; preds = %16, %12
   store i64 %5, ptr %6, align 8, !tbaa !21
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
-_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.i: ; preds = %16
-  %20 = add nuw nsw i64 %18, 3
-  %21 = and i64 %20, 4294967292
-  %22 = icmp ult i64 %17, %21
-  %23 = add i64 %21, %11
-  %storemerge.i.i.i7 = select i1 %22, i64 %5, i64 %23
+20:                                               ; preds = %16
+  %21 = add nuw nsw i64 %18, 3
+  %22 = and i64 %21, 4294967292
+  %23 = icmp ult i64 %17, %22
+  %24 = add i64 %22, %11
+  %storemerge.i.i.i7 = select i1 %23, i64 %5, i64 %24
   store i64 %storemerge.i.i.i7, ptr %6, align 8, !tbaa !21
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 %11
-  store ptr %24, ptr %1, align 8, !tbaa !34
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %11
+  store ptr %25, ptr %1, align 8, !tbaa !34
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
-_ZN4base14PickleIterator7ReadIntEPi.exit:         ; preds = %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.i, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread.i, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread.i ], [ true, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.i ]
+_ZN4base14PickleIterator7ReadIntEPi.exit:         ; preds = %20, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread.i, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread.i ], [ true, %20 ]
   ret i1 %.0
 }
 

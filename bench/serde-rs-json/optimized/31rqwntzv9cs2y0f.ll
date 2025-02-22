@@ -166,7 +166,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17h33be6581caccd802
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7888b72fdd1e9d7eE.exit": ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !29
-  %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4078cd184b70b78cebdf454360030a6c.10)
+  %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4078cd184b70b78cebdf454360030a6c.10)
   ret ptr %18
 }
 
@@ -361,7 +361,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %12, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !47
   store ptr %14, ptr %3, align 8, !noalias !47
-  %15 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
+  %15 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !47
   %16 = call noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7ce701cbf54a7f6E.llvm.17788874430417167"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %17 = icmp eq ptr %16, null
@@ -502,7 +502,7 @@ define noundef nonnull ptr @"_ZN10serde_json5error103_$LT$impl$u20$core..convert
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i": ; preds = %.noexc.i.i.i
   store ptr %0, ptr %.fca.0.extract.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !73
-  %15 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef 21, ptr noundef nonnull align 1 %.fca.0.extract.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.1.llvm.17788874430417167)
+  %15 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef 21, ptr noundef nonnull align 1 %.fca.0.extract.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.1.llvm.17788874430417167)
   br label %.critedge
 
 _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit: ; preds = %6
@@ -538,7 +538,7 @@ _ZN10serde_json5error5Error8classify17h110cf38616d4c2e1E.exit: ; preds = %6
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i20": ; preds = %.noexc.i.i.i18
   store ptr %0, ptr %.fca.0.extract.i.i.i.i19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !83
-  %23 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef 37, ptr noundef nonnull align 1 %.fca.0.extract.i.i.i.i19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.1.llvm.17788874430417167)
+  %23 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h1e8bec8a7cf7737aE(i8 noundef 37, ptr noundef nonnull align 1 %.fca.0.extract.i.i.i.i19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.1.llvm.17788874430417167)
   br label %.critedge
 
 .critedge:                                        ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i20", %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hee081bb05f1ca09fE.exit.i", %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h473c4b3520d12712E.exit"

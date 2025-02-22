@@ -1284,8 +1284,8 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS8EEvP9lua_StateP10lua_
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %12, align 4
-  %21 = load float, ptr %16, align 4
+  %20 = load float, ptr %2, align 4
+  %21 = load float, ptr %3, align 4
   %22 = fadd float %20, %21
   store float %22, ptr %1, align 4
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1499,8 +1499,8 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %12, align 4
-  %21 = load float, ptr %16, align 4
+  %20 = load float, ptr %2, align 4
+  %21 = load float, ptr %3, align 4
   %22 = fsub float %20, %21
   store float %22, ptr %1, align 4
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1711,8 +1711,8 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %12, align 4
-  %21 = load float, ptr %16, align 4
+  %20 = load float, ptr %2, align 4
+  %21 = load float, ptr %3, align 4
   %22 = fmul float %20, %21
   store float %22, ptr %1, align 4
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1768,7 +1768,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
   %46 = phi double [ %44, %.thread91 ], [ %.pre112, %..thread_crit_edge ]
   %47 = fptrunc double %46 to float
-  %48 = load float, ptr %12, align 4
+  %48 = load float, ptr %2, align 4
   %49 = fmul float %48, %47
   store float %49, ptr %1, align 4
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1820,7 +1820,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread97
   %69 = phi double [ %67, %.thread97 ], [ %.pre, %..thread94_crit_edge ]
   %70 = fptrunc double %69 to float
-  %71 = load float, ptr %16, align 4
+  %71 = load float, ptr %3, align 4
   %72 = fmul float %71, %70
   store float %72, ptr %1, align 4
   %73 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -1979,8 +1979,8 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %36
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %12, align 4
-  %21 = load float, ptr %16, align 4
+  %20 = load float, ptr %2, align 4
+  %21 = load float, ptr %3, align 4
   %22 = fdiv float %20, %21
   store float %22, ptr %1, align 4
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -2036,7 +2036,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
   %46 = phi double [ %44, %.thread91 ], [ %.pre112, %..thread_crit_edge ]
   %47 = fptrunc double %46 to float
-  %48 = load float, ptr %12, align 4
+  %48 = load float, ptr %2, align 4
   %49 = fdiv float %48, %47
   store float %49, ptr %1, align 4
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -2088,7 +2088,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread97
   %69 = phi double [ %67, %.thread97 ], [ %.pre, %..thread94_crit_edge ]
   %70 = fptrunc double %69 to float
-  %71 = load float, ptr %16, align 4
+  %71 = load float, ptr %3, align 4
   %72 = fdiv float %70, %71
   store float %72, ptr %1, align 4
   %73 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -2247,9 +2247,9 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %48
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %12, align 4
+  %20 = load float, ptr %2, align 4
   %21 = fpext float %20 to double
-  %22 = load float, ptr %16, align 4
+  %22 = load float, ptr %3, align 4
   %23 = fpext float %22 to double
   %24 = fdiv double %21, %23
   %25 = tail call noundef double @llvm.floor.f64(double %24)
@@ -2316,7 +2316,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
   %58 = phi double [ %56, %.thread91 ], [ %.pre112, %..thread_crit_edge ]
   %59 = fptrunc double %58 to float
-  %60 = load float, ptr %12, align 4
+  %60 = load float, ptr %2, align 4
   %61 = fpext float %60 to double
   %62 = fpext float %59 to double
   %63 = fdiv double %61, %62
@@ -2379,7 +2379,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   %91 = phi double [ %89, %.thread97 ], [ %.pre, %..thread94_crit_edge ]
   %92 = fptrunc double %91 to float
   %93 = fpext float %92 to double
-  %94 = load float, ptr %16, align 4
+  %94 = load float, ptr %3, align 4
   %95 = fpext float %94 to double
   %96 = fdiv double %93, %95
   %97 = call noundef double @llvm.floor.f64(double %96)
@@ -2932,7 +2932,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua
   br i1 %or.cond, label %19, label %31
 
 19:                                               ; preds = %4
-  %20 = load float, ptr %12, align 4
+  %20 = load float, ptr %2, align 4
   %21 = fneg float %20
   store float %21, ptr %1, align 4
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -3269,8 +3269,8 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   ]
 
 64:                                               ; preds = %63
-  %65 = load float, ptr %..i, align 4
-  %66 = load float, ptr %..i222, align 4
+  %65 = load float, ptr %2, align 4
+  %66 = load float, ptr %3, align 4
   %67 = fadd float %65, %66
   store float %67, ptr %1, align 4
   %68 = getelementptr inbounds nuw i8, ptr %..i, i64 4
@@ -3292,8 +3292,8 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   br label %314
 
 81:                                               ; preds = %63
-  %82 = load float, ptr %..i, align 4
-  %83 = load float, ptr %..i222, align 4
+  %82 = load float, ptr %2, align 4
+  %83 = load float, ptr %3, align 4
   %84 = fsub float %82, %83
   store float %84, ptr %1, align 4
   %85 = getelementptr inbounds nuw i8, ptr %..i, i64 4
@@ -3315,8 +3315,8 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   br label %314
 
 98:                                               ; preds = %63
-  %99 = load float, ptr %..i, align 4
-  %100 = load float, ptr %..i222, align 4
+  %99 = load float, ptr %2, align 4
+  %100 = load float, ptr %3, align 4
   %101 = fmul float %99, %100
   store float %101, ptr %1, align 4
   %102 = getelementptr inbounds nuw i8, ptr %..i, i64 4
@@ -3338,8 +3338,8 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   br label %314
 
 115:                                              ; preds = %63
-  %116 = load float, ptr %..i, align 4
-  %117 = load float, ptr %..i222, align 4
+  %116 = load float, ptr %2, align 4
+  %117 = load float, ptr %3, align 4
   %118 = fdiv float %116, %117
   store float %118, ptr %1, align 4
   %119 = getelementptr inbounds nuw i8, ptr %..i, i64 4
@@ -3361,9 +3361,9 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   br label %314
 
 132:                                              ; preds = %63
-  %133 = load float, ptr %..i, align 4
+  %133 = load float, ptr %2, align 4
   %134 = fpext float %133 to double
-  %135 = load float, ptr %..i222, align 4
+  %135 = load float, ptr %3, align 4
   %136 = fpext float %135 to double
   %137 = fdiv double %134, %136
   %138 = call noundef double @llvm.floor.f64(double %137)
@@ -3396,7 +3396,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   br label %314
 
 161:                                              ; preds = %63
-  %162 = load float, ptr %..i, align 4
+  %162 = load float, ptr %2, align 4
   %163 = fneg float %162
   store float %163, ptr %1, align 4
   %164 = getelementptr inbounds nuw i8, ptr %..i, i64 4
@@ -3446,7 +3446,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
   ]
 
 181:                                              ; preds = %._crit_edge247
-  %182 = load float, ptr %..i, align 4
+  %182 = load float, ptr %2, align 4
   %183 = fmul float %182, %180
   store float %183, ptr %1, align 4
   %184 = getelementptr inbounds nuw i8, ptr %..i, i64 4
@@ -3464,7 +3464,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
   br label %314
 
 193:                                              ; preds = %._crit_edge247
-  %194 = load float, ptr %..i, align 4
+  %194 = load float, ptr %2, align 4
   %195 = fdiv float %194, %180
   store float %195, ptr %1, align 4
   %196 = getelementptr inbounds nuw i8, ptr %..i, i64 4
@@ -3482,7 +3482,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
   br label %314
 
 205:                                              ; preds = %._crit_edge247
-  %206 = load float, ptr %..i, align 4
+  %206 = load float, ptr %2, align 4
   %207 = fpext float %206 to double
   %208 = fpext float %180 to double
   %209 = fdiv double %207, %208
@@ -3542,7 +3542,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit228:       ; preds = %228, %229
   ]
 
 234:                                              ; preds = %._crit_edge245
-  %235 = load float, ptr %..i222, align 4
+  %235 = load float, ptr %3, align 4
   %236 = fmul float %235, %233
   store float %236, ptr %1, align 4
   %237 = getelementptr inbounds nuw i8, ptr %..i222, i64 4
@@ -3560,7 +3560,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit228:       ; preds = %228, %229
   br label %314
 
 246:                                              ; preds = %._crit_edge245
-  %247 = load float, ptr %..i222, align 4
+  %247 = load float, ptr %3, align 4
   %248 = fdiv float %233, %247
   store float %248, ptr %1, align 4
   %249 = getelementptr inbounds nuw i8, ptr %..i222, i64 4
@@ -3579,7 +3579,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit228:       ; preds = %228, %229
 
 258:                                              ; preds = %._crit_edge245
   %259 = fpext float %233 to double
-  %260 = load float, ptr %..i222, align 4
+  %260 = load float, ptr %3, align 4
   %261 = fpext float %260 to double
   %262 = fdiv double %259, %261
   %263 = call noundef double @llvm.floor.f64(double %262)

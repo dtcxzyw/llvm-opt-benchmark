@@ -277,7 +277,7 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h6de29ab
           to label %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit" unwind label %.loopexit
 
 46:                                               ; preds = %18
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %20, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.2) #18
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %20, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.2) #18
           to label %61 unwind label %.loopexit.split-lp
 
 "_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit": ; preds = %40
@@ -435,7 +435,7 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17he0845b1
           to label %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit" unwind label %.loopexit
 
 46:                                               ; preds = %18
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %20, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.2) #18
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %20, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.2) #18
           to label %61 unwind label %.loopexit.split-lp
 
 "_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit": ; preds = %40
@@ -759,7 +759,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_fit17h336
   store ptr inttoptr (i64 8 to ptr), ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.11.llvm.7466252422490903324) #18
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.11.llvm.7466252422490903324) #18
   unreachable
 
 10:                                               ; preds = %2

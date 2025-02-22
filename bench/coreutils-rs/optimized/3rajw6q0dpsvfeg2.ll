@@ -1557,7 +1557,7 @@ _ZN5uu_dd11BlockWriter4sync17h81da5c6b44c60156E.exit: ; preds = %21
   store ptr %53, ptr %9, align 8
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %56, ptr %58, align 8
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.66c5552f2569f3f8ac263805d094cfd8.13, i64 noundef 38, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.66c5552f2569f3f8ac263805d094cfd8.10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.66c5552f2569f3f8ac263805d094cfd8.15) #29
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.66c5552f2569f3f8ac263805d094cfd8.13, i64 noundef 38, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.66c5552f2569f3f8ac263805d094cfd8.10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.66c5552f2569f3f8ac263805d094cfd8.15) #29
           to label %61 unwind label %59
 
 59:                                               ; preds = %55

@@ -940,7 +940,7 @@ _ZN22HashTablePermutohedralILi3ELi2EE12lookupOffsetERKNS0_3KeyEb.exit.i: ; preds
   %207 = load float, ptr %206, align 4, !tbaa !36
   %208 = load float, ptr %2, align 4, !tbaa !36
   %209 = fmul reassoc nsz arcp contract afn float %208, %207
-  %210 = load float, ptr %spec.select, align 4, !tbaa !36
+  %210 = load float, ptr %205, align 4, !tbaa !36
   %211 = fadd reassoc nsz arcp contract afn float %210, %209
   store float %211, ptr %205, align 4, !tbaa !36
   %212 = load float, ptr %129, align 4, !tbaa !36
@@ -1188,7 +1188,7 @@ _ZN22HashTablePermutohedralILi3ELi2EE12lookupOffsetERKNS0_3KeyEb.exit.i: ; preds
   %spec.select = select i1 %113, ptr null, ptr %117
   %118 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %53, i64 %.06279
   %119 = load float, ptr %118, align 4, !tbaa !36
-  %120 = load float, ptr %spec.select, align 4, !tbaa !36
+  %120 = load float, ptr %117, align 4, !tbaa !36
   %121 = fadd reassoc nsz arcp contract afn float %120, %119
   store float %121, ptr %117, align 4, !tbaa !36
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 4

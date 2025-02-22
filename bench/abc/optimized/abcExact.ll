@@ -1681,13 +1681,13 @@ define internal fastcc noalias noundef ptr @Ses_ManAlloc(ptr noundef %0, i32 nou
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 92
   %45 = sext i32 %1 to i64
   %.idx.i = shl nsw i64 %45, 2
-  %46 = getelementptr inbounds i8, ptr %41, i64 %.idx.i
-  %47 = load i32, ptr %41, align 4, !tbaa !7
+  %46 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
+  %47 = load i32, ptr %4, align 4, !tbaa !7
   %48 = icmp sgt i32 %1, 1
   br i1 %48, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1706,7 +1706,7 @@ define internal fastcc noalias noundef ptr @Ses_ManAlloc(ptr noundef %0, i32 nou
 
 .lr.ph30.i:                                       ; preds = %._crit_edge.i, %.lr.ph30.i
   %spec.store.select67 = phi i32 [ %spec.store.select, %.lr.ph30.i ], [ 0, %._crit_edge.i ]
-  %.12228.i = phi ptr [ %57, %.lr.ph30.i ], [ %41, %._crit_edge.i ]
+  %.12228.i = phi ptr [ %57, %.lr.ph30.i ], [ %4, %._crit_edge.i ]
   %55 = load i32, ptr %.12228.i, align 4, !tbaa !7
   %56 = sub nsw i32 %55, %.0.lcssa.i
   store i32 %56, ptr %.12228.i, align 4, !tbaa !7

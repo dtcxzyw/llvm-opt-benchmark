@@ -6909,8 +6909,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter20addDagOpera
   %50 = sub i64 %48, %49
   %51 = sdiv exact i64 %50, 264
   %52 = and i64 %51, 4294967295
-  %.not128 = icmp eq i64 %52, 0
-  br i1 %.not128, label %._crit_edge, label %.lr.ph
+  %.not131 = icmp eq i64 %52, 0
+  br i1 %.not131, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -6925,10 +6925,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter20addDagOpera
   ret void
 
 59:                                               ; preds = %.lr.ph, %225
-  %indvars.iv142 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next143, %225 ]
-  %.0130 = phi i32 [ 0, %.lr.ph ], [ %.1, %225 ]
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next149, %225 ]
+  %.0133 = phi i32 [ 0, %.lr.ph ], [ %.1, %225 ]
   %60 = load ptr, ptr %44, align 8, !tbaa !92
-  %61 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %60, i64 %indvars.iv142
+  %61 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %60, i64 %indvars.iv148
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 240
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 248
   %64 = load ptr, ptr %63, align 8, !tbaa !151
@@ -6968,18 +6968,18 @@ _ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit: ; preds = %.lr.p
   %79 = zext i32 %77 to i64
   %80 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val, i64 %79
   %81 = load i32, ptr %80, align 8, !tbaa !198
-  %82 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val, i64 %indvars.iv142
+  %82 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val, i64 %indvars.iv148
   store i32 %81, ptr %82, align 8, !tbaa !198
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load i64, ptr %83, align 8, !tbaa !147
   store i64 %85, ptr %84, align 8, !tbaa !147
-  %86 = add i32 %.0130, 1
+  %86 = add i32 %.0133, 1
   br label %225
 
 _ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit.thread: ; preds = %72, %59, %_ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit
-  %87 = trunc nuw i64 %indvars.iv142 to i32
-  %88 = sub i32 %87, %.0130
+  %87 = trunc nuw i64 %indvars.iv148 to i32
+  %88 = sub i32 %87, %.0133
   %89 = zext i32 %88 to i64
   %90 = getelementptr inbounds nuw ptr, ptr %53, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !185
@@ -6996,7 +6996,7 @@ _ZNK4llvm14CGIOperandList11OperandInfo15getTiedRegisterEv.exit.thread: ; preds =
   %98 = call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %97, ptr nonnull @.str.16, i64 8)
   %99 = load ptr, ptr %96, align 8, !tbaa !186
   %100 = load ptr, ptr %44, align 8, !tbaa !92
-  %101 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %100, i64 %indvars.iv142
+  %101 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %100, i64 %indvars.iv148
   %102 = load ptr, ptr %101, align 8, !tbaa !285
   br i1 %98, label %103, label %147
 
@@ -7083,7 +7083,7 @@ _ZN12_GLOBAL__N_119CompressInstEmitter16validateRegisterEPKN4llvm6RecordES4_.exi
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %11, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(34) %18)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #20
   %133 = load ptr, ptr %44, align 8, !tbaa !92
-  %134 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %133, i64 %indvars.iv142
+  %134 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %133, i64 %indvars.iv148
   %135 = load ptr, ptr %134, align 8, !tbaa !285
   %136 = load ptr, ptr %135, align 8, !tbaa !104
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
@@ -7110,7 +7110,7 @@ _ZN12_GLOBAL__N_119CompressInstEmitter16validateRegisterEPKN4llvm6RecordES4_.exi
 
 143:                                              ; preds = %_ZN12_GLOBAL__N_119CompressInstEmitter16validateRegisterEPKN4llvm6RecordES4_.exit
   %.val76 = load ptr, ptr %4, align 8, !tbaa !8
-  %144 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val76, i64 %indvars.iv142
+  %144 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val76, i64 %indvars.iv148
   store i32 2, ptr %144, align 8, !tbaa !198
   %145 = load ptr, ptr %96, align 8, !tbaa !186
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
@@ -7226,7 +7226,7 @@ _ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit.
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %23, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef nonnull align 8 dereferenceable(34) %34)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #20
   %195 = load ptr, ptr %44, align 8, !tbaa !92
-  %196 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %195, i64 %indvars.iv142
+  %196 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %195, i64 %indvars.iv148
   %197 = load ptr, ptr %196, align 8, !tbaa !285
   %198 = load ptr, ptr %197, align 8, !tbaa !104
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
@@ -7253,7 +7253,7 @@ _ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit.
 
 205:                                              ; preds = %170, %153, %_ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit
   %.val78 = load ptr, ptr %4, align 8, !tbaa !8
-  %206 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val78, i64 %indvars.iv142
+  %206 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val78, i64 %indvars.iv148
   store i32 0, ptr %206, align 8, !tbaa !198
   br label %225
 
@@ -7282,7 +7282,7 @@ _ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit.
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr noundef nonnull @.str.17, ptr noundef nonnull align 8 dereferenceable(32) %42)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %40, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #20
-  call void @_ZNK4llvm7IntInit11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i99) #20
+  call void @_ZNK4llvm7IntInit11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull align 8 dereferenceable(32) %91) #20
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %43)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.27)
   %218 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -7295,7 +7295,7 @@ _ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit.
 
 220:                                              ; preds = %207
   %.val79 = load ptr, ptr %4, align 8, !tbaa !8
-  %221 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val79, i64 %indvars.iv142
+  %221 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CompressInstEmitter::OpData", ptr %.val79, i64 %indvars.iv148
   store i32 1, ptr %221, align 8, !tbaa !198
   %222 = getelementptr inbounds nuw i8, ptr %spec.select.i.i99, i64 24
   %223 = load i64, ptr %222, align 8, !tbaa !349
@@ -7304,9 +7304,9 @@ _ZN12_GLOBAL__N_119CompressInstEmitter13validateTypesEPKN4llvm6RecordES4_b.exit.
   br label %225
 
 225:                                              ; preds = %143, %220, %205, %78
-  %.1 = phi i32 [ %86, %78 ], [ %.0130, %205 ], [ %.0130, %220 ], [ %.0130, %143 ]
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %.not = icmp eq i64 %indvars.iv.next143, %58
+  %.1 = phi i32 [ %86, %78 ], [ %.0133, %205 ], [ %.0133, %220 ], [ %.0133, %143 ]
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %.not = icmp eq i64 %indvars.iv.next149, %58
   br i1 %.not, label %._crit_edge, label %59, !llvm.loop !351
 }
 

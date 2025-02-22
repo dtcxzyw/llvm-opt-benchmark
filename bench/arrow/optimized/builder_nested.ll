@@ -21943,16 +21943,15 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2E
   %.not.i29.not = icmp eq i64 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = select i1 %.not.i29.not, ptr null, ptr %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %40 = load i64, ptr %39, align 8, !tbaa !105, !noalias !1150
-  %41 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !1150
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !noalias !1150
-  %44 = call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(144) %1), !noalias !1150
-  %45 = add nsw i64 %44, %4
-  %.not.i30 = icmp sgt i64 %45, %40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %39 = load i64, ptr %38, align 8, !tbaa !105, !noalias !1150
+  %40 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !1150
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8, !noalias !1150
+  %43 = call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(144) %1), !noalias !1150
+  %44 = add nsw i64 %43, %4
+  %.not.i30 = icmp sgt i64 %44, %39
   br i1 %.not.i30, label %_ZN5arrow6StatusD2Ev.exit32, label %_ZN5arrow6StatusD2Ev.exit32.thread
 
 _ZN5arrow6StatusD2Ev.exit32.thread:               ; preds = %._crit_edge
@@ -21960,24 +21959,25 @@ _ZN5arrow6StatusD2Ev.exit32.thread:               ; preds = %._crit_edge
   br label %_ZN5arrow6StatusD2Ev.exit34
 
 _ZN5arrow6StatusD2Ev.exit32:                      ; preds = %._crit_edge
-  %46 = shl nsw i64 %40, 1
-  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %45, i64 %46)
-  %47 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !1150
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load ptr, ptr %48, align 8, !noalias !1150
-  call void %49(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.sroa.speculated.i.i)
+  %45 = shl nsw i64 %39, 1
+  %.sroa.speculated.i.i = call noundef i64 @llvm.smax.i64(i64 %44, i64 %45)
+  %46 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !1150
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load ptr, ptr %47, align 8, !noalias !1150
+  call void %48(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.sroa.speculated.i.i)
   %.pr = load ptr, ptr %7, align 8, !tbaa !93, !noalias !1153
   call void @llvm.experimental.noalias.scope.decl(metadata !1153)
   store ptr %.pr, ptr %0, align 8, !tbaa !93, !alias.scope !1153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  %50 = icmp eq ptr %.pr, null
-  br i1 %50, label %_ZN5arrow6StatusD2Ev.exit34, label %.critedge26
+  %49 = icmp eq ptr %.pr, null
+  br i1 %49, label %_ZN5arrow6StatusD2Ev.exit34, label %.critedge26
 
 _ZN5arrow6StatusD2Ev.exit34:                      ; preds = %_ZN5arrow6StatusD2Ev.exit32, %_ZN5arrow6StatusD2Ev.exit32.thread
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %52 = load i64, ptr %51, align 8, !tbaa !161
-  %53 = add nsw i64 %52, %3
-  %54 = icmp eq ptr %38, null
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %51 = load i64, ptr %50, align 8, !tbaa !161
+  %52 = add nsw i64 %51, %3
+  %53 = icmp eq ptr %37, null
+  %54 = select i1 %.not.i29.not, i1 true, i1 %53
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit34
@@ -21998,8 +21998,8 @@ _ZN5arrow6StatusD2Ev.exit34:                      ; preds = %_ZN5arrow6StatusD2E
   %60 = load ptr, ptr %59, align 8, !tbaa !51
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %62 = load i64, ptr %61, align 8, !tbaa !112
-  call void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef nonnull %38, i64 noundef %53, i64 noundef %4, ptr noundef %60, i64 noundef %62)
-  %63 = call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef nonnull %38, i64 noundef %53, i64 noundef %4)
+  call void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef nonnull %37, i64 noundef %52, i64 noundef %4, ptr noundef %60, i64 noundef %62)
+  %63 = call noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef nonnull %37, i64 noundef %52, i64 noundef %4)
   %64 = sub i64 %4, %63
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %66 = load i64, ptr %65, align 8, !tbaa !113

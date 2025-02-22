@@ -918,7 +918,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0e
   br i1 %30, label %33, label %32
 
 32:                                               ; preds = %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.31) #11
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.31) #11
   unreachable
 
 33:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %25
@@ -980,7 +980,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h0e
   ]
 
 53:                                               ; preds = %52
-  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.5, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.7) #11
+  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.5, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.7) #11
   unreachable
 
 54:                                               ; preds = %52
@@ -1033,7 +1033,7 @@ _ZN10serde_json3ser9Formatter17write_char_escape17h8d50fe79211a749bE.exit: ; pre
   br i1 %71, label %.outer, label %.loopexit
 
 72:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", %42, %47
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %.sroa.8.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.33) #11
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %.sroa.8.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.33) #11
   unreachable
 
 73:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %47
@@ -1098,7 +1098,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86
   br i1 %30, label %33, label %32
 
 32:                                               ; preds = %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.31) #11
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.31) #11
   unreachable
 
 33:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %25
@@ -1160,7 +1160,7 @@ define hidden noundef ptr @_ZN10serde_json3ser27format_escaped_str_contents17h86
   ]
 
 53:                                               ; preds = %52
-  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.5, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.7) #11
+  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.5, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.7) #11
   unreachable
 
 54:                                               ; preds = %52
@@ -1213,7 +1213,7 @@ _ZN10serde_json3ser9Formatter17write_char_escape17h0a77d68cdca8e9ceE.exit: ; pre
   br i1 %71, label %.outer, label %.loopexit
 
 72:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i35", %42, %47
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %.sroa.8.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.33) #11
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.8.0.ph, i64 noundef %.sroa.8.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7383d113eafbf7870c8f4bb85f4fa11e.33) #11
   unreachable
 
 73:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %47

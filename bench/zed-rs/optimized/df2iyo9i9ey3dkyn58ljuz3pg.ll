@@ -5025,7 +5025,7 @@ define hidden noundef align 8 ptr @_ZN5proto8envelope7Payload5merge17h14193363d2
   store ptr %7, ptr %413, align 8
   %414 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %414, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.099ddca4d9534048231ee9b8de690804.4) #10
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.099ddca4d9534048231ee9b8de690804.4) #10
   unreachable
 
 415:                                              ; preds = %5

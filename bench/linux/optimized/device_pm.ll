@@ -1764,7 +1764,7 @@ define dso_local range(i32 -2147483648, 2) i32 @acpi_subsys_prepare(ptr noundef 
 
 69:                                               ; preds = %63
   store i32 0, ptr %2, align 4, !annotation !5
-  %70 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %7, i32 noundef %29, ptr noundef null, ptr noundef nonnull %2), !range !6
+  %70 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %6, i32 noundef %29, ptr noundef null, ptr noundef nonnull %2), !range !6
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %acpi_dev_needs_resume.exit
 
@@ -1896,7 +1896,7 @@ acpi_dev_needs_resume.exit.thread1:               ; preds = %45
 
 53:                                               ; preds = %47
   store i32 0, ptr %2, align 4, !annotation !5
-  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
+  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %11, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %acpi_dev_needs_resume.exit, label %acpi_dev_needs_resume.exit.thread
 
@@ -2107,7 +2107,7 @@ acpi_dev_needs_resume.exit.thread1:               ; preds = %45
 
 53:                                               ; preds = %47
   store i32 0, ptr %2, align 4, !annotation !5
-  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
+  %54 = call fastcc i32 @acpi_dev_pm_get_state(ptr noundef readonly %0, ptr noundef nonnull readonly %11, i32 noundef %13, ptr noundef null, ptr noundef nonnull %2), !range !6
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %acpi_dev_needs_resume.exit, label %acpi_dev_needs_resume.exit.thread
 

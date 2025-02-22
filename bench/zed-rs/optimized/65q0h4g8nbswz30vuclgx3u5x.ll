@@ -199,7 +199,7 @@ common.resume:                                    ; preds = %123, %29, %104
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %14
-  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1bfa65ef1309b877E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4770056db6e9925d2aa7a7f714ffbaf9.1) #17
+  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1bfa65ef1309b877E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4770056db6e9925d2aa7a7f714ffbaf9.1) #17
   unreachable
 
 36:                                               ; preds = %14
@@ -458,7 +458,7 @@ define hidden void @_ZN14regex_automata4util8captures8Captures7extract17hee28d36
 
 .loopexit:                                        ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h68d1af26e4ecacc1E.llvm.4510883985931046377.exit.i", %13, %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !55
-  call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.4770056db6e9925d2aa7a7f714ffbaf9.3.llvm.4510883985931046377, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4770056db6e9925d2aa7a7f714ffbaf9.5.llvm.4510883985931046377) #17
+  call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.4770056db6e9925d2aa7a7f714ffbaf9.3.llvm.4510883985931046377, i64 noundef 7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4770056db6e9925d2aa7a7f714ffbaf9.5.llvm.4510883985931046377) #17
   unreachable
 
 16:                                               ; preds = %12
@@ -506,7 +506,7 @@ define hidden void @_ZN14regex_automata4util8captures8Captures7extract17hee28d36
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %35, %27, %16, %23, %31
-  call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.5.8.copyload, i64 noundef %.sroa.715.8.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4770056db6e9925d2aa7a7f714ffbaf9.6.llvm.4510883985931046377) #17
+  call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %.sroa.5.8.copyload, i64 noundef %.sroa.715.8.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4770056db6e9925d2aa7a7f714ffbaf9.6.llvm.4510883985931046377) #17
   unreachable
 
 38:                                               ; preds = %35, %31, %21

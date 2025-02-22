@@ -404,50 +404,45 @@ _ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit: ; preds = %18
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %._crit_edge.split
   %.sroa.046.062 = phi ptr [ %.sroa.046.0, %._crit_edge.split ], [ %.sroa.046.060, %.lr.ph65 ]
-  %26 = icmp eq ptr %.sroa.046.062, null
-  %27 = getelementptr inbounds i8, ptr %.sroa.046.062, i64 -24
-  %28 = select i1 %26, ptr null, ptr %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %.sroa.042.057 = load ptr, ptr %29, align 8, !tbaa !24
-  %.not5358 = icmp eq ptr %.sroa.042.057, %30
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.046.062, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.046.062, i64 24
+  %.sroa.042.057 = load ptr, ptr %26, align 8, !tbaa !24
+  %.not5358 = icmp eq ptr %.sroa.042.057, %27
   br i1 %.not5358, label %._crit_edge.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph65.split, %.critedge
   %.sroa.042.059 = phi ptr [ %.sroa.042.0, %.critedge ], [ %.sroa.042.057, %.lr.ph65.split ]
-  %31 = icmp eq ptr %.sroa.042.059, null
-  %32 = getelementptr inbounds i8, ptr %.sroa.042.059, i64 -24
-  %33 = select i1 %31, ptr null, ptr %32
-  %34 = load i8, ptr %33, align 8, !tbaa !16
-  switch i8 %34, label %.critedge [
+  %28 = getelementptr inbounds i8, ptr %.sroa.042.059, i64 -24
+  %29 = load i8, ptr %28, align 8, !tbaa !16
+  switch i8 %29, label %.critedge [
     i8 85, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit
     i8 34, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit
     i8 40, label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit
   ]
 
 _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit: ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %35 = tail call noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemoryEv(ptr noundef nonnull align 8 dereferenceable(88) %33) #3
-  br i1 %35, label %.critedge, label %36
+  %30 = tail call noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemoryEv(ptr noundef nonnull align 8 dereferenceable(88) %28) #3
+  br i1 %30, label %.critedge, label %31
 
-36:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit
-  %37 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114MayAutoreleaseERKN4llvm8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(88) %33, i32 noundef %25)
-  br i1 %37, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.critedge
+31:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit
+  %32 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114MayAutoreleaseERKN4llvm8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(88) %28, i32 noundef %25)
+  br i1 %32, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %36
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.042.059, i64 8
-  %.sroa.042.0 = load ptr, ptr %38, align 8, !tbaa !24
-  %.not53 = icmp eq ptr %.sroa.042.0, %30
+.critedge:                                        ; preds = %.lr.ph, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %31
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.042.059, i64 8
+  %.sroa.042.0 = load ptr, ptr %33, align 8, !tbaa !24
+  %.not53 = icmp eq ptr %.sroa.042.0, %27
   br i1 %.not53, label %._crit_edge.split, label %.lr.ph
 
 ._crit_edge.split:                                ; preds = %.critedge, %.lr.ph65.split
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.046.062, i64 8
-  %.sroa.046.0 = load ptr, ptr %39, align 8, !tbaa !21
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.046.062, i64 8
+  %.sroa.046.0 = load ptr, ptr %34, align 8, !tbaa !21
   %.not.not = icmp eq ptr %.sroa.046.0, %24
   br i1 %.not.not, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.lr.ph65.split
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %._crit_edge.split, %36, %.lr.ph65, %22, %18, %14, %14, %14, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %2, %5, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit
-  %switch = phi i1 [ false, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ true, %5 ], [ true, %2 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ false, %14 ], [ false, %14 ], [ false, %14 ], [ false, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ false, %36 ], [ false, %._crit_edge.split ]
-  %.0 = phi i1 [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ undef, %5 ], [ undef, %2 ], [ undef, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ true, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ true, %36 ], [ false, %._crit_edge.split ]
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %._crit_edge.split, %31, %.lr.ph65, %22, %18, %14, %14, %14, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %2, %5, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit
+  %switch = phi i1 [ false, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ true, %5 ], [ true, %2 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ false, %14 ], [ false, %14 ], [ false, %14 ], [ false, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ false, %31 ], [ false, %._crit_edge.split ]
+  %.0 = phi i1 [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ undef, %5 ], [ undef, %2 ], [ undef, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ true, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ true, %31 ], [ false, %._crit_edge.split ]
   %spec.select39 = or i1 %switch, %.0
   ret i1 %spec.select39
 }

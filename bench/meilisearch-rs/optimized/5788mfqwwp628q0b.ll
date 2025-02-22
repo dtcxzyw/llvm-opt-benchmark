@@ -960,7 +960,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd9281
   ret { i64, i64 } %13
 
 14:                                               ; preds = %4
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.4.llvm.11724494382806012607, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #34
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.4.llvm.11724494382806012607, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #34
   unreachable
 }
 
@@ -1124,7 +1124,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.11724
 
 5:                                                ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.11724494382806012607.exit
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.1461d6289911f9fc7875f24d06c4a6fa.8.llvm.11724494382806012607, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.4.llvm.11724494382806012607, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.10.llvm.11724494382806012607) #34, !noalias !358
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.1461d6289911f9fc7875f24d06c4a6fa.8.llvm.11724494382806012607, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.4.llvm.11724494382806012607, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.10.llvm.11724494382806012607) #34, !noalias !358
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd9281384f069cf88E.llvm.11724494382806012607.exit": ; preds = %0, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.11724494382806012607.exit
@@ -1214,7 +1214,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.11724
 
 6:                                                ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.11724494382806012607.exit.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.1461d6289911f9fc7875f24d06c4a6fa.8.llvm.11724494382806012607, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.4.llvm.11724494382806012607, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.10.llvm.11724494382806012607) #34, !noalias !378
+  call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.1461d6289911f9fc7875f24d06c4a6fa.8.llvm.11724494382806012607, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.4.llvm.11724494382806012607, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1461d6289911f9fc7875f24d06c4a6fa.10.llvm.11724494382806012607) #34, !noalias !378
   unreachable
 
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6b8612be919ed21bE.llvm.11724494382806012607.exit": ; preds = %1, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.11724494382806012607.exit.i

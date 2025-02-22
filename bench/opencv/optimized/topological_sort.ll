@@ -600,9 +600,8 @@ _ZNSt13unordered_setIPN3ade4NodeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i: ; preds = %89
   %94 = load atomic i32, ptr %87 monotonic, align 8, !noalias !32
   %.fr.i.i.i.i.i = freeze i32 %94
-  %.not.i.i.i.i.i14 = icmp eq i32 %.fr.i.i.i.i.i, 0
+  %.not.i.i.i.i.i14 = icmp ne i32 %.fr.i.i.i.i.i, 0
   %95 = load ptr, ptr %2, align 8, !noalias !32
-  %spec.select.i.i = select i1 %.not.i.i.i.i.i14, ptr null, ptr %95
   %96 = load atomic i64, ptr %87 acquire, align 8
   %97 = icmp eq i64 %96, 4294967297
   %98 = trunc i64 %96 to i32
@@ -670,9 +669,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNK3ade6HandleINS_4NodeEEptEv.exit
 
 _ZNK3ade6HandleINS_4NodeEEptEv.exit:              ; preds = %110, %123, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  %128 = icmp ne ptr %spec.select.i.i, null
+  %128 = icmp ne ptr %95, null
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i14)
   tail call void @llvm.assume(i1 %128)
-  call void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange.7") align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i)
+  call void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange.7") align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %95)
   %.sroa.043.0.copyload44 = load ptr, ptr %6, align 8
   %.sroa.3.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload47 = load ptr, ptr %.sroa.3.0..sroa_idx46, align 8
@@ -784,11 +784,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNK3ade6HandleINS_4EdgeEEptEv.exit.i.i.i:        ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %172, %159
   %.fr.i.i.i.i.i.i.i.i = freeze i32 %143
-  %.not.i.i.i.i.i.i.i.i15 = icmp eq i32 %.fr.i.i.i.i.i.i.i.i, 0
-  %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i15, ptr null, ptr %144
-  %177 = icmp ne ptr %spec.select.i.i.i.i.i, null
+  %.not.i.i.i.i.i.i.i.i15 = icmp ne i32 %.fr.i.i.i.i.i.i.i.i, 0
+  %177 = icmp ne ptr %144, null
+  call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i.i15)
   call void @llvm.assume(i1 %177)
-  invoke void @_ZNK3ade4Edge7srcNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i.i.i)
+  invoke void @_ZNK3ade4Edge7srcNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %144)
           to label %"_ZZN3ade6passesL5visitERSt6vectorINS_6HandleINS_4NodeEEESaIS4_EERSt13unordered_setIPS3_St4hashIS9_ESt8equal_toIS9_ESaIS9_EERKS4_ENK3$_0clERKNS2_INS_4EdgeEEE.exit.i.i" unwind label %193
 
 "_ZZN3ade6passesL5visitERSt6vectorINS_6HandleINS_4NodeEEESaIS4_EERSt13unordered_setIPS3_St4hashIS9_ESt8equal_toIS9_ESaIS9_EERKS4_ENK3$_0clERKNS2_INS_4EdgeEEE.exit.i.i": ; preds = %_ZNK3ade6HandleINS_4EdgeEEptEv.exit.i.i.i

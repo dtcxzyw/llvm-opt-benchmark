@@ -21693,7 +21693,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit67: ; preds = 
   %112 = load ptr, ptr %111, align 8, !noalias !883
   %113 = select i1 %110, ptr %112, ptr null, !prof !53
   %114 = getelementptr inbounds i8, ptr %113, i64 %104
-  %115 = load i32, ptr %113, align 4, !tbaa !44, !noalias !883
+  %115 = load i32, ptr %112, align 4, !tbaa !44, !noalias !883
   %116 = sext i32 %115 to i64
   store i64 %116, ptr %102, align 8, !tbaa !142, !noalias !883
   %117 = load i32, ptr %114, align 4, !tbaa !44, !noalias !883
@@ -23038,7 +23038,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit67: ; preds = 
   %111 = load ptr, ptr %110, align 8, !noalias !915
   %112 = select i1 %109, ptr %111, ptr null, !prof !53
   %113 = getelementptr inbounds i8, ptr %112, i64 %103
-  %114 = load i64, ptr %112, align 8, !tbaa !158, !noalias !915
+  %114 = load i64, ptr %111, align 8, !tbaa !158, !noalias !915
   store i64 %114, ptr %101, align 8, !tbaa !142, !noalias !915
   %115 = load i64, ptr %113, align 8, !tbaa !158, !noalias !915
   %116 = sub nsw i64 %115, %114
@@ -23049,7 +23049,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit67: ; preds = 
   br i1 %119, label %.loopexit81.loopexit, label %120, !prof !45
 
 120:                                              ; preds = %106
-  %121 = load i64, ptr %112, align 8, !tbaa !158, !noalias !915
+  %121 = load i64, ptr %111, align 8, !tbaa !158, !noalias !915
   %122 = sub i64 %.03786, %121
   br label %.lr.ph.i.i
 

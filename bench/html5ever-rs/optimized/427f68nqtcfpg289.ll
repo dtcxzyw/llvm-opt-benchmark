@@ -206,7 +206,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN5alloc11collec
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %3
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.3.llvm.7068131978735311054, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.5.llvm.7068131978735311054) #23
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.3.llvm.7068131978735311054, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.5.llvm.7068131978735311054) #23
           to label %13 unwind label %11
 
 11:                                               ; preds = %10
@@ -515,7 +515,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
           to label %63 unwind label %71, !noalias !79
 
 66:                                               ; preds = %"_ZN5alloc11collections5btree4node21LeafNode$LT$K$C$V$GT$3new17hdc765f5c154b874fE.llvm.7068131978735311054.exit.i.i"
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %53, i64 noundef 11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.11) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %53, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.11) #23
           to label %.noexc.i.i.i unwind label %64, !noalias !79
 
 .noexc.i.i.i:                                     ; preds = %66
@@ -527,7 +527,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %69, label %76, label %70
 
 70:                                               ; preds = %67
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.9, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.10) #23
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.10) #23
           to label %.noexc11.i.i.i unwind label %64, !noalias !79
 
 .noexc11.i.i.i:                                   ; preds = %70
@@ -652,7 +652,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %._crit_edge
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.0, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.2) #23
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.0, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.2) #23
           to label %127 unwind label %125, !noalias !101
 
 115:                                              ; preds = %._crit_edge
@@ -780,7 +780,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %160, label %162, label %161
 
 161:                                              ; preds = %149
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.14, i64 noundef 53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.15) #23
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.14, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.15) #23
           to label %166 unwind label %.loopexit.split-lp, !noalias !114
 
 162:                                              ; preds = %149
@@ -941,7 +941,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
           to label %229 unwind label %237, !noalias !137
 
 232:                                              ; preds = %"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17h135396f6d483d892E.exit.i.i"
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %219, i64 noundef 11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.11) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %219, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.11) #23
           to label %.noexc.i.i.i53 unwind label %230, !noalias !137
 
 .noexc.i.i.i53:                                   ; preds = %232
@@ -953,7 +953,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %235, label %241, label %236
 
 236:                                              ; preds = %233
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.9, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.10) #23
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.10) #23
           to label %.noexc13.i.i.i unwind label %230, !noalias !137
 
 .noexc13.i.i.i:                                   ; preds = %236
@@ -996,7 +996,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %255, label %256, label %257
 
 256:                                              ; preds = %241
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 1, 65537) %254, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.13) #23
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 1, 65537) %254, i64 noundef 12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.13) #23
           to label %.noexc.i.i52 unwind label %239, !noalias !130
 
 .noexc.i.i52:                                     ; preds = %256
@@ -1007,7 +1007,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %258, label %260, label %259
 
 259:                                              ; preds = %257
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.9, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.10) #23
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.880fec8bd5975f2d766e0c23ef8057da.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.10) #23
           to label %.noexc9.i.i unwind label %239, !noalias !130
 
 .noexc9.i.i:                                      ; preds = %259
@@ -1265,7 +1265,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i.i": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0.i.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i.i, i64 8
-  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !177
+  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !177
   switch i8 %15, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -1326,7 +1326,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i.i": ; preds = %11
   %13 = add nuw nsw i64 %.sroa.8.0.i.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i.i, i64 8
-  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !185
+  %15 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i.i), !range !176, !noalias !185
   switch i8 %15, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.i
     i8 0, label %.loopexit
@@ -1382,7 +1382,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i": ; preds = %10
   %12 = add nuw nsw i64 %.sroa.8.0.i, 1
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
-  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !190
+  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !190
   switch i8 %14, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -1426,7 +1426,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c67195daccd53ddE.exit.i": ; preds = %10
   %12 = add nuw nsw i64 %.sroa.8.0.i, 1
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
-  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !195
+  %14 = tail call fastcc noundef i8 @"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h5b2c506b06a9ee95E"(ptr noalias noundef readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) %.sroa.0.020.i), !range !176, !noalias !195
   switch i8 %14, label %default.unreachable [
     i8 -1, label %.loopexit.loopexit.i.loopexit
     i8 0, label %.loopexit.loopexit.i
@@ -1852,7 +1852,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
   br i1 %25, label %26, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i"
 
 26:                                               ; preds = %22
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %24, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.17) #23, !noalias !233
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %24, i64 noundef 7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.17) #23, !noalias !233
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i": ; preds = %22
@@ -1877,7 +1877,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
   br label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit.i"
 
 41:                                               ; preds = %28
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %30, i64 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.18) #23, !noalias !226
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %30, i64 noundef %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.18) #23, !noalias !226
   unreachable
 
 "_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit.i": ; preds = %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i.i", %17
@@ -1908,7 +1908,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
   br i1 %53, label %54, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i5.i"
 
 54:                                               ; preds = %50
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %52, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.17) #23, !noalias !241
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %52, i64 noundef 7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.17) #23, !noalias !241
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i5.i": ; preds = %50
@@ -1933,7 +1933,7 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN64_$LT$core..option..Opti
   br label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit6.i"
 
 69:                                               ; preds = %56
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %58, i64 noundef %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.18) #23, !noalias !238
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %58, i64 noundef %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.880fec8bd5975f2d766e0c23ef8057da.18) #23, !noalias !238
   unreachable
 
 "_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdaeb44b5729a984eE.exit6.i": ; preds = %62, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i5.i", %45

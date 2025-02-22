@@ -25053,15 +25053,15 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br label %.lr.ph768.us.us
 
 ._crit_edge773.us:                                ; preds = %._crit_edge769.us.us, %.lr.ph772.us
-  %778 = phi i32 [ %759, %.lr.ph772.us ], [ %2349, %._crit_edge769.us.us ]
+  %778 = phi i32 [ %759, %.lr.ph772.us ], [ %2353, %._crit_edge769.us.us ]
   %779 = add nuw nsw i32 %.0333774.us, 1
   %exitcond941.not = icmp eq i32 %779, %38
   br i1 %exitcond941.not, label %.critedge2, label %.lr.ph776.split.us, !llvm.loop !301
 
 .lr.ph768.us.us:                                  ; preds = %.lr.ph768.us.us.preheader, %._crit_edge769.us.us
-  %780 = phi i32 [ %2349, %._crit_edge769.us.us ], [ %759, %.lr.ph768.us.us.preheader ]
-  %781 = phi i32 [ %2352, %._crit_edge769.us.us ], [ %.pre943, %.lr.ph768.us.us.preheader ]
-  %.0332770.us.us = phi i32 [ %2353, %._crit_edge769.us.us ], [ 0, %.lr.ph768.us.us.preheader ]
+  %780 = phi i32 [ %2353, %._crit_edge769.us.us ], [ %759, %.lr.ph768.us.us.preheader ]
+  %781 = phi i32 [ %2356, %._crit_edge769.us.us ], [ %.pre943, %.lr.ph768.us.us.preheader ]
+  %.0332770.us.us = phi i32 [ %2357, %._crit_edge769.us.us ], [ 0, %.lr.ph768.us.us.preheader ]
   %782 = sub nsw i32 %27, %.0332770.us.us
   %.sroa.speculated550.us.us = call i32 @llvm.smin.i32(i32 %781, i32 %782)
   %783 = icmp sgt i32 %.sroa.speculated550.us.us, 11
@@ -25072,8 +25072,8 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br label %788
 
 788:                                              ; preds = %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us, %.lr.ph768.us.us
-  %789 = phi i32 [ %780, %.lr.ph768.us.us ], [ %2349, %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us ]
-  %.0766.us.us = phi i32 [ 0, %.lr.ph768.us.us ], [ %2350, %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us ]
+  %789 = phi i32 [ %780, %.lr.ph768.us.us ], [ %2353, %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us ]
+  %.0766.us.us = phi i32 [ 0, %.lr.ph768.us.us ], [ %2354, %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us ]
   %790 = sub nsw i32 %34, %.0766.us.us
   %.sroa.speculated.us.us = call i32 @llvm.smin.i32(i32 %789, i32 %790)
   %791 = load i32, ptr %13, align 4
@@ -25206,7 +25206,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4426.i.us.us, label %888, label %886
 
 886:                                              ; preds = %885
-  %887 = load <8 x float>, ptr %.13475.i.us.us, align 1
+  %887 = load <8 x float>, ptr %859, align 1
   br label %888
 
 888:                                              ; preds = %886, %885, %861
@@ -25566,7 +25566,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4420.i.us.us, label %1105, label %1103
 
 1103:                                             ; preds = %1102
-  %1104 = load <8 x float>, ptr %.13475.i.us.us, align 1
+  %1104 = load <8 x float>, ptr %859, align 1
   br label %1105
 
 1105:                                             ; preds = %1103, %1102, %1086
@@ -25814,7 +25814,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4414.i.us.us, label %1242, label %1240
 
 1240:                                             ; preds = %1239
-  %1241 = load <8 x float>, ptr %.13475.i.us.us, align 1
+  %1241 = load <8 x float>, ptr %859, align 1
   br label %1242
 
 1242:                                             ; preds = %1240, %1239, %1231
@@ -25994,7 +25994,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4411.i.us.us, label %1335, label %1333
 
 1333:                                             ; preds = %1332
-  %1334 = load <8 x float>, ptr %.13475.i.us.us, align 1
+  %1334 = load <8 x float>, ptr %859, align 1
   br label %1335
 
 1335:                                             ; preds = %1333, %1332, %1328
@@ -26147,7 +26147,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4405.i.us.us, label %1389, label %1387
 
 1387:                                             ; preds = %1386
-  %1388 = load <8 x float>, ptr %.13475.i.us.us, align 1
+  %1388 = load <8 x float>, ptr %859, align 1
   br label %1389
 
 1389:                                             ; preds = %1387, %1386, %1384
@@ -26335,7 +26335,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4401.i.us.us, label %1476, label %1474
 
 1474:                                             ; preds = %1473
-  %1475 = load <4 x float>, ptr %.33477.i.us.us, align 1
+  %1475 = load <4 x float>, ptr %1447, align 1
   br label %1476
 
 1476:                                             ; preds = %1474, %1473, %1449
@@ -26623,7 +26623,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4398.i.us.us, label %1641, label %1639
 
 1639:                                             ; preds = %1638
-  %1640 = load <4 x float>, ptr %.33477.i.us.us, align 1
+  %1640 = load <4 x float>, ptr %1447, align 1
   br label %1641
 
 1641:                                             ; preds = %1639, %1638, %1622
@@ -26835,7 +26835,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4395.i.us.us, label %1754, label %1752
 
 1752:                                             ; preds = %1751
-  %1753 = load <4 x float>, ptr %.33477.i.us.us, align 1
+  %1753 = load <4 x float>, ptr %1447, align 1
   br label %1754
 
 1754:                                             ; preds = %1752, %1751, %1743
@@ -26975,7 +26975,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4392.i.us.us, label %1819, label %1817
 
 1817:                                             ; preds = %1816
-  %1818 = load <4 x float>, ptr %.33477.i.us.us, align 1
+  %1818 = load <4 x float>, ptr %1447, align 1
   br label %1819
 
 1819:                                             ; preds = %1817, %1816, %1812
@@ -27094,7 +27094,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4389.i.us.us, label %1861, label %1859
 
 1859:                                             ; preds = %1858
-  %1860 = load <4 x float>, ptr %.33477.i.us.us, align 1
+  %1860 = load <4 x float>, ptr %1447, align 1
   br label %1861
 
 1861:                                             ; preds = %1859, %1858, %1856
@@ -27247,7 +27247,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4386.i.us.us, label %1933, label %1926
 
 1926:                                             ; preds = %1925
-  %1927 = load float, ptr %.53479.i.us.us, align 4
+  %1927 = load float, ptr %1904, align 4
   %1928 = insertelement <4 x float> poison, float %1927, i64 0
   %1929 = shufflevector <4 x float> %1928, <4 x float> poison, <4 x i32> zeroinitializer
   %1930 = load float, ptr %1905, align 4
@@ -27396,7 +27396,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4384.i.us.us, label %2009, label %2002
 
 2002:                                             ; preds = %2001
-  %2003 = load float, ptr %.53479.i.us.us, align 4
+  %2003 = load float, ptr %1904, align 4
   %2004 = insertelement <4 x float> poison, float %2003, i64 0
   %2005 = shufflevector <4 x float> %2004, <4 x float> poison, <4 x i32> zeroinitializer
   %2006 = load float, ptr %1987, align 4
@@ -27517,7 +27517,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4382.i.us.us, label %2067, label %2060
 
 2060:                                             ; preds = %2059
-  %2061 = load float, ptr %.53479.i.us.us, align 4
+  %2061 = load float, ptr %1904, align 4
   %2062 = insertelement <4 x float> poison, float %2061, i64 0
   %2063 = shufflevector <4 x float> %2062, <4 x float> poison, <4 x i32> zeroinitializer
   %2064 = load float, ptr %2051, align 4
@@ -27618,7 +27618,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4379.i.us.us, label %2111, label %2108
 
 2108:                                             ; preds = %2107
-  %2109 = load float, ptr %.53479.i.us.us, align 4
+  %2109 = load float, ptr %1904, align 4
   %2110 = load float, ptr %2097, align 4
   br label %2111
 
@@ -27724,7 +27724,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %.not4378.i.us.us, label %2154, label %2151
 
 2151:                                             ; preds = %2150
-  %2152 = load float, ptr %.53479.i.us.us, align 4
+  %2152 = load float, ptr %1904, align 4
   %2153 = load float, ptr %2144, align 4
   br label %2154
 
@@ -27800,7 +27800,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %2178, label %.lr.ph566.i.us.us, label %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us
 
 .lr.ph566.i.us.us:                                ; preds = %.preheader45.i.us.us
-  %2179 = icmp ne i32 %.0766.us.us, 0
+  %2179 = icmp eq i32 %.0766.us.us, 0
   %2180 = icmp sgt i32 %.sroa.speculated.us.us, 0
   %2181 = sext i32 %.sroa.speculated.us.us to i64
   %2182 = sext i32 %.23496.lcssa.i.us.us to i64
@@ -27810,7 +27810,7 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
 
 2184:                                             ; preds = %._crit_edge560.i.us.us, %.lr.ph566.i.us.us
   %indvars.iv740.i.us.us = phi i64 [ %2182, %.lr.ph566.i.us.us ], [ %indvars.iv.next741.i.us.us, %._crit_edge560.i.us.us ]
-  %.33473565.i.us.us = phi ptr [ %.23472.lcssa.i.us.us, %.lr.ph566.i.us.us ], [ %2348, %._crit_edge560.i.us.us ]
+  %.33473565.i.us.us = phi ptr [ %.23472.lcssa.i.us.us, %.lr.ph566.i.us.us ], [ %2352, %._crit_edge560.i.us.us ]
   %.63480564.i.us.us = phi ptr [ %.43478.lcssa.i.us.us, %.lr.ph566.i.us.us ], [ %.73481.i.us.us, %._crit_edge560.i.us.us ]
   %.18563.i.us.us = phi ptr [ %.12.lcssa.i.us.us, %.lr.ph566.i.us.us ], [ %.23.lcssa.i.us.us, %._crit_edge560.i.us.us ]
   %2185 = load ptr, ptr %1, align 8
@@ -27834,29 +27834,29 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   %.03439480.i.us.us = phi ptr [ %820, %.lr.ph483.i.us.us ], [ %.13440.lcssa.i.us.us, %2230 ]
   %.03444479.i.us.us = phi ptr [ %2189, %.lr.ph483.i.us.us ], [ %.13445.i.us.us, %2230 ]
   %.19478.i.us.us = phi ptr [ %.18563.i.us.us, %.lr.ph483.i.us.us ], [ %2231, %2230 ]
-  br i1 %2179, label %2199, label %2194
+  br i1 %2179, label %2200, label %2194
 
 2194:                                             ; preds = %2193
-  br i1 %.not4376.i.us.us, label %2205, label %2195
-
-2195:                                             ; preds = %2194
-  %2196 = load float, ptr %.73481.i.us.us, align 4
-  %2197 = insertelement <4 x float> poison, float %2196, i64 0
-  %2198 = shufflevector <4 x float> %2197, <4 x float> poison, <4 x i32> zeroinitializer
+  %2195 = load <4 x float>, ptr %.19478.i.us.us, align 1
+  %2196 = getelementptr inbounds nuw i8, ptr %.19478.i.us.us, i64 16
+  %2197 = load <4 x float>, ptr %2196, align 1
+  %2198 = getelementptr inbounds nuw i8, ptr %.19478.i.us.us, i64 32
+  %2199 = load <4 x float>, ptr %2198, align 1
   br label %2205
 
-2199:                                             ; preds = %2193
-  %2200 = load <4 x float>, ptr %.19478.i.us.us, align 1
-  %2201 = getelementptr inbounds nuw i8, ptr %.19478.i.us.us, i64 16
-  %2202 = load <4 x float>, ptr %2201, align 1
-  %2203 = getelementptr inbounds nuw i8, ptr %.19478.i.us.us, i64 32
-  %2204 = load <4 x float>, ptr %2203, align 1
+2200:                                             ; preds = %2193
+  br i1 %.not4376.i.us.us, label %2205, label %2201
+
+2201:                                             ; preds = %2200
+  %2202 = load float, ptr %2192, align 4
+  %2203 = insertelement <4 x float> poison, float %2202, i64 0
+  %2204 = shufflevector <4 x float> %2203, <4 x float> poison, <4 x i32> zeroinitializer
   br label %2205
 
-2205:                                             ; preds = %2199, %2195, %2194
-  %.04350.i.us.us = phi nsz <4 x float> [ %2198, %2195 ], [ %2200, %2199 ], [ zeroinitializer, %2194 ]
-  %.04342.i.us.us = phi nsz <4 x float> [ %2198, %2195 ], [ %2202, %2199 ], [ zeroinitializer, %2194 ]
-  %.04340.i.us.us = phi nsz <4 x float> [ %2198, %2195 ], [ %2204, %2199 ], [ zeroinitializer, %2194 ]
+2205:                                             ; preds = %2201, %2200, %2194
+  %.04350.i.us.us = phi nsz <4 x float> [ %2204, %2201 ], [ %2195, %2194 ], [ zeroinitializer, %2200 ]
+  %.04342.i.us.us = phi nsz <4 x float> [ %2204, %2201 ], [ %2197, %2194 ], [ zeroinitializer, %2200 ]
+  %.04340.i.us.us = phi nsz <4 x float> [ %2204, %2201 ], [ %2199, %2194 ], [ zeroinitializer, %2200 ]
   br i1 %2180, label %.lr.ph472.i.us.us, label %._crit_edge473.i.us.us
 
 .lr.ph472.i.us.us:                                ; preds = %2205, %.lr.ph472.i.us.us
@@ -27936,26 +27936,26 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   %.23441501.i.us.us = phi ptr [ %.03439.lcssa.i.us.us, %.lr.ph503.i.us.us ], [ %.33442.lcssa.i.us.us, %2266 ]
   %.23446500.i.us.us = phi ptr [ %.03444.lcssa.i.us.us, %.lr.ph503.i.us.us ], [ %.33447.i.us.us, %2266 ]
   %.20499.i.us.us = phi ptr [ %.19.lcssa.i.us.us, %.lr.ph503.i.us.us ], [ %2267, %2266 ]
-  br i1 %2179, label %2243, label %2238
+  br i1 %2179, label %2242, label %2238
 
 2238:                                             ; preds = %2237
-  br i1 %.not4375.i.us.us, label %2247, label %2239
-
-2239:                                             ; preds = %2238
-  %2240 = load float, ptr %.73481.i.us.us, align 4
-  %2241 = insertelement <4 x float> poison, float %2240, i64 0
-  %2242 = shufflevector <4 x float> %2241, <4 x float> poison, <4 x i32> zeroinitializer
+  %2239 = load <4 x float>, ptr %.20499.i.us.us, align 1
+  %2240 = getelementptr inbounds nuw i8, ptr %.20499.i.us.us, i64 16
+  %2241 = load <4 x float>, ptr %2240, align 1
   br label %2247
 
-2243:                                             ; preds = %2237
-  %2244 = load <4 x float>, ptr %.20499.i.us.us, align 1
-  %2245 = getelementptr inbounds nuw i8, ptr %.20499.i.us.us, i64 16
-  %2246 = load <4 x float>, ptr %2245, align 1
+2242:                                             ; preds = %2237
+  br i1 %.not4375.i.us.us, label %2247, label %2243
+
+2243:                                             ; preds = %2242
+  %2244 = load float, ptr %2192, align 4
+  %2245 = insertelement <4 x float> poison, float %2244, i64 0
+  %2246 = shufflevector <4 x float> %2245, <4 x float> poison, <4 x i32> zeroinitializer
   br label %2247
 
-2247:                                             ; preds = %2243, %2239, %2238
-  %.04336.i.us.us = phi nsz <4 x float> [ %2242, %2239 ], [ %2244, %2243 ], [ zeroinitializer, %2238 ]
-  %.04334.i.us.us = phi nsz <4 x float> [ %2242, %2239 ], [ %2246, %2243 ], [ zeroinitializer, %2238 ]
+2247:                                             ; preds = %2243, %2242, %2238
+  %.04336.i.us.us = phi nsz <4 x float> [ %2246, %2243 ], [ %2239, %2238 ], [ zeroinitializer, %2242 ]
+  %.04334.i.us.us = phi nsz <4 x float> [ %2246, %2243 ], [ %2241, %2238 ], [ zeroinitializer, %2242 ]
   br i1 %2180, label %.lr.ph494.i.us.us, label %._crit_edge495.i.us.us
 
 .lr.ph494.i.us.us:                                ; preds = %2247, %.lr.ph494.i.us.us
@@ -28025,23 +28025,23 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   %.43443519.i.us.us = phi ptr [ %.23441.lcssa.i.us.us, %.lr.ph521.i.us.us ], [ %.5.lcssa.i.us.us, %2294 ]
   %.43448518.i.us.us = phi ptr [ %.23446.lcssa.i.us.us, %.lr.ph521.i.us.us ], [ %.53449.i.us.us, %2294 ]
   %.21517.i.us.us = phi ptr [ %.20.lcssa.i.us.us, %.lr.ph521.i.us.us ], [ %2295, %2294 ]
-  br i1 %2179, label %2279, label %2274
+  br i1 %2179, label %2276, label %2274
 
 2274:                                             ; preds = %2273
-  br i1 %.not4374.i.us.us, label %2281, label %2275
-
-2275:                                             ; preds = %2274
-  %2276 = load float, ptr %.73481.i.us.us, align 4
-  %2277 = insertelement <4 x float> poison, float %2276, i64 0
-  %2278 = shufflevector <4 x float> %2277, <4 x float> poison, <4 x i32> zeroinitializer
+  %2275 = load <4 x float>, ptr %.21517.i.us.us, align 1
   br label %2281
 
-2279:                                             ; preds = %2273
-  %2280 = load <4 x float>, ptr %.21517.i.us.us, align 1
+2276:                                             ; preds = %2273
+  br i1 %.not4374.i.us.us, label %2281, label %2277
+
+2277:                                             ; preds = %2276
+  %2278 = load float, ptr %2192, align 4
+  %2279 = insertelement <4 x float> poison, float %2278, i64 0
+  %2280 = shufflevector <4 x float> %2279, <4 x float> poison, <4 x i32> zeroinitializer
   br label %2281
 
-2281:                                             ; preds = %2279, %2275, %2274
-  %.04330.i.us.us = phi nsz <4 x float> [ %2278, %2275 ], [ %2280, %2279 ], [ zeroinitializer, %2274 ]
+2281:                                             ; preds = %2277, %2276, %2274
+  %.04330.i.us.us = phi nsz <4 x float> [ %2280, %2277 ], [ %2275, %2274 ], [ zeroinitializer, %2276 ]
   br i1 %2180, label %.lr.ph513.i.us.us, label %._crit_edge514.i.us.us
 
 .lr.ph513.i.us.us:                                ; preds = %2281, %.lr.ph513.i.us.us
@@ -28101,24 +28101,24 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   %.6539.i.us.us = phi ptr [ %.43443.lcssa.i.us.us, %.lr.ph541.i.us.us ], [ %.7.lcssa.i.us.us, %2326 ]
   %.63450538.i.us.us = phi ptr [ %.43448.lcssa.i.us.us, %.lr.ph541.i.us.us ], [ %.73451.i.us.us, %2326 ]
   %.22537.i.us.us = phi ptr [ %.21.lcssa.i.us.us, %.lr.ph541.i.us.us ], [ %2327, %2326 ]
-  br i1 %2179, label %2305, label %2302
+  br i1 %2179, label %2306, label %2302
 
 2302:                                             ; preds = %2301
-  br i1 %.not4373.i.us.us, label %2309, label %2303
-
-2303:                                             ; preds = %2302
-  %2304 = load float, ptr %.73481.i.us.us, align 4
+  %2303 = load float, ptr %.22537.i.us.us, align 4
+  %2304 = getelementptr inbounds nuw i8, ptr %.22537.i.us.us, i64 4
+  %2305 = load float, ptr %2304, align 4
   br label %2309
 
-2305:                                             ; preds = %2301
-  %2306 = load float, ptr %.22537.i.us.us, align 4
-  %2307 = getelementptr inbounds nuw i8, ptr %.22537.i.us.us, i64 4
-  %2308 = load float, ptr %2307, align 4
+2306:                                             ; preds = %2301
+  br i1 %.not4373.i.us.us, label %2309, label %2307
+
+2307:                                             ; preds = %2306
+  %2308 = load float, ptr %2192, align 4
   br label %2309
 
-2309:                                             ; preds = %2305, %2303, %2302
-  %.03429.i.us.us = phi nsz float [ %2304, %2303 ], [ %2306, %2305 ], [ 0.000000e+00, %2302 ]
-  %.03427.i.us.us = phi nsz float [ %2304, %2303 ], [ %2308, %2305 ], [ 0.000000e+00, %2302 ]
+2309:                                             ; preds = %2307, %2306, %2302
+  %.03429.i.us.us = phi nsz float [ %2308, %2307 ], [ %2303, %2302 ], [ 0.000000e+00, %2306 ]
+  %.03427.i.us.us = phi nsz float [ %2308, %2307 ], [ %2305, %2302 ], [ 0.000000e+00, %2306 ]
   br i1 %2180, label %.lr.ph532.i.us.us, label %._crit_edge533.i.us.us
 
 .lr.ph532.i.us.us:                                ; preds = %2309, %.lr.ph532.i.us.us
@@ -28177,272 +28177,277 @@ _ZN4ncnnL29convolution_im2col_input_tileERKNS_3MatERS0_iiiiiiiiii.exit: ; preds 
   br i1 %2331, label %.lr.ph559.i.us.us, label %._crit_edge560.i.us.us
 
 .lr.ph559.i.us.us:                                ; preds = %.preheader.i.us.us
-  %.not4372.i.us.us = icmp ne ptr %.73481.i.us.us, null
-  %brmerge.i.us.us = select i1 %2179, i1 true, i1 %.not4372.i.us.us
+  %.not4372.i.us.us = icmp eq ptr %.73481.i.us.us, null
   br label %2332
 
-2332:                                             ; preds = %2345, %.lr.ph559.i.us.us
-  %.4558.i.us.us = phi i32 [ %.3.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %2347, %2345 ]
-  %.8557.i.us.us = phi ptr [ %.6.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %.9.lcssa.i.us.us, %2345 ]
-  %.83452556.i.us.us = phi ptr [ %.63450.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %.93453.i.us.us, %2345 ]
-  %.23555.i.us.us = phi ptr [ %.22.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %2346, %2345 ]
-  br i1 %brmerge.i.us.us, label %.sink.split.i.us.us, label %2334
+2332:                                             ; preds = %2349, %.lr.ph559.i.us.us
+  %.4558.i.us.us = phi i32 [ %.3.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %2351, %2349 ]
+  %.8557.i.us.us = phi ptr [ %.6.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %.9.lcssa.i.us.us, %2349 ]
+  %.83452556.i.us.us = phi ptr [ %.63450.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %.93453.i.us.us, %2349 ]
+  %.23555.i.us.us = phi ptr [ %.22.lcssa.i.us.us, %.lr.ph559.i.us.us ], [ %2350, %2349 ]
+  br i1 %2179, label %2335, label %2333
 
-.sink.split.i.us.us:                              ; preds = %2332
-  %.23555.mux.i.us.us = select i1 %2179, ptr %.23555.i.us.us, ptr %.73481.i.us.us
-  %2333 = load float, ptr %.23555.mux.i.us.us, align 4
-  br label %2334
+2333:                                             ; preds = %2332
+  %2334 = load float, ptr %.23555.i.us.us, align 4
+  br label %2338
 
-2334:                                             ; preds = %.sink.split.i.us.us, %2332
-  %.03424.i.us.us = phi nsz float [ %2333, %.sink.split.i.us.us ], [ 0.000000e+00, %2332 ]
+2335:                                             ; preds = %2332
+  br i1 %.not4372.i.us.us, label %2338, label %2336
+
+2336:                                             ; preds = %2335
+  %2337 = load float, ptr %2192, align 4
+  br label %2338
+
+2338:                                             ; preds = %2336, %2335, %2333
+  %.03424.i.us.us = phi nsz float [ %2337, %2336 ], [ %2334, %2333 ], [ 0.000000e+00, %2335 ]
   br i1 %2180, label %.lr.ph551.i.us.us, label %._crit_edge552.i.us.us
 
-.lr.ph551.i.us.us:                                ; preds = %2334, %.lr.ph551.i.us.us
-  %.0549.i.us.us = phi i32 [ %2341, %.lr.ph551.i.us.us ], [ 0, %2334 ]
-  %.03423548.i.us.us = phi ptr [ %2339, %.lr.ph551.i.us.us ], [ %.33473565.i.us.us, %2334 ]
-  %.1547.i.us.us = phi float [ %2338, %.lr.ph551.i.us.us ], [ %.03424.i.us.us, %2334 ]
-  %.9546.i.us.us = phi ptr [ %2340, %.lr.ph551.i.us.us ], [ %.8557.i.us.us, %2334 ]
-  %2335 = load float, ptr %.03423548.i.us.us, align 4
-  %2336 = load float, ptr %.9546.i.us.us, align 4
-  %2337 = fmul fast float %2336, %2335
-  %2338 = fadd fast float %2337, %.1547.i.us.us
-  %2339 = getelementptr inbounds nuw i8, ptr %.03423548.i.us.us, i64 4
-  %2340 = getelementptr inbounds nuw i8, ptr %.9546.i.us.us, i64 4
-  %2341 = add nuw nsw i32 %.0549.i.us.us, 1
-  %exitcond738.not.i.us.us = icmp eq i32 %2341, %.sroa.speculated.us.us
+.lr.ph551.i.us.us:                                ; preds = %2338, %.lr.ph551.i.us.us
+  %.0549.i.us.us = phi i32 [ %2345, %.lr.ph551.i.us.us ], [ 0, %2338 ]
+  %.03423548.i.us.us = phi ptr [ %2343, %.lr.ph551.i.us.us ], [ %.33473565.i.us.us, %2338 ]
+  %.1547.i.us.us = phi float [ %2342, %.lr.ph551.i.us.us ], [ %.03424.i.us.us, %2338 ]
+  %.9546.i.us.us = phi ptr [ %2344, %.lr.ph551.i.us.us ], [ %.8557.i.us.us, %2338 ]
+  %2339 = load float, ptr %.03423548.i.us.us, align 4
+  %2340 = load float, ptr %.9546.i.us.us, align 4
+  %2341 = fmul fast float %2340, %2339
+  %2342 = fadd fast float %2341, %.1547.i.us.us
+  %2343 = getelementptr inbounds nuw i8, ptr %.03423548.i.us.us, i64 4
+  %2344 = getelementptr inbounds nuw i8, ptr %.9546.i.us.us, i64 4
+  %2345 = add nuw nsw i32 %.0549.i.us.us, 1
+  %exitcond738.not.i.us.us = icmp eq i32 %2345, %.sroa.speculated.us.us
   br i1 %exitcond738.not.i.us.us, label %._crit_edge552.i.us.us, label %.lr.ph551.i.us.us, !llvm.loop !343
 
-._crit_edge552.i.us.us:                           ; preds = %.lr.ph551.i.us.us, %2334
-  %.9.lcssa.i.us.us = phi ptr [ %.8557.i.us.us, %2334 ], [ %2340, %.lr.ph551.i.us.us ]
-  %.1.lcssa.i.us.us = phi float [ %.03424.i.us.us, %2334 ], [ %2338, %.lr.ph551.i.us.us ]
-  br i1 %.not.us.us, label %2344, label %2342
+._crit_edge552.i.us.us:                           ; preds = %.lr.ph551.i.us.us, %2338
+  %.9.lcssa.i.us.us = phi ptr [ %.8557.i.us.us, %2338 ], [ %2344, %.lr.ph551.i.us.us ]
+  %.1.lcssa.i.us.us = phi float [ %.03424.i.us.us, %2338 ], [ %2342, %.lr.ph551.i.us.us ]
+  br i1 %.not.us.us, label %2348, label %2346
 
-2342:                                             ; preds = %._crit_edge552.i.us.us
+2346:                                             ; preds = %._crit_edge552.i.us.us
   store float %.1.lcssa.i.us.us, ptr %.83452556.i.us.us, align 4
-  %2343 = getelementptr inbounds nuw i8, ptr %.83452556.i.us.us, i64 4
-  br label %2345
+  %2347 = getelementptr inbounds nuw i8, ptr %.83452556.i.us.us, i64 4
+  br label %2349
 
-2344:                                             ; preds = %._crit_edge552.i.us.us
+2348:                                             ; preds = %._crit_edge552.i.us.us
   store float %.1.lcssa.i.us.us, ptr %.23555.i.us.us, align 4
-  br label %2345
+  br label %2349
 
-2345:                                             ; preds = %2344, %2342
-  %.93453.i.us.us = phi ptr [ %2343, %2342 ], [ %.83452556.i.us.us, %2344 ]
-  %2346 = getelementptr inbounds nuw i8, ptr %.23555.i.us.us, i64 4
-  %2347 = add nuw nsw i32 %.4558.i.us.us, 1
-  %exitcond739.not.i.us.us = icmp eq i32 %2347, %.sroa.speculated550.us.us
+2349:                                             ; preds = %2348, %2346
+  %.93453.i.us.us = phi ptr [ %2347, %2346 ], [ %.83452556.i.us.us, %2348 ]
+  %2350 = getelementptr inbounds nuw i8, ptr %.23555.i.us.us, i64 4
+  %2351 = add nuw nsw i32 %.4558.i.us.us, 1
+  %exitcond739.not.i.us.us = icmp eq i32 %2351, %.sroa.speculated550.us.us
   br i1 %exitcond739.not.i.us.us, label %._crit_edge560.i.us.us, label %2332, !llvm.loop !344
 
-._crit_edge560.i.us.us:                           ; preds = %2345, %.preheader.i.us.us
-  %.23.lcssa.i.us.us = phi ptr [ %.22.lcssa.i.us.us, %.preheader.i.us.us ], [ %2346, %2345 ]
-  %2348 = getelementptr inbounds float, ptr %.33473565.i.us.us, i64 %2181
+._crit_edge560.i.us.us:                           ; preds = %2349, %.preheader.i.us.us
+  %.23.lcssa.i.us.us = phi ptr [ %.22.lcssa.i.us.us, %.preheader.i.us.us ], [ %2350, %2349 ]
+  %2352 = getelementptr inbounds float, ptr %.33473565.i.us.us, i64 %2181
   %indvars.iv.next741.i.us.us = add nsw i64 %indvars.iv740.i.us.us, 1
   %exitcond743.not.i.us.us = icmp eq i64 %indvars.iv.next741.i.us.us, %777
   br i1 %exitcond743.not.i.us.us, label %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us, label %2184, !llvm.loop !345
 
 _ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us: ; preds = %._crit_edge560.i.us.us, %.preheader45.i.us.us
-  %2349 = load i32, ptr %15, align 4
-  %2350 = add nsw i32 %2349, %.0766.us.us
-  %2351 = icmp slt i32 %2350, %34
-  br i1 %2351, label %788, label %._crit_edge769.us.us, !llvm.loop !346
+  %2353 = load i32, ptr %15, align 4
+  %2354 = add nsw i32 %2353, %.0766.us.us
+  %2355 = icmp slt i32 %2354, %34
+  br i1 %2355, label %788, label %._crit_edge769.us.us, !llvm.loop !346
 
 ._crit_edge769.us.us:                             ; preds = %_ZN4ncnnL35convolution_gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiib.exit.us.us
-  %2352 = load i32, ptr %14, align 4
-  %2353 = add nsw i32 %2352, %.0332770.us.us
-  %2354 = icmp slt i32 %2353, %27
-  br i1 %2354, label %.lr.ph768.us.us, label %._crit_edge773.us, !llvm.loop !347
+  %2356 = load i32, ptr %14, align 4
+  %2357 = add nsw i32 %2356, %.0332770.us.us
+  %2358 = icmp slt i32 %2357, %27
+  br i1 %2358, label %.lr.ph768.us.us, label %._crit_edge773.us, !llvm.loop !347
 
 .split.us:                                        ; preds = %763
-  %2355 = landingpad { ptr, i32 }
+  %2359 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
 .lr.ph776.split:                                  ; preds = %.lr.ph776
   br i1 %734, label %.lr.ph776.split.split.us, label %.critedge2
 
-.lr.ph776.split.split.us:                         ; preds = %.lr.ph776.split, %2357
-  %.0333774.us780 = phi i32 [ %2358, %2357 ], [ 0, %.lr.ph776.split ]
-  %2356 = invoke noundef i32 @_ZN4ncnn18get_omp_thread_numEv()
-          to label %2357 unwind label %.split.split.us
+.lr.ph776.split.split.us:                         ; preds = %.lr.ph776.split, %2361
+  %.0333774.us780 = phi i32 [ %2362, %2361 ], [ 0, %.lr.ph776.split ]
+  %2360 = invoke noundef i32 @_ZN4ncnn18get_omp_thread_numEv()
+          to label %2361 unwind label %.split.split.us
 
-2357:                                             ; preds = %.lr.ph776.split.split.us
-  %2358 = add nuw nsw i32 %.0333774.us780, 1
-  %exitcond940.not = icmp eq i32 %2358, %38
+2361:                                             ; preds = %.lr.ph776.split.split.us
+  %2362 = add nuw nsw i32 %.0333774.us780, 1
+  %exitcond940.not = icmp eq i32 %2362, %38
   br i1 %exitcond940.not, label %.critedge2, label %.lr.ph776.split.split.us, !llvm.loop !301
 
 .split.split.us:                                  ; preds = %.lr.ph776.split.split.us
-  %2359 = landingpad { ptr, i32 }
+  %2363 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
-.critedge2:                                       ; preds = %2357, %._crit_edge773.us, %.lr.ph776.split, %751, %743, %740
-  %.1 = phi i32 [ -100, %740 ], [ -100, %743 ], [ 0, %751 ], [ 0, %.lr.ph776.split ], [ 0, %._crit_edge773.us ], [ 0, %2357 ]
-  %2360 = load ptr, ptr %728, align 8
-  %.not503 = icmp eq ptr %2360, null
-  br i1 %.not503, label %2373, label %2361
+.critedge2:                                       ; preds = %2361, %._crit_edge773.us, %.lr.ph776.split, %751, %743, %740
+  %.1 = phi i32 [ -100, %740 ], [ -100, %743 ], [ 0, %751 ], [ 0, %.lr.ph776.split ], [ 0, %._crit_edge773.us ], [ 0, %2361 ]
+  %2364 = load ptr, ptr %728, align 8
+  %.not503 = icmp eq ptr %2364, null
+  br i1 %.not503, label %2377, label %2365
 
-2361:                                             ; preds = %.critedge2
-  %2362 = atomicrmw add ptr %2360, i32 -1 acq_rel, align 4
-  %2363 = icmp eq i32 %2362, 1
-  br i1 %2363, label %2364, label %2373
+2365:                                             ; preds = %.critedge2
+  %2366 = atomicrmw add ptr %2364, i32 -1 acq_rel, align 4
+  %2367 = icmp eq i32 %2366, 1
+  br i1 %2367, label %2368, label %2377
 
-2364:                                             ; preds = %2361
-  %2365 = load ptr, ptr %730, align 8
-  %.not504 = icmp eq ptr %2365, null
-  %2366 = load ptr, ptr %17, align 8
-  br i1 %.not504, label %2371, label %2367
+2368:                                             ; preds = %2365
+  %2369 = load ptr, ptr %730, align 8
+  %.not504 = icmp eq ptr %2369, null
+  %2370 = load ptr, ptr %17, align 8
+  br i1 %.not504, label %2375, label %2371
 
-2367:                                             ; preds = %2364
-  %2368 = load ptr, ptr %2365, align 8
-  %2369 = getelementptr inbounds nuw i8, ptr %2368, i64 24
-  %2370 = load ptr, ptr %2369, align 8
-  invoke void %2370(ptr noundef nonnull align 8 dereferenceable(8) %2365, ptr noundef %2366)
-          to label %2373 unwind label %2374
+2371:                                             ; preds = %2368
+  %2372 = load ptr, ptr %2369, align 8
+  %2373 = getelementptr inbounds nuw i8, ptr %2372, i64 24
+  %2374 = load ptr, ptr %2373, align 8
+  invoke void %2374(ptr noundef nonnull align 8 dereferenceable(8) %2369, ptr noundef %2370)
+          to label %2377 unwind label %2378
 
-2371:                                             ; preds = %2364
-  %.not505 = icmp eq ptr %2366, null
-  br i1 %.not505, label %2373, label %2372
+2375:                                             ; preds = %2368
+  %.not505 = icmp eq ptr %2370, null
+  br i1 %.not505, label %2377, label %2376
 
-2372:                                             ; preds = %2371
-  call void @free(ptr noundef nonnull %2366) #23
-  br label %2373
+2376:                                             ; preds = %2375
+  call void @free(ptr noundef nonnull %2370) #23
+  br label %2377
 
-2373:                                             ; preds = %2367, %2372, %2371, %2361, %.critedge2
+2377:                                             ; preds = %2371, %2376, %2375, %2365, %.critedge2
   store i64 0, ptr %733, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %731, i8 0, i64 20, i1 false)
   br label %.critedge
 
-2374:                                             ; preds = %2367
-  %2375 = landingpad { ptr, i32 }
+2378:                                             ; preds = %2371
+  %2379 = landingpad { ptr, i32 }
           catch ptr null
-  %2376 = extractvalue { ptr, i32 } %2375, 0
-  call void @__clang_call_terminate(ptr %2376) #24
+  %2380 = extractvalue { ptr, i32 } %2379, 0
+  call void @__clang_call_terminate(ptr %2380) #24
   unreachable
 
 .split:                                           ; preds = %.split.us, %.split.split.us, %749
-  %.pn.pn = phi { ptr, i32 } [ %750, %749 ], [ %2355, %.split.us ], [ %2359, %.split.split.us ]
-  %2377 = load ptr, ptr %728, align 8
-  %.not494 = icmp eq ptr %2377, null
-  br i1 %.not494, label %2390, label %2378
+  %.pn.pn = phi { ptr, i32 } [ %750, %749 ], [ %2359, %.split.us ], [ %2363, %.split.split.us ]
+  %2381 = load ptr, ptr %728, align 8
+  %.not494 = icmp eq ptr %2381, null
+  br i1 %.not494, label %2394, label %2382
 
-2378:                                             ; preds = %.split
-  %2379 = atomicrmw add ptr %2377, i32 -1 acq_rel, align 4
-  %2380 = icmp eq i32 %2379, 1
-  br i1 %2380, label %2381, label %2390
+2382:                                             ; preds = %.split
+  %2383 = atomicrmw add ptr %2381, i32 -1 acq_rel, align 4
+  %2384 = icmp eq i32 %2383, 1
+  br i1 %2384, label %2385, label %2394
 
-2381:                                             ; preds = %2378
-  %2382 = load ptr, ptr %730, align 8
-  %.not495 = icmp eq ptr %2382, null
-  %2383 = load ptr, ptr %17, align 8
-  br i1 %.not495, label %2388, label %2384
+2385:                                             ; preds = %2382
+  %2386 = load ptr, ptr %730, align 8
+  %.not495 = icmp eq ptr %2386, null
+  %2387 = load ptr, ptr %17, align 8
+  br i1 %.not495, label %2392, label %2388
 
-2384:                                             ; preds = %2381
-  %2385 = load ptr, ptr %2382, align 8
-  %2386 = getelementptr inbounds nuw i8, ptr %2385, i64 24
-  %2387 = load ptr, ptr %2386, align 8
-  invoke void %2387(ptr noundef nonnull align 8 dereferenceable(8) %2382, ptr noundef %2383)
-          to label %2390 unwind label %2392
+2388:                                             ; preds = %2385
+  %2389 = load ptr, ptr %2386, align 8
+  %2390 = getelementptr inbounds nuw i8, ptr %2389, i64 24
+  %2391 = load ptr, ptr %2390, align 8
+  invoke void %2391(ptr noundef nonnull align 8 dereferenceable(8) %2386, ptr noundef %2387)
+          to label %2394 unwind label %2396
 
-2388:                                             ; preds = %2381
-  %.not496 = icmp eq ptr %2383, null
-  br i1 %.not496, label %2390, label %2389
+2392:                                             ; preds = %2385
+  %.not496 = icmp eq ptr %2387, null
+  br i1 %.not496, label %2394, label %2393
 
-2389:                                             ; preds = %2388
-  call void @free(ptr noundef nonnull %2383) #23
-  br label %2390
+2393:                                             ; preds = %2392
+  call void @free(ptr noundef nonnull %2387) #23
+  br label %2394
 
-2390:                                             ; preds = %2384, %2389, %2388, %2378, %.split
+2394:                                             ; preds = %2388, %2393, %2392, %2382, %.split
   store i64 0, ptr %733, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %731, i8 0, i64 20, i1 false)
-  %2391 = load ptr, ptr %50, align 8
-  %.not511 = icmp eq ptr %2391, null
-  br i1 %.not511, label %2424, label %2412
+  %2395 = load ptr, ptr %50, align 8
+  %.not511 = icmp eq ptr %2395, null
+  br i1 %.not511, label %2428, label %2416
 
-2392:                                             ; preds = %2384
-  %2393 = landingpad { ptr, i32 }
+2396:                                             ; preds = %2388
+  %2397 = landingpad { ptr, i32 }
           catch ptr null
-  %2394 = extractvalue { ptr, i32 } %2393, 0
-  call void @__clang_call_terminate(ptr %2394) #24
+  %2398 = extractvalue { ptr, i32 } %2397, 0
+  call void @__clang_call_terminate(ptr %2398) #24
   unreachable
 
-.critedge:                                        ; preds = %57, %12, %2373
-  %.0334 = phi i32 [ %.1, %2373 ], [ -100, %12 ], [ -100, %57 ]
-  %2395 = load ptr, ptr %50, align 8
-  %.not517 = icmp eq ptr %2395, null
-  br i1 %.not517, label %2408, label %2396
+.critedge:                                        ; preds = %57, %12, %2377
+  %.0334 = phi i32 [ %.1, %2377 ], [ -100, %12 ], [ -100, %57 ]
+  %2399 = load ptr, ptr %50, align 8
+  %.not517 = icmp eq ptr %2399, null
+  br i1 %.not517, label %2412, label %2400
 
-2396:                                             ; preds = %.critedge
-  %2397 = atomicrmw add ptr %2395, i32 -1 acq_rel, align 4
-  %2398 = icmp eq i32 %2397, 1
-  br i1 %2398, label %2399, label %2408
+2400:                                             ; preds = %.critedge
+  %2401 = atomicrmw add ptr %2399, i32 -1 acq_rel, align 4
+  %2402 = icmp eq i32 %2401, 1
+  br i1 %2402, label %2403, label %2412
 
-2399:                                             ; preds = %2396
-  %2400 = load ptr, ptr %52, align 8
-  %.not518 = icmp eq ptr %2400, null
-  %2401 = load ptr, ptr %16, align 8
-  br i1 %.not518, label %2406, label %2402
+2403:                                             ; preds = %2400
+  %2404 = load ptr, ptr %52, align 8
+  %.not518 = icmp eq ptr %2404, null
+  %2405 = load ptr, ptr %16, align 8
+  br i1 %.not518, label %2410, label %2406
 
-2402:                                             ; preds = %2399
-  %2403 = load ptr, ptr %2400, align 8
-  %2404 = getelementptr inbounds nuw i8, ptr %2403, i64 24
-  %2405 = load ptr, ptr %2404, align 8
-  invoke void %2405(ptr noundef nonnull align 8 dereferenceable(8) %2400, ptr noundef %2401)
-          to label %2408 unwind label %2409
+2406:                                             ; preds = %2403
+  %2407 = load ptr, ptr %2404, align 8
+  %2408 = getelementptr inbounds nuw i8, ptr %2407, i64 24
+  %2409 = load ptr, ptr %2408, align 8
+  invoke void %2409(ptr noundef nonnull align 8 dereferenceable(8) %2404, ptr noundef %2405)
+          to label %2412 unwind label %2413
 
-2406:                                             ; preds = %2399
-  %.not519 = icmp eq ptr %2401, null
-  br i1 %.not519, label %2408, label %2407
+2410:                                             ; preds = %2403
+  %.not519 = icmp eq ptr %2405, null
+  br i1 %.not519, label %2412, label %2411
 
-2407:                                             ; preds = %2406
-  call void @free(ptr noundef nonnull %2401) #23
-  br label %2408
+2411:                                             ; preds = %2410
+  call void @free(ptr noundef nonnull %2405) #23
+  br label %2412
 
-2408:                                             ; preds = %2402, %2407, %2406, %2396, %.critedge
+2412:                                             ; preds = %2406, %2411, %2410, %2400, %.critedge
   ret i32 %.0334
 
-2409:                                             ; preds = %2402
-  %2410 = landingpad { ptr, i32 }
+2413:                                             ; preds = %2406
+  %2414 = landingpad { ptr, i32 }
           catch ptr null
-  %2411 = extractvalue { ptr, i32 } %2410, 0
-  call void @__clang_call_terminate(ptr %2411) #24
+  %2415 = extractvalue { ptr, i32 } %2414, 0
+  call void @__clang_call_terminate(ptr %2415) #24
   unreachable
 
-2412:                                             ; preds = %2390
-  %2413 = atomicrmw add ptr %2391, i32 -1 acq_rel, align 4
-  %2414 = icmp eq i32 %2413, 1
-  br i1 %2414, label %2415, label %2424
+2416:                                             ; preds = %2394
+  %2417 = atomicrmw add ptr %2395, i32 -1 acq_rel, align 4
+  %2418 = icmp eq i32 %2417, 1
+  br i1 %2418, label %2419, label %2428
 
-2415:                                             ; preds = %2412
-  %2416 = load ptr, ptr %52, align 8
-  %.not512 = icmp eq ptr %2416, null
-  %2417 = load ptr, ptr %16, align 8
-  br i1 %.not512, label %2422, label %2418
+2419:                                             ; preds = %2416
+  %2420 = load ptr, ptr %52, align 8
+  %.not512 = icmp eq ptr %2420, null
+  %2421 = load ptr, ptr %16, align 8
+  br i1 %.not512, label %2426, label %2422
 
-2418:                                             ; preds = %2415
-  %2419 = load ptr, ptr %2416, align 8
-  %2420 = getelementptr inbounds nuw i8, ptr %2419, i64 24
-  %2421 = load ptr, ptr %2420, align 8
-  invoke void %2421(ptr noundef nonnull align 8 dereferenceable(8) %2416, ptr noundef %2417)
-          to label %2424 unwind label %2425
+2422:                                             ; preds = %2419
+  %2423 = load ptr, ptr %2420, align 8
+  %2424 = getelementptr inbounds nuw i8, ptr %2423, i64 24
+  %2425 = load ptr, ptr %2424, align 8
+  invoke void %2425(ptr noundef nonnull align 8 dereferenceable(8) %2420, ptr noundef %2421)
+          to label %2428 unwind label %2429
 
-2422:                                             ; preds = %2415
-  %.not513 = icmp eq ptr %2417, null
-  br i1 %.not513, label %2424, label %2423
+2426:                                             ; preds = %2419
+  %.not513 = icmp eq ptr %2421, null
+  br i1 %.not513, label %2428, label %2427
 
-2423:                                             ; preds = %2422
-  call void @free(ptr noundef nonnull %2417) #23
-  br label %2424
+2427:                                             ; preds = %2426
+  call void @free(ptr noundef nonnull %2421) #23
+  br label %2428
 
-2424:                                             ; preds = %2418, %2423, %2422, %2412, %2390
+2428:                                             ; preds = %2422, %2427, %2426, %2416, %2394
   resume { ptr, i32 } %.pn.pn
 
-2425:                                             ; preds = %2418
-  %2426 = landingpad { ptr, i32 }
+2429:                                             ; preds = %2422
+  %2430 = landingpad { ptr, i32 }
           catch ptr null
-  %2427 = extractvalue { ptr, i32 } %2426, 0
-  call void @__clang_call_terminate(ptr %2427) #24
+  %2431 = extractvalue { ptr, i32 } %2430, 0
+  call void @__clang_call_terminate(ptr %2431) #24
   unreachable
 }
 

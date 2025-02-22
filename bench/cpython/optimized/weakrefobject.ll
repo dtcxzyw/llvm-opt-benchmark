@@ -2661,7 +2661,7 @@ get_basic_refs.exit.i:                            ; preds = %.thread.thread.i.i,
   br i1 %.not.i, label %63, label %58
 
 58:                                               ; preds = %54
-  %59 = load i32, ptr %spec.store.select, align 8, !tbaa !42
+  %59 = load i32, ptr %2, align 8, !tbaa !42
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %63, label %61
 
@@ -2796,7 +2796,7 @@ insert_after.exit.i:                              ; preds = %89, %85
   br i1 %.not.i.i.i.i60, label %105, label %100
 
 100:                                              ; preds = %96
-  %101 = load i32, ptr %spec.store.select, align 8, !tbaa !42
+  %101 = load i32, ptr %2, align 8, !tbaa !42
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %105, label %103
 

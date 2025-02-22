@@ -3270,7 +3270,6 @@ define internal void @_ZN5clang4ento5check7PreCall10_checkCallIN12_GLOBAL__N_118
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
   %.not.i = icmp eq i32 %17, 2
-  %spec.select.i.i.i = select i1 %.not.i, ptr %1, ptr null
   br i1 %.not.i, label %18, label %_ZNK12_GLOBAL__N_118VirtualCallChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 18:                                               ; preds = %3
@@ -3477,7 +3476,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i:   ; preds = %120, %_ZNK5clang4De
   br i1 %.not.i32.i.i, label %.loopexit.i, label %128
 
 128:                                              ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i
-  %129 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %124) #21
+  %129 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %123) #21
   %130 = load ptr, ptr %129, align 8, !tbaa !493
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %132 = load i32, ptr %131, align 8, !tbaa !498
@@ -3505,10 +3504,10 @@ _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit40.i.i: ; preds = %.lr.ph.i.i.i.i
 
 .loopexit.i:                                      ; preds = %139, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit40.i.i, %128, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
-  %141 = load ptr, ptr %spec.select.i.i.i, align 8, !tbaa !7
+  %141 = load ptr, ptr %1, align 8, !tbaa !7
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 160
   %143 = load ptr, ptr %142, align 8
-  %144 = tail call { ptr, i8 } %143(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i) #21
+  %144 = tail call { ptr, i8 } %143(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
   %.fca.0.extract.i = extractvalue { ptr, i8 } %144, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %144, 1
   store ptr %.fca.0.extract.i, ptr %8, align 8

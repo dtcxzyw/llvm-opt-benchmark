@@ -86,7 +86,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbf58c5a5e2313c23E(ptr noal
   br i1 %15, label %16, label %"_ZN4core5slice4sort10merge_sort32BufGuard$LT$T$C$ElemDeallocF$GT$3new17h0f4ba3a4398a8eaeE.exit"
 
 16:                                               ; preds = %9
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.a20ea156f567cca42419891fa62f7a9c.21, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.22) #27
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.a20ea156f567cca42419891fa62f7a9c.21, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.22) #27
   unreachable
 
 "_ZN4core5slice4sort10merge_sort32BufGuard$LT$T$C$ElemDeallocF$GT$3new17h0f4ba3a4398a8eaeE.exit": ; preds = %9
@@ -101,7 +101,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbf58c5a5e2313c23E(ptr noal
   br i1 %19, label %20, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h7e6ed968680748bcE.exit"
 
 20:                                               ; preds = %"_ZN4core5slice4sort10merge_sort32BufGuard$LT$T$C$ElemDeallocF$GT$3new17h0f4ba3a4398a8eaeE.exit"
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.a20ea156f567cca42419891fa62f7a9c.21, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.23) #27
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.a20ea156f567cca42419891fa62f7a9c.21, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.23) #27
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %20
@@ -288,7 +288,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbf58c5a5e2313c23E(ptr noal
   %85 = phi ptr [ @anon.a20ea156f567cca42419891fa62f7a9c.38, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6c3830fe1b2611c2E.exit" ], [ @anon.a20ea156f567cca42419891fa62f7a9c.21, %122 ]
   %86 = phi i64 [ 44, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6c3830fe1b2611c2E.exit" ], [ 43, %122 ]
   %87 = phi ptr [ @anon.a20ea156f567cca42419891fa62f7a9c.39, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6c3830fe1b2611c2E.exit" ], [ @anon.a20ea156f567cca42419891fa62f7a9c.24, %122 ]
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %86, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %87) #27
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %86, ptr noalias noundef readonly align 8 dereferenceable(24) %87) #27
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -677,7 +677,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17he1
   br i1 %5, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3f09cdffdb0616b6E.exit", label %._crit_edge
 
 6:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.a20ea156f567cca42419891fa62f7a9c.41, i64 noundef 46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.42) #27
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.a20ea156f567cca42419891fa62f7a9c.41, i64 noundef 46, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.42) #27
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZN4core5slice4sort11insert_tail17hbfc7404ec8769b56E.exit, %.preheader
@@ -4125,7 +4125,7 @@ define hidden void @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17hf9167e24d6224835E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.46.llvm.15168037613067629620) #27
+  call void @_ZN4core9panicking13assert_failed17hf9167e24d6224835E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.46.llvm.15168037613067629620) #27
   unreachable
 
 16:                                               ; preds = %9
@@ -4179,7 +4179,7 @@ define hidden void @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @_ZN4core9panicking13assert_failed17hf9167e24d6224835E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.46.llvm.15168037613067629620) #27
+  call void @_ZN4core9panicking13assert_failed17hf9167e24d6224835E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a20ea156f567cca42419891fa62f7a9c.46.llvm.15168037613067629620) #27
   unreachable
 
 16:                                               ; preds = %9

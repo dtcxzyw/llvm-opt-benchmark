@@ -244,7 +244,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   unreachable
 
 26:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %20, i64 noundef 3406, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.9.llvm.3355593342274400970) #6
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %20, i64 noundef 3406, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.9.llvm.3355593342274400970) #6
   unreachable
 
 "_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit": ; preds = %22
@@ -282,7 +282,7 @@ define hidden { ptr, i64 } @"_ZN21unicode_normalization7lookups26canonical_fully
   ret { ptr, i64 } %12
 
 13:                                               ; preds = %2
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %3, i64 noundef 3406, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.9.llvm.3355593342274400970) #6
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %3, i64 noundef 3406, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.9.llvm.3355593342274400970) #6
   unreachable
 }
 
@@ -329,7 +329,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   unreachable
 
 26:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %20, i64 noundef 5735, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.14.llvm.3355593342274400970) #6
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %20, i64 noundef 5735, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.14.llvm.3355593342274400970) #6
   unreachable
 
 "_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit": ; preds = %22
@@ -367,7 +367,7 @@ define hidden { ptr, i64 } @"_ZN21unicode_normalization7lookups30compatibility_f
   ret { ptr, i64 } %12
 
 13:                                               ; preds = %2
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %3, i64 noundef 5735, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.14.llvm.3355593342274400970) #6
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %3, i64 noundef 5735, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.14.llvm.3355593342274400970) #6
   unreachable
 }
 
@@ -414,7 +414,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.33
   unreachable
 
 26:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %20, i64 noundef 2004, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.19) #6
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %20, i64 noundef 2004, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.19) #6
   unreachable
 
 "_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit": ; preds = %22
@@ -507,7 +507,7 @@ define hidden noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup1
   br i1 %24, label %26, label %32, !prof !51
 
 25:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.25) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.25) #6
   unreachable
 
 26:                                               ; preds = %14
@@ -520,7 +520,7 @@ define hidden noundef i32 @_ZN21unicode_normalization12perfect_hash10mph_lookup1
   ret i32 %spec.select
 
 32:                                               ; preds = %14
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %23, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.26) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %23, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.26) #6
   unreachable
 }
 
@@ -549,7 +549,7 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
   br i1 %24, label %26, label %29, !prof !51
 
 25:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.25) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.25) #6
   unreachable
 
 26:                                               ; preds = %14
@@ -560,7 +560,7 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
   br i1 %28, label %30, label %33
 
 29:                                               ; preds = %14
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %23, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.26) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %23, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.26) #6
   unreachable
 
 30:                                               ; preds = %26
@@ -604,7 +604,7 @@ define hidden noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17
   br i1 %24, label %26, label %32, !prof !51
 
 25:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.25) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.25) #6
   unreachable
 
 26:                                               ; preds = %14
@@ -617,7 +617,7 @@ define hidden noundef i8 @_ZN21unicode_normalization12perfect_hash10mph_lookup17
   ret i8 %spec.select
 
 32:                                               ; preds = %14
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %23, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.26) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %23, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bf8cbd9db60c063894021140588f89d.26) #6
   unreachable
 }
 

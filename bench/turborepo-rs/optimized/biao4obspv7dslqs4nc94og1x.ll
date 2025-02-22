@@ -6541,7 +6541,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1542
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %5, align 8, !noalias !1542
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.08be7be5c614cda5f82a7de1056bbb49.6, i64 noundef 7, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.08be7be5c614cda5f82a7de1056bbb49.5)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.08be7be5c614cda5f82a7de1056bbb49.6, i64 noundef 7, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.08be7be5c614cda5f82a7de1056bbb49.5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1542
   br label %_RNvXso_NtCsaPKTPzkFU9s_3nom5errorNtB5_16VerboseErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 
@@ -6549,7 +6549,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1542
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store ptr %12, ptr %4, align 8, !noalias !1542
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.08be7be5c614cda5f82a7de1056bbb49.8, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.08be7be5c614cda5f82a7de1056bbb49.7)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.08be7be5c614cda5f82a7de1056bbb49.8, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.08be7be5c614cda5f82a7de1056bbb49.7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !1542
   br label %_RNvXso_NtCsaPKTPzkFU9s_3nom5errorNtB5_16VerboseErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 
@@ -6557,7 +6557,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1542
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %15, ptr %3, align 8, !noalias !1542
-  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.08be7be5c614cda5f82a7de1056bbb49.10, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.08be7be5c614cda5f82a7de1056bbb49.9)
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.08be7be5c614cda5f82a7de1056bbb49.10, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.08be7be5c614cda5f82a7de1056bbb49.9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1542
   br label %_RNvXso_NtCsaPKTPzkFU9s_3nom5errorNtB5_16VerboseErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 

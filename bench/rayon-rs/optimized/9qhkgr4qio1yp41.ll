@@ -529,7 +529,7 @@ define i32 @"_ZN88_$LT$rayon..range..IterProducer$LT$u8$GT$$u20$as$u20$rayon..it
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.4) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.4) #12
   unreachable
 
 5:                                                ; preds = %3
@@ -597,7 +597,7 @@ define i64 @"_ZN89_$LT$rayon..range..IterProducer$LT$u16$GT$$u20$as$u20$rayon..i
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.5) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.5) #12
   unreachable
 
 5:                                                ; preds = %3
@@ -665,7 +665,7 @@ define void @"_ZN89_$LT$rayon..range..IterProducer$LT$u32$GT$$u20$as$u20$rayon..
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.6) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.6) #12
   unreachable
 
 6:                                                ; preds = %4
@@ -728,7 +728,7 @@ define void @"_ZN91_$LT$rayon..range..IterProducer$LT$usize$GT$$u20$as$u20$rayon
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.7) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.7) #12
   unreachable
 
 6:                                                ; preds = %4
@@ -802,7 +802,7 @@ define i32 @"_ZN88_$LT$rayon..range..IterProducer$LT$i8$GT$$u20$as$u20$rayon..it
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.8) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.8) #12
   unreachable
 
 9:                                                ; preds = %3
@@ -879,7 +879,7 @@ define i64 @"_ZN89_$LT$rayon..range..IterProducer$LT$i16$GT$$u20$as$u20$rayon..i
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.9) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.9) #12
   unreachable
 
 9:                                                ; preds = %3
@@ -956,7 +956,7 @@ define void @"_ZN89_$LT$rayon..range..IterProducer$LT$i32$GT$$u20$as$u20$rayon..
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.10) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.10) #12
   unreachable
 
 10:                                               ; preds = %4
@@ -1025,7 +1025,7 @@ define void @"_ZN91_$LT$rayon..range..IterProducer$LT$isize$GT$$u20$as$u20$rayon
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.11) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c652179cb1108d847aa085e76cddda43.2, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c652179cb1108d847aa085e76cddda43.11) #12
   unreachable
 
 8:                                                ; preds = %4

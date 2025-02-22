@@ -3822,42 +3822,40 @@ define dso_local void @_ZN4llvm18OptimizationRemarkC2EPKcNS_9StringRefEPKNS_8Fun
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !318
-  %14 = icmp eq ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %13, i64 -24
-  %16 = select i1 %14, ptr null, ptr %15
+  %14 = getelementptr inbounds i8, ptr %13, i64 -24
   br label %_ZL21getFirstFunctionBlockPKN4llvm8FunctionE.exit
 
 _ZL21getFirstFunctionBlockPKN4llvm8FunctionE.exit: ; preds = %5, %11
-  %17 = phi ptr [ %16, %11 ], [ null, %5 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 13, ptr %18, align 8, !tbaa !79
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 2, ptr %19, align 4, !tbaa !80
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %20, align 8, !tbaa !108
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !105
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %22, align 8, !tbaa !311
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %2, ptr %23, align 8, !tbaa !167
+  %15 = phi ptr [ %14, %11 ], [ null, %5 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 13, ptr %16, align 8, !tbaa !79
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 2, ptr %17, align 4, !tbaa !80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %18, align 8, !tbaa !108
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !105
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %1, ptr %20, align 8, !tbaa !311
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %2, ptr %21, align 8, !tbaa !167
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !192
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %24, align 8, !tbaa !290
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %26, ptr %25, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %27, align 8, !tbaa !87
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 4, ptr %28, align 4, !tbaa !312
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i8 0, ptr %29, align 8, !tbaa !313
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  store i32 -1, ptr %30, align 4, !tbaa !279
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr %17, ptr %31, align 8, !tbaa !314
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 0, ptr %22, align 8, !tbaa !290
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %24, ptr %23, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %25, align 8, !tbaa !87
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 4, ptr %26, align 4, !tbaa !312
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store i8 0, ptr %27, align 8, !tbaa !313
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  store i32 -1, ptr %28, align 4, !tbaa !279
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store ptr %15, ptr %29, align 8, !tbaa !314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm18OptimizationRemarkE, i64 16), ptr %0, align 8, !tbaa !13
   ret void
@@ -3988,42 +3986,40 @@ define dso_local void @_ZN4llvm24OptimizationRemarkMissedC2EPKcNS_9StringRefEPKN
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !318
-  %14 = icmp eq ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %13, i64 -24
-  %16 = select i1 %14, ptr null, ptr %15
+  %14 = getelementptr inbounds i8, ptr %13, i64 -24
   br label %_ZL21getFirstFunctionBlockPKN4llvm8FunctionE.exit
 
 _ZL21getFirstFunctionBlockPKN4llvm8FunctionE.exit: ; preds = %5, %11
-  %17 = phi ptr [ %16, %11 ], [ null, %5 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 14, ptr %18, align 8, !tbaa !79
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 2, ptr %19, align 4, !tbaa !80
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %20, align 8, !tbaa !108
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !105
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %22, align 8, !tbaa !311
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %2, ptr %23, align 8, !tbaa !167
+  %15 = phi ptr [ %14, %11 ], [ null, %5 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 14, ptr %16, align 8, !tbaa !79
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 2, ptr %17, align 4, !tbaa !80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %18, align 8, !tbaa !108
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !105
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %1, ptr %20, align 8, !tbaa !311
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %2, ptr %21, align 8, !tbaa !167
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !192
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %24, align 8, !tbaa !290
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %26, ptr %25, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %27, align 8, !tbaa !87
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 4, ptr %28, align 4, !tbaa !312
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i8 0, ptr %29, align 8, !tbaa !313
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  store i32 -1, ptr %30, align 4, !tbaa !279
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr %17, ptr %31, align 8, !tbaa !314
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 0, ptr %22, align 8, !tbaa !290
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %24, ptr %23, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %25, align 8, !tbaa !87
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 4, ptr %26, align 4, !tbaa !312
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store i8 0, ptr %27, align 8, !tbaa !313
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  store i32 -1, ptr %28, align 4, !tbaa !279
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store ptr %15, ptr %29, align 8, !tbaa !314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm24OptimizationRemarkMissedE, i64 16), ptr %0, align 8, !tbaa !13
   ret void
@@ -4188,42 +4184,40 @@ define dso_local void @_ZN4llvm26OptimizationRemarkAnalysisC2EPKcNS_9StringRefEP
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !318
-  %14 = icmp eq ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %13, i64 -24
-  %16 = select i1 %14, ptr null, ptr %15
+  %14 = getelementptr inbounds i8, ptr %13, i64 -24
   br label %_ZL21getFirstFunctionBlockPKN4llvm8FunctionE.exit
 
 _ZL21getFirstFunctionBlockPKN4llvm8FunctionE.exit: ; preds = %5, %11
-  %17 = phi ptr [ %16, %11 ], [ null, %5 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 15, ptr %18, align 8, !tbaa !79
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 2, ptr %19, align 4, !tbaa !80
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %20, align 8, !tbaa !108
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !105
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %22, align 8, !tbaa !311
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %2, ptr %23, align 8, !tbaa !167
+  %15 = phi ptr [ %14, %11 ], [ null, %5 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 15, ptr %16, align 8, !tbaa !79
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 2, ptr %17, align 4, !tbaa !80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %18, align 8, !tbaa !108
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !105
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %1, ptr %20, align 8, !tbaa !311
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %2, ptr %21, align 8, !tbaa !167
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !192
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %24, align 8, !tbaa !290
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %26, ptr %25, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %27, align 8, !tbaa !87
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 4, ptr %28, align 4, !tbaa !312
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i8 0, ptr %29, align 8, !tbaa !313
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  store i32 -1, ptr %30, align 4, !tbaa !279
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr %17, ptr %31, align 8, !tbaa !314
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 0, ptr %22, align 8, !tbaa !290
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %24, ptr %23, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %25, align 8, !tbaa !87
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 4, ptr %26, align 4, !tbaa !312
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store i8 0, ptr %27, align 8, !tbaa !313
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  store i32 -1, ptr %28, align 4, !tbaa !279
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store ptr %15, ptr %29, align 8, !tbaa !314
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm26OptimizationRemarkAnalysisE, i64 16), ptr %0, align 8, !tbaa !13
   ret void
@@ -5124,8 +5118,8 @@ define dso_local void @_ZN4llvm16diagnoseDontCallERKNS_8CallInstE(ptr noundef no
   br label %15
 
 15:                                               ; preds = %.preheader, %57
-  %.029 = phi i32 [ 0, %.preheader ], [ %58, %57 ]
-  %16 = icmp ne i32 %.029, 0
+  %.030 = phi i32 [ 0, %.preheader ], [ %58, %57 ]
+  %16 = icmp ne i32 %.030, 0
   %17 = select i1 %16, ptr @.str.19, ptr @.str.18
   %18 = zext i1 %16 to i8
   %19 = select i1 %16, i64 13, i64 14
@@ -5206,7 +5200,7 @@ _ZNK4llvm11Instruction11getMetadataENS_9StringRefE.exit.thread: ; preds = %21, %
   br label %57
 
 57:                                               ; preds = %_ZNK4llvm11Instruction11getMetadataENS_9StringRefE.exit.thread, %15
-  %58 = add nuw nsw i32 %.029, 1
+  %58 = add nuw nsw i32 %.030, 1
   %.not21 = icmp eq i32 %58, 2
   br i1 %.not21, label %.loopexit, label %15, !llvm.loop !384
 

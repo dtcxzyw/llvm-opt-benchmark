@@ -10554,37 +10554,31 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN5clang31ClassTem
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang31ClassTemplateSpecializationDeclEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -144
-  %6 = select i1 %4, ptr null, ptr %5
-  tail call void @_ZNK5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(181) %6, ptr noundef nonnull align 8 dereferenceable(144) %2)
+  %4 = getelementptr inbounds i8, ptr %1, i64 -144
+  tail call void @_ZNK5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(181) %4, ptr noundef nonnull align 8 dereferenceable(144) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang31ClassTemplateSpecializationDeclEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS4_4NodeERKNS_16FoldingSetNodeIDEjRS9_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) #0 comdat align 2 {
-  %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 -144
-  %8 = select i1 %6, ptr null, ptr %7
-  tail call void @_ZNK5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(181) %8, ptr noundef nonnull align 8 dereferenceable(144) %4)
-  %9 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
-  ret i1 %9
+  %6 = getelementptr inbounds i8, ptr %1, i64 -144
+  tail call void @_ZNK5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(181) %6, ptr noundef nonnull align 8 dereferenceable(144) %4)
+  %7 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang31ClassTemplateSpecializationDeclEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -144
-  %6 = select i1 %4, ptr null, ptr %5
-  tail call void @_ZNK5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(181) %6, ptr noundef nonnull align 8 dereferenceable(144) %2)
-  %7 = load ptr, ptr %2, align 8, !tbaa !79
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !77
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
-  %12 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %7, ptr noundef %11)
-  %13 = trunc i64 %12 to i32
-  ret i32 %13
+  %4 = getelementptr inbounds i8, ptr %1, i64 -144
+  tail call void @_ZNK5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(181) %4, ptr noundef nonnull align 8 dereferenceable(144) %2)
+  %5 = load ptr, ptr %2, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !77
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %8
+  %10 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %5, ptr noundef %9)
+  %11 = trunc i64 %10 to i32
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10711,61 +10705,55 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN5clang38ClassTem
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang38ClassTemplatePartialSpecializationDeclEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -144
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !537
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %8, align 8, !tbaa !520
-  %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %13 = load ptr, ptr %12, align 8, !tbaa !577
-  %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(200) %6) #23
-  tail call void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %9, i64 %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(23216) %14)
+  %4 = getelementptr inbounds i8, ptr %1, i64 -144
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !537
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i32, ptr %6, align 8, !tbaa !520
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8, !tbaa !577
+  %12 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(200) %4) #23
+  tail call void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %7, i64 %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(23216) %12)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang38ClassTemplatePartialSpecializationDeclEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS4_4NodeERKNS_16FoldingSetNodeIDEjRS9_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) #0 comdat align 2 {
-  %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 -144
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %10 = load ptr, ptr %9, align 8, !tbaa !537
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %10, align 8, !tbaa !520
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %15 = load ptr, ptr %14, align 8, !tbaa !577
-  %16 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(200) %8) #23
-  tail call void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %11, i64 %13, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(23216) %16)
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
-  ret i1 %17
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang38ClassTemplatePartialSpecializationDeclEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -144
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %6 = getelementptr inbounds i8, ptr %1, i64 -144
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !537
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %8, align 8, !tbaa !520
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !577
   %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(200) %6) #23
-  tail call void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %9, i64 %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(23216) %14)
-  %15 = load ptr, ptr %2, align 8, !tbaa !79
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !77
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
-  %20 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %15, ptr noundef %19)
-  %21 = trunc i64 %20 to i32
-  ret i32 %21
+  tail call void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %9, i64 %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(23216) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
+  ret i1 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang38ClassTemplatePartialSpecializationDeclEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
+  %4 = getelementptr inbounds i8, ptr %1, i64 -144
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !537
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i32, ptr %6, align 8, !tbaa !520
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8, !tbaa !577
+  %12 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(200) %4) #23
+  tail call void @_ZN5clang38ClassTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %7, i64 %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(23216) %12)
+  %13 = load ptr, ptr %2, align 8, !tbaa !79
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !77
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %16
+  %18 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %13, ptr noundef %17)
+  %19 = trunc i64 %18 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -10867,37 +10855,31 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %22, %26
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang29VarTemplateSpecializationDeclEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -104
-  %6 = select i1 %4, ptr null, ptr %5
-  tail call void @_ZNK5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(141) %6, ptr noundef nonnull align 8 dereferenceable(144) %2)
+  %4 = getelementptr inbounds i8, ptr %1, i64 -104
+  tail call void @_ZNK5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(141) %4, ptr noundef nonnull align 8 dereferenceable(144) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang29VarTemplateSpecializationDeclEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS4_4NodeERKNS_16FoldingSetNodeIDEjRS9_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) #0 comdat align 2 {
-  %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 -104
-  %8 = select i1 %6, ptr null, ptr %7
-  tail call void @_ZNK5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(141) %8, ptr noundef nonnull align 8 dereferenceable(144) %4)
-  %9 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
-  ret i1 %9
+  %6 = getelementptr inbounds i8, ptr %1, i64 -104
+  tail call void @_ZNK5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(141) %6, ptr noundef nonnull align 8 dereferenceable(144) %4)
+  %7 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang29VarTemplateSpecializationDeclEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -104
-  %6 = select i1 %4, ptr null, ptr %5
-  tail call void @_ZNK5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(141) %6, ptr noundef nonnull align 8 dereferenceable(144) %2)
-  %7 = load ptr, ptr %2, align 8, !tbaa !79
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !77
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
-  %12 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %7, ptr noundef %11)
-  %13 = trunc i64 %12 to i32
-  ret i32 %13
+  %4 = getelementptr inbounds i8, ptr %1, i64 -104
+  tail call void @_ZNK5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(141) %4, ptr noundef nonnull align 8 dereferenceable(144) %2)
+  %5 = load ptr, ptr %2, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !77
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %8
+  %10 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %5, ptr noundef %9)
+  %11 = trunc i64 %10 to i32
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10970,61 +10952,55 @@ _ZN5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang36VarTemplatePartialSpecializationDeclEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -104
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %8 = load ptr, ptr %7, align 8, !tbaa !597
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %8, align 8, !tbaa !520
-  %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %13 = load ptr, ptr %12, align 8, !tbaa !612
-  %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(160) %6) #23
-  tail call void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %9, i64 %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(23216) %14)
+  %4 = getelementptr inbounds i8, ptr %1, i64 -104
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !597
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i32, ptr %6, align 8, !tbaa !520
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8, !tbaa !612
+  %12 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(160) %4) #23
+  tail call void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %7, i64 %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(23216) %12)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang36VarTemplatePartialSpecializationDeclEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS4_4NodeERKNS_16FoldingSetNodeIDEjRS9_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) #0 comdat align 2 {
-  %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 -104
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8, !tbaa !597
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %10, align 8, !tbaa !520
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %15 = load ptr, ptr %14, align 8, !tbaa !612
-  %16 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(160) %8) #23
-  tail call void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %11, i64 %13, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(23216) %16)
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
-  ret i1 %17
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang36VarTemplatePartialSpecializationDeclEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -104
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %6 = getelementptr inbounds i8, ptr %1, i64 -104
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !597
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %8, align 8, !tbaa !520
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !612
   %14 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(160) %6) #23
-  tail call void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %9, i64 %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(23216) %14)
-  %15 = load ptr, ptr %2, align 8, !tbaa !79
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !77
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
-  %20 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %15, ptr noundef %19)
-  %21 = trunc i64 %20 to i32
-  ret i32 %21
+  tail call void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %9, i64 %11, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(23216) %14)
+  %15 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #22
+  ret i1 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang36VarTemplatePartialSpecializationDeclEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS4_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
+  %4 = getelementptr inbounds i8, ptr %1, i64 -104
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !597
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i32, ptr %6, align 8, !tbaa !520
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8, !tbaa !612
+  %12 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(160) %4) #23
+  tail call void @_ZN5clang36VarTemplatePartialSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEEPNS_21TemplateParameterListERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %7, i64 %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(23216) %12)
+  %13 = load ptr, ptr %2, align 8, !tbaa !79
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !77
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %16
+  %18 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %13, ptr noundef %17)
+  %19 = trunc i64 %18 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

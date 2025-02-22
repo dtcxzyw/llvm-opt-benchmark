@@ -70200,9 +70200,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit295: ; preds = %_ZN4cvc58internal1
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
-  %438 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 8832
   %439 = load ptr, ptr %438, align 8, !tbaa !639
-  %440 = load ptr, ptr %96, align 8, !tbaa !638
+  %440 = load ptr, ptr %95, align 8, !tbaa !638
   %441 = ptrtoint ptr %439 to i64
   %442 = ptrtoint ptr %440 to i64
   %443 = sub i64 %441, %442
@@ -70461,7 +70461,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
           to label %524 unwind label %.loopexit.split-lp823
 
 524:                                              ; preds = %522
-  %525 = load ptr, ptr %96, align 8, !tbaa !1651
+  %525 = load ptr, ptr %95, align 8, !tbaa !1651
   %526 = load ptr, ptr %438, align 8, !tbaa !1651
   %.not7.i = icmp eq ptr %525, %526
   br i1 %.not7.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal8RationalESt6vectorIS4_SaIS4_EEEESt20back_insert_iteratorIS6_INS3_12NodeTemplateILb1EEESaISC_EEEZNS3_6theory5arith6linear18TheoryArithPrivate26rowImplicationCanBeAppliedEjbPNSI_10ConstraintEE3$_0ET0_T_SO_SN_T1_.exit", label %.lr.ph.i305

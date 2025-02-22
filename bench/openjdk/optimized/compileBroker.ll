@@ -8079,176 +8079,176 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %32, %34
   %57 = or i1 %54, %55
   call void @_ZN9TimeStamp6updateEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   %58 = load ptr, ptr @Compile_lock, align 8
-  %59 = select i1 %52, ptr %58, ptr null
-  %.not.i.i94 = icmp eq ptr %59, null
-  br i1 %.not.i.i94, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, label %60
+  %.not.i.i94116 = icmp ne ptr %58, null
+  %.not.i.i94.not = select i1 %52, i1 %.not.i.i94116, i1 false
+  br i1 %.not.i.i94.not, label %59, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
 
-60:                                               ; preds = %50
-  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %59) #20
+59:                                               ; preds = %50
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %58) #20
   br label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
 
-_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = %50, %60
-  %61 = load ptr, ptr @CodeCache_lock, align 8
-  %62 = select i1 %53, ptr %61, ptr null
-  %.not.i.i95 = icmp eq ptr %62, null
-  br i1 %.not.i.i95, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96, label %63
+_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = %50, %59
+  %60 = load ptr, ptr @CodeCache_lock, align 8
+  %.not.i.i95115 = icmp ne ptr %60, null
+  %.not.i.i95.not = select i1 %53, i1 %.not.i.i95115, i1 false
+  br i1 %.not.i.i95.not, label %61, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96
 
-63:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %62) #20
+61:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %60) #20
   br label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96
 
-_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96: ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, %63
-  br i1 %56, label %64, label %66
+_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96: ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, %61
+  br i1 %56, label %62, label %64
 
-64:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96
-  %65 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.148, double noundef %65) #20
+62:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96
+  %63 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.148, double noundef %63) #20
   call void @_ZN9TimeStamp6updateEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
-  br label %66
+  br label %64
 
-66:                                               ; preds = %64, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96
-  br i1 %12, label %67, label %_ZN22ConditionalMutexLockerD2Ev.exit103
+64:                                               ; preds = %62, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit96
+  br i1 %12, label %65, label %_ZN22ConditionalMutexLockerD2Ev.exit103
 
-67:                                               ; preds = %66
+65:                                               ; preds = %64
   call void @_ZN9TimeStamp6updateEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
-  %68 = load ptr, ptr @Compile_lock, align 8
-  %69 = select i1 %54, ptr %68, ptr null
-  %.not.i.i97 = icmp eq ptr %69, null
-  br i1 %.not.i.i97, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98, label %70
+  %66 = load ptr, ptr @Compile_lock, align 8
+  %.not.i.i97114 = icmp ne ptr %66, null
+  %.not.i.i97.not = select i1 %54, i1 %.not.i.i97114, i1 false
+  br i1 %.not.i.i97.not, label %67, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98
 
-70:                                               ; preds = %67
-  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #20
+67:                                               ; preds = %65
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %66) #20
   br label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98
 
-_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98: ; preds = %67, %70
-  %71 = load ptr, ptr @CodeCache_lock, align 8
-  %72 = select i1 %55, ptr %71, ptr null
-  %.not.i.i99 = icmp eq ptr %72, null
-  br i1 %.not.i.i99, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100, label %73
+_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98: ; preds = %65, %67
+  %68 = load ptr, ptr @CodeCache_lock, align 8
+  %.not.i.i99113 = icmp ne ptr %68, null
+  %.not.i.i99.not = select i1 %55, i1 %.not.i.i99113, i1 false
+  br i1 %.not.i.i99.not, label %69, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100
 
-73:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %72) #20
+69:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %68) #20
   br label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100
 
-_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100: ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98, %73
-  br i1 %57, label %74, label %.critedge
+_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100: ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit98, %69
+  br i1 %57, label %70, label %.critedge
 
-74:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100
-  %75 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.149, double noundef %75) #20
+70:                                               ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100
+  %71 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.149, double noundef %71) #20
   call void @_ZN9TimeStamp6updateEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
   call void @_ZN9CodeCache9aggregateEP12outputStreamm(ptr noundef nonnull %spec.select87, i64 noundef %2) #20
-  %76 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.150, double noundef %76) #20
-  br label %77
+  %72 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.150, double noundef %72) #20
+  br label %73
 
 .critedge:                                        ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit100
   call void @_ZN9TimeStamp6updateEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
   call void @_ZN9CodeCache9aggregateEP12outputStreamm(ptr noundef nonnull %spec.select87, i64 noundef %2) #20
-  br label %77
+  br label %73
 
-77:                                               ; preds = %.critedge, %74
-  br i1 %.not.i.i99, label %_ZN22ConditionalMutexLockerD2Ev.exit, label %78
+73:                                               ; preds = %.critedge, %70
+  br i1 %.not.i.i99.not, label %74, label %_ZN22ConditionalMutexLockerD2Ev.exit
 
-78:                                               ; preds = %77
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %72) #20
+74:                                               ; preds = %73
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %68) #20
   br label %_ZN22ConditionalMutexLockerD2Ev.exit
 
-_ZN22ConditionalMutexLockerD2Ev.exit:             ; preds = %77, %78
-  br i1 %.not.i.i97, label %_ZN22ConditionalMutexLockerD2Ev.exit103, label %79
+_ZN22ConditionalMutexLockerD2Ev.exit:             ; preds = %73, %74
+  br i1 %.not.i.i97.not, label %75, label %_ZN22ConditionalMutexLockerD2Ev.exit103
 
-79:                                               ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #20
+75:                                               ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %66) #20
   br label %_ZN22ConditionalMutexLockerD2Ev.exit103
 
-_ZN22ConditionalMutexLockerD2Ev.exit103:          ; preds = %79, %_ZN22ConditionalMutexLockerD2Ev.exit, %66
-  br i1 %14, label %80, label %81
+_ZN22ConditionalMutexLockerD2Ev.exit103:          ; preds = %75, %_ZN22ConditionalMutexLockerD2Ev.exit, %64
+  br i1 %14, label %76, label %77
 
-80:                                               ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit103
+76:                                               ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit103
   call void @_ZN9CodeCache15print_usedSpaceEP12outputStream(ptr noundef nonnull %spec.select87) #20
+  br label %77
+
+77:                                               ; preds = %76, %_ZN22ConditionalMutexLockerD2Ev.exit103
+  br i1 %16, label %78, label %79
+
+78:                                               ; preds = %77
+  call void @_ZN9CodeCache15print_freeSpaceEP12outputStream(ptr noundef nonnull %spec.select87) #20
+  br label %79
+
+79:                                               ; preds = %78, %77
+  br i1 %18, label %80, label %81
+
+80:                                               ; preds = %79
+  call void @_ZN9CodeCache11print_countEP12outputStream(ptr noundef nonnull %spec.select87) #20
   br label %81
 
-81:                                               ; preds = %80, %_ZN22ConditionalMutexLockerD2Ev.exit103
-  br i1 %16, label %82, label %83
+81:                                               ; preds = %80, %79
+  br i1 %20, label %82, label %83
 
 82:                                               ; preds = %81
-  call void @_ZN9CodeCache15print_freeSpaceEP12outputStream(ptr noundef nonnull %spec.select87) #20
+  call void @_ZN9CodeCache11print_spaceEP12outputStream(ptr noundef nonnull %spec.select87) #20
   br label %83
 
 83:                                               ; preds = %82, %81
-  br i1 %18, label %84, label %85
+  br i1 %22, label %84, label %85
 
 84:                                               ; preds = %83
-  call void @_ZN9CodeCache11print_countEP12outputStream(ptr noundef nonnull %spec.select87) #20
+  call void @_ZN9CodeCache9print_ageEP12outputStream(ptr noundef nonnull %spec.select87) #20
   br label %85
 
 85:                                               ; preds = %84, %83
-  br i1 %20, label %86, label %87
+  br i1 %24, label %86, label %89
 
 86:                                               ; preds = %85
-  call void @_ZN9CodeCache11print_spaceEP12outputStream(ptr noundef nonnull %spec.select87) #20
-  br label %87
+  br i1 %.not, label %87, label %88
 
-87:                                               ; preds = %86, %85
-  br i1 %22, label %88, label %89
-
-88:                                               ; preds = %87
-  call void @_ZN9CodeCache9print_ageEP12outputStream(ptr noundef nonnull %spec.select87) #20
+87:                                               ; preds = %86
+  call void @_ZN9CodeCache11print_namesEP12outputStream(ptr noundef nonnull %spec.select87) #20
   br label %89
 
-89:                                               ; preds = %88, %87
-  br i1 %24, label %90, label %93
+88:                                               ; preds = %86
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.151) #20
+  br label %89
+
+89:                                               ; preds = %87, %88, %85
+  br i1 %26, label %90, label %91
 
 90:                                               ; preds = %89
-  br i1 %.not, label %91, label %92
-
-91:                                               ; preds = %90
-  call void @_ZN9CodeCache11print_namesEP12outputStream(ptr noundef nonnull %spec.select87) #20
-  br label %93
-
-92:                                               ; preds = %90
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.151) #20
-  br label %93
-
-93:                                               ; preds = %91, %92, %89
-  br i1 %26, label %94, label %95
-
-94:                                               ; preds = %93
   call void @_ZN9CodeCache7discardEP12outputStream(ptr noundef nonnull %spec.select87) #20
-  br label %95
+  br label %91
 
-95:                                               ; preds = %94, %93
-  br i1 %56, label %96, label %98
+91:                                               ; preds = %90, %89
+  br i1 %56, label %92, label %94
 
-96:                                               ; preds = %95
-  %97 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.152, double noundef %97) #20
-  br label %98
+92:                                               ; preds = %91
+  %93 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.152, double noundef %93) #20
+  br label %94
 
-98:                                               ; preds = %96, %95
-  %99 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.153, double noundef %99) #20
-  br i1 %.not.i.i95, label %_ZN22ConditionalMutexLockerD2Ev.exit105, label %100
+94:                                               ; preds = %92, %91
+  %95 = call noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %spec.select87, ptr noundef nonnull @.str.153, double noundef %95) #20
+  br i1 %.not.i.i95.not, label %96, label %_ZN22ConditionalMutexLockerD2Ev.exit105
 
-100:                                              ; preds = %98
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %62) #20
+96:                                               ; preds = %94
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %60) #20
   br label %_ZN22ConditionalMutexLockerD2Ev.exit105
 
-_ZN22ConditionalMutexLockerD2Ev.exit105:          ; preds = %98, %100
-  br i1 %.not.i.i94, label %_ZN22ConditionalMutexLockerD2Ev.exit107, label %101
+_ZN22ConditionalMutexLockerD2Ev.exit105:          ; preds = %94, %96
+  br i1 %.not.i.i94.not, label %97, label %_ZN22ConditionalMutexLockerD2Ev.exit107
 
-101:                                              ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit105
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %59) #20
+97:                                               ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit105
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %58) #20
   br label %_ZN22ConditionalMutexLockerD2Ev.exit107
 
-_ZN22ConditionalMutexLockerD2Ev.exit107:          ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit105, %101
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %102
+_ZN22ConditionalMutexLockerD2Ev.exit107:          ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit105, %97
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %98
 
-102:                                              ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit107
+98:                                               ; preds = %_ZN22ConditionalMutexLockerD2Ev.exit107
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %33) #20
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %102, %_ZN22ConditionalMutexLockerD2Ev.exit107, %29
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %98, %_ZN22ConditionalMutexLockerD2Ev.exit107, %29
   ret void
 }
 

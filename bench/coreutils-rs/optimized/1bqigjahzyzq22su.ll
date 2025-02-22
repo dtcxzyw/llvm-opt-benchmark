@@ -448,7 +448,7 @@ define hidden { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17h77
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h9525e9a181d2de69E"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17hf9aba4354fac6fd0E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e3ab94fbb08d1d431f48495920f49e0a.14.llvm.7590514773680538705)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17hf9aba4354fac6fd0E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e3ab94fbb08d1d431f48495920f49e0a.14.llvm.7590514773680538705)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5

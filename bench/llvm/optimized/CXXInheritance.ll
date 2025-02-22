@@ -4276,19 +4276,19 @@ _ZN12_GLOBAL__N_123FinalOverriderCollectorD2Ev.exit: ; preds = %_ZN4llvm23SmallV
   %.not2348 = icmp eq i32 %118, 0
   br i1 %.not2348, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %344, %.lr.ph53
+._crit_edge:                                      ; preds = %328, %.lr.ph53
   %121 = getelementptr inbounds nuw i8, ptr %.051, i64 48
   %.not = icmp eq ptr %121, %15
   br i1 %.not, label %._crit_edge54, label %.lr.ph53
 
-.lr.ph:                                           ; preds = %.lr.ph53, %344
-  %.02249 = phi ptr [ %345, %344 ], [ %116, %.lr.ph53 ]
+.lr.ph:                                           ; preds = %.lr.ph53, %328
+  %.02249 = phi ptr [ %329, %328 ], [ %116, %.lr.ph53 ]
   %122 = getelementptr inbounds nuw i8, ptr %.02249, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %.02249, i64 16
   %124 = load i32, ptr %123, align 8, !tbaa !44
   %125 = zext i32 %124 to i64
   %126 = icmp ult i32 %124, 2
-  br i1 %126, label %344, label %127
+  br i1 %126, label %328, label %127
 
 127:                                              ; preds = %.lr.ph
   %.val.i = load ptr, ptr %122, align 8, !tbaa !27
@@ -4302,8 +4302,8 @@ _ZN12_GLOBAL__N_123FinalOverriderCollectorD2Ev.exit: ; preds = %_ZN4llvm23SmallV
   br label %131
 
 131:                                              ; preds = %.loopexit119.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.0136.i.i.i.i.i.i = phi i64 [ %130, %.lr.ph.i.i.i.i.i.i ], [ %232, %.loopexit119.i.i.i.i.i.i ]
-  %.029135.i.i.i.i.i.i = phi ptr [ %.val.i, %.lr.ph.i.i.i.i.i.i ], [ %231, %.loopexit119.i.i.i.i.i.i ]
+  %.0136.i.i.i.i.i.i = phi i64 [ %130, %.lr.ph.i.i.i.i.i.i ], [ %224, %.loopexit119.i.i.i.i.i.i ]
+  %.029135.i.i.i.i.i.i = phi ptr [ %.val.i, %.lr.ph.i.i.i.i.i.i ], [ %223, %.loopexit119.i.i.i.i.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 16
   %133 = load ptr, ptr %132, align 8, !tbaa !244
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %133, null
@@ -4318,7 +4318,7 @@ _ZN12_GLOBAL__N_123FinalOverriderCollectorD2Ev.exit: ; preds = %_ZN4llvm23SmallV
   br i1 %.not171.not.i.i.i.i.i.i.i.i, label %.loopexit125.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %134, %.critedge.i.i.i.i.i.i.i.i
-  %.0162.i.i.i.i.i.i.i.i = phi ptr [ %155, %.critedge.i.i.i.i.i.i.i.i ], [ %135, %134 ]
+  %.0162.i.i.i.i.i.i.i.i = phi ptr [ %153, %.critedge.i.i.i.i.i.i.i.i ], [ %135, %134 ]
   %.not18.i.i.i.i.i.i.i.i = icmp eq ptr %.029135.i.i.i.i.i.i, %.0162.i.i.i.i.i.i.i.i
   br i1 %.not18.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %139
 
@@ -4340,350 +4340,336 @@ _ZN12_GLOBAL__N_123FinalOverriderCollectorD2Ev.exit: ; preds = %_ZN4llvm23SmallV
 
 _ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i: ; preds = %148, %139
   %.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %149, %148 ], [ %147, %139 ]
-  %150 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i.i, null
-  %151 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i.i.i.i, i64 -64
-  %152 = select i1 %150, ptr null, ptr %151
-  %153 = load ptr, ptr %132, align 8, !tbaa !244
-  %154 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %152, ptr noundef %153)
-  br i1 %154, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i.i.i.i.i.i.i
+  %150 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i.i.i.i, i64 -64
+  %151 = load ptr, ptr %132, align 8, !tbaa !244
+  %152 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %150, ptr noundef %151)
+  br i1 %152, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %155 = getelementptr inbounds nuw i8, ptr %.0162.i.i.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i.i.i.i.i.i.i = icmp eq ptr %155, %138
+  %153 = getelementptr inbounds nuw i8, ptr %.0162.i.i.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i.i.i.i.i.i.i = icmp eq ptr %153, %138
   br i1 %.not17.not.i.i.i.i.i.i.i.i, label %.loopexit125.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .loopexit125.i.i.i.i.i.i:                         ; preds = %.critedge.i.i.i.i.i.i.i.i, %134, %131
-  %156 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 24
-  %157 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 40
-  %158 = load ptr, ptr %157, align 8, !tbaa !244
-  %.not.i.i36.i.i.i.i.i.i = icmp eq ptr %158, null
-  br i1 %.not.i.i36.i.i.i.i.i.i, label %.loopexit123.i.i.i.i.i.i, label %159
+  %154 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 40
+  %156 = load ptr, ptr %155, align 8, !tbaa !244
+  %.not.i.i36.i.i.i.i.i.i = icmp eq ptr %156, null
+  br i1 %.not.i.i36.i.i.i.i.i.i, label %.loopexit123.i.i.i.i.i.i, label %157
 
-159:                                              ; preds = %.loopexit125.i.i.i.i.i.i
-  %160 = load ptr, ptr %122, align 8, !tbaa !27
-  %161 = load i32, ptr %123, align 8, !tbaa !44
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %160, i64 %162
-  %.not171.not.i.i37.i.i.i.i.i.i = icmp eq i32 %161, 0
+157:                                              ; preds = %.loopexit125.i.i.i.i.i.i
+  %158 = load ptr, ptr %122, align 8, !tbaa !27
+  %159 = load i32, ptr %123, align 8, !tbaa !44
+  %160 = zext i32 %159 to i64
+  %161 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %158, i64 %160
+  %.not171.not.i.i37.i.i.i.i.i.i = icmp eq i32 %159, 0
   br i1 %.not171.not.i.i37.i.i.i.i.i.i, label %.loopexit123.i.i.i.i.i.i, label %.lr.ph.i.i38.i.i.i.i.i.i
 
-.lr.ph.i.i38.i.i.i.i.i.i:                         ; preds = %159, %.critedge.i.i44.i.i.i.i.i.i
-  %.0162.i.i39.i.i.i.i.i.i = phi ptr [ %180, %.critedge.i.i44.i.i.i.i.i.i ], [ %160, %159 ]
-  %.not18.i.i40.i.i.i.i.i.i = icmp eq ptr %156, %.0162.i.i39.i.i.i.i.i.i
-  br i1 %.not18.i.i40.i.i.i.i.i.i, label %.critedge.i.i44.i.i.i.i.i.i, label %164
+.lr.ph.i.i38.i.i.i.i.i.i:                         ; preds = %157, %.critedge.i.i44.i.i.i.i.i.i
+  %.0162.i.i39.i.i.i.i.i.i = phi ptr [ %176, %.critedge.i.i44.i.i.i.i.i.i ], [ %158, %157 ]
+  %.not18.i.i40.i.i.i.i.i.i = icmp eq ptr %154, %.0162.i.i39.i.i.i.i.i.i
+  br i1 %.not18.i.i40.i.i.i.i.i.i, label %.critedge.i.i44.i.i.i.i.i.i, label %162
 
-164:                                              ; preds = %.lr.ph.i.i38.i.i.i.i.i.i
-  %165 = load ptr, ptr %.0162.i.i39.i.i.i.i.i.i, align 8, !tbaa !241
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 72
-  %167 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %166) #16
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i41.i.i.i.i.i.i = load i64, ptr %168, align 8
-  %169 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i41.i.i.i.i.i.i, 4
-  %170 = icmp eq i64 %169, 0
-  %171 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i41.i.i.i.i.i.i, -8
-  %172 = inttoptr i64 %171 to ptr
-  br i1 %170, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i, label %173
+162:                                              ; preds = %.lr.ph.i.i38.i.i.i.i.i.i
+  %163 = load ptr, ptr %.0162.i.i39.i.i.i.i.i.i, align 8, !tbaa !241
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 72
+  %165 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %164) #16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i41.i.i.i.i.i.i = load i64, ptr %166, align 8
+  %167 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i41.i.i.i.i.i.i, 4
+  %168 = icmp eq i64 %167, 0
+  %169 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i41.i.i.i.i.i.i, -8
+  %170 = inttoptr i64 %169 to ptr
+  br i1 %168, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i, label %171
 
-173:                                              ; preds = %164
-  %174 = load ptr, ptr %172, align 8, !tbaa !175
+171:                                              ; preds = %162
+  %172 = load ptr, ptr %170, align 8, !tbaa !175
   br label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i
 
-_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i: ; preds = %173, %164
-  %.0.i.i.i.i.i43.i.i.i.i.i.i = phi ptr [ %174, %173 ], [ %172, %164 ]
-  %175 = icmp eq ptr %.0.i.i.i.i.i43.i.i.i.i.i.i, null
-  %176 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i43.i.i.i.i.i.i, i64 -64
-  %177 = select i1 %175, ptr null, ptr %176
-  %178 = load ptr, ptr %157, align 8, !tbaa !244
-  %179 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %177, ptr noundef %178)
-  br i1 %179, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i44.i.i.i.i.i.i
+_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i: ; preds = %171, %162
+  %.0.i.i.i.i.i43.i.i.i.i.i.i = phi ptr [ %172, %171 ], [ %170, %162 ]
+  %173 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i43.i.i.i.i.i.i, i64 -64
+  %174 = load ptr, ptr %155, align 8, !tbaa !244
+  %175 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %173, ptr noundef %174)
+  br i1 %175, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i44.i.i.i.i.i.i
 
 .critedge.i.i44.i.i.i.i.i.i:                      ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i, %.lr.ph.i.i38.i.i.i.i.i.i
-  %180 = getelementptr inbounds nuw i8, ptr %.0162.i.i39.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i45.i.i.i.i.i.i = icmp eq ptr %180, %163
+  %176 = getelementptr inbounds nuw i8, ptr %.0162.i.i39.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i45.i.i.i.i.i.i = icmp eq ptr %176, %161
   br i1 %.not17.not.i.i45.i.i.i.i.i.i, label %.loopexit123.i.i.i.i.i.i, label %.lr.ph.i.i38.i.i.i.i.i.i
 
-.loopexit123.i.i.i.i.i.i:                         ; preds = %.critedge.i.i44.i.i.i.i.i.i, %159, %.loopexit125.i.i.i.i.i.i
-  %181 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 48
-  %182 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 64
-  %183 = load ptr, ptr %182, align 8, !tbaa !244
-  %.not.i.i48.i.i.i.i.i.i = icmp eq ptr %183, null
-  br i1 %.not.i.i48.i.i.i.i.i.i, label %.loopexit121.i.i.i.i.i.i, label %184
+.loopexit123.i.i.i.i.i.i:                         ; preds = %.critedge.i.i44.i.i.i.i.i.i, %157, %.loopexit125.i.i.i.i.i.i
+  %177 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 48
+  %178 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 64
+  %179 = load ptr, ptr %178, align 8, !tbaa !244
+  %.not.i.i48.i.i.i.i.i.i = icmp eq ptr %179, null
+  br i1 %.not.i.i48.i.i.i.i.i.i, label %.loopexit121.i.i.i.i.i.i, label %180
 
-184:                                              ; preds = %.loopexit123.i.i.i.i.i.i
-  %185 = load ptr, ptr %122, align 8, !tbaa !27
-  %186 = load i32, ptr %123, align 8, !tbaa !44
-  %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %185, i64 %187
-  %.not171.not.i.i49.i.i.i.i.i.i = icmp eq i32 %186, 0
+180:                                              ; preds = %.loopexit123.i.i.i.i.i.i
+  %181 = load ptr, ptr %122, align 8, !tbaa !27
+  %182 = load i32, ptr %123, align 8, !tbaa !44
+  %183 = zext i32 %182 to i64
+  %184 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %181, i64 %183
+  %.not171.not.i.i49.i.i.i.i.i.i = icmp eq i32 %182, 0
   br i1 %.not171.not.i.i49.i.i.i.i.i.i, label %.loopexit121.i.i.i.i.i.i, label %.lr.ph.i.i50.i.i.i.i.i.i
 
-.lr.ph.i.i50.i.i.i.i.i.i:                         ; preds = %184, %.critedge.i.i56.i.i.i.i.i.i
-  %.0162.i.i51.i.i.i.i.i.i = phi ptr [ %205, %.critedge.i.i56.i.i.i.i.i.i ], [ %185, %184 ]
-  %.not18.i.i52.i.i.i.i.i.i = icmp eq ptr %181, %.0162.i.i51.i.i.i.i.i.i
-  br i1 %.not18.i.i52.i.i.i.i.i.i, label %.critedge.i.i56.i.i.i.i.i.i, label %189
+.lr.ph.i.i50.i.i.i.i.i.i:                         ; preds = %180, %.critedge.i.i56.i.i.i.i.i.i
+  %.0162.i.i51.i.i.i.i.i.i = phi ptr [ %199, %.critedge.i.i56.i.i.i.i.i.i ], [ %181, %180 ]
+  %.not18.i.i52.i.i.i.i.i.i = icmp eq ptr %177, %.0162.i.i51.i.i.i.i.i.i
+  br i1 %.not18.i.i52.i.i.i.i.i.i, label %.critedge.i.i56.i.i.i.i.i.i, label %185
 
-189:                                              ; preds = %.lr.ph.i.i50.i.i.i.i.i.i
-  %190 = load ptr, ptr %.0162.i.i51.i.i.i.i.i.i, align 8, !tbaa !241
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 72
-  %192 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %191) #16
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i53.i.i.i.i.i.i = load i64, ptr %193, align 8
-  %194 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i53.i.i.i.i.i.i, 4
-  %195 = icmp eq i64 %194, 0
-  %196 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i53.i.i.i.i.i.i, -8
-  %197 = inttoptr i64 %196 to ptr
-  br i1 %195, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i, label %198
+185:                                              ; preds = %.lr.ph.i.i50.i.i.i.i.i.i
+  %186 = load ptr, ptr %.0162.i.i51.i.i.i.i.i.i, align 8, !tbaa !241
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 72
+  %188 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %187) #16
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i53.i.i.i.i.i.i = load i64, ptr %189, align 8
+  %190 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i53.i.i.i.i.i.i, 4
+  %191 = icmp eq i64 %190, 0
+  %192 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i53.i.i.i.i.i.i, -8
+  %193 = inttoptr i64 %192 to ptr
+  br i1 %191, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i, label %194
 
-198:                                              ; preds = %189
-  %199 = load ptr, ptr %197, align 8, !tbaa !175
+194:                                              ; preds = %185
+  %195 = load ptr, ptr %193, align 8, !tbaa !175
   br label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i
 
-_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i: ; preds = %198, %189
-  %.0.i.i.i.i.i55.i.i.i.i.i.i = phi ptr [ %199, %198 ], [ %197, %189 ]
-  %200 = icmp eq ptr %.0.i.i.i.i.i55.i.i.i.i.i.i, null
-  %201 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i55.i.i.i.i.i.i, i64 -64
-  %202 = select i1 %200, ptr null, ptr %201
-  %203 = load ptr, ptr %182, align 8, !tbaa !244
-  %204 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %202, ptr noundef %203)
-  br i1 %204, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i56.i.i.i.i.i.i
+_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i: ; preds = %194, %185
+  %.0.i.i.i.i.i55.i.i.i.i.i.i = phi ptr [ %195, %194 ], [ %193, %185 ]
+  %196 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i55.i.i.i.i.i.i, i64 -64
+  %197 = load ptr, ptr %178, align 8, !tbaa !244
+  %198 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %196, ptr noundef %197)
+  br i1 %198, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i56.i.i.i.i.i.i
 
 .critedge.i.i56.i.i.i.i.i.i:                      ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i, %.lr.ph.i.i50.i.i.i.i.i.i
-  %205 = getelementptr inbounds nuw i8, ptr %.0162.i.i51.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i57.i.i.i.i.i.i = icmp eq ptr %205, %188
+  %199 = getelementptr inbounds nuw i8, ptr %.0162.i.i51.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i57.i.i.i.i.i.i = icmp eq ptr %199, %184
   br i1 %.not17.not.i.i57.i.i.i.i.i.i, label %.loopexit121.i.i.i.i.i.i, label %.lr.ph.i.i50.i.i.i.i.i.i
 
-.loopexit121.i.i.i.i.i.i:                         ; preds = %.critedge.i.i56.i.i.i.i.i.i, %184, %.loopexit123.i.i.i.i.i.i
-  %206 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 72
-  %207 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 88
-  %208 = load ptr, ptr %207, align 8, !tbaa !244
-  %.not.i.i60.i.i.i.i.i.i = icmp eq ptr %208, null
-  br i1 %.not.i.i60.i.i.i.i.i.i, label %.loopexit119.i.i.i.i.i.i, label %209
+.loopexit121.i.i.i.i.i.i:                         ; preds = %.critedge.i.i56.i.i.i.i.i.i, %180, %.loopexit123.i.i.i.i.i.i
+  %200 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 72
+  %201 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 88
+  %202 = load ptr, ptr %201, align 8, !tbaa !244
+  %.not.i.i60.i.i.i.i.i.i = icmp eq ptr %202, null
+  br i1 %.not.i.i60.i.i.i.i.i.i, label %.loopexit119.i.i.i.i.i.i, label %203
 
-209:                                              ; preds = %.loopexit121.i.i.i.i.i.i
-  %210 = load ptr, ptr %122, align 8, !tbaa !27
-  %211 = load i32, ptr %123, align 8, !tbaa !44
-  %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %210, i64 %212
-  %.not171.not.i.i61.i.i.i.i.i.i = icmp eq i32 %211, 0
+203:                                              ; preds = %.loopexit121.i.i.i.i.i.i
+  %204 = load ptr, ptr %122, align 8, !tbaa !27
+  %205 = load i32, ptr %123, align 8, !tbaa !44
+  %206 = zext i32 %205 to i64
+  %207 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %204, i64 %206
+  %.not171.not.i.i61.i.i.i.i.i.i = icmp eq i32 %205, 0
   br i1 %.not171.not.i.i61.i.i.i.i.i.i, label %.loopexit119.i.i.i.i.i.i, label %.lr.ph.i.i62.i.i.i.i.i.i
 
-.lr.ph.i.i62.i.i.i.i.i.i:                         ; preds = %209, %.critedge.i.i68.i.i.i.i.i.i
-  %.0162.i.i63.i.i.i.i.i.i = phi ptr [ %230, %.critedge.i.i68.i.i.i.i.i.i ], [ %210, %209 ]
-  %.not18.i.i64.i.i.i.i.i.i = icmp eq ptr %206, %.0162.i.i63.i.i.i.i.i.i
-  br i1 %.not18.i.i64.i.i.i.i.i.i, label %.critedge.i.i68.i.i.i.i.i.i, label %214
+.lr.ph.i.i62.i.i.i.i.i.i:                         ; preds = %203, %.critedge.i.i68.i.i.i.i.i.i
+  %.0162.i.i63.i.i.i.i.i.i = phi ptr [ %222, %.critedge.i.i68.i.i.i.i.i.i ], [ %204, %203 ]
+  %.not18.i.i64.i.i.i.i.i.i = icmp eq ptr %200, %.0162.i.i63.i.i.i.i.i.i
+  br i1 %.not18.i.i64.i.i.i.i.i.i, label %.critedge.i.i68.i.i.i.i.i.i, label %208
 
-214:                                              ; preds = %.lr.ph.i.i62.i.i.i.i.i.i
-  %215 = load ptr, ptr %.0162.i.i63.i.i.i.i.i.i, align 8, !tbaa !241
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 72
-  %217 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %216) #16
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i65.i.i.i.i.i.i = load i64, ptr %218, align 8
-  %219 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i65.i.i.i.i.i.i, 4
-  %220 = icmp eq i64 %219, 0
-  %221 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i65.i.i.i.i.i.i, -8
-  %222 = inttoptr i64 %221 to ptr
-  br i1 %220, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i, label %223
+208:                                              ; preds = %.lr.ph.i.i62.i.i.i.i.i.i
+  %209 = load ptr, ptr %.0162.i.i63.i.i.i.i.i.i, align 8, !tbaa !241
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 72
+  %211 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %210) #16
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i65.i.i.i.i.i.i = load i64, ptr %212, align 8
+  %213 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i65.i.i.i.i.i.i, 4
+  %214 = icmp eq i64 %213, 0
+  %215 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i65.i.i.i.i.i.i, -8
+  %216 = inttoptr i64 %215 to ptr
+  br i1 %214, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i, label %217
 
-223:                                              ; preds = %214
-  %224 = load ptr, ptr %222, align 8, !tbaa !175
+217:                                              ; preds = %208
+  %218 = load ptr, ptr %216, align 8, !tbaa !175
   br label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i
 
-_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i: ; preds = %223, %214
-  %.0.i.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %224, %223 ], [ %222, %214 ]
-  %225 = icmp eq ptr %.0.i.i.i.i.i67.i.i.i.i.i.i, null
-  %226 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i67.i.i.i.i.i.i, i64 -64
-  %227 = select i1 %225, ptr null, ptr %226
-  %228 = load ptr, ptr %207, align 8, !tbaa !244
-  %229 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %227, ptr noundef %228)
-  br i1 %229, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i68.i.i.i.i.i.i
+_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i: ; preds = %217, %208
+  %.0.i.i.i.i.i67.i.i.i.i.i.i = phi ptr [ %218, %217 ], [ %216, %208 ]
+  %219 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i67.i.i.i.i.i.i, i64 -64
+  %220 = load ptr, ptr %201, align 8, !tbaa !244
+  %221 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %219, ptr noundef %220)
+  br i1 %221, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i68.i.i.i.i.i.i
 
 .critedge.i.i68.i.i.i.i.i.i:                      ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i, %.lr.ph.i.i62.i.i.i.i.i.i
-  %230 = getelementptr inbounds nuw i8, ptr %.0162.i.i63.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i69.i.i.i.i.i.i = icmp eq ptr %230, %213
+  %222 = getelementptr inbounds nuw i8, ptr %.0162.i.i63.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i69.i.i.i.i.i.i = icmp eq ptr %222, %207
   br i1 %.not17.not.i.i69.i.i.i.i.i.i, label %.loopexit119.i.i.i.i.i.i, label %.lr.ph.i.i62.i.i.i.i.i.i
 
-.loopexit119.i.i.i.i.i.i:                         ; preds = %.critedge.i.i68.i.i.i.i.i.i, %209, %.loopexit121.i.i.i.i.i.i
-  %231 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 96
-  %232 = add nsw i64 %.0136.i.i.i.i.i.i, -1
-  %233 = icmp sgt i64 %.0136.i.i.i.i.i.i, 1
-  br i1 %233, label %131, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !268
+.loopexit119.i.i.i.i.i.i:                         ; preds = %.critedge.i.i68.i.i.i.i.i.i, %203, %.loopexit121.i.i.i.i.i.i
+  %223 = getelementptr inbounds nuw i8, ptr %.029135.i.i.i.i.i.i, i64 96
+  %224 = add nsw i64 %.0136.i.i.i.i.i.i, -1
+  %225 = icmp sgt i64 %.0136.i.i.i.i.i.i, 1
+  br i1 %225, label %131, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !268
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %.loopexit119.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i = ptrtoint ptr %231 to i64
+  %.pre.i.i.i.i.i.i = ptrtoint ptr %223 to i64
   %.pre156.i.i.i.i.i.i = sub i64 %129, %.pre.i.i.i.i.i.i
-  %234 = sdiv exact i64 %.pre156.i.i.i.i.i.i, 24
+  %226 = sdiv exact i64 %.pre156.i.i.i.i.i.i, 24
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %127
-  %.pre-phi157.i.i.i.i.i.i = phi i64 [ %234, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %125, %127 ]
-  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %231, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val.i, %127 ]
+  %.pre-phi157.i.i.i.i.i.i = phi i64 [ %226, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %125, %127 ]
+  %.029.lcssa.i.i.i.i.i.i = phi ptr [ %223, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val.i, %127 ]
   switch i64 %.pre-phi157.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit" [
-    i64 3, label %235
-    i64 2, label %261
-    i64 1, label %287
+    i64 3, label %227
+    i64 2, label %251
+    i64 1, label %275
   ]
 
-235:                                              ; preds = %._crit_edge.i.i.i.i.i.i
-  %236 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
-  %237 = load ptr, ptr %236, align 8, !tbaa !244
-  %.not.i.i72.i.i.i.i.i.i = icmp eq ptr %237, null
-  br i1 %.not.i.i72.i.i.i.i.i.i, label %.loopexit117.i.i.i.i.i.i, label %238
+227:                                              ; preds = %._crit_edge.i.i.i.i.i.i
+  %228 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
+  %229 = load ptr, ptr %228, align 8, !tbaa !244
+  %.not.i.i72.i.i.i.i.i.i = icmp eq ptr %229, null
+  br i1 %.not.i.i72.i.i.i.i.i.i, label %.loopexit117.i.i.i.i.i.i, label %230
 
-238:                                              ; preds = %235
-  %239 = load ptr, ptr %122, align 8, !tbaa !27
-  %240 = load i32, ptr %123, align 8, !tbaa !44
-  %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %239, i64 %241
-  %.not171.not.i.i73.i.i.i.i.i.i = icmp eq i32 %240, 0
+230:                                              ; preds = %227
+  %231 = load ptr, ptr %122, align 8, !tbaa !27
+  %232 = load i32, ptr %123, align 8, !tbaa !44
+  %233 = zext i32 %232 to i64
+  %234 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %231, i64 %233
+  %.not171.not.i.i73.i.i.i.i.i.i = icmp eq i32 %232, 0
   br i1 %.not171.not.i.i73.i.i.i.i.i.i, label %.loopexit117.i.i.i.i.i.i, label %.lr.ph.i.i74.i.i.i.i.i.i
 
-.lr.ph.i.i74.i.i.i.i.i.i:                         ; preds = %238, %.critedge.i.i80.i.i.i.i.i.i
-  %.0162.i.i75.i.i.i.i.i.i = phi ptr [ %259, %.critedge.i.i80.i.i.i.i.i.i ], [ %239, %238 ]
+.lr.ph.i.i74.i.i.i.i.i.i:                         ; preds = %230, %.critedge.i.i80.i.i.i.i.i.i
+  %.0162.i.i75.i.i.i.i.i.i = phi ptr [ %249, %.critedge.i.i80.i.i.i.i.i.i ], [ %231, %230 ]
   %.not18.i.i76.i.i.i.i.i.i = icmp eq ptr %.029.lcssa.i.i.i.i.i.i, %.0162.i.i75.i.i.i.i.i.i
-  br i1 %.not18.i.i76.i.i.i.i.i.i, label %.critedge.i.i80.i.i.i.i.i.i, label %243
+  br i1 %.not18.i.i76.i.i.i.i.i.i, label %.critedge.i.i80.i.i.i.i.i.i, label %235
 
-243:                                              ; preds = %.lr.ph.i.i74.i.i.i.i.i.i
-  %244 = load ptr, ptr %.0162.i.i75.i.i.i.i.i.i, align 8, !tbaa !241
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 72
-  %246 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %245) #16
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i = load i64, ptr %247, align 8
-  %248 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i, 4
-  %249 = icmp eq i64 %248, 0
-  %250 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i, -8
-  %251 = inttoptr i64 %250 to ptr
-  br i1 %249, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i, label %252
+235:                                              ; preds = %.lr.ph.i.i74.i.i.i.i.i.i
+  %236 = load ptr, ptr %.0162.i.i75.i.i.i.i.i.i, align 8, !tbaa !241
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 72
+  %238 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %237) #16
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i = load i64, ptr %239, align 8
+  %240 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i, 4
+  %241 = icmp eq i64 %240, 0
+  %242 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i77.i.i.i.i.i.i, -8
+  %243 = inttoptr i64 %242 to ptr
+  br i1 %241, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i, label %244
 
-252:                                              ; preds = %243
-  %253 = load ptr, ptr %251, align 8, !tbaa !175
+244:                                              ; preds = %235
+  %245 = load ptr, ptr %243, align 8, !tbaa !175
   br label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i
 
-_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i: ; preds = %252, %243
-  %.0.i.i.i.i.i79.i.i.i.i.i.i = phi ptr [ %253, %252 ], [ %251, %243 ]
-  %254 = icmp eq ptr %.0.i.i.i.i.i79.i.i.i.i.i.i, null
-  %255 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i79.i.i.i.i.i.i, i64 -64
-  %256 = select i1 %254, ptr null, ptr %255
-  %257 = load ptr, ptr %236, align 8, !tbaa !244
-  %258 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %256, ptr noundef %257)
-  br i1 %258, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i80.i.i.i.i.i.i
+_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i: ; preds = %244, %235
+  %.0.i.i.i.i.i79.i.i.i.i.i.i = phi ptr [ %245, %244 ], [ %243, %235 ]
+  %246 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i79.i.i.i.i.i.i, i64 -64
+  %247 = load ptr, ptr %228, align 8, !tbaa !244
+  %248 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %246, ptr noundef %247)
+  br i1 %248, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i80.i.i.i.i.i.i
 
 .critedge.i.i80.i.i.i.i.i.i:                      ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i, %.lr.ph.i.i74.i.i.i.i.i.i
-  %259 = getelementptr inbounds nuw i8, ptr %.0162.i.i75.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i81.i.i.i.i.i.i = icmp eq ptr %259, %242
+  %249 = getelementptr inbounds nuw i8, ptr %.0162.i.i75.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i81.i.i.i.i.i.i = icmp eq ptr %249, %234
   br i1 %.not17.not.i.i81.i.i.i.i.i.i, label %.loopexit117.i.i.i.i.i.i, label %.lr.ph.i.i74.i.i.i.i.i.i
 
-.loopexit117.i.i.i.i.i.i:                         ; preds = %.critedge.i.i80.i.i.i.i.i.i, %238, %235
-  %260 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 24
-  br label %261
+.loopexit117.i.i.i.i.i.i:                         ; preds = %.critedge.i.i80.i.i.i.i.i.i, %230, %227
+  %250 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 24
+  br label %251
 
-261:                                              ; preds = %.loopexit117.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %260, %.loopexit117.i.i.i.i.i.i ]
-  %262 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 16
-  %263 = load ptr, ptr %262, align 8, !tbaa !244
-  %.not.i.i84.i.i.i.i.i.i = icmp eq ptr %263, null
-  br i1 %.not.i.i84.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i, label %264
+251:                                              ; preds = %.loopexit117.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %250, %.loopexit117.i.i.i.i.i.i ]
+  %252 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 16
+  %253 = load ptr, ptr %252, align 8, !tbaa !244
+  %.not.i.i84.i.i.i.i.i.i = icmp eq ptr %253, null
+  br i1 %.not.i.i84.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i, label %254
 
-264:                                              ; preds = %261
-  %265 = load ptr, ptr %122, align 8, !tbaa !27
-  %266 = load i32, ptr %123, align 8, !tbaa !44
-  %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %265, i64 %267
-  %.not171.not.i.i85.i.i.i.i.i.i = icmp eq i32 %266, 0
+254:                                              ; preds = %251
+  %255 = load ptr, ptr %122, align 8, !tbaa !27
+  %256 = load i32, ptr %123, align 8, !tbaa !44
+  %257 = zext i32 %256 to i64
+  %258 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %255, i64 %257
+  %.not171.not.i.i85.i.i.i.i.i.i = icmp eq i32 %256, 0
   br i1 %.not171.not.i.i85.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i, label %.lr.ph.i.i86.i.i.i.i.i.i
 
-.lr.ph.i.i86.i.i.i.i.i.i:                         ; preds = %264, %.critedge.i.i92.i.i.i.i.i.i
-  %.0162.i.i87.i.i.i.i.i.i = phi ptr [ %285, %.critedge.i.i92.i.i.i.i.i.i ], [ %265, %264 ]
+.lr.ph.i.i86.i.i.i.i.i.i:                         ; preds = %254, %.critedge.i.i92.i.i.i.i.i.i
+  %.0162.i.i87.i.i.i.i.i.i = phi ptr [ %273, %.critedge.i.i92.i.i.i.i.i.i ], [ %255, %254 ]
   %.not18.i.i88.i.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i.i, %.0162.i.i87.i.i.i.i.i.i
-  br i1 %.not18.i.i88.i.i.i.i.i.i, label %.critedge.i.i92.i.i.i.i.i.i, label %269
+  br i1 %.not18.i.i88.i.i.i.i.i.i, label %.critedge.i.i92.i.i.i.i.i.i, label %259
 
-269:                                              ; preds = %.lr.ph.i.i86.i.i.i.i.i.i
-  %270 = load ptr, ptr %.0162.i.i87.i.i.i.i.i.i, align 8, !tbaa !241
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 72
-  %272 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %271) #16
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i89.i.i.i.i.i.i = load i64, ptr %273, align 8
-  %274 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i89.i.i.i.i.i.i, 4
-  %275 = icmp eq i64 %274, 0
-  %276 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i89.i.i.i.i.i.i, -8
-  %277 = inttoptr i64 %276 to ptr
-  br i1 %275, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i, label %278
+259:                                              ; preds = %.lr.ph.i.i86.i.i.i.i.i.i
+  %260 = load ptr, ptr %.0162.i.i87.i.i.i.i.i.i, align 8, !tbaa !241
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 72
+  %262 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %261) #16
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i89.i.i.i.i.i.i = load i64, ptr %263, align 8
+  %264 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i89.i.i.i.i.i.i, 4
+  %265 = icmp eq i64 %264, 0
+  %266 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i89.i.i.i.i.i.i, -8
+  %267 = inttoptr i64 %266 to ptr
+  br i1 %265, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i, label %268
 
-278:                                              ; preds = %269
-  %279 = load ptr, ptr %277, align 8, !tbaa !175
+268:                                              ; preds = %259
+  %269 = load ptr, ptr %267, align 8, !tbaa !175
   br label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i
 
-_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i: ; preds = %278, %269
-  %.0.i.i.i.i.i91.i.i.i.i.i.i = phi ptr [ %279, %278 ], [ %277, %269 ]
-  %280 = icmp eq ptr %.0.i.i.i.i.i91.i.i.i.i.i.i, null
-  %281 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i91.i.i.i.i.i.i, i64 -64
-  %282 = select i1 %280, ptr null, ptr %281
-  %283 = load ptr, ptr %262, align 8, !tbaa !244
-  %284 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %282, ptr noundef %283)
-  br i1 %284, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i92.i.i.i.i.i.i
+_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i: ; preds = %268, %259
+  %.0.i.i.i.i.i91.i.i.i.i.i.i = phi ptr [ %269, %268 ], [ %267, %259 ]
+  %270 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i91.i.i.i.i.i.i, i64 -64
+  %271 = load ptr, ptr %252, align 8, !tbaa !244
+  %272 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %270, ptr noundef %271)
+  br i1 %272, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i92.i.i.i.i.i.i
 
 .critedge.i.i92.i.i.i.i.i.i:                      ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i, %.lr.ph.i.i86.i.i.i.i.i.i
-  %285 = getelementptr inbounds nuw i8, ptr %.0162.i.i87.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i93.i.i.i.i.i.i = icmp eq ptr %285, %268
+  %273 = getelementptr inbounds nuw i8, ptr %.0162.i.i87.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i93.i.i.i.i.i.i = icmp eq ptr %273, %258
   br i1 %.not17.not.i.i93.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i, label %.lr.ph.i.i86.i.i.i.i.i.i
 
-.loopexit.i.i.i.i.i.i:                            ; preds = %.critedge.i.i92.i.i.i.i.i.i, %264, %261
-  %286 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 24
-  br label %287
+.loopexit.i.i.i.i.i.i:                            ; preds = %.critedge.i.i92.i.i.i.i.i.i, %254, %251
+  %274 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 24
+  br label %275
 
-287:                                              ; preds = %.loopexit.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %286, %.loopexit.i.i.i.i.i.i ]
-  %288 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i, i64 16
-  %289 = load ptr, ptr %288, align 8, !tbaa !244
-  %.not.i.i96.i.i.i.i.i.i = icmp eq ptr %289, null
-  br i1 %.not.i.i96.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %290
+275:                                              ; preds = %.loopexit.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %274, %.loopexit.i.i.i.i.i.i ]
+  %276 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i, i64 16
+  %277 = load ptr, ptr %276, align 8, !tbaa !244
+  %.not.i.i96.i.i.i.i.i.i = icmp eq ptr %277, null
+  br i1 %.not.i.i96.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %278
 
-290:                                              ; preds = %287
-  %291 = load ptr, ptr %122, align 8, !tbaa !27
-  %292 = load i32, ptr %123, align 8, !tbaa !44
-  %293 = zext i32 %292 to i64
-  %294 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %291, i64 %293
-  %.not171.not.i.i97.i.i.i.i.i.i = icmp eq i32 %292, 0
+278:                                              ; preds = %275
+  %279 = load ptr, ptr %122, align 8, !tbaa !27
+  %280 = load i32, ptr %123, align 8, !tbaa !44
+  %281 = zext i32 %280 to i64
+  %282 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %279, i64 %281
+  %.not171.not.i.i97.i.i.i.i.i.i = icmp eq i32 %280, 0
   br i1 %.not171.not.i.i97.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.lr.ph.i.i98.i.i.i.i.i.i
 
-.lr.ph.i.i98.i.i.i.i.i.i:                         ; preds = %290, %.critedge.i.i104.i.i.i.i.i.i
-  %.0162.i.i99.i.i.i.i.i.i = phi ptr [ %311, %.critedge.i.i104.i.i.i.i.i.i ], [ %291, %290 ]
+.lr.ph.i.i98.i.i.i.i.i.i:                         ; preds = %278, %.critedge.i.i104.i.i.i.i.i.i
+  %.0162.i.i99.i.i.i.i.i.i = phi ptr [ %297, %.critedge.i.i104.i.i.i.i.i.i ], [ %279, %278 ]
   %.not18.i.i100.i.i.i.i.i.i = icmp eq ptr %.2.i.i.i.i.i.i, %.0162.i.i99.i.i.i.i.i.i
-  br i1 %.not18.i.i100.i.i.i.i.i.i, label %.critedge.i.i104.i.i.i.i.i.i, label %295
+  br i1 %.not18.i.i100.i.i.i.i.i.i, label %.critedge.i.i104.i.i.i.i.i.i, label %283
 
-295:                                              ; preds = %.lr.ph.i.i98.i.i.i.i.i.i
-  %296 = load ptr, ptr %.0162.i.i99.i.i.i.i.i.i, align 8, !tbaa !241
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 72
-  %298 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %297) #16
-  %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i.i = load i64, ptr %299, align 8
-  %300 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i.i, 4
-  %301 = icmp eq i64 %300, 0
-  %302 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i.i, -8
-  %303 = inttoptr i64 %302 to ptr
-  br i1 %301, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i, label %304
+283:                                              ; preds = %.lr.ph.i.i98.i.i.i.i.i.i
+  %284 = load ptr, ptr %.0162.i.i99.i.i.i.i.i.i, align 8, !tbaa !241
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 72
+  %286 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %285) #16
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i.i = load i64, ptr %287, align 8
+  %288 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i.i, 4
+  %289 = icmp eq i64 %288, 0
+  %290 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i.i, -8
+  %291 = inttoptr i64 %290 to ptr
+  br i1 %289, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i, label %292
 
-304:                                              ; preds = %295
-  %305 = load ptr, ptr %303, align 8, !tbaa !175
+292:                                              ; preds = %283
+  %293 = load ptr, ptr %291, align 8, !tbaa !175
   br label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i
 
-_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i: ; preds = %304, %295
-  %.0.i.i.i.i.i103.i.i.i.i.i.i = phi ptr [ %305, %304 ], [ %303, %295 ]
-  %306 = icmp eq ptr %.0.i.i.i.i.i103.i.i.i.i.i.i, null
-  %307 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i103.i.i.i.i.i.i, i64 -64
-  %308 = select i1 %306, ptr null, ptr %307
-  %309 = load ptr, ptr %288, align 8, !tbaa !244
-  %310 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %308, ptr noundef %309)
-  br i1 %310, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i104.i.i.i.i.i.i
+_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i: ; preds = %292, %283
+  %.0.i.i.i.i.i103.i.i.i.i.i.i = phi ptr [ %293, %292 ], [ %291, %283 ]
+  %294 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i103.i.i.i.i.i.i, i64 -64
+  %295 = load ptr, ptr %276, align 8, !tbaa !244
+  %296 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %294, ptr noundef %295)
+  br i1 %296, label %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", label %.critedge.i.i104.i.i.i.i.i.i
 
 .critedge.i.i104.i.i.i.i.i.i:                     ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i, %.lr.ph.i.i98.i.i.i.i.i.i
-  %311 = getelementptr inbounds nuw i8, ptr %.0162.i.i99.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i105.i.i.i.i.i.i = icmp eq ptr %311, %294
+  %297 = getelementptr inbounds nuw i8, ptr %.0162.i.i99.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i105.i.i.i.i.i.i = icmp eq ptr %297, %282
   br i1 %.not17.not.i.i105.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.lr.ph.i.i98.i.i.i.i.i.i
 
 "_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i": ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i = phi ptr [ %206, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i ], [ %181, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i ], [ %156, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i ], [ %.029135.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i ]
-  %312 = icmp eq ptr %.028.i.i.i.i.i.i, %128
-  br i1 %312, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.preheader.i.i.i.i
+  %.028.i.i.i.i.i.i = phi ptr [ %200, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i66.i.i.i.i.i.i ], [ %177, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i54.i.i.i.i.i.i ], [ %154, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i42.i.i.i.i.i.i ], [ %.029135.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i90.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i78.i.i.i.i.i.i ]
+  %298 = icmp eq ptr %.028.i.i.i.i.i.i, %128
+  br i1 %298, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i"
   %.01744.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 24
@@ -4694,79 +4680,77 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit.i.i102.i.i.i.i.i.i: ; preds = %304, %2
   %.01748.i.i.i.i = phi ptr [ %.017.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i" ], [ %.01744.i.i.i.i, %.preheader.i.i.i.i ]
   %.047.i.i.i.i = phi ptr [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ]
   %.pn46.i.i.i.i = phi ptr [ %.01748.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ]
-  %313 = getelementptr inbounds nuw i8, ptr %.pn46.i.i.i.i, i64 40
-  %314 = load ptr, ptr %313, align 8, !tbaa !244
-  %.not.i.i.i.i.i.i = icmp eq ptr %314, null
-  br i1 %.not.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %315
+  %299 = getelementptr inbounds nuw i8, ptr %.pn46.i.i.i.i, i64 40
+  %300 = load ptr, ptr %299, align 8, !tbaa !244
+  %.not.i.i.i.i.i.i = icmp eq ptr %300, null
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %301
 
-315:                                              ; preds = %.lr.ph.i.i.i.i24
-  %316 = load ptr, ptr %122, align 8, !tbaa !27
-  %317 = load i32, ptr %123, align 8, !tbaa !44
-  %318 = zext i32 %317 to i64
-  %319 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %316, i64 %318
-  %.not171.not.i.i.i.i.i.i = icmp eq i32 %317, 0
+301:                                              ; preds = %.lr.ph.i.i.i.i24
+  %302 = load ptr, ptr %122, align 8, !tbaa !27
+  %303 = load i32, ptr %123, align 8, !tbaa !44
+  %304 = zext i32 %303 to i64
+  %305 = getelementptr inbounds nuw %"struct.clang::UniqueVirtualMethod", ptr %302, i64 %304
+  %.not171.not.i.i.i.i.i.i = icmp eq i32 %303, 0
   br i1 %.not171.not.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
 
-.lr.ph.i.i21.i.i.i.i:                             ; preds = %315, %.critedge.i.i.i.i.i.i
-  %.0162.i.i.i.i.i.i = phi ptr [ %336, %.critedge.i.i.i.i.i.i ], [ %316, %315 ]
+.lr.ph.i.i21.i.i.i.i:                             ; preds = %301, %.critedge.i.i.i.i.i.i
+  %.0162.i.i.i.i.i.i = phi ptr [ %320, %.critedge.i.i.i.i.i.i ], [ %302, %301 ]
   %.not18.i.i.i.i.i.i = icmp eq ptr %.01748.i.i.i.i, %.0162.i.i.i.i.i.i
-  br i1 %.not18.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %320
+  br i1 %.not18.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i, label %306
 
-320:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
-  %321 = load ptr, ptr %.0162.i.i.i.i.i.i, align 8, !tbaa !241
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 72
-  %323 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %322) #16
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %324, align 8
-  %325 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %326 = icmp eq i64 %325, 0
-  %327 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
-  %328 = inttoptr i64 %327 to ptr
-  br i1 %326, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i, label %329
+306:                                              ; preds = %.lr.ph.i.i21.i.i.i.i
+  %307 = load ptr, ptr %.0162.i.i.i.i.i.i, align 8, !tbaa !241
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 72
+  %309 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %308) #16
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %310, align 8
+  %311 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %312 = icmp eq i64 %311, 0
+  %313 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
+  %314 = inttoptr i64 %313 to ptr
+  br i1 %312, label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i, label %315
 
-329:                                              ; preds = %320
-  %330 = load ptr, ptr %328, align 8, !tbaa !175
+315:                                              ; preds = %306
+  %316 = load ptr, ptr %314, align 8, !tbaa !175
   br label %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i
 
-_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i: ; preds = %329, %320
-  %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %330, %329 ], [ %328, %320 ]
-  %331 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i, null
-  %332 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 -64
-  %333 = select i1 %331, ptr null, ptr %332
-  %334 = load ptr, ptr %313, align 8, !tbaa !244
-  %335 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %333, ptr noundef %334)
-  br i1 %335, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i", label %.critedge.i.i.i.i.i.i
+_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i: ; preds = %315, %306
+  %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %316, %315 ], [ %314, %306 ]
+  %317 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i.i, i64 -64
+  %318 = load ptr, ptr %299, align 8, !tbaa !244
+  %319 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isVirtuallyDerivedFromEPKS0_(ptr noundef nonnull align 8 dereferenceable(144) %317, ptr noundef %318)
+  br i1 %319, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i", label %.critedge.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i, %.lr.ph.i.i21.i.i.i.i
-  %336 = getelementptr inbounds nuw i8, ptr %.0162.i.i.i.i.i.i, i64 24
-  %.not17.not.i.i.i.i.i.i = icmp eq ptr %336, %319
+  %320 = getelementptr inbounds nuw i8, ptr %.0162.i.i.i.i.i.i, i64 24
+  %.not17.not.i.i.i.i.i.i = icmp eq ptr %320, %305
   br i1 %.not17.not.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i21.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %.critedge.i.i.i.i.i.i, %315, %.lr.ph.i.i.i.i24
+.loopexit.i.i.i.i:                                ; preds = %.critedge.i.i.i.i.i.i, %301, %.lr.ph.i.i.i.i24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.047.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.01748.i.i.i.i, i64 24, i1 false), !tbaa.struct !226
-  %337 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i, i64 24
+  %321 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i, i64 24
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i": ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i, %.loopexit.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %337, %.loopexit.i.i.i.i ], [ %.047.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i ]
+  %.1.i.i.i.i = phi ptr [ %321, %.loopexit.i.i.i.i ], [ %.047.i.i.i.i, %_ZN5clang13CXXMethodDecl9getParentEv.exit.i.i.i.i.i.i ]
   %.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01748.i.i.i.i, i64 24
   %.not.i.i.i.i25 = icmp eq ptr %.017.i.i.i.i, %128
   br i1 %.not.i.i.i.i25, label %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit", label %.lr.ph.i.i.i.i24, !llvm.loop !269
 
-"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit": ; preds = %.critedge.i.i104.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %287, %290, %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", %.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %128, %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i" ], [ %128, %._crit_edge.i.i.i.i.i.i ], [ %128, %287 ], [ %128, %290 ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i" ], [ %128, %.critedge.i.i104.i.i.i.i.i.i ]
-  %338 = load ptr, ptr %122, align 8, !tbaa !27
-  %339 = ptrtoint ptr %.016.i.i.i.i to i64
-  %340 = ptrtoint ptr %338 to i64
-  %341 = sub i64 %339, %340
-  %342 = sdiv exact i64 %341, 24
-  %343 = trunc i64 %342 to i32
-  store i32 %343, ptr %123, align 8, !tbaa !44
-  br label %344
+"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit": ; preds = %.critedge.i.i104.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %275, %278, %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i", %.preheader.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %128, %"_ZSt9__find_ifIPN5clang19UniqueVirtualMethodEN9__gnu_cxx5__ops10_Iter_predIZNKS0_13CXXRecordDecl18getFinalOverridersERNS0_20CXXFinalOverriderMapEE3$_0EEET_SB_SB_T0_.exit.i.i.i.i" ], [ %128, %._crit_edge.i.i.i.i.i.i ], [ %128, %275 ], [ %128, %278 ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EclIPNS2_19UniqueVirtualMethodEEEbT_.exit.i.i.i.i" ], [ %128, %.critedge.i.i104.i.i.i.i.i.i ]
+  %322 = load ptr, ptr %122, align 8, !tbaa !27
+  %323 = ptrtoint ptr %.016.i.i.i.i to i64
+  %324 = ptrtoint ptr %322 to i64
+  %325 = sub i64 %323, %324
+  %326 = sdiv exact i64 %325, 24
+  %327 = trunc i64 %326 to i32
+  store i32 %327, ptr %123, align 8, !tbaa !44
+  br label %328
 
-344:                                              ; preds = %.lr.ph, %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit"
-  %345 = getelementptr inbounds nuw i8, ptr %.02249, i64 120
-  %.not23 = icmp eq ptr %345, %120
+328:                                              ; preds = %.lr.ph, %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN5clang19UniqueVirtualMethodEEEZNKS2_13CXXRecordDecl18getFinalOverridersERNS2_20CXXFinalOverriderMapEE3$_0EEvRT_T0_.exit"
+  %329 = getelementptr inbounds nuw i8, ptr %.02249, i64 120
+  %.not23 = icmp eq ptr %329, %120
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 }
 

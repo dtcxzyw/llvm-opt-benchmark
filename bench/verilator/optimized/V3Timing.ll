@@ -26598,14 +26598,14 @@ define linkonce_odr dso_local void @_ZN20TimingControlVisitor12makeForkJoinEP7As
 
 19:                                               ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 25, i1 false)
-  %20 = call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull %3)
+  %20 = call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %3)
   %21 = call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %21, i16 3, ptr noundef %11)
           to label %22 unwind label %23
 
 22:                                               ; preds = %19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14AstCLocalScope, i64 16), ptr %21, align 8
-  invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %21, ptr noundef nonnull %14)
+  invoke void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %21, ptr noundef nonnull %1)
           to label %_ZN14AstCLocalScopeC2EP8FileLineP7AstNode.exit.i unwind label %23
 
 _ZN14AstCLocalScopeC2EP8FileLineP7AstNode.exit.i: ; preds = %22

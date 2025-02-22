@@ -102,7 +102,7 @@ define { i8, i8 } @_ZN23wasmtime_component_util9FlagsSize10from_count17hb80ff0c8
   store ptr @anon.a3caf7bc85592610d8658d173c7f2693.3, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %21, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a3caf7bc85592610d8658d173c7f2693.6) #5
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3caf7bc85592610d8658d173c7f2693.6) #5
   unreachable
 }
 
@@ -118,7 +118,7 @@ define noundef i64 @_ZN23wasmtime_component_util14ceiling_divide17headb4d6d12d16
   ret i64 %7
 
 8:                                                ; preds = %2
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a3caf7bc85592610d8658d173c7f2693.9) #5
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3caf7bc85592610d8658d173c7f2693.9) #5
   unreachable
 }
 

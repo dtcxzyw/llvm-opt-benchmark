@@ -3575,185 +3575,176 @@ declare noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16Foldin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang6detail26CXXDeductionGuideNameExtraEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS5_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -8
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !18
-  %9 = ptrtoint ptr %8 to i64
-  %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !47
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i.i.i.i.i.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, label %15, !prof !124
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = ptrtoint ptr %5 to i64
+  %7 = trunc i64 %6 to i32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !47
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i.i.i.i.i.i = icmp ult i32 %9, %11
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, label %12, !prof !124
 
-15:                                               ; preds = %3
-  %16 = zext i32 %12 to i64
-  %17 = add nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %18, i64 noundef %17, i64 noundef 4) #17
-  %.pre.i.i.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+12:                                               ; preds = %3
+  %13 = zext i32 %9 to i64
+  %14 = add nuw nsw i64 %13, 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #17
+  %.pre.i.i.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %15, %3
-  %19 = phi i32 [ %12, %3 ], [ %.pre.i.i.i.i.i.i.i, %15 ]
-  %20 = load ptr, ptr %2, align 8, !tbaa !45
-  %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  store i32 %10, ptr %22, align 1
-  %23 = load i32, ptr %11, align 8, !tbaa !47
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %11, align 8, !tbaa !47
-  %25 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i2.i.i.i.i.i = icmp ult i32 %24, %25
-  br i1 %.not.i.i.not.i.i2.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit, label %26, !prof !124
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %12, %3
+  %16 = phi i32 [ %9, %3 ], [ %.pre.i.i.i.i.i.i.i, %12 ]
+  %17 = load ptr, ptr %2, align 8, !tbaa !45
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  store i32 %7, ptr %19, align 1
+  %20 = load i32, ptr %8, align 8, !tbaa !47
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %8, align 8, !tbaa !47
+  %22 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i2.i.i.i.i.i = icmp ult i32 %21, %22
+  br i1 %.not.i.i.not.i.i2.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit, label %23, !prof !124
 
-26:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i
-  %27 = zext i32 %24 to i64
-  %28 = add nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 4) #17
-  %.pre.i.i3.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+23:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i
+  %24 = zext i32 %21 to i64
+  %25 = add nuw nsw i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 4) #17
+  %.pre.i.i3.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit
 
-_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, %26
-  %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %26 ]
-  %31 = lshr i64 %9, 32
-  %32 = trunc nuw i64 %31 to i32
-  %33 = load ptr, ptr %2, align 8, !tbaa !45
-  %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
-  store i32 %32, ptr %35, align 1
-  %36 = load i32, ptr %11, align 8, !tbaa !47
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %11, align 8, !tbaa !47
+_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, %23
+  %27 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %23 ]
+  %28 = lshr i64 %6, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = load ptr, ptr %2, align 8, !tbaa !45
+  %31 = zext i32 %27 to i64
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  store i32 %29, ptr %32, align 1
+  %33 = load i32, ptr %8, align 8, !tbaa !47
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %8, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang6detail26CXXDeductionGuideNameExtraEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS5_4NodeERKNS_16FoldingSetNodeIDEjRSA_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) #0 comdat align 2 {
-  %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 -8
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
-  %11 = ptrtoint ptr %10 to i64
-  %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !47
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !101
-  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %14, %16
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %17, !prof !124
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !18
+  %8 = ptrtoint ptr %7 to i64
+  %9 = trunc i64 %8 to i32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !47
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %13 = load i32, ptr %12, align 4, !tbaa !101
+  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %11, %13
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %14, !prof !124
 
-17:                                               ; preds = %5
-  %18 = zext i32 %14 to i64
-  %19 = add nuw nsw i64 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 4) #17
-  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %13, align 8, !tbaa !47
+14:                                               ; preds = %5
+  %15 = zext i32 %11 to i64
+  %16 = add nuw nsw i64 %15, 1
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 4) #17
+  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %10, align 8, !tbaa !47
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %17, %5
-  %21 = phi i32 [ %14, %5 ], [ %.pre.i.i.i.i.i.i.i.i, %17 ]
-  %22 = load ptr, ptr %4, align 8, !tbaa !45
-  %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
-  store i32 %12, ptr %24, align 1
-  %25 = load i32, ptr %13, align 8, !tbaa !47
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %13, align 8, !tbaa !47
-  %27 = load i32, ptr %15, align 4, !tbaa !101
-  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %26, %27
-  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit, label %28, !prof !124
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %14, %5
+  %18 = phi i32 [ %11, %5 ], [ %.pre.i.i.i.i.i.i.i.i, %14 ]
+  %19 = load ptr, ptr %4, align 8, !tbaa !45
+  %20 = zext i32 %18 to i64
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  store i32 %9, ptr %21, align 1
+  %22 = load i32, ptr %10, align 8, !tbaa !47
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %10, align 8, !tbaa !47
+  %24 = load i32, ptr %12, align 4, !tbaa !101
+  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %23, %24
+  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit, label %25, !prof !124
 
-28:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
-  %29 = zext i32 %26 to i64
-  %30 = add nuw nsw i64 %29, 1
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %31, i64 noundef %30, i64 noundef 4) #17
-  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %13, align 8, !tbaa !47
+25:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
+  %26 = zext i32 %23 to i64
+  %27 = add nuw nsw i64 %26, 1
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %28, i64 noundef %27, i64 noundef 4) #17
+  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %10, align 8, !tbaa !47
   br label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit
 
-_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %28
-  %32 = phi i32 [ %26, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %28 ]
-  %33 = lshr i64 %11, 32
-  %34 = trunc nuw i64 %33 to i32
-  %35 = load ptr, ptr %4, align 8, !tbaa !45
-  %36 = zext i32 %32 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
-  store i32 %34, ptr %37, align 1
-  %38 = load i32, ptr %13, align 8, !tbaa !47
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %13, align 8, !tbaa !47
-  %40 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #17
-  ret i1 %40
+_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %25
+  %29 = phi i32 [ %23, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %25 ]
+  %30 = lshr i64 %8, 32
+  %31 = trunc nuw i64 %30 to i32
+  %32 = load ptr, ptr %4, align 8, !tbaa !45
+  %33 = zext i32 %29 to i64
+  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  store i32 %31, ptr %34, align 1
+  %35 = load i32, ptr %10, align 8, !tbaa !47
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %10, align 8, !tbaa !47
+  %37 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #17
+  ret i1 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang6detail26CXXDeductionGuideNameExtraEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS5_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -8
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !18
-  %9 = ptrtoint ptr %8 to i64
-  %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !47
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %15, !prof !124
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = ptrtoint ptr %5 to i64
+  %7 = trunc i64 %6 to i32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !47
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %9, %11
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %12, !prof !124
 
-15:                                               ; preds = %3
-  %16 = zext i32 %12 to i64
-  %17 = add nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %18, i64 noundef %17, i64 noundef 4) #17
-  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+12:                                               ; preds = %3
+  %13 = zext i32 %9 to i64
+  %14 = add nuw nsw i64 %13, 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #17
+  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %15, %3
-  %19 = phi i32 [ %12, %3 ], [ %.pre.i.i.i.i.i.i.i.i, %15 ]
-  %20 = load ptr, ptr %2, align 8, !tbaa !45
-  %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  store i32 %10, ptr %22, align 1
-  %23 = load i32, ptr %11, align 8, !tbaa !47
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %11, align 8, !tbaa !47
-  %25 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %24, %25
-  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit, label %26, !prof !124
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %12, %3
+  %16 = phi i32 [ %9, %3 ], [ %.pre.i.i.i.i.i.i.i.i, %12 ]
+  %17 = load ptr, ptr %2, align 8, !tbaa !45
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  store i32 %7, ptr %19, align 1
+  %20 = load i32, ptr %8, align 8, !tbaa !47
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %8, align 8, !tbaa !47
+  %22 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %21, %22
+  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit, label %23, !prof !124
 
-26:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
-  %27 = zext i32 %24 to i64
-  %28 = add nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 4) #17
-  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+23:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
+  %24 = zext i32 %21 to i64
+  %25 = add nuw nsw i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 4) #17
+  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit
 
-_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %26
-  %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %26 ]
-  %31 = lshr i64 %9, 32
-  %32 = trunc nuw i64 %31 to i32
-  %33 = load ptr, ptr %2, align 8, !tbaa !45
-  %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
-  store i32 %32, ptr %35, align 1
-  %36 = load i32, ptr %11, align 8, !tbaa !47
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %11, align 8, !tbaa !47
-  %38 = load ptr, ptr %2, align 8, !tbaa !45
-  %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
-  %41 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %38, ptr noundef %40)
-  %42 = trunc i64 %41 to i32
-  ret i32 %42
+_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail26CXXDeductionGuideNameExtraEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %23
+  %27 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %23 ]
+  %28 = lshr i64 %6, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = load ptr, ptr %2, align 8, !tbaa !45
+  %31 = zext i32 %27 to i64
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  store i32 %29, ptr %32, align 1
+  %33 = load i32, ptr %8, align 8, !tbaa !47
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %8, align 8, !tbaa !47
+  %35 = load ptr, ptr %2, align 8, !tbaa !45
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %38 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %35, ptr noundef %37)
+  %39 = trunc i64 %38 to i32
+  ret i32 %39
 }
 
 declare noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
@@ -4382,185 +4373,176 @@ _ZN4llvm22DefaultFoldingSetTraitIN5clang6detail19CXXSpecialNameExtraEE11ComputeH
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm10FoldingSetIN5clang6detail24CXXLiteralOperatorIdNameEE14GetNodeProfileEPKNS_14FoldingSetBaseEPNS5_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -8
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = ptrtoint ptr %8 to i64
-  %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !47
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i.i.i.i.i.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, label %15, !prof !124
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %6 = ptrtoint ptr %5 to i64
+  %7 = trunc i64 %6 to i32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !47
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i.i.i.i.i.i = icmp ult i32 %9, %11
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, label %12, !prof !124
 
-15:                                               ; preds = %3
-  %16 = zext i32 %12 to i64
-  %17 = add nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %18, i64 noundef %17, i64 noundef 4) #17
-  %.pre.i.i.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+12:                                               ; preds = %3
+  %13 = zext i32 %9 to i64
+  %14 = add nuw nsw i64 %13, 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #17
+  %.pre.i.i.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %15, %3
-  %19 = phi i32 [ %12, %3 ], [ %.pre.i.i.i.i.i.i.i, %15 ]
-  %20 = load ptr, ptr %2, align 8, !tbaa !45
-  %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  store i32 %10, ptr %22, align 1
-  %23 = load i32, ptr %11, align 8, !tbaa !47
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %11, align 8, !tbaa !47
-  %25 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i2.i.i.i.i.i = icmp ult i32 %24, %25
-  br i1 %.not.i.i.not.i.i2.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit, label %26, !prof !124
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %12, %3
+  %16 = phi i32 [ %9, %3 ], [ %.pre.i.i.i.i.i.i.i, %12 ]
+  %17 = load ptr, ptr %2, align 8, !tbaa !45
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  store i32 %7, ptr %19, align 1
+  %20 = load i32, ptr %8, align 8, !tbaa !47
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %8, align 8, !tbaa !47
+  %22 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i2.i.i.i.i.i = icmp ult i32 %21, %22
+  br i1 %.not.i.i.not.i.i2.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit, label %23, !prof !124
 
-26:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i
-  %27 = zext i32 %24 to i64
-  %28 = add nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 4) #17
-  %.pre.i.i3.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+23:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i
+  %24 = zext i32 %21 to i64
+  %25 = add nuw nsw i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 4) #17
+  %.pre.i.i3.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit
 
-_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, %26
-  %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %26 ]
-  %31 = lshr i64 %9, 32
-  %32 = trunc nuw i64 %31 to i32
-  %33 = load ptr, ptr %2, align 8, !tbaa !45
-  %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
-  store i32 %32, ptr %35, align 1
-  %36 = load i32, ptr %11, align 8, !tbaa !47
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %11, align 8, !tbaa !47
+_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE7ProfileERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i, %23
+  %27 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %23 ]
+  %28 = lshr i64 %6, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = load ptr, ptr %2, align 8, !tbaa !45
+  %31 = zext i32 %27 to i64
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  store i32 %29, ptr %32, align 1
+  %33 = load i32, ptr %8, align 8, !tbaa !47
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %8, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm10FoldingSetIN5clang6detail24CXXLiteralOperatorIdNameEE10NodeEqualsEPKNS_14FoldingSetBaseEPNS5_4NodeERKNS_16FoldingSetNodeIDEjRSA_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(144) %4) #0 comdat align 2 {
-  %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 -8
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !26
-  %11 = ptrtoint ptr %10 to i64
-  %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !47
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !101
-  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %14, %16
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %17, !prof !124
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = ptrtoint ptr %7 to i64
+  %9 = trunc i64 %8 to i32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !47
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %13 = load i32, ptr %12, align 4, !tbaa !101
+  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %11, %13
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %14, !prof !124
 
-17:                                               ; preds = %5
-  %18 = zext i32 %14 to i64
-  %19 = add nuw nsw i64 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 4) #17
-  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %13, align 8, !tbaa !47
+14:                                               ; preds = %5
+  %15 = zext i32 %11 to i64
+  %16 = add nuw nsw i64 %15, 1
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 4) #17
+  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %10, align 8, !tbaa !47
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %17, %5
-  %21 = phi i32 [ %14, %5 ], [ %.pre.i.i.i.i.i.i.i.i, %17 ]
-  %22 = load ptr, ptr %4, align 8, !tbaa !45
-  %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
-  store i32 %12, ptr %24, align 1
-  %25 = load i32, ptr %13, align 8, !tbaa !47
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %13, align 8, !tbaa !47
-  %27 = load i32, ptr %15, align 4, !tbaa !101
-  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %26, %27
-  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit, label %28, !prof !124
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %14, %5
+  %18 = phi i32 [ %11, %5 ], [ %.pre.i.i.i.i.i.i.i.i, %14 ]
+  %19 = load ptr, ptr %4, align 8, !tbaa !45
+  %20 = zext i32 %18 to i64
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  store i32 %9, ptr %21, align 1
+  %22 = load i32, ptr %10, align 8, !tbaa !47
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %10, align 8, !tbaa !47
+  %24 = load i32, ptr %12, align 4, !tbaa !101
+  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %23, %24
+  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit, label %25, !prof !124
 
-28:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
-  %29 = zext i32 %26 to i64
-  %30 = add nuw nsw i64 %29, 1
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %31, i64 noundef %30, i64 noundef 4) #17
-  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %13, align 8, !tbaa !47
+25:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
+  %26 = zext i32 %23 to i64
+  %27 = add nuw nsw i64 %26, 1
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %28, i64 noundef %27, i64 noundef 4) #17
+  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %10, align 8, !tbaa !47
   br label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit
 
-_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %28
-  %32 = phi i32 [ %26, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %28 ]
-  %33 = lshr i64 %11, 32
-  %34 = trunc nuw i64 %33 to i32
-  %35 = load ptr, ptr %4, align 8, !tbaa !45
-  %36 = zext i32 %32 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
-  store i32 %34, ptr %37, align 1
-  %38 = load i32, ptr %13, align 8, !tbaa !47
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %13, align 8, !tbaa !47
-  %40 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #17
-  ret i1 %40
+_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE6EqualsERS3_RKNS_16FoldingSetNodeIDEjRS6_.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %25
+  %29 = phi i32 [ %23, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %25 ]
+  %30 = lshr i64 %8, 32
+  %31 = trunc nuw i64 %30 to i32
+  %32 = load ptr, ptr %4, align 8, !tbaa !45
+  %33 = zext i32 %29 to i64
+  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  store i32 %31, ptr %34, align 1
+  %35 = load i32, ptr %10, align 8, !tbaa !47
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %10, align 8, !tbaa !47
+  %37 = tail call noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %2) #17
+  ret i1 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang6detail24CXXLiteralOperatorIdNameEE15ComputeNodeHashEPKNS_14FoldingSetBaseEPNS5_4NodeERNS_16FoldingSetNodeIDE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) #0 comdat align 2 {
-  %4 = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %1, i64 -8
-  %6 = select i1 %4, ptr null, ptr %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = ptrtoint ptr %8 to i64
-  %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !47
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %15, !prof !124
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %6 = ptrtoint ptr %5 to i64
+  %7 = trunc i64 %6 to i32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !47
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i.i.i.i.i.i.i = icmp ult i32 %9, %11
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, label %12, !prof !124
 
-15:                                               ; preds = %3
-  %16 = zext i32 %12 to i64
-  %17 = add nuw nsw i64 %16, 1
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %18, i64 noundef %17, i64 noundef 4) #17
-  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+12:                                               ; preds = %3
+  %13 = zext i32 %9 to i64
+  %14 = add nuw nsw i64 %13, 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #17
+  %.pre.i.i.i.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %15, %3
-  %19 = phi i32 [ %12, %3 ], [ %.pre.i.i.i.i.i.i.i.i, %15 ]
-  %20 = load ptr, ptr %2, align 8, !tbaa !45
-  %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  store i32 %10, ptr %22, align 1
-  %23 = load i32, ptr %11, align 8, !tbaa !47
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %11, align 8, !tbaa !47
-  %25 = load i32, ptr %13, align 4, !tbaa !101
-  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %24, %25
-  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit, label %26, !prof !124
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %12, %3
+  %16 = phi i32 [ %9, %3 ], [ %.pre.i.i.i.i.i.i.i.i, %12 ]
+  %17 = load ptr, ptr %2, align 8, !tbaa !45
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  store i32 %7, ptr %19, align 1
+  %20 = load i32, ptr %8, align 8, !tbaa !47
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %8, align 8, !tbaa !47
+  %22 = load i32, ptr %10, align 4, !tbaa !101
+  %.not.i.i.not.i.i2.i.i.i.i.i.i = icmp ult i32 %21, %22
+  br i1 %.not.i.i.not.i.i2.i.i.i.i.i.i, label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit, label %23, !prof !124
 
-26:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
-  %27 = zext i32 %24 to i64
-  %28 = add nuw nsw i64 %27, 1
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 4) #17
-  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !47
+23:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i
+  %24 = zext i32 %21 to i64
+  %25 = add nuw nsw i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 4) #17
+  %.pre.i.i3.i.i.i.i.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit
 
-_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %26
-  %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %26 ]
-  %31 = lshr i64 %9, 32
-  %32 = trunc nuw i64 %31 to i32
-  %33 = load ptr, ptr %2, align 8, !tbaa !45
-  %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
-  store i32 %32, ptr %35, align 1
-  %36 = load i32, ptr %11, align 8, !tbaa !47
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %11, align 8, !tbaa !47
-  %38 = load ptr, ptr %2, align 8, !tbaa !45
-  %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
-  %41 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %38, ptr noundef %40)
-  %42 = trunc i64 %41 to i32
-  ret i32 %42
+_ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE11ComputeHashERS3_RNS_16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i, %23
+  %27 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i.i, %23 ]
+  %28 = lshr i64 %6, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = load ptr, ptr %2, align 8, !tbaa !45
+  %31 = zext i32 %27 to i64
+  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  store i32 %29, ptr %32, align 1
+  %33 = load i32, ptr %8, align 8, !tbaa !47
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %8, align 8, !tbaa !47
+  %35 = load ptr, ptr %2, align 8, !tbaa !45
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %38 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %35, ptr noundef %37)
+  %39 = trunc i64 %38 to i32
+  ret i32 %39
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

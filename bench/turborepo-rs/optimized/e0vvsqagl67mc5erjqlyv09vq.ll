@@ -845,7 +845,7 @@ define void @_RNvXs_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB4_8VecDeq
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
-  %4 = tail call { i64, i64 } @_RINvNtNtCs1LoaDTb72WA_4core5slice5index5rangeNtNtNtB6_3ops5range9RangeFullECsaWlx1u69XGo_9crossterm(i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd57ba1e842596d0f23059ac0f451567.1.llvm.10734566148749228853), !noalias !350
+  %4 = tail call { i64, i64 } @_RINvNtNtCs1LoaDTb72WA_4core5slice5index5rangeNtNtNtB6_3ops5range9RangeFullECsaWlx1u69XGo_9crossterm(i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd57ba1e842596d0f23059ac0f451567.1.llvm.10734566148749228853), !noalias !350
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = icmp eq i64 %6, %5

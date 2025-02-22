@@ -8679,12 +8679,12 @@ _ZN7AstNode11privateCastI15AstClassPackagePK13AstNodeModuleEEPKT_PKS_.exit.threa
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.040.068, i64 56
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.040.068, i64 40
-  %.not4459 = icmp eq ptr %31, %32
-  br i1 %.not4459, label %._crit_edge, label %.lr.ph
+  %.not4460 = icmp eq ptr %31, %32
+  br i1 %.not4460, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %38
-  %.sroa.036.060 = phi ptr [ %46, %38 ], [ %31, %28 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.036.060, i64 32
+  %.sroa.036.061 = phi ptr [ %46, %38 ], [ %31, %28 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.036.061, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %34 unwind label %.loopexit46
 
@@ -8718,7 +8718,7 @@ _ZN7AstNode11privateCastI15AstClassPackagePK13AstNodeModuleEEPKT_PKS_.exit.threa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #31
-  %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.036.060) #36
+  %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.036.061) #36
   %.not44 = icmp eq ptr %46, %32
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
@@ -8808,7 +8808,7 @@ _ZN7AstNode11privateCastI15AstClassPackagePK13AstNodeModuleEEPKT_PKS_.exit.threa
           to label %.noexc26 unwind label %.loopexit.split-lp
 
 .noexc26:                                         ; preds = %.noexc25
-  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %79) #32
+  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %66, ptr noundef nonnull align 8 dereferenceable(112) %79) #32
           to label %.noexc27 unwind label %.loopexit.split-lp
 
 .noexc27:                                         ; preds = %.noexc26
@@ -35303,7 +35303,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17EmitCParentModule3getEPK7AstNode
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %18)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.35)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(112) %20) #32
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(112) %20) #32
   unreachable
 
 _ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit: ; preds = %1, %9

@@ -13860,34 +13860,34 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicI
   %33 = and i64 %32, 15
   %34 = add i64 %6, 8
   %35 = icmp eq i64 %33, 15
-  %36 = select i1 %35, ptr %.0.i, ptr null
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %38 = load atomic i64, ptr %37 monotonic, align 8
-  %39 = shl nuw nsw i64 1, %33
-  %40 = and i64 %38, %39
-  %.not = icmp ne i64 %40, 0
-  br i1 %.not, label %41, label %44
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %37 = load atomic i64, ptr %36 monotonic, align 8
+  %38 = shl nuw nsw i64 1, %33
+  %39 = and i64 %37, %38
+  %.not = icmp ne i64 %39, 0
+  br i1 %.not, label %40, label %43
 
-41:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %43 = getelementptr inbounds nuw [16 x %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPrimTag, 24, 8>::_FreeList"], ptr %42, i64 0, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
-  br label %47
+40:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %42 = getelementptr inbounds nuw [16 x %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPrimTag, 24, 8>::_FreeList"], ptr %41, i64 0, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
+  br label %46
 
-44:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 640
-  %46 = atomicrmw sub ptr %45, i64 1 seq_cst, align 8
-  br label %47
+43:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 640
+  %45 = atomicrmw sub ptr %44, i64 1 seq_cst, align 8
+  br label %46
 
-47:                                               ; preds = %41, %44
-  %48 = icmp ugt ptr %36, inttoptr (i64 1 to ptr)
+46:                                               ; preds = %40, %43
+  %47 = icmp ugt i64 %31, 1
+  %48 = and i1 %35, %47
   br i1 %48, label %49, label %.thread.i
 
-.thread.i:                                        ; preds = %47
+.thread.i:                                        ; preds = %46
   store atomic i64 %34, ptr %7 release, align 8
   br label %_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS4_15Sdf_PathPrimTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS8_EEEES8_NSA_INSC_11padded_pageEEEED2Ev.exit
 
-49:                                               ; preds = %47
+49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = atomicrmw xchg ptr %50, i8 1 seq_cst, align 1
   %52 = trunc i8 %51 to i1
@@ -13924,7 +13924,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %59, %_ZN3tbb6
   br i1 %62, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !18
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %49
-  %63 = load ptr, ptr %36, align 8
+  %63 = load ptr, ptr %.0.i, align 8
   %64 = ptrtoint ptr %63 to i64
   store atomic i64 %64, ptr %0 release, align 8
   %65 = icmp ugt ptr %63, inttoptr (i64 1 to ptr)
@@ -13938,7 +13938,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 68:                                               ; preds = %66, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
   store atomic i8 0, ptr %50 release, align 8
   store atomic i64 %34, ptr %7 release, align 8
-  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %36)
+  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i)
           to label %_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS4_15Sdf_PathPrimTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS8_EEEES8_NSA_INSC_11padded_pageEEEED2Ev.exit unwind label %69
 
 69:                                               ; preds = %68
@@ -14409,34 +14409,34 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicI
   %33 = and i64 %32, 15
   %34 = add i64 %6, 8
   %35 = icmp eq i64 %33, 15
-  %36 = select i1 %35, ptr %.0.i, ptr null
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %38 = load atomic i64, ptr %37 monotonic, align 8
-  %39 = shl nuw nsw i64 1, %33
-  %40 = and i64 %38, %39
-  %.not = icmp ne i64 %40, 0
-  br i1 %.not, label %41, label %44
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %37 = load atomic i64, ptr %36 monotonic, align 8
+  %38 = shl nuw nsw i64 1, %33
+  %39 = and i64 %37, %38
+  %.not = icmp ne i64 %39, 0
+  br i1 %.not, label %40, label %43
 
-41:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %43 = getelementptr inbounds nuw [16 x %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPropTag, 24, 8>::_FreeList"], ptr %42, i64 0, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
-  br label %47
+40:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %42 = getelementptr inbounds nuw [16 x %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPropTag, 24, 8>::_FreeList"], ptr %41, i64 0, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
+  br label %46
 
-44:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 640
-  %46 = atomicrmw sub ptr %45, i64 1 seq_cst, align 8
-  br label %47
+43:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 640
+  %45 = atomicrmw sub ptr %44, i64 1 seq_cst, align 8
+  br label %46
 
-47:                                               ; preds = %41, %44
-  %48 = icmp ugt ptr %36, inttoptr (i64 1 to ptr)
+46:                                               ; preds = %40, %43
+  %47 = icmp ugt i64 %31, 1
+  %48 = and i1 %35, %47
   br i1 %48, label %49, label %.thread.i
 
-.thread.i:                                        ; preds = %47
+.thread.i:                                        ; preds = %46
   store atomic i64 %34, ptr %7 release, align 8
   br label %_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS4_15Sdf_PathPropTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS8_EEEES8_NSA_INSC_11padded_pageEEEED2Ev.exit
 
-49:                                               ; preds = %47
+49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = atomicrmw xchg ptr %50, i8 1 seq_cst, align 1
   %52 = trunc i8 %51 to i1
@@ -14473,7 +14473,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %59, %_ZN3tbb6
   br i1 %62, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !18
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %49
-  %63 = load ptr, ptr %36, align 8
+  %63 = load ptr, ptr %.0.i, align 8
   %64 = ptrtoint ptr %63 to i64
   store atomic i64 %64, ptr %0 release, align 8
   %65 = icmp ugt ptr %63, inttoptr (i64 1 to ptr)
@@ -14487,7 +14487,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 68:                                               ; preds = %66, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
   store atomic i8 0, ptr %50 release, align 8
   store atomic i64 %34, ptr %7 release, align 8
-  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %36)
+  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i)
           to label %_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueIN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS4_15Sdf_PathPropTagELj24ELj8ELj16384EE9_FreeListENS0_2d123cache_aligned_allocatorIS8_EEEES8_NSA_INSC_11padded_pageEEEED2Ev.exit unwind label %69
 
 69:                                               ; preds = %68

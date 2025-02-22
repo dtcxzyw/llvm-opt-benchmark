@@ -69,7 +69,7 @@ define noundef range(i64 0, 4) i64 @_ZN6base646encode11add_padding17h00d4e9c0ee6
   br i1 %exitcond11.not, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %2, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.22e5fd453cee8def79982159f9b88e16.1) #5
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22e5fd453cee8def79982159f9b88e16.1) #5
   unreachable
 }
 

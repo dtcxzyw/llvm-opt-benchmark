@@ -1372,7 +1372,7 @@ if.then97:                                        ; preds = %land.lhs.true
   %agg.tmp.sroa.0.0.copyload.i.i161 = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i162 = and i64 %agg.tmp.sroa.0.0.copyload.i.i161, 281474976710655
   %62 = inttoptr i64 %and.i.i.i.i.i162 to ptr
-  tail call void @_ZN6hermes2vm14OrderedHashMap20removeLinkedListNodeERNS0_7RuntimeEPNS0_12HashMapEntryERNS0_7HadesGCE(ptr noundef nonnull align 4 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %cond.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i40)
+  tail call void @_ZN6hermes2vm14OrderedHashMap20removeLinkedListNodeERNS0_7RuntimeEPNS0_12HashMapEntryERNS0_7HadesGCE(ptr noundef nonnull align 4 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i40)
   br label %if.end101
 
 if.end101:                                        ; preds = %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit159, %land.lhs.true, %if.then97, %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit112

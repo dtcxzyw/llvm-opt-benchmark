@@ -1472,7 +1472,6 @@ define internal void @_ZN12_GLOBAL__N_112DeadStoreObs11observeStmtEPKN5clang4Stm
   %11 = load i16, ptr %1, align 8
   %12 = and i16 %11, 510
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %12, 120
-  %spec.select.i.i = select i1 %spec.select.i.i.i.i.i.i.i.i.not, ptr %1, ptr null
   br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %13, label %83
 
 13:                                               ; preds = %10
@@ -1591,11 +1590,11 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %_ZL49LookThroughTra
 .critedge115:                                     ; preds = %66, %63
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %76 = load ptr, ptr %75, align 8, !tbaa !339
-  %77 = tail call noundef zeroext i1 @_ZNK5clang9ParentMap14isConsumedExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull %spec.select.i.i) #19
+  %77 = tail call noundef zeroext i1 @_ZNK5clang9ParentMap14isConsumedExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull %1) #19
   br i1 %77, label %.critedge117, label %78
 
 78:                                               ; preds = %.critedge115
-  %79 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112DeadStoreObs11isIncrementEPN5clang7VarDeclEPKNS1_14BinaryOperatorE(ptr noundef %26, ptr noundef %spec.select.i.i)
+  %79 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112DeadStoreObs11isIncrementEPN5clang7VarDeclEPKNS1_14BinaryOperatorE(ptr noundef %26, ptr noundef %1)
   %80 = select i1 %79, i32 2, i32 0
   br label %.critedge117
 

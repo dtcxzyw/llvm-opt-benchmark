@@ -124,7 +124,7 @@ define hidden void @"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$a
   ret void
 
 12:                                               ; preds = %2
-  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.1.llvm.8982795422203727417) #28
+  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.1.llvm.8982795422203727417) #28
   unreachable
 }
 
@@ -258,7 +258,7 @@ define hidden void @_ZN11shellexpand26env_with_context_no_errors17h9066a99c11cd6
   br i1 %trunc, label %6, label %7
 
 6:                                                ; preds = %3
-  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.41c693d3ef09fb7251307d20020dbb9f.2.llvm.8982795422203727417, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.4.llvm.8982795422203727417) #28
+  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.41c693d3ef09fb7251307d20020dbb9f.2.llvm.8982795422203727417, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.4.llvm.8982795422203727417) #28
           to label %9 unwind label %11
 
 7:                                                ; preds = %3
@@ -303,7 +303,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !60
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %3, align 8, !noalias !60
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.41c693d3ef09fb7251307d20020dbb9f.11, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.41c693d3ef09fb7251307d20020dbb9f.10)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.41c693d3ef09fb7251307d20020dbb9f.11, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.41c693d3ef09fb7251307d20020dbb9f.10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !60
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hce52e355c33fac18E.exit"
 
@@ -1025,7 +1025,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
   br i1 %4, label %5, label %"_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8604691acab4f603E.llvm.8982795422203727417.exit"
 
 5:                                                ; preds = %1
-  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.1.llvm.8982795422203727417) #28, !noalias !295
+  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.1.llvm.8982795422203727417) #28, !noalias !295
   unreachable
 
 "_ZN101_$LT$core..slice..iter..ChunksExactMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8604691acab4f603E.llvm.8982795422203727417.exit": ; preds = %1
@@ -1674,7 +1674,7 @@ define hidden void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %14, align 8, !noalias !381
   store i64 3, ptr %5, align 8, !noalias !381
-  %15 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h75ba50bd5add8d6dE.llvm.6618738485395013937"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.6b7f51e80bd7a8ff34219010b2b41f13.45.llvm.6618738485395013937, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %15 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h75ba50bd5add8d6dE.llvm.6618738485395013937"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.6b7f51e80bd7a8ff34219010b2b41f13.45.llvm.6618738485395013937, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !378
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !378
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4277,7 +4277,7 @@ define hidden void @_ZN4task13vscode_format19EnvVariableReplacer7replace17h96d0f
   br i1 %trunc.i, label %10, label %_ZN11shellexpand26env_with_context_no_errors17h9066a99c11cd68daE.llvm.8982795422203727417.exit
 
 10:                                               ; preds = %4
-  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.41c693d3ef09fb7251307d20020dbb9f.2.llvm.8982795422203727417, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.4.llvm.8982795422203727417) #28
+  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.41c693d3ef09fb7251307d20020dbb9f.2.llvm.8982795422203727417, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41c693d3ef09fb7251307d20020dbb9f.4.llvm.8982795422203727417) #28
           to label %11 unwind label %13, !noalias !837
 
 11:                                               ; preds = %10

@@ -142,7 +142,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !30
   store ptr %.sroa.0.05.i, ptr %4, align 8, !noalias !30
-  %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
+  %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !30
   %10 = icmp eq ptr %8, %6
   br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h98a615cf2a9210e6E.exit, label %.lr.ph.i
@@ -523,7 +523,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value2de78_$LT$impl$u20$serd
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
+  %6 = invoke noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
           to label %9 unwind label %7
 
 7:                                                ; preds = %5
@@ -555,7 +555,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value2de82_$LT$impl$u20$serd
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
+  %6 = call noundef nonnull align 8 ptr @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$GT$12invalid_type17h76010d995c7009dbE.llvm.12841644863924027351"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26c0cb6590748a1386405b514f6d4bfd.8.llvm.12841644863924027351)
   br label %7
 
 7:                                                ; preds = %1, %5

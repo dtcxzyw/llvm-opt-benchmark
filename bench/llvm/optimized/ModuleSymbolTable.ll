@@ -2006,11 +2006,9 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15concat_iteratorINS_11GlobalVa
   %4 = load ptr, ptr %2, align 8, !tbaa !32
   %5 = load ptr, ptr %3, align 8, !tbaa !32
   %6 = icmp eq ptr %4, %5
-  %7 = icmp eq ptr %4, null
-  %8 = getelementptr inbounds i8, ptr %4, i64 -56
-  %9 = or i1 %7, %6
-  %.0 = select i1 %9, ptr null, ptr %8
-  ret ptr %.0
+  %7 = getelementptr inbounds i8, ptr %4, i64 -56
+  %spec.select = select i1 %6, ptr null, ptr %7
+  ret ptr %spec.select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2020,11 +2018,9 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15concat_iteratorINS_11GlobalVa
   %4 = load ptr, ptr %2, align 8, !tbaa !399
   %5 = load ptr, ptr %3, align 8, !tbaa !399
   %6 = icmp eq ptr %4, %5
-  %7 = icmp eq ptr %4, null
-  %8 = getelementptr inbounds i8, ptr %4, i64 -56
-  %9 = or i1 %7, %6
-  %.0 = select i1 %9, ptr null, ptr %8
-  ret ptr %.0
+  %7 = getelementptr inbounds i8, ptr %4, i64 -56
+  %spec.select = select i1 %6, ptr null, ptr %7
+  ret ptr %spec.select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2034,11 +2030,9 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15concat_iteratorINS_11GlobalVa
   %4 = load ptr, ptr %2, align 8, !tbaa !35
   %5 = load ptr, ptr %3, align 8, !tbaa !35
   %6 = icmp eq ptr %4, %5
-  %7 = icmp eq ptr %4, null
-  %8 = getelementptr inbounds i8, ptr %4, i64 -48
-  %9 = or i1 %7, %6
-  %.0 = select i1 %9, ptr null, ptr %8
-  ret ptr %.0
+  %7 = getelementptr inbounds i8, ptr %4, i64 -48
+  %spec.select = select i1 %6, ptr null, ptr %7
+  ret ptr %spec.select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2047,11 +2041,9 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15concat_iteratorINS_11GlobalVa
   %3 = load ptr, ptr %0, align 8, !tbaa !402
   %4 = load ptr, ptr %2, align 8, !tbaa !402
   %5 = icmp eq ptr %3, %4
-  %6 = icmp eq ptr %3, null
-  %7 = getelementptr inbounds i8, ptr %3, i64 -56
-  %8 = or i1 %6, %5
-  %.0 = select i1 %8, ptr null, ptr %7
-  ret ptr %.0
+  %6 = getelementptr inbounds i8, ptr %3, i64 -56
+  %spec.select = select i1 %5, ptr null, ptr %6
+  ret ptr %spec.select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

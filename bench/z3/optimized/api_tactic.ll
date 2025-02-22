@@ -7115,11 +7115,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i.i.not.i, label %invoke.cont9, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call3.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %fac1, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %fac1, ptr noundef nonnull align 8 dereferenceable(32) %m_simplifier.i, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
+  %_M_invoker4.i = getelementptr inbounds nuw i8, ptr %t1, i64 48
   %3 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %3, ptr %_M_invoker.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -7159,11 +7159,11 @@ invoke.cont9:                                     ; preds = %invoke.cont.i, %if.
   br i1 %tobool.not.i.i.not.i20, label %invoke.cont13, label %if.then.i21
 
 if.then.i21:                                      ; preds = %invoke.cont9
-  %call3.i22 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %fac2, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i16, i32 noundef 2)
+  %call3.i22 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %fac2, ptr noundef nonnull align 8 dereferenceable(32) %m_simplifier.i15, i32 noundef 2)
           to label %invoke.cont.i29 unwind label %lpad.i23
 
 invoke.cont.i29:                                  ; preds = %if.then.i21
-  %_M_invoker4.i30 = getelementptr inbounds nuw i8, ptr %spec.select.i16, i64 24
+  %_M_invoker4.i30 = getelementptr inbounds nuw i8, ptr %t2, i64 48
   %11 = load ptr, ptr %_M_invoker4.i30, align 8
   store ptr %11, ptr %_M_invoker.i18, align 8
   %12 = load ptr, ptr %_M_manager.i.i.i19, align 8
@@ -7654,7 +7654,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br i1 %tobool.not.i.i.not.i, label %if.then.i23, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont13
-  %call3.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %fac, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %fac, ptr noundef nonnull align 8 dereferenceable(32) %m_simplifier.i, i32 noundef 2)
           to label %invoke.cont19 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then.i
@@ -7677,7 +7677,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 invoke.cont19:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
+  %_M_invoker4.i = getelementptr inbounds nuw i8, ptr %t, i64 48
   %10 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %10, ptr %_M_invoker.i, align 8
   %11 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -8215,7 +8215,7 @@ if.then.i:                                        ; preds = %invoke.cont15
 if.end.i:                                         ; preds = %invoke.cont15
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
   %6 = load ptr, ptr %_M_invoker.i, align 8
-  %call6.i13 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(160) %st)
+  %call6.i13 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %m_simplifier.i, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(160) %st)
           to label %invoke.cont21 unwind label %lpad18
 
 invoke.cont21:                                    ; preds = %if.end.i
@@ -8460,7 +8460,7 @@ if.then.i:                                        ; preds = %invoke.cont19
 if.end.i:                                         ; preds = %invoke.cont19
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
   %6 = load ptr, ptr %_M_invoker.i, align 8
-  %call6.i16 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(160) %st)
+  %call6.i16 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %m_simplifier.i, ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(160) %st)
           to label %invoke.cont25 unwind label %lpad22
 
 invoke.cont25:                                    ; preds = %if.end.i

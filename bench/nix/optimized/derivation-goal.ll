@@ -16896,7 +16896,6 @@ _ZN3nix3getISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4HashE
   %170 = icmp sgt i32 %.0.i.i.i.i.i.i58, -1
   %.19.i.i.i.i50.sroa.sel97.v.sroa.sel.v.sroa.sel.v = select i1 %162, ptr %.0811.i.i.i.i44, ptr %.012.i.i.i.i43
   %.19.i.i.i.i50.sroa.sel97.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i50.sroa.sel97.v.sroa.sel.v.sroa.sel.v, i64 64
-  %spec.select.i59 = select i1 %170, ptr %.19.i.i.i.i50.sroa.sel97.v.sroa.sel.v.sroa.sel, ptr null
   %171 = icmp ne ptr %.0.i, null
   %or.cond = and i1 %171, %170
   br i1 %or.cond, label %192, label %_ZN3nix3getISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4HashESt4lessIS7_ESaISt4pairIKS7_S8_EEEEEPNT_11mapped_typeERSG_RKNSG_8key_typeE.exit.thread
@@ -17043,7 +17042,7 @@ select.unfold.i:                                  ; preds = %_ZNSt3mapINSt7__cxx
   %213 = load ptr, ptr %59, align 8, !noalias !120
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 536
   %215 = load ptr, ptr %214, align 8, !noalias !120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %4, ptr noundef nonnull align 8 dereferenceable(73) %spec.select.i59, i64 73, i1 false), !noalias !120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %4, ptr noundef nonnull align 8 dereferenceable(73) %.19.i.i.i.i50.sroa.sel97.v.sroa.sel.v.sroa.sel, i64 73, i1 false), !noalias !120
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %125)
           to label %.noexc81 unwind label %183
 

@@ -3700,7 +3700,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %18, %26
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %39 = load ptr, ptr %38, align 8, !tbaa !158
-  %40 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %39, ptr noundef nonnull %30) #15
+  %40 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %39, ptr noundef nonnull %29) #15
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %37, %34, %_ZN5clang13CXXMethodDecl9getParentEv.exit
@@ -10888,11 +10888,10 @@ _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i.i: ; preds = %
   br i1 %.not.i.i, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit.thread23, label %_ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextEPNS_10FriendDeclE.exit.thread25
 
 _ZL13MatchesFriendRN5clang4SemaERKN12_GLOBAL__N_116EffectiveContextENS_7CanQualINS_4TypeEEE.exit.i: ; preds = %17
-  %.0.i.i.i.i.i21.i = select i1 %.not.i.i.i.i.i.i, ptr %21, ptr null
-  %37 = load ptr, ptr %.0.i.i.i.i.i21.i, align 8, !tbaa !62
+  %37 = load ptr, ptr %21, align 8, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(33) %.0.i.i.i.i.i21.i) #15
+  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(33) %21) #15
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 127

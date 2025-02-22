@@ -127,7 +127,7 @@ define dso_local noundef ptr @_ZN5clang13CodeGenerator21GetDeclForMangledNameEN4
   br i1 %.not.i, label %27, label %24
 
 24:                                               ; preds = %9
-  %25 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl7hasBodyERPKS0_(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %25 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl7hasBodyERPKS0_(ptr noundef nonnull align 8 dereferenceable(168) %18, ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   %26 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br i1 %25, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl21GetDeclForMangledNameEN4llvm9StringRefE.exit, label %33

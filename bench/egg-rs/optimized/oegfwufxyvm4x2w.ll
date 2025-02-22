@@ -115,7 +115,7 @@ define void @"_ZN62_$LT$egg..subst..Var$u20$as$u20$core..str..traits..FromStr$GT
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i"
-  tail call void @_ZN4core3str16slice_error_fail17h11278fc6a58fee91E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 2, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e831b41a1e1a17865136bdabba0554f7.8) #13
+  tail call void @_ZN4core3str16slice_error_fail17h11278fc6a58fee91E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e831b41a1e1a17865136bdabba0554f7.8) #13
   unreachable
 
 20:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i", %14
@@ -380,7 +380,7 @@ define void @_ZN3egg5subst5Subst13with_capacity17h5981487634b63fb7E(ptr dead_on_
   ]
 
 9:                                                ; preds = %7
-  invoke void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.2c703d1b4d91991e05c77a3eb1866866.9.llvm.5520512306816613332, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2c703d1b4d91991e05c77a3eb1866866.10.llvm.5520512306816613332) #13
+  invoke void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.2c703d1b4d91991e05c77a3eb1866866.9.llvm.5520512306816613332, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2c703d1b4d91991e05c77a3eb1866866.10.llvm.5520512306816613332) #13
           to label %.noexc.i unwind label %5, !noalias !50
 
 .noexc.i:                                         ; preds = %9

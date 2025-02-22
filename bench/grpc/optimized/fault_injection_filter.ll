@@ -3303,13 +3303,13 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end9.i.i
   %active_fault_4.i.i8.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i8, ptr %active_fault_4.i.i8.i.i.i.i, align 1, !noalias !60
   store i8 0, ptr %active_fault_4.i.i8.i.i.i.i, align 1, !noalias !60
-  %frombool.i.i.i9.sink.i.i100.i.i = and i8 %16, 1
+  %frombool.i.i.i9.sink.i.i98.i.i = and i8 %16, 1
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !noalias !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %0, ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i, i64 16, i1 false), !noalias !38
-  %_M_engaged.i.i.i.i.i.i.i.i.i107.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %_M_engaged.i.i.i.i.i.i.i.i.i105.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %15, ptr %next_factory.i.i, align 8, !noalias !38
-  store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i107.i.i, align 8, !noalias !38
-  store i8 %frombool.i.i.i9.sink.i.i100.i.i, ptr %abort_request_.i.i.i.i.i.i, align 1, !noalias !38
+  store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i105.i.i, align 8, !noalias !38
+  store i8 %frombool.i.i.i9.sink.i.i98.i.i, ptr %abort_request_.i.i.i.i.i.i, align 1, !noalias !38
   store i8 1, ptr %state.i.i, align 16, !noalias !38
   br label %cleanup.i.i
 
@@ -3489,7 +3489,7 @@ if.then.i57.i.i:                                  ; preds = %cleanup44.i.i, %cle
   %agg.tmp.sroa.9.1 = phi ptr [ %agg.tmp.sroa.9.0, %cleanup44.thread.i.i ], [ %45, %cleanup44.i.i ]
   %agg.tmp.sroa.5.1 = phi i8 [ %agg.tmp.sroa.5.0, %cleanup44.thread.i.i ], [ %43, %cleanup44.i.i ]
   %agg.tmp.sroa.0.1 = phi i8 [ %agg.tmp.sroa.0.0, %cleanup44.thread.i.i ], [ 1, %cleanup44.i.i ]
-  %switch10114.i.i = phi i1 [ true, %cleanup44.thread.i.i ], [ false, %cleanup44.i.i ]
+  %switch10112.i.i = phi i1 [ true, %cleanup44.thread.i.i ], [ false, %cleanup44.i.i ]
   %47 = phi ptr [ %37, %cleanup44.thread.i.i ], [ %34, %cleanup44.i.i ]
   %48 = load i64, ptr %47, align 8, !noalias !38
   %and.i.i.i.i.i58.i.i = and i64 %48, 1
@@ -3508,7 +3508,7 @@ terminate.lpad.i.i.i61.i.i:                       ; preds = %if.then.i.i.i.i60.i
   unreachable
 
 _ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i: ; preds = %if.then.i.i.i.i60.i.i, %if.then.i57.i.i
-  br i1 %switch10114.i.i, label %sw.bb48.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit"
+  br i1 %switch10112.i.i, label %sw.bb48.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit"
 
 sw.bb48.i.i:                                      ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev.exit62.i.i, %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i63.i.i), !noalias !38

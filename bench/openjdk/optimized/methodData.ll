@@ -4885,11 +4885,10 @@ _ZNK10MethodData20parameters_type_dataEv.exit:    ; preds = %._crit_edge
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %60) #20
-  %..i.i = select i1 %64, ptr %60, ptr null
-  %65 = load ptr, ptr %..i.i, align 8
+  %65 = load ptr, ptr %60, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 120
   %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(32) %..i.i, ptr noundef null, ptr noundef nonnull %0) #20
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef null, ptr noundef nonnull %0) #20
   br label %68
 
 68:                                               ; preds = %_ZNK10MethodData20parameters_type_dataEv.exit, %._crit_edge
@@ -5981,11 +5980,10 @@ _ZNK10MethodData20parameters_type_dataEv.exit:    ; preds = %_ZNK10MethodData10f
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %25) #20
-  %..i.i = select i1 %29, ptr %25, ptr null
-  %30 = load ptr, ptr %..i.i, align 8
+  %30 = load ptr, ptr %25, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 144
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(32) %..i.i, ptr noundef %1, ptr noundef null) #20
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %1, ptr noundef null) #20
   br label %33
 
 33:                                               ; preds = %_ZNK10MethodData20parameters_type_dataEv.exit, %_ZNK10MethodData10first_dataEv.exit

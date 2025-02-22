@@ -73,17 +73,17 @@ define hidden noundef ptr @_ZNK16SubTypeCheckNode3subEPK4TypeS2_(ptr noundef non
   br i1 %.not19, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %24
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %2, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 272
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
+  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
   br i1 %28, label %29, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %7, align 8
+  %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 232
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(64) %7) #5
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %36 = load ptr, ptr %35, align 8

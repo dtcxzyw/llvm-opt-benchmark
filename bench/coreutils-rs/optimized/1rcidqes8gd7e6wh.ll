@@ -282,7 +282,7 @@ define void @_ZN6uu_yes14prepare_buffer17h11868802ee63e8cfE(ptr noalias noundef 
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.73d5b516c7e6a5465b4f9419f4b455a3.4, i64 noundef 33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.73d5b516c7e6a5465b4f9419f4b455a3.6) #11
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.73d5b516c7e6a5465b4f9419f4b455a3.4, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.73d5b516c7e6a5465b4f9419f4b455a3.6) #11
   unreachable
 
 10:                                               ; preds = %7
@@ -300,7 +300,7 @@ define void @_ZN6uu_yes14prepare_buffer17h11868802ee63e8cfE(ptr noalias noundef 
   %17 = sub nuw i64 %12, %16
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %18 = tail call { i64, i64 } @_ZN4core5slice5index5range17h1f91a4ce3312e7ecE(i64 noundef %.0.sroa.speculated.i, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.257d8f5d0b9698c548bfffc757105d52.5.llvm.16374473169365211629), !noalias !75
+  %18 = tail call { i64, i64 } @_ZN4core5slice5index5range17h1f91a4ce3312e7ecE(i64 noundef %.0.sroa.speculated.i, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.257d8f5d0b9698c548bfffc757105d52.5.llvm.16374473169365211629), !noalias !75
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
   %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %20, i64 %19)

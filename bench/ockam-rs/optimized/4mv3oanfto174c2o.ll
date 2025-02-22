@@ -38,34 +38,34 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %26, %6
-  %.sroa.7.156.i.i = phi i64 [ %27, %26 ], [ %5, %6 ]
+  %.sroa.7.154.i.i = phi i64 [ %27, %26 ], [ %5, %6 ]
   %7 = phi i64 [ %23, %26 ], [ 0, %6 ]
-  %.sroa.0.057.i.i = getelementptr inbounds i8, ptr %4, i64 %7
-  %8 = icmp ult i64 %.sroa.7.156.i.i, 16
+  %.sroa.0.055.i.i = getelementptr inbounds i8, ptr %4, i64 %7
+  %8 = icmp ult i64 %.sroa.7.154.i.i, 16
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %.lr.ph.split.split.i.i
-  %10 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h2a3d1b8621f1abf7E(i8 noundef 47, ptr noalias noundef nonnull readonly align 1 %.sroa.0.057.i.i, i64 noundef %.sroa.7.156.i.i), !noalias !4
+  %10 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h2a3d1b8621f1abf7E(i8 noundef 47, ptr noalias noundef nonnull readonly align 1 %.sroa.0.055.i.i, i64 noundef %.sroa.7.154.i.i), !noalias !4
   br label %19
 
 11:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %.sroa.7.156.i.i, 0
+  %.not.i.i.i = icmp eq i64 %.sroa.7.154.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %11, %15
   %.05.i.i.i = phi i64 [ %16, %15 ], [ 0, %11 ]
-  %12 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.057.i.i, i64 0, i64 %.05.i.i.i
+  %12 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.055.i.i, i64 0, i64 %.05.i.i.i
   %13 = load i8, ptr %12, align 1, !alias.scope !8, !noalias !4, !noundef !13
   %14 = icmp eq i8 %13, 47
   br i1 %14, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i, label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i
   %16 = add nuw nsw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %16, %.sroa.7.156.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %16, %.sroa.7.154.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i: ; preds = %15, %.lr.ph.i.i.i, %11
-  %.0.lcssa.i.i.i = phi i64 [ 0, %11 ], [ %.sroa.7.156.i.i, %15 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %11 ], [ %.sroa.7.154.i.i, %15 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.0.0.i31.i.i = phi i64 [ 0, %11 ], [ 0, %15 ], [ 1, %.lr.ph.i.i.i ]
   %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i31.i.i, 0
   %18 = insertvalue { i64, i64 } %17, i64 %.0.lcssa.i.i.i, 1
@@ -196,7 +196,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..codec..StdCodec$u20$as$u20$ockam_multia
   br i1 %.not.i, label %51, label %37
 
 37:                                               ; preds = %35
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hab06ee9584c35f57E(i64 noundef %36, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.1) #11, !noalias !29
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hab06ee9584c35f57E(i64 noundef %36, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.1) #11, !noalias !29
   unreachable
 
 38:                                               ; preds = %8

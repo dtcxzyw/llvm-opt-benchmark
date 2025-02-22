@@ -2520,7 +2520,7 @@ st_mult.exit.i:                                   ; preds = %1080
 
 1103:                                             ; preds = %1100
   %1104 = load i64, ptr %551, align 8, !tbaa !80
-  call fastcc void @sha1_object(ptr noundef nonnull %1065, ptr noundef null, i64 noundef %1104, i32 noundef %1070, ptr noundef nonnull %463)
+  call fastcc void @sha1_object(ptr noundef nonnull %.024.i.i.i, ptr noundef null, i64 noundef %1104, i32 noundef %1070, ptr noundef nonnull %463)
   br label %1105
 
 1105:                                             ; preds = %1103, %1101, %1090, %1071

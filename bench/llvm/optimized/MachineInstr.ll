@@ -9887,10 +9887,10 @@ _ZNK4llvm17MachineMemOperand7getSizeEv.exit116.i: ; preds = %_ZNK4llvm3LLT14getS
   br i1 %or.cond3.i, label %261, label %266
 
 261:                                              ; preds = %259
-  %262 = load ptr, ptr %.0.i.i.i.i122.i, align 8, !tbaa !263
+  %262 = load ptr, ptr %251, align 8, !tbaa !263
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 40
   %264 = load ptr, ptr %263, align 8
-  %265 = call noundef zeroext i1 %264(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i122.i, ptr noundef nonnull align 8 dereferenceable(696) %19) #25
+  %265 = call noundef zeroext i1 %264(ptr noundef nonnull align 8 dereferenceable(16) %251, ptr noundef nonnull align 8 dereferenceable(696) %19) #25
   br i1 %265, label %266, label %_ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_17MachineMemOperandES7_.exit.thread106
 
 266:                                              ; preds = %261, %259
@@ -9899,10 +9899,10 @@ _ZNK4llvm17MachineMemOperand7getSizeEv.exit116.i: ; preds = %_ZNK4llvm3LLT14getS
   br i1 %or.cond5.i, label %268, label %273
 
 268:                                              ; preds = %266
-  %269 = load ptr, ptr %.0.i.i.i.i125.i, align 8, !tbaa !263
+  %269 = load ptr, ptr %255, align 8, !tbaa !263
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 40
   %271 = load ptr, ptr %270, align 8
-  %272 = call noundef zeroext i1 %271(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i125.i, ptr noundef nonnull align 8 dereferenceable(696) %19) #25
+  %272 = call noundef zeroext i1 %271(ptr noundef nonnull align 8 dereferenceable(16) %255, ptr noundef nonnull align 8 dereferenceable(696) %19) #25
   br i1 %272, label %273, label %_ZL20MemOperandsHaveAliasRKN4llvm16MachineFrameInfoEPNS_14BatchAAResultsEbPKNS_17MachineMemOperandES7_.exit.thread106
 
 273:                                              ; preds = %268, %266

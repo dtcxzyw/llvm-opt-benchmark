@@ -7455,7 +7455,7 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   br label %294
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i, %278
-  %291 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %259, ptr noundef nonnull %spec.select.i.i) #19, !noalias !1535
+  %291 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %259, ptr noundef nonnull %267) #19, !noalias !1535
   %292 = extractvalue { ptr, i8 } %291, 1
   %293 = trunc nuw i8 %292 to i1
   br i1 %293, label %294, label %.thread102

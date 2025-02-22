@@ -268,7 +268,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6result19
   %8 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %8)
   store ptr %1, ptr %4, align 8
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.84d08b48f30825dd577d249ad6e4cdd6.2.llvm.17534509975804802710, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.84d08b48f30825dd577d249ad6e4cdd6.1.llvm.17534509975804802710, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #16
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.84d08b48f30825dd577d249ad6e4cdd6.2.llvm.17534509975804802710, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.84d08b48f30825dd577d249ad6e4cdd6.1.llvm.17534509975804802710, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #16
           to label %11 unwind label %9
 
 9:                                                ; preds = %7
@@ -433,7 +433,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4gpui3app10AppC
   br i1 %.sroa.0.0.i, label %68, label %67
 
 67:                                               ; preds = %55
-  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.84d08b48f30825dd577d249ad6e4cdd6.4.llvm.17534509975804802710) #16
+  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.84d08b48f30825dd577d249ad6e4cdd6.4.llvm.17534509975804802710) #16
   unreachable
 
 68:                                               ; preds = %55
@@ -509,7 +509,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4gpui3app10AppC
   %35 = tail call noundef nonnull ptr @"_ZN4gpui3app10AppContext6global28_$u7b$$u7b$closure$u7d$$u7d$17h999ac8195b13f3a9E.llvm.17534509975804802710"()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !106
   store ptr %35, ptr %3, align 8, !noalias !106
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.84d08b48f30825dd577d249ad6e4cdd6.2.llvm.17534509975804802710, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.84d08b48f30825dd577d249ad6e4cdd6.1.llvm.17534509975804802710, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #16
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.84d08b48f30825dd577d249ad6e4cdd6.2.llvm.17534509975804802710, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.84d08b48f30825dd577d249ad6e4cdd6.1.llvm.17534509975804802710, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #16
           to label %38 unwind label %36
 
 36:                                               ; preds = %.split7
@@ -547,7 +547,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4gpui3app10AppC
   br i1 %.sroa.0.0.i8, label %.split, label %52
 
 52:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h01a0afd8cc73da4cE.llvm.17534509975804802710.exit"
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.84d08b48f30825dd577d249ad6e4cdd6.6.llvm.17534509975804802710) #16
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.84d08b48f30825dd577d249ad6e4cdd6.6.llvm.17534509975804802710) #16
   unreachable
 
 .split:                                           ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h01a0afd8cc73da4cE.llvm.17534509975804802710.exit"

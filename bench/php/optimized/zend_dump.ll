@@ -2887,7 +2887,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   %.0153203 = phi i32 [ %133, %.lr.ph ], [ 0, %.preheader201 ]
   %130 = load ptr, ptr @stderr, align 8, !tbaa !19
   %131 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 7, i64 1, ptr %130) #10
-  tail call void @zend_dump_ssa_var(ptr noundef nonnull %0, ptr noundef nonnull %spec.select195, i32 noundef %.0153203, i8 noundef zeroext 8, i32 noundef %.0153203, i32 noundef %1)
+  tail call void @zend_dump_ssa_var(ptr noundef nonnull %0, ptr noundef nonnull %.0145, i32 noundef %.0153203, i8 noundef zeroext 8, i32 noundef %.0153203, i32 noundef %1)
   %132 = load ptr, ptr @stderr, align 8, !tbaa !19
   %fputc193 = tail call i32 @fputc(i32 10, ptr %132)
   %133 = add nuw i32 %.0153203, 1

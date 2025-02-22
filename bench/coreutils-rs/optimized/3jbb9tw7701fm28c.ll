@@ -516,7 +516,7 @@ define void @_ZN5uu_df7Options4from17hf745f67ce7968902E(ptr noalias noundef writ
   store ptr %17, ptr %41, align 8, !alias.scope !74, !noalias !77
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 2, ptr %42, align 8, !alias.scope !74, !noalias !77
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #12, !noalias !80
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #12, !noalias !80
   unreachable
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17hc027c5589cd82e3dE.exit: ; preds = %2
@@ -599,7 +599,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hc027c5589cd82e3dE.exit: ; 
   store ptr %13, ptr %63, align 8, !alias.scope !93, !noalias !96
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 2, ptr %64, align 8, !alias.scope !93, !noalias !96
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #12
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #12
           to label %.noexc61 unwind label %51
 
 .noexc61:                                         ; preds = %56
@@ -923,7 +923,7 @@ default.unreachable:                              ; preds = %140
   br i1 %165, label %176, label %166
 
 166:                                              ; preds = %.noexc7.i.i
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.13b33c499c59c7b76e9b3d73e56ecf4c.1.llvm.13697033098655696731, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.13b33c499c59c7b76e9b3d73e56ecf4c.3.llvm.13697033098655696731) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.13b33c499c59c7b76e9b3d73e56ecf4c.1.llvm.13697033098655696731, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.13b33c499c59c7b76e9b3d73e56ecf4c.3.llvm.13697033098655696731) #12
           to label %.noexc8.i.i unwind label %179, !noalias !142
 
 .noexc8.i.i:                                      ; preds = %166
@@ -963,14 +963,14 @@ default.unreachable:                              ; preds = %140
   store ptr %3, ptr %174, align 8, !alias.scope !160, !noalias !163
   %175 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %175, align 8, !alias.scope !160, !noalias !163
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #12
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #12
           to label %.noexc9.i.i unwind label %179, !noalias !142
 
 .noexc9.i.i:                                      ; preds = %167
   unreachable
 
 .thread.i.i:                                      ; preds = %.noexc6.i.i, %.noexc.i.i
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4b3c5c93135882ec5f1e1d64646c2e81.58) #12
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b3c5c93135882ec5f1e1d64646c2e81.58) #12
           to label %177 unwind label %179, !noalias !142
 
 176:                                              ; preds = %.noexc7.i.i

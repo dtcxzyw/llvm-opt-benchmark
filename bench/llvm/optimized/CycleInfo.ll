@@ -673,25 +673,23 @@ define weak_odr void @_ZN4llvm16GenericCycleInfoINS_17GenericSSAContextINS_8Func
   store i64 %9, ptr %0, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load ptr, ptr %10, align 8, !tbaa !58
-  %12 = icmp eq ptr %11, null
-  %13 = getelementptr inbounds i8, ptr %11, i64 -24
-  %14 = select i1 %12, ptr null, ptr %13
-  call void @_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEE3runEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %14)
-  %15 = load ptr, ptr %5, align 8, !tbaa !36
-  %16 = icmp eq ptr %15, %6
-  br i1 %16, label %_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEED2Ev.exit, label %17
+  %12 = getelementptr inbounds i8, ptr %11, i64 -24
+  call void @_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEE3runEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %12)
+  %13 = load ptr, ptr %5, align 8, !tbaa !36
+  %14 = icmp eq ptr %13, %6
+  br i1 %14, label %_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEED2Ev.exit, label %15
 
-17:                                               ; preds = %2
-  call void @free(ptr noundef %15) #15
+15:                                               ; preds = %2
+  call void @free(ptr noundef %13) #15
   br label %_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEED2Ev.exit
 
-_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEED2Ev.exit: ; preds = %2, %17
-  %18 = load ptr, ptr %4, align 8, !tbaa !61
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !64
-  %21 = zext i32 %20 to i64
-  %22 = shl nuw nsw i64 %21, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %18, i64 noundef %22, i64 noundef 8) #15
+_ZN4llvm23GenericCycleInfoComputeINS_17GenericSSAContextINS_8FunctionEEEED2Ev.exit: ; preds = %2, %15
+  %16 = load ptr, ptr %4, align 8, !tbaa !61
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %18 = load i32, ptr %17, align 8, !tbaa !64
+  %19 = zext i32 %18 to i64
+  %20 = shl nuw nsw i64 %19, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %16, i64 noundef %20, i64 noundef 8) #15
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #15
   ret void
 }

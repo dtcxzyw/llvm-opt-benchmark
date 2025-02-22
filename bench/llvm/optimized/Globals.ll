@@ -542,13 +542,13 @@ define dso_local void @_ZN4llvm11GlobalValue16removeFromParentEv(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !38
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
-  store ptr %9, ptr %11, align 8, !tbaa !38
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(64) %0) #14
+  %10 = load ptr, ptr %8, align 8, !tbaa !38
+  %11 = load ptr, ptr %9, align 8, !tbaa !41
+  store ptr %10, ptr %11, align 8, !tbaa !38
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %32
@@ -557,13 +557,13 @@ define dso_local void @_ZN4llvm11GlobalValue16removeFromParentEv(ptr noundef non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %0) #14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !38
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
-  store ptr %18, ptr %20, align 8, !tbaa !38
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %0) #14
+  %19 = load ptr, ptr %17, align 8, !tbaa !38
+  %20 = load ptr, ptr %18, align 8, !tbaa !41
+  store ptr %19, ptr %20, align 8, !tbaa !38
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %32
@@ -572,13 +572,13 @@ define dso_local void @_ZN4llvm11GlobalValue16removeFromParentEv(ptr noundef non
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(81) %0) #14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !38
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %29 = load ptr, ptr %28, align 8, !tbaa !41
-  store ptr %27, ptr %29, align 8, !tbaa !38
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(81) %0) #14
+  %28 = load ptr, ptr %26, align 8, !tbaa !38
+  %29 = load ptr, ptr %27, align 8, !tbaa !41
+  store ptr %28, ptr %29, align 8, !tbaa !38
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   br label %32
@@ -597,13 +597,13 @@ define dso_local void @_ZN4llvm11GlobalAlias16removeFromParentEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  store ptr %6, ptr %8, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
+  %7 = load ptr, ptr %5, align 8, !tbaa !38
+  %8 = load ptr, ptr %6, align 8, !tbaa !41
+  store ptr %7, ptr %8, align 8, !tbaa !38
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   ret void
@@ -614,13 +614,13 @@ define dso_local void @_ZN4llvm11GlobalIFunc16removeFromParentEv(ptr noundef non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  store ptr %6, ptr %8, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
+  %7 = load ptr, ptr %5, align 8, !tbaa !38
+  %8 = load ptr, ptr %6, align 8, !tbaa !41
+  store ptr %7, ptr %8, align 8, !tbaa !38
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   ret void
@@ -631,13 +631,13 @@ define dso_local void @_ZN4llvm14GlobalVariable16removeFromParentEv(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  store ptr %6, ptr %8, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
+  %7 = load ptr, ptr %5, align 8, !tbaa !38
+  %8 = load ptr, ptr %6, align 8, !tbaa !41
+  store ptr %7, ptr %8, align 8, !tbaa !38
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   ret void
@@ -661,13 +661,13 @@ define dso_local void @_ZN4llvm11GlobalValue15eraseFromParentEv(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !38
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
-  store ptr %9, ptr %11, align 8, !tbaa !38
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(64) %0) #14
+  %10 = load ptr, ptr %8, align 8, !tbaa !38
+  %11 = load ptr, ptr %9, align 8, !tbaa !41
+  store ptr %10, ptr %11, align 8, !tbaa !38
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
@@ -679,13 +679,13 @@ define dso_local void @_ZN4llvm11GlobalValue15eraseFromParentEv(ptr noundef nonn
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %0) #14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !38
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
-  store ptr %18, ptr %20, align 8, !tbaa !38
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(72) %0) #14
+  %19 = load ptr, ptr %17, align 8, !tbaa !38
+  %20 = load ptr, ptr %18, align 8, !tbaa !41
+  store ptr %19, ptr %20, align 8, !tbaa !38
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -708,13 +708,13 @@ _ZN4llvm11GlobalIFunc15eraseFromParentEv.exit:    ; preds = %13, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(81) %0) #14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !38
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %32 = load ptr, ptr %31, align 8, !tbaa !41
-  store ptr %30, ptr %32, align 8, !tbaa !38
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(81) %0) #14
+  %31 = load ptr, ptr %29, align 8, !tbaa !38
+  %32 = load ptr, ptr %30, align 8, !tbaa !41
+  store ptr %31, ptr %32, align 8, !tbaa !38
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm14GlobalVariableD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) #14
@@ -735,13 +735,13 @@ define dso_local void @_ZN4llvm11GlobalAlias15eraseFromParentEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  store ptr %6, ptr %8, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalAliasEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
+  %7 = load ptr, ptr %5, align 8, !tbaa !38
+  %8 = load ptr, ptr %6, align 8, !tbaa !41
+  store ptr %7, ptr %8, align 8, !tbaa !38
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void @_ZNK4llvm8Constant23removeDeadConstantUsersEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
@@ -755,13 +755,13 @@ define dso_local void @_ZN4llvm11GlobalIFunc15eraseFromParentEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  store ptr %6, ptr %8, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
+  %7 = load ptr, ptr %5, align 8, !tbaa !38
+  %8 = load ptr, ptr %6, align 8, !tbaa !41
+  store ptr %7, ptr %8, align 8, !tbaa !38
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -786,13 +786,13 @@ define dso_local void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
-  store ptr %6, ptr %8, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN4llvm21SymbolTableListTraitsINS_14GlobalVariableEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0) #14
+  %7 = load ptr, ptr %5, align 8, !tbaa !38
+  %8 = load ptr, ptr %6, align 8, !tbaa !41
+  store ptr %7, ptr %8, align 8, !tbaa !38
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm14GlobalVariableD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) #14
@@ -3237,7 +3237,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_8ConstantEEEDcPT0_.exit.thread57: ; pred
   %13 = load ptr, ptr %2, align 8, !tbaa !128
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !130
-  tail call void %13(i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(48) %spec.select.i.i) #14
+  tail call void %13(i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(48) %0) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14, !noalias !131
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14, !noalias !131
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.510") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %4), !noalias !131

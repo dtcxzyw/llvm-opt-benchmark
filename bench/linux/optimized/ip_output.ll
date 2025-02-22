@@ -4394,7 +4394,7 @@ define dso_local ptr @__ip_make_skb(ptr noundef %0, ptr noundef readonly capture
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store volatile ptr %19, ptr %20, align 8
   store volatile ptr %17, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 192
@@ -4781,7 +4781,7 @@ define dso_local ptr @__ip_make_skb(ptr noundef %0, ptr noundef readonly capture
   store i8 %274, ptr %195, align 4
   %275 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %276 = load i32, ptr %275, align 4
-  tail call void @ip_options_build(ptr noundef nonnull %11, ptr noundef nonnull %156, i32 noundef %276, ptr noundef %8) #12
+  tail call void @ip_options_build(ptr noundef nonnull %9, ptr noundef nonnull %156, i32 noundef %276, ptr noundef %8) #12
   br label %277
 
 277:                                              ; preds = %266, %264

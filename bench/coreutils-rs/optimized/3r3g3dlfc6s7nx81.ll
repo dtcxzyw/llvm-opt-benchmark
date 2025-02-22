@@ -587,7 +587,7 @@ _ZN8uu_tsort5Graph8has_node17h4302dab06bb0222dE.exit39.thread: ; preds = %20, %_
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE.exit.thread.i"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE.exit.thread.i": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hcb83d3edef692facE.exit.thread2.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h735d32763c880df4E.exit.thread"
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.ad47d7234d56c7785824cc3a22aa1256.6, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ad47d7234d56c7785824cc3a22aa1256.8) #15, !noalias !167
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.ad47d7234d56c7785824cc3a22aa1256.6, i64 noundef 22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad47d7234d56c7785824cc3a22aa1256.8) #15, !noalias !167
   unreachable
 
 30:                                               ; preds = %28
@@ -649,7 +649,7 @@ _ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread: ; preds = %30, %_ZN
   br i1 %trunc.i, label %select.unfold, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h7b9f0ab51c5e9c4aE.exit"
 
 select.unfold:                                    ; preds = %45, %_ZN8uu_tsort5Graph8has_edge17h622e240521554eceE.exit.thread
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ad47d7234d56c7785824cc3a22aa1256.9) #15
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad47d7234d56c7785824cc3a22aa1256.9) #15
   unreachable
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h7b9f0ab51c5e9c4aE.exit": ; preds = %45
@@ -693,7 +693,7 @@ select.unfold:                                    ; preds = %45, %_ZN8uu_tsort5G
   br i1 %trunc.i44, label %select.unfold61, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h07f67cf45d9fbf98E.exit"
 
 select.unfold61:                                  ; preds = %58, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h430e703dd5bb3d53E.exit"
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ad47d7234d56c7785824cc3a22aa1256.10) #15
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad47d7234d56c7785824cc3a22aa1256.10) #15
   unreachable
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h07f67cf45d9fbf98E.exit": ; preds = %58
@@ -910,7 +910,7 @@ define void @_ZN8uu_tsort5Graph9run_tsort17hafd67433d5e1e8e4E(ptr noalias nounde
 
 select.unfold.invoke:                             ; preds = %58, %.noexc53, %.lr.ph, %.noexc61
   %70 = phi ptr [ @anon.ad47d7234d56c7785824cc3a22aa1256.13, %.noexc61 ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.13, %.lr.ph ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.12, %.noexc53 ], [ @anon.ad47d7234d56c7785824cc3a22aa1256.12, %58 ]
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %70) #15
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %70) #15
           to label %select.unfold.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 select.unfold.cont:                               ; preds = %select.unfold.invoke
@@ -1093,7 +1093,7 @@ define noundef zeroext i1 @_ZN8uu_tsort5Graph10is_acyclic17hdde1ecb3f54f991cE(pt
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %.lr.ph
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d83f042c0192c9388333a759feb3eae.2.llvm.16174777062172242219) #15
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3d83f042c0192c9388333a759feb3eae.2.llvm.16174777062172242219) #15
   unreachable
 
 19:                                               ; preds = %.lr.ph

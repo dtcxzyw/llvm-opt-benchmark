@@ -227,7 +227,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   br label %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_queue..seg_queue..Block$LT$ockam_executor..executor..TaskId$GT$$GT$$GT$$GT$17hedda837f600a6b19E.exit55"
 
 73:                                               ; preds = %64
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.1, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.3) #13
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.1, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.3) #13
   unreachable
 
 "_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_queue..seg_queue..Block$LT$ockam_executor..executor..TaskId$GT$$GT$$GT$$GT$17hedda837f600a6b19E.exit55": ; preds = %79, %74, %66
@@ -325,7 +325,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hab1ca6d4d5437339E
   store ptr @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.4, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.12) #13
+  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.12) #13
   unreachable
 
 13:                                               ; preds = %2
@@ -343,7 +343,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hab1ca6d4d5437339E
   store ptr @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.15) #13
+  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f9f7c8ff8b8db3365f6cd7e3f8a38024.15) #13
   unreachable
 
 20:                                               ; preds = %2

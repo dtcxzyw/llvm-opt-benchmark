@@ -142,7 +142,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc3f2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h2b4d4a459b257416E"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5
@@ -188,7 +188,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h43f3c8a8a532e8b8E"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5
@@ -234,7 +234,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h602c73112d08453fE"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5
@@ -280,7 +280,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17hba267ab9f1a02159E"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17he96be8935f1e7ef7E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d2de5bea210f37591f3209859dde9b0.3)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5

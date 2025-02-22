@@ -57,7 +57,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCseG2FYMysgNb_3wax4walk9WalkErr
 
 _RNvXs1_NtCs1LoaDTb72WA_4core7convertNtNtCseG2FYMysgNb_3wax4walk9WalkErrorINtB5_4IntoINtNtCs68wO5nsWeTG_5alloc5boxed3BoxDNtNtB7_5error5ErrorNtNtB7_6marker4SyncNtB2f_4SendEL_EE4intoBC_.exit: ; preds = %.noexc.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %11 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h648b549e10d3baffE(i8 noundef %0, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) @anon.5a434f28bf8ce2e78fede9c78811777f.9.llvm.8413233830278194149)
+  %11 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h648b549e10d3baffE(i8 noundef %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(80) @anon.5a434f28bf8ce2e78fede9c78811777f.9.llvm.8413233830278194149)
   ret ptr %11
 }
 
@@ -3847,7 +3847,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCseG2FYMysgNb_3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !263
   store ptr %4, ptr %3, align 8, !noalias !263
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h21c4b4256b66f6a9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.12, i64 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.13, i64 noundef 5, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.10, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.14, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.11)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h21c4b4256b66f6a9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.12, i64 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.13, i64 noundef 5, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.10, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.14, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !263
   ret i1 %6
 }
@@ -3866,7 +3866,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCseG2FYMysgNb_3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !272
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %4, align 8, !noalias !272
-  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.22, i64 noundef 10, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.15)
+  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.22, i64 noundef 10, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !272
   br label %_RNvXsc_NtCseG2FYMysgNb_3wax11diagnosticsNtB5_14CorrelatedSpanNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 
@@ -3875,7 +3875,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCseG2FYMysgNb_3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %11, ptr %3, align 8, !noalias !272
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17hb1275ab25b897315E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.23, i64 noundef 5, ptr noundef nonnull readonly align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.17, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.15)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17hb1275ab25b897315E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.23, i64 noundef 5, ptr noundef nonnull readonly align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.17, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !272
   br label %_RNvXsc_NtCseG2FYMysgNb_3wax11diagnosticsNtB5_14CorrelatedSpanNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 
@@ -3898,7 +3898,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCseG2FYMysgNb_3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !279
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %4, align 8, !noalias !279
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.16, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.15)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h827badff098b08c1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.16, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !279
   br label %_RNvXs9_NtCseG2FYMysgNb_3wax11diagnosticsNtB5_17CompositeSpanKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 
@@ -3906,7 +3906,7 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRNtNtCseG2FYMysgNb_3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !279
   store ptr %5, ptr %3, align 8, !noalias !279
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h21c4b4256b66f6a9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.19, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.20, i64 noundef 4, ptr noundef nonnull readonly align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.17, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.21, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.18)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h21c4b4256b66f6a9E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.19, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.20, i64 noundef 4, ptr noundef nonnull readonly align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.17, ptr noalias noundef nonnull readonly align 1 @anon.c435770981b30267a9691993a7434a87.21, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c435770981b30267a9691993a7434a87.18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !279
   br label %_RNvXs9_NtCseG2FYMysgNb_3wax11diagnosticsNtB5_17CompositeSpanKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.exit
 

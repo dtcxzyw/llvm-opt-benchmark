@@ -6538,7 +6538,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h0305c86dd91e3c47E"(ptr noalias noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2829e111bcc42843E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d4f87ee8efdac0f9ee4332b4a31f9922.1.llvm.9410018135934927389)
+  %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2829e111bcc42843E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d4f87ee8efdac0f9ee4332b4a31f9922.1.llvm.9410018135934927389)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
   %7 = sub i64 %6, %5

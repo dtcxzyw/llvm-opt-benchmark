@@ -1878,37 +1878,37 @@ define internal noalias noundef ptr @_load_job_prio_thread(ptr noundef %0) #5 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 47), align 1, !range !8, !noundef !9
-  %7 = trunc nuw i8 %6 to i1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 88), align 8
-  %spec.select = select i1 %7, ptr %8, ptr null
-  %9 = load i8, ptr @params, align 8, !range !8, !noundef !9
-  %10 = trunc nuw i8 %9 to i1
-  %.026 = select i1 %10, i16 9, i16 8
-  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !8, !noundef !9
-  %12 = shl nuw i8 %11, 7
-  %13 = zext i8 %12 to i16
-  %.1 = or disjoint i16 %.026, %13
-  %14 = call i32 @slurm_load_partitions2(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %.1, ptr noundef %5) #13
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %16, label %15
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 88), align 8
+  %8 = load i8, ptr @params, align 8, !range !8, !noundef !9
+  %9 = trunc nuw i8 %8 to i1
+  %.026 = select i1 %9, i16 9, i16 8
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !8, !noundef !9
+  %11 = shl nuw i8 %10, 7
+  %12 = zext i8 %11 to i16
+  %.1 = or disjoint i16 %.026, %12
+  %13 = call i32 @slurm_load_partitions2(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %.1, ptr noundef %5) #13
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %15, label %14
 
-15:                                               ; preds = %1
+14:                                               ; preds = %1
   call void @slurm_perror(ptr noundef nonnull @.str.16) #13
   br label %45
 
-16:                                               ; preds = %1
+15:                                               ; preds = %1
+  %16 = trunc nuw i8 %6 to i1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %3, align 8
   call void @list_append(ptr noundef %18, ptr noundef %19) #13
-  %.not30 = icmp eq ptr %spec.select, null
-  br i1 %.not30, label %22, label %20
+  %.not3034 = icmp ne ptr %7, null
+  %.not30.not = select i1 %16, i1 %.not3034, i1 false
+  br i1 %.not30.not, label %20, label %22
 
-20:                                               ; preds = %16
-  %21 = call i32 @slurm_load_node_single2(ptr noundef nonnull %4, ptr noundef nonnull %spec.select, i16 noundef zeroext %.1, ptr noundef %5) #13
+20:                                               ; preds = %15
+  %21 = call i32 @slurm_load_node_single2(ptr noundef nonnull %4, ptr noundef nonnull %7, i16 noundef zeroext %.1, ptr noundef %5) #13
   br label %24
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15
   %23 = call i32 @slurm_load_node2(i64 noundef 0, ptr noundef nonnull %4, i16 noundef zeroext %.1, ptr noundef %5) #13
   br label %24
 
@@ -1936,8 +1936,8 @@ define internal noalias noundef ptr @_load_job_prio_thread(ptr noundef %0) #5 {
 33:                                               ; preds = %26
   %34 = call ptr @list_iterator_create(ptr noundef nonnull %30) #13
   %35 = call ptr @list_next(ptr noundef %34) #13
-  %.not3334 = icmp eq ptr %35, null
-  br i1 %.not3334, label %._crit_edge, label %.lr.ph
+  %.not3335 = icmp eq ptr %35, null
+  br i1 %.not3335, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 280
@@ -1960,7 +1960,7 @@ define internal noalias noundef ptr @_load_job_prio_thread(ptr noundef %0) #5 {
   call void @list_destroy(ptr noundef nonnull %30) #13
   br label %45
 
-45:                                               ; preds = %26, %._crit_edge, %25, %15
+45:                                               ; preds = %26, %._crit_edge, %25, %14
   call void @slurm_xfree(ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13

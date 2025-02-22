@@ -1424,7 +1424,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZNK5clang8QualType
   store i64 %111, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   %112 = load ptr, ptr %109, align 8, !tbaa !821
-  %113 = tail call i64 @_ZNK5clang10ASTContext13getRecordTypeEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %112, ptr noundef nonnull %50) #18
+  %113 = tail call i64 @_ZNK5clang10ASTContext13getRecordTypeEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %112, ptr noundef nonnull %49) #18
   store i64 %113, ptr %6, align 8
   %114 = icmp eq i64 %113, %111
   br i1 %114, label %202, label %115
@@ -12469,8 +12469,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 127
   %11 = icmp ne i32 %10, 31
-  %.not58116 = icmp eq ptr %7, null
-  %.not58 = or i1 %.not58116, %11
+  %.not58117 = icmp eq ptr %7, null
+  %.not58 = or i1 %.not58117, %11
   br i1 %.not58, label %.thread87, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -12507,8 +12507,8 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %12, %18
   br i1 %29, label %tailrecurse.backedge.sink.split, label %.thread87
 
 tailrecurse.backedge.sink.split:                  ; preds = %26, %63
-  %.sink130 = phi i64 [ 16, %63 ], [ 24, %26 ]
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %.sink130
+  %.sink131 = phi i64 [ 16, %63 ], [ 24, %26 ]
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %.sink131
   %31 = load ptr, ptr %30, align 8, !tbaa !1698
   br label %tailrecurse.backedge
 
@@ -12589,8 +12589,8 @@ _ZN5clang12CompoundStmt9body_backEv.exit:         ; preds = %38
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i8, ptr %76, align 16
   %78 = icmp ne i8 %77, 46
-  %.not65.not115 = icmp eq ptr %75, null
-  %.not65.not = or i1 %.not65.not115, %78
+  %.not65115 = icmp eq ptr %75, null
+  %.not65.not = or i1 %.not65115, %78
   br i1 %.not65.not, label %.thread87, label %79
 
 79:                                               ; preds = %67

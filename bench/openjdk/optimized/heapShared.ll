@@ -6670,7 +6670,7 @@ _ZN10HeapShared17get_subgraph_infoEP5Klass.exit:  ; preds = %36, %40, %_Z29DumpT
   br label %68
 
 63:                                               ; preds = %58
-  call void @_ZN17KlassSubGraphInfo24add_subgraph_entry_fieldEiP7oopDesc(ptr noundef nonnull align 8 dereferenceable(26) %.0.i.i, i32 noundef %2, ptr noundef nonnull %47)
+  call void @_ZN17KlassSubGraphInfo24add_subgraph_entry_fieldEiP7oopDesc(ptr noundef nonnull align 8 dereferenceable(26) %44, i32 noundef %2, ptr noundef nonnull %47)
   %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not23 = icmp eq ptr %64, null
   br i1 %.not23, label %68, label %65
@@ -6681,7 +6681,7 @@ _ZN10HeapShared17get_subgraph_infoEP5Klass.exit:  ; preds = %36, %40, %_Z29DumpT
   br label %68
 
 67:                                               ; preds = %51
-  tail call void @_ZN17KlassSubGraphInfo24add_subgraph_entry_fieldEiP7oopDesc(ptr noundef nonnull align 8 dereferenceable(26) %.0.i.i, i32 noundef %2, ptr noundef null)
+  tail call void @_ZN17KlassSubGraphInfo24add_subgraph_entry_fieldEiP7oopDesc(ptr noundef nonnull align 8 dereferenceable(26) %44, i32 noundef %2, ptr noundef null)
   br label %68
 
 68:                                               ; preds = %60, %62, %63, %65, %67

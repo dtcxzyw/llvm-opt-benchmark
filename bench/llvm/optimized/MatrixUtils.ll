@@ -969,23 +969,17 @@ _ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12addChildLoopEPS2_.exit73: ; preds 
   %259 = load ptr, ptr %256, align 8, !tbaa !166
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 56
   %261 = load ptr, ptr %260, align 8, !tbaa !168
-  %262 = icmp eq ptr %261, null
-  %263 = getelementptr inbounds i8, ptr %261, i64 -24
-  %264 = select i1 %262, ptr null, ptr %263
-  store ptr %264, ptr %236, align 8, !tbaa !169
-  %265 = load ptr, ptr %254, align 8, !tbaa !165
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 56
-  %267 = load ptr, ptr %266, align 8, !tbaa !168
-  %268 = icmp eq ptr %267, null
-  %269 = getelementptr inbounds i8, ptr %267, i64 -24
-  %270 = select i1 %268, ptr null, ptr %269
-  store ptr %270, ptr %222, align 8, !tbaa !170
-  %271 = getelementptr inbounds nuw i8, ptr %257, i64 56
-  %272 = load ptr, ptr %271, align 8, !tbaa !168
-  %273 = icmp eq ptr %272, null
-  %274 = getelementptr inbounds i8, ptr %272, i64 -24
-  %275 = select i1 %273, ptr null, ptr %274
-  store ptr %275, ptr %251, align 8, !tbaa !171
+  %262 = getelementptr inbounds i8, ptr %261, i64 -24
+  store ptr %262, ptr %236, align 8, !tbaa !169
+  %263 = load ptr, ptr %254, align 8, !tbaa !165
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 56
+  %265 = load ptr, ptr %264, align 8, !tbaa !168
+  %266 = getelementptr inbounds i8, ptr %265, i64 -24
+  store ptr %266, ptr %222, align 8, !tbaa !170
+  %267 = getelementptr inbounds nuw i8, ptr %257, i64 56
+  %268 = load ptr, ptr %267, align 8, !tbaa !168
+  %269 = getelementptr inbounds i8, ptr %268, i64 -24
+  store ptr %269, ptr %251, align 8, !tbaa !171
   ret ptr %249
 }
 

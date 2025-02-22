@@ -7106,7 +7106,7 @@ _ZNK4llvm19TargetFrameLowering13alignSPAdjustEi.exit.i: ; preds = %3131, %3120
   br i1 %.not.i.i170, label %3164, label %3163
 
 3163:                                             ; preds = %3143
-  call void @_ZN4llvm12RegScavenger18enterBasicBlockEndERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(168) %3162, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.017.024.i) #18
+  call void @_ZN4llvm12RegScavenger18enterBasicBlockEndERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(168) %3161, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.017.024.i) #18
   br label %3164
 
 3164:                                             ; preds = %3163, %3143
@@ -7184,7 +7184,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i.i.i:
   br i1 %.not1.i.i.i, label %_ZN4llvm12RegScavenger8backwardENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.i.i, label %.lr.ph.i.i.i171
 
 .lr.ph.i.i.i171:                                  ; preds = %3201, %.lr.ph.i.i.i171
-  call void @_ZN4llvm12RegScavenger8backwardEv(ptr noundef nonnull align 8 dereferenceable(168) %3162) #18
+  call void @_ZN4llvm12RegScavenger8backwardEv(ptr noundef nonnull align 8 dereferenceable(168) %3161) #18
   %3203 = load ptr, ptr %3170, align 8, !tbaa !721
   %.not.i.i13.i = icmp eq ptr %3203, %.sroa.058.072.i.i
   br i1 %.not.i.i13.i, label %_ZN4llvm12RegScavenger8backwardENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.i.i, label %.lr.ph.i.i.i171, !llvm.loop !724

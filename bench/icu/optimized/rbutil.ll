@@ -42,12 +42,12 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 define dso_local void @get_basename(ptr noundef %basename, ptr noundef readonly %filename) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 47) #7
-  %cmp.not = icmp eq ptr %call, null
+  %cmp.not = icmp ne ptr %call, null
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
-  %spec.select = select i1 %cmp.not, ptr null, ptr %incdec.ptr
-  %cmp1 = icmp ugt ptr %spec.select, %filename
-  %spec.select.filename = select i1 %cmp1, ptr %spec.select, ptr %filename
-  %call4 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %basename, ptr noundef nonnull dereferenceable(1) %spec.select.filename) #8
+  %cmp19 = icmp ugt ptr %incdec.ptr, %filename
+  %cmp1 = select i1 %cmp.not, i1 %cmp19, i1 false
+  %incdec.ptr.filename = select i1 %cmp1, ptr %incdec.ptr, ptr %filename
+  %call4 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %basename, ptr noundef nonnull dereferenceable(1) %incdec.ptr.filename) #8
   %call6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %basename, i32 noundef 46) #7
   %cmp7.not = icmp eq ptr %call6, null
   br i1 %cmp7.not, label %if.end9, label %if.then8

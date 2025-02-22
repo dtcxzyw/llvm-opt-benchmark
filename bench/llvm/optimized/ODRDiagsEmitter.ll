@@ -22457,8 +22457,8 @@ _ZN4llvm11SmallVectorIPKN5clang16TemplateArgumentELj8EED2Ev.exit911: ; preds = %
   br i1 %or.cond45, label %2307, label %2311
 
 2307:                                             ; preds = %2303
-  %.sroa.0.0.copyload.i921 = load i64, ptr %.0.i.i.i.i.i915, align 8, !tbaa !12
-  %.sroa.0.0.copyload.i922 = load i64, ptr %.0.i.i.i.i.i918, align 8, !tbaa !12
+  %.sroa.0.0.copyload.i921 = load i64, ptr %2288, align 8, !tbaa !12
+  %.sroa.0.0.copyload.i922 = load i64, ptr %2293, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %81) #20
   %2308 = getelementptr inbounds nuw i8, ptr %1951, i64 56
   %.sroa.0.0.copyload.i923 = load i32, ptr %2308, align 8, !tbaa !82

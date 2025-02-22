@@ -35,7 +35,7 @@ define hidden noundef ptr @_ZN3fst3raw4node4Node7compile17h0975ec2b64b16ea7E(ptr
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f598013f844d153e445418e11826cafa.0, i64 noundef 41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f598013f844d153e445418e11826cafa.13) #7
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f598013f844d153e445418e11826cafa.0, i64 noundef 41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f598013f844d153e445418e11826cafa.13) #7
   unreachable
 
 24:                                               ; preds = %4
@@ -310,7 +310,7 @@ _ZN3fst5bytes12pack_uint_in17h972e63214e176808E.exit.i: ; preds = %123
   br i1 %55, label %._crit_edge214.thread.i, label %.lr.ph213.i
 
 129:                                              ; preds = %.split211.i
-  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f598013f844d153e445418e11826cafa.18, i64 noundef 44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f598013f844d153e445418e11826cafa.20) #7, !noalias !15
+  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f598013f844d153e445418e11826cafa.18, i64 noundef 44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f598013f844d153e445418e11826cafa.20) #7, !noalias !15
   unreachable
 
 ._crit_edge214.i:                                 ; preds = %157

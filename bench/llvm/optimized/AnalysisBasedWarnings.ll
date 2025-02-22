@@ -15207,21 +15207,19 @@ declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE17Vis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN15CallableVisitor14VisitBlockDeclEPN5clang9BlockDeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = icmp eq ptr %1, null
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %spec.select.i.i.i.i = select i1 %3, ptr null, ptr %4
-  %5 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i.i) #24
-  br i1 %5, label %11, label %6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %4 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  br i1 %4, label %10, label %5
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !1539
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !1541
-  tail call void %8(i64 noundef %10, ptr noundef %1) #24
-  br label %11
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !1539
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load i64, ptr %8, align 8, !tbaa !1541
+  tail call void %7(i64 noundef %9, ptr noundef nonnull %1) #24
+  br label %10
 
-11:                                               ; preds = %2, %6
+10:                                               ; preds = %2, %5
   ret i1 true
 }
 
@@ -15251,28 +15249,26 @@ declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE14Vis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN15CallableVisitor19VisitObjCMethodDeclEPN5clang14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = icmp eq ptr %1, null
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %spec.select.i.i.i.i = select i1 %3, ptr null, ptr %4
-  %5 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i.i) #24
-  br i1 %5, label %16, label %6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %4 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  br i1 %4, label %15, label %5
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr %1, align 8, !tbaa !704
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(136) %1) #24
-  br i1 %10, label %11, label %16
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %1, align 8, !tbaa !704
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(136) %1) #24
+  br i1 %9, label %10, label %15
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !1539
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !1541
-  tail call void %13(i64 noundef %15, ptr noundef nonnull %1) #24
-  br label %16
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !1539
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8, !tbaa !1541
+  tail call void %12(i64 noundef %14, ptr noundef nonnull %1) #24
+  br label %15
 
-16:                                               ; preds = %6, %11, %2
+15:                                               ; preds = %5, %10, %2
   ret i1 true
 }
 
@@ -15335,46 +15331,44 @@ declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE19Vis
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN15CallableVisitor17VisitFunctionDeclEPN5clang12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = icmp eq ptr %1, null
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %spec.select.i.i.i.i = select i1 %3, ptr null, ptr %4
-  %5 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i.i.i) #24
-  br i1 %5, label %24, label %6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %4 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
+  br i1 %4, label %23, label %5
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %8 = load i32, ptr %7, align 2
-  %9 = and i32 %8, 2048
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %10, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 82
+  %7 = load i32, ptr %6, align 2
+  %8 = and i32 %7, 2048
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %9, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %12 = load i8, ptr %11, align 8, !tbaa !814
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  %15 = load ptr, ptr %11, align 8
-  %16 = icmp ne ptr %15, null
-  %17 = select i1 %14, i1 true, i1 %16
-  %18 = and i32 %8, 16384
-  %19 = icmp ne i32 %18, 0
-  %or.cond = or i1 %19, %17
-  br i1 %or.cond, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, label %24
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %11 = load i8, ptr %10, align 8, !tbaa !814
+  %12 = and i8 %11, 1
+  %13 = icmp ne i8 %12, 0
+  %14 = load ptr, ptr %10, align 8
+  %15 = icmp ne ptr %14, null
+  %16 = select i1 %13, i1 true, i1 %15
+  %17 = and i32 %7, 16384
+  %18 = icmp ne i32 %17, 0
+  %or.cond = or i1 %18, %16
+  br i1 %or.cond, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, label %23
 
-_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %6
-  %.old = and i32 %8, 16384
+_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %5
+  %.old = and i32 %7, 16384
   %.old5.not = icmp eq i32 %.old, 0
-  br i1 %.old5.not, label %24, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread
+  br i1 %.old5.not, label %23, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread
 
-_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread: ; preds = %10, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !1539
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !1541
-  tail call void %21(i64 noundef %23, ptr noundef nonnull %1) #24
-  br label %24
+_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread: ; preds = %9, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !1539
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load i64, ptr %21, align 8, !tbaa !1541
+  tail call void %20(i64 noundef %22, ptr noundef nonnull %1) #24
+  br label %23
 
-24:                                               ; preds = %10, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %2
+23:                                               ; preds = %9, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %2
   ret i1 true
 }
 

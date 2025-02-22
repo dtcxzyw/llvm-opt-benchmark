@@ -48693,7 +48693,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(70) %53) #30
-  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %46, i32 %50) #30
+  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %45, i32 %50) #30
   %57 = load ptr, ptr %8, align 8, !tbaa !212
   %58 = load ptr, ptr %52, align 8, !tbaa !220
   %59 = load ptr, ptr %57, align 8, !tbaa !3

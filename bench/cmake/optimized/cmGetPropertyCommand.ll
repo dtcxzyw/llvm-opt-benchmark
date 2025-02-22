@@ -2916,25 +2916,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
 45:                                               ; preds = %41
   %46 = load ptr, ptr %0, align 8, !tbaa !23
   %47 = load ptr, ptr %9, align 8
-  %spec.select = select i1 %44, ptr %47, ptr null
   %48 = icmp eq i32 %2, 4
-  %.not9.i = icmp eq ptr %spec.select, null
+  %.not9.i51 = icmp ne ptr %47, null
+  %.not9.i.not = select i1 %44, i1 %.not9.i51, i1 false
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %45
-  %.str.23..str.24.i = select i1 %.not9.i, ptr @.str.24, ptr @.str.23
+  %.str.23..str.24.i = select i1 %.not9.i.not, ptr @.str.23, ptr @.str.24
   br label %.invoke
 
 50:                                               ; preds = %45
-  br i1 %.not9.i, label %55, label %51
+  br i1 %.not9.i.not, label %51, label %55
 
 51:                                               ; preds = %50
-  %52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #20
+  %52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   br label %.invoke
 
 .invoke:                                          ; preds = %49, %51
   %53 = phi i64 [ %52, %51 ], [ 1, %49 ]
-  %54 = phi ptr [ %spec.select, %51 ], [ %.str.23..str.24.i, %49 ]
+  %54 = phi ptr [ %47, %51 ], [ %.str.23..str.24.i, %49 ]
   invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(2880) %46, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 %53, ptr nonnull %54)
           to label %_ZN12_GLOBAL__N_111StoreResultIPKcEEbNS_7OutTypeER10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit unwind label %62
 

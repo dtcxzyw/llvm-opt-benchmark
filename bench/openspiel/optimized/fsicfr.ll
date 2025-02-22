@@ -2746,7 +2746,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i.thread:      ; preds = %_ZSt7advanceIPKdmEv
   br label %_ZNSt6vectorIdSaIdEE13_M_assign_auxIPKdEEvT_S5_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIdSaIdEE13_M_assign_auxIPKdEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZSt4copyIPKdPdET0_T_S4_S3_.exit18.i.thread, %74, %72, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i, %51
-  tail call void @_ZN10open_spiel10algorithms10FSICFRNode19ApplyRegretMatchingEv(ptr noundef nonnull align 8 dereferenceable(264) %.0.i)
+  tail call void @_ZN10open_spiel10algorithms10FSICFRNode19ApplyRegretMatchingEv(ptr noundef nonnull align 8 dereferenceable(264) %37)
   %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 192
   %79 = load i32, ptr %44, align 8
   %80 = sext i32 %79 to i64

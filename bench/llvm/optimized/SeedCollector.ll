@@ -1759,7 +1759,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %22, %30
   br i1 %.not12.i, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread, label %48
 
 48:                                               ; preds = %41
-  %49 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i) #21
+  %49 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   br i1 %49, label %50, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
 50:                                               ; preds = %48
@@ -1769,16 +1769,16 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %22, %30
   br i1 %.not.i.i, label %53, label %56
 
 53:                                               ; preds = %50
-  %54 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i) #21
+  %54 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #21
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, label %56
 
 56:                                               ; preds = %53, %50
-  %57 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %spec.select.i.i) #21
+  %57 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %39) #21
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %56
-  %59 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i) #21
+  %59 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #21
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
 60:                                               ; preds = %56
@@ -1787,7 +1787,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %22, %30
   br i1 %.not.i.i7.i, label %62, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
 62:                                               ; preds = %60
-  %63 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i) #21
+  %63 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #21
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
 _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i: ; preds = %62, %60, %58, %53, %48
@@ -1818,7 +1818,7 @@ _ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit: ; preds = %68, %
   br i1 %72, label %73, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
 
 73:                                               ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit
-  call void @_ZN4llvm9sandboxir13SeedContainer6insertINS0_9StoreInstEEEvPT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %spec.select.i.i)
+  call void @_ZN4llvm9sandboxir13SeedContainer6insertINS0_9StoreInstEEEvPT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %39)
   br label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
 
 _ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %41, %37, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit, %73
@@ -1839,7 +1839,7 @@ _ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds =
   br i1 %.not12.i30, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread, label %82
 
 82:                                               ; preds = %75
-  %83 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i28) #21
+  %83 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   br i1 %83, label %84, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31
 
 84:                                               ; preds = %82
@@ -1849,16 +1849,16 @@ _ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds =
   br i1 %.not.i.i38, label %87, label %90
 
 87:                                               ; preds = %84
-  %88 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i28) #21
+  %88 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #21
   %89 = icmp eq ptr %88, null
   br i1 %89, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31, label %90
 
 90:                                               ; preds = %87, %84
-  %91 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %spec.select.i.i28) #21
+  %91 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %39) #21
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  %93 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i28) #21
+  %93 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #21
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31
 
 94:                                               ; preds = %90
@@ -1867,7 +1867,7 @@ _ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds =
   br i1 %.not.i.i7.i39, label %96, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31
 
 96:                                               ; preds = %94
-  %97 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i28) #21
+  %97 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #21
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31
 
 _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31: ; preds = %96, %94, %92, %87, %82
@@ -1898,7 +1898,7 @@ _ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit: ; preds = %102, %
   br i1 %106, label %107, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
 
 107:                                              ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit
-  call void @_ZN4llvm9sandboxir13SeedContainer6insertINS0_8LoadInstEEEvPT_(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull %spec.select.i.i28)
+  call void @_ZN4llvm9sandboxir13SeedContainer6insertINS0_8LoadInstEEEvPT_(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull %39)
   br label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
 
 _ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread: ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i31, %75, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit, %107

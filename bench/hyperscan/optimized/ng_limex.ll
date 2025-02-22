@@ -641,7 +641,7 @@ land.lhs.true.i:                                  ; preds = %_ZNSt10_HashtableIN
 
 if.then29.i:                                      ; preds = %land.lhs.true.i
   %30 = load ptr, ptr %h.i, align 8, !noalias !5
-  invoke void @_ZN3ue223findHighlanderSquashersERKNS_8NGHolderERKNS_13ReportManagerE(ptr nonnull sret(%"class.std::unordered_map.127") align 8 %ref.tmp30.i, ptr noundef nonnull align 8 dereferenceable(136) %30, ptr noundef nonnull align 8 dereferenceable(505) %spec.select.i)
+  invoke void @_ZN3ue223findHighlanderSquashersERKNS_8NGHolderERKNS_13ReportManagerE(ptr nonnull sret(%"class.std::unordered_map.127") align 8 %ref.tmp30.i, ptr noundef nonnull align 8 dereferenceable(136) %30, ptr noundef nonnull align 8 dereferenceable(505) %rm)
           to label %invoke.cont32.i unwind label %lpad23.i
 
 invoke.cont32.i:                                  ; preds = %if.then29.i
@@ -1259,7 +1259,7 @@ invoke.cont12.lr.ph.i.i:                          ; preds = %invoke.cont6.i.i
 invoke.cont12.i.i:                                ; preds = %for.inc.i90.i, %invoke.cont12.lr.ph.i.i
   %__begin2.sroa.0.060.i.i = phi ptr [ %100, %invoke.cont12.lr.ph.i.i ], [ %incdec.ptr.i.i.i.i11.i.i, %for.inc.i90.i ]
   %102 = load i32, ptr %__begin2.sroa.0.060.i.i, align 4
-  %call15.i.i = invoke noundef i32 @_ZNK3ue213ReportManager16getProgramOffsetEj(ptr noundef nonnull align 8 dereferenceable(505) %spec.select.i, i32 noundef %102)
+  %call15.i.i = invoke noundef i32 @_ZNK3ue213ReportManager16getProgramOffsetEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %102)
           to label %invoke.cont14.i.i unwind label %lpad.loopexit.i85.i
 
 invoke.cont14.i.i:                                ; preds = %invoke.cont12.i.i

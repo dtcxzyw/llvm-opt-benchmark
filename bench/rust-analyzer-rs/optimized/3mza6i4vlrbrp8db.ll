@@ -888,7 +888,7 @@ define hidden void @"_ZN9text_edit15coalesce_indels28_$u7b$$u7b$closure$u7d$$u7d
   br i1 %.not, label %41, label %.noexc12
 
 41:                                               ; preds = %31
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f285fa02af7e2072b8876aa24d777999.2, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f285fa02af7e2072b8876aa24d777999.4) #26
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.f285fa02af7e2072b8876aa24d777999.2, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f285fa02af7e2072b8876aa24d777999.4) #26
           to label %42 unwind label %29
 
 42:                                               ; preds = %41

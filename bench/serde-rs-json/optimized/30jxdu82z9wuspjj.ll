@@ -236,7 +236,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h218a9c1fdc
   ]
 
 35:                                               ; preds = %.thread
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa40, i64 noundef %.lcssa, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.15) #14
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa40, i64 noundef %.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.15) #14
   unreachable
 
 36:                                               ; preds = %34
@@ -523,7 +523,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h588b36e201
   ]
 
 29:                                               ; preds = %.thread
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa39, i64 noundef %.lcssa, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.15) #14
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa39, i64 noundef %.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.15) #14
   unreachable
 
 30:                                               ; preds = %28
@@ -720,7 +720,7 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hbce210c632
   ]
 
 29:                                               ; preds = %.thread
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa39, i64 noundef %.lcssa, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.15) #14
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.lcssa39, i64 noundef %.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.15) #14
   unreachable
 
 30:                                               ; preds = %28
@@ -1459,7 +1459,7 @@ _ZN10serde_json4read11next_or_eof17h09e8ba88635149dcE.llvm.9986987180720998494.e
   br i1 %trunc20, label %157, label %153
 
 148:                                              ; preds = %142
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b57f776c212eb07c8171020126c8d99f.21, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.22) #14
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b57f776c212eb07c8171020126c8d99f.21, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b57f776c212eb07c8171020126c8d99f.22) #14
   unreachable
 
 149:                                              ; preds = %186, %142

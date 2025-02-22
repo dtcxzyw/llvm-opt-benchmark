@@ -2063,7 +2063,7 @@ define dso_local { ptr, ptr } @_ZN4Luau13getBaseSymbolERKNS_7VariantIJNS_6Symbol
   %.lcssa = phi ptr [ %3, %1 ], [ %7, %.lr.ph ]
   %8 = icmp eq i32 %.lcssa6, 0
   %9 = select i1 %8, ptr %.lcssa, ptr null
-  %.sroa.0.0.copyload = load ptr, ptr %9, align 8
+  %.sroa.0.0.copyload = load ptr, ptr %.lcssa, align 8
   %.sroa.2.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.copyload, 0

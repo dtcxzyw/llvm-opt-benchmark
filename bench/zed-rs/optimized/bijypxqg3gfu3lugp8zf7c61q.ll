@@ -89,7 +89,7 @@ define internal { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourc
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.2) #17
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.2) #17
   unreachable
 
 8:                                                ; preds = %1
@@ -122,7 +122,7 @@ define internal { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourc
   br label %42
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.3) #17
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.3) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -231,7 +231,7 @@ define internal void @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.4) #17
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.4) #17
   unreachable
 
 6:                                                ; preds = %2
@@ -249,7 +249,7 @@ define internal void @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$
   br i1 %12, label %13, label %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3abd72801f1a3d9bE.exit.i.i"
 
 13:                                               ; preds = %"_ZN96_$LT$rodio..source..uniform..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0977a30e6ba06613E.exit.i.i"
-  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.8) #17, !noalias !47
+  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.8) #17, !noalias !47
   unreachable
 
 "_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint28_$u7b$$u7b$closure$u7d$$u7d$17h3abd72801f1a3d9bE.exit.i.i": ; preds = %"_ZN96_$LT$rodio..source..uniform..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0977a30e6ba06613E.exit.i.i"
@@ -310,7 +310,7 @@ define internal void @"_ZN117_$LT$rodio..source..uniform..UniformSourceIterator$
   ret void
 
 55:                                               ; preds = %"_ZN120_$LT$rodio..conversions..sample_rate..SampleRateConverter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he3643347ec32f421E.exit.i"
-  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.6) #17, !noalias !49
+  tail call void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h5e45bd48e3e1455dE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.6) #17, !noalias !49
   unreachable
 }
 
@@ -477,7 +477,7 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 14:                                               ; preds = %4
-  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.20e8271e5016fadc382b0336ece0ff03.38, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.42) #17
+  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.20e8271e5016fadc382b0336ece0ff03.38, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.42) #17
           to label %.noexc unwind label %109
 
 .noexc:                                           ; preds = %14
@@ -916,7 +916,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.2275879227513204832.exit
   store ptr %19, ptr %4, align 8, !noalias !151
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.sroa.01.0.i.i.i, ptr %42, align 8, !noalias !151
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.20e8271e5016fadc382b0336ece0ff03.25, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.20e8271e5016fadc382b0336ece0ff03.24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.36) #17
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.20e8271e5016fadc382b0336ece0ff03.25, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.20e8271e5016fadc382b0336ece0ff03.24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.20e8271e5016fadc382b0336ece0ff03.36) #17
           to label %45 unwind label %43, !noalias !151
 
 43:                                               ; preds = %41

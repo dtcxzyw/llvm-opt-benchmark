@@ -97,7 +97,7 @@ define hidden noundef i64 @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic11atomic_load
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.4.llvm.17685815667789704627) #16
+  call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.4.llvm.17685815667789704627) #16
   unreachable
 
 13:                                               ; preds = %2
@@ -115,7 +115,7 @@ define hidden noundef i64 @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic11atomic_load
   store ptr inttoptr (i64 8 to ptr), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.7.llvm.17685815667789704627) #16
+  call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.7.llvm.17685815667789704627) #16
   unreachable
 
 20:                                               ; preds = %2
@@ -3451,11 +3451,11 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   br i1 %41, label %.split48.thread, label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %31, i64 noundef 2432, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.15) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %31, i64 noundef 2432, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.15) #16
   unreachable
 
 43:                                               ; preds = %33
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %40, i64 noundef 3808, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.16) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %40, i64 noundef 3808, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.16) #16
   unreachable
 
 .split48.thread:                                  ; preds = %33
@@ -3511,7 +3511,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid14row_inc_scroll.exit.i: ; 
   br i1 %.not.i.i6.not.i, label %73, label %72
 
 72:                                               ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid14row_inc_scroll.exit.i
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.42.llvm.18144538392194903364) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.42.llvm.18144538392194903364) #16
   unreachable
 
 73:                                               ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid14row_inc_scroll.exit.i
@@ -3540,7 +3540,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid8col_wrap.exit: ; preds = %
   br i1 %84, label %97, label %98
 
 85:                                               ; preds = %59, %55
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.31) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.31) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit: ; preds = %59
@@ -3621,7 +3621,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit: ; pred
   br i1 %.not.i.i.not, label %133, label %132
 
 132:                                              ; preds = %124
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.32) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.32) #16
   unreachable
 
 133:                                              ; preds = %124
@@ -3639,7 +3639,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit: ; pred
   br i1 %142, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit93, label %143
 
 143:                                              ; preds = %137
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.33) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.33) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit93: ; preds = %137
@@ -3693,11 +3693,11 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit100.
   br label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append.exit
 
 167:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit100
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.34) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.34) #16
   unreachable
 
 168:                                              ; preds = %115, %111
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.35) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.35) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit: ; preds = %115
@@ -3751,11 +3751,11 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit107.
   br label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append.exit
 
 192:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit107
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.36) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.36) #16
   unreachable
 
 193:                                              ; preds = %102, %98
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.37) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.37) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit76: ; preds = %102
@@ -3794,7 +3794,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit123:
   br i1 %.not201, label %212, label %211
 
 211:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit123
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.38) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.38) #16
   unreachable
 
 212:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit123
@@ -3810,7 +3810,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit123:
   br label %199
 
 217:                                              ; preds = %202, %199
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.39) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.39) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit116: ; preds = %202
@@ -3851,7 +3851,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit137:
   br i1 %.not202, label %239, label %238
 
 238:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit137
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.40) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.40) #16
   unreachable
 
 239:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit137
@@ -3866,7 +3866,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit137:
   br label %223
 
 243:                                              ; preds = %226, %223
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.41) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.41) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130: ; preds = %226
@@ -3903,11 +3903,11 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit130:
   br i1 %266, label %269, label %268
 
 267:                                              ; preds = %246
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %256, i64 noundef 2432, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.5.llvm.6172016698289805888) #16, !noalias !813
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %256, i64 noundef 2432, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.5.llvm.6172016698289805888) #16, !noalias !813
   unreachable
 
 268:                                              ; preds = %258
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %265, i64 noundef 3808, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.6.llvm.6172016698289805888) #16, !noalias !813
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %265, i64 noundef 3808, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.6.llvm.6172016698289805888) #16, !noalias !813
   unreachable
 
 269:                                              ; preds = %258
@@ -3963,7 +3963,7 @@ _RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set.exit: ; preds = %_RN
   br i1 %299, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit150, label %300
 
 300:                                              ; preds = %292, %286
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.42) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.42) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit150: ; preds = %292
@@ -4002,7 +4002,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit164:
   br i1 %.not203, label %321, label %320
 
 320:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit164
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.43) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.43) #16
   unreachable
 
 321:                                              ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit164
@@ -4030,7 +4030,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit164:
   br i1 %.not.i.i168.not, label %333, label %332
 
 332:                                              ; preds = %328
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.44) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.44) #16
   unreachable
 
 333:                                              ; preds = %328
@@ -4042,7 +4042,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit164:
   br label %306
 
 337:                                              ; preds = %311, %306
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.45) #16
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd636d97208544bfc861fc6417891b6a.45) #16
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit157: ; preds = %311
@@ -4777,7 +4777,7 @@ _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15tur
   br i1 %.not.i.i.not.i.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i, label %36
 
 36:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1125
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1125
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i: ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i
@@ -4858,7 +4858,7 @@ _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15tur
   br i1 %.not.i.i.not.i.i.i14, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15, label %69
 
 69:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1158
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1158
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15: ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13
@@ -4978,7 +4978,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit: ;
   store ptr %5, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %122, align 8
-  call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1231, ptr noalias noundef readonly align 8 null, i64 undef)
+  call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1231, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %123
@@ -5039,7 +5039,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   br i1 %.not.i.i.not.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i, label %25
 
 25:                                               ; preds = %12
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1223
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1223
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i: ; preds = %12
@@ -5081,7 +5081,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i: ;
   br i1 %.not.i.i.not.i.i8, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9, label %44
 
 44:                                               ; preds = %31
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1244
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1244
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9: ; preds = %31
@@ -5124,7 +5124,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9: 
   br i1 %.not.i.i.not.i.i13, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i14, label %61
 
 61:                                               ; preds = %52
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1265
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1265
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i14: ; preds = %52
@@ -5175,7 +5175,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_row_forward.exit: ;
   store ptr %5, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %81, align 8
-  call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1249, ptr noalias noundef readonly align 8 null, i64 undef)
+  call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1249, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %82
@@ -5276,7 +5276,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   br i1 %.not.i.i.not.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i, label %17
 
 17:                                               ; preds = %2
-  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1323
+  tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1323
   unreachable
 
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i: ; preds = %2
@@ -5362,7 +5362,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %18, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1300, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1300, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %21 unwind label %19
 
 19:                                               ; preds = %14
@@ -5738,7 +5738,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15set_origin_mode.exit: ; p
   store ptr null, ptr %35, align 8
   store ptr %5, ptr %36, align 8
   store i64 1, ptr %37, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1347, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1347, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %134 unwind label %128
 
 134:                                              ; preds = %133
@@ -5820,7 +5820,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   store ptr %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %18, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1359, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1359, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %21 unwind label %19
 
 19:                                               ; preds = %14
@@ -6128,7 +6128,7 @@ _RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen16clear_mouse_mode.e
   store ptr null, ptr %31, align 8
   store ptr %5, ptr %32, align 8
   store i64 1, ptr %33, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1409, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1409, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %100 unwind label %94
 
 100:                                              ; preds = %99
@@ -6533,7 +6533,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   store ptr %23, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 1, ptr %148, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1501, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1501, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %149 unwind label %139
 
 149:                                              ; preds = %144
@@ -6757,7 +6757,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   store ptr %17, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 1, ptr %226, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1542, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1542, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %227 unwind label %216
 
 227:                                              ; preds = %222
@@ -7009,7 +7009,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   store ptr null, ptr %45, align 8
   store ptr %9, ptr %46, align 8
   store i64 1, ptr %47, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1568, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1568, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %320 unwind label %309
 
 320:                                              ; preds = %319
@@ -7097,7 +7097,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   store ptr %4, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %23, align 8
-  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1588, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.fd636d97208544bfc861fc6417891b6a.49.llvm.17685815667789704627, i32 noundef 1588, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %26 unwind label %24
 
 24:                                               ; preds = %19

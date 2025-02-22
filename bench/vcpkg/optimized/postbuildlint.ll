@@ -5329,7 +5329,6 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit78.i: ; preds = %_ZNO5vcpkg7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel) #21
   %1558 = load i8, ptr %1529, align 8
   %1559 = trunc i8 %1558 to i1
-  %spec.select.i.i = select i1 %1559, ptr null, ptr %143
   br i1 %1559, label %1600, label %1560
 
 1560:                                             ; preds = %1555
@@ -5386,7 +5385,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %_ZN5vcpkg4PathC2ERKS0_.exit91.i unwind label %1594
 
 _ZN5vcpkg4PathC2ERKS0_.exit91.i:                  ; preds = %1577
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1532, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1532, ptr noundef nonnull align 8 dereferenceable(32) %143) #21
   %1578 = load ptr, ptr %1533, align 8
   %1579 = load ptr, ptr %1534, align 8
   %.not.i.i92.i = icmp eq ptr %1578, %1579

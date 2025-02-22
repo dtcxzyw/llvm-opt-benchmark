@@ -302,7 +302,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6213349532840121425.ex
   store i32 %1, ptr %20, align 4
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %2, ptr %23, align 4
-  %24 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2e58d4fb1928b655E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 97601413257966787, i64 noundef 6228516845791835831, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) @anon.eb3ca6ef60721b3f9781e187da6de000.4.llvm.6213349532840121425)
+  %24 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2e58d4fb1928b655E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 97601413257966787, i64 noundef 6228516845791835831, ptr noundef nonnull align 1 %20, ptr noalias noundef readonly align 8 dereferenceable(64) @anon.eb3ca6ef60721b3f9781e187da6de000.4.llvm.6213349532840121425)
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = icmp eq ptr %25, null
   br i1 %26, label %"_ZN4http10extensions10Extensions6insert28_$u7b$$u7b$closure$u7d$$u7d$17h019b3953375b016aE.llvm.6213349532840121425.exit", label %27
@@ -458,7 +458,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6213349532840121425.ex
   store i64 %1, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %2, ptr %23, align 8
-  %24 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2e58d4fb1928b655E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18, i64 noundef -1286480140283989271, i64 noundef 6179550175834140938, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) @anon.eb3ca6ef60721b3f9781e187da6de000.5.llvm.6213349532840121425)
+  %24 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2e58d4fb1928b655E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18, i64 noundef -1286480140283989271, i64 noundef 6179550175834140938, ptr noundef nonnull align 1 %20, ptr noalias noundef readonly align 8 dereferenceable(64) @anon.eb3ca6ef60721b3f9781e187da6de000.5.llvm.6213349532840121425)
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = icmp eq ptr %25, null
   br i1 %26, label %"_ZN4http10extensions10Extensions6insert28_$u7b$$u7b$closure$u7d$$u7d$17he3e10eaac3682736E.llvm.6213349532840121425.exit", label %27

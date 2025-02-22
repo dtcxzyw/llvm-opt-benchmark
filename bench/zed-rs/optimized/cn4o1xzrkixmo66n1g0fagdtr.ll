@@ -957,7 +957,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$std..panicking..begin_panic..Payloa
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call { ptr, i64 } @_ZN3std9panicking14payload_as_str17h7087f60ea4cad930E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.f55a1b4122c404b6a339689dd7247ee2.17)
+  %7 = tail call { ptr, i64 } @_ZN3std9panicking14payload_as_str17h7087f60ea4cad930E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f55a1b4122c404b6a339689dd7247ee2.17)
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
   %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %9)
@@ -1030,7 +1030,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %.backedge.i.i.i.backedge
 
 36:                                               ; preds = %32
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade18panic_cold_display17hc28f96da5d6e60daE.llvm.11854012220005863220"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @anon.245b4d60d799dbf718325923c60be3df.21.llvm.11854012220005863220, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.245b4d60d799dbf718325923c60be3df.23.llvm.11854012220005863220) #25
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade18panic_cold_display17hc28f96da5d6e60daE.llvm.11854012220005863220"(ptr noalias noundef readonly align 8 dereferenceable(16) @anon.245b4d60d799dbf718325923c60be3df.21.llvm.11854012220005863220, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.245b4d60d799dbf718325923c60be3df.23.llvm.11854012220005863220) #25
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i, !noalias !146
 
 .noexc.i.i:                                       ; preds = %36

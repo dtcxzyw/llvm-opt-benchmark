@@ -3589,7 +3589,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %1
-  tail call void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.8) #26
+  tail call void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.8) #26
   unreachable
 
 10:                                               ; preds = %.body, %11
@@ -3651,7 +3651,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   br label %.body
 
 35:                                               ; preds = %22
-  invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.7) #26
+  invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.7) #26
           to label %93 unwind label %33
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h286b4de4b2f08090E.llvm.2171480472617847398.exit"
@@ -3763,7 +3763,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   br i1 %.not20, label %91, label %72
 
 71:                                               ; preds = %54
-  invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.6) #26
+  invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.6) #26
           to label %93 unwind label %.loopexit.split-lp
 
 72:                                               ; preds = %68

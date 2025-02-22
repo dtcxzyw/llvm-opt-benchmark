@@ -2296,7 +2296,6 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   %.fr.i.i.i.i = freeze i32 %6
   %tobool.not.i.i.i.i = icmp eq i32 %.fr.i.i.i.i, 0
   %7 = load ptr, ptr %frontend_.i, align 8, !noalias !34
-  %spec.select.i = select i1 %tobool.not.i.i.i.i, ptr null, ptr %7
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -2364,13 +2363,14 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapper3getEv.exit
 
 _ZN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapper3getEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %cmp3.not = icmp eq ptr %spec.select.i, null
+  %cmp3.not4 = icmp eq ptr %7, null
+  %cmp3.not = select i1 %tobool.not.i.i.i.i, i1 true, i1 %cmp3.not4
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %_ZN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapper3getEv.exit
   %message_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %message_) #14
-  call void @_ZN4node9inspector8protocol11NodeTracing8Frontend23sendRawJSONNotificationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i, ptr noundef nonnull %agg.tmp) #14
+  call void @_ZN4node9inspector8protocol11NodeTracing8Frontend23sendRawJSONNotificationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %agg.tmp) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #14
   br label %if.end5
 

@@ -239,7 +239,7 @@ define dso_local noundef zeroext i1 @sema_analyse_ct_assert_stmt(ptr noundef %0,
   br i1 %.not40, label %.thread46, label %27
 
 27:                                               ; preds = %.thread
-  %28 = tail call i32 @sema_check_comp_time_bool(ptr noundef %0, ptr noundef nonnull %8) #9
+  %28 = tail call i32 @sema_check_comp_time_bool(ptr noundef %0, ptr noundef nonnull %7) #9
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %55, label %30
 
@@ -628,7 +628,7 @@ define dso_local noundef zeroext i1 @sema_analyse_statement(ptr noundef %0, ptr 
   br i1 %.not.i121, label %.loopexit.i130, label %93
 
 93:                                               ; preds = %81
-  %94 = tail call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %0, ptr noundef nonnull %92) #9
+  %94 = tail call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %0, ptr noundef nonnull %91) #9
   br i1 %94, label %95, label %.sink.split
 
 95:                                               ; preds = %93
@@ -2497,7 +2497,7 @@ sema_analyse_foreach_stmt.exit:                   ; preds = %1017, %1042
   ]
 
 1098:                                             ; preds = %1095
-  %1099 = load i64, ptr %1083, align 8
+  %1099 = load i64, ptr %1082, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %1099, ptr noundef nonnull @.str.82) #9
   br label %.critedge.i58.thread571
 
@@ -4104,7 +4104,7 @@ sema_analyse_return_stmt.exit:                    ; preds = %1463, %1597, %.loop
   br i1 %.not.i27, label %1884, label %1882
 
 1882:                                             ; preds = %1874
-  %1883 = tail call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %0, ptr noundef nonnull %1881) #9
+  %1883 = tail call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %0, ptr noundef nonnull %1880) #9
   br i1 %1883, label %1884, label %sema_analyse_then_overwrite.exit.i
 
 1884:                                             ; preds = %1882, %1874
@@ -4285,7 +4285,7 @@ sema_analyse_return_stmt.exit:                    ; preds = %1463, %1597, %.loop
   br i1 %.not150.i, label %1964, label %1962
 
 1962:                                             ; preds = %1961
-  %1963 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %1885, ptr noundef nonnull %1936, i1 noundef zeroext false, ptr noundef null) #9
+  %1963 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %1885, ptr noundef nonnull %1935, i1 noundef zeroext false, ptr noundef null) #9
   br i1 %1963, label %1964, label %sema_analyse_then_overwrite.exit.i
 
 1964:                                             ; preds = %1962, %1961, %1952
@@ -4696,7 +4696,7 @@ sema_analyse_then_overwrite.exit.i:               ; preds = %1962, %1959, %1950,
   %2161 = load ptr, ptr @type_int, align 8
   %2162 = getelementptr inbounds nuw i8, ptr %2159, i64 72
   store ptr %2161, ptr %2162, align 8
-  %2163 = tail call zeroext i1 @sema_add_local(ptr noundef %0, ptr noundef nonnull %2159) #9
+  %2163 = tail call zeroext i1 @sema_add_local(ptr noundef %0, ptr noundef nonnull %2158) #9
   br i1 %2163, label %._crit_edge561, label %.loopexit225
 
 ._crit_edge561:                                   ; preds = %2160
@@ -6175,7 +6175,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_switch_stmt(ptr noundef 
   br i1 %.not, label %.thread129, label %22
 
 22:                                               ; preds = %21
-  %23 = tail call fastcc zeroext i1 @sema_analyse_cond(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef 2)
+  %23 = tail call fastcc zeroext i1 @sema_analyse_cond(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef 2)
   br i1 %23, label %24, label %527
 
 24:                                               ; preds = %22
@@ -6488,7 +6488,7 @@ type_flatten.exit:                                ; preds = %.preheader
   br i1 %.not.i84, label %184, label %182
 
 182:                                              ; preds = %181
-  %183 = call zeroext i1 @sema_analyse_expr_rhs(ptr noundef nonnull %0, ptr noundef %79, ptr noundef nonnull %179, i1 noundef zeroext false, ptr noundef null) #9
+  %183 = call zeroext i1 @sema_analyse_expr_rhs(ptr noundef nonnull %0, ptr noundef %79, ptr noundef nonnull %178, i1 noundef zeroext false, ptr noundef null) #9
   br i1 %183, label %.critedge66.i, label %sema_check_value_case.exit.thread
 
 184:                                              ; preds = %181

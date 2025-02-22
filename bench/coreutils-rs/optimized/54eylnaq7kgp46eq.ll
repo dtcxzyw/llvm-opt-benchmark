@@ -142,7 +142,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %24
   store ptr %8, ptr %45, align 8, !alias.scope !15, !noalias !18
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 2, ptr %46, align 8, !alias.scope !15, !noalias !18
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #14, !noalias !21
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.268693c7f28dbdc215611228823bb984.7.llvm.14790074117373395877) #14, !noalias !21
   unreachable
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h0fc310224e7e911cE.exit: ; preds = %35
@@ -157,7 +157,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h0fc310224e7e911cE.exit: ; 
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h0fc310224e7e911cE.exit
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.7) #14
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.7) #14
   unreachable
 
 50:                                               ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h0fc310224e7e911cE.exit
@@ -387,7 +387,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h0fc310224e7e911cE.exit: ; 
 
 116:                                              ; preds = %97, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc32051ef3fe9afdaE.exit82.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc32051ef3fe9afdaE.exit90.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc32051ef3fe9afdaE.exit86.i"
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.7c1e257cb724e13d26ac6517f8fc4b8a.1, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.8) #14
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.7c1e257cb724e13d26ac6517f8fc4b8a.1, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.8) #14
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %116
@@ -533,7 +533,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit32: ; preds = %156
   br label %152
 
 167:                                              ; preds = %169, %168, %23
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.7c1e257cb724e13d26ac6517f8fc4b8a.9, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.10) #14
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.7c1e257cb724e13d26ac6517f8fc4b8a.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c1e257cb724e13d26ac6517f8fc4b8a.10) #14
   unreachable
 
 168:                                              ; preds = %21

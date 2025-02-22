@@ -6773,9 +6773,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_113FNContextRAIIC2ERN5clang6ParserE
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 127
-  %18 = add nsw i32 %17, -16
-  %19 = icmp ult i32 %18, 63
-  %spec.select.i.i = select i1 %19, ptr %14, ptr null
+  %18 = add nsw i32 %17, -79
+  %19 = icmp ult i32 %18, -63
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %20, align 8
   %21 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
@@ -6807,11 +6806,10 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit: 
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !27
   %35 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  %.not = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not, label %38, label %36
+  br i1 %19, label %38, label %36
 
 36:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit
-  %37 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %spec.select.i.i) #19
+  %37 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19isCXXInstanceMemberEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #19
   br label %38
 
 38:                                               ; preds = %36, %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclENS1_11DeclContextEEEDaPT0_.exit

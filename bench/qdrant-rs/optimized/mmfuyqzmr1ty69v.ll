@@ -842,7 +842,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   store ptr %4, ptr %3, align 8, !noalias !57
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %16, ptr %17, align 8, !noalias !57
-  %18 = call { i64, i64 } @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$10find_inner17h20768655e37e4084E.llvm.13152430587825437928"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, i64 noundef %9, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.66dcba1f207e5f69069380f4c6b901c4.17.llvm.13152430587825437928)
+  %18 = call { i64, i64 } @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$10find_inner17h20768655e37e4084E.llvm.13152430587825437928"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, i64 noundef %9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.66dcba1f207e5f69069380f4c6b901c4.17.llvm.13152430587825437928)
   %19 = extractvalue { i64, i64 } %18, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !57
   %switch.i.i.i = icmp eq i64 %19, 0
@@ -1122,7 +1122,7 @@ define void @_ZN6sparse5index14inverted_index26inverted_index_ram_builder20Inver
   br label %43
 
 41:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h6a1cd82a1a3c9ba2E.exit"
-  invoke void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %25, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d3bc000357aa69d18cc2ac212766197e.17) #22
+  invoke void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %25, i64 noundef %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d3bc000357aa69d18cc2ac212766197e.17) #22
           to label %42 unwind label %.loopexit.split-lp
 
 42:                                               ; preds = %41
@@ -1748,7 +1748,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h7916da661c4c4ff2E.exit.thread: ;
   br i1 %30, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h542b2a27c33f1cf1E.exit", label %31, !prof !100
 
 31:                                               ; preds = %29
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef range(i64 1, 0) %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d3bc000357aa69d18cc2ac212766197e.20) #22, !noalias !194
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef range(i64 1, 0) %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d3bc000357aa69d18cc2ac212766197e.20) #22, !noalias !194
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h542b2a27c33f1cf1E.exit": ; preds = %29
@@ -1852,7 +1852,7 @@ _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E
 
 _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45: ; preds = %.thread, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit
   %.sroa.5.1.i4349 = phi i32 [ %.sroa.5.1.i, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit ], [ %28, %.thread ]
-  %43 = load i32, ptr %.0.i, align 4, !noundef !5
+  %43 = load i32, ptr %14, align 4, !noundef !5
   %switch37 = icmp ugt i32 %.sroa.5.1.i4349, %43
   br i1 %switch37, label %45, label %15
 

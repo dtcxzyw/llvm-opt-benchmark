@@ -17857,7 +17857,7 @@ _ZN7AstNode11privateCastI10AstPackageP13AstNodeModuleEEPT_PS_.exit: ; preds = %1
   br i1 %47, label %126, label %177
 
 126:                                              ; preds = %_ZN7AstNode11privateCastI10AstPackageP13AstNodeModuleEEPT_PS_.exit
-  %127 = invoke noundef zeroext i1 @_ZNK10AstPackage12isDollarUnitEv(ptr noundef nonnull align 8 dereferenceable(264) %spec.select.i63)
+  %127 = invoke noundef zeroext i1 @_ZNK10AstPackage12isDollarUnitEv(ptr noundef nonnull align 8 dereferenceable(264) %1)
           to label %128 unwind label %86
 
 128:                                              ; preds = %126
@@ -45756,7 +45756,7 @@ _ZN7AstNode9privateAsI11AstVarScopePS_EEPT_S2_.exit.preheader: ; preds = %265
           to label %.noexc147.invoke unwind label %.loopexit.split-lp
 
 .noexc147.invoke:                                 ; preds = %.noexc179, %.noexc146
-  %282 = phi ptr [ %264, %.noexc146 ], [ %.sroa.0.0.i.i171, %.noexc179 ]
+  %282 = phi ptr [ %264, %.noexc146 ], [ %370, %.noexc179 ]
   %283 = phi ptr [ %281, %.noexc146 ], [ %382, %.noexc179 ]
   invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %282, ptr noundef nonnull align 8 dereferenceable(112) %283) #24
           to label %.noexc147.cont unwind label %.loopexit.split-lp

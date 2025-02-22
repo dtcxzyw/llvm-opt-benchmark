@@ -2195,7 +2195,7 @@ define hidden void @"_ZN64_$LT$$LP$T1$C$T2$C$T3$RP$$u20$as$u20$sqlez..bindable..
   br i1 %31, label %_ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E.exit.i, label %32
 
 32:                                               ; preds = %26
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d59e74dacceefdb5501e602c2c80316d.16.llvm.16744547508767205241) #16
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d59e74dacceefdb5501e602c2c80316d.16.llvm.16744547508767205241) #16
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %32

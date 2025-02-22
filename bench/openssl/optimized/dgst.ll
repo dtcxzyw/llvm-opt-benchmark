@@ -538,14 +538,14 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
   br i1 %154, label %.lr.ph, label %.loopexit420
 
 155:                                              ; preds = %.lr.ph
-  %156 = add nuw nsw i32 %.0222499, 1
+  %156 = add nuw nsw i32 %.0222501, 1
   %157 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.0250) #8
   %158 = icmp slt i32 %156, %157
   br i1 %158, label %.lr.ph, label %.loopexit420, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.preheader419, %155
-  %.0222499 = phi i32 [ %156, %155 ], [ 0, %.preheader419 ]
-  %159 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.0250, i32 noundef %.0222499) #8
+  %.0222501 = phi i32 [ %156, %155 ], [ 0, %.preheader419 ]
+  %159 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.0250, i32 noundef %.0222501) #8
   %160 = load ptr, ptr %8, align 8, !tbaa !20
   %161 = call i32 @pkey_ctrl_string(ptr noundef %160, ptr noundef %159) #8
   %162 = icmp sgt i32 %161, 0
@@ -641,7 +641,7 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 
 198:                                              ; preds = %193
   %199 = load ptr, ptr %4, align 8, !tbaa !11
-  %200 = call i32 @EVP_DigestVerifyInit(ptr noundef %192, ptr noundef nonnull %10, ptr noundef %199, ptr noundef nonnull %spec.select, ptr noundef nonnull %.5265340) #8
+  %200 = call i32 @EVP_DigestVerifyInit(ptr noundef %192, ptr noundef nonnull %10, ptr noundef %199, ptr noundef nonnull %.0267, ptr noundef nonnull %.5265340) #8
   br label %209
 
 201:                                              ; preds = %190
@@ -655,7 +655,7 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 
 206:                                              ; preds = %201
   %207 = load ptr, ptr %4, align 8, !tbaa !11
-  %208 = call i32 @EVP_DigestSignInit(ptr noundef %192, ptr noundef nonnull %10, ptr noundef %207, ptr noundef nonnull %spec.select, ptr noundef nonnull %.5265340) #8
+  %208 = call i32 @EVP_DigestSignInit(ptr noundef %192, ptr noundef nonnull %10, ptr noundef %207, ptr noundef nonnull %.0267, ptr noundef nonnull %.5265340) #8
   br label %209
 
 209:                                              ; preds = %202, %206, %194, %198
@@ -675,23 +675,23 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 .preheader:                                       ; preds = %214
   %215 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.0255) #8
   %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %.lr.ph501, label %.loopexit418
+  br i1 %216, label %.lr.ph503, label %.loopexit418
 
-217:                                              ; preds = %.lr.ph501
-  %218 = add nuw nsw i32 %.1223500, 1
+217:                                              ; preds = %.lr.ph503
+  %218 = add nuw nsw i32 %.1223502, 1
   %219 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.0255) #8
   %220 = icmp slt i32 %218, %219
-  br i1 %220, label %.lr.ph501, label %.loopexit418, !llvm.loop !25
+  br i1 %220, label %.lr.ph503, label %.loopexit418, !llvm.loop !25
 
-.lr.ph501:                                        ; preds = %.preheader, %217
-  %.1223500 = phi i32 [ %218, %217 ], [ 0, %.preheader ]
-  %221 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.0255, i32 noundef %.1223500) #8
+.lr.ph503:                                        ; preds = %.preheader, %217
+  %.1223502 = phi i32 [ %218, %217 ], [ 0, %.preheader ]
+  %221 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.0255, i32 noundef %.1223502) #8
   %222 = load ptr, ptr %10, align 8, !tbaa !20
   %223 = call i32 @pkey_ctrl_string(ptr noundef %222, ptr noundef %221) #8
   %224 = icmp sgt i32 %223, 0
   br i1 %224, label %217, label %225
 
-225:                                              ; preds = %.lr.ph501
+225:                                              ; preds = %.lr.ph503
   %226 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %227 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %226, ptr noundef nonnull @.str.85, ptr noundef %221) #8
   br label %.thread345
@@ -857,16 +857,16 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 296:                                              ; preds = %294, %293
   %.0 = phi ptr [ %295, %294 ], [ null, %293 ]
   %297 = icmp sgt i32 %82, 0
-  br i1 %297, label %.lr.ph504, label %.thread405
+  br i1 %297, label %.lr.ph506, label %.thread405
 
-.lr.ph504:                                        ; preds = %296
-  %wide.trip.count584 = zext nneg i32 %82 to i64
-  br i1 %.not303370, label %.lr.ph504.split.us, label %.lr.ph504.split
+.lr.ph506:                                        ; preds = %296
+  %wide.trip.count586 = zext nneg i32 %82 to i64
+  br i1 %.not303370, label %.lr.ph506.split.us, label %.lr.ph506.split
 
-.lr.ph504.split.us:                               ; preds = %.lr.ph504, %308
-  %indvars.iv581 = phi i64 [ %indvars.iv.next582, %308 ], [ 0, %.lr.ph504 ]
-  %.1219503.us = phi i32 [ %.2220.us, %308 ], [ 0, %.lr.ph504 ]
-  %298 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv581
+.lr.ph506.split.us:                               ; preds = %.lr.ph506, %308
+  %indvars.iv583 = phi i64 [ %indvars.iv.next584, %308 ], [ 0, %.lr.ph506 ]
+  %.1219505.us = phi i32 [ %.2220.us, %308 ], [ 0, %.lr.ph506 ]
+  %298 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv583
   %299 = load ptr, ptr %298, align 8, !tbaa !4
   %300 = call i64 @BIO_ctrl(ptr noundef %102, i32 noundef 108, i64 noundef 3, ptr noundef %299) #8
   %301 = trunc i64 %300 to i32
@@ -874,26 +874,26 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
   %303 = load ptr, ptr %298, align 8, !tbaa !4
   br i1 %302, label %307, label %304
 
-304:                                              ; preds = %.lr.ph504.split.us
+304:                                              ; preds = %.lr.ph506.split.us
   %305 = call i32 @do_fp(ptr noundef nonnull %118, ptr noundef %13, ptr noundef %.0271, i32 noundef %.0229, i32 noundef %.2217, i32 noundef %.0209, ptr noundef %.5265339353364, ptr noundef %.1207368, i32 noundef %.0225366, ptr noundef %.0, ptr noundef %.0232, ptr noundef %303)
   %.not306.us = icmp eq i32 %305, 0
-  %spec.select323.us = select i1 %.not306.us, i32 %.1219503.us, i32 1
+  %spec.select323.us = select i1 %.not306.us, i32 %.1219505.us, i32 1
   %306 = call i64 @BIO_ctrl(ptr noundef %104, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
   br label %308
 
-307:                                              ; preds = %.lr.ph504.split.us
+307:                                              ; preds = %.lr.ph506.split.us
   call void @perror(ptr noundef %303) #10
   br label %308
 
 308:                                              ; preds = %307, %304
   %.2220.us = phi i32 [ 1, %307 ], [ %spec.select323.us, %304 ]
-  %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
-  %exitcond585.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count584
-  br i1 %exitcond585.not, label %.loopexit, label %.lr.ph504.split.us, !llvm.loop !28
+  %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
+  %exitcond587.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count586
+  br i1 %exitcond587.not, label %.loopexit, label %.lr.ph506.split.us, !llvm.loop !28
 
-.lr.ph504.split:                                  ; preds = %.lr.ph504, %319
-  %indvars.iv = phi i64 [ %indvars.iv.next, %319 ], [ 0, %.lr.ph504 ]
-  %.1219503 = phi i32 [ %.2220, %319 ], [ 0, %.lr.ph504 ]
+.lr.ph506.split:                                  ; preds = %.lr.ph506, %319
+  %indvars.iv = phi i64 [ %indvars.iv.next, %319 ], [ 0, %.lr.ph506 ]
+  %.1219505 = phi i32 [ %.2220, %319 ], [ 0, %.lr.ph506 ]
   %309 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
   %310 = load ptr, ptr %309, align 8, !tbaa !4
   %311 = call i64 @BIO_ctrl(ptr noundef %102, i32 noundef 108, i64 noundef 3, ptr noundef %310) #8
@@ -902,22 +902,22 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
   %314 = load ptr, ptr %309, align 8, !tbaa !4
   br i1 %313, label %315, label %316
 
-315:                                              ; preds = %.lr.ph504.split
+315:                                              ; preds = %.lr.ph506.split
   call void @perror(ptr noundef %314) #10
   br label %319
 
-316:                                              ; preds = %.lr.ph504.split
+316:                                              ; preds = %.lr.ph506.split
   %317 = call fastcc i32 @do_fp_oneshot_sign(ptr noundef %118, ptr noundef %.1203, ptr noundef %102, i32 noundef %.0229, i32 noundef %.2217, ptr noundef %.5265339353364, ptr noundef %.1207368, i32 noundef %.0225366, ptr noundef %.0, ptr noundef %314)
   %.not307 = icmp eq i32 %317, 0
-  %spec.select322 = select i1 %.not307, i32 %.1219503, i32 1
+  %spec.select322 = select i1 %.not307, i32 %.1219505, i32 1
   %318 = call i64 @BIO_ctrl(ptr noundef %104, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
   br label %319
 
 319:                                              ; preds = %316, %315
   %.2220 = phi i32 [ 1, %315 ], [ %spec.select322, %316 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count584
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph504.split, !llvm.loop !28
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count586
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph506.split, !llvm.loop !28
 
 .loopexit:                                        ; preds = %319, %308, %291, %289
   %.0218 = phi i32 [ %290, %289 ], [ %292, %291 ], [ %.2220.us, %308 ], [ %.2220, %319 ]

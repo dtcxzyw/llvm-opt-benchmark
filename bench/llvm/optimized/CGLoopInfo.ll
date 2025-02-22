@@ -2953,7 +2953,7 @@ _ZN5clangneENS_22specific_attr_iteratorIKNS_13CodeAlignAttrEN4llvm8ArrayRefIPKNS
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %spec.select.i.i82, i64 36
   %61 = load i32, ptr %60, align 4, !tbaa !92
-  %62 = call noundef i32 @_ZNK5clang16HLSLLoopHintAttr19getSemanticSpellingEv(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i82) #10
+  %62 = call noundef i32 @_ZNK5clang16HLSLLoopHintAttr19getSemanticSpellingEv(ptr noundef nonnull align 8 dereferenceable(40) %45) #10
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.thread118
 

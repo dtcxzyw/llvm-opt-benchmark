@@ -84,7 +84,7 @@ initIDs.exit:                                     ; preds = %29, %6
   br i1 %.not27.i, label %.thread, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #7
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #7
   %45 = add i64 %44, 12
   %46 = icmp ugt i64 %45, 4096
   br i1 %46, label %findJniFunction.exit.thread, label %.thread

@@ -637,7 +637,7 @@ _ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll.exit.i.i.i.i.i.i.i.i: ;
   %231 = getelementptr inbounds double, ptr %229, i64 %230
   %232 = select i1 %.not.i.i.i.i83, ptr null, ptr %231
   %233 = load <2 x double>, ptr %16, align 16
-  %234 = load <2 x double>, ptr %232, align 1
+  %234 = load <2 x double>, ptr %231, align 1
   %235 = fsub <2 x double> %233, %234
   %236 = fmul <2 x double> %235, %235
   %237 = load <2 x double>, ptr %198, align 16

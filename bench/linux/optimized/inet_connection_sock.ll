@@ -3355,7 +3355,7 @@ define internal fastcc ptr @inet_csk_rebuild_route(ptr noundef %0, ptr noundef i
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %84
-  tail call void @sk_setup_caps(ptr noundef %0, ptr noundef nonnull %87) #12
+  tail call void @sk_setup_caps(ptr noundef %0, ptr noundef nonnull %85) #12
   br label %90
 
 90:                                               ; preds = %89, %84

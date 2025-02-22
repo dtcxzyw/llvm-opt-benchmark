@@ -3016,7 +3016,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPhSaI
   %272 = load i32, ptr %220, align 8
   %273 = mul nsw i32 %272, %50
   %274 = sext i32 %273 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %271, ptr nonnull align 1 %spec.select, i64 %274, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %271, ptr nonnull align 1 %63, i64 %274, i1 false)
   %275 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %276 = load i32, ptr %67, align 4
   %277 = add nsw i32 %276, %275
@@ -3028,7 +3028,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %._ZNSt6vectorIPhSaI
   %283 = getelementptr inbounds i8, ptr %271, i64 %282
   %284 = mul nsw i32 %278, %50
   %285 = sext i32 %284 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %283, ptr nonnull align 1 %spec.select, i64 %285, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %283, ptr nonnull align 1 %63, i64 %285, i1 false)
   %286 = add nuw nsw i32 %.1293, 1
   %exitcond310.not = icmp eq i32 %286, %252
   br i1 %exitcond310.not, label %.loopexit, label %256, !llvm.loop !7

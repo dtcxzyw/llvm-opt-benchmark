@@ -1437,11 +1437,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNK3ade6HandleINS_4NodeEEptEv.exit:              ; preds = %28, %41, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   %.fr.i.i.i.i.i = freeze i32 %12
-  %.not.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %13
-  %46 = icmp ne ptr %spec.select.i.i, null
+  %.not.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i, 0
+  %46 = icmp ne ptr %13, null
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   tail call void @llvm.assume(i1 %46)
-  tail call void @_ZN3ade4Node6unlinkEv(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i)
+  tail call void @_ZN3ade4Node6unlinkEv(ptr noundef nonnull align 8 dereferenceable(72) %13)
   ret void
 }
 

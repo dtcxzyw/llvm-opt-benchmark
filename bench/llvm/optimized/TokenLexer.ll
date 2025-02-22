@@ -1748,7 +1748,7 @@ define dso_local void @_ZN5clang10TokenLexer22stringifyVAOPTContentsERN4llvm15Sm
   %29 = add i32 %storemerge46, -1
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw %"class.clang::Token", ptr %16, i64 %30
-  %32 = call noundef zeroext i1 @_ZN5clang10TokenLexer11pasteTokensERNS_5TokenEN4llvm8ArrayRefIS1_EERj(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(20) %31, ptr nonnull %16, i64 %21, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %32 = call noundef zeroext i1 @_ZN5clang10TokenLexer11pasteTokensERNS_5TokenEN4llvm8ArrayRefIS1_EERj(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(20) %31, ptr nonnull %15, i64 %21, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %33 = load ptr, ptr %5, align 8, !tbaa !345
   %34 = load i32, ptr %18, align 8, !tbaa !346
   %35 = zext i32 %34 to i64

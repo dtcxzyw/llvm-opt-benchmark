@@ -364,7 +364,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN12clap_buil
   br i1 %.not.i, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h05e732f9fe3da6b9E.exit, label %12
 
 12:                                               ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.9606b991c79007fd382a8534d7e198a8.1, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9606b991c79007fd382a8534d7e198a8.3) #7
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.9606b991c79007fd382a8534d7e198a8.1, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9606b991c79007fd382a8534d7e198a8.3) #7
   unreachable
 
 _ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h05e732f9fe3da6b9E.exit: ; preds = %1

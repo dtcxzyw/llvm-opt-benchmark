@@ -794,14 +794,14 @@ _ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit: ; preds = %37, 
   %.0.i.i = select i1 %.not.i.i, ptr null, ptr %49
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #12
   tail call void @_Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE(ptr noundef nonnull %0, ptr noundef %.0.i.i, ptr noundef nonnull @.str.5, i32 noundef %2)
-  %50 = tail call noundef zeroext i1 @_ZN16PlaceholderEntry18remove_seen_threadEP10JavaThreadN16PlaceholderTable15classloadActionE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %3, i32 noundef %2)
+  %50 = tail call noundef zeroext i1 @_ZN16PlaceholderEntry18remove_seen_threadEP10JavaThreadN16PlaceholderTable15classloadActionE(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %3, i32 noundef %2)
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
 
 54:                                               ; preds = %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit
-  %55 = load ptr, ptr %.0.i.i, align 8
+  %55 = load ptr, ptr %49, align 8
   store ptr null, ptr %49, align 8
   %.not.i.i2.i = icmp eq ptr %55, null
   br i1 %.not.i.i2.i, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit

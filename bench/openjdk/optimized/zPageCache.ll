@@ -1319,101 +1319,97 @@ _ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNU
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = load i64, ptr %129, align 8
   %131 = icmp ugt i64 %128, %130
-  br i1 %131, label %132, label %188
+  br i1 %131, label %132, label %184
 
 132:                                              ; preds = %_ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEPS6_.exit
   %133 = sub nuw i64 %128, %130
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %135 = load i64, ptr %134, align 8
-  %136 = icmp eq i64 %135, 0
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = ptrtoint ptr %138 to i64
-  %140 = add i64 %139, -176
-  %141 = inttoptr i64 %140 to ptr
-  %142 = select i1 %136, ptr null, ptr %141
-  %143 = tail call noundef ptr @_ZN5ZPage5splitEm(ptr noundef nonnull align 8 dereferenceable(192) %142, i64 noundef %133) #9
-  %144 = load i8, ptr %143, align 8
-  switch i8 %144, label %178 [
-    i8 0, label %145
-    i8 1, label %170
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = ptrtoint ptr %135 to i64
+  %137 = add i64 %136, -176
+  %138 = inttoptr i64 %137 to ptr
+  %139 = tail call noundef ptr @_ZN5ZPage5splitEm(ptr noundef nonnull align 8 dereferenceable(192) %138, i64 noundef %133) #9
+  %140 = load i8, ptr %139, align 8
+  switch i8 %140, label %174 [
+    i8 0, label %141
+    i8 1, label %166
   ]
 
-145:                                              ; preds = %132
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 3
-  %147 = load i8, ptr %146, align 1
-  %148 = icmp eq i8 %147, -1
-  br i1 %148, label %149, label %_ZN5ZPage7numa_idEv.exit.i
+141:                                              ; preds = %132
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 3
+  %143 = load i8, ptr %142, align 1
+  %144 = icmp eq i8 %143, -1
+  br i1 %144, label %145, label %_ZN5ZPage7numa_idEv.exit.i
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %151 = load i64, ptr %150, align 8
-  %152 = load i64, ptr @ZAddressHeapBase, align 8
-  %153 = or i64 %152, %151
-  %154 = tail call noundef i32 @_ZN5ZNUMA9memory_idEm(i64 noundef %153) #9
-  %155 = trunc i32 %154 to i8
-  store i8 %155, ptr %146, align 1
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %147 = load i64, ptr %146, align 8
+  %148 = load i64, ptr @ZAddressHeapBase, align 8
+  %149 = or i64 %148, %147
+  %150 = tail call noundef i32 @_ZN5ZNUMA9memory_idEm(i64 noundef %149) #9
+  %151 = trunc i32 %150 to i8
+  store i8 %151, ptr %142, align 1
   br label %_ZN5ZPage7numa_idEv.exit.i
 
-_ZN5ZPage7numa_idEv.exit.i:                       ; preds = %149, %145
-  %156 = phi i8 [ %155, %149 ], [ %147, %145 ]
-  %157 = load i64, ptr %0, align 8
-  %158 = zext i8 %156 to i64
-  %159 = shl nuw nsw i64 %158, 12
-  %160 = add i64 %159, %157
-  %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds nuw i8, ptr %143, i64 176
-  %163 = getelementptr inbounds nuw i8, ptr %143, i64 184
-  store ptr %161, ptr %163, align 8
-  %164 = load ptr, ptr %161, align 8
-  store ptr %164, ptr %162, align 8
-  store ptr %162, ptr %161, align 8
-  %165 = load ptr, ptr %162, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %162, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %168 = load i64, ptr %167, align 8
-  %169 = add i64 %168, 1
-  store i64 %169, ptr %167, align 8
+_ZN5ZPage7numa_idEv.exit.i:                       ; preds = %145, %141
+  %152 = phi i8 [ %151, %145 ], [ %143, %141 ]
+  %153 = load i64, ptr %0, align 8
+  %154 = zext i8 %152 to i64
+  %155 = shl nuw nsw i64 %154, 12
+  %156 = add i64 %155, %153
+  %157 = inttoptr i64 %156 to ptr
+  %158 = getelementptr inbounds nuw i8, ptr %139, i64 176
+  %159 = getelementptr inbounds nuw i8, ptr %139, i64 184
+  store ptr %157, ptr %159, align 8
+  %160 = load ptr, ptr %157, align 8
+  store ptr %160, ptr %158, align 8
+  store ptr %158, ptr %157, align 8
+  %161 = load ptr, ptr %158, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  store ptr %158, ptr %162, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %164 = load i64, ptr %163, align 8
+  %165 = add i64 %164, 1
+  store i64 %165, ptr %163, align 8
   br label %_ZN10ZPageCache9free_pageEP5ZPage.exit
 
-170:                                              ; preds = %132
-  %171 = getelementptr inbounds nuw i8, ptr %143, i64 176
-  %172 = getelementptr inbounds nuw i8, ptr %143, i64 184
-  store ptr %43, ptr %172, align 8
-  %173 = load ptr, ptr %43, align 8
-  store ptr %173, ptr %171, align 8
-  store ptr %171, ptr %43, align 8
-  %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store ptr %171, ptr %175, align 8
-  %176 = load i64, ptr %44, align 8
-  %177 = add i64 %176, 1
-  store i64 %177, ptr %44, align 8
+166:                                              ; preds = %132
+  %167 = getelementptr inbounds nuw i8, ptr %139, i64 176
+  %168 = getelementptr inbounds nuw i8, ptr %139, i64 184
+  store ptr %43, ptr %168, align 8
+  %169 = load ptr, ptr %43, align 8
+  store ptr %169, ptr %167, align 8
+  store ptr %167, ptr %43, align 8
+  %170 = load ptr, ptr %167, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  store ptr %167, ptr %171, align 8
+  %172 = load i64, ptr %44, align 8
+  %173 = add i64 %172, 1
+  store i64 %173, ptr %44, align 8
   br label %_ZN10ZPageCache9free_pageEP5ZPage.exit
 
-178:                                              ; preds = %132
-  %179 = getelementptr inbounds nuw i8, ptr %143, i64 176
-  %180 = getelementptr inbounds nuw i8, ptr %143, i64 184
-  store ptr %4, ptr %180, align 8
-  %181 = load ptr, ptr %4, align 8
-  store ptr %181, ptr %179, align 8
-  store ptr %179, ptr %4, align 8
-  %182 = load ptr, ptr %179, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store ptr %179, ptr %183, align 8
-  %184 = load i64, ptr %5, align 8
-  %185 = add i64 %184, 1
-  store i64 %185, ptr %5, align 8
+174:                                              ; preds = %132
+  %175 = getelementptr inbounds nuw i8, ptr %139, i64 176
+  %176 = getelementptr inbounds nuw i8, ptr %139, i64 184
+  store ptr %4, ptr %176, align 8
+  %177 = load ptr, ptr %4, align 8
+  store ptr %177, ptr %175, align 8
+  store ptr %175, ptr %4, align 8
+  %178 = load ptr, ptr %175, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store ptr %175, ptr %179, align 8
+  %180 = load i64, ptr %5, align 8
+  %181 = add i64 %180, 1
+  store i64 %181, ptr %5, align 8
   br label %_ZN10ZPageCache9free_pageEP5ZPage.exit
 
-_ZN10ZPageCache9free_pageEP5ZPage.exit:           ; preds = %_ZN5ZPage7numa_idEv.exit.i, %170, %178
-  %186 = load i64, ptr %127, align 8
-  %187 = sub i64 %186, %133
-  store i64 %187, ptr %127, align 8
-  br label %188
+_ZN10ZPageCache9free_pageEP5ZPage.exit:           ; preds = %_ZN5ZPage7numa_idEv.exit.i, %166, %174
+  %182 = load i64, ptr %127, align 8
+  %183 = sub i64 %182, %133
+  store i64 %183, ptr %127, align 8
+  br label %184
 
-188:                                              ; preds = %_ZN10ZPageCache9free_pageEP5ZPage.exit, %_ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEPS6_.exit
+184:                                              ; preds = %_ZN10ZPageCache9free_pageEP5ZPage.exit, %_ZN10ZPageCache20flush_per_numa_listsEP22ZPageCacheFlushClosureP6ZValueI15ZPerNUMAStorage5ZListI5ZPageEEPS6_.exit
   ret void
 }
 

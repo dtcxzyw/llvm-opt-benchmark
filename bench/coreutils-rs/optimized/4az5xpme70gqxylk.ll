@@ -120,7 +120,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.12, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.13)
+  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.12, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %10
 
@@ -135,7 +135,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$uucore..mods..error..UIoError$u20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %3, align 8
-  %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.14, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.15, i64 noundef 7, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.16, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.17, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.18)
+  %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf1936b528a094049E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.14, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.15, i64 noundef 7, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.16, ptr noalias noundef nonnull readonly align 1 @anon.124a0a28030e15ae3ea2a413966596d7.17, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i1 %5
 }
@@ -206,7 +206,7 @@ define void @_ZN9uu_base3211base_common6Config4from17hb32ba087e91931ccE(ptr noal
   store ptr %18, ptr %39, align 8, !alias.scope !24, !noalias !27
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 2, ptr %40, align 8, !alias.scope !24, !noalias !27
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a16f79f2770b0e36dd485911c7f301d4.4.llvm.154599555266174027) #12, !noalias !30
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a16f79f2770b0e36dd485911c7f301d4.4.llvm.154599555266174027) #12, !noalias !30
   unreachable
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h9c48a286aec24198E.exit: ; preds = %2
@@ -279,14 +279,14 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h9c48a286aec24198E.exit: ; 
   br i1 %69, label %143, label %70
 
 70:                                               ; preds = %.noexc71
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.84c41b4ab569b77a98293a04cfbd79b5.1.llvm.16988562310077494683, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.84c41b4ab569b77a98293a04cfbd79b5.3.llvm.16988562310077494683) #12
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.84c41b4ab569b77a98293a04cfbd79b5.1.llvm.16988562310077494683, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.84c41b4ab569b77a98293a04cfbd79b5.3.llvm.16988562310077494683) #12
           to label %.noexc72 unwind label %132
 
 .noexc72:                                         ; preds = %70
   unreachable
 
 71:                                               ; preds = %44
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.20) #12
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.124a0a28030e15ae3ea2a413966596d7.20) #12
   unreachable
 
 72:                                               ; preds = %44
@@ -548,7 +548,7 @@ _ZN6uucore4mods5error12USimpleError3new17h16165e3877efb120E.exit: ; preds = %.no
   store ptr %8, ptr %141, align 8, !alias.scope !133, !noalias !136
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 2, ptr %142, align 8, !alias.scope !133, !noalias !136
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a16f79f2770b0e36dd485911c7f301d4.4.llvm.154599555266174027) #12
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a16f79f2770b0e36dd485911c7f301d4.4.llvm.154599555266174027) #12
           to label %.noexc84 unwind label %132
 
 .noexc84:                                         ; preds = %134

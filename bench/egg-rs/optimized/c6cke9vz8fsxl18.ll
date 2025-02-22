@@ -23,7 +23,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !11
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2e2ef50e4ef086242c7f8f93cf51bb3b.12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !6
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2e2ef50e4ef086242c7f8f93cf51bb3b.12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !9
   ret i1 %3
 }

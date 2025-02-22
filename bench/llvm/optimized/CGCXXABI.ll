@@ -686,7 +686,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit23:     ; preds = %_ZNK5clang13CXXMeth
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 20
   %68 = load i32, ptr %67, align 4, !tbaa !1036
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %88, label %70
+  br i1 %69, label %86, label %70
 
 70:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit23
   %71 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %37) #19
@@ -704,37 +704,35 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit23:     ; preds = %_ZNK5clang13CXXMeth
 
 _ZNK5clang13CXXMethodDecl9getParentEv.exit26:     ; preds = %70, %77
   %.0.i.i.i.i25 = phi ptr [ %78, %77 ], [ %76, %70 ]
-  %79 = icmp eq ptr %.0.i.i.i.i25, null
-  %80 = getelementptr inbounds i8, ptr %.0.i.i.i.i25, i64 -64
-  %81 = select i1 %79, ptr null, ptr %80
-  %82 = tail call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl18isEffectivelyFinalEv(ptr noundef nonnull align 8 dereferenceable(144) %81) #19
-  br i1 %82, label %88, label %83
+  %79 = getelementptr inbounds i8, ptr %.0.i.i.i.i25, i64 -64
+  %80 = tail call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl18isEffectivelyFinalEv(ptr noundef nonnull align 8 dereferenceable(144) %79) #19
+  br i1 %80, label %86, label %81
 
-83:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit26
+81:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit26
   %.sroa.02.0.copyload = load i64, ptr %4, align 8, !tbaa !285
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 1920
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !621
-  %84 = load ptr, ptr %0, align 8, !tbaa !3
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.02.0.copyload, i32 %.sroa.2.0.copyload) #19
-  br i1 %87, label %88, label %90
+  %82 = load ptr, ptr %0, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.02.0.copyload, i32 %.sroa.2.0.copyload) #19
+  br i1 %85, label %86, label %88
 
-88:                                               ; preds = %83, %_ZNK5clang13CXXMethodDecl9getParentEv.exit26, %_ZNK5clang13CXXMethodDecl9getParentEv.exit23
-  %89 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  br label %94
+86:                                               ; preds = %81, %_ZNK5clang13CXXMethodDecl9getParentEv.exit26, %_ZNK5clang13CXXMethodDecl9getParentEv.exit23
+  %87 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  br label %92
 
-90:                                               ; preds = %83
-  %91 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  %92 = load ptr, ptr %91, align 8, !tbaa !1048
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  br label %94
+88:                                               ; preds = %81
+  %89 = getelementptr inbounds nuw i8, ptr %49, i64 72
+  %90 = load ptr, ptr %89, align 8, !tbaa !1048
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  br label %92
 
-94:                                               ; preds = %90, %88
-  %.sroa.0.0.copyload.i28.sink.in = phi ptr [ %93, %90 ], [ %89, %88 ]
+92:                                               ; preds = %88, %86
+  %.sroa.0.0.copyload.i28.sink.in = phi ptr [ %91, %88 ], [ %87, %86 ]
   %.sroa.0.0.copyload.i28.sink = load i64, ptr %.sroa.0.0.copyload.i28.sink.in, align 8, !tbaa !289
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 4560
-  store i64 %.sroa.0.0.copyload.i28.sink, ptr %95, align 8, !tbaa !289
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 4560
+  store i64 %.sroa.0.0.copyload.i28.sink, ptr %93, align 8, !tbaa !289
   ret void
 }
 

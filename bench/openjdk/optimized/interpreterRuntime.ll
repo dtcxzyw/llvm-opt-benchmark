@@ -6265,8 +6265,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %24
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %31) #14
-  %..i = select i1 %38, ptr %31, ptr null
-  %39 = call noundef ptr @_ZN7RetData9fixup_retEiP10MethodData(ptr noundef nonnull align 8 dereferenceable(16) %..i, i32 noundef %1, ptr noundef nonnull %22) #14
+  %39 = call noundef ptr @_ZN7RetData9fixup_retEiP10MethodData(ptr noundef nonnull align 8 dereferenceable(16) %31, i32 noundef %1, ptr noundef nonnull %22) #14
   call void @_ZN5frame25interpreter_frame_set_mdpEPh(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %39) #14
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %40
 

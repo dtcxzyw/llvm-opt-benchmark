@@ -10828,12 +10828,11 @@ define internal noalias noundef ptr @_ZN12_GLOBAL__N_113ItaniumCXXABI25EmitVirtu
   br i1 %.not, label %33, label %31
 
 31:                                               ; preds = %7
-  %32 = tail call i64 @_ZNK5clang17CXXMemberCallExpr13getObjectTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i) #22
+  %32 = tail call i64 @_ZNK5clang17CXXMemberCallExpr13getObjectTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
   br label %35
 
 33:                                               ; preds = %7
-  %.0.i.i22 = select i1 %.not.i.i, ptr %12, ptr null
-  %34 = tail call i64 @_ZNK5clang13CXXDeleteExpr16getDestroyedTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i22) #22
+  %34 = tail call i64 @_ZNK5clang13CXXDeleteExpr16getDestroyedTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -13399,8 +13398,7 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI15emitCXXStructorEN5clang1
   %12 = and i32 %11, 127
   %13 = icmp eq i32 %12, 36
   %spec.select.i.i = select i1 %13, ptr %9, ptr null
-  %.not = icmp eq ptr %spec.select.i.i, null
-  %spec.select = select i1 %.not, ptr %9, ptr null
+  %.not = icmp ne ptr %spec.select.i.i, null
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !743
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 184
@@ -13504,11 +13502,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 _ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit: ; preds = %52, %switch.lookup, %3, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.i, %53, %59
   %.0.i = phi i32 [ 0, %3 ], [ 0, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i ], [ 3, %53 ], [ %spec.select.i, %59 ], [ %spec.select21.i, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.i ], [ %switch.load, %switch.lookup ], [ 2, %52 ]
   %62 = and i64 %1, 7
-  br i1 %.not, label %65, label %63
+  br i1 %.not, label %63, label %65
 
 63:                                               ; preds = %_ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit
   %64 = icmp eq i64 %62, 0
-  br i1 %64, label %67, label %105
+  br i1 %64, label %67, label %._crit_edge
 
 65:                                               ; preds = %_ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit
   %66 = icmp eq i64 %62, 1
@@ -13593,11 +13591,12 @@ _ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit: 
   tail call void @_ZN5clang7CodeGen13CodeGenModule14addReplacementEN4llvm9StringRefEPNS2_8ConstantE(ptr noundef nonnull align 8 dereferenceable(3608) %104, ptr %100, i64 %101, ptr noundef %103) #22
   br label %.critedge
 
-105:                                              ; preds = %95, %65, %63
-  %.not55 = icmp eq ptr %spec.select, null
+105:                                              ; preds = %95, %65
+  %.not5584 = icmp eq i64 %8, 0
+  %.not55 = or i1 %.not5584, %.not
   br i1 %.not55, label %._crit_edge, label %106
 
-._crit_edge:                                      ; preds = %105
+._crit_edge:                                      ; preds = %63, %105
   %.pre = load ptr, ptr %14, align 8, !tbaa !743
   br label %114
 
@@ -13606,11 +13605,11 @@ _ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit: 
   %108 = icmp eq i64 %107, 2
   %109 = icmp ne i32 %.0.i, 3
   %or.cond3 = and i1 %108, %109
-  %.pre84 = load ptr, ptr %14, align 8, !tbaa !743
+  %.pre85 = load ptr, ptr %14, align 8, !tbaa !743
   br i1 %or.cond3, label %110, label %114
 
 110:                                              ; preds = %106
-  %111 = tail call noundef zeroext i1 @_ZN5clang7CodeGen13CodeGenModule28TryEmitBaseDestructorAsAliasEPKNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(3608) %.pre84, ptr noundef nonnull %spec.select) #22
+  %111 = tail call noundef zeroext i1 @_ZN5clang7CodeGen13CodeGenModule28TryEmitBaseDestructorAsAliasEPKNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(3608) %.pre85, ptr noundef nonnull %9) #22
   br i1 %111, label %.thread83, label %.critedge
 
 .thread83:                                        ; preds = %110
@@ -13619,7 +13618,8 @@ _ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit: 
   br label %142
 
 114:                                              ; preds = %._crit_edge, %106
-  %115 = phi ptr [ %.pre, %._crit_edge ], [ %.pre84, %106 ]
+  %.not5588 = phi i1 [ true, %._crit_edge ], [ false, %106 ]
+  %115 = phi ptr [ %.pre, %._crit_edge ], [ %.pre85, %106 ]
   %116 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule18codegenCXXStructorENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(3608) %115, i64 %1, i32 %2) #22
   %117 = icmp eq i32 %.0.i, 3
   br i1 %117, label %118, label %142
@@ -13648,11 +13648,11 @@ _ZL15getCodegenToUseRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXMethodDeclE.exit: 
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val56 = load ptr, ptr %127, align 8, !tbaa !346
   %128 = load ptr, ptr %.val56, align 8, !tbaa !369
-  %. = select i1 %.not55, i64 224, i64 232
-  %spec.select.i.i.spec.select = select i1 %.not55, ptr %spec.select.i.i, ptr %spec.select
+  %. = select i1 %.not5588, i64 224, i64 232
+  %spec.select.i.i. = select i1 %.not5588, ptr %spec.select.i.i, ptr %9
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.
   %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(128) %.val56, ptr noundef %spec.select.i.i.spec.select, ptr noundef nonnull align 8 dereferenceable(48) %7) #22
+  call void %130(ptr noundef nonnull align 8 dereferenceable(128) %.val56, ptr noundef %spec.select.i.i., ptr noundef nonnull align 8 dereferenceable(48) %7) #22
   %131 = load ptr, ptr %14, align 8, !tbaa !743
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 200
   %133 = load ptr, ptr %132, align 8, !tbaa !964

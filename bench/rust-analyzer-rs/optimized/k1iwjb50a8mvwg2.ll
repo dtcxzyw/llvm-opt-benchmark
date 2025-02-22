@@ -1126,7 +1126,7 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
   br label %24
 
 61:                                               ; preds = %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e926f23288bd1e2cceb43b3419bdb943.3, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e926f23288bd1e2cceb43b3419bdb943.5) #24
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e926f23288bd1e2cceb43b3419bdb943.3, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e926f23288bd1e2cceb43b3419bdb943.5) #24
           to label %71 unwind label %.loopexit.split-lp
 
 62:                                               ; preds = %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
@@ -1469,7 +1469,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
           to label %.noexc20 unwind label %82, !noalias !281
 
 118:                                              ; preds = %112
-  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %100, i64 noundef %.val23.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e926f23288bd1e2cceb43b3419bdb943.6) #24
+  invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %100, i64 noundef %.val23.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e926f23288bd1e2cceb43b3419bdb943.6) #24
           to label %127 unwind label %82, !noalias !281
 
 .noexc20:                                         ; preds = %115
@@ -1504,7 +1504,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   br label %.noexc19
 
 129:                                              ; preds = %107
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e926f23288bd1e2cceb43b3419bdb943.7, i64 noundef 31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e926f23288bd1e2cceb43b3419bdb943.8) #24
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e926f23288bd1e2cceb43b3419bdb943.7, i64 noundef 31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e926f23288bd1e2cceb43b3419bdb943.8) #24
           to label %127 unwind label %82, !noalias !281
 
 130:                                              ; preds = %82

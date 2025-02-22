@@ -7246,19 +7246,19 @@ define dso_local void @_ZN5vcpkg15get_cmake_usageERKNS_18ReadOnlyFilesystemERKNS
   br i1 %151, label %297, label %152
 
 152:                                              ; preds = %144
-  %153 = load i8, ptr %.sroa.0.0.i, align 1
+  %153 = load i8, ptr %149, align 1
   %154 = icmp eq i8 %153, 100
   br i1 %154, label %297, label %155
 
 155:                                              ; preds = %152
-  %156 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %147, ptr nonnull @.str.19, i64 6)
+  %156 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %149, i64 %147, ptr nonnull @.str.19, i64 6)
           to label %157 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 157:                                              ; preds = %155
   br i1 %156, label %158, label %261
 
 158:                                              ; preds = %157
-  %159 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %147, ptr nonnull @.str.17, i64 6)
+  %159 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %149, i64 %147, ptr nonnull @.str.17, i64 6)
           to label %160 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 160:                                              ; preds = %158
@@ -7266,7 +7266,7 @@ define dso_local void @_ZN5vcpkg15get_cmake_usageERKNS_18ReadOnlyFilesystemERKNS
 
 161:                                              ; preds = %160
   %..i = call i64 @llvm.umin.i64(i64 %147, i64 6)
-  %162 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %..i, ptr nonnull @.str.20, i64 18)
+  %162 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %149, i64 %..i, ptr nonnull @.str.20, i64 18)
           to label %163 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 163:                                              ; preds = %161
@@ -7303,14 +7303,14 @@ define dso_local void @_ZN5vcpkg15get_cmake_usageERKNS_18ReadOnlyFilesystemERKNS
   br label %.body210
 
 164:                                              ; preds = %163
-  %165 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %..i, ptr nonnull @.str.21, i64 20)
+  %165 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %149, i64 %..i, ptr nonnull @.str.21, i64 20)
           to label %166 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 166:                                              ; preds = %164
   br i1 %165, label %297, label %167
 
 167:                                              ; preds = %166
-  %168 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %..i, ptr nonnull @.str.22, i64 6)
+  %168 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %149, i64 %..i, ptr nonnull @.str.22, i64 6)
           to label %169 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 169:                                              ; preds = %167
@@ -7357,7 +7357,7 @@ define dso_local void @_ZN5vcpkg15get_cmake_usageERKNS_18ReadOnlyFilesystemERKNS
   br label %259
 
 189:                                              ; preds = %184
-  %190 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings8containsENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %..i, ptr nonnull @.str.24, i64 5)
+  %190 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings8containsENS_10StringViewES1_(ptr nonnull %149, i64 %..i, ptr nonnull @.str.24, i64 5)
           to label %191 unwind label %187
 
 191:                                              ; preds = %189
@@ -7545,21 +7545,21 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
   br i1 %262, label %266, label %263
 
 263:                                              ; preds = %261
-  %264 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %147, ptr nonnull @.str.25, i64 4)
+  %264 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %149, i64 %147, ptr nonnull @.str.25, i64 4)
           to label %265 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 265:                                              ; preds = %263
   br i1 %264, label %297, label %266
 
 266:                                              ; preds = %265, %261
-  %267 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %147, ptr nonnull @.str.26, i64 3)
+  %267 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr nonnull %149, i64 %147, ptr nonnull @.str.26, i64 3)
           to label %268 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 268:                                              ; preds = %266
   br i1 %267, label %269, label %284
 
 269:                                              ; preds = %268
-  %270 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings8containsENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %147, ptr nonnull @.str.27, i64 9)
+  %270 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings8containsENS_10StringViewES1_(ptr nonnull %149, i64 %147, ptr nonnull @.str.27, i64 9)
           to label %271 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 271:                                              ; preds = %269
@@ -7596,7 +7596,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
   br label %.body210
 
 284:                                              ; preds = %268
-  %285 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %147, ptr nonnull @.str.28, i64 4)
+  %285 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %149, i64 %147, ptr nonnull @.str.28, i64 4)
           to label %286 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 286:                                              ; preds = %284
@@ -7607,7 +7607,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
   br i1 %288, label %289, label %297
 
 289:                                              ; preds = %287
-  %290 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %.sroa.0.0.i, i64 %147, ptr nonnull @.str.18, i64 8)
+  %290 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr nonnull %149, i64 %147, ptr nonnull @.str.18, i64 8)
           to label %291 unwind label %.loopexit.split-lp373.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 291:                                              ; preds = %289

@@ -132,7 +132,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %27
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.2911b26df6908eb61788401e919d8b36.9, i64 noundef 41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2911b26df6908eb61788401e919d8b36.14) #11
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.2911b26df6908eb61788401e919d8b36.9, i64 noundef 41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2911b26df6908eb61788401e919d8b36.14) #11
           to label %45 unwind label %38
 
 43:                                               ; preds = %40
@@ -779,7 +779,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %44
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.2911b26df6908eb61788401e919d8b36.3, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2911b26df6908eb61788401e919d8b36.5) #11
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.2911b26df6908eb61788401e919d8b36.3, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2911b26df6908eb61788401e919d8b36.5) #11
           to label %66 unwind label %54, !noalias !83
 
 60:                                               ; preds = %56
@@ -1080,7 +1080,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   br i1 %142, label %143, label %144
 
 143:                                              ; preds = %141
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.2911b26df6908eb61788401e919d8b36.9, i64 noundef 41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2911b26df6908eb61788401e919d8b36.10) #11
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.2911b26df6908eb61788401e919d8b36.9, i64 noundef 41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2911b26df6908eb61788401e919d8b36.10) #11
           to label %146 unwind label %139, !noalias !153
 
 144:                                              ; preds = %141

@@ -2996,7 +2996,7 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
   br i1 %73, label %75, label %74
 
 74:                                               ; preds = %72
-  call void @fput(ptr noundef nonnull %65) #24
+  call void @fput(ptr noundef nonnull %63) #24
   br label %75
 
 75:                                               ; preds = %74, %72, %59

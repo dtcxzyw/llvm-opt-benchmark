@@ -6368,7 +6368,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = load double, ptr %21, align 8
-  %36 = load double, ptr %29, align 8
+  %36 = load double, ptr %28, align 8
   %37 = fmul double %35, %36
   %38 = icmp sgt i64 %26, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS6_INS_7InverseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_KNS6_INS6_INS_9TransposeIS4_EES4_Li0EEES4_Li0EEEEEEESD_Li0EEES4_Li0EEES4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -6476,8 +6476,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 101:                                              ; preds = %.lr.ph56
   %102 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %103 = load i64, ptr %102, align 8
-  %104 = load double, ptr %91, align 8
-  %105 = load double, ptr %99, align 8
+  %104 = load double, ptr %90, align 8
+  %105 = load double, ptr %98, align 8
   %106 = fmul double %104, %105
   %107 = icmp sgt i64 %96, 1
   br i1 %107, label %.lr.ph.i.i.i.i.i.i39, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS6_INS_7InverseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_KNS6_INS6_INS_9TransposeIS4_EES4_Li0EEES4_Li0EEEEEEESD_Li0EEES4_Li0EEES4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43
@@ -6952,7 +6952,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = load double, ptr %21, align 8
-  %36 = load double, ptr %29, align 8
+  %36 = load double, ptr %28, align 8
   %37 = fmul double %35, %36
   %38 = icmp sgt i64 %26, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_7InverseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_KNS6_INS6_INS_9TransposeIS4_EES4_Li0EEES4_Li0EEEEEEESD_Li0EEES4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -7060,8 +7060,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 101:                                              ; preds = %.lr.ph56
   %102 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %103 = load i64, ptr %102, align 8
-  %104 = load double, ptr %91, align 8
-  %105 = load double, ptr %99, align 8
+  %104 = load double, ptr %90, align 8
+  %105 = load double, ptr %98, align 8
   %106 = fmul double %104, %105
   %107 = icmp sgt i64 %96, 1
   br i1 %107, label %.lr.ph.i.i.i.i.i.i39, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_7InverseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_KNS6_INS6_INS_9TransposeIS4_EES4_Li0EEES4_Li0EEEEEEESD_Li0EEES4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43
@@ -7545,7 +7545,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = load double, ptr %21, align 8
-  %37 = load double, ptr %26, align 8
+  %37 = load double, ptr %25, align 8
   %38 = fmul double %36, %37
   %39 = icmp sgt i64 %28, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_7InverseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_KNS6_INS6_INS_9TransposeIS4_EES4_Li0EEES4_Li0EEEEEEENSC_ISB_EELi1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -7655,8 +7655,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %106 = load i64, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %108 = load i64, ptr %107, align 8
-  %109 = load double, ptr %95, align 8
-  %110 = load double, ptr %100, align 8
+  %109 = load double, ptr %94, align 8
+  %110 = load double, ptr %99, align 8
   %111 = fmul double %109, %110
   %112 = icmp sgt i64 %102, 1
   br i1 %112, label %.lr.ph.i.i.i.i.i.i39, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_7InverseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_KNS6_INS6_INS_9TransposeIS4_EES4_Li0EEES4_Li0EEEEEEENSC_ISB_EELi1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43
@@ -8170,7 +8170,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = load double, ptr %21, align 8
-  %36 = load double, ptr %29, align 8
+  %36 = load double, ptr %28, align 8
   %37 = fmul double %35, %36
   %38 = icmp sgt i64 %26, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_9TransposeIS4_EES4_Li0EEES4_Li1EEEEENS0_13add_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -8282,8 +8282,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 105:                                              ; preds = %.lr.ph56
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %107 = load i64, ptr %106, align 8
-  %108 = load double, ptr %95, align 8
-  %109 = load double, ptr %103, align 8
+  %108 = load double, ptr %94, align 8
+  %109 = load double, ptr %102, align 8
   %110 = fmul double %108, %109
   %111 = icmp sgt i64 %100, 1
   br i1 %111, label %.lr.ph.i.i.i.i.i.i39, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_9TransposeIS4_EES4_Li0EEES4_Li1EEEEENS0_13add_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43
@@ -8888,16 +8888,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not.i.i.i.i.i.i.i, label %97, label %51
 
 51:                                               ; preds = %46
-  %52 = load <2 x double>, ptr %39, align 1
-  %53 = load <2 x double>, ptr %44, align 1
+  %52 = load <2 x double>, ptr %38, align 1
+  %53 = load <2 x double>, ptr %43, align 1
   %54 = fmul <2 x double> %52, %53
   %55 = icmp sgt i64 %41, 3
   br i1 %55, label %56, label %86
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %58 = load <2 x double>, ptr %57, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %60 = load <2 x double>, ptr %59, align 1
   %61 = fmul <2 x double> %58, %60
   %62 = icmp samesign ugt i64 %41, 7
@@ -8963,8 +8963,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_9TransposeIKS4_EES4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit.i, label %.lr.ph83.i.i.i.i.i.i.i, !llvm.loop !246
 
 97:                                               ; preds = %46
-  %98 = load double, ptr %39, align 8
-  %99 = load double, ptr %44, align 8
+  %98 = load double, ptr %38, align 8
+  %99 = load double, ptr %43, align 8
   %100 = fmul double %98, %99
   br label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS_9TransposeIKS4_EES4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit.i
 
@@ -16949,8 +16949,8 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
 39:                                               ; preds = %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %41 = load i64, ptr %40, align 8
-  %42 = load double, ptr %27, align 8
-  %43 = load double, ptr %35, align 8
+  %42 = load double, ptr %26, align 8
+  %43 = load double, ptr %34, align 8
   %44 = fmul double %42, %43
   %45 = icmp sgt i64 %37, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS2_INS_7ProductIS8_S8_Li1EEEEENS0_13sub_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit.i
@@ -17049,7 +17049,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %106 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %107 = load i64, ptr %106, align 8
   %108 = load double, ptr %92, align 8
-  %109 = load double, ptr %100, align 8
+  %109 = load double, ptr %99, align 8
   %110 = fmul double %108, %109
   %111 = icmp sgt i64 %102, 1
   br i1 %111, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS2_INS_7ProductIS8_S8_Li1EEEEENS0_13sub_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -17164,8 +17164,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6M
 183:                                              ; preds = %.lr.ph63
   %184 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %185 = load i64, ptr %184, align 8
-  %186 = load double, ptr %171, align 8
-  %187 = load double, ptr %179, align 8
+  %186 = load double, ptr %170, align 8
+  %187 = load double, ptr %178, align 8
   %188 = fmul double %186, %187
   %189 = icmp sgt i64 %181, 1
   br i1 %189, label %.lr.ph.i.i.i.i.i.i42, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEEEENS2_INS_7ProductIS8_S8_Li1EEEEENS0_13sub_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit46
@@ -20878,7 +20878,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = load double, ptr %21, align 8
-  %35 = load double, ptr %28, align 8
+  %35 = load double, ptr %27, align 8
   %36 = fmul double %34, %35
   %37 = icmp sgt i64 %25, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_9TransposeIS4_EES4_Li0EEENS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS4_KNS6_IS4_S4_Li0EEEEELi1EEEEENS0_13add_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -20989,8 +20989,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 103:                                              ; preds = %.lr.ph56
   %104 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %105 = load i64, ptr %104, align 8
-  %106 = load double, ptr %94, align 8
-  %107 = load double, ptr %101, align 8
+  %106 = load double, ptr %93, align 8
+  %107 = load double, ptr %100, align 8
   %108 = fmul double %106, %107
   %109 = icmp sgt i64 %98, 1
   br i1 %109, label %.lr.ph.i.i.i.i.i.i39, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductINS6_INS_9TransposeIS4_EES4_Li0EEENS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS4_KNS6_IS4_S4_Li0EEEEELi1EEEEENS0_13add_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43
@@ -21384,7 +21384,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = load double, ptr %22, align 8
-  %37 = load double, ptr %30, align 8
+  %37 = load double, ptr %29, align 8
   %38 = fmul double %36, %37
   %39 = icmp sgt i64 %27, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductIS4_S4_Li1EEEEENS0_13sub_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -21497,8 +21497,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 107:                                              ; preds = %.lr.ph56
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %109 = load i64, ptr %108, align 8
-  %110 = load double, ptr %97, align 8
-  %111 = load double, ptr %105, align 8
+  %110 = load double, ptr %96, align 8
+  %111 = load double, ptr %104, align 8
   %112 = fmul double %110, %111
   %113 = icmp sgt i64 %102, 1
   br i1 %113, label %.lr.ph.i.i.i.i.i.i39, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductIS4_S4_Li1EEEEENS0_13sub_assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43
@@ -22246,7 +22246,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restri
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = load double, ptr %22, align 8
-  %37 = load double, ptr %30, align 8
+  %37 = load double, ptr %29, align 8
   %38 = fmul double %36, %37
   %39 = icmp sgt i64 %27, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductIS4_S4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit
@@ -22355,8 +22355,8 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 103:                                              ; preds = %.lr.ph56
   %104 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %105 = load i64, ptr %104, align 8
-  %106 = load double, ptr %93, align 8
-  %107 = load double, ptr %101, align 8
+  %106 = load double, ptr %92, align 8
+  %107 = load double, ptr %100, align 8
   %108 = fmul double %106, %107
   %109 = icmp sgt i64 %98, 1
   br i1 %109, label %.lr.ph.i.i.i.i.i.i39, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS2_INS_7ProductIS4_S4_Li1EEEEENS0_9assign_opIddEELi1EE23assignCoeffByOuterInnerEll.exit43

@@ -521,7 +521,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h49f
   store ptr @anon.adac646b3b9121addee0cceb98d6625b.0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.adac646b3b9121addee0cceb98d6625b.12) #23
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.adac646b3b9121addee0cceb98d6625b.12) #23
   unreachable
 
 10:                                               ; preds = %2
@@ -578,7 +578,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h838
   store ptr @anon.adac646b3b9121addee0cceb98d6625b.0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.adac646b3b9121addee0cceb98d6625b.12) #23
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.adac646b3b9121addee0cceb98d6625b.12) #23
   unreachable
 
 10:                                               ; preds = %2
@@ -910,7 +910,7 @@ _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !89
   %.not21 = icmp eq i64 %4, 32
   %.not22 = icmp eq i64 %1, 32
-  %or.cond = and i1 %.not21, %.not22
+  %or.cond = and i1 %.not22, %.not21
   br i1 %or.cond, label %17, label %22
 
 17:                                               ; preds = %14

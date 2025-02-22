@@ -5024,7 +5024,7 @@ if.then:                                          ; preds = %entry
   %cfd_.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %cfd_.i, align 16
   %current_memory_usage_.i = getelementptr inbounds nuw i8, ptr %4, i64 2432
-  %call5 = tail call noundef i64 @_ZN7rocksdb8MemTable22ApproximateMemoryUsageEv(ptr noundef nonnull align 16 dereferenceable(3528) %this..i)
+  %call5 = tail call noundef i64 @_ZN7rocksdb8MemTable22ApproximateMemoryUsageEv(ptr noundef nonnull align 16 dereferenceable(3528) %1)
   %5 = load i64, ptr %current_memory_usage_.i, align 8
   %sub = sub i64 %5, %call5
   store i64 %sub, ptr %current_memory_usage_.i, align 8

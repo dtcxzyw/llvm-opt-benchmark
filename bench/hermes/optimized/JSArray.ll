@@ -1098,7 +1098,7 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit216
   %sub61 = sub i32 %index, %1
-  %call62 = tail call noundef i32 @_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8capacityEv(ptr noundef nonnull align 4 dereferenceable(8) %cond.i.i.i.i.i224) #11
+  %call62 = tail call noundef i32 @_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8capacityEv(ptr noundef nonnull align 4 dereferenceable(8) %45) #11
   %cmp63 = icmp ult i32 %sub61, %call62
   br i1 %cmp63, label %if.then64, label %land.lhs.true.if.end72_crit_edge
 
@@ -1113,7 +1113,7 @@ if.then64:                                        ; preds = %land.lhs.true
   %endIndex_66 = getelementptr inbounds nuw i8, ptr %.pre-phi405, i64 24
   store i32 %add65, ptr %endIndex_66, align 4
   %add68 = add nuw i32 %sub61, 1
-  tail call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj(ptr noundef nonnull %cond.i.i.i.i.i224, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %add68) #11
+  tail call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj(ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %add68) #11
   %cmp.i.i.i225 = icmp ult i32 %sub61, 4096
   br i1 %cmp.i.i.i225, label %if.then.i.i.i247, label %if.else.i.i.i226
 

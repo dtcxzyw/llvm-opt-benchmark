@@ -390,7 +390,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %3, %"_ZN4core5slice
   ret void
 
 28:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.32) #16
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.32) #16
   unreachable
 
 29:                                               ; preds = %.thread48, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
@@ -964,7 +964,7 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
   br i1 %111, label %113, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %107, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i"
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.sroa.12.0.copyload, i64 noundef %.sroa.0.sroa.13.0.copyload, i64 noundef %.sroa.4.1, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.20) #16, !noalias !136
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.sroa.12.0.copyload, i64 noundef %.sroa.0.sroa.13.0.copyload, i64 noundef %.sroa.4.1, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.20) #16, !noalias !136
   unreachable
 
 113:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i.i.i.i", %103
@@ -1055,31 +1055,31 @@ _ZN4core3str11validations15next_code_point17h9effab5486a5d2aaE.exit.thread.i.i.i
   br label %103
 
 .split127.us:                                     ; preds = %32
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %33, i64 noundef %.sroa.0.sroa.15.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.9) #16, !noalias !152
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %33, i64 noundef %.sroa.0.sroa.15.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.9) #16, !noalias !152
   unreachable
 
 .split130.us:                                     ; preds = %35
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %36, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.10) #16, !noalias !152
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %36, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.10) #16, !noalias !152
   unreachable
 
 .split133.us:                                     ; preds = %45
   %161 = add i64 %20, %.0.sroa.speculated.i.i11.us
   %umax.i16 = tail call i64 @llvm.umax.i64(i64 %.sroa.0.sroa.13.0.copyload, i64 %161)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %umax.i16, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.12) #16, !noalias !152
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %umax.i16, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.12) #16, !noalias !152
   unreachable
 
 .split138.us:                                     ; preds = %71
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %.sroa.0.sroa.15.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.9) #16, !noalias !153
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %72, i64 noundef %.sroa.0.sroa.15.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.9) #16, !noalias !153
   unreachable
 
 .split141.us:                                     ; preds = %73
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %74, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.10) #16, !noalias !153
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %74, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.10) #16, !noalias !153
   unreachable
 
 .split144.us:                                     ; preds = %84
   %162 = add i64 %62, %.sroa.0.sroa.4.0.copyload
   %umax.i = tail call i64 @llvm.umax.i64(i64 %.sroa.0.sroa.13.0.copyload, i64 %162)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %umax.i, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.12) #16, !noalias !153
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %umax.i, i64 noundef %.sroa.0.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.862812228f7bbcfff045816dcd1d7fa4.12) #16, !noalias !153
   unreachable
 
 "_ZN92_$LT$core..str..iter..Matches$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21ebbd733062a861E.exit.i": ; preds = %_ZN4core3str11validations15next_code_point17h9effab5486a5d2aaE.exit.thread.i.i.i.i.i, %.thread.i.i.i.i.i

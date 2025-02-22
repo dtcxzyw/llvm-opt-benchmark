@@ -33,7 +33,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.0, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.2) #6
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.2) #6
   unreachable
 
 10:                                               ; preds = %3
@@ -78,7 +78,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   ret void
 
 28:                                               ; preds = %10
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.4, i64 noundef 48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.5) #6
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.4, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.68dfa9c8c8ddfd0fbfae68209dea89ba.5) #6
   unreachable
 }
 

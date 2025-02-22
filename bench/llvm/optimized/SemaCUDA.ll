@@ -4720,7 +4720,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit19:      ; preds = %47, %54
   br i1 %61, label %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread, label %62
 
 62:                                               ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit19
-  %63 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %32)
+  %63 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %31)
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
   %66 = ptrtoint ptr %65 to i64
@@ -4957,7 +4957,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZSt13__find_if_notIPKN5clang16CXXBaseSpecifierEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA17isEmptyDestructorENS0_14SourceLocationEPNS0_17CXXDestructorDeclEE3$_0EEET_SD_SD_T0_.exit.thread": ; preds = %154, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_0EclIPKNS2_16CXXBaseSpecifierEEEbT_.exit.i", %._crit_edge, %"_ZSt13__find_if_notIPKN5clang16CXXBaseSpecifierEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA17isEmptyDestructorENS0_14SourceLocationEPNS0_17CXXDestructorDeclEE3$_0EEET_SD_SD_T0_.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
-  %166 = call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %32) #16
+  %166 = call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %31) #16
   store ptr %166, ptr %5, align 8
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %167, align 8

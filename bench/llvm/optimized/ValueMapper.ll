@@ -3263,55 +3263,50 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
 
 .lr.ph88:                                         ; preds = %.loopexit, %._crit_edge83
   %.sroa.059.086 = phi ptr [ %.sroa.059.0, %._crit_edge83 ], [ %.sroa.059.084, %.loopexit ]
-  %78 = icmp eq ptr %.sroa.059.086, null
-  %79 = getelementptr inbounds i8, ptr %.sroa.059.086, i64 -24
-  %80 = select i1 %78, ptr null, ptr %79
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %.sroa.055.078 = load ptr, ptr %81, align 8, !tbaa !256
-  %.not6779 = icmp eq ptr %.sroa.055.078, %82
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.059.086, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.059.086, i64 24
+  %.sroa.055.078 = load ptr, ptr %78, align 8, !tbaa !256
+  %.not6779 = icmp eq ptr %.sroa.055.078, %79
   br i1 %.not6779, label %._crit_edge83, label %.lr.ph82
 
 ._crit_edge83:                                    ; preds = %._crit_edge77, %.lr.ph88
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.059.086, i64 8
-  %.sroa.059.0 = load ptr, ptr %83, align 8, !tbaa !234
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.059.086, i64 8
+  %.sroa.059.0 = load ptr, ptr %80, align 8, !tbaa !234
   %.not66 = icmp eq ptr %.sroa.059.0, %77
   br i1 %.not66, label %._crit_edge89, label %.lr.ph88
 
 .lr.ph82:                                         ; preds = %.lr.ph88, %._crit_edge77
   %.sroa.055.080 = phi ptr [ %.sroa.055.0, %._crit_edge77 ], [ %.sroa.055.078, %.lr.ph88 ]
-  %84 = icmp eq ptr %.sroa.055.080, null
-  %85 = getelementptr inbounds i8, ptr %.sroa.055.080, i64 -24
-  %86 = select i1 %84, ptr null, ptr %85
-  call fastcc void @_ZN12_GLOBAL__N_16Mapper16remapInstructionEPN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef %86)
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
-  %88 = load ptr, ptr %87, align 8, !tbaa !257
-  %.not.i.i47 = icmp eq ptr %88, null
-  br i1 %.not.i.i47, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %89
+  %81 = getelementptr inbounds i8, ptr %.sroa.055.080, i64 -24
+  call fastcc void @_ZN12_GLOBAL__N_16Mapper16remapInstructionEPN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef %81)
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.055.080, i64 40
+  %83 = load ptr, ptr %82, align 8, !tbaa !257
+  %.not.i.i47 = icmp eq ptr %83, null
+  br i1 %.not.i.i47, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %84
 
-89:                                               ; preds = %.lr.ph82
-  %90 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %88) #17
+84:                                               ; preds = %.lr.ph82
+  %85 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %83) #17
   br label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
 
-_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %.lr.ph82, %89
-  %.pn.i.i = phi { ptr, ptr } [ %90, %89 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %.lr.ph82 ]
-  %91 = extractvalue { ptr, ptr } %.pn.i.i, 0
-  %92 = extractvalue { ptr, ptr } %.pn.i.i, 1
-  %.not6874 = icmp eq ptr %91, %92
+_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %.lr.ph82, %84
+  %.pn.i.i = phi { ptr, ptr } [ %85, %84 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %.lr.ph82 ]
+  %86 = extractvalue { ptr, ptr } %.pn.i.i, 0
+  %87 = extractvalue { ptr, ptr } %.pn.i.i, 1
+  %.not6874 = icmp eq ptr %86, %87
   br i1 %.not6874, label %._crit_edge77, label %.lr.ph76
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.055.080, i64 8
-  %.sroa.055.0 = load ptr, ptr %93, align 8, !tbaa !256
-  %.not67 = icmp eq ptr %.sroa.055.0, %82
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.055.080, i64 8
+  %.sroa.055.0 = load ptr, ptr %88, align 8, !tbaa !256
+  %.not67 = icmp eq ptr %.sroa.055.0, %79
   br i1 %.not67, label %._crit_edge83, label %.lr.ph82
 
 .lr.ph76:                                         ; preds = %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, %.lr.ph76
-  %.sroa.049.075 = phi ptr [ %95, %.lr.ph76 ], [ %91, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ]
+  %.sroa.049.075 = phi ptr [ %90, %.lr.ph76 ], [ %86, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ]
   call fastcc void @_ZN12_GLOBAL__N_16Mapper14remapDbgRecordERN4llvm9DbgRecordE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef nonnull align 8 dereferenceable(33) %.sroa.049.075)
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.049.075, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !234
-  %.not68 = icmp eq ptr %95, %92
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.049.075, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !234
+  %.not68 = icmp eq ptr %90, %87
   br i1 %.not68, label %._crit_edge77, label %.lr.ph76
 }
 

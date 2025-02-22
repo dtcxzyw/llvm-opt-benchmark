@@ -826,7 +826,7 @@ define hidden void @"_ZN102_$LT$zvariant..dbus..ser..StructSeqSerializer$LT$W$GT
   store ptr %4, ptr %18, align 8, !noalias !366
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %19, align 8, !noalias !366
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !365
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !365
   unreachable
 
 "_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize_struct_element17hf09cd4cb0ee1398dE.llvm.16031720769602754933.exit": ; preds = %8
@@ -873,7 +873,7 @@ define hidden void @"_ZN102_$LT$zvariant..dbus..ser..StructSeqSerializer$LT$W$GT
   store ptr %4, ptr %18, align 8, !noalias !384
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %19, align 8, !noalias !384
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !383
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !383
   unreachable
 
 "_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize_struct_element17h18d18ed8895d9195E.llvm.16031720769602754933.exit": ; preds = %8
@@ -8769,7 +8769,7 @@ define hidden void @"_ZN88_$LT$zvariant..dbus..ser..SeqSerializer$LT$W$GT$$u20$a
   store ptr %4, ptr %81, align 8, !noalias !2879
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %82, align 8, !noalias !2879
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc35 unwind label %52
 
 .noexc35:                                         ; preds = %78
@@ -12567,7 +12567,7 @@ define hidden void @"_ZN88_$LT$zvariant..dbus..ser..SeqSerializer$LT$W$GT$$u20$a
   store ptr %4, ptr %81, align 8, !noalias !3929
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %82, align 8, !noalias !3929
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc35 unwind label %52
 
 .noexc35:                                         ; preds = %78
@@ -17262,7 +17262,7 @@ define hidden void @"_ZN88_$LT$zvariant..dbus..ser..SeqSerializer$LT$W$GT$$u20$a
   store ptr %4, ptr %74, align 8, !noalias !5262
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %75, align 8, !noalias !5262
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc18 unwind label %45
 
 .noexc18:                                         ; preds = %71
@@ -20965,7 +20965,7 @@ define hidden void @"_ZN88_$LT$zvariant..dbus..ser..SeqSerializer$LT$W$GT$$u20$a
   store ptr %4, ptr %74, align 8, !noalias !6384
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %75, align 8, !noalias !6384
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc18 unwind label %45
 
 .noexc18:                                         ; preds = %71
@@ -35361,7 +35361,7 @@ define hidden void @"_ZN88_$LT$zvariant..dbus..ser..SeqSerializer$LT$W$GT$$u20$a
   store ptr %4, ptr %69, align 8, !noalias !11131
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %70, align 8, !noalias !11131
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc18 unwind label %44
 
 .noexc18:                                         ; preds = %66
@@ -35629,7 +35629,7 @@ define hidden void @"_ZN88_$LT$zvariant..dbus..ser..SeqSerializer$LT$W$GT$$u20$a
   store ptr %4, ptr %69, align 8, !noalias !11216
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %70, align 8, !noalias !11216
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc18 unwind label %44
 
 .noexc18:                                         ; preds = %66
@@ -40619,7 +40619,7 @@ define hidden void @"_ZN8zvariant4dbus3ser19Serializer$LT$W$GT$3new17h5b97dd3485
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h2889b1687dfff11aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.ff6577d2438ba98ebc91228d980f60b4.48, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.50) #17
+  invoke void @_ZN4core9panicking13assert_failed17h2889b1687dfff11aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7, ptr noalias noundef readonly align 1 dereferenceable(1) @anon.ff6577d2438ba98ebc91228d980f60b4.48, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.50) #17
           to label %13 unwind label %14
 
 11:                                               ; preds = %5
@@ -40736,7 +40736,7 @@ define hidden void @"_ZN8zvariant4dbus3ser19Serializer$LT$W$GT$3new17hafca994089
 14:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @_ZN4core9panicking13assert_failed17h2889b1687dfff11aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) @anon.ff6577d2438ba98ebc91228d980f60b4.48, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.50) #17
+  call void @_ZN4core9panicking13assert_failed17h2889b1687dfff11aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef readonly align 1 dereferenceable(1) @anon.ff6577d2438ba98ebc91228d980f60b4.48, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.50) #17
   unreachable
 }
 
@@ -41149,7 +41149,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -41414,7 +41414,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 23:                                               ; preds = %18
@@ -41665,7 +41665,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -41905,7 +41905,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -42149,7 +42149,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   store ptr %6, ptr %21, align 8, !noalias !13382
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %22, align 8, !noalias !13382
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !13382
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !13382
   unreachable
 
 "_ZN64_$LT$zvariant..maybe..Maybe$u20$as$u20$serde..ser..Serialize$GT$9serialize17h24223e6078593c7fE.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.thread"
@@ -42169,7 +42169,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 28:                                               ; preds = %23
@@ -42229,7 +42229,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   store ptr %6, ptr %45, align 8, !noalias !13389
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %46, align 8, !noalias !13389
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %42
@@ -42440,7 +42440,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 19:                                               ; preds = %14
@@ -42685,7 +42685,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -42922,7 +42922,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -43158,7 +43158,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -43409,7 +43409,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 21:                                               ; preds = %16
@@ -43648,7 +43648,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -43885,7 +43885,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -44122,7 +44122,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -44359,7 +44359,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -44597,7 +44597,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -44863,7 +44863,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 23:                                               ; preds = %18
@@ -45113,7 +45113,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -45349,7 +45349,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -45588,7 +45588,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -45824,7 +45824,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -46061,7 +46061,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -46297,7 +46297,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -46533,7 +46533,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -46770,7 +46770,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -47010,7 +47010,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -47251,7 +47251,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -47514,7 +47514,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 24:                                               ; preds = %19
@@ -47764,7 +47764,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -48000,7 +48000,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -48238,7 +48238,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -48477,7 +48477,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -48713,7 +48713,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -48951,7 +48951,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -49191,7 +49191,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -49429,7 +49429,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -49674,7 +49674,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 19:                                               ; preds = %14
@@ -49918,7 +49918,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -50154,7 +50154,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -50391,7 +50391,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -50627,7 +50627,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -50863,7 +50863,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -51100,7 +51100,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -51366,7 +51366,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 23:                                               ; preds = %18
@@ -51618,7 +51618,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -51863,7 +51863,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 19:                                               ; preds = %14
@@ -52107,7 +52107,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -52343,7 +52343,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -52594,7 +52594,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 21:                                               ; preds = %16
@@ -52835,7 +52835,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 19:                                               ; preds = %14
@@ -53076,7 +53076,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -53312,7 +53312,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -53549,7 +53549,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -53789,7 +53789,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -54027,7 +54027,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -54265,7 +54265,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -54503,7 +54503,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -54739,7 +54739,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -55001,7 +55001,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 24:                                               ; preds = %19
@@ -55250,7 +55250,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 16:                                               ; preds = %11
@@ -55516,7 +55516,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 23:                                               ; preds = %18
@@ -55776,7 +55776,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 19:                                               ; preds = %14
@@ -56026,7 +56026,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   store ptr %6, ptr %21, align 8, !noalias !18812
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %22, align 8, !noalias !18812
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !18812
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17, !noalias !18812
   unreachable
 
 "_ZN64_$LT$zvariant..maybe..Maybe$u20$as$u20$serde..ser..Serialize$GT$9serialize17h34b600e87d286c7dE.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.thread"
@@ -56046,7 +56046,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 28:                                               ; preds = %23
@@ -56106,7 +56106,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   store ptr %6, ptr %45, align 8, !noalias !18819
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %46, align 8, !noalias !18819
-  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %42
@@ -56310,7 +56310,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -56549,7 +56549,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 19:                                               ; preds = %14
@@ -56793,7 +56793,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -57033,7 +57033,7 @@ define hidden void @"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$24serialize
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
+  tail call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.52, i64 noundef 24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.53) #17
   unreachable
 
 17:                                               ; preds = %12
@@ -59289,7 +59289,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %39, align 4
   store i8 4, ptr %25, align 8
-  call void @_ZN5serde2de5Error13invalid_value17h88700ba558ea3208E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.75, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
+  call void @_ZN5serde2de5Error13invalid_value17h88700ba558ea3208E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.75, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %110
 
@@ -59443,7 +59443,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %77, ptr %15, align 8
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %79, ptr %80, align 8
-  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
+  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull align 1 %15, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
           to label %157 unwind label %155
 
 81:                                               ; preds = %40, %40
@@ -59787,7 +59787,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %39, align 4
   store i8 4, ptr %25, align 8
-  call void @_ZN5serde2de5Error13invalid_value17h88700ba558ea3208E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.75, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
+  call void @_ZN5serde2de5Error13invalid_value17h88700ba558ea3208E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull align 1 @anon.ff6577d2438ba98ebc91228d980f60b4.75, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %110
 
@@ -59941,7 +59941,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %77, ptr %15, align 8
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %79, ptr %80, align 8
-  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
+  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull align 1 %15, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
           to label %157 unwind label %155
 
 81:                                               ; preds = %40, %40
@@ -61127,7 +61127,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61145,7 +61145,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.78.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61163,7 +61163,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61181,7 +61181,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61199,7 +61199,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61217,7 +61217,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61235,7 +61235,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61253,7 +61253,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61271,7 +61271,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61289,7 +61289,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61307,7 +61307,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61325,7 +61325,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61343,7 +61343,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61361,7 +61361,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61379,7 +61379,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61397,7 +61397,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61415,7 +61415,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61433,7 +61433,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61451,7 +61451,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61469,7 +61469,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61487,7 +61487,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61505,7 +61505,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61523,7 +61523,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61541,7 +61541,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61559,7 +61559,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61577,7 +61577,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61595,7 +61595,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61613,7 +61613,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61631,7 +61631,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61649,7 +61649,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61667,7 +61667,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61685,7 +61685,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61703,7 +61703,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61721,7 +61721,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61739,7 +61739,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61757,7 +61757,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61775,7 +61775,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61793,7 +61793,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ff6577d2438ba98ebc91228d980f60b4.79.llvm.16031720769602754933) #17
   unreachable
 }
 
@@ -61992,7 +61992,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %55, ptr %14, align 8, !noalias !19731
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %57, ptr %58, align 8, !noalias !19731
-  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
+  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
           to label %116 unwind label %114, !noalias !19733
 
 59:                                               ; preds = %47
@@ -62593,7 +62593,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store ptr %55, ptr %14, align 8, !noalias !19805
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %57, ptr %58, align 8, !noalias !19805
-  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
+  invoke void @_ZN5serde2de5Error12invalid_type17hb0d32c0012660ab7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ff6577d2438ba98ebc91228d980f60b4.61)
           to label %116 unwind label %114, !noalias !19807
 
 59:                                               ; preds = %47
@@ -63396,7 +63396,7 @@ define hidden void @"_ZN96_$LT$zvariant..dbus..ser..StructSeqSerializer$LT$W$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20053)
   %8 = load ptr, ptr %7, align 8, !alias.scope !20050, !noalias !20055, !nonnull !4, !align !12, !noundef !4
   %.val27.i = load ptr, ptr %2, align 8, !alias.scope !20053, !noalias !20058, !nonnull !4, !align !12, !noundef !4
-  tail call fastcc void @"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h971492358027d501E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr nonnull %.val27.i, ptr noalias noundef align 8 dereferenceable(144) %8), !noalias !20059
+  tail call fastcc void @"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h971492358027d501E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, ptr nonnull %.val27.i, ptr noalias noundef align 8 dereferenceable(144) %8), !noalias !20059
   br label %10
 
 9:                                                ; preds = %3
@@ -63550,7 +63550,7 @@ define hidden void @"_ZN96_$LT$zvariant..dbus..ser..StructSeqSerializer$LT$W$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20157)
   %8 = load ptr, ptr %7, align 8, !alias.scope !20154, !noalias !20159, !nonnull !4, !align !12, !noundef !4
   %.val27.i = load ptr, ptr %2, align 8, !alias.scope !20157, !noalias !20162, !nonnull !4, !align !12, !noundef !4
-  tail call fastcc void @"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h6c5b427f7396d943E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr nonnull %.val27.i, ptr noalias noundef align 8 dereferenceable(144) %8), !noalias !20163
+  tail call fastcc void @"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h6c5b427f7396d943E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0, ptr nonnull %.val27.i, ptr noalias noundef align 8 dereferenceable(144) %8), !noalias !20163
   br label %10
 
 9:                                                ; preds = %3

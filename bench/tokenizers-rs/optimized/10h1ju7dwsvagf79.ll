@@ -29858,7 +29858,7 @@ define { ptr, ptr } @_ZN10tokenizers5utils7padding13pad_encodings17h8d5a86c09f0b
   br label %30
 
 27:                                               ; preds = %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3max17h19d0515b337f75cbE.exit"
-  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6e35289721a268f20a503841f09911cb.77) #64
+  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6e35289721a268f20a503841f09911cb.77) #64
   unreachable
 
 28:                                               ; preds = %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$3max17h19d0515b337f75cbE.exit"
@@ -30182,7 +30182,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h20ac4fc0747daf1cE.exit.thread: ;
   store ptr %6, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %94, align 8
-  invoke void @_ZN3log13__private_api8log_impl17h2245a6bd11cda4e1E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, i64 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.6e35289721a268f20a503841f09911cb.86, i32 noundef 53, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log13__private_api8log_impl17h2245a6bd11cda4e1E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, i64 noundef 2, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.6e35289721a268f20a503841f09911cb.86, i32 noundef 53, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %95 unwind label %84
 
 95:                                               ; preds = %89
@@ -30278,7 +30278,7 @@ define { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !8153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !8153
   store ptr @"_ZN86_$LT$tokenizers..pre_tokenizers..byte_level..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb6b9de11416bacacE.llvm.14160285242575610615", ptr %9, align 8, !noalias !8153
-  call void @_ZN3std4sync4once4Once9call_once17h8f7cbf5a623be17cE.llvm.14160285242575610615(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$tokenizers..pre_tokenizers..byte_level..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb6b9de11416bacacE.llvm.14160285242575610615", i64 16), ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc29ea270c7cb723c25a24faa4c0614a.12.llvm.14160285242575610615), !noalias !8157
+  call void @_ZN3std4sync4once4Once9call_once17h8f7cbf5a623be17cE.llvm.14160285242575610615(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$tokenizers..pre_tokenizers..byte_level..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb6b9de11416bacacE.llvm.14160285242575610615", i64 16), ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bc29ea270c7cb723c25a24faa4c0614a.12.llvm.14160285242575610615), !noalias !8157
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !8153
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZN86_$LT$tokenizers..pre_tokenizers..byte_level..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb6b9de11416bacacE.llvm.14160285242575610615", i64 8), ptr %10, align 8, !noalias !8153
   %28 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h36cf8d78806e395aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
@@ -30322,7 +30322,7 @@ define { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !8166
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !8166
   store ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", ptr %5, align 8, !noalias !8166
-  call void @_ZN3std4sync4once4Once9call_once17hbd3b2c65d9b8064eE.llvm.14160285242575610615(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", i64 32), ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc29ea270c7cb723c25a24faa4c0614a.12.llvm.14160285242575610615), !noalias !8166
+  call void @_ZN3std4sync4once4Once9call_once17hbd3b2c65d9b8064eE.llvm.14160285242575610615(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", i64 32), ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bc29ea270c7cb723c25a24faa4c0614a.12.llvm.14160285242575610615), !noalias !8166
   %43 = load ptr, ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", align 8, !noalias !8166, !noundef !4
   %44 = icmp ne ptr %43, null
   call void @llvm.assume(i1 %44)
@@ -30581,7 +30581,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   ]
 
 17:                                               ; preds = %16
-  %18 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.58.llvm.12815775647222681290)
+  %18 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.58.llvm.12815775647222681290)
           to label %.thread unwind label %31
 
 .thread:                                          ; preds = %17
@@ -30668,7 +30668,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   ]
 
 44:                                               ; preds = %42
-  %45 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.71.llvm.12815775647222681290)
+  %45 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.71.llvm.12815775647222681290)
           to label %.thread47 unwind label %31
 
 .thread47:                                        ; preds = %44
@@ -30730,7 +30730,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   ]
 
 62:                                               ; preds = %60
-  %63 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.60.llvm.12815775647222681290)
+  %63 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.60.llvm.12815775647222681290)
           to label %.thread52 unwind label %31
 
 .thread52:                                        ; preds = %62
@@ -30792,7 +30792,7 @@ define hidden void @"_ZN10tokenizers6models1_85_$LT$impl$u20$serde..de..Deserial
   ]
 
 80:                                               ; preds = %78
-  %81 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.68.llvm.12815775647222681290)
+  %81 = invoke noundef nonnull align 8 ptr @"_ZN5serde9__private2de7content31ContentRefDeserializer$LT$E$GT$12invalid_type17h45d972312bdce468E.llvm.12815775647222681290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.828ec1b2def29b503f437fe3880dbb49.68.llvm.12815775647222681290)
           to label %.thread57 unwind label %31
 
 .thread57:                                        ; preds = %80

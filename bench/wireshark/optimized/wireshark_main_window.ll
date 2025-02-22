@@ -81176,7 +81176,7 @@ _ZN7QStringD2Ev.exit48:                           ; preds = %68, %_ZN17QArrayDat
   %90 = load ptr, ptr %76, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable_or_null(40) %76) #33
+  call void %92(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.163) #33
   br label %93
 
 93:                                               ; preds = %89, %86

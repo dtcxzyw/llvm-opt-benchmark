@@ -676,7 +676,7 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder93_$LT$impl$u20$core
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !195
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !195
-  invoke void @_ZN3syn11parse_quote5parse18panic_cold_display17h3003f138f9570bdbE.llvm.2987800385190373348(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6d8ab47d32722b40d80e07477a17f689.11.llvm.2987800385190373348) #18
+  invoke void @_ZN3syn11parse_quote5parse18panic_cold_display17h3003f138f9570bdbE.llvm.2987800385190373348(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6d8ab47d32722b40d80e07477a17f689.11.llvm.2987800385190373348) #18
           to label %16 unwind label %14, !noalias !195
 
 14:                                               ; preds = %12
@@ -1413,7 +1413,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   br i1 %trunc.i, label %259, label %260
 
 259:                                              ; preds = %257
-  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.5, i64 noundef 70, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.7) #18
+  invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.5, i64 noundef 70, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.7) #18
           to label %.noexc297 unwind label %255
 
 .noexc297:                                        ; preds = %259
@@ -1498,7 +1498,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   br i1 %290, label %291, label %292
 
 291:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..Iter$LT$syn..item..FnArg$GT$$GT$17h4281245465748a68E.exit300"
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %289, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.11) #18
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %289, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.11) #18
           to label %.noexc301 unwind label %.loopexit.split-lp
 
 .noexc301:                                        ; preds = %291
@@ -3293,7 +3293,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br label %"_ZN4core3ptr168drop_in_place$LT$$LP$bool$C$core..option..Option$LT$core..option..Option$LT$darling_core..util..spanned_value..SpannedValue$LT$alloc..string..String$GT$$GT$$GT$$RP$$GT$17h18862adf0a832adcE.exit"
 
 192:                                              ; preds = %178
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.18, i64 noundef 58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.19) #18
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.18, i64 noundef 58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.19) #18
           to label %196 unwind label %130
 
 193:                                              ; preds = %178
@@ -3325,7 +3325,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br label %197
 
 .invoke.invoke:                                   ; preds = %202, %193
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.18, i64 noundef 58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.19) #18
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.18, i64 noundef 58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.19) #18
           to label %.invoke.cont unwind label %200
 
 .invoke.cont:                                     ; preds = %.invoke.invoke
@@ -3346,7 +3346,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %205, label %206, label %207
 
 206:                                              ; preds = %204
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.18, i64 noundef 58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.19) #18
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.18, i64 noundef 58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a89778df8ab3dc1a2a59103d9f6b1b7.19) #18
           to label %196 unwind label %208
 
 207:                                              ; preds = %204

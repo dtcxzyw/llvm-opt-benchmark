@@ -2190,7 +2190,7 @@ define dso_local i32 @key_unlink(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %24
-  tail call void @assoc_array_cancel_edit(ptr noundef nonnull %16) #20
+  tail call void @assoc_array_cancel_edit(ptr noundef nonnull %10) #20
   br label %27
 
 27:                                               ; preds = %.thread1, %26, %24

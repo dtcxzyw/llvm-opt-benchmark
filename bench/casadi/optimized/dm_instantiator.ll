@@ -49808,7 +49808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %_Z
 _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5numelEv.exit: ; preds = %216
   %221 = add nsw i64 %220, -1
   %222 = load double, ptr %.sroa.0101.0133, align 8, !tbaa !3
-  %223 = load double, ptr %spec.select.i, align 8, !tbaa !3
+  %223 = load double, ptr %217, align 8, !tbaa !3
   %.not9.i = icmp slt i64 %220, 2
   br i1 %.not9.i, label %_ZN6casadi14casadi_polyvalIdEET_PKS1_xS1_.exit, label %.lr.ph.i
 
@@ -96977,7 +96977,7 @@ define void @_ZN6casadi6MatrixIdE10_logsumexpERKS1_(ptr dead_on_unwind noalias w
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = tail call noundef i64 @_ZNK6casadi8Sparsity5numelEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %10 = icmp eq i64 %9, 1
-  %11 = load double, ptr %spec.select.i, align 8, !tbaa !3
+  %11 = load double, ptr %4, align 8, !tbaa !3
   br i1 %10, label %_ZN6casadi16casadi_logsumexpIdEET_PKS1_x.exit, label %12
 
 12:                                               ; preds = %2

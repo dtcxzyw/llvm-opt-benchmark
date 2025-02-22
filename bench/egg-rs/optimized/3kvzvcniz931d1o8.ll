@@ -32,7 +32,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %.sroa.0.06, ptr %4, align 8
-  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h0c25bb22470b1f01E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.0.llvm.10959519972751183246)
+  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h0c25bb22470b1f01E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.0.llvm.10959519972751183246)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %9 = icmp eq ptr %7, %2
   br i1 %9, label %._crit_edge, label %.lr.ph
@@ -113,7 +113,7 @@ _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit7: ; preds = %_ZN3egg
   br i1 %6, label %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit, label %7, !prof !11
 
 7:                                                ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit7
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %5, i64 noundef %.val6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !12
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %5, i64 noundef %.val6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !12
   unreachable
 
 _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit: ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit7
@@ -138,7 +138,7 @@ define noundef i32 @_ZN3egg9unionfind9UnionFind8find_mut17h369927a435d28ea7E(ptr
 
 ._crit_edge:                                      ; preds = %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit, %2
   %.lcssa = phi i64 [ %5, %2 ], [ %16, %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit ]
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.lcssa, i64 noundef %.val9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !16
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.lcssa, i64 noundef %.val9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !16
   unreachable
 
 _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit: ; preds = %2, %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit
@@ -158,7 +158,7 @@ _ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12: ; preds = %_ZN3eg
   br i1 %12, label %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit, label %13, !prof !11
 
 13:                                               ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %11, i64 noundef %.val9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !19
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %11, i64 noundef %.val9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.2) #9, !noalias !19
   unreachable
 
 _ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit: ; preds = %_ZN3egg9unionfind9UnionFind6parent17h290b68ddc4f981d9E.exit12
@@ -179,7 +179,7 @@ define noundef i32 @_ZN3egg9unionfind9UnionFind5union17h6c28f217673409b4E(ptr no
   br i1 %6, label %_ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit, label %7, !prof !11
 
 7:                                                ; preds = %3
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %5, i64 noundef %.val1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.3) #9, !noalias !23
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %5, i64 noundef %.val1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.76a624a5aac30e39387d62145c61c637.3) #9, !noalias !23
   unreachable
 
 _ZN3egg9unionfind9UnionFind10parent_mut17h08746d235497ca77E.exit: ; preds = %3

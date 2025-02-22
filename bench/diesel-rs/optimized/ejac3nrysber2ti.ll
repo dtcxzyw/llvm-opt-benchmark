@@ -1545,7 +1545,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h4fce27c
   store ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.8, ptr %21, align 8, !noalias !441
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %22, align 8, !noalias !441
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a7b72e3c9425ba04a0588c19d16b6978.12) #22
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a7b72e3c9425ba04a0588c19d16b6978.12) #22
           to label %32 unwind label %33, !noalias !441
 
 23:                                               ; preds = %.thread, %11
@@ -1704,7 +1704,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h57bd25a
   store ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.8, ptr %21, align 8, !noalias !458
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %22, align 8, !noalias !458
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a7b72e3c9425ba04a0588c19d16b6978.12) #22
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a7b72e3c9425ba04a0588c19d16b6978.12) #22
           to label %32 unwind label %33, !noalias !458
 
 23:                                               ; preds = %.thread, %11
@@ -1863,7 +1863,7 @@ define hidden void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17hbc42de4
   store ptr @anon.a7b72e3c9425ba04a0588c19d16b6978.8, ptr %21, align 8, !noalias !475
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %22, align 8, !noalias !475
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a7b72e3c9425ba04a0588c19d16b6978.12) #22
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a7b72e3c9425ba04a0588c19d16b6978.12) #22
           to label %32 unwind label %33, !noalias !475
 
 23:                                               ; preds = %.thread, %11

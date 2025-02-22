@@ -57,7 +57,7 @@ define hidden void @_ZN5alloc6string6String13replace_range17h1bd36e5354c4ec84E(p
   br i1 %27, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34.thread", label %45
 
 28:                                               ; preds = %16, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit"
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5ffa0dc33a92d2afed8b83f6768042e2.0, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5ffa0dc33a92d2afed8b83f6768042e2.2) #5
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5ffa0dc33a92d2afed8b83f6768042e2.0, i64 noundef 42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ffa0dc33a92d2afed8b83f6768042e2.2) #5
   unreachable
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34.thread": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread", %23, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34"
@@ -74,7 +74,7 @@ define hidden void @_ZN5alloc6string6String13replace_range17h1bd36e5354c4ec84E(p
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %33 = call { i64, i64 } @_ZN4core5slice5index5range17hff8bce715b2e363cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.af29a2ef04b1fe5e2295a3d57210314c.15.llvm.12487423158297974059), !noalias !19
+  %33 = call { i64, i64 } @_ZN4core5slice5index5range17hff8bce715b2e363cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af29a2ef04b1fe5e2295a3d57210314c.15.llvm.12487423158297974059), !noalias !19
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
   store i64 %34, ptr %12, align 8, !alias.scope !21, !noalias !22
@@ -119,7 +119,7 @@ define hidden void @_ZN5alloc6string6String13replace_range17h1bd36e5354c4ec84E(p
   ret void
 
 45:                                               ; preds = %23, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit34"
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5ffa0dc33a92d2afed8b83f6768042e2.0, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5ffa0dc33a92d2afed8b83f6768042e2.6) #5
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5ffa0dc33a92d2afed8b83f6768042e2.0, i64 noundef 42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5ffa0dc33a92d2afed8b83f6768042e2.6) #5
   unreachable
 }
 

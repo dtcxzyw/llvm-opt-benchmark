@@ -263,7 +263,7 @@ ossl_qrl_enc_level_set_get.exit:
 72:                                               ; preds = %66, %70, %60
   %.1 = phi i32 [ 0, %66 ], [ 1, %70 ], [ 0, %60 ]
   %73 = call i32 @ossl_qrl_get_suite_hdr_prot_cipher_id(i32 noundef %4) #6
-  %74 = call i32 @ossl_quic_hdr_protector_init(ptr noundef nonnull %.0.i, ptr noundef %1, ptr noundef %2, i32 noundef %73, ptr noundef nonnull %11, i64 noundef %38) #6
+  %74 = call i32 @ossl_quic_hdr_protector_init(ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2, i32 noundef %73, ptr noundef nonnull %11, i64 noundef %38) #6
   %.not117 = icmp eq i32 %74, 0
   br i1 %.not117, label %76, label %75
 

@@ -7523,7 +7523,6 @@ _ZN5clang9api_notes14APINotesReader13VersionedInfoINS0_16ObjCPropertyInfoEED2Ev.
   %2987 = add nsw i16 %.pre-phi, -61
   %2988 = icmp ult i16 %2987, -5
   %2989 = getelementptr inbounds i8, ptr %.0.i, i64 -64
-  %spec.select.i.i1117 = select i1 %2988, ptr null, ptr %2989
   br i1 %2988, label %.critedge361, label %2991
 
 2990:                                             ; preds = %2594, %._crit_edge1463
@@ -7588,7 +7587,7 @@ _ZN4llvm11SmallVectorIPN5clang9api_notes14APINotesReaderELj2EED2Ev.exit1120: ; p
 3016:                                             ; preds = %.lr.ph1467, %3036
   %.03071465 = phi ptr [ %3000, %.lr.ph1467 ], [ %3037, %3036 ]
   %3017 = load ptr, ptr %.03071465, align 8, !tbaa !14
-  %3018 = call fastcc { i64, i8 } @_ZL16UnwindTagContextPN5clang7TagDeclERNS_9api_notes15APINotesManagerE(ptr noundef %spec.select.i.i1117, ptr noundef nonnull align 8 dereferenceable(72) %2998)
+  %3018 = call fastcc { i64, i8 } @_ZL16UnwindTagContextPN5clang7TagDeclERNS_9api_notes15APINotesManagerE(ptr noundef %2989, ptr noundef nonnull align 8 dereferenceable(72) %2998)
   %.fca.1.extract55 = extractvalue { i64, i8 } %3018, 1
   %3019 = trunc nuw i8 %.fca.1.extract55 to i1
   br i1 %3019, label %3020, label %3036
@@ -7739,7 +7738,7 @@ _ZN4llvm11SmallVectorIPN5clang9api_notes14APINotesReaderELj2EED2Ev.exit1133: ; p
 3096:                                             ; preds = %.lr.ph1472, %3334
   %.03081470 = phi ptr [ %3055, %.lr.ph1472 ], [ %3335, %3334 ]
   %3097 = load ptr, ptr %.03081470, align 8, !tbaa !14
-  %3098 = call fastcc { i64, i8 } @_ZL16UnwindTagContextPN5clang7TagDeclERNS_9api_notes15APINotesManagerE(ptr noundef %spec.select.i.i1117, ptr noundef nonnull align 8 dereferenceable(72) %3053)
+  %3098 = call fastcc { i64, i8 } @_ZL16UnwindTagContextPN5clang7TagDeclERNS_9api_notes15APINotesManagerE(ptr noundef %2989, ptr noundef nonnull align 8 dereferenceable(72) %3053)
   %.fca.1.extract34 = extractvalue { i64, i8 } %3098, 1
   %3099 = trunc nuw i8 %.fca.1.extract34 to i1
   br i1 %3099, label %3100, label %3334
@@ -8457,7 +8456,7 @@ _ZN4llvm11SmallVectorIPN5clang9api_notes14APINotesReaderELj2EED2Ev.exit1262: ; p
 3361:                                             ; preds = %.lr.ph1477, %3399
   %.03011475 = phi ptr [ %3344, %.lr.ph1477 ], [ %3400, %3399 ]
   %3362 = load ptr, ptr %.03011475, align 8, !tbaa !14
-  %3363 = call fastcc { i64, i8 } @_ZL16UnwindTagContextPN5clang7TagDeclERNS_9api_notes15APINotesManagerE(ptr noundef %spec.select.i.i1117, ptr noundef nonnull align 8 dereferenceable(72) %3342)
+  %3363 = call fastcc { i64, i8 } @_ZL16UnwindTagContextPN5clang7TagDeclERNS_9api_notes15APINotesManagerE(ptr noundef %2989, ptr noundef nonnull align 8 dereferenceable(72) %3342)
   %.fca.0.extract = extractvalue { i64, i8 } %3363, 0
   %.fca.1.extract = extractvalue { i64, i8 } %3363, 1
   %3364 = trunc nuw i8 %.fca.1.extract to i1
@@ -22964,7 +22963,7 @@ define internal fastcc void @_ZL15ProcessAPINotesRN5clang4SemaEN4llvm12PointerUn
   br i1 %.not, label %30, label %32
 
 30:                                               ; preds = %29
-  %31 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i.i) #19
+  %31 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %20) #19
   br label %35
 
 32:                                               ; preds = %29
@@ -23896,7 +23895,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread174: ; preds = %
   store i32 4, ptr %449, align 4, !tbaa !24
   %450 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 120
   %451 = load ptr, ptr %450, align 8, !tbaa !1439
-  %452 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %.0.i.i) #19
+  %452 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %20) #19
   %453 = zext i32 %452 to i64
   %454 = getelementptr inbounds nuw ptr, ptr %451, i64 %453
   %.not114205 = icmp eq i32 %452, 0

@@ -2597,42 +2597,40 @@ _ZN4llvm5ErrorD2Ev.exit294:                       ; preds = %257
   %.8.lcssa425 = phi ptr [ %.6, %._crit_edge405.thread ], [ %.8.lcssa, %._crit_edge405 ]
   %378 = icmp eq i32 %38, 37
   %or.cond28 = and i1 %378, %377
-  br i1 %or.cond28, label %379, label %_ZN4llvm5ErrorD2Ev.exit332
+  %379 = load i8, ptr %307, align 4
+  %.not231 = icmp ne i8 %379, 0
+  %or.cond448.not = select i1 %or.cond28, i1 %.not231, i1 false
+  br i1 %or.cond448.not, label %_ZN4llvm5ErrorD2Ev.exit332.sink.split, label %_ZN4llvm5ErrorD2Ev.exit332
 
-379:                                              ; preds = %376
-  %380 = load i8, ptr %.sroa.0.1.i, align 4, !tbaa !34
-  %.not231 = icmp eq i8 %380, 0
-  br i1 %.not231, label %_ZN4llvm5ErrorD2Ev.exit332, label %_ZN4llvm5ErrorD2Ev.exit332.sink.split
-
-_ZN4llvm5ErrorD2Ev.exit332.sink.split:            ; preds = %379, %._crit_edge405
-  %.sink447 = phi i8 [ %spec.select.i309, %._crit_edge405 ], [ %380, %379 ]
-  %spec.select.i309.sink = phi i8 [ %spec.select.i310, %._crit_edge405 ], [ %spec.select.i309, %379 ]
-  %.8.lcssa425.sink = phi ptr [ %.8.lcssa, %._crit_edge405 ], [ %.8.lcssa425, %379 ]
-  %.sink430 = phi i64 [ 472, %._crit_edge405 ], [ 496, %379 ]
-  %.sink = phi i64 [ 480, %._crit_edge405 ], [ 504, %379 ]
-  %381 = zext i8 %.sink447 to i32
-  %382 = add nuw nsw i32 %381, 7
-  %383 = lshr i32 %382, 3
-  %384 = zext i8 %spec.select.i309.sink to i32
-  %385 = shl nuw nsw i32 %384, 4
-  %386 = mul nuw nsw i32 %385, %383
-  %387 = zext nneg i32 %386 to i64
-  %388 = load ptr, ptr %1, align 8, !tbaa !355
-  %389 = ptrtoint ptr %.8.lcssa425.sink to i64
-  %390 = ptrtoint ptr %388 to i64
-  %391 = sub i64 %389, %390
-  %392 = load i64, ptr %.sroa.2149.0..sroa_idx, align 8, !tbaa !294
-  %.sroa.speculated4.i328 = tail call i64 @llvm.umin.i64(i64 %392, i64 %391)
-  %393 = getelementptr inbounds nuw i8, ptr %388, i64 %.sroa.speculated4.i328
-  %394 = sub i64 %392, %.sroa.speculated4.i328
-  %.sroa.speculated.i329 = tail call i64 @llvm.umin.i64(i64 %394, i64 %387)
-  %395 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink430
-  store ptr %393, ptr %395, align 8, !tbaa !4
+_ZN4llvm5ErrorD2Ev.exit332.sink.split:            ; preds = %376, %._crit_edge405
+  %.sink447 = phi i8 [ %spec.select.i309, %._crit_edge405 ], [ %379, %376 ]
+  %spec.select.i309.sink = phi i8 [ %spec.select.i310, %._crit_edge405 ], [ %spec.select.i309, %376 ]
+  %.8.lcssa425.sink = phi ptr [ %.8.lcssa, %._crit_edge405 ], [ %.8.lcssa425, %376 ]
+  %.sink430 = phi i64 [ 472, %._crit_edge405 ], [ 496, %376 ]
+  %.sink = phi i64 [ 480, %._crit_edge405 ], [ 504, %376 ]
+  %380 = zext i8 %.sink447 to i32
+  %381 = add nuw nsw i32 %380, 7
+  %382 = lshr i32 %381, 3
+  %383 = zext i8 %spec.select.i309.sink to i32
+  %384 = shl nuw nsw i32 %383, 4
+  %385 = mul nuw nsw i32 %384, %382
+  %386 = zext nneg i32 %385 to i64
+  %387 = load ptr, ptr %1, align 8, !tbaa !355
+  %388 = ptrtoint ptr %.8.lcssa425.sink to i64
+  %389 = ptrtoint ptr %387 to i64
+  %390 = sub i64 %388, %389
+  %391 = load i64, ptr %.sroa.2149.0..sroa_idx, align 8, !tbaa !294
+  %.sroa.speculated4.i328 = tail call i64 @llvm.umin.i64(i64 %391, i64 %390)
+  %392 = getelementptr inbounds nuw i8, ptr %387, i64 %.sroa.speculated4.i328
+  %393 = sub i64 %391, %.sroa.speculated4.i328
+  %.sroa.speculated.i329 = tail call i64 @llvm.umin.i64(i64 %393, i64 %386)
+  %394 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink430
+  store ptr %392, ptr %394, align 8, !tbaa !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   store i64 %.sroa.speculated.i329, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !9
   br label %_ZN4llvm5ErrorD2Ev.exit332
 
-_ZN4llvm5ErrorD2Ev.exit332:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit332.sink.split, %376, %379
+_ZN4llvm5ErrorD2Ev.exit332:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit332.sink.split, %376
   store ptr null, ptr %0, align 8, !tbaa !46
   br label %.critedge255
 

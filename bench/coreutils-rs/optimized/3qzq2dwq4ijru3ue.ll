@@ -269,7 +269,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.12095
   store ptr @anon.acbe61acbbfcbf80f743f82789a06981.3.llvm.12095333596102701305, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.acbe61acbbfcbf80f743f82789a06981.5.llvm.12095333596102701305) #15
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.acbe61acbbfcbf80f743f82789a06981.5.llvm.12095333596102701305) #15
   unreachable
 
 15:                                               ; preds = %5
@@ -314,7 +314,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.12
   store ptr @anon.acbe61acbbfcbf80f743f82789a06981.3.llvm.12095333596102701305, ptr %14, align 8, !alias.scope !49, !noalias !52
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8, !alias.scope !49, !noalias !52
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.acbe61acbbfcbf80f743f82789a06981.6.llvm.12095333596102701305) #15
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.acbe61acbbfcbf80f743f82789a06981.6.llvm.12095333596102701305) #15
   unreachable
 }
 

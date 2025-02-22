@@ -266,7 +266,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   %46 = phi i64 [ %.sroa.031.1, %41 ], [ %.sroa.031.0182, %113 ], [ %.sroa.031.0182, %105 ], [ %.sroa.031.0182, %96 ], [ %.sroa.031.0182, %109 ], [ %.sroa.031.0182, %117 ], [ %.sroa.031.0182, %160 ], [ %.sroa.031.0182, %152 ], [ %.sroa.031.0182, %143 ], [ %.sroa.031.0182, %156 ], [ %.sroa.031.0182, %164 ], [ %.sroa.031.0182, %272 ], [ %.sroa.031.0182, %264 ], [ %.sroa.031.0182, %255 ], [ %.sroa.031.0182, %268 ], [ %.sroa.031.0182, %276 ]
   %47 = phi i64 [ %33, %41 ], [ %.sroa.0.0183, %113 ], [ %.sroa.0.0183, %105 ], [ %.sroa.0.0183, %96 ], [ %.sroa.0.0183, %109 ], [ %.sroa.0.0183, %117 ], [ %.sroa.0.0183, %160 ], [ %.sroa.0.0183, %152 ], [ %.sroa.0.0183, %143 ], [ %.sroa.0.0183, %156 ], [ %.sroa.0.0183, %164 ], [ %.sroa.0.0183, %272 ], [ %.sroa.0.0183, %264 ], [ %.sroa.0.0183, %255 ], [ %.sroa.0.0183, %268 ], [ %.sroa.0.0183, %276 ]
   %48 = phi ptr [ @anon.fec1c8d1056d8ae94c251e46172e4e47.2, %41 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.6, %113 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.6, %105 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.6, %96 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.6, %109 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.6, %117 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.8, %160 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.8, %152 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.8, %143 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.8, %156 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.8, %164 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.11, %272 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.11, %264 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.11, %255 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.11, %268 ], [ @anon.fec1c8d1056d8ae94c251e46172e4e47.11, %276 ]
-  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %45, i64 noundef %46, i64 noundef %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48) #13
+  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %45, i64 noundef %46, i64 noundef %47, ptr noalias noundef readonly align 8 dereferenceable(24) %48) #13
           to label %.cont unwind label %.thread125.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -372,7 +372,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br i1 %88, label %90, label %76
 
 89:                                               ; preds = %82
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %83, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fec1c8d1056d8ae94c251e46172e4e47.4) #13
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %83, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fec1c8d1056d8ae94c251e46172e4e47.4) #13
           to label %49 unwind label %.thread125.loopexit.split-lp
 
 90:                                               ; preds = %85
@@ -645,7 +645,7 @@ define hidden void @_ZN14pulldown_cmark8scanners8unescape17h91c566cbf3dedfe5E(pt
   br label %.thread211
 
 .thread143:                                       ; preds = %211, %203, %194, %207, %215
-  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %195, i64 noundef %196, i64 noundef %.sroa.031.0182, i64 noundef %.sroa.0.0183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fec1c8d1056d8ae94c251e46172e4e47.9) #13
+  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %195, i64 noundef %196, i64 noundef %.sroa.031.0182, i64 noundef %.sroa.0.0183, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fec1c8d1056d8ae94c251e46172e4e47.9) #13
           to label %49 unwind label %.loopexit.split-lp
 
 .thread211:                                       ; preds = %211, %217

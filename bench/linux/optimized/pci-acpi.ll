@@ -1157,7 +1157,7 @@ define dso_local noundef zeroext i1 @acpi_pci_bridge_d3(ptr noundef readonly %0)
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %10
-  %18 = tail call zeroext i8 @acpi_dev_power_state_for_wake(ptr noundef nonnull %15) #9
+  %18 = tail call zeroext i8 @acpi_dev_power_state_for_wake(ptr noundef nonnull %14) #9
   %19 = icmp ult i8 %18, 3
   br i1 %19, label %.thread5, label %20
 

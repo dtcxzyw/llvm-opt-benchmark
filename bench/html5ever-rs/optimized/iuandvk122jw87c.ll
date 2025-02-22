@@ -113,7 +113,7 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10get_result17ha3
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.0, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.2) #14
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.0, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.2) #14
           to label %28 unwind label %26
 
 8:                                                ; preds = %2
@@ -194,7 +194,7 @@ define noundef nonnull align 8 ptr @_ZN9html5ever9tokenizer8char_ref16CharRefTok
   br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.3, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.4) #14
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.3, i64 noundef 45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.4) #14
   unreachable
 
 4:                                                ; preds = %1
@@ -209,7 +209,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8
   br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.3, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.5) #14
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.3, i64 noundef 45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.5) #14
   unreachable
 
 4:                                                ; preds = %1
@@ -244,7 +244,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN9html5ever9tokenizer8char_ref16Char
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.6, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.7) #14
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.6, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.7) #14
   unreachable
 
 6:                                                ; preds = %1
@@ -261,7 +261,7 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14unconsume_name1
   br i1 %switch, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.8, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.9) #14
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.8, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.9) #14
   unreachable
 
 5:                                                ; preds = %2

@@ -159,7 +159,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   store ptr %16, ptr %54, align 8, !alias.scope !35, !noalias !38
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 2, ptr %55, align 8, !alias.scope !35, !noalias !38
-  invoke void @_ZN3log13__private_api8log_impl17hc470126f8d7e0821E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.6ea0c81b63a59234a379548ab66b5c78.20, i32 noundef 85, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log13__private_api8log_impl17hc470126f8d7e0821E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.6ea0c81b63a59234a379548ab66b5c78.20, i32 noundef 85, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %56 unwind label %44
 
 56:                                               ; preds = %47
@@ -208,7 +208,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   store ptr %13, ptr %67, align 8, !alias.scope !55, !noalias !58
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %68, align 8, !alias.scope !55, !noalias !58
-  invoke void @_ZN3log13__private_api8log_impl17hc470126f8d7e0821E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.6ea0c81b63a59234a379548ab66b5c78.20, i32 noundef 91, ptr noalias noundef readonly align 8 null, i64 undef)
+  invoke void @_ZN3log13__private_api8log_impl17hc470126f8d7e0821E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.6ea0c81b63a59234a379548ab66b5c78.20, i32 noundef 91, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %69 unwind label %44
 
 69:                                               ; preds = %63

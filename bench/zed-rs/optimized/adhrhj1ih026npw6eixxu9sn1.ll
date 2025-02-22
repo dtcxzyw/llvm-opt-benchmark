@@ -157,7 +157,7 @@ define noundef zeroext i1 @"_ZN127_$LT$html_to_markdown..structure..wikipedia..W
   br i1 %36, label %_ZN16html_to_markdown12html_element11HtmlElement9has_class17h8a168940c18b67f8E.exit, label %33
 
 38:                                               ; preds = %20
-  tail call void @_ZN4core4cell30panic_already_mutably_borrowed17h60d1f41fc3c83d21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3f56e264900809e3e10be6f2563f2051.43.llvm.2003563641925947959) #18, !noalias !49
+  tail call void @_ZN4core4cell30panic_already_mutably_borrowed17h60d1f41fc3c83d21E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f56e264900809e3e10be6f2563f2051.43.llvm.2003563641925947959) #18, !noalias !49
   unreachable
 
 39:                                               ; preds = %35
@@ -354,7 +354,7 @@ define noundef zeroext i1 @"_ZN128_$LT$html_to_markdown..structure..wikipedia..W
   br i1 %27, label %_ZN16html_to_markdown12html_element11HtmlElement9has_class17h8a168940c18b67f8E.exit, label %24
 
 29:                                               ; preds = %11
-  tail call void @_ZN4core4cell30panic_already_mutably_borrowed17h60d1f41fc3c83d21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3f56e264900809e3e10be6f2563f2051.43.llvm.2003563641925947959) #18, !noalias !105
+  tail call void @_ZN4core4cell30panic_already_mutably_borrowed17h60d1f41fc3c83d21E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f56e264900809e3e10be6f2563f2051.43.llvm.2003563641925947959) #18, !noalias !105
   unreachable
 
 30:                                               ; preds = %26
@@ -594,7 +594,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %91, label %93, label %92
 
 92:                                               ; preds = %90, %86
-  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %76, i64 noundef %77, i64 noundef %81, i64 noundef %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33f6a03c3bc25af8acfd823daedf823c.9) #18
+  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %76, i64 noundef %77, i64 noundef %81, i64 noundef %77, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.33f6a03c3bc25af8acfd823daedf823c.9) #18
           to label %.noexc13 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc13:                                         ; preds = %92
@@ -770,7 +770,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %186 = phi i64 [ %umax.i35.i.i.i, %202 ], [ %umax.i.i.i.i, %251 ], [ %233, %231 ], [ %181, %180 ], [ %184, %183 ], [ %213, %.preheader.i.i.i ]
   %187 = phi i64 [ %145, %202 ], [ %145, %251 ], [ %145, %231 ], [ %147, %180 ], [ %145, %183 ], [ %147, %.preheader.i.i.i ]
   %188 = phi ptr [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %202 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %251 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %231 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %180 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %183 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %.preheader.i.i.i ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %186, i64 noundef %187, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %188) #18
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %186, i64 noundef %187, ptr noalias noundef readonly align 8 dereferenceable(24) %188) #18
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke

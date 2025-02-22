@@ -120,7 +120,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   %33 = alloca [720 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %32)
-  call void @_ZN2ui10components5stack6h_flex17hfb5a69eb7df419e7E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.71c29f5d411a332f82ac6aef2e19127d.3)
+  call void @_ZN2ui10components5stack6h_flex17hfb5a69eb7df419e7E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71c29f5d411a332f82ac6aef2e19127d.3)
   call void @_ZN2ui6styles10typography16StyledTypography7text_ui17h2cdce286dd149d93E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %33, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %32)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -232,7 +232,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %72 = load i64, ptr %59, align 8, !alias.scope !28, !noalias !31, !noundef !14
-  %73 = invoke { i64, i64 } @_ZN4core5slice5index5range17h40ba20865faa1747E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %.sroa.0.0.sroa.speculated.i38, i64 noundef %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.64bb71acedeed610e868a9cd7f01ba02.12.llvm.2532112940575135305)
+  %73 = invoke { i64, i64 } @_ZN4core5slice5index5range17h40ba20865faa1747E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %.sroa.0.0.sroa.speculated.i38, i64 noundef %72, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.64bb71acedeed610e868a9cd7f01ba02.12.llvm.2532112940575135305)
           to label %78 unwind label %76, !noalias !33
 
 74:                                               ; preds = %76
@@ -338,7 +338,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %24)
-  invoke void @_ZN2ui10components5stack6h_flex17hfb5a69eb7df419e7E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.71c29f5d411a332f82ac6aef2e19127d.5)
+  invoke void @_ZN2ui10components5stack6h_flex17hfb5a69eb7df419e7E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.71c29f5d411a332f82ac6aef2e19127d.5)
           to label %104 unwind label %.thread91
 
 .thread91:                                        ; preds = %100
@@ -804,7 +804,7 @@ common.resume:                                    ; preds = %.body, %.body19, %.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %49 = load ptr, ptr %48, align 8, !invariant.load !14, !nonnull !14
-  %50 = tail call { ptr, ptr } %49(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.71c29f5d411a332f82ac6aef2e19127d.7)
+  %50 = tail call { ptr, ptr } %49(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 %40, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.71c29f5d411a332f82ac6aef2e19127d.7)
   %51 = extractvalue { ptr, ptr } %50, 0
   %52 = extractvalue { ptr, ptr } %50, 1
   %53 = load i64, ptr %0, align 8, !range !20, !alias.scope !98, !noundef !14

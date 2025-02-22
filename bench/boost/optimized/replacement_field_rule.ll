@@ -471,61 +471,50 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14
   %26 = load i64, ptr %25, align 8, !tbaa !33, !noalias !56
   %27 = and i64 %26, 1
   %.not.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit._ZNK5boost6system10error_code6failedEv.exit.thread3.i_crit_edge, label %28
-
-_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit._ZNK5boost6system10error_code6failedEv.exit.thread3.i_crit_edge: ; preds = %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit
-  %.pre5 = load i32, ptr %14, align 8, !tbaa !46, !noalias !59
-  br label %_ZNK5boost6system10error_code6failedEv.exit.thread3.i
+  br i1 %.not.i.i, label %_ZNK5boost6system10error_code6failedEv.exit.thread3.i, label %28
 
 28:                                               ; preds = %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit
   %29 = icmp ne i64 %26, 1
   %30 = load i32, ptr %9, align 8, !noalias !56
   %31 = icmp ne i32 %30, 0
   %or.cond.i = select i1 %29, i1 true, i1 %31
-  %.pre6 = load i32, ptr %14, align 8, !tbaa !46, !noalias !59
   br i1 %or.cond.i, label %_ZNK5boost6system10error_code6failedEv.exit.thread.i, label %_ZNK5boost6system10error_code6failedEv.exit.thread3.i
 
 _ZNK5boost6system10error_code6failedEv.exit.thread.i: ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 24, i1 false), !tbaa.struct !32
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv.exit
 
-_ZNK5boost6system10error_code6failedEv.exit.thread3.i: ; preds = %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit._ZNK5boost6system10error_code6failedEv.exit.thread3.i_crit_edge, %28
-  %32 = phi i32 [ %.pre5, %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit._ZNK5boost6system10error_code6failedEv.exit.thread3.i_crit_edge ], [ %.pre6, %28 ]
-  %33 = icmp eq i32 %32, 1
-  %34 = load i32, ptr %12, align 8, !tbaa !30, !noalias !59
-  store i8 0, ptr %0, align 8, !tbaa !64, !alias.scope !56
-  %35 = load i8, ptr %11, align 8, !tbaa !64, !range !68, !noalias !56, !noundef !69
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
+_ZNK5boost6system10error_code6failedEv.exit.thread3.i: ; preds = %28, %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit
+  store i8 0, ptr %0, align 8, !tbaa !59, !alias.scope !56
+  %32 = load i8, ptr %11, align 8, !tbaa !59, !range !63, !noalias !56, !noundef !64
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-37:                                               ; preds = %_ZNK5boost6system10error_code6failedEv.exit.thread3.i
-  %38 = icmp eq i32 %34, 1
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %spec.select.i.i.i.i.i.i4.i.i.i.sroa.sel = select i1 %38, ptr %.sroa.gep, ptr inttoptr (i64 8 to ptr)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i.i.i.i.i4.i.i.i.sroa.sel, i64 16, i1 false), !tbaa.struct !70
-  store i8 1, ptr %0, align 8, !tbaa !64, !alias.scope !56
+34:                                               ; preds = %_ZNK5boost6system10error_code6failedEv.exit.thread3.i
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !65
+  store i8 1, ptr %0, align 8, !tbaa !59, !alias.scope !56
   br label %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %37, %_ZNK5boost6system10error_code6failedEv.exit.thread3.i
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %40, align 8, !tbaa !71, !alias.scope !56
-  %41 = load i8, ptr %13, align 8, !tbaa !71, !range !68, !noalias !56, !noundef !69
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv.exit
+_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %34, %_ZNK5boost6system10error_code6failedEv.exit.thread3.i
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %37, align 8, !tbaa !66, !alias.scope !56
+  %38 = load i8, ptr %13, align 8, !tbaa !66, !range !63, !noalias !56, !noundef !64
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv.exit
 
-43:                                               ; preds = %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.gep4 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %spec.select.i.i.i.i.i.i.i.i.i.sroa.sel = select i1 %33, ptr %.sroa.gep4, ptr inttoptr (i64 8 to ptr)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i.i.i.i.i.i.i.sroa.sel, i64 24, i1 false)
-  store i8 1, ptr %40, align 8, !tbaa !71, !alias.scope !56
+40:                                               ; preds = %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
+  store i8 1, ptr %37, align 8, !tbaa !66, !alias.scope !56
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv.exit
 
-_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv.exit: ; preds = %_ZNK5boost6system10error_code6failedEv.exit.thread.i, %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %43
-  %.sink.i = phi i32 [ 2, %_ZNK5boost6system10error_code6failedEv.exit.thread.i ], [ 1, %43 ], [ 1, %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.sink.i, ptr %45, align 8, !tbaa !7, !alias.scope !56
+_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv.exit: ; preds = %_ZNK5boost6system10error_code6failedEv.exit.thread.i, %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i, %40
+  %.sink.i = phi i32 [ 2, %_ZNK5boost6system10error_code6failedEv.exit.thread.i ], [ 1, %40 ], [ 1, %_ZNSt11_Tuple_implILm1EJN5boost8optionalINS0_4core17basic_string_viewIcEEEEEEC2IRKS5_EEOS_ILm1EJT_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %.sink.i, ptr %43, align 8, !tbaa !7, !alias.scope !56
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %9) #11
   ret void
 }
@@ -542,76 +531,76 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %11 = alloca %"struct.std::integral_constant", align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !74
+  %14 = load ptr, ptr %13, align 8, !tbaa !69
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %16 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !93
+  %16 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !88
   %17 = icmp eq ptr %16, %2
   br i1 %17, label %_ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEED2Ev.exit, label %18
 
 18:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11, !noalias !98
-  call void @_ZNK5boost4urls6detail17identifier_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %9, ptr nonnull align 1 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !98
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11, !noalias !93
+  call void @_ZNK5boost4urls6detail17identifier_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %9, ptr nonnull align 1 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !93
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !23, !noalias !98
+  %20 = load i32, ptr %19, align 8, !tbaa !23, !noalias !93
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i, label %22
 
 _ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i: ; preds = %18
-  %.sroa.0.0.copyload11.i.i = load i64, ptr %9, align 8, !noalias !93
+  %.sroa.011.0.copyload12.i.i = load i64, ptr %9, align 8, !noalias !88
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.6.0.copyload12.i.i = load ptr, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !93
+  %.sroa.6.0.copyload13.i.i = load ptr, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !88
   br label %34
 
 22:                                               ; preds = %18
-  store ptr %16, ptr %1, align 8, !tbaa !3, !noalias !98
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11, !noalias !103
-  call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.173") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !103
+  store ptr %16, ptr %1, align 8, !tbaa !3, !noalias !93
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11, !noalias !98
+  call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.173") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !98
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !106, !noalias !103
+  %24 = load i32, ptr %23, align 8, !tbaa !101, !noalias !98
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i, label %27
+  br i1 %25, label %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i, label %27
 
-_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i: ; preds = %22
-  %26 = load i64, ptr %8, align 8, !tbaa !21, !noalias !103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !103
+_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i: ; preds = %22
+  %26 = load i64, ptr %8, align 8, !tbaa !21, !noalias !98
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !98
   br label %34
 
 27:                                               ; preds = %22
-  store ptr %16, ptr %1, align 8, !tbaa !3, !noalias !103
-  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !108
+  store ptr %16, ptr %1, align 8, !tbaa !3, !noalias !98
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !103
   %29 = and i64 %28, -2
   %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %29, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i.i: ; preds = %27
-  %30 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !108
+  %30 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !103
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %31, align 8, !noalias !108
-  %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !108
+  %32 = load ptr, ptr %31, align 8, !noalias !103
+  %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !103
   br label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i.i, %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !98
-  store ptr %16, ptr %1, align 8, !tbaa !3, !noalias !93
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !98
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !93
+  store ptr %16, ptr %1, align 8, !tbaa !3, !noalias !88
   br label %_ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEED2Ev.exit
 
-34:                                               ; preds = %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i
-  %.sroa.0.123.i.i = phi i64 [ %.sroa.0.0.copyload11.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ %26, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i ]
-  %.sroa.6.122.i.i = phi ptr [ %.sroa.6.0.copyload12.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ @_ZN5boost4urls7grammar6detail9error_catE, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i ]
-  %.sroa.713.121.i.i = phi i64 [ 1, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ 2, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !98
+34:                                               ; preds = %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i
+  %.sroa.011.124.i.i = phi i64 [ %.sroa.011.0.copyload12.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ %26, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i ]
+  %.sroa.6.123.i.i = phi ptr [ %.sroa.6.0.copyload13.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ @_ZN5boost4urls7grammar6detail9error_catE, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i ]
+  %.sroa.714.122.i.i = phi i64 [ 1, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ 2, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !93
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.sroa.0.123.i.i, ptr %35, align 8
+  store i64 %.sroa.011.124.i.i, ptr %35, align 8
   %.sroa.9.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.sroa.6.122.i.i, ptr %.sroa.9.8..sroa_idx, align 8
+  store ptr %.sroa.6.123.i.i, ptr %.sroa.9.8..sroa_idx, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %.sroa.713.121.i.i, ptr %.sroa.10.8..sroa_idx, align 8
+  store i64 %.sroa.714.122.i.i, ptr %.sroa.10.8..sroa_idx, align 8
   br label %_ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEED2Ev.exit
 
-_ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEED2Ev.exit: ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i, %6, %34
-  %.sink = phi i8 [ 1, %34 ], [ 0, %6 ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i ]
-  store i8 %.sink, ptr %12, align 8, !tbaa !71
+_ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEED2Ev.exit: ; preds = %6, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i, %34
+  %.sink = phi i8 [ 1, %34 ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i ], [ 0, %6 ]
+  store i8 %.sink, ptr %12, align 8, !tbaa !66
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %36, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #11
@@ -641,16 +630,16 @@ define linkonce_odr hidden void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parse
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %4
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !113
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !108
   %9 = and i64 %8, -2
   %switch.i.i.i.i = icmp eq i64 %9, -5572340897628102704
   br i1 %switch.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit: ; preds = %7
-  %10 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !113
+  %10 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !108
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %12 = load ptr, ptr %11, align 8, !noalias !113
-  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !113
+  %12 = load ptr, ptr %11, align 8, !noalias !108
+  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !108
   br i1 %13, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %7, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
@@ -688,16 +677,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   br label %.critedge42
 
 27:                                               ; preds = %22
-  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !116
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !111
   %29 = and i64 %28, -2
   %switch.i.i.i.i43 = icmp eq i64 %29, -5572340897628102704
   br i1 %switch.i.i.i.i43, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit46.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit46
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit46: ; preds = %27
-  %30 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !116
+  %30 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !111
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %31, align 8, !noalias !116
-  %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #11, !noalias !116
+  %32 = load ptr, ptr %31, align 8, !noalias !111
+  %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #11, !noalias !111
   br i1 %33, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit46.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit48
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit46.thread: ; preds = %27, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit46
@@ -719,16 +708,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit48: ; preds = %_
   br i1 %38, label %48, label %39
 
 39:                                               ; preds = %36
-  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !119
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !114
   %41 = and i64 %40, -2
   %switch.i.i.i.i49 = icmp eq i64 %41, -5572340897628102704
   br i1 %switch.i.i.i.i49, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit52.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit52
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit52: ; preds = %39
-  %42 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !119
+  %42 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !114
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %44 = load ptr, ptr %43, align 8, !noalias !119
-  %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !119
+  %44 = load ptr, ptr %43, align 8, !noalias !114
+  %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !114
   br i1 %45, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit52.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit52.thread: ; preds = %39, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit52
@@ -768,7 +757,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   %59 = load i8, ptr %storemerge, align 1, !tbaa !20
   %60 = add i8 %59, -48
   %61 = icmp ult i8 %60, 10
-  br i1 %61, label %.lr.ph116, label %.critedge, !llvm.loop !122
+  br i1 %61, label %.lr.ph116, label %.critedge, !llvm.loop !117
 
 .lr.ph116:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %62 = phi i8 [ %60, %.lr.ph ], [ %57, %.lr.ph.preheader ]
@@ -780,7 +769,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge106114, i64 1
   store ptr %storemerge, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %storemerge, %.032
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !122
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !117
 
 .critedge:                                        ; preds = %.lr.ph116, %.lr.ph, %.lr.ph.preheader, %48
   %.0.lcssa = phi i64 [ %55, %48 ], [ %55, %.lr.ph.preheader ], [ %65, %.lr.ph ], [ %65, %.lr.ph116 ]
@@ -806,16 +795,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   br i1 %or.cond, label %75, label %84
 
 75:                                               ; preds = %72, %70
-  %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !124
+  %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !119
   %77 = and i64 %76, -2
   %switch.i.i.i.i55 = icmp eq i64 %77, -5572340897628102704
   br i1 %switch.i.i.i.i55, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit58.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit58
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit58: ; preds = %75
-  %78 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !124
+  %78 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !119
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
-  %80 = load ptr, ptr %79, align 8, !noalias !124
-  %81 = tail call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #11, !noalias !124
+  %80 = load ptr, ptr %79, align 8, !noalias !119
+  %81 = tail call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #11, !noalias !119
   br i1 %81, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit58.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit60
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit58.thread: ; preds = %75, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit58
@@ -847,16 +836,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit60: ; preds = %_
   br i1 %93, label %94, label %103
 
 94:                                               ; preds = %90
-  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !127
+  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !122
   %96 = and i64 %95, -2
   %switch.i.i.i.i61 = icmp eq i64 %96, -5572340897628102704
   br i1 %switch.i.i.i.i61, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit64.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit64
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit64: ; preds = %94
-  %97 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !127
+  %97 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !122
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %99 = load ptr, ptr %98, align 8, !noalias !127
-  %100 = tail call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #11, !noalias !127
+  %99 = load ptr, ptr %98, align 8, !noalias !122
+  %100 = tail call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #11, !noalias !122
   br i1 %100, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit64.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit66
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit64.thread: ; preds = %94, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit64
@@ -880,7 +869,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit66: ; preds = %_
 .critedge42:                                      ; preds = %103, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit66, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit60, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit48, %26, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
   %.sink = phi i32 [ 1, %103 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit66 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit60 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit48 ], [ 1, %26 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink, ptr %104, align 8, !tbaa !106
+  store i32 %.sink, ptr %104, align 8, !tbaa !101
   ret void
 }
 
@@ -892,85 +881,85 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %10 = alloca %"struct.boost::urls::grammar::detail::parse_sequence.190", align 8
   %11 = alloca %"struct.std::integral_constant.103", align 1
   %12 = alloca %"struct.std::integral_constant.103", align 1
-  %.sroa.0.i.i = alloca %"class.boost::system::error_code", align 8
+  %.sroa.011.i.i = alloca %"class.boost::system::error_code", align 8
   %.sroa.8 = alloca [23 x i8], align 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.8)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !130
+  %15 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !125
   %16 = icmp eq ptr %15, %2
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %6
-  %18 = load ptr, ptr %14, align 8, !tbaa !74
+  %18 = load ptr, ptr %14, align 8, !tbaa !69
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #11, !noalias !135
-  store ptr %19, ptr %10, align 8, !tbaa !3, !noalias !135
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.011.i.i)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #11, !noalias !130
+  store ptr %19, ptr %10, align 8, !tbaa !3, !noalias !130
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !noalias !135
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false), !noalias !130
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 2, ptr %21, align 8, !tbaa !23, !noalias !135
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #11, !noalias !135
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #11, !noalias !135
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #11, !noalias !135
+  store i32 2, ptr %21, align 8, !tbaa !23, !noalias !130
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #11, !noalias !130
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #11, !noalias !130
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #11, !noalias !130
   invoke void @_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5applyILm0ELm0EEEvRPKcSD_RKSt17integral_constantImXT_EERKSF_ImXT0_EERKSF_IbLb1EE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_.exit.i.i unwind label %22, !noalias !135
+          to label %_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_.exit.i.i unwind label %22, !noalias !130
 
 22:                                               ; preds = %17
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #12, !noalias !135
+  call void @__clang_call_terminate(ptr %24) #12, !noalias !130
   unreachable
 
 _ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_.exit.i.i: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11, !noalias !135
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11, !noalias !135
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11, !noalias !135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !130
-  %.sroa.4.0.copyload.i.i = load i32, ptr %21, align 8, !noalias !130
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #11, !noalias !135
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11, !noalias !130
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11, !noalias !130
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11, !noalias !130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.i.i, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !125
+  %.sroa.4.0.copyload.i.i = load i32, ptr %21, align 8, !noalias !125
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #11, !noalias !130
   %25 = icmp eq i32 %.sroa.4.0.copyload.i.i, 1
   br i1 %25, label %26, label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit
 
 _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit: ; preds = %_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_.exit.i.i
-  store ptr %15, ptr %1, align 8, !tbaa !3, !noalias !130
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i)
+  store ptr %15, ptr %1, align 8, !tbaa !3, !noalias !125
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.011.i.i)
   br label %.thread
 
 26:                                               ; preds = %_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_.exit.i.i
   %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.011.i.i, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.011.i.i)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.8..sroa_idx, i64 16, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %6, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit, %26
   %.sink = phi i8 [ 1, %26 ], [ 0, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_.exit ], [ 0, %6 ]
-  store i8 %.sink, ptr %13, align 8, !tbaa !64
+  store i8 %.sink, ptr %13, align 8, !tbaa !59
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %28, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.8)
-  %29 = load ptr, ptr %14, align 8, !tbaa !74
+  %29 = load ptr, ptr %14, align 8, !tbaa !69
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !138
-  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !138
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !133
+  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !133
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !23, !noalias !143
+  %32 = load i32, ptr %31, align 8, !tbaa !23, !noalias !138
   %33 = icmp eq i32 %32, 2
   br i1 %33, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, label %37
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i: ; preds = %.thread
   %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !21, !noalias !138
+  %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !21, !noalias !133
   %34 = and i64 %.sroa.54.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i.i.i.i.i, label %37, label %35
 
 35:                                               ; preds = %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %7, align 8, !noalias !138
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %7, align 8, !noalias !133
   %36 = icmp eq i64 %.sroa.54.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, 0
   %or.cond.i.i.i.i = select i1 %36, i1 %.not.i.i.i.i, i1 false
@@ -979,13 +968,13 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
 _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i: ; preds = %35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !138
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm3ELm2EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit
 
 37:                                               ; preds = %35, %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, %.thread
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !138
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !133
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm3ELm2EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE5applyILm3ELm2EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSQ_RKSt17integral_constantImXT_EERKSS_ImXT0_EE.exit: ; preds = %37, %_ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i
@@ -998,23 +987,23 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %8 = alloca %"class.boost::system::result.87", align 8
   %9 = alloca %"class.boost::system::result", align 8
   %.sroa.06 = alloca %"class.boost::system::error_code", align 8
-  %10 = load ptr, ptr %0, align 8, !tbaa !146
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11, !noalias !154
-  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !154
+  %10 = load ptr, ptr %0, align 8, !tbaa !141
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11, !noalias !149
+  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !149
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !23, !noalias !159
+  %12 = load i32, ptr %11, align 8, !tbaa !23, !noalias !154
   %13 = icmp eq i32 %12, 2
   br i1 %13, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i, label %18
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i: ; preds = %6
   %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.54.0.copyload.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i, align 8, !tbaa !21, !noalias !154
+  %.sroa.54.0.copyload.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i, align 8, !tbaa !21, !noalias !149
   %14 = and i64 %.sroa.54.0.copyload.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i.i, label %18, label %15
 
 15:                                               ; preds = %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i
-  %.sroa.0.0.copyload.i.i = load i32, ptr %9, align 8, !noalias !154
+  %.sroa.0.0.copyload.i.i = load i32, ptr %9, align 8, !noalias !149
   %16 = icmp eq i64 %.sroa.54.0.copyload.i.i, 1
   %.not.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
   %or.cond.i.i = select i1 %16, i1 %.not.i.i, i1 false
@@ -1023,7 +1012,7 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
 _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !154
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !149
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1032,8 +1021,8 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit: ; preds = %15
   br label %39
 
 18:                                               ; preds = %15, %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i, %6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !154
-  %19 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !162
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !149
+  %19 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !157
   %20 = icmp eq ptr %19, %2
   br i1 %20, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5applyILm1ELm0EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSG_RKSt17integral_constantImXT_EERKSI_ImXT0_EE.exit, label %.preheader.i.i.i.i
 
@@ -1048,37 +1037,37 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit: ; preds = %15
   br i1 %25, label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !167
-  call void @_ZNK5boost4urls7grammar22implementation_defined12token_rule_tINS1_9lut_charsEE5parseERPKcS7_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_E20fmt_specs_token_rule, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !167
-  %27 = load i32, ptr %21, align 8, !tbaa !23, !noalias !167
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !162
+  call void @_ZNK5boost4urls7grammar22implementation_defined12token_rule_tINS1_9lut_charsEE5parseERPKcS7_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_E20fmt_specs_token_rule, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !162
+  %27 = load i32, ptr %21, align 8, !tbaa !23, !noalias !162
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %29, label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i.i.i
 
 _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i.i.i: ; preds = %26
-  store ptr %24, ptr %1, align 8, !tbaa !3, !noalias !167
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !167
+  store ptr %24, ptr %1, align 8, !tbaa !3, !noalias !162
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !162
   br label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !167
-  %.pre22.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !3, !noalias !162
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !162
+  %.pre22.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !3, !noalias !157
   br label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i
 
 _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i: ; preds = %29, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i.i.i, %23
   %30 = phi ptr [ %24, %23 ], [ %24, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i.i.i ], [ %.pre22.i.i.i.i, %29 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #11, !noalias !162
-  call void @_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS2_15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES6_EE5parseERPKcSH_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.87") align 8 %8, ptr noundef nonnull align 1 dereferenceable(3) @_ZZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_E16internal_id_rule, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2), !noalias !162
-  %31 = load i32, ptr %22, align 8, !tbaa !46, !noalias !162
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #11, !noalias !157
+  call void @_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS2_15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES6_EE5parseERPKcSH_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.87") align 8 %8, ptr noundef nonnull align 1 dereferenceable(3) @_ZZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_E16internal_id_rule, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2), !noalias !157
+  %31 = load i32, ptr %22, align 8, !tbaa !46, !noalias !157
   %32 = icmp eq i32 %31, 1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #11, !noalias !162
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #11, !noalias !157
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i
-  %.pre.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !3, !noalias !167
+  %.pre.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !3, !noalias !162
   br label %23
 
 34:                                               ; preds = %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.thread.i.i.i.i
-  store ptr %30, ptr %1, align 8, !tbaa !3, !noalias !162
+  store ptr %30, ptr %1, align 8, !tbaa !3, !noalias !157
   %35 = ptrtoint ptr %30 to i64
   %36 = ptrtoint ptr %19 to i64
   %37 = sub i64 %35, %36
@@ -1110,24 +1099,24 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !172
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  %12 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !183
+  %11 = load ptr, ptr %10, align 8, !tbaa !167
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
+  %12 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !178
   %13 = icmp eq ptr %12, %2
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %6
-  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !184
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !179
   %16 = and i64 %15, -2
   %switch.i.i.i.i.i.i = icmp eq i64 %16, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i: ; preds = %14
-  %17 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !184
+  %17 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !179
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %19 = load ptr, ptr %18, align 8, !noalias !184
-  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 1) #11, !noalias !184
+  %19 = load ptr, ptr %18, align 8, !noalias !179
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 1) #11, !noalias !179
   br i1 %20, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i, %14
@@ -1136,15 +1125,15 @@ _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18
 _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i
   %21 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i ]
   %22 = or disjoint i64 %21, ptrtoint (ptr @_ZZNK5boost4urls7grammar22implementation_defined13cs_delim_ruleINS1_9lut_charsEE5parseERPKcS7_E11loc__LINE__ to i64)
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.6, align 8, !tbaa !20, !alias.scope !183
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.6, align 8, !tbaa !20, !alias.scope !178
   br label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_.exit
 
 23:                                               ; preds = %6
-  %24 = load i8, ptr %12, align 1, !tbaa !20, !noalias !183
+  %24 = load i8, ptr %12, align 1, !tbaa !20, !noalias !178
   %25 = and i8 %24, 3
   %26 = zext nneg i8 %25 to i64
   %27 = getelementptr inbounds nuw [4 x i64], ptr %11, i64 0, i64 %26
-  %28 = load i64, ptr %27, align 8, !tbaa !21, !noalias !183
+  %28 = load i64, ptr %27, align 8, !tbaa !21, !noalias !178
   %29 = lshr i8 %24, 2
   %30 = zext nneg i8 %29 to i64
   %31 = shl nuw i64 1, %30
@@ -1153,16 +1142,16 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i.i: ; preds = 
   br i1 %.not.i.i, label %33, label %42
 
 33:                                               ; preds = %23
-  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !187
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !182
   %35 = and i64 %34, -2
   %switch.i.i.i.i5.i.i = icmp eq i64 %35, -5572340897628102704
   br i1 %switch.i.i.i.i5.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.thread.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.i.i: ; preds = %33
-  %36 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !187
+  %36 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !182
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %38 = load ptr, ptr %37, align 8, !noalias !187
-  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !187
+  %38 = load ptr, ptr %37, align 8, !noalias !182
+  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !182
   br i1 %39, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.thread.i.i, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit10.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.i.i, %33
@@ -1171,12 +1160,12 @@ _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18
 _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit10.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.thread.i.i, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.i.i
   %40 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit8.i.i ]
   %41 = or disjoint i64 %40, ptrtoint (ptr @_ZZNK5boost4urls7grammar22implementation_defined13cs_delim_ruleINS1_9lut_charsEE5parseERPKcS7_E11loc__LINE___0 to i64)
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.6, align 8, !tbaa !20, !alias.scope !183
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.6, align 8, !tbaa !20, !alias.scope !178
   br label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_.exit
 
 42:                                               ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %43, ptr %1, align 8, !tbaa !3, !noalias !183
+  store ptr %43, ptr %1, align 8, !tbaa !3, !noalias !178
   %44 = ptrtoint ptr %12 to i64
   br label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_.exit
 
@@ -1186,7 +1175,7 @@ _ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lu
   %.sink24.i.i = phi i64 [ %22, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i.i ], [ %41, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit10.i.i ], [ 1, %42 ]
   %45 = phi i1 [ false, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i.i ], [ false, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit10.i.i ], [ true, %42 ]
   %.sink.i.i = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit.i.i ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit10.i.i ], [ 1, %42 ]
-  store i64 %.sink24.i.i, ptr %.sink25.i.i.sroa.phi, align 8, !tbaa !21, !alias.scope !183
+  store i64 %.sink24.i.i, ptr %.sink25.i.i.sroa.phi, align 8, !tbaa !21, !alias.scope !178
   store i64 %.sroa.012.0, ptr %9, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0.copyload = load ptr, ptr %.sroa.6, align 8
@@ -1206,36 +1195,36 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
 
 46:                                               ; preds = %_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_.exit
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.8.i.i)
-  %47 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !190
+  %47 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !185
   %48 = icmp eq ptr %47, %2
   br i1 %48, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEJNS4_15optional_rule_tINS4_12token_rule_tIS6_EEEEEE5applyILm1ELm1EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSI_RKSt17integral_constantImXT_EERKSK_ImXT0_EE.exit, label %49
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr %10, align 8, !tbaa !172
+  %50 = load ptr, ptr %10, align 8, !tbaa !167
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !190
-  call void @_ZNK5boost4urls7grammar22implementation_defined12token_rule_tINS1_9lut_charsEE5parseERPKcS7_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !190
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !185
+  call void @_ZNK5boost4urls7grammar22implementation_defined12token_rule_tINS1_9lut_charsEE5parseERPKcS7_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !185
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %53 = load i32, ptr %52, align 8, !tbaa !23, !noalias !190
+  %53 = load i32, ptr %52, align 8, !tbaa !23, !noalias !185
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %55, label %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i
 
 _ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i: ; preds = %49
-  store ptr %47, ptr %1, align 8, !tbaa !3, !noalias !190
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !190
+  store ptr %47, ptr %1, align 8, !tbaa !3, !noalias !185
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !185
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEJNS4_15optional_rule_tINS4_12token_rule_tIS6_EEEEEE5applyILm1ELm1EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSI_RKSt17integral_constantImXT_EERKSK_ImXT0_EE.exit
 
 55:                                               ; preds = %49
   %.sroa.8.8..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.8.i.i, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.8..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !190
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !185
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.8..sroa_idx.i.i, i64 16, i1 false)
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEJNS4_15optional_rule_tINS4_12token_rule_tIS6_EEEEEE5applyILm1ELm1EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSI_RKSt17integral_constantImXT_EERKSK_ImXT0_EE.exit
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEJNS4_15optional_rule_tINS4_12token_rule_tIS6_EEEEEE5applyILm1ELm1EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSI_RKSt17integral_constantImXT_EERKSK_ImXT0_EE.exit: ; preds = %46, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i, %55
   %.sink.i.i8 = phi i8 [ 1, %55 ], [ 0, %_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_.exit.i.i ], [ 0, %46 ]
-  store i8 %.sink.i.i8, ptr %8, align 8, !tbaa !64
+  store i8 %.sink.i.i8, ptr %8, align 8, !tbaa !59
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %57, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.8.i.i)
@@ -1253,16 +1242,16 @@ define linkonce_odr hidden void @_ZNK5boost4urls7grammar22implementation_defined
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %4
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !195
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !190
   %10 = and i64 %9, -2
   %switch.i.i.i.i = icmp eq i64 %10, -5572340897628102704
   br i1 %switch.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit: ; preds = %8
-  %11 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !195
+  %11 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !190
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !noalias !195
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 1) #11, !noalias !195
+  %13 = load ptr, ptr %12, align 8, !noalias !190
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 1) #11, !noalias !190
   br i1 %14, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread: ; preds = %8, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit
@@ -1325,7 +1314,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   store i8 %38, ptr %39, align 1, !tbaa !20
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
-  br i1 %exitcond.not.i.i.i.i, label %23, label %27, !llvm.loop !198
+  br i1 %exitcond.not.i.i.i.i, label %23, label %27, !llvm.loop !193
 
 .thread.i.i.i.i:                                  ; preds = %23
   %40 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %26, i1 true)
@@ -1359,7 +1348,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 57:                                               ; preds = %.lr.ph37.i.i.i.i
   %58 = getelementptr inbounds nuw i8, ptr %.22336.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %58, %3
-  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.i.i.i.i, !llvm.loop !199
+  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.i.i.i.i, !llvm.loop !194
 
 _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds = %.lr.ph37.i.i.i.i, %57, %.preheader.i.i.i.i, %.thread.i.i.i.i
   %.2.i.i.i.i = phi ptr [ %42, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %57 ], [ %.22336.i.i.i.i, %.lr.ph37.i.i.i.i ]
@@ -1374,16 +1363,16 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds
   br label %71
 
 62:                                               ; preds = %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit
-  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !200
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !195
   %64 = and i64 %63, -2
   %switch.i.i.i.i13 = icmp eq i64 %64, -5572340897628102704
   br i1 %switch.i.i.i.i13, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16.thread, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16: ; preds = %62
-  %65 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !200
+  %65 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !195
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %67 = load ptr, ptr %66, align 8, !noalias !200
-  %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !200
+  %67 = load ptr, ptr %66, align 8, !noalias !195
+  %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !195
   br i1 %68, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16.thread: ; preds = %62, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16
@@ -1422,16 +1411,16 @@ define linkonce_odr hidden void @_ZNK5boost4urls7grammar22implementation_defined
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 2, ptr %11, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11, !noalias !203
-  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #11, !noalias !203
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11, !noalias !198
+  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #11, !noalias !198
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !23, !noalias !208
+  %13 = load i32, ptr %12, align 8, !tbaa !23, !noalias !203
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, label %19
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i: ; preds = %4
   %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !21, !noalias !203
+  %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !21, !noalias !198
   %15 = and i64 %.sroa.54.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i.i.i.i.i, label %19, label %16
@@ -1448,7 +1437,7 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.7.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx.i.i, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11, !noalias !203
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11, !noalias !198
   store i8 %18, ptr %10, align 8
   %.sroa.7.0..sroa_idx8.i.i = getelementptr inbounds nuw i8, ptr %9, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx8.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, i64 23, i1 false)
@@ -1456,7 +1445,7 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit
 
 19:                                               ; preds = %16, %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11, !noalias !203
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11, !noalias !198
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
@@ -1474,14 +1463,14 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
-  %.pr = load i32, ptr %11, align 8, !tbaa !46, !noalias !211
-  call void @llvm.experimental.noalias.scope.decl(metadata !211)
+  %.pr = load i32, ptr %11, align 8, !tbaa !46, !noalias !206
+  call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %switch.i.i.i.i.i.i.i.i.i = icmp eq i32 %.pr, 1
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %23, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit
 
 23:                                               ; preds = %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit
-  store i8 0, ptr %0, align 8, !tbaa !71, !alias.scope !211
-  %24 = load i8, ptr %10, align 8, !tbaa !71, !range !68, !noalias !211, !noundef !69
+  store i8 0, ptr %0, align 8, !tbaa !66, !alias.scope !206
+  %24 = load i8, ptr %10, align 8, !tbaa !66, !range !63, !noalias !206, !noundef !64
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit
 
@@ -1493,13 +1482,13 @@ _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  store i8 1, ptr %0, align 8, !tbaa !71, !alias.scope !211
+  store i8 1, ptr %0, align 8, !tbaa !66, !alias.scope !206
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EED2Ev.exit: ; preds = %23, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit, %26
   %.sink = phi i32 [ 2, %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv.exit ], [ 1, %26 ], [ 1, %23 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink, ptr %29, align 8, !tbaa !46, !alias.scope !211
+  store i32 %.sink, ptr %29, align 8, !tbaa !46, !alias.scope !206
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #11
   ret void
 }
@@ -1510,78 +1499,78 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail14parse_sequenceIL
   %.sroa.7.i.i = alloca [31 x i8], align 1
   %8 = alloca %"class.boost::system::result.173", align 8
   %9 = alloca %"class.boost::system::result", align 8
-  %10 = load ptr, ptr %0, align 8, !tbaa !214
+  %10 = load ptr, ptr %0, align 8, !tbaa !209
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %12 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !216
+  %12 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !211
   %13 = icmp eq ptr %12, %2
   br i1 %13, label %30, label %14
 
 14:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11, !noalias !221
-  call void @_ZNK5boost4urls6detail17identifier_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %9, ptr nonnull align 1 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !221
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11, !noalias !216
+  call void @_ZNK5boost4urls6detail17identifier_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %9, ptr nonnull align 1 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !216
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !23, !noalias !221
+  %16 = load i32, ptr %15, align 8, !tbaa !23, !noalias !216
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i, label %18
 
 _ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i: ; preds = %14
-  %.sroa.0.0.copyload11.i.i = load i64, ptr %9, align 8, !noalias !216
+  %.sroa.011.0.copyload12.i.i = load i64, ptr %9, align 8, !noalias !211
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.6.0.copyload12.i.i = load ptr, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !216
+  %.sroa.6.0.copyload13.i.i = load ptr, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !211
   br label %32
 
 18:                                               ; preds = %14
-  store ptr %12, ptr %1, align 8, !tbaa !3, !noalias !221
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11, !noalias !226
-  call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.173") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !226
+  store ptr %12, ptr %1, align 8, !tbaa !3, !noalias !216
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11, !noalias !221
+  call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.173") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !221
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !106, !noalias !226
+  %20 = load i32, ptr %19, align 8, !tbaa !101, !noalias !221
   %21 = icmp eq i32 %20, 1
-  br i1 %21, label %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i, label %23
+  br i1 %21, label %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i, label %23
 
-_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i: ; preds = %18
-  %22 = load i64, ptr %8, align 8, !tbaa !21, !noalias !226
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !226
+_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i: ; preds = %18
+  %22 = load i64, ptr %8, align 8, !tbaa !21, !noalias !221
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !221
   br label %32
 
 23:                                               ; preds = %18
-  store ptr %12, ptr %1, align 8, !tbaa !3, !noalias !226
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !229
+  store ptr %12, ptr %1, align 8, !tbaa !3, !noalias !221
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4urls7grammar6detail9error_catE, i64 8), align 8, !tbaa !10, !noalias !224
   %25 = and i64 %24, -2
   %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %25, -5572340897628102704
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i.i: ; preds = %23
-  %26 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !229
+  %26 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !18, !noalias !224
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %28 = load ptr, ptr %27, align 8, !noalias !229
-  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !229
+  %28 = load ptr, ptr %27, align 8, !noalias !224
+  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #11, !noalias !224
   br label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i: ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i.i.i.i.i, %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !226
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !221
-  store ptr %12, ptr %1, align 8, !tbaa !3, !noalias !216
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !221
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !216
+  store ptr %12, ptr %1, align 8, !tbaa !3, !noalias !211
   br label %30
 
-30:                                               ; preds = %6, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i
+30:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i.i.i.i.i, %6
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %31, align 8, !tbaa !71
+  store i8 0, ptr %31, align 8, !tbaa !66
   br label %35
 
-32:                                               ; preds = %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i
-  %.sroa.0.123.i.i = phi i64 [ %.sroa.0.0.copyload11.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ %22, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i ]
-  %.sroa.6.122.i.i = phi ptr [ %.sroa.6.0.copyload12.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ @_ZN5boost4urls7grammar6detail9error_catE, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i ]
-  %.sroa.713.121.i.i = phi i64 [ 1, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ 2, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread24.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !221
+32:                                               ; preds = %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i
+  %.sroa.011.124.i.i = phi i64 [ %.sroa.011.0.copyload12.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ %22, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i ]
+  %.sroa.6.123.i.i = phi ptr [ %.sroa.6.0.copyload13.i.i, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ @_ZN5boost4urls7grammar6detail9error_catE, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i ]
+  %.sroa.714.122.i.i = phi i64 [ 1, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread.i.i ], [ 2, %_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_.exit.thread25.i.i ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11, !noalias !216
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.123.i.i, ptr %34, align 8
+  store i64 %.sroa.011.124.i.i, ptr %34, align 8
   %.sroa.9.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.6.122.i.i, ptr %.sroa.9.8..sroa_idx, align 8
+  store ptr %.sroa.6.123.i.i, ptr %.sroa.9.8..sroa_idx, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.713.121.i.i, ptr %.sroa.10.8..sroa_idx, align 8
-  store i8 1, ptr %33, align 8, !tbaa !71
+  store i64 %.sroa.714.122.i.i, ptr %.sroa.10.8..sroa_idx, align 8
+  store i8 1, ptr %33, align 8, !tbaa !66
   br label %35
 
 35:                                               ; preds = %32, %30
@@ -1589,18 +1578,18 @@ _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %37, align 8, !tbaa !46
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load ptr, ptr %0, align 8, !tbaa !214
+  %39 = load ptr, ptr %0, align 8, !tbaa !209
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !234
-  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !234
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11, !noalias !229
+  call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #11, !noalias !229
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %42 = load i32, ptr %41, align 8, !tbaa !23, !noalias !239
+  %42 = load i32, ptr %41, align 8, !tbaa !23, !noalias !234
   %43 = icmp eq i32 %42, 2
   br i1 %43, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, label %48
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i: ; preds = %35
   %.sroa.54.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !21, !noalias !234
+  %.sroa.54.0.copyload.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i, align 8, !tbaa !21, !noalias !229
   %44 = and i64 %.sroa.54.0.copyload.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i.i.i.i.i, label %48, label %45
@@ -1617,7 +1606,7 @@ _ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_strin
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.7.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx.i.i, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !234
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !229
   store i8 %47, ptr %36, align 8
   %.sroa.7.0..sroa_idx8.i.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx8.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.i.i, i64 23, i1 false)
@@ -1626,7 +1615,7 @@ _ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_strin
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm2ELm1EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit
 
 48:                                               ; preds = %45, %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i, %35
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !234
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11, !noalias !229
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm2ELm1EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit
 
 _ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE5applyILm2ELm1EEENSt9enable_ifIXltT_plLi1EsZT0_EvE4typeERPKcSM_RKSt17integral_constantImXT_EERKSO_ImXT0_EE.exit: ; preds = %48, %_ZN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEED2Ev.exit.i.i
@@ -1714,186 +1703,181 @@ attributes #12 = { noreturn nounwind }
 !56 = !{!57}
 !57 = distinct !{!57, !58, !"_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv: argument 0"}
 !58 = distinct !{!58, !"_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EE11make_resultEv"}
-!59 = !{!60, !62, !57}
-!60 = distinct !{!60, !61, !"_ZN5boost4mp116detail20tuple_transform_implINS_4urls7grammar6detail14parse_sequenceILb1ENS4_22implementation_defined14squelch_rule_tINS7_13ch_delim_ruleEEEJNS7_15optional_rule_tINS7_14variant_rule_tINS3_6detail17identifier_rule_tEJNS4_13unsigned_ruleImEEEEEEENSB_INS7_12tuple_rule_tISA_JNSD_18format_spec_rule_tEEEEEESA_EE5derefEJRSt5tupleIJNS_6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENSQ_10error_codeEEENSR_INSS_ISX_EES10_EEEEEJLm0ELm1EEEEDTcl12tp_forward_vspcl11tuple_applyfp0_cl10tp_extractIXT1_EEspclsr3stdE7forwardIT0_Efp1_EEEEENS0_16integer_sequenceImJXspT1_EEEERKT_DpOS16_: argument 0"}
-!61 = distinct !{!61, !"_ZN5boost4mp116detail20tuple_transform_implINS_4urls7grammar6detail14parse_sequenceILb1ENS4_22implementation_defined14squelch_rule_tINS7_13ch_delim_ruleEEEJNS7_15optional_rule_tINS7_14variant_rule_tINS3_6detail17identifier_rule_tEJNS4_13unsigned_ruleImEEEEEEENSB_INS7_12tuple_rule_tISA_JNSD_18format_spec_rule_tEEEEEESA_EE5derefEJRSt5tupleIJNS_6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENSQ_10error_codeEEENSR_INSS_ISX_EES10_EEEEEJLm0ELm1EEEEDTcl12tp_forward_vspcl11tuple_applyfp0_cl10tp_extractIXT1_EEspclsr3stdE7forwardIT0_Efp1_EEEEENS0_16integer_sequenceImJXspT1_EEEERKT_DpOS16_"}
-!62 = distinct !{!62, !63, !"_ZN5boost4mp1115tuple_transformINS_4urls7grammar6detail14parse_sequenceILb1ENS3_22implementation_defined14squelch_rule_tINS6_13ch_delim_ruleEEEJNS6_15optional_rule_tINS6_14variant_rule_tINS2_6detail17identifier_rule_tEJNS3_13unsigned_ruleImEEEEEEENSA_INS6_12tuple_rule_tIS9_JNSC_18format_spec_rule_tEEEEEES9_EE5derefEJRSt5tupleIJNS_6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENSP_10error_codeEEENSQ_INSR_ISW_EESZ_EEEEENS0_7mp_listIJSt17integral_constantImLm2EEEEES17_NS0_16integer_sequenceImJLm0ELm1EEEEEEDTclsr6detailE20tuple_transform_implcvT3__Efp_spclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS1C_: argument 0"}
-!63 = distinct !{!63, !"_ZN5boost4mp1115tuple_transformINS_4urls7grammar6detail14parse_sequenceILb1ENS3_22implementation_defined14squelch_rule_tINS6_13ch_delim_ruleEEEJNS6_15optional_rule_tINS6_14variant_rule_tINS2_6detail17identifier_rule_tEJNS3_13unsigned_ruleImEEEEEEENSA_INS6_12tuple_rule_tIS9_JNSC_18format_spec_rule_tEEEEEES9_EE5derefEJRSt5tupleIJNS_6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENSP_10error_codeEEENSQ_INSR_ISW_EESZ_EEEEENS0_7mp_listIJSt17integral_constantImLm2EEEEES17_NS0_16integer_sequenceImJLm0ELm1EEEEEEDTclsr6detailE20tuple_transform_implcvT3__Efp_spclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS1C_"}
-!64 = !{!65, !66, i64 0}
-!65 = !{!"_ZTSN5boost15optional_detail13optional_baseINS_4core17basic_string_viewIcEEEE", !66, i64 0, !67, i64 8}
-!66 = !{!"bool", !5, i64 0}
-!67 = !{!"_ZTSN5boost15optional_detail15aligned_storageINS_4core17basic_string_viewIcEEEE", !5, i64 0}
-!68 = !{i8 0, i8 2}
-!69 = !{}
-!70 = !{i64 0, i64 8, !3, i64 8, i64 8, !21}
-!71 = !{!72, !66, i64 0}
-!72 = !{!"_ZTSN5boost15optional_detail13optional_baseINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEE", !66, i64 0, !73, i64 8}
-!73 = !{!"_ZTSN5boost15optional_detail15aligned_storageINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEE", !5, i64 0}
-!74 = !{!75, !4, i64 24}
-!75 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EEE", !34, i64 0, !4, i64 24, !76, i64 32}
-!76 = !{!"_ZTSSt5tupleIJN5boost6system6resultINS0_8optionalINS0_8variant27variantIJNS0_4core17basic_string_viewIcEEmEEEEENS1_10error_codeEEENS2_INS3_IS8_EESB_EEEE", !77, i64 0}
-!77 = !{!"_ZTSSt11_Tuple_implILm0EJN5boost6system6resultINS0_8optionalINS0_8variant27variantIJNS0_4core17basic_string_viewIcEEmEEEEENS1_10error_codeEEENS2_INS3_IS8_EESB_EEEE", !78, i64 0, !86, i64 32}
-!78 = !{!"_ZTSSt11_Tuple_implILm1EJN5boost6system6resultINS0_8optionalINS0_4core17basic_string_viewIcEEEENS1_10error_codeEEEEE", !79, i64 0}
-!79 = !{!"_ZTSSt10_Head_baseILm1EN5boost6system6resultINS0_8optionalINS0_4core17basic_string_viewIcEEEENS1_10error_codeEEELb0EE", !80, i64 0}
-!80 = !{!"_ZTSN5boost6system6resultINS_8optionalINS_4core17basic_string_viewIcEEEENS0_10error_codeEEE", !81, i64 0}
-!81 = !{!"_ZTSN5boost8variant27variantIJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !82, i64 0}
-!82 = !{!"_ZTSN5boost8variant26detail20variant_ma_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !83, i64 0}
-!83 = !{!"_ZTSN5boost8variant26detail20variant_mc_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !84, i64 0}
-!84 = !{!"_ZTSN5boost8variant26detail20variant_ca_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !85, i64 0}
-!85 = !{!"_ZTSN5boost8variant26detail20variant_cc_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !31, i64 0}
-!86 = !{!"_ZTSSt10_Head_baseILm0EN5boost6system6resultINS0_8optionalINS0_8variant27variantIJNS0_4core17basic_string_viewIcEEmEEEEENS1_10error_codeEEELb0EE", !87, i64 0}
-!87 = !{!"_ZTSN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEEE", !88, i64 0}
-!88 = !{!"_ZTSN5boost8variant27variantIJNS_8optionalINS1_IJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !89, i64 0}
-!89 = !{!"_ZTSN5boost8variant26detail20variant_ma_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !90, i64 0}
-!90 = !{!"_ZTSN5boost8variant26detail20variant_mc_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !91, i64 0}
-!91 = !{!"_ZTSN5boost8variant26detail20variant_ca_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !92, i64 0}
-!92 = !{!"_ZTSN5boost8variant26detail20variant_cc_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !47, i64 0}
-!93 = !{!94, !96}
-!94 = distinct !{!94, !95, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_: argument 0"}
-!95 = distinct !{!95, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_"}
-!96 = distinct !{!96, !97, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_: argument 0"}
-!97 = distinct !{!97, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_"}
-!98 = !{!99, !101, !94, !96}
-!99 = distinct !{!99, !100, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
-!100 = distinct !{!100, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
-!101 = distinct !{!101, !102, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_: argument 0"}
-!102 = distinct !{!102, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_"}
-!103 = !{!104, !99, !101, !94, !96}
-!104 = distinct !{!104, !105, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
-!105 = distinct !{!105, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
-!106 = !{!107, !9, i64 24}
-!107 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJmNS_6system10error_codeEEEE", !5, i64 0, !9, i64 24}
-!108 = !{!109, !111, !104, !99, !101, !94, !96}
+!59 = !{!60, !61, i64 0}
+!60 = !{!"_ZTSN5boost15optional_detail13optional_baseINS_4core17basic_string_viewIcEEEE", !61, i64 0, !62, i64 8}
+!61 = !{!"bool", !5, i64 0}
+!62 = !{!"_ZTSN5boost15optional_detail15aligned_storageINS_4core17basic_string_viewIcEEEE", !5, i64 0}
+!63 = !{i8 0, i8 2}
+!64 = !{}
+!65 = !{i64 0, i64 8, !3, i64 8, i64 8, !21}
+!66 = !{!67, !61, i64 0}
+!67 = !{!"_ZTSN5boost15optional_detail13optional_baseINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEE", !61, i64 0, !68, i64 8}
+!68 = !{!"_ZTSN5boost15optional_detail15aligned_storageINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEE", !5, i64 0}
+!69 = !{!70, !4, i64 24}
+!70 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEENS8_INS4_12tuple_rule_tIS7_JNSA_18format_spec_rule_tEEEEEES7_EEE", !34, i64 0, !4, i64 24, !71, i64 32}
+!71 = !{!"_ZTSSt5tupleIJN5boost6system6resultINS0_8optionalINS0_8variant27variantIJNS0_4core17basic_string_viewIcEEmEEEEENS1_10error_codeEEENS2_INS3_IS8_EESB_EEEE", !72, i64 0}
+!72 = !{!"_ZTSSt11_Tuple_implILm0EJN5boost6system6resultINS0_8optionalINS0_8variant27variantIJNS0_4core17basic_string_viewIcEEmEEEEENS1_10error_codeEEENS2_INS3_IS8_EESB_EEEE", !73, i64 0, !81, i64 32}
+!73 = !{!"_ZTSSt11_Tuple_implILm1EJN5boost6system6resultINS0_8optionalINS0_4core17basic_string_viewIcEEEENS1_10error_codeEEEEE", !74, i64 0}
+!74 = !{!"_ZTSSt10_Head_baseILm1EN5boost6system6resultINS0_8optionalINS0_4core17basic_string_viewIcEEEENS1_10error_codeEEELb0EE", !75, i64 0}
+!75 = !{!"_ZTSN5boost6system6resultINS_8optionalINS_4core17basic_string_viewIcEEEENS0_10error_codeEEE", !76, i64 0}
+!76 = !{!"_ZTSN5boost8variant27variantIJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !77, i64 0}
+!77 = !{!"_ZTSN5boost8variant26detail20variant_ma_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !78, i64 0}
+!78 = !{!"_ZTSN5boost8variant26detail20variant_mc_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !79, i64 0}
+!79 = !{!"_ZTSN5boost8variant26detail20variant_ca_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !80, i64 0}
+!80 = !{!"_ZTSN5boost8variant26detail20variant_cc_base_implILb1ELb0EJNS_8optionalINS_4core17basic_string_viewIcEEEENS_6system10error_codeEEEE", !31, i64 0}
+!81 = !{!"_ZTSSt10_Head_baseILm0EN5boost6system6resultINS0_8optionalINS0_8variant27variantIJNS0_4core17basic_string_viewIcEEmEEEEENS1_10error_codeEEELb0EE", !82, i64 0}
+!82 = !{!"_ZTSN5boost6system6resultINS_8optionalINS_8variant27variantIJNS_4core17basic_string_viewIcEEmEEEEENS0_10error_codeEEE", !83, i64 0}
+!83 = !{!"_ZTSN5boost8variant27variantIJNS_8optionalINS1_IJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !84, i64 0}
+!84 = !{!"_ZTSN5boost8variant26detail20variant_ma_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !85, i64 0}
+!85 = !{!"_ZTSN5boost8variant26detail20variant_mc_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !86, i64 0}
+!86 = !{!"_ZTSN5boost8variant26detail20variant_ca_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !87, i64 0}
+!87 = !{!"_ZTSN5boost8variant26detail20variant_cc_base_implILb1ELb0EJNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEENS_6system10error_codeEEEE", !47, i64 0}
+!88 = !{!89, !91}
+!89 = distinct !{!89, !90, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_: argument 0"}
+!90 = distinct !{!90, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_"}
+!91 = distinct !{!91, !92, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_: argument 0"}
+!92 = distinct !{!92, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_"}
+!93 = !{!94, !96, !89, !91}
+!94 = distinct !{!94, !95, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
+!95 = distinct !{!95, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
+!96 = distinct !{!96, !97, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_: argument 0"}
+!97 = distinct !{!97, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_"}
+!98 = !{!99, !94, !96, !89, !91}
+!99 = distinct !{!99, !100, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
+!100 = distinct !{!100, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
+!101 = !{!102, !9, i64 24}
+!102 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJmNS_6system10error_codeEEEE", !5, i64 0, !9, i64 24}
+!103 = !{!104, !106, !99, !94, !96, !89, !91}
+!104 = distinct !{!104, !105, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!105 = distinct !{!105, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!106 = distinct !{!106, !107, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE: argument 0"}
+!107 = distinct !{!107, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE"}
+!108 = !{!109}
 !109 = distinct !{!109, !110, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
 !110 = distinct !{!110, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!111 = distinct !{!111, !112, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE: argument 0"}
-!112 = distinct !{!112, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE"}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!115 = distinct !{!115, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!118 = distinct !{!118, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!113 = distinct !{!113, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!116 = distinct !{!116, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!117 = distinct !{!117, !118}
+!118 = !{!"llvm.loop.mustprogress"}
 !119 = !{!120}
 !120 = distinct !{!120, !121, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
 !121 = distinct !{!121, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!122 = distinct !{!122, !123}
-!123 = !{!"llvm.loop.mustprogress"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!126 = distinct !{!126, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!129 = distinct !{!129, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!130 = !{!131, !133}
-!131 = distinct !{!131, !132, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEE5parseERPKcSD_: argument 0"}
-!132 = distinct !{!132, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEE5parseERPKcSD_"}
-!133 = distinct !{!133, !134, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_: argument 0"}
-!134 = distinct !{!134, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_"}
-!135 = !{!136, !131, !133}
-!136 = distinct !{!136, !137, !"_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_: argument 0"}
-!137 = distinct !{!137, !"_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_"}
-!138 = !{!139, !141}
-!139 = distinct !{!139, !140, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
-!140 = distinct !{!140, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
-!141 = distinct !{!141, !142, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
-!142 = distinct !{!142, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
-!143 = !{!144, !139, !141}
-!144 = distinct !{!144, !145, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
-!145 = distinct !{!145, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}
-!146 = !{!147, !4, i64 0}
-!147 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEE", !4, i64 0, !148, i64 8}
-!148 = !{!"_ZTSN5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEEE", !149, i64 0}
-!149 = !{!"_ZTSN5boost8variant27variantIJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !150, i64 0}
-!150 = !{!"_ZTSN5boost8variant26detail20variant_ma_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !151, i64 0}
-!151 = !{!"_ZTSN5boost8variant26detail20variant_mc_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !152, i64 0}
-!152 = !{!"_ZTSN5boost8variant26detail20variant_ca_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !153, i64 0}
-!153 = !{!"_ZTSN5boost8variant26detail20variant_cc_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !24, i64 0}
-!154 = !{!155, !157}
-!155 = distinct !{!155, !156, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
-!156 = distinct !{!156, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
-!157 = distinct !{!157, !158, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
-!158 = distinct !{!158, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
-!159 = !{!160, !155, !157}
-!160 = distinct !{!160, !161, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
-!161 = distinct !{!161, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}
-!162 = !{!163, !165}
-!163 = distinct !{!163, !164, !"_ZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_: argument 0"}
-!164 = distinct !{!164, !"_ZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_"}
-!165 = distinct !{!165, !166, !"_ZN5boost4urls7grammar5parseINS0_6detail18format_spec_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_: argument 0"}
-!166 = distinct !{!166, !"_ZN5boost4urls7grammar5parseINS0_6detail18format_spec_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_"}
-!167 = !{!168, !170, !163, !165}
-!168 = distinct !{!168, !169, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_: argument 0"}
-!169 = distinct !{!169, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_"}
-!170 = distinct !{!170, !171, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_: argument 0"}
-!171 = distinct !{!171, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_"}
-!172 = !{!173, !4, i64 24}
-!173 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEJNS4_15optional_rule_tINS4_12token_rule_tIS6_EEEEEEE", !34, i64 0, !4, i64 24, !174, i64 32}
-!174 = !{!"_ZTSSt5tupleIJN5boost6system6resultINS0_4core17basic_string_viewIcEENS1_10error_codeEEENS2_INS0_8optionalIS5_EES6_EEEE", !175, i64 0}
-!175 = !{!"_ZTSSt11_Tuple_implILm0EJN5boost6system6resultINS0_4core17basic_string_viewIcEENS1_10error_codeEEENS2_INS0_8optionalIS5_EES6_EEEE", !78, i64 0, !176, i64 32}
-!176 = !{!"_ZTSSt10_Head_baseILm0EN5boost6system6resultINS0_4core17basic_string_viewIcEENS1_10error_codeEEELb0EE", !148, i64 0}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
-!179 = distinct !{!179, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
-!180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZNK5boost4urls7grammar22implementation_defined13cs_delim_ruleINS1_9lut_charsEE5parseERPKcS7_: argument 0"}
-!182 = distinct !{!182, !"_ZNK5boost4urls7grammar22implementation_defined13cs_delim_ruleINS1_9lut_charsEE5parseERPKcS7_"}
-!183 = !{!181, !178}
-!184 = !{!185, !181, !178}
-!185 = distinct !{!185, !186, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!186 = distinct !{!186, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!187 = !{!188, !181, !178}
-!188 = distinct !{!188, !189, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!189 = distinct !{!189, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!190 = !{!191, !193}
-!191 = distinct !{!191, !192, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_: argument 0"}
-!192 = distinct !{!192, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_"}
-!193 = distinct !{!193, !194, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_: argument 0"}
-!194 = distinct !{!194, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!124 = distinct !{!124, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!125 = !{!126, !128}
+!126 = distinct !{!126, !127, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEE5parseERPKcSD_: argument 0"}
+!127 = distinct !{!127, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEE5parseERPKcSD_"}
+!128 = distinct !{!128, !129, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_: argument 0"}
+!129 = distinct !{!129, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12tuple_rule_tINS3_14squelch_rule_tINS3_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEEEEEENS_6system6resultINT_10value_typeENSD_10error_codeEEERPKcSK_RKSF_"}
+!130 = !{!131, !126, !128}
+!131 = distinct !{!131, !132, !"_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_: argument 0"}
+!132 = distinct !{!132, !"_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_14squelch_rule_tINS2_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEE5parseERPKcSB_"}
+!133 = !{!134, !136}
+!134 = distinct !{!134, !135, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
+!135 = distinct !{!135, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
+!136 = distinct !{!136, !137, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
+!137 = distinct !{!137, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
+!138 = !{!139, !134, !136}
+!139 = distinct !{!139, !140, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
+!140 = distinct !{!140, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}
+!141 = !{!142, !4, i64 0}
+!142 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS0_6detail18format_spec_rule_tEEEE", !4, i64 0, !143, i64 8}
+!143 = !{!"_ZTSN5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEEE", !144, i64 0}
+!144 = !{!"_ZTSN5boost8variant27variantIJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !145, i64 0}
+!145 = !{!"_ZTSN5boost8variant26detail20variant_ma_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !146, i64 0}
+!146 = !{!"_ZTSN5boost8variant26detail20variant_mc_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !147, i64 0}
+!147 = !{!"_ZTSN5boost8variant26detail20variant_ca_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !148, i64 0}
+!148 = !{!"_ZTSN5boost8variant26detail20variant_cc_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !24, i64 0}
+!149 = !{!150, !152}
+!150 = distinct !{!150, !151, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
+!151 = distinct !{!151, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
+!152 = distinct !{!152, !153, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
+!153 = distinct !{!153, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
+!154 = !{!155, !150, !152}
+!155 = distinct !{!155, !156, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
+!156 = distinct !{!156, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}
+!157 = !{!158, !160}
+!158 = distinct !{!158, !159, !"_ZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_: argument 0"}
+!159 = distinct !{!159, !"_ZNK5boost4urls6detail18format_spec_rule_t5parseERPKcS4_"}
+!160 = distinct !{!160, !161, !"_ZN5boost4urls7grammar5parseINS0_6detail18format_spec_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_: argument 0"}
+!161 = distinct !{!161, !"_ZN5boost4urls7grammar5parseINS0_6detail18format_spec_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_"}
+!162 = !{!163, !165, !158, !160}
+!163 = distinct !{!163, !164, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_: argument 0"}
+!164 = distinct !{!164, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_"}
+!165 = distinct !{!165, !166, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_: argument 0"}
+!166 = distinct !{!166, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_"}
+!167 = !{!168, !4, i64 24}
+!168 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEJNS4_15optional_rule_tINS4_12token_rule_tIS6_EEEEEEE", !34, i64 0, !4, i64 24, !169, i64 32}
+!169 = !{!"_ZTSSt5tupleIJN5boost6system6resultINS0_4core17basic_string_viewIcEENS1_10error_codeEEENS2_INS0_8optionalIS5_EES6_EEEE", !170, i64 0}
+!170 = !{!"_ZTSSt11_Tuple_implILm0EJN5boost6system6resultINS0_4core17basic_string_viewIcEENS1_10error_codeEEENS2_INS0_8optionalIS5_EES6_EEEE", !73, i64 0, !171, i64 32}
+!171 = !{!"_ZTSSt10_Head_baseILm0EN5boost6system6resultINS0_4core17basic_string_viewIcEENS1_10error_codeEEELb0EE", !143, i64 0}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
+!174 = distinct !{!174, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined13cs_delim_ruleINS1_9lut_charsEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"_ZNK5boost4urls7grammar22implementation_defined13cs_delim_ruleINS1_9lut_charsEE5parseERPKcS7_: argument 0"}
+!177 = distinct !{!177, !"_ZNK5boost4urls7grammar22implementation_defined13cs_delim_ruleINS1_9lut_charsEE5parseERPKcS7_"}
+!178 = !{!176, !173}
+!179 = !{!180, !176, !173}
+!180 = distinct !{!180, !181, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!181 = distinct !{!181, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!182 = !{!183, !176, !173}
+!183 = distinct !{!183, !184, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!184 = distinct !{!184, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!185 = !{!186, !188}
+!186 = distinct !{!186, !187, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_: argument 0"}
+!187 = distinct !{!187, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_12token_rule_tINS1_9lut_charsEEEE5parseERPKcS9_"}
+!188 = distinct !{!188, !189, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_: argument 0"}
+!189 = distinct !{!189, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_12token_rule_tINS1_9lut_charsEEEEEEENS_6system6resultINT_10value_typeENS9_10error_codeEEERPKcSG_RKSB_"}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!192 = distinct !{!192, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!193 = distinct !{!193, !118}
+!194 = distinct !{!194, !118}
 !195 = !{!196}
 !196 = distinct !{!196, !197, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
 !197 = distinct !{!197, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!198 = distinct !{!198, !123}
-!199 = distinct !{!199, !123}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!202 = distinct !{!202, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!203 = !{!204, !206}
-!204 = distinct !{!204, !205, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
-!205 = distinct !{!205, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
-!206 = distinct !{!206, !207, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
-!207 = distinct !{!207, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
-!208 = !{!209, !204, !206}
-!209 = distinct !{!209, !210, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
-!210 = distinct !{!210, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv: argument 0"}
-!213 = distinct !{!213, !"_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv"}
-!214 = !{!215, !4, i64 0}
-!215 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EEE", !4, i64 0, !87, i64 8}
-!216 = !{!217, !219}
-!217 = distinct !{!217, !218, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_: argument 0"}
-!218 = distinct !{!218, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_"}
-!219 = distinct !{!219, !220, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_: argument 0"}
-!220 = distinct !{!220, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_"}
-!221 = !{!222, !224, !217, !219}
-!222 = distinct !{!222, !223, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
-!223 = distinct !{!223, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
-!224 = distinct !{!224, !225, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_: argument 0"}
-!225 = distinct !{!225, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_"}
-!226 = !{!227, !222, !224, !217, !219}
-!227 = distinct !{!227, !228, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
-!228 = distinct !{!228, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
-!229 = !{!230, !232, !227, !222, !224, !217, !219}
-!230 = distinct !{!230, !231, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
-!231 = distinct !{!231, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!232 = distinct !{!232, !233, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE: argument 0"}
-!233 = distinct !{!233, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE"}
-!234 = !{!235, !237}
-!235 = distinct !{!235, !236, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
-!236 = distinct !{!236, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
-!237 = distinct !{!237, !238, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
-!238 = distinct !{!238, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
-!239 = !{!240, !235, !237}
-!240 = distinct !{!240, !241, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
-!241 = distinct !{!241, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}
+!198 = !{!199, !201}
+!199 = distinct !{!199, !200, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
+!200 = distinct !{!200, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
+!201 = distinct !{!201, !202, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
+!202 = distinct !{!202, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
+!203 = !{!204, !199, !201}
+!204 = distinct !{!204, !205, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
+!205 = distinct !{!205, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv: argument 0"}
+!208 = distinct !{!208, !"_ZN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EE11make_resultEv"}
+!209 = !{!210, !4, i64 0}
+!210 = !{!"_ZTSN5boost4urls7grammar6detail14parse_sequenceILb0ENS1_22implementation_defined14squelch_rule_tINS4_13ch_delim_ruleEEEJNS4_15optional_rule_tINS4_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEES7_EEE", !4, i64 0, !82, i64 8}
+!211 = !{!212, !214}
+!212 = distinct !{!212, !213, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_: argument 0"}
+!213 = distinct !{!213, !"_ZNK5boost4urls7grammar22implementation_defined15optional_rule_tINS2_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEE5parseERPKcSC_"}
+!214 = distinct !{!214, !215, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_: argument 0"}
+!215 = distinct !{!215, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined15optional_rule_tINS3_14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEEEEEEENS_6system6resultINT_10value_typeENSC_10error_codeEEERPKcSJ_RKSE_"}
+!216 = !{!217, !219, !212, !214}
+!217 = distinct !{!217, !218, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
+!218 = distinct !{!218, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm0EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
+!219 = distinct !{!219, !220, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_: argument 0"}
+!220 = distinct !{!220, !"_ZNK5boost4urls7grammar22implementation_defined14variant_rule_tINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEEE5parseERPKcSA_"}
+!221 = !{!222, !217, !219, !212, !214}
+!222 = distinct !{!222, !223, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE: argument 0"}
+!223 = distinct !{!223, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm1EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb1EE"}
+!224 = !{!225, !227, !222, !217, !219, !212, !214}
+!225 = distinct !{!225, !226, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
+!226 = distinct !{!226, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
+!227 = distinct !{!227, !228, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE: argument 0"}
+!228 = distinct !{!228, !"_ZN5boost4urls7grammar6detail13parse_variantINS0_6detail17identifier_rule_tEJNS1_13unsigned_ruleImEEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS8_10error_codeEEERPKcSL_RKNS2_5tupleIJSC_DpSE_EEERKSt17integral_constantImXT1_EERKSS_IbLb0EE"}
+!229 = !{!230, !232}
+!230 = distinct !{!230, !231, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_: argument 0"}
+!231 = distinct !{!231, !"_ZNK5boost4urls7grammar22implementation_defined14squelch_rule_tINS2_13ch_delim_ruleEE5parseERPKcS7_"}
+!232 = distinct !{!232, !233, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_: argument 0"}
+!233 = distinct !{!233, !"_ZN5boost4urls7grammar5parseINS1_22implementation_defined14squelch_rule_tINS3_13ch_delim_ruleEEEEENS_6system6resultINT_10value_typeENS7_10error_codeEEERPKcSE_RKS9_"}
+!234 = !{!235, !230, !232}
+!235 = distinct !{!235, !236, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv: argument 0"}
+!236 = distinct !{!236, !"_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv"}

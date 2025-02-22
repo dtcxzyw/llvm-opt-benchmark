@@ -4578,29 +4578,27 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit16
   %.sroa.017.022 = phi ptr [ %.sroa.017.0, %_ZN4llvm11raw_ostreamlsEPKc.exit16 ], [ %.sroa.017.020, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %18 = icmp eq ptr %.sroa.017.022, null
-  %19 = getelementptr inbounds i8, ptr %.sroa.017.022, i64 -24
-  %20 = select i1 %18, ptr null, ptr %19
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext false) #21
-  %21 = load ptr, ptr %3, align 8, !tbaa !25
-  %22 = load ptr, ptr %5, align 8, !tbaa !30
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %24, label %26
+  %18 = getelementptr inbounds i8, ptr %.sroa.017.022, i64 -24
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext false) #21
+  %19 = load ptr, ptr %3, align 8, !tbaa !25
+  %20 = load ptr, ptr %5, align 8, !tbaa !30
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %.lr.ph
+  %23 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.26, i64 noundef 1) #21
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.26, i64 noundef 1) #21
+  store i8 10, ptr %20, align 1
+  %25 = load ptr, ptr %5, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store ptr %26, ptr %5, align 8, !tbaa !30
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
-26:                                               ; preds = %.lr.ph
-  store i8 10, ptr %22, align 1
-  %27 = load ptr, ptr %5, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %28, ptr %5, align 8, !tbaa !30
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
-
-_ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %24, %26
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 8
-  %.sroa.017.0 = load ptr, ptr %29, align 8, !tbaa !248
+_ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %22, %24
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 8
+  %.sroa.017.0 = load ptr, ptr %27, align 8, !tbaa !248
   %.not = icmp eq ptr %.sroa.017.0, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }

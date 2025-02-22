@@ -37016,51 +37016,47 @@ define weak_odr void @_ZN6casadi6MatrixINS_6SXElemEE6_rank1ERKS2_S4_S4_S4_(ptr d
   %spec.select.i = select i1 %11, ptr null, ptr %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = invoke noundef ptr @_ZNK6casadi8SparsitycvPKxEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %14 unwind label %32
+          to label %14 unwind label %29
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !15
-  %19 = icmp eq ptr %16, %18
-  %spec.select.i8 = select i1 %19, ptr null, ptr %16
-  invoke void @_ZN6casadi6SXElemC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %spec.select.i8)
-          to label %20 unwind label %32
+  invoke void @_ZN6casadi6SXElemC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %29
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  %22 = icmp eq ptr %19, %21
+  %spec.select.i9 = select i1 %22, ptr null, ptr %19
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !15
-  %25 = icmp eq ptr %22, %24
-  %spec.select.i9 = select i1 %25, ptr null, ptr %22
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !15
-  %30 = icmp eq ptr %27, %29
-  %spec.select.i10 = select i1 %30, ptr null, ptr %27
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %26 = load ptr, ptr %25, align 8, !tbaa !15
+  %27 = icmp eq ptr %24, %26
+  %spec.select.i10 = select i1 %27, ptr null, ptr %24
   invoke void @_ZN6casadi12casadi_rank1INS_6SXElemEEEvPT_PKxS2_PKS2_S7_(ptr noundef %spec.select.i, ptr noundef %13, ptr noundef nonnull %6, ptr noundef %spec.select.i9, ptr noundef %spec.select.i10)
-          to label %31 unwind label %34
+          to label %28 unwind label %31
 
-31:                                               ; preds = %20
+28:                                               ; preds = %17
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #33
   ret void
 
-32:                                               ; preds = %14, %5
-  %33 = landingpad { ptr, i32 }
+29:                                               ; preds = %14, %5
+  %30 = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %33
 
-34:                                               ; preds = %20
-  %35 = landingpad { ptr, i32 }
+31:                                               ; preds = %17
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #33
-  br label %36
+  br label %33
 
-36:                                               ; preds = %34, %32
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
+33:                                               ; preds = %31, %29
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   call void @_ZN6casadi6MatrixINS_6SXElemEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #33
   resume { ptr, i32 } %.pn
 }

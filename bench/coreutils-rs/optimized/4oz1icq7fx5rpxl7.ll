@@ -253,11 +253,11 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %.lr.ph
   br i1 %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit", label %24, !prof !52
 
 23:                                               ; preds = %19
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %12, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %12, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !49
   unreachable
 
 24:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.09, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.09, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !49
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit": ; preds = %21
@@ -318,11 +318,11 @@ _ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit: ; preds = %.lr.ph
   br i1 %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit", label %24, !prof !52
 
 23:                                               ; preds = %19
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %12, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !53
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %12, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !53
   unreachable
 
 24:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.09, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !53
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.09, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.10) #14, !noalias !53
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit": ; preds = %21
@@ -371,7 +371,7 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %5
   br label %7
 
 18:                                               ; preds = %14
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.05, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.11.llvm.7846452103397059031) #14
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.05, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5fd8174af0627d188e90879cd8b9b36.11.llvm.7846452103397059031) #14
   unreachable
 }
 

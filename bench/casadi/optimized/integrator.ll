@@ -16787,7 +16787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit816: ; preds = %_Z
 
 .lr.ph.preheader.i:                               ; preds = %1529
   %1532 = shl nuw i64 %1530, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %.2214, i8 0, i64 %1532, i1 false), !tbaa !342
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %780, i8 0, i64 %1532, i1 false), !tbaa !342
   br label %_ZN6casadi12casadi_clearIdEEvPT_x.exit
 
 _ZN6casadi12casadi_clearIdEEvPT_x.exit:           ; preds = %1529, %.lr.ph.preheader.i
@@ -47044,7 +47044,7 @@ _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit315:           ; preds = %.lr.ph.i.i.i.i311, 
 
 360:                                              ; preds = %_ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit315
   %361 = getelementptr inbounds i64, ptr %150, i64 %.pre402
-  %362 = call noundef i32 @_ZNK6casadi10Integrator16fquad_sp_reverseEPNS_12SpReverseMemEPyS3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef nonnull %12, ptr noundef %150, ptr noundef %361, ptr noundef %115, ptr noundef %.4, ptr noundef nonnull %.2185)
+  %362 = call noundef i32 @_ZNK6casadi10Integrator16fquad_sp_reverseEPNS_12SpReverseMemEPyS3_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef nonnull %12, ptr noundef %150, ptr noundef %361, ptr noundef %115, ptr noundef %.4, ptr noundef nonnull %316)
   %.not230 = icmp eq i32 %362, 0
   br i1 %.not230, label %._crit_edge400, label %.loopexit
 

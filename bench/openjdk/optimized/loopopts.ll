@@ -16067,9 +16067,7 @@ _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %_ZNK10Node_ArrayixE
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 232
   %154 = load ptr, ptr %153, align 8
   %155 = tail call noundef zeroext i8 %154(ptr noundef nonnull align 8 dereferenceable(92) %10) #9
-  %.not.i.i.i = icmp eq i8 %151, %155
-  %..i.i.i = select i1 %.not.i.i.i, ptr %143, ptr null
-  %156 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %..i.i.i, i32 noundef 0) #9
+  %156 = tail call noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52) %143, i32 noundef 0) #9
   %157 = icmp eq ptr %69, %156
   br i1 %157, label %158, label %_ZNK10Node_ArrayixEj.exit139.thread
 

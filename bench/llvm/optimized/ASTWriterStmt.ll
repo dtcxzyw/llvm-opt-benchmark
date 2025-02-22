@@ -26645,7 +26645,7 @@ _ZN5clang15ASTRecordWriter11writeUInt32Ej.exit354: ; preds = %864, %874
   br i1 %722, label %914, label %.critedge185
 
 914:                                              ; preds = %.critedge182
-  call void @_ZN5clang15ASTRecordWriter12writeStmtRefEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %721)
+  call void @_ZN5clang15ASTRecordWriter12writeStmtRefEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %719)
   br label %.critedge190
 
 .critedge185:                                     ; preds = %.critedge182

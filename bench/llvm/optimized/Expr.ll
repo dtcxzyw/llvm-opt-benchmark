@@ -1640,7 +1640,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang4Expr19ge
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
 40:                                               ; preds = %34
-  %41 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %30) #32
+  %41 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %29) #32
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %14, %10, %40, %37, %2
@@ -4438,7 +4438,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i
 
 81:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #32
-  call void @_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull %spec.select.i.i, i32 noundef 0)
+  call void @_ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef %spec.select.i.i, i32 noundef 0)
   %.sroa.0415.0.copyload = load i64, ptr %14, align 8, !tbaa !25
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !83
@@ -5349,7 +5349,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit265:              ; preds = %485, %487
   br i1 %.not183, label %._crit_edge, label %477, !llvm.loop !604
 
 494:                                              ; preds = %._crit_edge
-  %495 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i245) #32
+  %495 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %.tr509) #32
   %.not186 = icmp eq i32 %495, 0
   br i1 %.not186, label %.sink.split, label %496
 
@@ -5418,7 +5418,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit269:              ; preds = %510, %512
   br label %527
 
 527:                                              ; preds = %525, %523
-  %528 = call noundef i32 @_ZNK5clang13CXXMethodDecl15getRefQualifierEv(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i245)
+  %528 = call noundef i32 @_ZNK5clang13CXXMethodDecl15getRefQualifierEv(ptr noundef nonnull align 8 dereferenceable(168) %.tr509)
   switch i32 %528, label %531 [
     i32 1, label %.sink.split502
     i32 2, label %529
@@ -5560,7 +5560,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang9NamedDeclEEPKNS1_11DeclContextEEEbRKT0_.exit.
   br i1 %.not451, label %._crit_edge476, label %591
 
 ._crit_edge476:                                   ; preds = %.loopexit460, %_ZN4llvm15isa_and_nonnullIJN5clang9NamedDeclEEPKNS1_11DeclContextEEEbRKT0_.exit.thread
-  %590 = call noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationInfoEv(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i245) #32
+  %590 = call noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationInfoEv(ptr noundef nonnull align 8 dereferenceable(168) %.tr509) #32
   %.not188 = icmp eq ptr %590, null
   br i1 %.not188, label %.loopexit459, label %659
 

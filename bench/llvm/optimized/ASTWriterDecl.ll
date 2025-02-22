@@ -25038,8 +25038,8 @@ _ZNK5clang6Module13isNamedModuleEv.exit.i:        ; preds = %130, %126
 _ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.i: ; preds = %139
   %142 = call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %127) #21
   %143 = and i32 %142, -3
-  %.not6.i.i = icmp eq i32 %143, 0
-  br i1 %.not6.i.i, label %_ZL14isRequiredDeclPKN5clang4DeclERNS_10ASTContextEPNS_6ModuleE.exit.thread, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread12.i
+  %.not7.i.i = icmp eq i32 %143, 0
+  br i1 %.not7.i.i, label %_ZL14isRequiredDeclPKN5clang4DeclERNS_10ASTContextEPNS_6ModuleE.exit.thread, label %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread12.i
 
 _ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.thread12.i: ; preds = %_ZN5clang13serialization28isPartOfPerModuleInitializerEPKNS_4DeclE.exit.i, %139, %136
   %144 = call noundef zeroext i1 @_ZN5clang10ASTContext17DeclMustBeEmittedEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %127) #21
@@ -28620,7 +28620,7 @@ _ZN5clang15ASTRecordWriter11writeUInt32Ej.exit354: ; preds = %864, %874
   br i1 %722, label %914, label %.critedge185
 
 914:                                              ; preds = %.critedge182
-  call void @_ZN5clang15ASTRecordWriter12writeStmtRefEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %721)
+  call void @_ZN5clang15ASTRecordWriter12writeStmtRefEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %719)
   br label %.critedge190
 
 .critedge185:                                     ; preds = %.critedge182

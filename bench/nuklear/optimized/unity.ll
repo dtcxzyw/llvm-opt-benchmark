@@ -67223,8 +67223,8 @@ define range(i32 0, 2) i32 @nk_color_pick(ptr noundef %0, ptr noundef %1, i32 no
   %37 = insertelement <2 x float> poison, float %36, i64 0
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> %37, float %32, i64 1
   %38 = fadd float %30, %36
-  %.sroa.0.i.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %38, i64 0
-  %.sroa.0.i.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.i.sroa.0.0.vec.insert, float %32, i64 1
+  %.sroa.0.0.vec.insert133.i = insertelement <2 x float> poison, float %38, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert133.i, float %32, i64 1
   %.not130.i = icmp eq i32 %2, 1
   %39 = load <2 x float>, ptr %1, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -67323,7 +67323,7 @@ define range(i32 0, 2) i32 @nk_color_pick(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not130.i, label %94, label %108
 
 94:                                               ; preds = %93
-  %95 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.i.sroa.0.4.vec.insert, <2 x float> %.sroa.10.12.vec.insert.i, ptr noundef %21, i32 noundef 1)
+  %95 = tail call fastcc i32 @nk_button_behavior(ptr noundef nonnull %22, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.10.12.vec.insert.i, ptr noundef %21, i32 noundef 1)
   %.not91.i.i = icmp eq i32 %95, 0
   br i1 %.not91.i.i, label %108, label %96
 
@@ -67626,7 +67626,7 @@ nk_stroke_line.exit.i.i:                          ; preds = %209, %201
   br i1 %.not130.i, label %242, label %nk_stroke_line.exit77.i.i
 
 242:                                              ; preds = %nk_stroke_line.exit.i.i
-  tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %23, <2 x float> %.sroa.0.i.sroa.0.4.vec.insert, <2 x float> %.sroa.10.12.vec.insert.i, i32 -1, i32 -1, i32 -16777216, i32 -16777216)
+  tail call void @nk_fill_rect_multi_color(ptr noundef nonnull %23, <2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.10.12.vec.insert.i, i32 -1, i32 -1, i32 -16777216, i32 -16777216)
   %243 = load ptr, ptr %23, align 8, !tbaa !93
   %244 = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %243, i32 noundef 0, i64 noundef 32, i64 noundef 8)
   %.not.i.i76.i.i = icmp eq ptr %244, null

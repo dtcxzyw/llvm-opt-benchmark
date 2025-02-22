@@ -1092,7 +1092,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11runAnalysi
   br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_26NoThreadSafetyAnalysisAttrEEEbv.exit.thread, label %82
 
 82:                                               ; preds = %63
-  %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i.i) #23
+  %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %68) #23
   %84 = load ptr, ptr %83, align 8, !tbaa !8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !11
@@ -5102,7 +5102,7 @@ _ZL18findBlockLocationsPN5clang3CFGEPKNS_16PostOrderCFGViewERSt6vectorIN12_GLOBA
   br i1 %.not.i.i306, label %.critedge262, label %_ZNK5clang4Decl10attr_beginEv.exit.i
 
 _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %1487
-  %1497 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i.i) #23
+  %1497 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %68) #23
   %1498 = load ptr, ptr %1497, align 8, !tbaa !8
   %.pre.i307 = load i32, ptr %74, align 4
   %.pre2.i = and i32 %.pre.i307, 256
@@ -5110,7 +5110,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %1487
   br i1 %1499, label %_ZNK5clang4Decl5attrsEv.exit, label %1500
 
 1500:                                             ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i
-  %1501 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i.i) #23
+  %1501 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %68) #23
   %1502 = load ptr, ptr %1501, align 8, !tbaa !8
   %1503 = getelementptr inbounds nuw i8, ptr %1501, i64 8
   %1504 = load i32, ptr %1503, align 8, !tbaa !11
@@ -5138,7 +5138,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
 1513:                                             ; preds = %.lr.ph
   %1514 = call noundef zeroext i1 @_ZNK5clang22RequiresCapabilityAttr8isSharedEv(ptr noundef nonnull align 8 dereferenceable(48) %1508)
   %. = select i1 %1514, ptr %50, ptr %49
-  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang22RequiresCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %., ptr noundef nonnull %1508, ptr noundef null, ptr noundef nonnull %spec.select.i.i.i, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang22RequiresCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %., ptr noundef nonnull %1508, ptr noundef null, ptr noundef %spec.select.i.i.i, ptr noundef null)
   br label %.critedge260
 
 1515:                                             ; preds = %.lr.ph
@@ -5199,8 +5199,8 @@ _ZNK5clang21ReleaseCapabilityAttr8isSharedEv.exit.thread: ; preds = %_ZNK5clang1
 
 1541:                                             ; preds = %_ZNK5clang21ReleaseCapabilityAttr8isSharedEv.exit, %_ZNK5clang21ReleaseCapabilityAttr8isSharedEv.exit.thread
   %1542 = phi ptr [ %50, %_ZNK5clang21ReleaseCapabilityAttr8isSharedEv.exit.thread ], [ %49, %_ZNK5clang21ReleaseCapabilityAttr8isSharedEv.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang21ReleaseCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %1542, ptr noundef nonnull %1508, ptr noundef null, ptr noundef nonnull %spec.select.i.i.i, ptr noundef null)
-  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang21ReleaseCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %48, ptr noundef nonnull %1508, ptr noundef null, ptr noundef nonnull %spec.select.i.i.i, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang21ReleaseCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %1542, ptr noundef nonnull %1508, ptr noundef null, ptr noundef %spec.select.i.i.i, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang21ReleaseCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %48, ptr noundef nonnull %1508, ptr noundef null, ptr noundef %spec.select.i.i.i, ptr noundef null)
   br label %.critedge260
 
 1543:                                             ; preds = %1515
@@ -5281,7 +5281,7 @@ _ZNK5clang21AcquireCapabilityAttr8isSharedEv.exit.thread: ; preds = %_ZNK5clang1
 
 1579:                                             ; preds = %_ZNK5clang21AcquireCapabilityAttr8isSharedEv.exit, %_ZNK5clang21AcquireCapabilityAttr8isSharedEv.exit.thread
   %1580 = phi ptr [ %47, %_ZNK5clang21AcquireCapabilityAttr8isSharedEv.exit.thread ], [ %46, %_ZNK5clang21AcquireCapabilityAttr8isSharedEv.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang21AcquireCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %1580, ptr noundef nonnull %1508, ptr noundef null, ptr noundef nonnull %spec.select.i.i.i, ptr noundef null)
+  call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11getMutexIDsIKN5clang21AcquireCapabilityAttrEEEvRNS_10CapExprSetEPT_PKNS2_4ExprEPKNS2_9NamedDeclEPNS2_12threadSafety3til5SExprE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(112) %1580, ptr noundef nonnull %1508, ptr noundef null, ptr noundef %spec.select.i.i.i, ptr noundef null)
   br label %.critedge260
 
 1581:                                             ; preds = %1543
@@ -5320,13 +5320,13 @@ _ZNK5clang21AcquireCapabilityAttr8isSharedEv.exit.thread: ; preds = %_ZNK5clang1
   %1593 = load i32, ptr %74, align 4
   %1594 = and i32 %1593, 127
   %1595 = icmp eq i32 %1594, 16
-  %spec.select.i.i318 = select i1 %1595, ptr %spec.select.i.i.i, ptr null
-  %1596 = icmp ne ptr %spec.select.i.i318, null
+  %1596 = icmp ne ptr %spec.select.i.i.i, null
+  call void @llvm.assume(i1 %1595)
   call void @llvm.assume(i1 %1596)
-  %1597 = load ptr, ptr %spec.select.i.i318, align 8, !tbaa !131
+  %1597 = load ptr, ptr %68, align 8, !tbaa !131
   %1598 = getelementptr inbounds nuw i8, ptr %1597, i64 32
   %1599 = load ptr, ptr %1598, align 8
-  %1600 = call noundef ptr %1599(ptr noundef nonnull align 8 dereferenceable(136) %spec.select.i.i318) #23
+  %1600 = call noundef ptr %1599(ptr noundef nonnull align 8 dereferenceable(136) %68) #23
   %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 96
   %1602 = load ptr, ptr %1601, align 8, !tbaa !458
   %1603 = getelementptr inbounds nuw i8, ptr %1600, i64 104

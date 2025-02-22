@@ -2002,24 +2002,18 @@ declare void @_ZN4llvh14FoldingSetBase6anchorEv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh10FoldingSetIN6hermes6parser10JSONStringEE14GetNodeProfileEPNS_14FoldingSetBase4NodeERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %ID) unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = icmp eq ptr %N, null
-  %sub.ptr = getelementptr inbounds i8, ptr %N, i64 -8
-  %1 = select i1 %0, ptr null, ptr %sub.ptr
-  %value_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load ptr, ptr %value_.i.i, align 8
-  tail call void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnull align 8 dereferenceable(144) %ID, ptr noundef %2) #18
+  %value_.i.i = getelementptr inbounds nuw i8, ptr %N, i64 8
+  %0 = load ptr, ptr %value_.i.i, align 8
+  tail call void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnull align 8 dereferenceable(144) %ID, ptr noundef %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh10FoldingSetIN6hermes6parser10JSONStringEE10NodeEqualsEPNS_14FoldingSetBase4NodeERKNS_16FoldingSetNodeIDEjRS8_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %IDHash, ptr noundef nonnull align 8 dereferenceable(144) %TempID) unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = icmp eq ptr %N, null
-  %sub.ptr = getelementptr inbounds i8, ptr %N, i64 -8
-  %1 = select i1 %0, ptr null, ptr %sub.ptr
-  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load ptr, ptr %value_.i.i.i, align 8
-  tail call void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnull align 8 dereferenceable(144) %TempID, ptr noundef %2) #18
+  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %N, i64 8
+  %0 = load ptr, ptr %value_.i.i.i, align 8
+  tail call void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnull align 8 dereferenceable(144) %TempID, ptr noundef %0) #18
   %call.i = tail call noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %TempID, ptr noundef nonnull align 8 dereferenceable(144) %ID) #18
   ret i1 %call.i
 }
@@ -2027,12 +2021,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvh10FoldingSetIN6hermes6parser10JSONStringEE15ComputeNodeHashEPNS_14FoldingSetBase4NodeERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %TempID) unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = icmp eq ptr %N, null
-  %sub.ptr = getelementptr inbounds i8, ptr %N, i64 -8
-  %1 = select i1 %0, ptr null, ptr %sub.ptr
-  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load ptr, ptr %value_.i.i.i, align 8
-  tail call void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnull align 8 dereferenceable(144) %TempID, ptr noundef %2) #18
+  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %N, i64 8
+  %0 = load ptr, ptr %value_.i.i.i, align 8
+  tail call void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnull align 8 dereferenceable(144) %TempID, ptr noundef %0) #18
   %call.i = tail call noundef i32 @_ZNK4llvh16FoldingSetNodeID11ComputeHashEv(ptr noundef nonnull align 8 dereferenceable(144) %TempID) #18
   ret i32 %call.i
 }
@@ -2046,24 +2037,18 @@ declare noundef i32 @_ZNK4llvh16FoldingSetNodeID11ComputeHashEv(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh10FoldingSetIN6hermes6parser10JSONNumberEE14GetNodeProfileEPNS_14FoldingSetBase4NodeERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %ID) unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = icmp eq ptr %N, null
-  %sub.ptr = getelementptr inbounds i8, ptr %N, i64 -8
-  %1 = select i1 %0, ptr null, ptr %sub.ptr
-  %value_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load i64, ptr %value_.i.i, align 8
-  tail call void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %ID, i64 noundef %2) #18
+  %value_.i.i = getelementptr inbounds nuw i8, ptr %N, i64 8
+  %0 = load i64, ptr %value_.i.i, align 8
+  tail call void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %ID, i64 noundef %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh10FoldingSetIN6hermes6parser10JSONNumberEE10NodeEqualsEPNS_14FoldingSetBase4NodeERKNS_16FoldingSetNodeIDEjRS8_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %IDHash, ptr noundef nonnull align 8 dereferenceable(144) %TempID) unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = icmp eq ptr %N, null
-  %sub.ptr = getelementptr inbounds i8, ptr %N, i64 -8
-  %1 = select i1 %0, ptr null, ptr %sub.ptr
-  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load i64, ptr %value_.i.i.i, align 8
-  tail call void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %TempID, i64 noundef %2) #18
+  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %N, i64 8
+  %0 = load i64, ptr %value_.i.i.i, align 8
+  tail call void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %TempID, i64 noundef %0) #18
   %call.i = tail call noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %TempID, ptr noundef nonnull align 8 dereferenceable(144) %ID) #18
   ret i1 %call.i
 }
@@ -2071,12 +2056,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvh10FoldingSetIN6hermes6parser10JSONNumberEE15ComputeNodeHashEPNS_14FoldingSetBase4NodeERNS_16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %TempID) unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = icmp eq ptr %N, null
-  %sub.ptr = getelementptr inbounds i8, ptr %N, i64 -8
-  %1 = select i1 %0, ptr null, ptr %sub.ptr
-  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load i64, ptr %value_.i.i.i, align 8
-  tail call void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %TempID, i64 noundef %2) #18
+  %value_.i.i.i = getelementptr inbounds nuw i8, ptr %N, i64 8
+  %0 = load i64, ptr %value_.i.i.i, align 8
+  tail call void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %TempID, i64 noundef %0) #18
   %call.i = tail call noundef i32 @_ZNK4llvh16FoldingSetNodeID11ComputeHashEv(ptr noundef nonnull align 8 dereferenceable(144) %TempID) #18
   ret i32 %call.i
 }

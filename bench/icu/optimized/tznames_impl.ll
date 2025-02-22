@@ -3357,20 +3357,20 @@ if.then.i:                                        ; preds = %new.cont15
 invoke.cont17:                                    ; preds = %new.notnull7
   %.pre = load i32, ptr %status, align 4
   %3 = icmp sgt i32 %.pre, 0
-  br i1 %3, label %delete.notnull.i55, label %land.rhs.lr.ph
+  br i1 %3, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59.thread, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %invoke.cont17
   %count.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %i.098 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
+  %i.099 = phi i32 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
   %4 = load i32, ptr %count.i, align 8
-  %cmp28 = icmp slt i32 %i.098, %4
+  %cmp28 = icmp slt i32 %i.099, %4
   br i1 %cmp28, label %for.body, label %if.then44
 
 for.body:                                         ; preds = %land.rhs
-  %call30 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %call1, i32 noundef %i.098)
+  %call30 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %call1, i32 noundef %i.099)
           to label %invoke.cont29 unwind label %ehcleanup
 
 invoke.cont29:                                    ; preds = %for.body
@@ -3393,10 +3393,10 @@ lpad10:                                           ; preds = %new.notnull7
   br label %eh.resume
 
 for.inc:                                          ; preds = %invoke.cont33, %if.then36
-  %inc = add nuw nsw i32 %i.098, 1
+  %inc = add nuw nsw i32 %i.099, 1
   %7 = load i32, ptr %status, align 4
   %cmp.i21 = icmp sgt i32 %7, 0
-  br i1 %cmp.i21, label %delete.notnull.i55, label %land.rhs, !llvm.loop !19
+  br i1 %cmp.i21, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59.thread, label %land.rhs, !llvm.loop !19
 
 if.then44:                                        ; preds = %land.rhs
   %call45 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #21
@@ -3424,14 +3424,14 @@ cleanup.action56:                                 ; preds = %delete.notnull5.i, 
   %senum.sroa.0.2 = phi ptr [ null, %delete.notnull5.i ], [ %call45, %new.cont53 ]
   %10 = load ptr, ptr %agg.tmp, align 8
   %isnull.i31 = icmp eq ptr %10, null
-  br i1 %isnull.i31, label %if.end65, label %delete.notnull.i32
+  br i1 %isnull.i31, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, label %delete.notnull.i32
 
 delete.notnull.i32:                               ; preds = %cleanup.action56
   %vtable.i33 = load ptr, ptr %10, align 8
   %vfn.i34 = getelementptr inbounds nuw i8, ptr %vtable.i33, i64 8
   %11 = load ptr, ptr %vfn.i34, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(40) %10) #21
-  br label %if.end65
+  br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59
 
 lpad51:                                           ; preds = %new.notnull47
   %12 = landingpad { ptr, i32 }
@@ -3454,26 +3454,25 @@ ehcleanup.thread:                                 ; preds = %delete.notnull.i37,
 if.end65.critedge:                                ; preds = %if.then44
   %15 = load i32, ptr %status, align 4
   %cmp.i.i42 = icmp sgt i32 %15, 0
-  br i1 %cmp.i.i42, label %delete.notnull.i55, label %delete.end.i48
+  br i1 %cmp.i.i42, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59.thread, label %delete.end.i48
 
 delete.end.i48:                                   ; preds = %if.end65.critedge
   store i32 7, ptr %status, align 4
-  br label %delete.notnull.i55
+  br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59.thread
 
-if.end65:                                         ; preds = %delete.notnull.i32, %cleanup.action56
-  %16 = load i32, ptr %status, align 4
-  %cmp.i52 = icmp sgt i32 %16, 0
-  br i1 %cmp.i52, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, label %return
-
-delete.notnull.i55:                               ; preds = %for.inc, %invoke.cont17, %if.end65.critedge, %delete.end.i48
+_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59.thread: ; preds = %for.inc, %delete.end.i48, %if.end65.critedge, %invoke.cont17
   %vtable.i56 = load ptr, ptr %call5, align 8
   %vfn.i57 = getelementptr inbounds nuw i8, ptr %vtable.i56, i64 8
-  %17 = load ptr, ptr %vfn.i57, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(40) %call5) #21
+  %16 = load ptr, ptr %vfn.i57, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(40) %call5) #21
   br label %return
 
-_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59: ; preds = %if.end65
-  %isnull.i60 = icmp eq ptr %senum.sroa.0.2, null
+_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59: ; preds = %cleanup.action56, %delete.notnull.i32
+  %17 = load i32, ptr %status, align 4
+  %cmp.i52 = icmp slt i32 %17, 1
+  %spec.select96 = select i1 %cmp.i52, ptr %senum.sroa.0.2, ptr null
+  %isnull.i6097 = icmp eq ptr %senum.sroa.0.2, null
+  %isnull.i60 = or i1 %isnull.i6097, %cmp.i52
   br i1 %isnull.i60, label %return, label %delete.notnull.i61
 
 delete.notnull.i61:                               ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59
@@ -3501,8 +3500,8 @@ delete.notnull.i66:                               ; preds = %ehcleanup, %ehclean
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(40) %call5) #21
   br label %eh.resume
 
-return:                                           ; preds = %delete.notnull.i55, %if.end65, %new.cont15, %if.then.i, %delete.notnull.i61, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, %if.then2, %new.notnull, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then2 ], [ %call3, %new.notnull ], [ null, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59 ], [ null, %delete.notnull.i61 ], [ null, %if.then.i ], [ null, %new.cont15 ], [ null, %delete.notnull.i55 ], [ %senum.sroa.0.2, %if.end65 ]
+return:                                           ; preds = %if.then.i, %new.cont15, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59.thread, %delete.notnull.i61, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59, %if.then2, %new.notnull, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.then2 ], [ %call3, %new.notnull ], [ %spec.select96, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59 ], [ %spec.select96, %delete.notnull.i61 ], [ null, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit59.thread ], [ null, %new.cont15 ], [ null, %if.then.i ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %delete.notnull.i66, %ehcleanup.thread, %lpad10, %lpad

@@ -835,7 +835,7 @@ _ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit: ; preds = %1
   %22 = call noundef ptr @_ZNK4llvm9sandboxir10BBIterator8getInstrENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread, label %36
+  br i1 %23, label %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread, label %34
 
 _ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread: ; preds = %1, %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit
   %24 = load ptr, ptr %5, align 8, !tbaa !3
@@ -847,28 +847,24 @@ _ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread: ; preds = %1, %_ZNK
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8, !tbaa !29
-  %33 = icmp eq ptr %32, null
-  %34 = getelementptr inbounds i8, ptr %32, i64 -24
-  %35 = select i1 %33, ptr null, ptr %34
-  br label %48
+  %33 = getelementptr inbounds i8, ptr %32, i64 -24
+  br label %44
 
-36:                                               ; preds = %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit
-  %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !14
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !29
-  %44 = icmp eq ptr %43, %41
-  %45 = icmp eq ptr %43, null
-  %46 = getelementptr inbounds i8, ptr %43, i64 -24
-  %47 = or i1 %44, %45
-  %.0.i.i = select i1 %47, ptr null, ptr %46
-  br label %48
+34:                                               ; preds = %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %38 = load ptr, ptr %37, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !29
+  %42 = icmp eq ptr %41, %39
+  %43 = getelementptr inbounds i8, ptr %41, i64 -24
+  %spec.select.i.i = select i1 %42, ptr null, ptr %43
+  br label %44
 
-48:                                               ; preds = %36, %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread
-  %.0 = phi ptr [ %35, %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread ], [ %.0.i.i, %36 ]
+44:                                               ; preds = %34, %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread
+  %.0 = phi ptr [ %33, %_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv.exit.thread ], [ %spec.select.i.i, %34 ]
   ret ptr %.0
 }
 
@@ -983,14 +979,12 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir11Instruction11getNextNodeEv(pt
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = icmp eq ptr %8, %6
-  %10 = icmp eq ptr %8, null
-  %11 = getelementptr inbounds i8, ptr %8, i64 -24
-  %12 = or i1 %9, %10
-  %.0.i.i = select i1 %12, ptr null, ptr %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !18
-  %15 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %14, ptr noundef %.0.i.i) #18
-  ret ptr %15
+  %10 = getelementptr inbounds i8, ptr %8, i64 -24
+  %spec.select.i.i = select i1 %9, ptr null, ptr %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
+  %13 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %12, ptr noundef %spec.select.i.i) #18
+  ret ptr %13
 }
 
 declare noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #5

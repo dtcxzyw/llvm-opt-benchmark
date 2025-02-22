@@ -7370,7 +7370,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hcef167fb2a
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hf7e4b9418d8c3283E.exit"
-  %39 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h685ee2e0aa583146E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.67d7a2358c9ff13cddc2d8934df242e6.53.llvm.9059106379889279541)
+  %39 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h685ee2e0aa583146E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.67d7a2358c9ff13cddc2d8934df242e6.53.llvm.9059106379889279541)
           to label %"_ZN4core3ptr71drop_in_place$LT$$LP$gpui..taffy..LayoutId$C$gpui..style..Style$RP$$GT$17h53a93a8377ddf702E.exit" unwind label %44
 
 40:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hf7e4b9418d8c3283E.exit"
@@ -8471,7 +8471,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf1de99b3d3
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hac847d9cb0d08426E.exit"
-  %38 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hcc6a0dfa8dffa96fE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.67d7a2358c9ff13cddc2d8934df242e6.53.llvm.9059106379889279541)
+  %38 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hcc6a0dfa8dffa96fE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.67d7a2358c9ff13cddc2d8934df242e6.53.llvm.9059106379889279541)
           to label %.noexc.i unwind label %49
 
 .noexc.i:                                         ; preds = %37

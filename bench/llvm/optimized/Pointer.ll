@@ -770,13 +770,13 @@ _ZNK5clang6interp10Descriptor11asValueDeclEv.exit: ; preds = %96
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %.pre455
   %102 = icmp ne ptr %.0.i.i.i.i, null
   call void @llvm.assume(i1 %102)
-  %103 = load i16, ptr %.0.i.i.i.i, align 8
+  %103 = load i16, ptr %.pre455, align 8
   %104 = and i16 %103, 511
   %.not = icmp eq i16 %104, 108
   br i1 %.not, label %105, label %151
 
 105:                                              ; preds = %.thread375._crit_edge
-  %106 = load i32, ptr %.0.i.i.i.i, align 8
+  %106 = load i32, ptr %.pre455, align 8
   %107 = and i32 %106, 1048576
   %.not426 = icmp eq i32 %107, 0
   br i1 %.not426, label %135, label %108
@@ -869,7 +869,7 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit87: ; preds = %135, %142
 
 151:                                              ; preds = %.thread375._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #20
-  call void @_ZN5clang7APValue10LValueBaseC1EPKNS_4ExprEjj(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %.0.i.i.i.i, i32 noundef 0, i32 noundef 0) #20
+  call void @_ZN5clang7APValue10LValueBaseC1EPKNS_4ExprEjj(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %.pre455, i32 noundef 0, i32 noundef 0) #20
   %.sroa.0358.0.copyload359 = load i64, ptr %15, align 8
   %.sroa.9.0..sroa_idx360 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.9.0.copyload361 = load ptr, ptr %.sroa.9.0..sroa_idx360, align 8
@@ -1517,7 +1517,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit8.i:         ; preds = %439, %438
   br i1 %.not.i.i.i.i168, label %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i.i, label %449
 
 449:                                              ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit8.i
-  %450 = call noundef ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i158) #20
+  %450 = call noundef ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(80) %402) #20
   br label %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i.i
 
 _ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i.i: ; preds = %449, %_ZNK5clang9FieldDecl9getParentEv.exit8.i
@@ -2263,7 +2263,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit8.i296:      ; preds = %731, %730
   br i1 %.not.i.i.i.i299, label %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i.i300, label %741
 
 741:                                              ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit8.i296
-  %742 = call noundef ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i282) #20
+  %742 = call noundef ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(80) %680) #20
   br label %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i.i300
 
 _ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i.i300: ; preds = %741, %_ZNK5clang9FieldDecl9getParentEv.exit8.i296

@@ -12140,15 +12140,15 @@ _ZNK5clang4Type24isObjCQualifiedClassTypeEv.exit.thread.i: ; preds = %_ZNK5clang
 
 _ZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbb.exit: ; preds = %24, %44, %"_ZZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbbENK3$_0clES2_.exit37.i", %139, %"_ZZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbbENK3$_0clES2_.exit", %16
   %.sroa.025.0.i = phi i64 [ %17, %16 ], [ %26, %24 ], [ %spec.select.i36.i, %"_ZZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbbENK3$_0clES2_.exit37.i" ], [ %141, %139 ], [ %spec.select.i, %"_ZZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbbENK3$_0clES2_.exit" ], [ %spec.select.i.i, %44 ]
-  br i1 %4, label %151, label %191
+  br i1 %4, label %151, label %189
 
 151:                                              ; preds = %_ZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbb.exit
   %.not47 = icmp eq ptr %1, null
-  br i1 %.not47, label %236, label %152
+  br i1 %.not47, label %234, label %152
 
 152:                                              ; preds = %151
   %153 = call noundef zeroext i1 @_ZNK5clang4Expr14isObjCSelfExprEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
-  br i1 %153, label %154, label %236
+  br i1 %153, label %154, label %234
 
 154:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20
@@ -12174,7 +12174,7 @@ _ZN5clang10ASTContext19getObjCInstanceTypeEv.exit: ; preds = %160, %163
   %.sroa.0.0.i.i = phi i64 [ %164, %163 ], [ %162, %160 ]
   %.0.copyload.i.i.i.i = load i64, ptr %10, align 8
   %165 = icmp eq i64 %.0.copyload.i.i.i.i, %.sroa.0.0.i.i
-  br i1 %165, label %166, label %190
+  br i1 %165, label %166, label %188
 
 166:                                              ; preds = %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit
   %167 = call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #21
@@ -12194,113 +12194,111 @@ _ZN5clang10ASTContext19getObjCInstanceTypeEv.exit: ; preds = %160, %163
 
 _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %166, %175
   %.0.i.i = phi ptr [ %176, %175 ], [ %174, %166 ]
-  %177 = icmp eq ptr %.0.i.i, null
-  %178 = getelementptr inbounds i8, ptr %.0.i.i, i64 -48
-  %179 = select i1 %177, ptr null, ptr %178
-  %180 = call noundef ptr @_ZN5clang14ObjCMethodDecl17getClassInterfaceEv(ptr noundef nonnull align 8 dereferenceable(136) %179) #20
-  %181 = call i64 @_ZNK5clang10ASTContext20getObjCInterfaceTypeEPKNS_17ObjCInterfaceDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(23216) %11, ptr noundef %180, ptr noundef null) #20
-  %182 = call i64 @_ZNK5clang10ASTContext24getObjCObjectPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %11, i64 %181) #20
-  %183 = and i64 %.sroa.025.0.i, -16
-  %184 = inttoptr i64 %183 to ptr
-  %185 = load ptr, ptr %184, align 16, !tbaa !1137
-  %186 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %185) #20
-  %187 = and i16 %186, 256
-  %.not109 = icmp eq i16 %187, 0
-  br i1 %.not109, label %.thread, label %188
+  %177 = getelementptr inbounds i8, ptr %.0.i.i, i64 -48
+  %178 = call noundef ptr @_ZN5clang14ObjCMethodDecl17getClassInterfaceEv(ptr noundef nonnull align 8 dereferenceable(136) %177) #20
+  %179 = call i64 @_ZNK5clang10ASTContext20getObjCInterfaceTypeEPKNS_17ObjCInterfaceDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(23216) %11, ptr noundef %178, ptr noundef null) #20
+  %180 = call i64 @_ZNK5clang10ASTContext24getObjCObjectPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %11, i64 %179) #20
+  %181 = and i64 %.sroa.025.0.i, -16
+  %182 = inttoptr i64 %181 to ptr
+  %183 = load ptr, ptr %182, align 16, !tbaa !1137
+  %184 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %183) #20
+  %185 = and i16 %184, 256
+  %.not109 = icmp eq i16 %185, 0
+  br i1 %.not109, label %.thread, label %186
 
-188:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
-  %.sroa.073.0.extract.trunc = trunc i16 %186 to i8
-  %189 = call i64 @_ZN5clang10ASTContext17getAttributedTypeENS_15NullabilityKindENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(23216) %11, i8 noundef zeroext %.sroa.073.0.extract.trunc, i64 %182, i64 %182) #20
+186:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
+  %.sroa.073.0.extract.trunc = trunc i16 %184 to i8
+  %187 = call i64 @_ZN5clang10ASTContext17getAttributedTypeENS_15NullabilityKindENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(23216) %11, i8 noundef zeroext %.sroa.073.0.extract.trunc, i64 %180, i64 %180) #20
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %188
-  %.sroa.035.1.ph = phi i64 [ %182, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %189, %188 ]
+.thread:                                          ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %186
+  %.sroa.035.1.ph = phi i64 [ %180, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %187, %186 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  br label %236
+  br label %234
 
-190:                                              ; preds = %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit
+188:                                              ; preds = %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  br label %236
+  br label %234
 
-191:                                              ; preds = %_ZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbb.exit
-  %192 = and i64 %.sroa.025.0.i, -16
-  %193 = inttoptr i64 %192 to ptr
-  %194 = load ptr, ptr %193, align 16, !tbaa !1137
-  %195 = call noundef zeroext i1 @_ZNK5clang4Type18canHaveNullabilityEb(ptr noundef nonnull align 16 dereferenceable(24) %194, i1 noundef zeroext true) #20
-  br i1 %195, label %196, label %236
+189:                                              ; preds = %_ZL28getBaseMessageSendResultTypeRN5clang4SemaENS_8QualTypeEPNS_14ObjCMethodDeclEbb.exit
+  %190 = and i64 %.sroa.025.0.i, -16
+  %191 = inttoptr i64 %190 to ptr
+  %192 = load ptr, ptr %191, align 16, !tbaa !1137
+  %193 = call noundef zeroext i1 @_ZNK5clang4Type18canHaveNullabilityEb(ptr noundef nonnull align 16 dereferenceable(24) %192, i1 noundef zeroext true) #20
+  br i1 %193, label %194, label %234
 
-196:                                              ; preds = %191
-  %197 = and i64 %2, -16
-  %198 = inttoptr i64 %197 to ptr
-  %199 = load ptr, ptr %198, align 16, !tbaa !1137
-  %200 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %199) #20
-  %.sroa.067.0.extract.trunc = trunc i16 %200 to i8
-  %201 = and i16 %200, 256
-  %.not105 = icmp eq i16 %201, 0
-  %202 = icmp eq i8 %.sroa.067.0.extract.trunc, 3
-  %spec.select = select i1 %202, i8 1, i8 %.sroa.067.0.extract.trunc
-  %203 = zext i8 %spec.select to i64
-  %204 = add nuw nsw i64 %203, 1
-  %.041 = select i1 %.not105, i64 0, i64 %204
-  %205 = load ptr, ptr %193, align 16, !tbaa !1137
-  %206 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %205) #20
-  %.sroa.059.0.extract.trunc = trunc i16 %206 to i8
-  %207 = and i16 %206, 256
-  %.not106 = icmp eq i16 %207, 0
-  %208 = icmp eq i8 %.sroa.059.0.extract.trunc, 3
-  %spec.select104 = select i1 %208, i8 1, i8 %.sroa.059.0.extract.trunc
-  %209 = zext i8 %spec.select104 to i32
-  %210 = add nuw nsw i32 %209, 1
-  %.042 = select i1 %.not106, i32 0, i32 %210
-  %211 = zext nneg i32 %.042 to i64
-  %212 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZZN5clang8SemaObjC24getMessageSendResultTypeEPKNS_4ExprENS_8QualTypeEPNS_14ObjCMethodDeclEbbE14nullabilityMap, i64 0, i64 %.041, i64 %211
-  %213 = load i8, ptr %212, align 1, !tbaa !45
-  %214 = zext i8 %213 to i32
-  %215 = icmp eq i32 %.042, %214
-  br i1 %215, label %236, label %.preheader
+194:                                              ; preds = %189
+  %195 = and i64 %2, -16
+  %196 = inttoptr i64 %195 to ptr
+  %197 = load ptr, ptr %196, align 16, !tbaa !1137
+  %198 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %197) #20
+  %.sroa.067.0.extract.trunc = trunc i16 %198 to i8
+  %199 = and i16 %198, 256
+  %.not105 = icmp eq i16 %199, 0
+  %200 = icmp eq i8 %.sroa.067.0.extract.trunc, 3
+  %spec.select = select i1 %200, i8 1, i8 %.sroa.067.0.extract.trunc
+  %201 = zext i8 %spec.select to i64
+  %202 = add nuw nsw i64 %201, 1
+  %.041 = select i1 %.not105, i64 0, i64 %202
+  %203 = load ptr, ptr %191, align 16, !tbaa !1137
+  %204 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %203) #20
+  %.sroa.059.0.extract.trunc = trunc i16 %204 to i8
+  %205 = and i16 %204, 256
+  %.not106 = icmp eq i16 %205, 0
+  %206 = icmp eq i8 %.sroa.059.0.extract.trunc, 3
+  %spec.select104 = select i1 %206, i8 1, i8 %.sroa.059.0.extract.trunc
+  %207 = zext i8 %spec.select104 to i32
+  %208 = add nuw nsw i32 %207, 1
+  %.042 = select i1 %.not106, i32 0, i32 %208
+  %209 = zext nneg i32 %.042 to i64
+  %210 = getelementptr inbounds nuw [4 x [4 x i8]], ptr @_ZZN5clang8SemaObjC24getMessageSendResultTypeEPKNS_4ExprENS_8QualTypeEPNS_14ObjCMethodDeclEbbE14nullabilityMap, i64 0, i64 %.041, i64 %209
+  %211 = load i8, ptr %210, align 1, !tbaa !45
+  %212 = zext i8 %211 to i32
+  %213 = icmp eq i32 %.042, %212
+  br i1 %213, label %234, label %.preheader
 
-.preheader:                                       ; preds = %196, %226
-  %.sroa.076.0 = phi i64 [ %storemerge, %226 ], [ %.sroa.025.0.i, %196 ]
-  %216 = and i64 %.sroa.076.0, -16
-  %217 = inttoptr i64 %216 to ptr
-  %218 = load ptr, ptr %217, align 16, !tbaa !1137
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
-  %220 = load i8, ptr %219, align 16
-  %221 = icmp ne i8 %220, 8
-  %.not107 = icmp eq ptr %218, null
-  %.not = or i1 %.not107, %221
-  br i1 %.not, label %224, label %222
+.preheader:                                       ; preds = %194, %224
+  %.sroa.076.0 = phi i64 [ %storemerge, %224 ], [ %.sroa.025.0.i, %194 ]
+  %214 = and i64 %.sroa.076.0, -16
+  %215 = inttoptr i64 %214 to ptr
+  %216 = load ptr, ptr %215, align 16, !tbaa !1137
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
+  %218 = load i8, ptr %217, align 16
+  %219 = icmp ne i8 %218, 8
+  %.not107 = icmp eq ptr %216, null
+  %.not = or i1 %.not107, %219
+  br i1 %.not, label %222, label %220
+
+220:                                              ; preds = %.preheader
+  %221 = getelementptr inbounds nuw i8, ptr %216, i64 40
+  %.sroa.0.0.copyload.i54 = load i64, ptr %221, align 8, !tbaa !45
+  br label %224
 
 222:                                              ; preds = %.preheader
-  %223 = getelementptr inbounds nuw i8, ptr %218, i64 40
-  %.sroa.0.0.copyload.i54 = load i64, ptr %223, align 8, !tbaa !45
-  br label %226
+  %223 = call i64 @_ZN5clang8QualType16getDesugaredTypeES0_RKNS_10ASTContextE(i64 %.sroa.076.0, ptr noundef nonnull align 8 dereferenceable(23216) %11) #20
+  br label %224
 
-224:                                              ; preds = %.preheader
-  %225 = call i64 @_ZN5clang8QualType16getDesugaredTypeES0_RKNS_10ASTContextE(i64 %.sroa.076.0, ptr noundef nonnull align 8 dereferenceable(23216) %11) #20
-  br label %226
+224:                                              ; preds = %222, %220
+  %storemerge = phi i64 [ %223, %222 ], [ %.sroa.0.0.copyload.i54, %220 ]
+  %225 = and i64 %storemerge, -16
+  %226 = inttoptr i64 %225 to ptr
+  %227 = load ptr, ptr %226, align 16, !tbaa !1137
+  %228 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %227) #20
+  %229 = and i16 %228, 256
+  %.not108 = icmp eq i16 %229, 0
+  br i1 %.not108, label %230, label %.preheader, !llvm.loop !1328
 
-226:                                              ; preds = %224, %222
-  %storemerge = phi i64 [ %225, %224 ], [ %.sroa.0.0.copyload.i54, %222 ]
-  %227 = and i64 %storemerge, -16
-  %228 = inttoptr i64 %227 to ptr
-  %229 = load ptr, ptr %228, align 16, !tbaa !1137
-  %230 = call i16 @_ZNK5clang4Type14getNullabilityEv(ptr noundef nonnull align 16 dereferenceable(24) %229) #20
-  %231 = and i16 %230, 256
-  %.not108 = icmp eq i16 %231, 0
-  br i1 %.not108, label %232, label %.preheader, !llvm.loop !1328
+230:                                              ; preds = %224
+  %.not46 = icmp eq i8 %211, 0
+  br i1 %.not46, label %234, label %231
 
-232:                                              ; preds = %226
-  %.not46 = icmp eq i8 %213, 0
-  br i1 %.not46, label %236, label %233
+231:                                              ; preds = %230
+  %232 = add i8 %211, -1
+  %233 = call i64 @_ZN5clang10ASTContext17getAttributedTypeENS_15NullabilityKindENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(23216) %11, i8 noundef zeroext %232, i64 %storemerge, i64 %storemerge) #20
+  br label %234
 
-233:                                              ; preds = %232
-  %234 = add i8 %213, -1
-  %235 = call i64 @_ZN5clang10ASTContext17getAttributedTypeENS_15NullabilityKindENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(23216) %11, i8 noundef zeroext %234, i64 %storemerge, i64 %storemerge) #20
-  br label %236
-
-236:                                              ; preds = %232, %196, %191, %151, %152, %190, %.thread, %233
-  %.sroa.035.2 = phi i64 [ %235, %233 ], [ %.sroa.035.1.ph, %.thread ], [ %.sroa.025.0.i, %190 ], [ %.sroa.025.0.i, %152 ], [ %.sroa.025.0.i, %151 ], [ %.sroa.025.0.i, %191 ], [ %.sroa.025.0.i, %196 ], [ %storemerge, %232 ]
+234:                                              ; preds = %230, %194, %189, %151, %152, %188, %.thread, %231
+  %.sroa.035.2 = phi i64 [ %233, %231 ], [ %.sroa.035.1.ph, %.thread ], [ %.sroa.025.0.i, %188 ], [ %.sroa.025.0.i, %152 ], [ %.sroa.025.0.i, %151 ], [ %.sroa.025.0.i, %189 ], [ %.sroa.025.0.i, %194 ], [ %storemerge, %230 ]
   ret i64 %.sroa.035.2
 }
 
@@ -51615,7 +51613,7 @@ _ZL15isAnyRetainable22ARCConversionTypeClass.exit8: ; preds = %9, %9, %9
 
 12:                                               ; preds = %_ZL15isAnyRetainable22ARCConversionTypeClass.exit8
   %13 = load ptr, ptr %0, align 8, !tbaa !1670
-  %14 = tail call noundef i32 @_ZNK5clang7VarDecl13hasDefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %13) #20
+  %14 = tail call noundef i32 @_ZNK5clang7VarDecl13hasDefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %.16.val, ptr noundef nonnull align 8 dereferenceable(23216) %13) #20
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %.critedge
 

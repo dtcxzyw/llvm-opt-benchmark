@@ -278,7 +278,7 @@ _ZN4core4iter6traits8iterator8Iterator5unzip17h1a85fc62027c5bd0E.exit.i: ; preds
   br i1 %53, label %.invoke.i, label %.lr.ph.i.i.i
 
 .invoke.i:                                        ; preds = %_ZN10test_utils13assert_linear5Round6finish9normalize17hc2964a923d61e5c4E.exit.i, %_ZN4core4iter6traits8iterator8Iterator5unzip17h1a85fc62027c5bd0E.exit.i
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.32) #13
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.32) #13
           to label %.cont.i unwind label %.loopexit.split-lp.i, !noalias !34
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -627,7 +627,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %._crit_edge.i
   store ptr %12, ptr %159, align 8, !noalias !34
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 2, ptr %160, align 8, !noalias !34
-  %161 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %124, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
+  %161 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %124, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
           to label %176 unwind label %.loopexit.split-lp.i
 
 162:                                              ; preds = %204, %.lr.ph250.i
@@ -690,7 +690,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %._crit_edge.i
   store i64 3, ptr %145, align 8, !noalias !34
   store ptr %16, ptr %146, align 8, !noalias !34
   store i64 3, ptr %147, align 8, !noalias !34
-  %175 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %124, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
+  %175 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %124, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
           to label %204 unwind label %.loopexit.i
 
 176:                                              ; preds = %._crit_edge251.i
@@ -882,7 +882,7 @@ define void @_ZN10test_utils13assert_linear12AssertLinear6sample17h7931690463870
   br i1 %.not, label %10, label %11
 
 10:                                               ; preds = %3
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.18) #13
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.da0e9b2bf7a8a360203a76bc368f52d4.18) #13
   unreachable
 
 11:                                               ; preds = %3

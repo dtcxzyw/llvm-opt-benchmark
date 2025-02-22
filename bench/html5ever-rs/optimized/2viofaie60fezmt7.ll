@@ -138,7 +138,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 67:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h70101440ac7ae318E.exit.i.i"
   %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, i64 8), align 8, !noalias !17, !noundef !13
   %69 = load ptr, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, align 8, !noalias !17, !nonnull !13, !align !20, !noundef !13
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fb4466a149d941fa69aae3c40ce38b55.3) #11
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %68, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fb4466a149d941fa69aae3c40ce38b55.3) #11
           to label %.noexc.i unwind label %71, !noalias !4
 
 .noexc.i:                                         ; preds = %67

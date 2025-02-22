@@ -34,7 +34,7 @@ _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6st
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !11
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.7163babbdb6ac538066eca50e5ee6ad7.4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !6
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.7163babbdb6ac538066eca50e5ee6ad7.4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !9
   ret i1 %3
 }

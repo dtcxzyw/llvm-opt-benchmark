@@ -437,7 +437,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.60dc83571d0520d1461fff57d310e5fe.1, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60dc83571d0520d1461fff57d310e5fe.3) #12
+  invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.60dc83571d0520d1461fff57d310e5fe.1, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc83571d0520d1461fff57d310e5fe.3) #12
           to label %72 unwind label %33
 
 72:                                               ; preds = %71
@@ -547,7 +547,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hac1ab610c8d17e1aE
   store ptr @anon.60dc83571d0520d1461fff57d310e5fe.4, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60dc83571d0520d1461fff57d310e5fe.12) #12
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc83571d0520d1461fff57d310e5fe.12) #12
   unreachable
 
 13:                                               ; preds = %2
@@ -565,7 +565,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17hac1ab610c8d17e1aE
   store ptr @anon.60dc83571d0520d1461fff57d310e5fe.4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60dc83571d0520d1461fff57d310e5fe.15) #12
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc83571d0520d1461fff57d310e5fe.15) #12
   unreachable
 
 20:                                               ; preds = %2

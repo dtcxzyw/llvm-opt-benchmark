@@ -762,7 +762,7 @@ define dso_local range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef %0, i32 no
   br i1 %.not.i, label %GrantLockLocal.exit, label %109
 
 109:                                              ; preds = %._crit_edge.i
-  call void @ResourceOwnerRememberLock(ptr noundef nonnull %.0174, ptr noundef nonnull %54) #17
+  call void @ResourceOwnerRememberLock(ptr noundef nonnull %51, ptr noundef nonnull %54) #17
   br label %GrantLockLocal.exit
 
 GrantLockLocal.exit:                              ; preds = %100, %._crit_edge.i, %109
@@ -1396,7 +1396,7 @@ AbortStrongLockAcquire.exit206:                   ; preds = %374, %386
   br i1 %.not.i209, label %GrantLockLocal.exit217, label %461
 
 461:                                              ; preds = %._crit_edge.i207
-  call void @ResourceOwnerRememberLock(ptr noundef nonnull %.0174, ptr noundef nonnull %54) #17
+  call void @ResourceOwnerRememberLock(ptr noundef nonnull %51, ptr noundef nonnull %54) #17
   br label %GrantLockLocal.exit217
 
 GrantLockLocal.exit217:                           ; preds = %452, %._crit_edge.i207, %461
@@ -2343,7 +2343,7 @@ define dso_local noundef zeroext i1 @LockRelease(ptr noundef %0, i32 noundef %1,
   br i1 %.not118, label %62, label %61
 
 61:                                               ; preds = %60
-  call void @ResourceOwnerForgetLock(ptr noundef nonnull %.0107, ptr noundef nonnull %27) #17
+  call void @ResourceOwnerForgetLock(ptr noundef nonnull %44, ptr noundef nonnull %27) #17
   br label %62
 
 62:                                               ; preds = %61, %60
@@ -3517,7 +3517,7 @@ define internal fastcc void @ReleaseLockIfHeld(ptr noundef %0, i1 noundef zeroex
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %22
-  tail call void @ResourceOwnerForgetLock(ptr noundef nonnull %.029, ptr noundef nonnull %0) #17
+  tail call void @ResourceOwnerForgetLock(ptr noundef nonnull %3, ptr noundef nonnull %0) #17
   %.pre = load i32, ptr %6, align 8
   br label %26
 

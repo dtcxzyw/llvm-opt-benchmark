@@ -868,7 +868,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %or.cond, label %26, label %28
 
 26:                                               ; preds = %.tail
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.19, ptr noundef nonnull dereferenceable(1) %spec.store.select) #13
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.19, ptr noundef nonnull dereferenceable(1) %2) #13
   %.not42 = icmp eq i32 %27, 0
   %spec.store.select2 = select i1 %.not42, ptr null, ptr %spec.store.select
   br label %28

@@ -2507,7 +2507,6 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseArgERNS_4yaml4Nod
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !243
   %.not = icmp eq i32 %7, 4
-  %spec.select.i.i = select i1 %.not, ptr %2, ptr null
   br i1 %.not, label %14, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
@@ -2672,7 +2671,7 @@ _ZN4llvm5ErrorD2Ev.exit44:                        ; preds = %14, %.critedge
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %64 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !510
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr nonnull @.str.33, i64 24, ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #19, !noalias !510
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr nonnull @.str.33, i64 24, ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(72) %2) #19, !noalias !510
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %66 = load i8, ptr %65, align 8
   %67 = or i8 %66, 1
@@ -2689,7 +2688,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %73 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !520
-  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr nonnull @.str.34, i64 26, ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #19, !noalias !520
+  call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr nonnull @.str.34, i64 26, ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(72) %2) #19, !noalias !520
   %74 = load i8, ptr %70, align 8
   %75 = or i8 %74, 1
   store i8 %75, ptr %70, align 8

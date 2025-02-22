@@ -1145,11 +1145,11 @@ define hidden noundef ptr @_ZN18ConstraintCastNode21optimize_integer_castEP8Phas
   br i1 %.not.i, label %42, label %41
 
 41:                                               ; preds = %22
-  call void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(52) %37, ptr noundef nonnull %..i) #6
+  call void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(52) %37, ptr noundef nonnull %1) #6
   br label %_ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit
 
 42:                                               ; preds = %22
-  %43 = call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef %37, ptr noundef null) #6
+  %43 = call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %37, ptr noundef null) #6
   br label %_ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit
 
 _ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit: ; preds = %41, %42
@@ -1165,11 +1165,11 @@ _ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18Constrai
   br i1 %.not.i28, label %52, label %51
 
 51:                                               ; preds = %_ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit
-  call void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(52) %48, ptr noundef nonnull %..i) #6
+  call void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(52) %48, ptr noundef nonnull %1) #6
   br label %_ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit30
 
 52:                                               ; preds = %_ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit
-  %53 = call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef %48, ptr noundef null) #6
+  %53 = call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %48, ptr noundef null) #6
   br label %_ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit30
 
 _ZL25find_or_make_integer_castP12PhaseIterGVNP4NodeS2_PK11TypeIntegerN18ConstraintCastNode14DependencyTypeE9BasicType.exit30: ; preds = %51, %52
@@ -1818,10 +1818,10 @@ define hidden noundef ptr @_ZNK15CheckCastPPNode5ValueEP8PhaseGVN(ptr noundef no
   %96 = zext i32 %95 to i64
   %97 = getelementptr inbounds nuw [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
-  %99 = load ptr, ptr %77, align 8
+  %99 = load ptr, ptr %.pre38, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 176
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(44) %77, i32 noundef %98) #6
+  %102 = tail call noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(44) %.pre38, i32 noundef %98) #6
   br label %_ZNK18ConstraintCastNode5ValueEP8PhaseGVN.exit
 
 .fold.split:                                      ; preds = %80

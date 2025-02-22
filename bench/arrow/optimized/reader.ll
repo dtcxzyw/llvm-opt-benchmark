@@ -4067,7 +4067,7 @@ define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_123ReadRecordBatchInterna
   br i1 %56, label %57, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
 57:                                               ; preds = %6
-  %58 = load i32, ptr %49, align 4, !tbaa !81, !noalias !133
+  %58 = load i32, ptr %48, align 4, !tbaa !81, !noalias !133
   %or.cond.i.i.i.i.i = icmp sgt i32 %58, 0
   br i1 %or.cond.i.i.i.i.i, label %59, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
@@ -4088,7 +4088,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br i1 %63, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i
-  %64 = load i32, ptr %49, align 4, !tbaa !81, !noalias !133
+  %64 = load i32, ptr %48, align 4, !tbaa !81, !noalias !133
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %49, i64 %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #36
@@ -24886,7 +24886,7 @@ _ZN5arrow6StatusD2Ev.exit:
   br i1 %28, label %29, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
 29:                                               ; preds = %15
-  %30 = load i32, ptr %21, align 4, !tbaa !81, !noalias !861
+  %30 = load i32, ptr %20, align 4, !tbaa !81, !noalias !861
   %or.cond.i.i.i.i.i = icmp sgt i32 %30, 0
   br i1 %or.cond.i.i.i.i.i, label %31, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
@@ -24907,7 +24907,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br i1 %35, label %_ZN5arrow6StatusD2Ev.exit25.thread, label %_ZN5arrow6StatusD2Ev.exit25
 
 _ZN5arrow6StatusD2Ev.exit25.thread:               ; preds = %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i
-  %36 = load i32, ptr %21, align 4, !tbaa !81, !noalias !861
+  %36 = load i32, ptr %20, align 4, !tbaa !81, !noalias !861
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 %37
   store ptr null, ptr %0, align 8, !tbaa !54, !alias.scope !864
@@ -58714,7 +58714,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %51, %47, %45
   %58 = select i1 %55, ptr %57, ptr null, !prof !57
   %59 = add nsw i64 %28, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #36, !noalias !2314
-  %.0.copyload.i.i = load i64, ptr %58, align 1, !noalias !2314
+  %.0.copyload.i.i = load i64, ptr %57, align 1, !noalias !2314
   store i64 %.0.copyload.i.i, ptr %6, align 8, !tbaa !104, !noalias !2314
   %60 = icmp eq i64 %.0.copyload.i.i, -1
   br i1 %60, label %61, label %69
@@ -67195,7 +67195,7 @@ _ZN5arrow6Status7InvalidIJRA16_KcRKlRA17_S2_EEES0_DpOT_.exit: ; preds = %_ZNKSt7
   br label %_ZN5arrow6StatusD2Ev.exit19
 
 75:                                               ; preds = %51
-  %76 = load i32, ptr %57, align 4, !tbaa !81
+  %76 = load i32, ptr %56, align 4, !tbaa !81
   %77 = icmp slt i32 %76, 1
   br i1 %77, label %86, label %78
 
@@ -69332,7 +69332,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit:  ; preds = %3, %_ZNSt16_Sp_coun
   br i1 %58, label %59, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf6FooterEEEbPKhl.exit.thread
 
 59:                                               ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit
-  %60 = load i32, ptr %51, align 4, !tbaa !81
+  %60 = load i32, ptr %50, align 4, !tbaa !81
   %or.cond.i.i.i.i = icmp sgt i32 %60, 0
   br i1 %or.cond.i.i.i.i, label %61, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf6FooterEEEbPKhl.exit.thread
 
@@ -69357,7 +69357,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf6FooterEEEbP
   br label %162
 
 _ZN3org6apache5arrow7flatbuf9GetFooterEPKv.exit:  ; preds = %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf6FooterEEEbPKhl.exit
-  %67 = load i32, ptr %51, align 4, !tbaa !81
+  %67 = load i32, ptr %50, align 4, !tbaa !81
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 %68
   %70 = load ptr, ptr %1, align 8, !tbaa !360
@@ -76411,7 +76411,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   br i1 %45, label %46, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
 46:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %47 = load i32, ptr %38, align 4, !tbaa !81, !noalias !2569
+  %47 = load i32, ptr %37, align 4, !tbaa !81, !noalias !2569
   %or.cond.i.i.i.i.i = icmp sgt i32 %47, 0
   br i1 %or.cond.i.i.i.i.i, label %48, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
@@ -76432,7 +76432,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br i1 %52, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i
-  %53 = load i32, ptr %38, align 4, !tbaa !81, !noalias !2569
+  %53 = load i32, ptr %37, align 4, !tbaa !81, !noalias !2569
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #36
@@ -82382,7 +82382,7 @@ define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_114ReadDictionaryERKNS_6B
   br i1 %37, label %38, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
 38:                                               ; preds = %5
-  %39 = load i32, ptr %30, align 4, !tbaa !81, !noalias !2661
+  %39 = load i32, ptr %29, align 4, !tbaa !81, !noalias !2661
   %or.cond.i.i.i.i.i = icmp sgt i32 %39, 0
   br i1 %or.cond.i.i.i.i.i, label %40, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
@@ -82403,7 +82403,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br i1 %44, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i
-  %45 = load i32, ptr %30, align 4, !tbaa !81, !noalias !2661
+  %45 = load i32, ptr %29, align 4, !tbaa !81, !noalias !2661
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 %46
   store ptr null, ptr %0, align 8, !tbaa !54, !alias.scope !2664
@@ -97684,7 +97684,7 @@ _ZNSt14_Function_baseD2Ev.exit39:                 ; preds = %63, %66
   br i1 %84, label %85, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
 85:                                               ; preds = %73
-  %86 = load i32, ptr %80, align 4, !tbaa !81, !noalias !3160
+  %86 = load i32, ptr %79, align 4, !tbaa !81, !noalias !3160
   %or.cond.i.i.i.i.i = icmp sgt i32 %86, 0
   br i1 %or.cond.i.i.i.i.i, label %87, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
@@ -97712,7 +97712,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %105
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %.noexc
-  %93 = load i32, ptr %80, align 4, !tbaa !81, !noalias !3160
+  %93 = load i32, ptr %79, align 4, !tbaa !81, !noalias !3160
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 %94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #36

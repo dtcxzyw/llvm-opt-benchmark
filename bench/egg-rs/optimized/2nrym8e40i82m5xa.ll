@@ -60,7 +60,7 @@ define noundef i128 @_ZN3egg4test10percentile17h86d6f65026f76f59E(double noundef
   br i1 %.sroa.04.0.i, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.6b0be5cd40001bab02b1e37fd09b8e37.2, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6b0be5cd40001bab02b1e37fd09b8e37.4) #12
+  tail call void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.6b0be5cd40001bab02b1e37fd09b8e37.2, i64 noundef 42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b0be5cd40001bab02b1e37fd09b8e37.4) #12
   unreachable
 
 7:                                                ; preds = %3
@@ -78,7 +78,7 @@ define noundef i128 @_ZN3egg4test10percentile17h86d6f65026f76f59E(double noundef
   ret i128 %15
 
 16:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6b0be5cd40001bab02b1e37fd09b8e37.5) #12
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b0be5cd40001bab02b1e37fd09b8e37.5) #12
   unreachable
 }
 
@@ -174,7 +174,7 @@ define noundef i32 @"_ZN59_$LT$egg..Id$u20$as$u20$egg..language..LanguageChildre
   br i1 %.not.i.i, label %4, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h93ba1d24f5ed4d96E.exit", !prof !20
 
 4:                                                ; preds = %1
-  invoke void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6b0be5cd40001bab02b1e37fd09b8e37.8) #12
+  invoke void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b0be5cd40001bab02b1e37fd09b8e37.8) #12
           to label %.noexc unwind label %5
 
 .noexc:                                           ; preds = %4

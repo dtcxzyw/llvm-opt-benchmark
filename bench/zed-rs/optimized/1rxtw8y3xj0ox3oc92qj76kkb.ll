@@ -61,7 +61,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_ZN21command_palette_hoo
   br i1 %.sroa.0.0.i5.i, label %_ZN4gpui3app10AppContext10try_global17hbc11a55939c8a51aE.exit, label %22
 
 22:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hcfd4027f1d253ad9E.llvm.564500492275298540.exit.i"
-  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.56485318ee3ffbf832f44e7824f8ab2a.11.llvm.564500492275298540) #13
+  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.56485318ee3ffbf832f44e7824f8ab2a.11.llvm.564500492275298540) #13
   unreachable
 
 _ZN4gpui3app10AppContext10try_global17hbc11a55939c8a51aE.exit: ; preds = %1, %7, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hcfd4027f1d253ad9E.llvm.564500492275298540.exit.i"
@@ -72,7 +72,7 @@ _ZN4gpui3app10AppContext10try_global17hbc11a55939c8a51aE.exit: ; preds = %1, %7,
 
 ; Function Attrs: nonlazybind uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZN21command_palette_hooks20CommandPaletteFilter10global_mut17haeec57681264ee7dE(ptr noalias noundef align 8 dereferenceable(1176) %0) unnamed_addr #0 {
-  %2 = tail call noundef align 8 dereferenceable(64) ptr @_ZN4gpui3app10AppContext10global_mut17hab50334e5c4c44a8E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.12)
+  %2 = tail call noundef align 8 dereferenceable(64) ptr @_ZN4gpui3app10AppContext10global_mut17hab50334e5c4c44a8E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.12)
   ret ptr %2
 }
 
@@ -141,7 +141,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %24, %20
-  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.03.sroa.12.0.copyload, i64 noundef %.sroa.03.sroa.13.0.copyload, i64 noundef %16, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.8) #13, !noalias !20
+  tail call void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.03.sroa.12.0.copyload, i64 noundef %.sroa.03.sroa.13.0.copyload, i64 noundef %16, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.8) #13, !noalias !20
   unreachable
 
 27:                                               ; preds = %24, %20, %14
@@ -300,7 +300,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %110, label %112, label %117
 
 111:                                              ; preds = %105
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %106, i64 noundef %.sroa.03.sroa.15.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.3) #13, !noalias !40
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %106, i64 noundef %.sroa.03.sroa.15.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.3) #13, !noalias !40
   unreachable
 
 112:                                              ; preds = %108
@@ -312,7 +312,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %.not.i35, label %.preheader80, label %118
 
 117:                                              ; preds = %108
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %109, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.4) #13, !noalias !40
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %109, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.4) #13, !noalias !40
   unreachable
 
 118:                                              ; preds = %112
@@ -331,7 +331,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 126:                                              ; preds = %101
   %127 = add i64 %86, %.sroa.0.0.sroa.speculated.i.i32
   %umax.i36 = tail call i64 @llvm.umax.i64(i64 %.sroa.03.sroa.13.0.copyload, i64 %127)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax.i36, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.6) #13, !noalias !40
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax.i36, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.6) #13, !noalias !40
   unreachable
 
 128:                                              ; preds = %120
@@ -397,7 +397,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %156, label %158, label %163
 
 157:                                              ; preds = %152
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %153, i64 noundef %.sroa.03.sroa.15.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.3) #13, !noalias !50
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %153, i64 noundef %.sroa.03.sroa.15.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.3) #13, !noalias !50
   unreachable
 
 158:                                              ; preds = %154
@@ -409,7 +409,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br i1 %.not.i, label %.preheader, label %164
 
 163:                                              ; preds = %154
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %155, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.4) #13, !noalias !50
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %155, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.4) #13, !noalias !50
   unreachable
 
 164:                                              ; preds = %158
@@ -428,7 +428,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 172:                                              ; preds = %149
   %173 = add i64 %134, %.sroa.03.sroa.4.0.copyload
   %umax.i = tail call i64 @llvm.umax.i64(i64 %.sroa.03.sroa.13.0.copyload, i64 %173)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax.i, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.6) #13, !noalias !50
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax.i, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.6) #13, !noalias !50
   unreachable
 
 174:                                              ; preds = %166
@@ -714,7 +714,7 @@ define noundef align 8 dereferenceable_or_null(16) ptr @_ZN21command_palette_hoo
   br i1 %.sroa.0.0.i5.i, label %_ZN4gpui3app10AppContext10try_global17hdeacd4cfc370117aE.exit, label %22
 
 22:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hcfd4027f1d253ad9E.llvm.564500492275298540.exit.i"
-  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.56485318ee3ffbf832f44e7824f8ab2a.11.llvm.564500492275298540) #13
+  call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.56485318ee3ffbf832f44e7824f8ab2a.11.llvm.564500492275298540) #13
   unreachable
 
 _ZN4gpui3app10AppContext10try_global17hdeacd4cfc370117aE.exit: ; preds = %1, %7, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hcfd4027f1d253ad9E.llvm.564500492275298540.exit.i"

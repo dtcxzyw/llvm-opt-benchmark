@@ -56,7 +56,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   br i1 %21, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread", label %.lr.ph.i
 
 22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %13, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0d780a28b50e5aabcf6cc8b92a0a1700.22) #3, !noalias !7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %13, i64 noundef 6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d780a28b50e5aabcf6cc8b92a0a1700.22) #3, !noalias !7
   unreachable
 
 .lr.ph.i:                                         ; preds = %15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i"

@@ -542,29 +542,27 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit16
   %.sroa.017.022 = phi ptr [ %.sroa.017.0, %_ZN4llvm11raw_ostreamlsEPKc.exit16 ], [ %.sroa.017.020, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %18 = icmp eq ptr %.sroa.017.022, null
-  %19 = getelementptr inbounds i8, ptr %.sroa.017.022, i64 -24
-  %20 = select i1 %18, ptr null, ptr %19
-  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext false) #23
-  %21 = load ptr, ptr %3, align 8, !tbaa !76
-  %22 = load ptr, ptr %5, align 8, !tbaa !80
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %24, label %26
+  %18 = getelementptr inbounds i8, ptr %.sroa.017.022, i64 -24
+  tail call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext false) #23
+  %19 = load ptr, ptr %3, align 8, !tbaa !76
+  %20 = load ptr, ptr %5, align 8, !tbaa !80
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %.lr.ph
+  %23 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.10, i64 noundef 1) #23
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.10, i64 noundef 1) #23
+  store i8 10, ptr %20, align 1
+  %25 = load ptr, ptr %5, align 8, !tbaa !80
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  store ptr %26, ptr %5, align 8, !tbaa !80
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
-26:                                               ; preds = %.lr.ph
-  store i8 10, ptr %22, align 1
-  %27 = load ptr, ptr %5, align 8, !tbaa !80
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %28, ptr %5, align 8, !tbaa !80
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
-
-_ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %24, %26
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 8
-  %.sroa.017.0 = load ptr, ptr %29, align 8, !tbaa !81
+_ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %22, %24
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 8
+  %.sroa.017.0 = load ptr, ptr %27, align 8, !tbaa !81
   %.not = icmp eq ptr %.sroa.017.0, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
@@ -3901,7 +3899,6 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.i: ; pred
   %108 = load i8, ptr %107, align 8, !tbaa !251, !noalias !247
   %109 = add i8 %108, -30
   %110 = icmp ult i8 %109, 11
-  %spec.select.i.i.i.i.i.i = select i1 %110, ptr %107, ptr null
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %110, label %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i, label %._crit_edge
 
@@ -3923,14 +3920,14 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i: ; preds = %117
 
 117:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %.lr.ph8.i
   %118 = phi i32 [ 0, %.lr.ph8.i ], [ %116, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
-  %119 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i.i.i.i, i32 noundef %118) #27, !noalias !247
+  %119 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %107, i32 noundef %118) #27, !noalias !247
   %120 = icmp eq ptr %115, %119
   br i1 %120, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i, !llvm.loop !276
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %117, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i
-  %.us-phi.i278356 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i ], [ %112, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ], [ %118, %117 ]
+  %.us-phi.i278355 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i ], [ %112, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ], [ %118, %117 ]
   %121 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %107) #27, !noalias !277
-  %.not332 = icmp eq i32 %.us-phi.i278356, %121
+  %.not332 = icmp eq i32 %.us-phi.i278355, %121
   br i1 %.not332, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i
@@ -3947,7 +3944,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i: ; preds = %_ZN4llvm10BasicBl
 
 .split.us:                                        ; preds = %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split.us.us, %.lr.ph.split.split.us
   %.037301.us305 = phi i32 [ 0, %.lr.ph.split.split.us ], [ %136, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split.us.us ]
-  %.sroa.9271.0300.us306 = phi i32 [ %.us-phi.i278356, %.lr.ph.split.split.us ], [ %.lcssa348, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split.us.us ]
+  %.sroa.9271.0300.us306 = phi i32 [ %.us-phi.i278355, %.lr.ph.split.split.us ], [ %.lcssa348, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split.us.us ]
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.us.us
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.us.us: ; preds = %130, %.split.us
@@ -3974,7 +3971,7 @@ _ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6Regio
 
 .split:                                           ; preds = %.lr.ph, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split
   %.037301 = phi i32 [ %148, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split ], [ 0, %.lr.ph ]
-  %.sroa.9271.0300 = phi i32 [ %141, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split ], [ %.us-phi.i278356, %.lr.ph ]
+  %.sroa.9271.0300 = phi i32 [ %141, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit.split.split ], [ %.us-phi.i278355, %.lr.ph ]
   br label %_ZN4llvm8succ_endEPNS_10BasicBlockE.exit.i
 
 _ZN4llvm8succ_endEPNS_10BasicBlockE.exit.i:       ; preds = %142, %.split
@@ -4453,7 +4450,6 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.i189: ; p
   %381 = load i8, ptr %380, align 8, !tbaa !251, !noalias !296
   %382 = add i8 %381, -30
   %383 = icmp ult i8 %382, 11
-  %spec.select.i.i.i.i.i.i190 = select i1 %383, ptr %380, ptr null
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %383, label %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i193, label %._crit_edge331
 
@@ -4475,14 +4471,14 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i196: ; preds = %390
 
 390:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i196, %.lr.ph8.i195
   %391 = phi i32 [ 0, %.lr.ph8.i195 ], [ %389, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i196 ]
-  %392 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i.i.i.i190, i32 noundef %391) #27, !noalias !296
+  %392 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %380, i32 noundef %391) #27, !noalias !296
   %393 = icmp eq ptr %388, %392
   br i1 %393, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i196, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204, !llvm.loop !276
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i196, %390, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i193
-  %.us-phi.i191287367 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i193 ], [ %385, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i196 ], [ %391, %390 ]
+  %.us-phi.i191287363 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i193 ], [ %385, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i196 ], [ %391, %390 ]
   %394 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %380) #27, !noalias !299
-  %.not333 = icmp eq i32 %.us-phi.i191287367, %394
+  %.not333 = icmp eq i32 %.us-phi.i191287363, %394
   br i1 %.not333, label %.preheader, label %.lr.ph319
 
 .lr.ph319:                                        ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204
@@ -4495,7 +4491,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204: ; preds = %_ZN4llvm10Basi
   br label %403
 
 .preheader:                                       ; preds = %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit214, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204
-  %.sroa.17.0.lcssa = phi i32 [ %.us-phi.i191287367, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204 ], [ %.us-phi311, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit214 ]
+  %.sroa.17.0.lcssa = phi i32 [ %.us-phi.i191287363, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204 ], [ %.us-phi311, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit214 ]
   %.not328 = icmp eq i32 %.sroa.17.0.lcssa, %394
   br i1 %.not328, label %._crit_edge331, label %.lr.ph330
 
@@ -4510,7 +4506,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i204: ; preds = %_ZN4llvm10Basi
 
 403:                                              ; preds = %.lr.ph319, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit214
   %.0318 = phi i32 [ 0, %.lr.ph319 ], [ %453, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit214 ]
-  %.sroa.17.0317 = phi i32 [ %.us-phi.i191287367, %.lr.ph319 ], [ %.us-phi311, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit214 ]
+  %.sroa.17.0317 = phi i32 [ %.us-phi.i191287363, %.lr.ph319 ], [ %.us-phi311, %_ZN4llvm14RNSuccIteratorINS_6FlatItIPNS_10RegionNodeEEENS_10BasicBlockENS_6RegionEEppEv.exit214 ]
   %404 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %380, i32 noundef %.sroa.17.0317) #27
   %405 = load ptr, ptr %395, align 8, !tbaa !255
   %406 = call noundef ptr @_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_8FunctionEEEE9getBBNodeEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(112) %405, ptr noundef %404) #23
@@ -4897,7 +4893,6 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.i: ; pred
   %10 = load i8, ptr %9, align 8, !tbaa !251, !noalias !304
   %11 = add i8 %10, -30
   %12 = icmp ult i8 %11, 11
-  %spec.select.i.i.i.i.i.i = select i1 %12, ptr %9, ptr null
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %12, label %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i, label %_ZN4llvm11GraphTraitsINS_6FlatItIPNS_10RegionNodeEEEE9child_endES3_.exit
 
@@ -4914,7 +4909,7 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.
 
 18:                                               ; preds = %18, %.lr.ph8.i
   %19 = phi i32 [ 0, %.lr.ph8.i ], [ %22, %18 ]
-  %20 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i.i.i.i, i32 noundef %19) #27, !noalias !304
+  %20 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %9, i32 noundef %19) #27, !noalias !304
   %21 = icmp ne ptr %17, %20
   %22 = add nuw nsw i32 %19, 1
   %.not.i.us3.i = icmp eq i32 %14, %22
@@ -5271,12 +5266,12 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i: ; preds = %31
 
 31:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %.lr.ph8.i
   %32 = phi i32 [ 0, %.lr.ph8.i ], [ %30, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
-  %33 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i.i.i.i, i32 noundef %32) #27, !noalias !312
+  %33 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef %32) #27, !noalias !312
   %34 = icmp eq ptr %29, %33
   br i1 %34, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, label %_ZNSt8optionalIN4llvm14RNSuccIteratorINS0_6FlatItIPNS0_10RegionNodeEEENS0_10BasicBlockENS0_6RegionEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit, !llvm.loop !276
 
 _ZNSt8optionalIN4llvm14RNSuccIteratorINS0_6FlatItIPNS0_10RegionNodeEEENS0_10BasicBlockENS0_6RegionEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit: ; preds = %31, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.i, %15
-  %.sroa.429.0 = phi ptr [ %21, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i ], [ null, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.i ], [ null, %15 ], [ %21, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ], [ %21, %31 ]
+  %.sroa.429.0 = phi ptr [ %21, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i ], [ null, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.i ], [ null, %15 ], [ %spec.select.i.i.i.i.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ], [ %spec.select.i.i.i.i.i.i, %31 ]
   %.us-phi.i = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.split.us.i ], [ 0, %_ZN4llvm11GraphTraitsIPNS_10BasicBlockEE11child_beginES2_.exit.i.split.i ], [ 0, %15 ], [ %32, %31 ], [ %26, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.us.i ]
   store ptr %10, ptr %11, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -24

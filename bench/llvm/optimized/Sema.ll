@@ -14979,7 +14979,6 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema29makeUnavailableInSystemHead
   %9 = add nsw i16 %8, -38
   %10 = icmp ult i16 %9, -6
   %11 = getelementptr inbounds i8, ptr %5, i64 -72
-  %spec.select.i.i = select i1 %10, ptr null, ptr %11
   br i1 %10, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread, label %12
 
 12:                                               ; preds = %3
@@ -15044,7 +15043,7 @@ _ZNK5clang4Decl7hasAttrINS_15UnavailableAttrEEEbv.exit.thread: ; preds = %40, %2
   %.sroa.2.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = mul nuw i64 %.sroa.2.0.insert.ext, 4294967297
   %43 = tail call noundef ptr @_ZN5clang15UnavailableAttr14CreateImplicitERNS_10ASTContextEN4llvm9StringRefENS0_14ImplicitReasonENS_11SourceRangeENS0_8SpellingE(ptr noundef nonnull align 8 dereferenceable(23216) %42, ptr nonnull @.str.430, i64 0, i32 noundef %2, i64 %.sroa.0.0.insert.insert, i32 noundef 0) #28
-  tail call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i, ptr noundef %43) #28
+  tail call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %11, ptr noundef %43) #28
   br label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
 
 _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %18, %_ZNK5clang4Decl7hasAttrINS_15UnavailableAttrEEEbv.exit, %12, %3, %_ZNK5clang4Decl7hasAttrINS_15UnavailableAttrEEEbv.exit.thread
@@ -25564,8 +25563,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEbNS_12DenseMapInfoI
   br i1 %3395, label %3430, label %3507
 
 3396:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEbNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_bEEEES5_bS7_SA_E4findES5_.exit.i
-  %3397 = call fastcc noundef zeroext i1 @_ZL31MethodsAndNestedClassesCompletePKN5clang13CXXRecordDeclERN4llvm8DenseMapIS2_bNS3_12DenseMapInfoIS2_vEENS3_6detail12DenseMapPairIS2_bEEEE(ptr noundef nonnull %spec.select.i.i405, ptr noundef nonnull align 8 dereferenceable(20) %82)
-  %3398 = call noundef ptr @_ZNK5clang13CXXRecordDecl14getFirstFriendEv(ptr noundef nonnull align 8 dereferenceable(144) %spec.select.i.i405) #28
+  %3397 = call fastcc noundef zeroext i1 @_ZL31MethodsAndNestedClassesCompletePKN5clang13CXXRecordDeclERN4llvm8DenseMapIS2_bNS3_12DenseMapInfoIS2_vEENS3_6detail12DenseMapPairIS2_bEEEE(ptr noundef nonnull %3359, ptr noundef nonnull align 8 dereferenceable(20) %82)
+  %3398 = call noundef ptr @_ZNK5clang13CXXRecordDecl14getFirstFriendEv(ptr noundef nonnull align 8 dereferenceable(144) %3359) #28
   %3399 = icmp ne ptr %3398, null
   %3400 = and i1 %3397, %3399
   br i1 %3400, label %.lr.ph.i409, label %_ZL20IsRecordFullyDefinedPKN5clang13CXXRecordDeclERN4llvm8DenseMapIS2_bNS3_12DenseMapInfoIS2_vEENS3_6detail12DenseMapPairIS2_bEEEESB_.exit
@@ -25608,7 +25607,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEbNS_12DenseMapInfoI
 
 3418:                                             ; preds = %3412
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
-  %3419 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl9isDefinedERPKS0_b(ptr noundef nonnull align 8 dereferenceable(168) %.0.i.i.i.i.i21.i, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false) #28
+  %3419 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl9isDefinedERPKS0_b(ptr noundef nonnull align 8 dereferenceable(168) %3404, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
   br label %3420
 

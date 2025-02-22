@@ -62,133 +62,130 @@ define dso_local void @_ZN4llvm15LowerAtomicPass3runERNS_8FunctionERNS_15Analysi
 
 .lr.ph.i:                                         ; preds = %4, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i
   %.sroa.05.011.i = phi ptr [ %.sroa.05.0.i, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i ], [ %.sroa.05.08.i, %4 ]
-  %.010.i = phi i1 [ %40, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i ], [ false, %4 ]
-  %7 = icmp eq ptr %.sroa.05.011.i, null
-  %8 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 -24
-  %9 = select i1 %7, ptr null, ptr %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !9, !noalias !12
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %.not4550.i.i = icmp eq ptr %11, %12
+  %.010.i = phi i1 [ %37, %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i ], [ false, %4 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !9, !noalias !12
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 24
+  %.not4550.i.i = icmp eq ptr %8, %9
   br i1 %.not4550.i.i, label %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %39
-  %.052.i.i = phi i1 [ %.1.i.i, %39 ], [ false, %.lr.ph.i ]
-  %.sroa.041.051.i.i = phi ptr [ %14, %39 ], [ %11, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.041.051.i.i, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !9
-  %15 = getelementptr inbounds i8, ptr %.sroa.041.051.i.i, i64 -24
-  %16 = load i8, ptr %15, align 8, !tbaa !15
-  switch i8 %16, label %39 [
-    i8 64, label %17
-    i8 65, label %19
-    i8 66, label %22
-    i8 61, label %25
-    i8 62, label %32
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %36
+  %.052.i.i = phi i1 [ %.1.i.i, %36 ], [ false, %.lr.ph.i ]
+  %.sroa.041.051.i.i = phi ptr [ %11, %36 ], [ %8, %.lr.ph.i ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.041.051.i.i, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !9
+  %12 = getelementptr inbounds i8, ptr %.sroa.041.051.i.i, i64 -24
+  %13 = load i8, ptr %12, align 8, !tbaa !15
+  switch i8 %13, label %36 [
+    i8 64, label %14
+    i8 65, label %16
+    i8 66, label %19
+    i8 61, label %22
+    i8 62, label %29
   ]
 
-17:                                               ; preds = %.lr.ph.i.i
-  %18 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %15) #12
-  br label %39
+14:                                               ; preds = %.lr.ph.i.i
+  %15 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %12) #12
+  br label %36
+
+16:                                               ; preds = %.lr.ph.i.i
+  %17 = tail call noundef zeroext i1 @_ZN4llvm22lowerAtomicCmpXchgInstEPNS_17AtomicCmpXchgInstE(ptr noundef nonnull %12) #12
+  %18 = or i1 %.052.i.i, %17
+  br label %36
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = tail call noundef zeroext i1 @_ZN4llvm22lowerAtomicCmpXchgInstEPNS_17AtomicCmpXchgInstE(ptr noundef nonnull %15) #12
+  %20 = tail call noundef zeroext i1 @_ZN4llvm18lowerAtomicRMWInstEPNS_13AtomicRMWInstE(ptr noundef nonnull %12) #12
   %21 = or i1 %.052.i.i, %20
-  br label %39
+  br label %36
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = tail call noundef zeroext i1 @_ZN4llvm18lowerAtomicRMWInstEPNS_13AtomicRMWInstE(ptr noundef nonnull %15) #12
-  %24 = or i1 %.052.i.i, %23
-  br label %39
+  %23 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %12) #13
+  br i1 %23, label %24, label %36
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %15) #13
-  br i1 %26, label %27, label %39
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %.sroa.041.051.i.i, i64 -22
+  %26 = load i16, ptr %25, align 2, !tbaa !21
+  %27 = and i16 %26, -897
+  store i16 %27, ptr %25, align 2, !tbaa !21
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.041.051.i.i, i64 48
+  store i8 1, ptr %28, align 8, !tbaa !22
+  br label %36
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.sroa.041.051.i.i, i64 -22
-  %29 = load i16, ptr %28, align 2, !tbaa !21
-  %30 = and i16 %29, -897
-  store i16 %30, ptr %28, align 2, !tbaa !21
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.041.051.i.i, i64 48
-  store i8 1, ptr %31, align 8, !tbaa !22
-  br label %39
+29:                                               ; preds = %.lr.ph.i.i
+  %30 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %12) #13
+  br i1 %30, label %31, label %36
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %15) #13
-  br i1 %33, label %34, label %39
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %.sroa.041.051.i.i, i64 -22
+  %33 = load i16, ptr %32, align 2, !tbaa !21
+  %34 = and i16 %33, -897
+  store i16 %34, ptr %32, align 2, !tbaa !21
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.041.051.i.i, i64 48
+  store i8 1, ptr %35, align 8, !tbaa !38
+  br label %36
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.041.051.i.i, i64 -22
-  %36 = load i16, ptr %35, align 2, !tbaa !21
-  %37 = and i16 %36, -897
-  store i16 %37, ptr %35, align 2, !tbaa !21
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.041.051.i.i, i64 48
-  store i8 1, ptr %38, align 8, !tbaa !38
-  br label %39
-
-39:                                               ; preds = %34, %32, %27, %25, %22, %19, %17, %.lr.ph.i.i
-  %.1.i.i = phi i1 [ true, %17 ], [ %21, %19 ], [ %24, %22 ], [ %.052.i.i, %34 ], [ %.052.i.i, %32 ], [ %.052.i.i, %25 ], [ %.052.i.i, %27 ], [ %.052.i.i, %.lr.ph.i.i ]
-  %.not45.i.i = icmp eq ptr %14, %12
+36:                                               ; preds = %31, %29, %24, %22, %19, %16, %14, %.lr.ph.i.i
+  %.1.i.i = phi i1 [ true, %14 ], [ %18, %16 ], [ %21, %19 ], [ %.052.i.i, %31 ], [ %.052.i.i, %29 ], [ %.052.i.i, %22 ], [ %.052.i.i, %24 ], [ %.052.i.i, %.lr.ph.i.i ]
+  %.not45.i.i = icmp eq ptr %11, %9
   br i1 %.not45.i.i, label %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i, label %.lr.ph.i.i
 
-_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i:  ; preds = %39, %.lr.ph.i
-  %.0.lcssa.i.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i.i, %39 ]
-  %40 = or i1 %.010.i, %.0.lcssa.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 8
-  %.sroa.05.0.i = load ptr, ptr %41, align 8, !tbaa !3
+_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i:  ; preds = %36, %.lr.ph.i
+  %.0.lcssa.i.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i.i, %36 ]
+  %37 = or i1 %.010.i, %.0.lcssa.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 8
+  %.sroa.05.0.i = load ptr, ptr %38, align 8, !tbaa !3
   %.not.i = icmp eq ptr %.sroa.05.0.i, %6
   br i1 %.not.i, label %_ZL12lowerAtomicsRN4llvm8FunctionE.exit, label %.lr.ph.i
 
 _ZL12lowerAtomicsRN4llvm8FunctionE.exit:          ; preds = %_ZL15runOnBasicBlockRN4llvm10BasicBlockE.exit.i
-  br i1 %40, label %42, label %_ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread
+  br i1 %37, label %39, label %_ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread
 
-42:                                               ; preds = %_ZL12lowerAtomicsRN4llvm8FunctionE.exit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, i8 0, i64 64, i1 false), !alias.scope !40
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %44, ptr %0, align 8, !tbaa !43, !alias.scope !40
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %45, align 8, !tbaa !46, !alias.scope !40
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %46, align 4, !tbaa !47, !alias.scope !40
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %47, align 4, !tbaa !48, !alias.scope !40
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %49, ptr %48, align 8, !tbaa !43, !alias.scope !40
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %50, align 8, !tbaa !46, !alias.scope !40
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %51, align 4, !tbaa !48, !alias.scope !40
-  br label %62
+39:                                               ; preds = %_ZL12lowerAtomicsRN4llvm8FunctionE.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, i8 0, i64 64, i1 false), !alias.scope !40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %41, ptr %0, align 8, !tbaa !43, !alias.scope !40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %42, align 8, !tbaa !46, !alias.scope !40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %43, align 4, !tbaa !47, !alias.scope !40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %44, align 4, !tbaa !48, !alias.scope !40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %46, ptr %45, align 8, !tbaa !43, !alias.scope !40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %47, align 8, !tbaa !46, !alias.scope !40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %48, align 4, !tbaa !48, !alias.scope !40
+  br label %59
 
 _ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread:   ; preds = %4, %_ZL12lowerAtomicsRN4llvm8FunctionE.exit
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !43, !alias.scope !49
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %52, align 8, !tbaa !46, !alias.scope !49
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %54, align 8, !tbaa !52, !alias.scope !49
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %55, align 4, !tbaa !48, !alias.scope !49
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %57, ptr %56, align 8, !tbaa !43, !alias.scope !49
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %58, align 8, !tbaa !46, !alias.scope !49
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %59, align 4, !tbaa !47, !alias.scope !49
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %60, align 8, !tbaa !52, !alias.scope !49
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %61, align 4, !tbaa !48, !alias.scope !49
-  store i32 1, ptr %53, align 4, !tbaa !47, !alias.scope !49, !noalias !53
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %49, align 8, !tbaa !46, !alias.scope !49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !52, !alias.scope !49
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %52, align 4, !tbaa !48, !alias.scope !49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %54, ptr %53, align 8, !tbaa !43, !alias.scope !49
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %55, align 8, !tbaa !46, !alias.scope !49
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %56, align 4, !tbaa !47, !alias.scope !49
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %57, align 8, !tbaa !52, !alias.scope !49
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %58, align 4, !tbaa !48, !alias.scope !49
+  store i32 1, ptr %50, align 4, !tbaa !47, !alias.scope !49, !noalias !53
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !56, !alias.scope !49, !noalias !53
-  br label %62
+  br label %59
 
-62:                                               ; preds = %_ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread, %42
+59:                                               ; preds = %_ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread, %39
   ret void
 }
 

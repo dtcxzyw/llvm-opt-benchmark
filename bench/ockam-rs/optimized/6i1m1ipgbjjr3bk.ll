@@ -2019,7 +2019,7 @@ define hidden { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17ha
   store ptr @anon.842dc54ce3fc1ea11ca9f8e449577286.0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %52, align 8
-  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.18) #21
+  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.18) #21
   unreachable
 
 53:                                               ; preds = %13, %12, %11, %10, %9
@@ -2033,7 +2033,7 @@ define hidden { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17ha
   store ptr @anon.842dc54ce3fc1ea11ca9f8e449577286.0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %57, align 8
-  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.19) #21
+  call void @_ZN4core9panicking9panic_fmt17h452a83e54ecd764eE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.19) #21
   unreachable
 }
 
@@ -2157,7 +2157,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h34b
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
   unreachable
 
 23:                                               ; preds = %18
@@ -2239,7 +2239,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h7e9
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
   unreachable
 
 23:                                               ; preds = %18
@@ -2321,7 +2321,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8b3
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
   unreachable
 
 23:                                               ; preds = %18
@@ -2403,7 +2403,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17hc1f
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
+  tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.842dc54ce3fc1ea11ca9f8e449577286.20.llvm.13811261307866518544, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.22.llvm.13811261307866518544) #21
   unreachable
 
 23:                                               ; preds = %18
@@ -3558,7 +3558,7 @@ define hidden void @"_ZN5tokio4util12sharded_list81ShardGuard$LT$L$C$$LT$L$u20$a
 12:                                               ; preds = %"_ZN98_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..sharded_list..ShardedListItem$GT$12get_shard_id17he4a9836cb9c0b1b9E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  invoke void @_ZN4core9panicking13assert_failed17hfcc8b38336dac12fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.25.llvm.13811261307866518544) #21
+  invoke void @_ZN4core9panicking13assert_failed17hfcc8b38336dac12fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.25.llvm.13811261307866518544) #21
           to label %17 unwind label %28
 
 13:                                               ; preds = %"_ZN98_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..sharded_list..ShardedListItem$GT$12get_shard_id17he4a9836cb9c0b1b9E.exit"
@@ -3644,7 +3644,7 @@ define hidden void @"_ZN5tokio4util12sharded_list81ShardGuard$LT$L$C$$LT$L$u20$a
 12:                                               ; preds = %"_ZN98_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..sharded_list..ShardedListItem$GT$12get_shard_id17hcf3c6dec633d0758E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  invoke void @_ZN4core9panicking13assert_failed17hfcc8b38336dac12fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.25.llvm.13811261307866518544) #21
+  invoke void @_ZN4core9panicking13assert_failed17hfcc8b38336dac12fE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.842dc54ce3fc1ea11ca9f8e449577286.25.llvm.13811261307866518544) #21
           to label %17 unwind label %28
 
 13:                                               ; preds = %"_ZN98_$LT$tokio..runtime..task..Task$LT$S$GT$$u20$as$u20$tokio..util..sharded_list..ShardedListItem$GT$12get_shard_id17hcf3c6dec633d0758E.exit"

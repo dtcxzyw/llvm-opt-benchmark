@@ -3047,7 +3047,7 @@ _ZN4llvm10prev_nodbgINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12Ma
   %1109 = getelementptr inbounds nuw i8, ptr %1108, i64 56
   %1110 = load ptr, ptr %1109, align 8, !tbaa !352
   %1111 = icmp eq ptr %.0.i.i.i116, %1110
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i = load i64, ptr %.0.i.i.i116, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i = load i64, ptr %1104, align 8
   %1112 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i35.i, -8
   %1113 = inttoptr i64 %1112 to ptr
   %.0.i.i36.i = select i1 %1111, ptr null, ptr %1113

@@ -25214,7 +25214,6 @@ _ZNK4llvm6MDNode10getOperandEj.exit33:            ; preds = %.thread, %18
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !1974
   %23 = load i8, ptr %.sink, align 4, !tbaa !1976
   %24 = icmp eq i8 %23, 0
-  %spec.select.i.i.i = select i1 %24, ptr %.sink, ptr null
   %25 = getelementptr inbounds nuw i8, ptr %.sink.in, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !1974
   %27 = load i8, ptr %26, align 4, !tbaa !1976
@@ -25235,7 +25234,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit33:            ; preds = %.thread, %18
   br i1 %34, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_5ValueEEEDaPT0_.exit: ; preds = %32
-  %35 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i.i) #24
+  %35 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #24
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1
   %.not.i = icmp eq i64 %37, %2

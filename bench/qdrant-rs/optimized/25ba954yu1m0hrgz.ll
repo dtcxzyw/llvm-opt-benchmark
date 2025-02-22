@@ -397,7 +397,7 @@ define noundef nonnull ptr @"_ZN2io15file_operations105_$LT$impl$u20$core..conve
   br i1 %12, label %16, label %21
 
 16:                                               ; preds = %15
-  invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.6c850b47ed950620c34418697e783864.2, i64 noundef 55, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6c850b47ed950620c34418697e783864.18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6c850b47ed950620c34418697e783864.4) #12
+  invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.6c850b47ed950620c34418697e783864.2, i64 noundef 55, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c850b47ed950620c34418697e783864.18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c850b47ed950620c34418697e783864.4) #12
           to label %.noexc.i unwind label %13, !noalias !124
 
 .noexc.i:                                         ; preds = %16

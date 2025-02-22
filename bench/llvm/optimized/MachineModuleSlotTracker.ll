@@ -166,39 +166,37 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker20processMachineModuleE
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %10
   %.sroa.015.020 = phi ptr [ %.sroa.015.018, %.critedge.lr.ph ], [ %.sroa.015.0, %10 ]
-  %12 = icmp eq ptr %.sroa.015.020, null
-  %13 = getelementptr inbounds i8, ptr %.sroa.015.020, i64 -56
-  %14 = select i1 %12, ptr null, ptr %13
-  %.not.not = icmp eq ptr %14, %9
-  br i1 %.not.not, label %15, label %10
+  %12 = getelementptr inbounds i8, ptr %.sroa.015.020, i64 -56
+  %.not.not = icmp eq ptr %12, %9
+  br i1 %.not.not, label %13, label %10
 
-15:                                               ; preds = %.critedge
-  %16 = load ptr, ptr %1, align 8, !tbaa !23
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %19, ptr %20, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %22 = load ptr, ptr %21, align 8, !tbaa !42
-  %23 = tail call noundef ptr @_ZNK4llvm17MachineModuleInfo18getMachineFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512) %22, ptr noundef nonnull align 8 dereferenceable(136) %14) #5
-  %.not14 = icmp eq ptr %23, null
-  br i1 %.not14, label %25, label %24
+13:                                               ; preds = %.critedge
+  %14 = load ptr, ptr %1, align 8, !tbaa !23
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %17, ptr %18, align 8, !tbaa !41
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
+  %21 = tail call noundef ptr @_ZNK4llvm17MachineModuleInfo18getMachineFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512) %20, ptr noundef nonnull align 8 dereferenceable(136) %12) #5
+  %.not14 = icmp eq ptr %21, null
+  br i1 %.not14, label %23, label %22
 
-24:                                               ; preds = %15
-  tail call void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctionMetadataEPNS_26AbstractSlotTrackerStorageERKNS_15MachineFunctionE(ptr nonnull align 8 poison, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1065) %23)
-  br label %25
+22:                                               ; preds = %13
+  tail call void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctionMetadataEPNS_26AbstractSlotTrackerStorageERKNS_15MachineFunctionE(ptr nonnull align 8 poison, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1065) %21)
+  br label %23
 
-25:                                               ; preds = %24, %15
-  %26 = load ptr, ptr %1, align 8, !tbaa !23
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %29, ptr %30, align 4, !tbaa !43
+23:                                               ; preds = %22, %13
+  %24 = load ptr, ptr %1, align 8, !tbaa !23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store i32 %27, ptr %28, align 4, !tbaa !43
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %5, %25, %4
+.loopexit:                                        ; preds = %10, %5, %23, %4
   ret void
 }
 
@@ -364,39 +362,37 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerSt
 
 .critedge.i.i.i.i:                                ; preds = %11, %.critedge.lr.ph.i.i.i.i
   %.sroa.015.020.i.i.i.i = phi ptr [ %.sroa.015.018.i.i.i.i, %.critedge.lr.ph.i.i.i.i ], [ %.sroa.015.0.i.i.i.i, %11 ]
-  %13 = icmp eq ptr %.sroa.015.020.i.i.i.i, null
-  %14 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i.i, i64 -56
-  %15 = select i1 %13, ptr null, ptr %14
-  %.not.not.i.i.i.i = icmp eq ptr %15, %10
-  br i1 %.not.not.i.i.i.i, label %16, label %11
+  %13 = getelementptr inbounds i8, ptr %.sroa.015.020.i.i.i.i, i64 -56
+  %.not.not.i.i.i.i = icmp eq ptr %13, %10
+  br i1 %.not.not.i.i.i.i, label %14, label %11
 
-16:                                               ; preds = %.critedge.i.i.i.i
-  %17 = load ptr, ptr %.val4, align 8, !tbaa !23
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
-  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  store i32 %20, ptr %21, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %23 = load ptr, ptr %22, align 8, !tbaa !42
-  %24 = tail call noundef ptr @_ZNK4llvm17MachineModuleInfo18getMachineFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512) %23, ptr noundef nonnull align 8 dereferenceable(136) %15) #5
-  %.not14.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not14.i.i.i.i, label %26, label %25
+14:                                               ; preds = %.critedge.i.i.i.i
+  %15 = load ptr, ptr %.val4, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
+  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 128
+  store i32 %18, ptr %19, align 8, !tbaa !41
+  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 120
+  %21 = load ptr, ptr %20, align 8, !tbaa !42
+  %22 = tail call noundef ptr @_ZNK4llvm17MachineModuleInfo18getMachineFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512) %21, ptr noundef nonnull align 8 dereferenceable(136) %13) #5
+  %.not14.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not14.i.i.i.i, label %24, label %23
 
-25:                                               ; preds = %16
-  tail call void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctionMetadataEPNS_26AbstractSlotTrackerStorageERKNS_15MachineFunctionE(ptr nonnull align 8 poison, ptr noundef nonnull %.val4, ptr noundef nonnull align 8 dereferenceable(1065) %24)
-  br label %26
+23:                                               ; preds = %14
+  tail call void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctionMetadataEPNS_26AbstractSlotTrackerStorageERKNS_15MachineFunctionE(ptr nonnull align 8 poison, ptr noundef nonnull %.val4, ptr noundef nonnull align 8 dereferenceable(1065) %22)
+  br label %24
 
-26:                                               ; preds = %25, %16
-  %27 = load ptr, ptr %.val4, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
-  %31 = getelementptr inbounds nuw i8, ptr %.val, i64 132
-  store i32 %30, ptr %31, align 4, !tbaa !43
+24:                                               ; preds = %23, %14
+  %25 = load ptr, ptr %.val4, align 8, !tbaa !23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 132
+  store i32 %28, ptr %29, align 4, !tbaa !43
   br label %"_ZSt10__invoke_rIvRZN4llvm24MachineModuleSlotTrackerC1ERKNS0_17MachineModuleInfoEPKNS0_15MachineFunctionEbE3$_0JPNS0_26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm24MachineModuleSlotTrackerC1ERKNS0_17MachineModuleInfoEPKNS0_15MachineFunctionEbE3$_0JPNS0_26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %11, %4, %6, %26
+"_ZSt10__invoke_rIvRZN4llvm24MachineModuleSlotTrackerC1ERKNS0_17MachineModuleInfoEPKNS0_15MachineFunctionEbE3$_0JPNS0_26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %11, %4, %6, %24
   ret void
 }
 

@@ -8259,7 +8259,7 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
 121:                                              ; preds = %114
   %122 = load i64, ptr %77, align 8, !tbaa !21
   %123 = inttoptr i64 %122 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %123, ptr noundef nonnull %117, ptr noundef nonnull %.0) #13
+  tail call void @lj_gc_barrierf(ptr noundef %123, ptr noundef nonnull %117, ptr noundef nonnull %76) #13
   br label %198
 
 124:                                              ; preds = %index2adr.exit

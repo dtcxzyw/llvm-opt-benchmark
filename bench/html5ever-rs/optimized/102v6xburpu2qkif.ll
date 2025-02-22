@@ -264,7 +264,7 @@ define void @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer10get_result17hd77
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.0, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.2) #11
+  invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.0, i64 noundef 29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.2) #11
           to label %28 unwind label %26
 
 8:                                                ; preds = %2
@@ -345,7 +345,7 @@ define noundef nonnull align 8 ptr @_ZN8xml5ever9tokenizer8char_ref16CharRefToke
   br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.3, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.4) #11
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.3, i64 noundef 45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.4) #11
   unreachable
 
 4:                                                ; preds = %1
@@ -360,7 +360,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8xml5ever9tokenizer8c
   br i1 %trunc, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.3, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.5) #11
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.3, i64 noundef 45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.5) #11
   unreachable
 
 4:                                                ; preds = %1
@@ -395,7 +395,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN8xml5ever9tokenizer8char_ref16CharR
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.6, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.7) #11
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.e7a30d6e33280da73be555ffdab5e437.6, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e7a30d6e33280da73be555ffdab5e437.7) #11
   unreachable
 
 6:                                                ; preds = %1

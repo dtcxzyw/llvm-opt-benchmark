@@ -157,7 +157,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !13
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %24 = call noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h3920cc2808f2b8a3E.llvm.1761375074273294282"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.1b34b9d042b36c680139a5e07cfc9ed0.27.llvm.5413789356557153710, ptr noundef nonnull %23)
+  %24 = call noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h3920cc2808f2b8a3E.llvm.1761375074273294282"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1b34b9d042b36c680139a5e07cfc9ed0.27.llvm.5413789356557153710, ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %28
 
@@ -346,7 +346,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$
   %23 = phi ptr [ @anon.7e95f5c0c3ed4654e2a477dfe95de6f3.0, %17 ], [ @anon.46a9e265401e6cf69d1387f578460db3.17.llvm.9530856623662163121, %20 ]
   %24 = phi i64 [ 43, %17 ], [ 33, %20 ]
   %25 = phi ptr [ @anon.7e95f5c0c3ed4654e2a477dfe95de6f3.2, %17 ], [ @anon.46a9e265401e6cf69d1387f578460db3.18.llvm.9530856623662163121, %20 ]
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25) #18
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, ptr noalias noundef readonly align 8 dereferenceable(24) %25) #18
           to label %.cont unwind label %30
 
 .cont:                                            ; preds = %.invoke
@@ -462,7 +462,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$
   %23 = phi ptr [ @anon.7e95f5c0c3ed4654e2a477dfe95de6f3.0, %17 ], [ @anon.46a9e265401e6cf69d1387f578460db3.17.llvm.9530856623662163121, %20 ]
   %24 = phi i64 [ 43, %17 ], [ 33, %20 ]
   %25 = phi ptr [ @anon.7e95f5c0c3ed4654e2a477dfe95de6f3.2, %17 ], [ @anon.46a9e265401e6cf69d1387f578460db3.18.llvm.9530856623662163121, %20 ]
-  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25) #18
+  invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24, ptr noalias noundef readonly align 8 dereferenceable(24) %25) #18
           to label %.cont unwind label %30
 
 .cont:                                            ; preds = %.invoke

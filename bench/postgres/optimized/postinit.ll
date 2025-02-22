@@ -1323,7 +1323,7 @@ select.unfold:                                    ; preds = %list_head.exit, %se
   %28 = getelementptr inbounds %union.ListCell, ptr %.val21, i64 %27
   %29 = icmp ult ptr %26, %28
   %..i = select i1 %29, ptr %26, ptr null
-  %30 = load ptr, ptr %..i, align 8
+  %30 = load ptr, ptr %26, align 8
   %31 = getelementptr inbounds nuw i8, ptr %..i, i64 8
   %.not27 = icmp ult ptr %31, %28
   tail call void @SetConfigOption(ptr noundef %22, ptr noundef %30, i32 noundef %4, i32 noundef 9) #12

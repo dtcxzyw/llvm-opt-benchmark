@@ -1079,7 +1079,7 @@ _ZN4core3ops8function6FnOnce9call_once17h35da86a3558c228fE.exit.i.i.i: ; preds =
 
 428:                                              ; preds = %.noexc.i.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !30
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.23e7dfbd31f9639ff07f7e62af06c147.0.llvm.2499367797053029812, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.23e7dfbd31f9639ff07f7e62af06c147.3.llvm.2499367797053029812, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.23e7dfbd31f9639ff07f7e62af06c147.2.llvm.2499367797053029812) #14
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.23e7dfbd31f9639ff07f7e62af06c147.0.llvm.2499367797053029812, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.23e7dfbd31f9639ff07f7e62af06c147.3.llvm.2499367797053029812, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.23e7dfbd31f9639ff07f7e62af06c147.2.llvm.2499367797053029812) #14
           to label %.noexc7.i.i unwind label %438, !noalias !12
 
 .noexc7.i.i:                                      ; preds = %428
@@ -1152,7 +1152,7 @@ define noundef zeroext i1 @_ZN9anthropic19supported_countries20is_supported_coun
   store ptr @_ZN9anthropic19supported_countries19SUPPORTED_COUNTRIES17hc0a540f4807e1c08E, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %7, ptr %6, align 8
-  call void @_ZN3std3sys4sync4once5futex4Once4call17h5426931930c129f6E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9anthropic19supported_countries19SUPPORTED_COUNTRIES17hc0a540f4807e1c08E, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ea763f71dbec09b3b9507f12736e742b.14)
+  call void @_ZN3std3sys4sync4once5futex4Once4call17h5426931930c129f6E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN9anthropic19supported_countries19SUPPORTED_COUNTRIES17hc0a540f4807e1c08E, i64 48), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea763f71dbec09b3b9507f12736e742b.14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %_ZN3std4sync4once4Once9call_once17h2f00ca671dcc959cE.exit

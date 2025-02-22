@@ -68319,130 +68319,131 @@ define internal fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115Mat
   %12 = icmp eq i64 %11, 6
   %13 = and i64 %.8.val, -8
   %14 = inttoptr i64 %13 to ptr
-  %.0.i.i.i.i.i = select i1 %12, ptr %14, ptr null
-  %.not1 = icmp eq ptr %.0.i.i.i.i.i, null
-  %.not = select i1 %.not.i, i1 true, i1 %.not1
-  br i1 %.not, label %16, label %15
-
-15:                                               ; preds = %2
-  tail call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  br label %47
+  %.not12 = icmp eq i64 %13, 0
+  %not. = xor i1 %12, true
+  %15 = select i1 %.not.i, i1 true, i1 %not.
+  %.not = select i1 %15, i1 true, i1 %.not12
+  br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %2
-  %17 = icmp eq i64 %11, 0
-  %.not472 = icmp ne i64 %13, 0
-  %18 = and i1 %17, %.not472
-  %.not47.not = select i1 %.not.i, i1 %18, i1 false
-  br i1 %.not47.not, label %19, label %22
+  tail call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %49
 
-19:                                               ; preds = %16
+17:                                               ; preds = %2
+  %18 = icmp eq i64 %11, 0
+  %.not473 = icmp ne i64 %13, 0
+  %19 = and i1 %18, %.not473
+  %.not47.not = select i1 %.not.i, i1 %19, i1 false
+  br i1 %.not47.not, label %20, label %23
+
+20:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2085)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2088)
   store i32 6, ptr %3, align 8, !tbaa !576, !alias.scope !2091
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i64, ptr %14, align 8, !tbaa !50, !noalias !2091
-  store i64 %21, ptr %20, align 8, !tbaa !50, !alias.scope !2091
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = load i64, ptr %14, align 8, !tbaa !50, !noalias !2091
+  store i64 %22, ptr %21, align 8, !tbaa !50, !alias.scope !2091
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #24
-  br label %47
+  br label %49
 
-22:                                               ; preds = %16
-  %23 = icmp eq i64 %11, 2
-  %24 = and i1 %23, %.not472
-  %.not48.not = select i1 %.not.i, i1 %24, i1 false
-  br i1 %.not48.not, label %25, label %28
+23:                                               ; preds = %17
+  %24 = icmp eq i64 %11, 2
+  %25 = and i1 %24, %.not473
+  %.not48.not = select i1 %.not.i, i1 %25, i1 false
+  br i1 %.not48.not, label %26, label %29
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2092)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2095)
-  %26 = tail call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(16) %14) #24, !noalias !2098
-  store i32 %26, ptr %4, align 8, !tbaa !576, !alias.scope !2098
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !1820
+  %27 = tail call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(16) %14) #24, !noalias !2098
+  store i32 %27, ptr %4, align 8, !tbaa !576, !alias.scope !2098
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !1820
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #24
-  br label %47
+  br label %49
 
-28:                                               ; preds = %22
-  %29 = icmp eq i64 %11, 4
-  %30 = and i1 %29, %.not472
-  %.not49.not = select i1 %.not.i, i1 %30, i1 false
-  br i1 %.not49.not, label %31, label %33
+29:                                               ; preds = %23
+  %30 = icmp eq i64 %11, 4
+  %31 = and i1 %30, %.not473
+  %.not49.not = select i1 %.not.i, i1 %31, i1 false
+  br i1 %.not49.not, label %32, label %34
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #24
   store i32 76, ptr %5, align 8, !tbaa !576, !alias.scope !2099
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %14, ptr %32, align 8, !tbaa !561, !alias.scope !2099
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %14, ptr %33, align 8, !tbaa !561, !alias.scope !2099
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #24
-  br label %47
+  br label %49
 
-33:                                               ; preds = %28
-  %34 = and i1 %12, %.not472
-  %.not50.not = select i1 %.not.i, i1 %34, i1 false
-  br i1 %.not50.not, label %35, label %37
+34:                                               ; preds = %29
+  %35 = and i1 %12, %.not473
+  %.not50.not = select i1 %.not.i, i1 %35, i1 false
+  br i1 %.not50.not, label %36, label %38
 
-35:                                               ; preds = %33
+36:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #24
   store i32 5, ptr %6, align 8, !tbaa !576, !alias.scope !2104
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !1769
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !1769
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #24
-  br label %47
+  br label %49
 
-37:                                               ; preds = %33
-  %.0.i.i.i.i.i70 = select i1 %17, ptr %14, ptr null
-  %.not516 = icmp eq ptr %.0.i.i.i.i.i70, null
-  %.not51 = select i1 %.not.i, i1 true, i1 %.not516
-  br i1 %.not51, label %40, label %38
+38:                                               ; preds = %34
+  %.0.i.i.i.i.i70 = select i1 %18, ptr %14, ptr null
+  %.not5111 = icmp eq ptr %.0.i.i.i.i.i70, null
+  %.not51 = select i1 %.not.i, i1 true, i1 %.not5111
+  br i1 %.not51, label %41, label %39
 
-38:                                               ; preds = %37
+39:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #24
   store i32 75, ptr %7, align 8, !tbaa !576, !alias.scope !2109
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0.i.i.i.i.i70, ptr %39, align 8, !tbaa !561, !alias.scope !2109
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.0.i.i.i.i.i70, ptr %40, align 8, !tbaa !561, !alias.scope !2109
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #24
-  br label %47
+  br label %49
 
-40:                                               ; preds = %37
-  %.0.i.i.i.i.i72 = select i1 %23, ptr %14, ptr null
-  %.not527 = icmp eq ptr %.0.i.i.i.i.i72, null
-  %.not52 = select i1 %.not.i, i1 true, i1 %.not527
-  br i1 %.not52, label %43, label %41
+41:                                               ; preds = %38
+  %not.14 = xor i1 %24, true
+  %42 = select i1 %.not.i, i1 true, i1 %not.14
+  %.not52 = select i1 %42, i1 true, i1 %.not12
+  br i1 %.not52, label %45, label %43
 
-41:                                               ; preds = %40
+43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #24
   store i32 2, ptr %8, align 8, !tbaa !576, !alias.scope !2114
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i.i72, i64 32, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #24
-  br label %47
+  br label %49
 
-43:                                               ; preds = %40
-  %.0.i.i.i.i.i74 = select i1 %29, ptr %14, ptr null
-  %.not538 = icmp eq ptr %.0.i.i.i.i.i74, null
-  %.not53 = select i1 %.not.i, i1 true, i1 %.not538
-  br i1 %.not53, label %47, label %44
+45:                                               ; preds = %41
+  %.0.i.i.i.i.i74 = select i1 %30, ptr %14, ptr null
+  %.not5315 = icmp eq ptr %.0.i.i.i.i.i74, null
+  %.not53 = select i1 %.not.i, i1 true, i1 %.not5315
+  br i1 %.not53, label %49, label %46
 
-44:                                               ; preds = %43
+46:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2119)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2122)
-  %45 = tail call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i74) #24, !noalias !2125
-  store i32 %45, ptr %9, align 8, !tbaa !576, !alias.scope !2125
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.0.i.i.i.i.i74, ptr %46, align 8, !tbaa !561, !alias.scope !2125
+  %47 = tail call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(35) %14) #24, !noalias !2125
+  store i32 %47, ptr %9, align 8, !tbaa !576, !alias.scope !2125
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %.0.i.i.i.i.i74, ptr %48, align 8, !tbaa !561, !alias.scope !2125
   call fastcc void @_ZN5clang12ast_matchers8internal12_GLOBAL__N_115MatchASTVisitor13TraceReporter8dumpNodeERKNS_10ASTContextERKNS_12DynTypedNodeERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #24
-  br label %47
+  br label %49
 
-47:                                               ; preds = %19, %31, %38, %43, %44, %41, %35, %25, %15
+49:                                               ; preds = %20, %32, %39, %45, %46, %43, %36, %26, %16
   ret void
 }
 

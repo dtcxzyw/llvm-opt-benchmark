@@ -216,7 +216,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h8397d4032f4c4111E.exit.i: ; preds =
   br i1 %70, label %_ZN4core4iter6traits8iterator8Iterator3nth17h8397d4032f4c4111E.exit.thread6.i, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h8397d4032f4c4111E.exit.thread6.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17h8397d4032f4c4111E.exit.i, %26, %24
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.3a1f828661baf8542c780624c0749de3.26, i64 noundef 56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a1f828661baf8542c780624c0749de3.28) #9, !noalias !43
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.3a1f828661baf8542c780624c0749de3.26, i64 noundef 56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3a1f828661baf8542c780624c0749de3.28) #9, !noalias !43
   unreachable
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17h8397d4032f4c4111E.exit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f5d71cf7d5442deE.exit15.i.i.i.i", %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f5d71cf7d5442deE.exit13.i.i.i.i"

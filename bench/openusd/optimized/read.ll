@@ -526,8 +526,8 @@ define hidden i32 @avifDecoderReset(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  %indvars.iv756.sroa.gep1101 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %indvars.iv756.sroa.gep1104 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv758.sroa.gep1099 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %indvars.iv758.sroa.gep1102 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %avifMetaFindAlphaItem.exit, label %.preheader528
 
 .preheader528:                                    ; preds = %1
@@ -584,7 +584,7 @@ define hidden i32 @avifDecoderReset(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i32 1, ptr %29, align 8
-  br label %.thread784
+  br label %.thread786
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -599,20 +599,20 @@ define hidden i32 @avifDecoderReset(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %30
   store i32 1, ptr %33, align 8
-  br label %.thread784
+  br label %.thread786
 
 36:                                               ; preds = %15
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i32 %21, ptr %37, align 8
   %38 = icmp eq i32 %21, 2
-  br i1 %38, label %.preheader518, label %.thread784
+  br i1 %38, label %.preheader518, label %.thread786
 
 .preheader518:                                    ; preds = %34, %25, %36
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %41 = load i32, ptr %40, align 4
-  %.not657 = icmp eq i32 %41, 0
-  br i1 %.not657, label %avifSampleTableGetCodecType.exit._crit_edge, label %.lr.ph
+  %.not661 = icmp eq i32 %41, 0
+  br i1 %.not661, label %avifSampleTableGetCodecType.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader518
   %42 = load ptr, ptr %39, align 8
@@ -620,8 +620,8 @@ define hidden i32 @avifDecoderReset(ptr noundef %0) local_unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %.lr.ph, %avifSampleTableGetCodecType.exit.thread
-  %indvars.iv759 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next760, %avifSampleTableGetCodecType.exit.thread ]
-  %44 = getelementptr inbounds nuw %struct.avifTrack, ptr %42, i64 %indvars.iv759
+  %indvars.iv761 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next762, %avifSampleTableGetCodecType.exit.thread ]
+  %44 = getelementptr inbounds nuw %struct.avifTrack, ptr %42, i64 %indvars.iv761
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
   %.not383 = icmp eq ptr %46, null
@@ -669,12 +669,12 @@ avifSampleTableGetCodecType.exit:                 ; preds = %58
   br i1 %.not386, label %avifSampleTableGetCodecType.exit._crit_edge.loopexit, label %avifSampleTableGetCodecType.exit.thread
 
 avifSampleTableGetCodecType.exit.thread:          ; preds = %57, %52, %avifSampleTableGetCodecType.exit, %49, %47, %43
-  %indvars.iv.next760 = add nuw nsw i64 %indvars.iv759, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next760, %wide.trip.count
+  %indvars.iv.next762 = add nuw nsw i64 %indvars.iv761, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next762, %wide.trip.count
   br i1 %exitcond.not, label %avifSampleTableGetCodecType.exit._crit_edge.thread, label %43, !llvm.loop !8
 
 avifSampleTableGetCodecType.exit._crit_edge.loopexit: ; preds = %avifSampleTableGetCodecType.exit
-  %62 = trunc nuw i64 %indvars.iv759 to i32
+  %62 = trunc nuw i64 %indvars.iv761 to i32
   br label %avifSampleTableGetCodecType.exit._crit_edge
 
 avifSampleTableGetCodecType.exit._crit_edge:      ; preds = %avifSampleTableGetCodecType.exit._crit_edge.loopexit, %.preheader518
@@ -736,23 +736,23 @@ avifSampleTableGetCodecType.exit._crit_edge.thread: ; preds = %avifSampleTableGe
   br i1 %.not389, label %._crit_edge, label %avifMetaFindAlphaItem.exit
 
 ._crit_edge:                                      ; preds = %82
-  %.pre779 = load i32, ptr %40, align 4
+  %.pre781 = load i32, ptr %40, align 4
   br label %85
 
 85:                                               ; preds = %._crit_edge, %78
-  %86 = phi i32 [ %.pre779, %._crit_edge ], [ %41, %78 ]
-  %.not658 = icmp eq i32 %86, 0
-  br i1 %.not658, label %avifSampleTableGetCodecType.exit438._crit_edge, label %.lr.ph634
+  %86 = phi i32 [ %.pre781, %._crit_edge ], [ %41, %78 ]
+  %.not662 = icmp eq i32 %86, 0
+  br i1 %.not662, label %avifSampleTableGetCodecType.exit438._crit_edge, label %.lr.ph638
 
-.lr.ph634:                                        ; preds = %85
+.lr.ph638:                                        ; preds = %85
   %87 = load ptr, ptr %39, align 8
-  %wide.trip.count765 = zext i32 %86 to i64
+  %wide.trip.count767 = zext i32 %86 to i64
   br label %88
 
-88:                                               ; preds = %.lr.ph634, %avifSampleTableGetCodecType.exit438.thread
-  %indvars.iv762 = phi i64 [ 0, %.lr.ph634 ], [ %indvars.iv.next763, %avifSampleTableGetCodecType.exit438.thread ]
-  %.0310631 = phi i32 [ 0, %.lr.ph634 ], [ %.2312, %avifSampleTableGetCodecType.exit438.thread ]
-  %89 = getelementptr inbounds nuw %struct.avifTrack, ptr %87, i64 %indvars.iv762
+88:                                               ; preds = %.lr.ph638, %avifSampleTableGetCodecType.exit438.thread
+  %indvars.iv764 = phi i64 [ 0, %.lr.ph638 ], [ %indvars.iv.next765, %avifSampleTableGetCodecType.exit438.thread ]
+  %.0310635 = phi i32 [ 0, %.lr.ph638 ], [ %.2312, %avifSampleTableGetCodecType.exit438.thread ]
+  %89 = getelementptr inbounds nuw %struct.avifTrack, ptr %87, i64 %indvars.iv764
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load ptr, ptr %90, align 8
   %.not390 = icmp eq ptr %91, null
@@ -801,13 +801,13 @@ avifSampleTableGetCodecType.exit438:              ; preds = %103
   br i1 %108, label %avifSampleTableGetCodecType.exit438._crit_edge.loopexit, label %avifSampleTableGetCodecType.exit438.thread
 
 avifSampleTableGetCodecType.exit438.thread:       ; preds = %102, %97, %avifSampleTableGetCodecType.exit438, %94, %92, %88
-  %.2312 = phi i32 [ 1, %avifSampleTableGetCodecType.exit438 ], [ %.0310631, %94 ], [ %.0310631, %92 ], [ %.0310631, %88 ], [ 0, %97 ], [ 0, %102 ]
-  %indvars.iv.next763 = add nuw nsw i64 %indvars.iv762, 1
-  %exitcond766.not = icmp eq i64 %indvars.iv.next763, %wide.trip.count765
-  br i1 %exitcond766.not, label %avifSampleTableGetCodecType.exit438._crit_edge.thread, label %88, !llvm.loop !10
+  %.2312 = phi i32 [ 1, %avifSampleTableGetCodecType.exit438 ], [ %.0310635, %94 ], [ %.0310635, %92 ], [ %.0310635, %88 ], [ 0, %97 ], [ 0, %102 ]
+  %indvars.iv.next765 = add nuw nsw i64 %indvars.iv764, 1
+  %exitcond768.not = icmp eq i64 %indvars.iv.next765, %wide.trip.count767
+  br i1 %exitcond768.not, label %avifSampleTableGetCodecType.exit438._crit_edge.thread, label %88, !llvm.loop !10
 
 avifSampleTableGetCodecType.exit438._crit_edge.loopexit: ; preds = %avifSampleTableGetCodecType.exit438
-  %109 = trunc nuw i64 %indvars.iv762 to i32
+  %109 = trunc nuw i64 %indvars.iv764 to i32
   br label %avifSampleTableGetCodecType.exit438._crit_edge
 
 avifSampleTableGetCodecType.exit438._crit_edge:   ; preds = %avifSampleTableGetCodecType.exit438._crit_edge.loopexit, %85
@@ -823,7 +823,7 @@ avifSampleTableGetCodecType.exit438._crit_edge:   ; preds = %avifSampleTableGetC
   br label %avifSampleTableGetCodecType.exit438._crit_edge.thread
 
 avifSampleTableGetCodecType.exit438._crit_edge.thread: ; preds = %avifSampleTableGetCodecType.exit438.thread, %110, %avifSampleTableGetCodecType.exit438._crit_edge
-  %.1311790 = phi i32 [ %.1311, %110 ], [ %.1311, %avifSampleTableGetCodecType.exit438._crit_edge ], [ %.2312, %avifSampleTableGetCodecType.exit438.thread ]
+  %.1311792 = phi i32 [ %.1311, %110 ], [ %.1311, %avifSampleTableGetCodecType.exit438._crit_edge ], [ %.2312, %avifSampleTableGetCodecType.exit438.thread ]
   %.0307 = phi ptr [ %113, %110 ], [ null, %avifSampleTableGetCodecType.exit438._crit_edge ], [ null, %avifSampleTableGetCodecType.exit438.thread ]
   %114 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %115 = load i32, ptr %114, align 8
@@ -859,7 +859,7 @@ avifSampleTableGetCodecType.exit438._crit_edge.thread: ; preds = %avifSampleTabl
   %136 = load i32, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %.0307, i64 52
   %138 = load i32, ptr %137, align 4
-  %139 = tail call fastcc ptr @avifDecoderDataCreateTile(ptr noundef nonnull %9, i32 noundef %.1311790, i32 noundef %136, i32 noundef %138, i8 noundef zeroext 0)
+  %139 = tail call fastcc ptr @avifDecoderDataCreateTile(ptr noundef nonnull %9, i32 noundef %.1311792, i32 noundef %136, i32 noundef %138, i8 noundef zeroext 0)
   %.not396 = icmp eq ptr %139, null
   br i1 %.not396, label %avifMetaFindAlphaItem.exit, label %140
 
@@ -927,20 +927,20 @@ avifSampleTableGetCodecType.exit438._crit_edge.thread: ; preds = %avifSampleTabl
   %182 = zext i1 %133 to i32
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %182, ptr %183, align 4
-  br i1 %133, label %184, label %635
+  br i1 %133, label %184, label %634
 
 184:                                              ; preds = %154
   %185 = getelementptr inbounds nuw i8, ptr %67, i64 8
   br label %.sink.split
 
-.thread784:                                       ; preds = %28, %35, %36
+.thread786:                                       ; preds = %28, %35, %36
   %186 = load ptr, ptr %9, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 68
   %188 = load i32, ptr %187, align 4
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %192, label %.preheader527.preheader
 
-.preheader527.preheader:                          ; preds = %.thread784
+.preheader527.preheader:                          ; preds = %.thread786
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i64 0, ptr %4, align 8
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 12
@@ -948,7 +948,7 @@ avifSampleTableGetCodecType.exit438._crit_edge.thread: ; preds = %avifSampleTabl
   %.not.i439 = icmp eq i32 %191, 0
   br i1 %.not.i439, label %.loopexit526, label %.lr.ph.i440
 
-192:                                              ; preds = %.thread784
+192:                                              ; preds = %.thread786
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.12) #13
   br label %avifMetaFindAlphaItem.exit
 
@@ -1011,1374 +1011,1371 @@ avifDecoderItemShouldBeSkipped.exit.thread.i:     ; preds = %206, %avifDecoderIt
 
 212:                                              ; preds = %209
   %213 = getelementptr inbounds nuw i8, ptr %195, i64 112
-  %214 = load i32, ptr %4, align 8
-  %215 = load ptr, ptr %9, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 12
-  %218 = load i32, ptr %217, align 4
-  %.not137.i = icmp eq i32 %218, 0
+  %214 = load ptr, ptr %9, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 12
+  %217 = load i32, ptr %216, align 4
+  %.not137.i = icmp eq i32 %217, 0
   br i1 %.not137.i, label %._crit_edge.i, label %.lr.ph.i448
 
 .lr.ph.i448:                                      ; preds = %212
-  %219 = load ptr, ptr %215, align 8
-  %wide.trip.count.i449 = zext i32 %218 to i64
-  br label %220
+  %218 = load ptr, ptr %214, align 8
+  %wide.trip.count.i449 = zext i32 %217 to i64
+  br label %219
 
-220:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.thread.i453, %.lr.ph.i448
+219:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.thread.i453, %.lr.ph.i448
   %indvars.iv.i450 = phi i64 [ 0, %.lr.ph.i448 ], [ %indvars.iv.next.i454, %avifDecoderItemShouldBeSkipped.exit.thread.i453 ]
-  %221 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %219, i64 %indvars.iv.i450
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %223 = load i64, ptr %222, align 8
-  %.not.i.i451 = icmp eq i64 %223, 0
-  br i1 %.not.i.i451, label %avifDecoderItemShouldBeSkipped.exit.thread.i453, label %224
+  %220 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %218, i64 %indvars.iv.i450
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
+  %222 = load i64, ptr %221, align 8
+  %.not.i.i451 = icmp eq i64 %222, 0
+  br i1 %.not.i.i451, label %avifDecoderItemShouldBeSkipped.exit.thread.i453, label %223
 
-224:                                              ; preds = %220
-  %225 = getelementptr inbounds nuw i8, ptr %221, i64 208
-  %226 = load i32, ptr %225, align 8
-  %.not5.i.i452 = icmp eq i32 %226, 0
-  br i1 %.not5.i.i452, label %227, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
+223:                                              ; preds = %219
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 208
+  %225 = load i32, ptr %224, align 8
+  %.not5.i.i452 = icmp eq i32 %225, 0
+  br i1 %.not5.i.i452, label %226, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
 
-227:                                              ; preds = %224
-  %228 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  %bcmp.i.i.i458 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %228, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+226:                                              ; preds = %223
+  %227 = getelementptr inbounds nuw i8, ptr %220, i64 16
+  %bcmp.i.i.i458 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %227, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
   %.not.i.not.i.i459 = icmp eq i32 %bcmp.i.i.i458, 0
-  br i1 %.not.i.not.i.i459, label %avifDecoderItemShouldBeSkipped.exit.i462, label %229
+  br i1 %.not.i.not.i.i459, label %avifDecoderItemShouldBeSkipped.exit.i462, label %228
 
-229:                                              ; preds = %227
-  %bcmp.i.i460 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %228, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+228:                                              ; preds = %226
+  %bcmp.i.i460 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %227, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %.not6.i.i461 = icmp eq i32 %bcmp.i.i460, 0
   br i1 %.not6.i.i461, label %avifDecoderItemShouldBeSkipped.exit.i462, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
 
-avifDecoderItemShouldBeSkipped.exit.i462:         ; preds = %229, %227
-  %230 = getelementptr inbounds nuw i8, ptr %221, i64 184
-  %231 = load i32, ptr %230, align 8
-  %.not114.i = icmp eq i32 %231, 0
-  br i1 %.not114.i, label %232, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
+avifDecoderItemShouldBeSkipped.exit.i462:         ; preds = %228, %226
+  %229 = getelementptr inbounds nuw i8, ptr %220, i64 184
+  %230 = load i32, ptr %229, align 8
+  %.not114.i = icmp eq i32 %230, 0
+  br i1 %.not114.i, label %231, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
 
-232:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.i462
-  %233 = load i32, ptr %195, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %221, i64 188
-  %235 = load i32, ptr %234, align 4
-  %.not.i87.i = icmp eq i32 %235, %233
-  br i1 %.not.i87.i, label %236, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
+231:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.i462
+  %232 = load i32, ptr %195, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %220, i64 188
+  %234 = load i32, ptr %233, align 4
+  %.not.i87.i = icmp eq i32 %234, %232
+  br i1 %.not.i87.i, label %235, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
 
-236:                                              ; preds = %232
-  %237 = getelementptr inbounds nuw i8, ptr %221, i64 124
-  %238 = load i32, ptr %237, align 4
-  %.not12.i.i.i = icmp eq i32 %238, 0
+235:                                              ; preds = %231
+  %236 = getelementptr inbounds nuw i8, ptr %220, i64 124
+  %237 = load i32, ptr %236, align 4
+  %.not12.i.i.i = icmp eq i32 %237, 0
   br i1 %.not12.i.i.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i453, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %236
-  %239 = getelementptr inbounds nuw i8, ptr %221, i64 112
-  %240 = load ptr, ptr %239, align 8
-  %wide.trip.count.i.i.i = zext i32 %238 to i64
-  br label %242
+.lr.ph.i.i.i:                                     ; preds = %235
+  %238 = getelementptr inbounds nuw i8, ptr %220, i64 112
+  %239 = load ptr, ptr %238, align 8
+  %wide.trip.count.i.i.i = zext i32 %237 to i64
+  br label %241
 
-241:                                              ; preds = %242
+240:                                              ; preds = %241
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i453, label %242, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i453, label %241, !llvm.loop !12
 
-242:                                              ; preds = %241, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %241 ]
-  %243 = getelementptr inbounds nuw %struct.avifProperty, ptr %240, i64 %indvars.iv.i.i.i
-  %bcmp.i.i88.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %243, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
+241:                                              ; preds = %240, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %240 ]
+  %242 = getelementptr inbounds nuw %struct.avifProperty, ptr %239, i64 %indvars.iv.i.i.i
+  %bcmp.i.i88.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %242, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not.i.i.i = icmp eq i32 %bcmp.i.i88.i, 0
-  br i1 %.not.i.i.i, label %avifPropertyArrayFind.exit.i.i, label %241
+  br i1 %.not.i.i.i, label %avifPropertyArrayFind.exit.i.i, label %240
 
-avifPropertyArrayFind.exit.i.i:                   ; preds = %242
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %245 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %244, ptr noundef nonnull dereferenceable(44) @.str.159) #14
-  %.not.i7.i.i = icmp eq i32 %245, 0
+avifPropertyArrayFind.exit.i.i:                   ; preds = %241
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %244 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %243, ptr noundef nonnull dereferenceable(44) @.str.159) #14
+  %.not.i7.i.i = icmp eq i32 %244, 0
   br i1 %.not.i7.i.i, label %avifDecoderItemIsAlphaAux.exit.thread106.i, label %avifDecoderItemIsAlphaAux.exit.i
 
 avifDecoderItemIsAlphaAux.exit.i:                 ; preds = %avifPropertyArrayFind.exit.i.i
-  %246 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %244, ptr noundef nonnull dereferenceable(27) @.str.160) #14
-  %.not2.i.i.not.i = icmp eq i32 %246, 0
+  %245 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %243, ptr noundef nonnull dereferenceable(27) @.str.160) #14
+  %.not2.i.i.not.i = icmp eq i32 %245, 0
   br i1 %.not2.i.i.not.i, label %avifDecoderItemIsAlphaAux.exit.thread106.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
 
 avifDecoderItemIsAlphaAux.exit.thread106.i:       ; preds = %avifDecoderItemIsAlphaAux.exit.i, %avifPropertyArrayFind.exit.i.i
-  store ptr %221, ptr %216, align 8
-  br label %314
+  store ptr %220, ptr %215, align 8
+  br label %313
 
-avifDecoderItemShouldBeSkipped.exit.thread.i453:  ; preds = %241, %avifDecoderItemIsAlphaAux.exit.i, %236, %232, %avifDecoderItemShouldBeSkipped.exit.i462, %229, %224, %220
+avifDecoderItemShouldBeSkipped.exit.thread.i453:  ; preds = %240, %avifDecoderItemIsAlphaAux.exit.i, %235, %231, %avifDecoderItemShouldBeSkipped.exit.i462, %228, %223, %219
   %indvars.iv.next.i454 = add nuw nsw i64 %indvars.iv.i450, 1
   %exitcond.not.i455 = icmp eq i64 %indvars.iv.next.i454, %wide.trip.count.i449
-  br i1 %exitcond.not.i455, label %._crit_edge.i, label %220, !llvm.loop !13
+  br i1 %exitcond.not.i455, label %._crit_edge.i, label %219, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %avifDecoderItemShouldBeSkipped.exit.thread.i453, %212
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %202, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %.not.i456 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i456, label %247, label %.thread.sink.split
+  br i1 %.not.i456, label %246, label %.thread.sink.split
 
-247:                                              ; preds = %._crit_edge.i
-  %248 = load i32, ptr %invariant.gep, align 4
-  %249 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %250 = load i32, ptr %249, align 4
-  %251 = mul i32 %250, %248
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %.thread.sink.split, label %253
+246:                                              ; preds = %._crit_edge.i
+  %247 = load i32, ptr %invariant.gep, align 4
+  %248 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %249 = load i32, ptr %248, align 4
+  %250 = mul i32 %249, %247
+  %251 = icmp eq i32 %250, 0
+  br i1 %251, label %.thread.sink.split, label %252
 
-253:                                              ; preds = %247
-  %254 = zext i32 %251 to i64
-  %255 = shl nuw nsw i64 %254, 2
-  %256 = tail call ptr @avifAlloc(i64 noundef %255) #13
-  %.not81.i = icmp eq ptr %256, null
+252:                                              ; preds = %246
+  %253 = zext i32 %250 to i64
+  %254 = shl nuw nsw i64 %253, 2
+  %255 = tail call ptr @avifAlloc(i64 noundef %254) #13
+  %.not81.i = icmp eq ptr %255, null
   br i1 %.not81.i, label %avifMetaFindAlphaItem.exit, label %.preheader115.i
 
-.preheader115.i:                                  ; preds = %253
-  %257 = load i32, ptr %217, align 4
-  %.not138.i = icmp eq i32 %257, 0
+.preheader115.i:                                  ; preds = %252
+  %256 = load i32, ptr %216, align 4
+  %.not138.i = icmp eq i32 %256, 0
   br i1 %.not138.i, label %._crit_edge130.i, label %.lr.ph129.i
 
 .lr.ph129.i:                                      ; preds = %.preheader115.i, %.loopexit.i
-  %258 = phi i32 [ %292, %.loopexit.i ], [ %257, %.preheader115.i ]
+  %257 = phi i32 [ %291, %.loopexit.i ], [ %256, %.preheader115.i ]
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %.loopexit.i ], [ 0, %.preheader115.i ]
   %.072128.i = phi i32 [ %.3.i, %.loopexit.i ], [ 0, %.preheader115.i ]
   %.074127.i = phi i32 [ %spec.select.i, %.loopexit.i ], [ 0, %.preheader115.i ]
-  %259 = load ptr, ptr %215, align 8
-  %260 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %259, i64 %indvars.iv150.i
-  %261 = load i32, ptr %260, align 8
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %261, i32 %.074127.i)
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 196
-  %263 = load i32, ptr %262, align 4
-  %264 = load i32, ptr %195, align 8
-  %265 = icmp eq i32 %263, %264
-  br i1 %265, label %.preheader.i, label %.loopexit.i
+  %258 = load ptr, ptr %214, align 8
+  %259 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %258, i64 %indvars.iv150.i
+  %260 = load i32, ptr %259, align 8
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %260, i32 %.074127.i)
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 196
+  %262 = load i32, ptr %261, align 4
+  %263 = load i32, ptr %195, align 8
+  %264 = icmp eq i32 %262, %263
+  br i1 %264, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.lr.ph129.i
-  %.not139.i = icmp eq i32 %258, 0
+  %.not139.i = icmp eq i32 %257, 0
   br i1 %.not139.i, label %.loopexit.i, label %.lr.ph125.i
 
 .lr.ph125.i:                                      ; preds = %.preheader.i, %avifDecoderItemIsAlphaAux.exit102.thread.i
-  %266 = phi i32 [ %288, %avifDecoderItemIsAlphaAux.exit102.thread.i ], [ %258, %.preheader.i ]
-  %267 = phi i32 [ %289, %avifDecoderItemIsAlphaAux.exit102.thread.i ], [ %258, %.preheader.i ]
+  %265 = phi i32 [ %287, %avifDecoderItemIsAlphaAux.exit102.thread.i ], [ %257, %.preheader.i ]
+  %266 = phi i32 [ %288, %avifDecoderItemIsAlphaAux.exit102.thread.i ], [ %257, %.preheader.i ]
   %indvars.iv147.i = phi i64 [ %indvars.iv.next148.i, %avifDecoderItemIsAlphaAux.exit102.thread.i ], [ 0, %.preheader.i ]
   %.1124.i = phi i32 [ %.2.i, %avifDecoderItemIsAlphaAux.exit102.thread.i ], [ %.072128.i, %.preheader.i ]
-  %268 = load ptr, ptr %215, align 8
-  %269 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %268, i64 %indvars.iv147.i
-  %270 = load i32, ptr %260, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %269, i64 188
-  %272 = load i32, ptr %271, align 4
-  %.not.i89.i = icmp eq i32 %272, %270
-  br i1 %.not.i89.i, label %273, label %avifDecoderItemIsAlphaAux.exit102.thread.i
+  %267 = load ptr, ptr %214, align 8
+  %268 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %267, i64 %indvars.iv147.i
+  %269 = load i32, ptr %259, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %268, i64 188
+  %271 = load i32, ptr %270, align 4
+  %.not.i89.i = icmp eq i32 %271, %269
+  br i1 %.not.i89.i, label %272, label %avifDecoderItemIsAlphaAux.exit102.thread.i
 
-273:                                              ; preds = %.lr.ph125.i
-  %274 = getelementptr inbounds nuw i8, ptr %269, i64 124
-  %275 = load i32, ptr %274, align 4
-  %.not12.i.i91.i = icmp eq i32 %275, 0
+272:                                              ; preds = %.lr.ph125.i
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 124
+  %274 = load i32, ptr %273, align 4
+  %.not12.i.i91.i = icmp eq i32 %274, 0
   br i1 %.not12.i.i91.i, label %avifDecoderItemIsAlphaAux.exit102.thread.i, label %.lr.ph.i.i92.i
 
-.lr.ph.i.i92.i:                                   ; preds = %273
-  %276 = getelementptr inbounds nuw i8, ptr %269, i64 112
-  %277 = load ptr, ptr %276, align 8
-  %wide.trip.count.i.i93.i = zext i32 %275 to i64
-  br label %279
+.lr.ph.i.i92.i:                                   ; preds = %272
+  %275 = getelementptr inbounds nuw i8, ptr %268, i64 112
+  %276 = load ptr, ptr %275, align 8
+  %wide.trip.count.i.i93.i = zext i32 %274 to i64
+  br label %278
 
-278:                                              ; preds = %279
+277:                                              ; preds = %278
   %indvars.iv.next.i.i97.i = add nuw nsw i64 %indvars.iv.i.i94.i, 1
   %exitcond.not.i.i98.i = icmp eq i64 %indvars.iv.next.i.i97.i, %wide.trip.count.i.i93.i
-  br i1 %exitcond.not.i.i98.i, label %avifDecoderItemIsAlphaAux.exit102.thread.i, label %279, !llvm.loop !12
+  br i1 %exitcond.not.i.i98.i, label %avifDecoderItemIsAlphaAux.exit102.thread.i, label %278, !llvm.loop !12
 
-279:                                              ; preds = %278, %.lr.ph.i.i92.i
-  %indvars.iv.i.i94.i = phi i64 [ 0, %.lr.ph.i.i92.i ], [ %indvars.iv.next.i.i97.i, %278 ]
-  %280 = getelementptr inbounds nuw %struct.avifProperty, ptr %277, i64 %indvars.iv.i.i94.i
-  %bcmp.i.i95.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %280, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
+278:                                              ; preds = %277, %.lr.ph.i.i92.i
+  %indvars.iv.i.i94.i = phi i64 [ 0, %.lr.ph.i.i92.i ], [ %indvars.iv.next.i.i97.i, %277 ]
+  %279 = getelementptr inbounds nuw %struct.avifProperty, ptr %276, i64 %indvars.iv.i.i94.i
+  %bcmp.i.i95.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %279, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not.i.i96.i = icmp eq i32 %bcmp.i.i95.i, 0
-  br i1 %.not.i.i96.i, label %avifPropertyArrayFind.exit.i99.i, label %278
+  br i1 %.not.i.i96.i, label %avifPropertyArrayFind.exit.i99.i, label %277
 
-avifPropertyArrayFind.exit.i99.i:                 ; preds = %279
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %282 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %281, ptr noundef nonnull dereferenceable(44) @.str.159) #14
-  %.not.i7.i100.i = icmp eq i32 %282, 0
+avifPropertyArrayFind.exit.i99.i:                 ; preds = %278
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  %281 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %280, ptr noundef nonnull dereferenceable(44) @.str.159) #14
+  %.not.i7.i100.i = icmp eq i32 %281, 0
   br i1 %.not.i7.i100.i, label %avifDecoderItemIsAlphaAux.exit102.thread111.i, label %avifDecoderItemIsAlphaAux.exit102.i
 
 avifDecoderItemIsAlphaAux.exit102.i:              ; preds = %avifPropertyArrayFind.exit.i99.i
-  %283 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %281, ptr noundef nonnull dereferenceable(27) @.str.160) #14
-  %.not2.i.i101.not.i = icmp eq i32 %283, 0
+  %282 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %280, ptr noundef nonnull dereferenceable(27) @.str.160) #14
+  %.not2.i.i101.not.i = icmp eq i32 %282, 0
   br i1 %.not2.i.i101.not.i, label %avifDecoderItemIsAlphaAux.exit102.thread111.i, label %avifDecoderItemIsAlphaAux.exit102.thread.i
 
 avifDecoderItemIsAlphaAux.exit102.thread111.i:    ; preds = %avifDecoderItemIsAlphaAux.exit102.i, %avifPropertyArrayFind.exit.i99.i
-  %284 = add i32 %.1124.i, 1
-  %285 = zext i32 %.1124.i to i64
-  %286 = getelementptr inbounds nuw i32, ptr %256, i64 %285
-  %287 = trunc nuw i64 %indvars.iv147.i to i32
-  store i32 %287, ptr %286, align 4
-  %.pre.i = load i32, ptr %217, align 4
+  %283 = add i32 %.1124.i, 1
+  %284 = zext i32 %.1124.i to i64
+  %285 = getelementptr inbounds nuw i32, ptr %255, i64 %284
+  %286 = trunc nuw i64 %indvars.iv147.i to i32
+  store i32 %286, ptr %285, align 4
+  %.pre.i = load i32, ptr %216, align 4
   br label %avifDecoderItemIsAlphaAux.exit102.thread.i
 
-avifDecoderItemIsAlphaAux.exit102.thread.i:       ; preds = %278, %avifDecoderItemIsAlphaAux.exit102.thread111.i, %avifDecoderItemIsAlphaAux.exit102.i, %273, %.lr.ph125.i
-  %288 = phi i32 [ %.pre.i, %avifDecoderItemIsAlphaAux.exit102.thread111.i ], [ %266, %avifDecoderItemIsAlphaAux.exit102.i ], [ %266, %.lr.ph125.i ], [ %266, %273 ], [ %266, %278 ]
-  %289 = phi i32 [ %.pre.i, %avifDecoderItemIsAlphaAux.exit102.thread111.i ], [ %267, %avifDecoderItemIsAlphaAux.exit102.i ], [ %267, %.lr.ph125.i ], [ %267, %273 ], [ %267, %278 ]
-  %.2.i = phi i32 [ %284, %avifDecoderItemIsAlphaAux.exit102.thread111.i ], [ %.1124.i, %avifDecoderItemIsAlphaAux.exit102.i ], [ %.1124.i, %.lr.ph125.i ], [ %.1124.i, %273 ], [ %.1124.i, %278 ]
+avifDecoderItemIsAlphaAux.exit102.thread.i:       ; preds = %277, %avifDecoderItemIsAlphaAux.exit102.thread111.i, %avifDecoderItemIsAlphaAux.exit102.i, %272, %.lr.ph125.i
+  %287 = phi i32 [ %.pre.i, %avifDecoderItemIsAlphaAux.exit102.thread111.i ], [ %265, %avifDecoderItemIsAlphaAux.exit102.i ], [ %265, %.lr.ph125.i ], [ %265, %272 ], [ %265, %277 ]
+  %288 = phi i32 [ %.pre.i, %avifDecoderItemIsAlphaAux.exit102.thread111.i ], [ %266, %avifDecoderItemIsAlphaAux.exit102.i ], [ %266, %.lr.ph125.i ], [ %266, %272 ], [ %266, %277 ]
+  %.2.i = phi i32 [ %283, %avifDecoderItemIsAlphaAux.exit102.thread111.i ], [ %.1124.i, %avifDecoderItemIsAlphaAux.exit102.i ], [ %.1124.i, %.lr.ph125.i ], [ %.1124.i, %272 ], [ %.1124.i, %277 ]
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
-  %290 = zext i32 %289 to i64
-  %291 = icmp samesign ult i64 %indvars.iv.next148.i, %290
-  br i1 %291, label %.lr.ph125.i, label %.loopexit.i, !llvm.loop !14
+  %289 = zext i32 %288 to i64
+  %290 = icmp samesign ult i64 %indvars.iv.next148.i, %289
+  br i1 %290, label %.lr.ph125.i, label %.loopexit.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %avifDecoderItemIsAlphaAux.exit102.thread.i, %.preheader.i, %.lr.ph129.i
-  %292 = phi i32 [ %258, %.lr.ph129.i ], [ 0, %.preheader.i ], [ %288, %avifDecoderItemIsAlphaAux.exit102.thread.i ]
+  %291 = phi i32 [ %257, %.lr.ph129.i ], [ 0, %.preheader.i ], [ %287, %avifDecoderItemIsAlphaAux.exit102.thread.i ]
   %.3.i = phi i32 [ %.072128.i, %.lr.ph129.i ], [ %.072128.i, %.preheader.i ], [ %.2.i, %avifDecoderItemIsAlphaAux.exit102.thread.i ]
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
-  %293 = zext i32 %292 to i64
-  %294 = icmp samesign ult i64 %indvars.iv.next151.i, %293
-  br i1 %294, label %.lr.ph129.i, label %._crit_edge130.loopexit.i, !llvm.loop !15
+  %292 = zext i32 %291 to i64
+  %293 = icmp samesign ult i64 %indvars.iv.next151.i, %292
+  br i1 %293, label %.lr.ph129.i, label %._crit_edge130.loopexit.i, !llvm.loop !15
 
 ._crit_edge130.loopexit.i:                        ; preds = %.loopexit.i
-  %295 = add i32 %spec.select.i, 1
+  %294 = add i32 %spec.select.i, 1
   br label %._crit_edge130.i
 
 ._crit_edge130.i:                                 ; preds = %._crit_edge130.loopexit.i, %.preheader115.i
-  %.074.lcssa.i = phi i32 [ 1, %.preheader115.i ], [ %295, %._crit_edge130.loopexit.i ]
+  %.074.lcssa.i = phi i32 [ 1, %.preheader115.i ], [ %294, %._crit_edge130.loopexit.i ]
   %.072.lcssa.i = phi i32 [ 0, %.preheader115.i ], [ %.3.i, %._crit_edge130.loopexit.i ]
-  %.not82.i = icmp eq i32 %.072.lcssa.i, %251
-  br i1 %.not82.i, label %297, label %296
+  %.not82.i = icmp eq i32 %.072.lcssa.i, %250
+  br i1 %.not82.i, label %296, label %295
 
-296:                                              ; preds = %._crit_edge130.i
-  tail call void @avifFree(ptr noundef nonnull %256) #13
+295:                                              ; preds = %._crit_edge130.i
+  tail call void @avifFree(ptr noundef nonnull %255) #13
   br label %.thread.sink.split
 
-297:                                              ; preds = %._crit_edge130.i
-  %298 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %215, i32 noundef %.074.lcssa.i, ptr noundef nonnull %216)
-  %.not83.i = icmp eq i32 %298, 0
-  br i1 %.not83.i, label %.lr.ph135.preheader.i, label %299
+296:                                              ; preds = %._crit_edge130.i
+  %297 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %214, i32 noundef %.074.lcssa.i, ptr noundef nonnull %215)
+  %.not83.i = icmp eq i32 %297, 0
+  br i1 %.not83.i, label %.lr.ph135.preheader.i, label %298
 
-299:                                              ; preds = %297
-  tail call void @avifFree(ptr noundef nonnull %256) #13
+298:                                              ; preds = %296
+  tail call void @avifFree(ptr noundef nonnull %255) #13
   br label %avifMetaFindAlphaItem.exit
 
-.lr.ph135.preheader.i:                            ; preds = %297
-  %300 = load ptr, ptr %216, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
-  store i32 1684632167, ptr %301, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %195, i64 36
-  %303 = load i32, ptr %302, align 4
-  %304 = getelementptr inbounds nuw i8, ptr %300, i64 36
-  store i32 %303, ptr %304, align 4
-  %305 = getelementptr inbounds nuw i8, ptr %195, i64 40
-  %306 = load i32, ptr %305, align 8
-  %307 = getelementptr inbounds nuw i8, ptr %300, i64 40
-  store i32 %306, ptr %307, align 8
-  %.pre = load i32, ptr %300, align 8
+.lr.ph135.preheader.i:                            ; preds = %296
+  %299 = load ptr, ptr %215, align 8
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
+  store i32 1684632167, ptr %300, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %195, i64 36
+  %302 = load i32, ptr %301, align 4
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 36
+  store i32 %302, ptr %303, align 4
+  %304 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  %305 = load i32, ptr %304, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %299, i64 40
+  store i32 %305, ptr %306, align 8
+  %.pre = load i32, ptr %299, align 8
   br label %.lr.ph135.i
 
 .lr.ph135.i:                                      ; preds = %.lr.ph135.i, %.lr.ph135.preheader.i
   %indvars.iv153.i = phi i64 [ 0, %.lr.ph135.preheader.i ], [ %indvars.iv.next154.i, %.lr.ph135.i ]
-  %308 = load ptr, ptr %215, align 8
-  %309 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv153.i
-  %310 = load i32, ptr %309, align 4
-  %311 = zext i32 %310 to i64
-  %312 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %308, i64 %311, i32 16
-  store i32 %.pre, ptr %312, align 4
+  %307 = load ptr, ptr %214, align 8
+  %308 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv153.i
+  %309 = load i32, ptr %308, align 4
+  %310 = zext i32 %309 to i64
+  %311 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %307, i64 %310, i32 16
+  store i32 %.pre, ptr %311, align 4
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
-  %exitcond157.not.i = icmp eq i64 %indvars.iv.next154.i, %254
+  %exitcond157.not.i = icmp eq i64 %indvars.iv.next154.i, %253
   br i1 %exitcond157.not.i, label %._crit_edge136.i, label %.lr.ph135.i, !llvm.loop !16
 
 ._crit_edge136.i:                                 ; preds = %.lr.ph135.i
-  tail call void @avifFree(ptr noundef nonnull %256) #13
-  %313 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %313, ptr noundef nonnull readonly align 4 dereferenceable(16) %invariant.gep, i64 16, i1 false)
-  br label %314
+  tail call void @avifFree(ptr noundef nonnull %255) #13
+  %312 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %312, ptr noundef nonnull readonly align 4 dereferenceable(16) %invariant.gep, i64 16, i1 false)
+  br label %313
 
-314:                                              ; preds = %avifDecoderItemIsAlphaAux.exit.thread106.i, %._crit_edge136.i
-  %315 = phi ptr [ %221, %avifDecoderItemIsAlphaAux.exit.thread106.i ], [ %300, %._crit_edge136.i ]
+313:                                              ; preds = %avifDecoderItemIsAlphaAux.exit.thread106.i, %._crit_edge136.i
+  %314 = phi ptr [ %220, %avifDecoderItemIsAlphaAux.exit.thread106.i ], [ %299, %._crit_edge136.i ]
   %.0496.ph = phi i32 [ 1, %avifDecoderItemIsAlphaAux.exit.thread106.i ], [ 0, %._crit_edge136.i ]
-  %.not374 = icmp eq ptr %315, null
-  br i1 %.not374, label %.thread, label %316
+  %.not374 = icmp eq ptr %314, null
+  br i1 %.not374, label %.thread, label %315
 
-316:                                              ; preds = %314
-  %317 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %318 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %319 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef %315, i32 noundef %.0496.ph, ptr noundef %317, ptr noundef %318)
-  %.not375 = icmp eq i32 %319, 0
+315:                                              ; preds = %313
+  %316 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %317 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %318 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef %314, i32 noundef %.0496.ph, ptr noundef %316, ptr noundef %317)
+  %.not375 = icmp eq i32 %318, 0
   br i1 %.not375, label %.thread, label %avifMetaFindAlphaItem.exit
 
-.thread.sink.split:                               ; preds = %247, %._crit_edge.i, %296
-  store ptr null, ptr %216, align 8
+.thread.sink.split:                               ; preds = %246, %._crit_edge.i, %295
+  store ptr null, ptr %215, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %314, %316
-  %320 = phi ptr [ null, %314 ], [ %315, %316 ], [ null, %.thread.sink.split ]
-  %.0496.ph509 = phi i32 [ %.0496.ph, %314 ], [ %.0496.ph, %316 ], [ 0, %.thread.sink.split ]
-  %321 = load ptr, ptr %9, align 8
-  %322 = load ptr, ptr %10, align 8
-  %323 = load ptr, ptr %3, align 16
-  %324 = load i32, ptr %323, align 8
-  %325 = tail call fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr noundef %321, ptr noundef %322, i32 noundef %324)
-  %.not376 = icmp eq i32 %325, 0
-  br i1 %.not376, label %326, label %avifMetaFindAlphaItem.exit
+.thread:                                          ; preds = %.thread.sink.split, %313, %315
+  %319 = phi ptr [ null, %313 ], [ %314, %315 ], [ null, %.thread.sink.split ]
+  %.0496.ph509 = phi i32 [ %.0496.ph, %313 ], [ %.0496.ph, %315 ], [ 0, %.thread.sink.split ]
+  %320 = load ptr, ptr %9, align 8
+  %321 = load ptr, ptr %10, align 8
+  %322 = load ptr, ptr %3, align 16
+  %323 = load i32, ptr %322, align 8
+  %324 = tail call fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr noundef %320, ptr noundef %321, i32 noundef %323)
+  %.not376 = icmp eq i32 %324, 0
+  br i1 %.not376, label %325, label %avifMetaFindAlphaItem.exit
 
-326:                                              ; preds = %.thread
-  %327 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 -1, ptr %327, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 1, ptr %328, align 4
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 1, ptr %329, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %330, i8 0, i64 16, i1 false)
-  store double 1.000000e+00, ptr %331, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 104
+325:                                              ; preds = %.thread
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 -1, ptr %326, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 1, ptr %327, align 4
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 1, ptr %328, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %329, i8 0, i64 16, i1 false)
+  store double 1.000000e+00, ptr %330, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 1, ptr %331, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 1, ptr %332, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 1, ptr %333, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store double 1.000000e+00, ptr %334, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 1, ptr %335, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %323, i64 36
-  %337 = getelementptr inbounds nuw i8, ptr %323, i64 40
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %340 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %342 = icmp ne i32 %.0496.ph509, 0
-  br label %343
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store double 1.000000e+00, ptr %333, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 1, ptr %334, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %322, i64 36
+  %336 = getelementptr inbounds nuw i8, ptr %322, i64 40
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %341 = icmp ne i32 %.0496.ph509, 0
+  br label %342
 
-343:                                              ; preds = %326, %606
-  %.not656 = phi i1 [ true, %326 ], [ false, %606 ]
-  %indvars.iv756.sroa.phi = phi ptr [ %4, %326 ], [ %indvars.iv756.sroa.gep1101, %606 ]
-  %indvars.iv756.sroa.phi1102 = phi ptr [ %3, %326 ], [ %indvars.iv756.sroa.gep1104, %606 ]
-  %indvars.iv756 = phi i64 [ 0, %326 ], [ 1, %606 ]
-  %344 = load ptr, ptr %indvars.iv756.sroa.phi1102, align 8
-  %.not378 = icmp eq ptr %344, null
-  br i1 %.not378, label %606, label %345
+342:                                              ; preds = %325, %605
+  %.not660 = phi i1 [ true, %325 ], [ false, %605 ]
+  %indvars.iv758.sroa.phi = phi ptr [ %4, %325 ], [ %indvars.iv758.sroa.gep1099, %605 ]
+  %indvars.iv758.sroa.phi1100 = phi ptr [ %3, %325 ], [ %indvars.iv758.sroa.gep1102, %605 ]
+  %indvars.iv758 = phi i64 [ 0, %325 ], [ 1, %605 ]
+  %343 = load ptr, ptr %indvars.iv758.sroa.phi1100, align 8
+  %.not378 = icmp eq ptr %343, null
+  br i1 %.not378, label %605, label %344
 
-345:                                              ; preds = %343
-  br i1 %.not656, label %355, label %346
+344:                                              ; preds = %342
+  br i1 %.not660, label %354, label %345
 
-346:                                              ; preds = %345
-  %347 = getelementptr inbounds nuw i8, ptr %344, i64 36
-  %348 = load i32, ptr %347, align 4
-  %.not379 = icmp eq i32 %348, 0
-  br i1 %.not379, label %349, label %355
+345:                                              ; preds = %344
+  %346 = getelementptr inbounds nuw i8, ptr %343, i64 36
+  %347 = load i32, ptr %346, align 4
+  %.not379 = icmp eq i32 %347, 0
+  br i1 %.not379, label %348, label %354
 
-349:                                              ; preds = %346
-  %350 = getelementptr inbounds nuw i8, ptr %344, i64 40
-  %351 = load i32, ptr %350, align 8
-  %.not380 = icmp eq i32 %351, 0
-  br i1 %.not380, label %352, label %355
+348:                                              ; preds = %345
+  %349 = getelementptr inbounds nuw i8, ptr %343, i64 40
+  %350 = load i32, ptr %349, align 8
+  %.not380 = icmp eq i32 %350, 0
+  br i1 %.not380, label %351, label %354
 
-352:                                              ; preds = %349
-  %353 = load i32, ptr %336, align 4
-  store i32 %353, ptr %347, align 4
-  %354 = load i32, ptr %337, align 8
-  store i32 %354, ptr %350, align 8
-  br label %355
+351:                                              ; preds = %348
+  %352 = load i32, ptr %335, align 4
+  store i32 %352, ptr %346, align 4
+  %353 = load i32, ptr %336, align 8
+  store i32 %353, ptr %349, align 8
+  br label %354
 
-355:                                              ; preds = %345, %346, %349, %352
-  %356 = getelementptr inbounds nuw [2 x %struct.avifTileInfo], ptr %210, i64 0, i64 %indvars.iv756
-  %357 = load ptr, ptr %8, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 44
-  %359 = load i32, ptr %358, align 4
-  %360 = getelementptr inbounds nuw i8, ptr %356, i64 12
-  %361 = load i32, ptr %360, align 4
-  %.not.i463 = icmp eq i32 %361, 0
-  br i1 %.not.i463, label %446, label %362
+354:                                              ; preds = %344, %345, %348, %351
+  %355 = getelementptr inbounds nuw [2 x %struct.avifTileInfo], ptr %210, i64 0, i64 %indvars.iv758
+  %356 = load ptr, ptr %8, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 44
+  %358 = load i32, ptr %357, align 4
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 12
+  %360 = load i32, ptr %359, align 4
+  %.not.i463 = icmp eq i32 %360, 0
+  br i1 %.not.i463, label %445, label %361
 
-362:                                              ; preds = %355
-  %363 = getelementptr inbounds nuw i8, ptr %356, i64 16
-  %364 = load i32, ptr %363, align 4
-  %.not33.i = icmp eq i32 %364, 0
-  br i1 %.not33.i, label %446, label %365
+361:                                              ; preds = %354
+  %362 = getelementptr inbounds nuw i8, ptr %355, i64 16
+  %363 = load i32, ptr %362, align 4
+  %.not33.i = icmp eq i32 %363, 0
+  br i1 %.not33.i, label %445, label %364
 
-365:                                              ; preds = %362
-  %366 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 12
-  %369 = load i32, ptr %368, align 4
-  %.not118.i.i = icmp eq i32 %369, 0
+364:                                              ; preds = %361
+  %365 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 12
+  %368 = load i32, ptr %367, align 4
+  %.not118.i.i = icmp eq i32 %368, 0
   br i1 %.not118.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %365
-  %370 = getelementptr inbounds nuw i8, ptr %344, i64 112
-  %371 = getelementptr inbounds nuw i8, ptr %344, i64 216
-  %372 = trunc nuw nsw i64 %indvars.iv756 to i32
-  br label %373
+.lr.ph.i.i:                                       ; preds = %364
+  %369 = getelementptr inbounds nuw i8, ptr %343, i64 112
+  %370 = getelementptr inbounds nuw i8, ptr %343, i64 216
+  %371 = trunc nuw nsw i64 %indvars.iv758 to i32
+  br label %372
 
-373:                                              ; preds = %436, %.lr.ph.i.i
-  %374 = phi ptr [ %367, %.lr.ph.i.i ], [ %437, %436 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %436 ]
-  %.061117.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %436 ]
-  %.062116.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.163.i.i, %436 ]
-  %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %375, i64 %indvars.iv.i.i
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 196
-  %378 = load i32, ptr %377, align 4
-  %379 = load i32, ptr %344, align 8
-  %.not71.i.i = icmp eq i32 %378, %379
-  br i1 %.not71.i.i, label %380, label %436
+372:                                              ; preds = %435, %.lr.ph.i.i
+  %373 = phi ptr [ %366, %.lr.ph.i.i ], [ %436, %435 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %435 ]
+  %.061117.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %435 ]
+  %.062116.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.163.i.i, %435 ]
+  %374 = load ptr, ptr %373, align 8
+  %375 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %374, i64 %indvars.iv.i.i
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 196
+  %377 = load i32, ptr %376, align 4
+  %378 = load i32, ptr %343, align 8
+  %.not71.i.i = icmp eq i32 %377, %378
+  br i1 %.not71.i.i, label %379, label %435
 
-380:                                              ; preds = %373
-  %381 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  %bcmp.i.i.i467 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %381, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+379:                                              ; preds = %372
+  %380 = getelementptr inbounds nuw i8, ptr %375, i64 16
+  %bcmp.i.i.i467 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %380, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
   %.not.i.not.i.i468 = icmp eq i32 %bcmp.i.i.i467, 0
-  br i1 %.not.i.not.i.i468, label %384, label %382
+  br i1 %.not.i.not.i.i468, label %383, label %381
 
-382:                                              ; preds = %380
-  %383 = load i32, ptr %376, align 8
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.182, i32 noundef %383, ptr noundef nonnull %381) #13
+381:                                              ; preds = %379
+  %382 = load i32, ptr %375, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.182, i32 noundef %382, ptr noundef nonnull %380) #13
   br label %avifMetaFindAlphaItem.exit
 
-384:                                              ; preds = %380
-  %385 = getelementptr inbounds nuw i8, ptr %376, i64 208
-  %386 = load i32, ptr %385, align 8
-  %.not72.i.i = icmp eq i32 %386, 0
-  br i1 %.not72.i.i, label %388, label %387
+383:                                              ; preds = %379
+  %384 = getelementptr inbounds nuw i8, ptr %375, i64 208
+  %385 = load i32, ptr %384, align 8
+  %.not72.i.i = icmp eq i32 %385, 0
+  br i1 %.not72.i.i, label %387, label %386
 
-387:                                              ; preds = %384
+386:                                              ; preds = %383
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.183) #13
   br label %avifMetaFindAlphaItem.exit
 
-388:                                              ; preds = %384
-  %389 = load ptr, ptr %8, align 8
-  %390 = getelementptr inbounds nuw i8, ptr %376, i64 36
-  %391 = load i32, ptr %390, align 4
-  %392 = getelementptr inbounds nuw i8, ptr %376, i64 40
-  %393 = load i32, ptr %392, align 8
-  %394 = getelementptr inbounds nuw i8, ptr %376, i64 124
-  %395 = load i32, ptr %394, align 4
-  %.not12.i.i.i.i = icmp eq i32 %395, 0
+387:                                              ; preds = %383
+  %388 = load ptr, ptr %8, align 8
+  %389 = getelementptr inbounds nuw i8, ptr %375, i64 36
+  %390 = load i32, ptr %389, align 4
+  %391 = getelementptr inbounds nuw i8, ptr %375, i64 40
+  %392 = load i32, ptr %391, align 8
+  %393 = getelementptr inbounds nuw i8, ptr %375, i64 124
+  %394 = load i32, ptr %393, align 4
+  %.not12.i.i.i.i = icmp eq i32 %394, 0
   br i1 %.not12.i.i.i.i, label %avifDecoderItemOperatingPoint.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %388
-  %396 = getelementptr inbounds nuw i8, ptr %376, i64 112
-  %397 = load ptr, ptr %396, align 8
-  %wide.trip.count.i.i.i.i = zext i32 %395 to i64
-  br label %399
+.lr.ph.i.i.i.i:                                   ; preds = %387
+  %395 = getelementptr inbounds nuw i8, ptr %375, i64 112
+  %396 = load ptr, ptr %395, align 8
+  %wide.trip.count.i.i.i.i = zext i32 %394 to i64
+  br label %398
 
-398:                                              ; preds = %399
+397:                                              ; preds = %398
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %avifDecoderItemOperatingPoint.exit.i.i, label %399, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i.i, label %avifDecoderItemOperatingPoint.exit.i.i, label %398, !llvm.loop !12
 
-399:                                              ; preds = %398, %.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %398 ]
-  %400 = getelementptr inbounds nuw %struct.avifProperty, ptr %397, i64 %indvars.iv.i.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %400, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
+398:                                              ; preds = %397, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %397 ]
+  %399 = getelementptr inbounds nuw %struct.avifProperty, ptr %396, i64 %indvars.iv.i.i.i.i
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %399, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
   %.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %avifPropertyArrayFind.exit.i.i.i, label %398
+  br i1 %.not.i.i.i.i, label %avifPropertyArrayFind.exit.i.i.i, label %397
 
-avifPropertyArrayFind.exit.i.i.i:                 ; preds = %399
-  %401 = getelementptr inbounds nuw i8, ptr %400, i64 8
-  %402 = load i8, ptr %401, align 8
+avifPropertyArrayFind.exit.i.i.i:                 ; preds = %398
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
+  %401 = load i8, ptr %400, align 8
   br label %avifDecoderItemOperatingPoint.exit.i.i
 
-avifDecoderItemOperatingPoint.exit.i.i:           ; preds = %398, %avifPropertyArrayFind.exit.i.i.i, %388
-  %.0.i.i.i = phi i8 [ %402, %avifPropertyArrayFind.exit.i.i.i ], [ 0, %388 ], [ 0, %398 ]
-  %403 = call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %389, i32 noundef 1, i32 noundef %391, i32 noundef %393, i8 noundef zeroext %.0.i.i.i)
-  %.not73.i.i = icmp eq ptr %403, null
-  br i1 %.not73.i.i, label %avifMetaFindAlphaItem.exit, label %404
+avifDecoderItemOperatingPoint.exit.i.i:           ; preds = %397, %avifPropertyArrayFind.exit.i.i.i, %387
+  %.0.i.i.i = phi i8 [ %401, %avifPropertyArrayFind.exit.i.i.i ], [ 0, %387 ], [ 0, %397 ]
+  %402 = call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %388, i32 noundef 1, i32 noundef %390, i32 noundef %392, i8 noundef zeroext %.0.i.i.i)
+  %.not73.i.i = icmp eq ptr %402, null
+  br i1 %.not73.i.i, label %avifMetaFindAlphaItem.exit, label %403
 
-404:                                              ; preds = %avifDecoderItemOperatingPoint.exit.i.i
-  %405 = load ptr, ptr %403, align 8
+403:                                              ; preds = %avifDecoderItemOperatingPoint.exit.i.i
+  %404 = load ptr, ptr %402, align 8
+  %405 = load i32, ptr %337, align 4
   %406 = load i32, ptr %338, align 4
-  %407 = load i32, ptr %339, align 4
-  %408 = load ptr, ptr %340, align 8
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 24
-  %410 = load i64, ptr %409, align 8
-  %411 = call fastcc i32 @avifCodecDecodeInputFillFromDecoderItem(ptr noundef %405, ptr noundef %376, i32 noundef %406, i32 noundef %407, i64 noundef %410, ptr noundef nonnull %7)
-  %.not74.i.i = icmp eq i32 %411, 0
-  br i1 %.not74.i.i, label %412, label %avifMetaFindAlphaItem.exit
+  %407 = load ptr, ptr %339, align 8
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 24
+  %409 = load i64, ptr %408, align 8
+  %410 = call fastcc i32 @avifCodecDecodeInputFillFromDecoderItem(ptr noundef %404, ptr noundef %375, i32 noundef %405, i32 noundef %406, i64 noundef %409, ptr noundef nonnull %7)
+  %.not74.i.i = icmp eq i32 %410, 0
+  br i1 %.not74.i.i, label %411, label %avifMetaFindAlphaItem.exit
 
-412:                                              ; preds = %404
-  %413 = load ptr, ptr %403, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 28
-  store i32 %372, ptr %414, align 4
-  %415 = icmp eq ptr %.062116.i.i, null
-  br i1 %415, label %416, label %430
+411:                                              ; preds = %403
+  %412 = load ptr, ptr %402, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 28
+  store i32 %371, ptr %413, align 4
+  %414 = icmp eq ptr %.062116.i.i, null
+  br i1 %414, label %415, label %429
 
-416:                                              ; preds = %412
-  %bcmp76.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %381, ptr noundef nonnull dereferenceable(4) @.str.184, i64 4)
+415:                                              ; preds = %411
+  %bcmp76.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %380, ptr noundef nonnull dereferenceable(4) @.str.184, i64 4)
   %.not77.i.i = icmp eq i32 %bcmp76.i.i, 0
-  %417 = select i1 %.not77.i.i, ptr @.str.185, ptr @.str.62
-  %418 = load i32, ptr %394, align 4
-  %.not12.i.i.i470 = icmp eq i32 %418, 0
+  %416 = select i1 %.not77.i.i, ptr @.str.185, ptr @.str.62
+  %417 = load i32, ptr %393, align 4
+  %.not12.i.i.i470 = icmp eq i32 %417, 0
   br i1 %.not12.i.i.i470, label %.loopexit.i.i, label %.lr.ph.i.i.i471
 
-.lr.ph.i.i.i471:                                  ; preds = %416
-  %419 = getelementptr inbounds nuw i8, ptr %376, i64 112
-  %420 = load ptr, ptr %419, align 8
-  %wide.trip.count.i.i.i472 = zext i32 %418 to i64
-  br label %422
+.lr.ph.i.i.i471:                                  ; preds = %415
+  %418 = getelementptr inbounds nuw i8, ptr %375, i64 112
+  %419 = load ptr, ptr %418, align 8
+  %wide.trip.count.i.i.i472 = zext i32 %417 to i64
+  br label %421
 
-421:                                              ; preds = %422
+420:                                              ; preds = %421
   %indvars.iv.next.i.i.i474 = add nuw nsw i64 %indvars.iv.i.i.i473, 1
   %exitcond.not.i.i.i475 = icmp eq i64 %indvars.iv.next.i.i.i474, %wide.trip.count.i.i.i472
-  br i1 %exitcond.not.i.i.i475, label %.loopexit.i.i, label %422, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i475, label %.loopexit.i.i, label %421, !llvm.loop !12
 
-422:                                              ; preds = %421, %.lr.ph.i.i.i471
-  %indvars.iv.i.i.i473 = phi i64 [ 0, %.lr.ph.i.i.i471 ], [ %indvars.iv.next.i.i.i474, %421 ]
-  %423 = getelementptr inbounds nuw %struct.avifProperty, ptr %420, i64 %indvars.iv.i.i.i473
-  %bcmp.i81.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %423, ptr noundef nonnull readonly dereferenceable(4) %417, i64 4)
+421:                                              ; preds = %420, %.lr.ph.i.i.i471
+  %indvars.iv.i.i.i473 = phi i64 [ 0, %.lr.ph.i.i.i471 ], [ %indvars.iv.next.i.i.i474, %420 ]
+  %422 = getelementptr inbounds nuw %struct.avifProperty, ptr %419, i64 %indvars.iv.i.i.i473
+  %bcmp.i81.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %422, ptr noundef nonnull readonly dereferenceable(4) %416, i64 4)
   %.not.i82.i.i = icmp eq i32 %bcmp.i81.i.i, 0
-  br i1 %.not.i82.i.i, label %avifPropertyArrayFind.exit.i.i476, label %421
+  br i1 %.not.i82.i.i, label %avifPropertyArrayFind.exit.i.i476, label %420
 
-.loopexit.i.i:                                    ; preds = %416, %421
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull %417) #13
+.loopexit.i.i:                                    ; preds = %415, %420
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull %416) #13
   br label %avifMetaFindAlphaItem.exit
 
-avifPropertyArrayFind.exit.i.i476:                ; preds = %422
-  %424 = call ptr @avifArrayPush(ptr noundef nonnull %370) #13
-  %.not79.i.i = icmp eq ptr %424, null
-  br i1 %.not79.i.i, label %avifMetaFindAlphaItem.exit, label %425
+avifPropertyArrayFind.exit.i.i476:                ; preds = %421
+  %423 = call ptr @avifArrayPush(ptr noundef nonnull %369) #13
+  %.not79.i.i = icmp eq ptr %423, null
+  br i1 %.not79.i.i, label %avifMetaFindAlphaItem.exit, label %424
 
-425:                                              ; preds = %avifPropertyArrayFind.exit.i.i476
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %424, ptr noundef nonnull align 8 dereferenceable(72) %423, i64 72, i1 false)
-  br i1 %.not656, label %426, label %434
+424:                                              ; preds = %avifPropertyArrayFind.exit.i.i476
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %423, ptr noundef nonnull align 8 dereferenceable(72) %422, i64 72, i1 false)
+  br i1 %.not660, label %425, label %433
 
-426:                                              ; preds = %425
-  %427 = getelementptr inbounds nuw i8, ptr %376, i64 216
-  %428 = load i32, ptr %427, align 8
-  %.not80.i.i = icmp eq i32 %428, 0
-  br i1 %.not80.i.i, label %434, label %429
+425:                                              ; preds = %424
+  %426 = getelementptr inbounds nuw i8, ptr %375, i64 216
+  %427 = load i32, ptr %426, align 8
+  %.not80.i.i = icmp eq i32 %427, 0
+  br i1 %.not80.i.i, label %433, label %428
 
-429:                                              ; preds = %426
-  store i32 1, ptr %371, align 8
-  br label %434
+428:                                              ; preds = %425
+  store i32 1, ptr %370, align 8
+  br label %433
 
-430:                                              ; preds = %412
-  %431 = getelementptr inbounds nuw i8, ptr %.062116.i.i, i64 16
-  %bcmp.i.i469 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %381, ptr noundef nonnull dereferenceable(4) %431, i64 4)
+429:                                              ; preds = %411
+  %430 = getelementptr inbounds nuw i8, ptr %.062116.i.i, i64 16
+  %bcmp.i.i469 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %380, ptr noundef nonnull dereferenceable(4) %430, i64 4)
   %.not75.i.i = icmp eq i32 %bcmp.i.i469, 0
-  br i1 %.not75.i.i, label %434, label %432
+  br i1 %.not75.i.i, label %433, label %431
 
-432:                                              ; preds = %430
-  %433 = load i32, ptr %376, align 8
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.187, i32 noundef %433, ptr noundef nonnull %381, ptr noundef nonnull %431) #13
+431:                                              ; preds = %429
+  %432 = load i32, ptr %375, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.187, i32 noundef %432, ptr noundef nonnull %380, ptr noundef nonnull %430) #13
   br label %avifMetaFindAlphaItem.exit
 
-434:                                              ; preds = %430, %429, %426, %425
-  %.2.i.i = phi ptr [ %376, %429 ], [ %376, %426 ], [ %376, %425 ], [ %.062116.i.i, %430 ]
-  %435 = add i32 %.061117.i.i, 1
-  %.pre.i.i = load ptr, ptr %366, align 8
-  br label %436
+433:                                              ; preds = %429, %428, %425, %424
+  %.2.i.i = phi ptr [ %375, %428 ], [ %375, %425 ], [ %375, %424 ], [ %.062116.i.i, %429 ]
+  %434 = add i32 %.061117.i.i, 1
+  %.pre.i.i = load ptr, ptr %365, align 8
+  br label %435
 
-436:                                              ; preds = %434, %373
-  %437 = phi ptr [ %374, %373 ], [ %.pre.i.i, %434 ]
-  %.163.i.i = phi ptr [ %.062116.i.i, %373 ], [ %.2.i.i, %434 ]
-  %.1.i.i = phi i32 [ %.061117.i.i, %373 ], [ %435, %434 ]
+435:                                              ; preds = %433, %372
+  %436 = phi ptr [ %373, %372 ], [ %.pre.i.i, %433 ]
+  %.163.i.i = phi ptr [ %.062116.i.i, %372 ], [ %.2.i.i, %433 ]
+  %.1.i.i = phi i32 [ %.061117.i.i, %372 ], [ %434, %433 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %438 = getelementptr inbounds nuw i8, ptr %437, i64 12
-  %439 = load i32, ptr %438, align 4
-  %440 = zext i32 %439 to i64
-  %441 = icmp samesign ult i64 %indvars.iv.next.i.i, %440
-  br i1 %441, label %373, label %._crit_edge.i.loopexit.i, !llvm.loop !17
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 12
+  %438 = load i32, ptr %437, align 4
+  %439 = zext i32 %438 to i64
+  %440 = icmp samesign ult i64 %indvars.iv.next.i.i, %439
+  br i1 %440, label %372, label %._crit_edge.i.loopexit.i, !llvm.loop !17
 
-._crit_edge.i.loopexit.i:                         ; preds = %436
-  %.pre.i464 = load i32, ptr %360, align 4
-  %.pre95.i = load i32, ptr %363, align 4
+._crit_edge.i.loopexit.i:                         ; preds = %435
+  %.pre.i464 = load i32, ptr %359, align 4
+  %.pre95.i = load i32, ptr %362, align 4
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %365
-  %442 = phi i32 [ %364, %365 ], [ %.pre95.i, %._crit_edge.i.loopexit.i ]
-  %443 = phi i32 [ %361, %365 ], [ %.pre.i464, %._crit_edge.i.loopexit.i ]
-  %.061.lcssa.i.i = phi i32 [ 0, %365 ], [ %.1.i.i, %._crit_edge.i.loopexit.i ]
-  %444 = mul i32 %443, %442
-  %.not.i.i465 = icmp eq i32 %.061.lcssa.i.i, %444
-  br i1 %.not.i.i465, label %477, label %445
+._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %364
+  %441 = phi i32 [ %363, %364 ], [ %.pre95.i, %._crit_edge.i.loopexit.i ]
+  %442 = phi i32 [ %360, %364 ], [ %.pre.i464, %._crit_edge.i.loopexit.i ]
+  %.061.lcssa.i.i = phi i32 [ 0, %364 ], [ %.1.i.i, %._crit_edge.i.loopexit.i ]
+  %443 = mul i32 %442, %441
+  %.not.i.i465 = icmp eq i32 %.061.lcssa.i.i, %443
+  br i1 %.not.i.i465, label %476, label %444
 
-445:                                              ; preds = %._crit_edge.i.i
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.188, i32 noundef %442, i32 noundef %443, i32 noundef %444, i32 noundef %.061.lcssa.i.i) #13
+444:                                              ; preds = %._crit_edge.i.i
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.188, i32 noundef %441, i32 noundef %442, i32 noundef %443, i32 noundef %.061.lcssa.i.i) #13
   br label %avifMetaFindAlphaItem.exit
 
-446:                                              ; preds = %362, %355
-  %447 = getelementptr inbounds nuw i8, ptr %344, i64 24
-  %448 = load i64, ptr %447, align 8
-  %.not34.i = icmp eq i64 %448, 0
-  br i1 %.not34.i, label %avifMetaFindAlphaItem.exit, label %449
+445:                                              ; preds = %361, %354
+  %446 = getelementptr inbounds nuw i8, ptr %343, i64 24
+  %447 = load i64, ptr %446, align 8
+  %.not34.i = icmp eq i64 %447, 0
+  br i1 %.not34.i, label %avifMetaFindAlphaItem.exit, label %448
 
-449:                                              ; preds = %446
-  %450 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  %bcmp.i38.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %450, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+448:                                              ; preds = %445
+  %449 = getelementptr inbounds nuw i8, ptr %343, i64 16
+  %bcmp.i38.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %449, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
   %.not.i39.i = icmp eq i32 %bcmp.i38.i, 0
   %..i.i477 = zext i1 %.not.i39.i to i32
-  %451 = getelementptr inbounds nuw i8, ptr %344, i64 36
-  %452 = load i32, ptr %451, align 4
-  %453 = getelementptr inbounds nuw i8, ptr %344, i64 40
-  %454 = load i32, ptr %453, align 8
-  %455 = getelementptr inbounds nuw i8, ptr %344, i64 124
-  %456 = load i32, ptr %455, align 4
-  %.not12.i.i40.i = icmp eq i32 %456, 0
+  %450 = getelementptr inbounds nuw i8, ptr %343, i64 36
+  %451 = load i32, ptr %450, align 4
+  %452 = getelementptr inbounds nuw i8, ptr %343, i64 40
+  %453 = load i32, ptr %452, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %343, i64 124
+  %455 = load i32, ptr %454, align 4
+  %.not12.i.i40.i = icmp eq i32 %455, 0
   br i1 %.not12.i.i40.i, label %avifDecoderItemOperatingPoint.exit.i, label %.lr.ph.i.i41.i
 
-.lr.ph.i.i41.i:                                   ; preds = %449
-  %457 = getelementptr inbounds nuw i8, ptr %344, i64 112
-  %458 = load ptr, ptr %457, align 8
-  %wide.trip.count.i.i42.i = zext i32 %456 to i64
-  br label %460
+.lr.ph.i.i41.i:                                   ; preds = %448
+  %456 = getelementptr inbounds nuw i8, ptr %343, i64 112
+  %457 = load ptr, ptr %456, align 8
+  %wide.trip.count.i.i42.i = zext i32 %455 to i64
+  br label %459
 
-459:                                              ; preds = %460
+458:                                              ; preds = %459
   %indvars.iv.next.i.i45.i = add nuw nsw i64 %indvars.iv.i.i43.i, 1
   %exitcond.not.i.i46.i = icmp eq i64 %indvars.iv.next.i.i45.i, %wide.trip.count.i.i42.i
-  br i1 %exitcond.not.i.i46.i, label %avifDecoderItemOperatingPoint.exit.i, label %460, !llvm.loop !12
+  br i1 %exitcond.not.i.i46.i, label %avifDecoderItemOperatingPoint.exit.i, label %459, !llvm.loop !12
 
-460:                                              ; preds = %459, %.lr.ph.i.i41.i
-  %indvars.iv.i.i43.i = phi i64 [ 0, %.lr.ph.i.i41.i ], [ %indvars.iv.next.i.i45.i, %459 ]
-  %461 = getelementptr inbounds nuw %struct.avifProperty, ptr %458, i64 %indvars.iv.i.i43.i
-  %bcmp.i.i44.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %461, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
+459:                                              ; preds = %458, %.lr.ph.i.i41.i
+  %indvars.iv.i.i43.i = phi i64 [ 0, %.lr.ph.i.i41.i ], [ %indvars.iv.next.i.i45.i, %458 ]
+  %460 = getelementptr inbounds nuw %struct.avifProperty, ptr %457, i64 %indvars.iv.i.i43.i
+  %bcmp.i.i44.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %460, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
   %.not.i.i.i478 = icmp eq i32 %bcmp.i.i44.i, 0
-  br i1 %.not.i.i.i478, label %avifPropertyArrayFind.exit.i48.i, label %459
+  br i1 %.not.i.i.i478, label %avifPropertyArrayFind.exit.i48.i, label %458
 
-avifPropertyArrayFind.exit.i48.i:                 ; preds = %460
-  %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  %463 = load i8, ptr %462, align 8
+avifPropertyArrayFind.exit.i48.i:                 ; preds = %459
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 8
+  %462 = load i8, ptr %461, align 8
   br label %avifDecoderItemOperatingPoint.exit.i
 
-avifDecoderItemOperatingPoint.exit.i:             ; preds = %459, %avifPropertyArrayFind.exit.i48.i, %449
-  %.0.i47.i = phi i8 [ %463, %avifPropertyArrayFind.exit.i48.i ], [ 0, %449 ], [ 0, %459 ]
-  %464 = call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %357, i32 noundef %..i.i477, i32 noundef %452, i32 noundef %454, i8 noundef zeroext %.0.i47.i)
-  %.not35.i = icmp eq ptr %464, null
-  br i1 %.not35.i, label %avifMetaFindAlphaItem.exit, label %465
+avifDecoderItemOperatingPoint.exit.i:             ; preds = %458, %avifPropertyArrayFind.exit.i48.i, %448
+  %.0.i47.i = phi i8 [ %462, %avifPropertyArrayFind.exit.i48.i ], [ 0, %448 ], [ 0, %458 ]
+  %463 = call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %356, i32 noundef %..i.i477, i32 noundef %451, i32 noundef %453, i8 noundef zeroext %.0.i47.i)
+  %.not35.i = icmp eq ptr %463, null
+  br i1 %.not35.i, label %avifMetaFindAlphaItem.exit, label %464
 
-465:                                              ; preds = %avifDecoderItemOperatingPoint.exit.i
-  %466 = load ptr, ptr %464, align 8
+464:                                              ; preds = %avifDecoderItemOperatingPoint.exit.i
+  %465 = load ptr, ptr %463, align 8
+  %466 = load i32, ptr %337, align 4
   %467 = load i32, ptr %338, align 4
-  %468 = load i32, ptr %339, align 4
-  %469 = load ptr, ptr %340, align 8
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %471 = load i64, ptr %470, align 8
-  %472 = call fastcc i32 @avifCodecDecodeInputFillFromDecoderItem(ptr noundef %466, ptr noundef nonnull %344, i32 noundef %467, i32 noundef %468, i64 noundef %471, ptr noundef nonnull %7)
-  %.not36.i = icmp eq i32 %472, 0
-  br i1 %.not36.i, label %473, label %avifMetaFindAlphaItem.exit
+  %468 = load ptr, ptr %339, align 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 24
+  %470 = load i64, ptr %469, align 8
+  %471 = call fastcc i32 @avifCodecDecodeInputFillFromDecoderItem(ptr noundef %465, ptr noundef nonnull %343, i32 noundef %466, i32 noundef %467, i64 noundef %470, ptr noundef nonnull %7)
+  %.not36.i = icmp eq i32 %471, 0
+  br i1 %.not36.i, label %472, label %avifMetaFindAlphaItem.exit
 
-473:                                              ; preds = %465
-  %474 = load ptr, ptr %464, align 8
-  %475 = getelementptr inbounds nuw i8, ptr %474, i64 28
-  %476 = trunc nuw nsw i64 %indvars.iv756 to i32
-  store i32 %476, ptr %475, align 4
-  br label %477
+472:                                              ; preds = %464
+  %473 = load ptr, ptr %463, align 8
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 28
+  %475 = trunc nuw nsw i64 %indvars.iv758 to i32
+  store i32 %475, ptr %474, align 4
+  br label %476
 
-477:                                              ; preds = %473, %._crit_edge.i.i
-  %478 = load ptr, ptr %8, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %478, i64 44
-  %480 = load i32, ptr %479, align 4
-  %481 = sub i32 %480, %359
-  store i32 %481, ptr %356, align 4
-  %482 = load i32, ptr %341, align 8
-  %or.cond = or i1 %342, %.not656
-  %483 = and i32 %482, -2
-  %spec.select = select i1 %or.cond, i32 %482, i32 %483
-  %484 = load i32, ptr %indvars.iv756.sroa.phi, align 4
-  %cond.i = icmp eq i32 %484, 1
-  %.str.62..i = select i1 %cond.i, ptr @.str.62, ptr null
+476:                                              ; preds = %472, %._crit_edge.i.i
+  %477 = load ptr, ptr %8, align 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 44
+  %479 = load i32, ptr %478, align 4
+  %480 = sub i32 %479, %358
+  store i32 %480, ptr %355, align 4
+  %481 = load i32, ptr %340, align 8
+  %or.cond = or i1 %341, %.not660
+  %482 = and i32 %481, -2
+  %spec.select = select i1 %or.cond, i32 %481, i32 %482
+  %483 = load i32, ptr %indvars.iv758.sroa.phi, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %485 = getelementptr inbounds nuw i8, ptr %344, i64 124
-  %486 = load i32, ptr %485, align 4
-  %.not12.i.i = icmp eq i32 %486, 0
+  %484 = getelementptr inbounds nuw i8, ptr %343, i64 124
+  %485 = load i32, ptr %484, align 4
+  %.not12.i.i = icmp eq i32 %485, 0
   br i1 %.not12.i.i, label %.loopexit171.i, label %.lr.ph.i.i479
 
-.lr.ph.i.i479:                                    ; preds = %477
-  %487 = getelementptr inbounds nuw i8, ptr %344, i64 112
-  %488 = load ptr, ptr %487, align 8
-  %wide.trip.count.i.i = zext i32 %486 to i64
-  br label %490
+.lr.ph.i.i479:                                    ; preds = %476
+  %486 = getelementptr inbounds nuw i8, ptr %343, i64 112
+  %487 = load ptr, ptr %486, align 8
+  %wide.trip.count.i.i = zext i32 %485 to i64
+  br label %489
 
-489:                                              ; preds = %490
+488:                                              ; preds = %489
   %indvars.iv.next.i.i483 = add nuw nsw i64 %indvars.iv.i.i480, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i483, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit171.i, label %490, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %.loopexit171.i, label %489, !llvm.loop !12
 
-490:                                              ; preds = %489, %.lr.ph.i.i479
-  %indvars.iv.i.i480 = phi i64 [ 0, %.lr.ph.i.i479 ], [ %indvars.iv.next.i.i483, %489 ]
-  %491 = getelementptr inbounds nuw %struct.avifProperty, ptr %488, i64 %indvars.iv.i.i480
-  %bcmp.i.i481 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %491, ptr noundef nonnull readonly dereferenceable(4) %.str.62..i, i64 4)
+489:                                              ; preds = %488, %.lr.ph.i.i479
+  %indvars.iv.i.i480 = phi i64 [ 0, %.lr.ph.i.i479 ], [ %indvars.iv.next.i.i483, %488 ]
+  %490 = getelementptr inbounds nuw %struct.avifProperty, ptr %487, i64 %indvars.iv.i.i480
+  %bcmp.i.i481 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %490, ptr noundef nonnull readonly dereferenceable(4) @.str.62, i64 4)
   %.not.i.i482 = icmp eq i32 %bcmp.i.i481, 0
-  br i1 %.not.i.i482, label %avifPropertyArrayFind.exit.i, label %489
+  br i1 %.not.i.i482, label %avifPropertyArrayFind.exit.i, label %488
 
-.loopexit171.i:                                   ; preds = %477, %489
-  %492 = load i32, ptr %344, align 8
-  %493 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.192, i32 noundef %492, ptr noundef nonnull %493, ptr noundef %.str.62..i) #13
+.loopexit171.i:                                   ; preds = %476, %488
+  %cond.i.le = icmp eq i32 %483, 1
+  %.str.62..i.le618 = select i1 %cond.i.le, ptr @.str.62, ptr null
+  %491 = load i32, ptr %343, align 8
+  %492 = getelementptr inbounds nuw i8, ptr %343, i64 16
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.192, i32 noundef %491, ptr noundef nonnull %492, ptr noundef %.str.62..i.le618) #13
   br label %avifDecoderItemValidateProperties.exit.thread
 
-avifPropertyArrayFind.exit.i:                     ; preds = %490
-  %494 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  %bcmp.i485 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %494, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+avifPropertyArrayFind.exit.i:                     ; preds = %489
+  %493 = getelementptr inbounds nuw i8, ptr %343, i64 16
+  %bcmp.i485 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %493, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %.not89.i = icmp eq i32 %bcmp.i485, 0
   br i1 %.not89.i, label %.preheader.i488, label %.lr.ph.i119.i.preheader
 
 .preheader.i488:                                  ; preds = %avifPropertyArrayFind.exit.i
-  %495 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  %496 = load ptr, ptr %495, align 8
-  %497 = getelementptr inbounds nuw i8, ptr %496, i64 12
-  %498 = load i32, ptr %497, align 4
-  %.not.i489 = icmp eq i32 %498, 0
+  %494 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %495 = load ptr, ptr %494, align 8
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 12
+  %497 = load i32, ptr %496, align 4
+  %.not.i489 = icmp eq i32 %497, 0
   br i1 %.not.i489, label %.lr.ph.i119.i.preheader, label %.lr.ph.i490
 
 .lr.ph.i490:                                      ; preds = %.preheader.i488
-  %499 = load ptr, ptr %496, align 8
-  %500 = load i32, ptr %344, align 8
-  %501 = getelementptr inbounds nuw i8, ptr %491, i64 8
-  %502 = getelementptr inbounds nuw i8, ptr %491, i64 9
-  %503 = getelementptr inbounds nuw i8, ptr %491, i64 10
-  %504 = getelementptr inbounds nuw i8, ptr %491, i64 11
-  %505 = getelementptr inbounds nuw i8, ptr %491, i64 12
-  %506 = getelementptr inbounds nuw i8, ptr %491, i64 13
-  %507 = getelementptr inbounds nuw i8, ptr %491, i64 14
-  %508 = getelementptr inbounds nuw i8, ptr %491, i64 15
-  %509 = getelementptr inbounds nuw i8, ptr %491, i64 16
-  %wide.trip.count.i491 = zext i32 %498 to i64
-  br label %510
+  %498 = load ptr, ptr %495, align 8
+  %499 = load i32, ptr %343, align 8
+  %500 = getelementptr inbounds nuw i8, ptr %490, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %490, i64 9
+  %502 = getelementptr inbounds nuw i8, ptr %490, i64 10
+  %503 = getelementptr inbounds nuw i8, ptr %490, i64 11
+  %504 = getelementptr inbounds nuw i8, ptr %490, i64 12
+  %505 = getelementptr inbounds nuw i8, ptr %490, i64 13
+  %506 = getelementptr inbounds nuw i8, ptr %490, i64 14
+  %507 = getelementptr inbounds nuw i8, ptr %490, i64 15
+  %508 = getelementptr inbounds nuw i8, ptr %490, i64 16
+  %wide.trip.count.i491 = zext i32 %497 to i64
+  br label %509
 
-510:                                              ; preds = %562, %.lr.ph.i490
-  %indvars.iv.i492 = phi i64 [ 0, %.lr.ph.i490 ], [ %indvars.iv.next.i493, %562 ]
-  %511 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %499, i64 %indvars.iv.i492
-  %512 = getelementptr inbounds nuw i8, ptr %511, i64 196
-  %513 = load i32, ptr %512, align 4
-  %.not90.i = icmp eq i32 %513, %500
-  br i1 %.not90.i, label %514, label %562
+509:                                              ; preds = %561, %.lr.ph.i490
+  %indvars.iv.i492 = phi i64 [ 0, %.lr.ph.i490 ], [ %indvars.iv.next.i493, %561 ]
+  %510 = getelementptr inbounds nuw %struct.avifDecoderItem, ptr %498, i64 %indvars.iv.i492
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 196
+  %512 = load i32, ptr %511, align 4
+  %.not90.i = icmp eq i32 %512, %499
+  br i1 %.not90.i, label %513, label %561
 
-514:                                              ; preds = %510
-  %515 = getelementptr inbounds nuw i8, ptr %511, i64 124
-  %516 = load i32, ptr %515, align 4
-  %.not12.i108.i = icmp eq i32 %516, 0
+513:                                              ; preds = %509
+  %514 = getelementptr inbounds nuw i8, ptr %510, i64 124
+  %515 = load i32, ptr %514, align 4
+  %.not12.i108.i = icmp eq i32 %515, 0
   br i1 %.not12.i108.i, label %.loopexit169.i, label %.lr.ph.i109.i
 
-.lr.ph.i109.i:                                    ; preds = %514
-  %517 = getelementptr inbounds nuw i8, ptr %511, i64 112
-  %518 = load ptr, ptr %517, align 8
-  %wide.trip.count.i110.i = zext i32 %516 to i64
-  br label %520
+.lr.ph.i109.i:                                    ; preds = %513
+  %516 = getelementptr inbounds nuw i8, ptr %510, i64 112
+  %517 = load ptr, ptr %516, align 8
+  %wide.trip.count.i110.i = zext i32 %515 to i64
+  br label %519
 
-519:                                              ; preds = %520
+518:                                              ; preds = %519
   %indvars.iv.next.i114.i = add nuw nsw i64 %indvars.iv.i111.i, 1
   %exitcond.not.i115.i = icmp eq i64 %indvars.iv.next.i114.i, %wide.trip.count.i110.i
-  br i1 %exitcond.not.i115.i, label %.loopexit169.i, label %520, !llvm.loop !12
+  br i1 %exitcond.not.i115.i, label %.loopexit169.i, label %519, !llvm.loop !12
 
-520:                                              ; preds = %519, %.lr.ph.i109.i
-  %indvars.iv.i111.i = phi i64 [ 0, %.lr.ph.i109.i ], [ %indvars.iv.next.i114.i, %519 ]
-  %521 = getelementptr inbounds nuw %struct.avifProperty, ptr %518, i64 %indvars.iv.i111.i
-  %bcmp.i112.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %521, ptr noundef nonnull readonly dereferenceable(4) %.str.62..i, i64 4)
+519:                                              ; preds = %518, %.lr.ph.i109.i
+  %indvars.iv.i111.i = phi i64 [ 0, %.lr.ph.i109.i ], [ %indvars.iv.next.i114.i, %518 ]
+  %520 = getelementptr inbounds nuw %struct.avifProperty, ptr %517, i64 %indvars.iv.i111.i
+  %bcmp.i112.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %520, ptr noundef nonnull readonly dereferenceable(4) @.str.62, i64 4)
   %.not.i113.i = icmp eq i32 %bcmp.i112.i, 0
-  br i1 %.not.i113.i, label %avifPropertyArrayFind.exit117.i, label %519
+  br i1 %.not.i113.i, label %avifPropertyArrayFind.exit117.i, label %518
 
-.loopexit169.i:                                   ; preds = %514, %519
-  %522 = load i32, ptr %511, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %511, i64 16
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.193, i32 noundef %522, ptr noundef nonnull %523, ptr noundef nonnull %.str.62..i) #13
+.loopexit169.i:                                   ; preds = %513, %518
+  %521 = load i32, ptr %510, align 8
+  %522 = getelementptr inbounds nuw i8, ptr %510, i64 16
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.193, i32 noundef %521, ptr noundef nonnull %522, ptr noundef nonnull @.str.62) #13
   br label %avifDecoderItemValidateProperties.exit.thread
 
-avifPropertyArrayFind.exit117.i:                  ; preds = %520
-  %524 = getelementptr inbounds nuw i8, ptr %521, i64 8
-  %525 = load i8, ptr %524, align 8
-  %526 = load i8, ptr %501, align 8
-  %.not92.i = icmp eq i8 %525, %526
-  br i1 %.not92.i, label %527, label %559
+avifPropertyArrayFind.exit117.i:                  ; preds = %519
+  %523 = getelementptr inbounds nuw i8, ptr %520, i64 8
+  %524 = load i8, ptr %523, align 8
+  %525 = load i8, ptr %500, align 8
+  %.not92.i = icmp eq i8 %524, %525
+  br i1 %.not92.i, label %526, label %558
 
-527:                                              ; preds = %avifPropertyArrayFind.exit117.i
-  %528 = getelementptr inbounds nuw i8, ptr %521, i64 9
-  %529 = load i8, ptr %528, align 1
-  %530 = load i8, ptr %502, align 1
-  %.not93.i = icmp eq i8 %529, %530
-  br i1 %.not93.i, label %531, label %559
+526:                                              ; preds = %avifPropertyArrayFind.exit117.i
+  %527 = getelementptr inbounds nuw i8, ptr %520, i64 9
+  %528 = load i8, ptr %527, align 1
+  %529 = load i8, ptr %501, align 1
+  %.not93.i = icmp eq i8 %528, %529
+  br i1 %.not93.i, label %530, label %558
 
-531:                                              ; preds = %527
-  %532 = getelementptr inbounds nuw i8, ptr %521, i64 10
-  %533 = load i8, ptr %532, align 2
-  %534 = load i8, ptr %503, align 2
-  %.not94.i = icmp eq i8 %533, %534
-  br i1 %.not94.i, label %535, label %559
+530:                                              ; preds = %526
+  %531 = getelementptr inbounds nuw i8, ptr %520, i64 10
+  %532 = load i8, ptr %531, align 2
+  %533 = load i8, ptr %502, align 2
+  %.not94.i = icmp eq i8 %532, %533
+  br i1 %.not94.i, label %534, label %558
 
-535:                                              ; preds = %531
-  %536 = getelementptr inbounds nuw i8, ptr %521, i64 11
-  %537 = load i8, ptr %536, align 1
-  %538 = load i8, ptr %504, align 1
-  %.not95.i = icmp eq i8 %537, %538
-  br i1 %.not95.i, label %539, label %559
+534:                                              ; preds = %530
+  %535 = getelementptr inbounds nuw i8, ptr %520, i64 11
+  %536 = load i8, ptr %535, align 1
+  %537 = load i8, ptr %503, align 1
+  %.not95.i = icmp eq i8 %536, %537
+  br i1 %.not95.i, label %538, label %558
 
-539:                                              ; preds = %535
-  %540 = getelementptr inbounds nuw i8, ptr %521, i64 12
-  %541 = load i8, ptr %540, align 4
-  %542 = load i8, ptr %505, align 4
-  %.not96.i = icmp eq i8 %541, %542
-  br i1 %.not96.i, label %543, label %559
+538:                                              ; preds = %534
+  %539 = getelementptr inbounds nuw i8, ptr %520, i64 12
+  %540 = load i8, ptr %539, align 4
+  %541 = load i8, ptr %504, align 4
+  %.not96.i = icmp eq i8 %540, %541
+  br i1 %.not96.i, label %542, label %558
 
-543:                                              ; preds = %539
-  %544 = getelementptr inbounds nuw i8, ptr %521, i64 13
-  %545 = load i8, ptr %544, align 1
-  %546 = load i8, ptr %506, align 1
-  %.not97.i = icmp eq i8 %545, %546
-  br i1 %.not97.i, label %547, label %559
+542:                                              ; preds = %538
+  %543 = getelementptr inbounds nuw i8, ptr %520, i64 13
+  %544 = load i8, ptr %543, align 1
+  %545 = load i8, ptr %505, align 1
+  %.not97.i = icmp eq i8 %544, %545
+  br i1 %.not97.i, label %546, label %558
 
-547:                                              ; preds = %543
-  %548 = getelementptr inbounds nuw i8, ptr %521, i64 14
-  %549 = load i8, ptr %548, align 2
-  %550 = load i8, ptr %507, align 2
-  %.not98.i = icmp eq i8 %549, %550
-  br i1 %.not98.i, label %551, label %559
+546:                                              ; preds = %542
+  %547 = getelementptr inbounds nuw i8, ptr %520, i64 14
+  %548 = load i8, ptr %547, align 2
+  %549 = load i8, ptr %506, align 2
+  %.not98.i = icmp eq i8 %548, %549
+  br i1 %.not98.i, label %550, label %558
 
-551:                                              ; preds = %547
-  %552 = getelementptr inbounds nuw i8, ptr %521, i64 15
-  %553 = load i8, ptr %552, align 1
-  %554 = load i8, ptr %508, align 1
-  %.not99.i = icmp eq i8 %553, %554
-  br i1 %.not99.i, label %555, label %559
+550:                                              ; preds = %546
+  %551 = getelementptr inbounds nuw i8, ptr %520, i64 15
+  %552 = load i8, ptr %551, align 1
+  %553 = load i8, ptr %507, align 1
+  %.not99.i = icmp eq i8 %552, %553
+  br i1 %.not99.i, label %554, label %558
 
-555:                                              ; preds = %551
-  %556 = getelementptr inbounds nuw i8, ptr %521, i64 16
-  %557 = load i8, ptr %556, align 8
-  %558 = load i8, ptr %509, align 8
-  %.not100.i = icmp eq i8 %557, %558
-  br i1 %.not100.i, label %562, label %559
+554:                                              ; preds = %550
+  %555 = getelementptr inbounds nuw i8, ptr %520, i64 16
+  %556 = load i8, ptr %555, align 8
+  %557 = load i8, ptr %508, align 8
+  %.not100.i = icmp eq i8 %556, %557
+  br i1 %.not100.i, label %561, label %558
 
-559:                                              ; preds = %555, %551, %547, %543, %539, %535, %531, %527, %avifPropertyArrayFind.exit117.i
-  %560 = load i32, ptr %511, align 8
-  %561 = getelementptr inbounds nuw i8, ptr %511, i64 16
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.194, ptr noundef nonnull %.str.62..i, i32 noundef %560, ptr noundef nonnull %561) #13
+558:                                              ; preds = %554, %550, %546, %542, %538, %534, %530, %526, %avifPropertyArrayFind.exit117.i
+  %559 = load i32, ptr %510, align 8
+  %560 = getelementptr inbounds nuw i8, ptr %510, i64 16
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.62, i32 noundef %559, ptr noundef nonnull %560) #13
   br label %avifDecoderItemValidateProperties.exit.thread
 
-562:                                              ; preds = %555, %510
+561:                                              ; preds = %554, %509
   %indvars.iv.next.i493 = add nuw nsw i64 %indvars.iv.i492, 1
   %exitcond.not.i494 = icmp eq i64 %indvars.iv.next.i493, %wide.trip.count.i491
-  br i1 %exitcond.not.i494, label %.lr.ph.i119.i.preheader, label %510, !llvm.loop !18
+  br i1 %exitcond.not.i494, label %.lr.ph.i119.i.preheader, label %509, !llvm.loop !18
 
-.lr.ph.i119.i.preheader:                          ; preds = %562, %.preheader.i488, %avifPropertyArrayFind.exit.i
+.lr.ph.i119.i.preheader:                          ; preds = %561, %.preheader.i488, %avifPropertyArrayFind.exit.i
   br label %.lr.ph.i119.i
 
-563:                                              ; preds = %.lr.ph.i119.i
+562:                                              ; preds = %.lr.ph.i119.i
   %indvars.iv.next.i124.i = add nuw nsw i64 %indvars.iv.i121.i, 1
   %exitcond.not.i125.i = icmp eq i64 %indvars.iv.next.i124.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i125.i, label %avifPropertyArrayFind.exit127.i, label %.lr.ph.i119.i, !llvm.loop !12
 
-.lr.ph.i119.i:                                    ; preds = %.lr.ph.i119.i.preheader, %563
-  %indvars.iv.i121.i = phi i64 [ %indvars.iv.next.i124.i, %563 ], [ 0, %.lr.ph.i119.i.preheader ]
-  %564 = getelementptr inbounds nuw %struct.avifProperty, ptr %488, i64 %indvars.iv.i121.i
-  %bcmp.i122.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %564, ptr noundef nonnull dereferenceable(4) @.str.63, i64 4)
+.lr.ph.i119.i:                                    ; preds = %.lr.ph.i119.i.preheader, %562
+  %indvars.iv.i121.i = phi i64 [ %indvars.iv.next.i124.i, %562 ], [ 0, %.lr.ph.i119.i.preheader ]
+  %563 = getelementptr inbounds nuw %struct.avifProperty, ptr %487, i64 %indvars.iv.i121.i
+  %bcmp.i122.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %563, ptr noundef nonnull dereferenceable(4) @.str.63, i64 4)
   %.not.i123.i = icmp eq i32 %bcmp.i122.i, 0
-  br i1 %.not.i123.i, label %avifPropertyArrayFind.exit127.thread.i, label %563
+  br i1 %.not.i123.i, label %avifPropertyArrayFind.exit127.thread.i, label %562
 
-avifPropertyArrayFind.exit127.i:                  ; preds = %563
-  %565 = and i32 %spec.select, 1
-  %.not102.i = icmp eq i32 %565, 0
-  br i1 %.not102.i, label %.loopexit.i486, label %566
+avifPropertyArrayFind.exit127.i:                  ; preds = %562
+  %564 = and i32 %spec.select, 1
+  %.not102.i = icmp eq i32 %564, 0
+  br i1 %.not102.i, label %.loopexit.i486, label %565
 
-566:                                              ; preds = %avifPropertyArrayFind.exit127.i
-  %567 = load i32, ptr %344, align 8
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.195, i32 noundef %567, ptr noundef nonnull %494) #13
+565:                                              ; preds = %avifPropertyArrayFind.exit127.i
+  %566 = load i32, ptr %343, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.195, i32 noundef %566, ptr noundef nonnull %493) #13
   br label %avifDecoderItemValidateProperties.exit.thread
 
 avifPropertyArrayFind.exit127.thread.i:           ; preds = %.lr.ph.i119.i
-  %568 = getelementptr inbounds nuw i8, ptr %491, i64 12
-  %569 = load i8, ptr %568, align 1
-  %.not.i128.i = icmp eq i8 %569, 0
-  br i1 %.not.i128.i, label %570, label %avifCodecConfigurationBoxGetDepth.exit.i
+  %567 = getelementptr inbounds nuw i8, ptr %490, i64 12
+  %568 = load i8, ptr %567, align 1
+  %.not.i128.i = icmp eq i8 %568, 0
+  br i1 %.not.i128.i, label %569, label %avifCodecConfigurationBoxGetDepth.exit.i
 
-570:                                              ; preds = %avifPropertyArrayFind.exit127.thread.i
-  %571 = getelementptr inbounds nuw i8, ptr %491, i64 11
-  %572 = load i8, ptr %571, align 1
-  %.not2.i.i = icmp eq i8 %572, 0
+569:                                              ; preds = %avifPropertyArrayFind.exit127.thread.i
+  %570 = getelementptr inbounds nuw i8, ptr %490, i64 11
+  %571 = load i8, ptr %570, align 1
+  %.not2.i.i = icmp eq i8 %571, 0
   %..i.i487 = select i1 %.not2.i.i, i32 8, i32 10
   br label %avifCodecConfigurationBoxGetDepth.exit.i
 
-avifCodecConfigurationBoxGetDepth.exit.i:         ; preds = %570, %avifPropertyArrayFind.exit127.thread.i
-  %.0.i129.i = phi i32 [ 12, %avifPropertyArrayFind.exit127.thread.i ], [ %..i.i487, %570 ]
-  %573 = getelementptr inbounds nuw i8, ptr %564, i64 12
-  %574 = load i8, ptr %573, align 4
-  %.not188.i = icmp eq i8 %574, 0
+avifCodecConfigurationBoxGetDepth.exit.i:         ; preds = %569, %avifPropertyArrayFind.exit127.thread.i
+  %.0.i129.i = phi i32 [ 12, %avifPropertyArrayFind.exit127.thread.i ], [ %..i.i487, %569 ]
+  %572 = getelementptr inbounds nuw i8, ptr %563, i64 12
+  %573 = load i8, ptr %572, align 4
+  %.not188.i = icmp eq i8 %573, 0
   br i1 %.not188.i, label %.loopexit.i486, label %.lr.ph187.i
 
 .lr.ph187.i:                                      ; preds = %avifCodecConfigurationBoxGetDepth.exit.i
-  %575 = getelementptr inbounds nuw i8, ptr %564, i64 8
-  %wide.trip.count209.i = zext i8 %574 to i64
-  br label %577
+  %574 = getelementptr inbounds nuw i8, ptr %563, i64 8
+  %wide.trip.count209.i = zext i8 %573 to i64
+  br label %576
 
-576:                                              ; preds = %577
+575:                                              ; preds = %576
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %exitcond210.not.i = icmp eq i64 %indvars.iv.next207.i, %wide.trip.count209.i
-  br i1 %exitcond210.not.i, label %.loopexit.i486, label %577, !llvm.loop !19
+  br i1 %exitcond210.not.i, label %.loopexit.i486, label %576, !llvm.loop !19
 
-577:                                              ; preds = %576, %.lr.ph187.i
-  %indvars.iv206.i = phi i64 [ 0, %.lr.ph187.i ], [ %indvars.iv.next207.i, %576 ]
-  %578 = getelementptr inbounds nuw [4 x i8], ptr %575, i64 0, i64 %indvars.iv206.i
-  %579 = load i8, ptr %578, align 1
-  %580 = zext i8 %579 to i32
-  %.not107.i = icmp eq i32 %.0.i129.i, %580
-  br i1 %.not107.i, label %576, label %581
+576:                                              ; preds = %575, %.lr.ph187.i
+  %indvars.iv206.i = phi i64 [ 0, %.lr.ph187.i ], [ %indvars.iv.next207.i, %575 ]
+  %577 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 0, i64 %indvars.iv206.i
+  %578 = load i8, ptr %577, align 1
+  %579 = zext i8 %578 to i32
+  %.not107.i = icmp eq i32 %.0.i129.i, %579
+  br i1 %.not107.i, label %575, label %580
 
-581:                                              ; preds = %577
-  %582 = load i32, ptr %344, align 8
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.196, i32 noundef %582, i32 noundef %580, ptr noundef nonnull %.str.62..i, i32 noundef %.0.i129.i) #13
+580:                                              ; preds = %576
+  %581 = load i32, ptr %343, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.196, i32 noundef %581, i32 noundef %579, ptr noundef nonnull @.str.62, i32 noundef %.0.i129.i) #13
   br label %avifDecoderItemValidateProperties.exit.thread
 
-.loopexit.i486:                                   ; preds = %576, %avifCodecConfigurationBoxGetDepth.exit.i, %avifPropertyArrayFind.exit127.i
-  %583 = and i32 %spec.select, 2
-  %.not103.i = icmp eq i32 %583, 0
+.loopexit.i486:                                   ; preds = %575, %avifCodecConfigurationBoxGetDepth.exit.i, %avifPropertyArrayFind.exit127.i
+  %582 = and i32 %spec.select, 2
+  %.not103.i = icmp eq i32 %582, 0
   br i1 %.not103.i, label %avifDecoderItemValidateProperties.exit, label %.lr.ph.i131.i
 
-584:                                              ; preds = %.lr.ph.i131.i
+583:                                              ; preds = %.lr.ph.i131.i
   %indvars.iv.next.i136.i = add nuw nsw i64 %indvars.iv.i133.i, 1
   %exitcond.not.i137.i = icmp eq i64 %indvars.iv.next.i136.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i137.i, label %avifDecoderItemValidateProperties.exit, label %.lr.ph.i131.i, !llvm.loop !12
 
-.lr.ph.i131.i:                                    ; preds = %.loopexit.i486, %584
-  %indvars.iv.i133.i = phi i64 [ %indvars.iv.next.i136.i, %584 ], [ 0, %.loopexit.i486 ]
-  %585 = getelementptr inbounds nuw %struct.avifProperty, ptr %488, i64 %indvars.iv.i133.i
-  %bcmp.i134.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %585, ptr noundef nonnull dereferenceable(4) @.str.17, i64 4)
+.lr.ph.i131.i:                                    ; preds = %.loopexit.i486, %583
+  %indvars.iv.i133.i = phi i64 [ %indvars.iv.next.i136.i, %583 ], [ 0, %.loopexit.i486 ]
+  %584 = getelementptr inbounds nuw %struct.avifProperty, ptr %487, i64 %indvars.iv.i133.i
+  %bcmp.i134.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %584, ptr noundef nonnull dereferenceable(4) @.str.17, i64 4)
   %.not.i135.i = icmp eq i32 %bcmp.i134.i, 0
-  br i1 %.not.i135.i, label %.lr.ph.i141.i, label %584
+  br i1 %.not.i135.i, label %.lr.ph.i141.i, label %583
 
-586:                                              ; preds = %.lr.ph.i141.i
+585:                                              ; preds = %.lr.ph.i141.i
   %indvars.iv.next.i146.i = add nuw nsw i64 %indvars.iv.i143.i, 1
   %exitcond.not.i147.i = icmp eq i64 %indvars.iv.next.i146.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i147.i, label %588, label %.lr.ph.i141.i, !llvm.loop !12
+  br i1 %exitcond.not.i147.i, label %587, label %.lr.ph.i141.i, !llvm.loop !12
 
-.lr.ph.i141.i:                                    ; preds = %.lr.ph.i131.i, %586
-  %indvars.iv.i143.i = phi i64 [ %indvars.iv.next.i146.i, %586 ], [ 0, %.lr.ph.i131.i ]
-  %587 = getelementptr inbounds nuw %struct.avifProperty, ptr %488, i64 %indvars.iv.i143.i
-  %bcmp.i144.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %587, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
+.lr.ph.i141.i:                                    ; preds = %.lr.ph.i131.i, %585
+  %indvars.iv.i143.i = phi i64 [ %indvars.iv.next.i146.i, %585 ], [ 0, %.lr.ph.i131.i ]
+  %586 = getelementptr inbounds nuw %struct.avifProperty, ptr %487, i64 %indvars.iv.i143.i
+  %bcmp.i144.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %586, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
   %.not.i145.i = icmp eq i32 %bcmp.i144.i, 0
-  br i1 %.not.i145.i, label %avifPropertyArrayFind.exit149.i, label %586
+  br i1 %.not.i145.i, label %avifPropertyArrayFind.exit149.i, label %585
 
-588:                                              ; preds = %586
-  %589 = load i32, ptr %344, align 8
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, i32 noundef %589) #13
+587:                                              ; preds = %585
+  %588 = load i32, ptr %343, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, i32 noundef %588) #13
   br label %avifDecoderItemValidateProperties.exit.thread
 
 avifPropertyArrayFind.exit149.i:                  ; preds = %.lr.ph.i141.i
-  %590 = getelementptr inbounds nuw i8, ptr %587, i64 8
-  %591 = load i32, ptr %590, align 8
-  %592 = getelementptr inbounds nuw i8, ptr %587, i64 12
-  %593 = load i32, ptr %592, align 4
-  %594 = getelementptr inbounds nuw i8, ptr %491, i64 13
-  %595 = load i8, ptr %594, align 1
-  %.not.i150.i = icmp eq i8 %595, 0
-  br i1 %.not.i150.i, label %596, label %avifCodecConfigurationBoxGetFormat.exit.i
+  %589 = getelementptr inbounds nuw i8, ptr %586, i64 8
+  %590 = load i32, ptr %589, align 8
+  %591 = getelementptr inbounds nuw i8, ptr %586, i64 12
+  %592 = load i32, ptr %591, align 4
+  %593 = getelementptr inbounds nuw i8, ptr %490, i64 13
+  %594 = load i8, ptr %593, align 1
+  %.not.i150.i = icmp eq i8 %594, 0
+  br i1 %.not.i150.i, label %595, label %avifCodecConfigurationBoxGetFormat.exit.i
 
-596:                                              ; preds = %avifPropertyArrayFind.exit149.i
-  %597 = getelementptr inbounds nuw i8, ptr %491, i64 15
-  %598 = load i8, ptr %597, align 1
-  %599 = icmp eq i8 %598, 1
-  br i1 %599, label %avifCodecConfigurationBoxGetFormat.exit.i, label %600
+595:                                              ; preds = %avifPropertyArrayFind.exit149.i
+  %596 = getelementptr inbounds nuw i8, ptr %490, i64 15
+  %597 = load i8, ptr %596, align 1
+  %598 = icmp eq i8 %597, 1
+  br i1 %598, label %avifCodecConfigurationBoxGetFormat.exit.i, label %599
 
-600:                                              ; preds = %596
-  %601 = getelementptr inbounds nuw i8, ptr %491, i64 14
-  %602 = load i8, ptr %601, align 1
-  %603 = icmp eq i8 %602, 1
-  %..i152.i = select i1 %603, i32 2, i32 1
+599:                                              ; preds = %595
+  %600 = getelementptr inbounds nuw i8, ptr %490, i64 14
+  %601 = load i8, ptr %600, align 1
+  %602 = icmp eq i8 %601, 1
+  %..i152.i = select i1 %602, i32 2, i32 1
   br label %avifCodecConfigurationBoxGetFormat.exit.i
 
-avifCodecConfigurationBoxGetFormat.exit.i:        ; preds = %600, %596, %avifPropertyArrayFind.exit149.i
-  %.0.i151.i = phi i32 [ 4, %avifPropertyArrayFind.exit149.i ], [ 3, %596 ], [ %..i152.i, %600 ]
-  %604 = getelementptr inbounds nuw i8, ptr %585, i64 8
-  %605 = call i32 @avifCropRectConvertCleanApertureBox(ptr noundef nonnull %2, ptr noundef nonnull %604, i32 noundef %591, i32 noundef %593, i32 noundef %.0.i151.i, ptr noundef nonnull %7) #13
-  %.not106.i = icmp eq i32 %605, 0
+avifCodecConfigurationBoxGetFormat.exit.i:        ; preds = %599, %595, %avifPropertyArrayFind.exit149.i
+  %.0.i151.i = phi i32 [ 4, %avifPropertyArrayFind.exit149.i ], [ 3, %595 ], [ %..i152.i, %599 ]
+  %603 = getelementptr inbounds nuw i8, ptr %584, i64 8
+  %604 = call i32 @avifCropRectConvertCleanApertureBox(ptr noundef nonnull %2, ptr noundef nonnull %603, i32 noundef %590, i32 noundef %592, i32 noundef %.0.i151.i, ptr noundef nonnull %7) #13
+  %.not106.i = icmp eq i32 %604, 0
   br i1 %.not106.i, label %avifDecoderItemValidateProperties.exit.thread, label %avifDecoderItemValidateProperties.exit
 
-avifDecoderItemValidateProperties.exit.thread:    ; preds = %avifCodecConfigurationBoxGetFormat.exit.i, %581, %588, %566, %559, %.loopexit169.i, %.loopexit171.i
+avifDecoderItemValidateProperties.exit.thread:    ; preds = %avifCodecConfigurationBoxGetFormat.exit.i, %580, %587, %565, %558, %.loopexit169.i, %.loopexit171.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %avifMetaFindAlphaItem.exit
 
-avifDecoderItemValidateProperties.exit:           ; preds = %584, %.loopexit.i486, %avifCodecConfigurationBoxGetFormat.exit.i
+avifDecoderItemValidateProperties.exit:           ; preds = %583, %.loopexit.i486, %avifCodecConfigurationBoxGetFormat.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %606
+  br label %605
 
-606:                                              ; preds = %avifDecoderItemValidateProperties.exit, %343
-  br i1 %.not656, label %343, label %607, !llvm.loop !20
+605:                                              ; preds = %avifDecoderItemValidateProperties.exit, %342
+  br i1 %.not660, label %342, label %606, !llvm.loop !20
 
-607:                                              ; preds = %606
-  %608 = getelementptr inbounds nuw i8, ptr %323, i64 216
-  %609 = load i32, ptr %608, align 8
-  %.not377 = icmp eq i32 %609, 0
-  br i1 %.not377, label %621, label %610
+606:                                              ; preds = %605
+  %607 = getelementptr inbounds nuw i8, ptr %322, i64 216
+  %608 = load i32, ptr %607, align 8
+  %.not377 = icmp eq i32 %608, 0
+  br i1 %.not377, label %620, label %609
 
-610:                                              ; preds = %607
+609:                                              ; preds = %606
   store i32 1, ptr %16, align 8
-  %611 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %610 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %611 = load ptr, ptr %610, align 8
   %612 = load ptr, ptr %611, align 8
-  %613 = load ptr, ptr %612, align 8
-  %614 = getelementptr inbounds nuw i8, ptr %613, i64 12
-  %615 = load i32, ptr %614, align 4
-  %616 = icmp ugt i32 %615, 1
-  br i1 %616, label %617, label %621
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 12
+  %614 = load i32, ptr %613, align 4
+  %615 = icmp ugt i32 %614, 1
+  br i1 %615, label %616, label %620
 
-617:                                              ; preds = %610
+616:                                              ; preds = %609
   store i32 2, ptr %16, align 8
-  %618 = load ptr, ptr %612, align 8
-  %619 = getelementptr inbounds nuw i8, ptr %618, i64 12
-  %620 = load i32, ptr %619, align 4
-  store i32 %620, ptr %328, align 4
-  br label %621
+  %617 = load ptr, ptr %611, align 8
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 12
+  %619 = load i32, ptr %618, align 4
+  store i32 %619, ptr %327, align 4
+  br label %620
 
-621:                                              ; preds = %610, %617, %607
-  %622 = load i32, ptr %336, align 4
-  %623 = load ptr, ptr %10, align 8
-  store i32 %622, ptr %623, align 8
-  %624 = load i32, ptr %337, align 8
-  %625 = load ptr, ptr %10, align 8
-  %626 = getelementptr inbounds nuw i8, ptr %625, i64 4
-  store i32 %624, ptr %626, align 4
-  %627 = icmp ne ptr %320, null
-  %628 = zext i1 %627 to i32
-  %629 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %628, ptr %629, align 4
-  br i1 %627, label %630, label %635
+620:                                              ; preds = %609, %616, %606
+  %621 = load i32, ptr %335, align 4
+  %622 = load ptr, ptr %10, align 8
+  store i32 %621, ptr %622, align 8
+  %623 = load i32, ptr %336, align 8
+  %624 = load ptr, ptr %10, align 8
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 4
+  store i32 %623, ptr %625, align 4
+  %626 = icmp ne ptr %319, null
+  %627 = zext i1 %626 to i32
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %627, ptr %628, align 4
+  br i1 %626, label %629, label %634
 
-630:                                              ; preds = %621
-  %631 = getelementptr inbounds nuw i8, ptr %323, i64 204
+629:                                              ; preds = %620
+  %630 = getelementptr inbounds nuw i8, ptr %322, i64 204
   br label %.sink.split
 
-.sink.split:                                      ; preds = %184, %630
-  %.sink898 = phi ptr [ %320, %630 ], [ %.0307, %184 ]
-  %.sink896.in = phi ptr [ %631, %630 ], [ %185, %184 ]
-  %.0306.ph = phi ptr [ %213, %630 ], [ %79, %184 ]
-  %.3.ph = phi i32 [ %214, %630 ], [ %.1305, %184 ]
+.sink.split:                                      ; preds = %184, %629
+  %.sink898 = phi ptr [ %319, %629 ], [ %.0307, %184 ]
+  %.sink896.in = phi ptr [ %630, %629 ], [ %185, %184 ]
+  %.0306.ph = phi ptr [ %213, %629 ], [ %79, %184 ]
   %.sink896 = load i32, ptr %.sink896.in, align 4
-  %632 = load i32, ptr %.sink898, align 8
-  %633 = icmp eq i32 %.sink896, %632
-  %634 = zext i1 %633 to i32
-  br label %635
+  %631 = load i32, ptr %.sink898, align 8
+  %632 = icmp eq i32 %.sink896, %631
+  %633 = zext i1 %632 to i32
+  br label %634
 
-635:                                              ; preds = %.sink.split, %621, %154
-  %.sink892 = phi i32 [ 0, %154 ], [ 0, %621 ], [ %634, %.sink.split ]
-  %.0306 = phi ptr [ %79, %154 ], [ %213, %621 ], [ %.0306.ph, %.sink.split ]
-  %.3 = phi i32 [ %.1305, %154 ], [ %214, %621 ], [ %.3.ph, %.sink.split ]
-  %636 = load ptr, ptr %10, align 8
-  %637 = getelementptr inbounds nuw i8, ptr %636, i64 80
-  store i32 %.sink892, ptr %637, align 8
-  %638 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  br label %643
+634:                                              ; preds = %.sink.split, %620, %154
+  %.sink892 = phi i32 [ 0, %154 ], [ 0, %620 ], [ %633, %.sink.split ]
+  %.0306 = phi ptr [ %79, %154 ], [ %213, %620 ], [ %.0306.ph, %.sink.split ]
+  %635 = load ptr, ptr %10, align 8
+  %636 = getelementptr inbounds nuw i8, ptr %635, i64 80
+  store i32 %.sink892, ptr %636, align 8
+  %637 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  br label %642
 
-.preheader516:                                    ; preds = %643
-  %639 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %640 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %641 = load i32, ptr %640, align 4
-  %.not659 = icmp eq i32 %641, 0
-  br i1 %.not659, label %.preheader, label %.lr.ph649
+.preheader516:                                    ; preds = %642
+  %638 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %639 = getelementptr inbounds nuw i8, ptr %9, i64 44
+  %640 = load i32, ptr %639, align 4
+  %.not663 = icmp eq i32 %640, 0
+  br i1 %.not663, label %.preheader, label %.lr.ph653
 
-.lr.ph649:                                        ; preds = %.preheader516
-  %642 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  br label %653
+.lr.ph653:                                        ; preds = %.preheader516
+  %641 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  br label %652
 
-643:                                              ; preds = %635, %643
-  %644 = phi i1 [ true, %635 ], [ false, %643 ]
-  %indvars.iv767 = phi i64 [ 0, %635 ], [ 1, %643 ]
-  %.0322643 = phi i32 [ 0, %635 ], [ %648, %643 ]
-  %645 = getelementptr inbounds nuw [2 x %struct.avifTileInfo], ptr %638, i64 0, i64 %indvars.iv767
-  %646 = getelementptr inbounds nuw i8, ptr %645, i64 8
-  store i32 %.0322643, ptr %646, align 4
-  %647 = load i32, ptr %645, align 4
-  %648 = add i32 %647, %.0322643
-  br i1 %644, label %643, label %.preheader516, !llvm.loop !21
+642:                                              ; preds = %634, %642
+  %643 = phi i1 [ true, %634 ], [ false, %642 ]
+  %indvars.iv769 = phi i64 [ 0, %634 ], [ 1, %642 ]
+  %.0322647 = phi i32 [ 0, %634 ], [ %647, %642 ]
+  %644 = getelementptr inbounds nuw [2 x %struct.avifTileInfo], ptr %637, i64 0, i64 %indvars.iv769
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
+  store i32 %.0322647, ptr %645, align 4
+  %646 = load i32, ptr %644, align 4
+  %647 = add i32 %646, %.0322647
+  br i1 %643, label %642, label %.preheader516, !llvm.loop !21
 
-.preheader:                                       ; preds = %._crit_edge647, %.preheader516
-  %649 = getelementptr inbounds nuw i8, ptr %.0306, i64 12
-  %650 = load i32, ptr %649, align 4
-  %.not661 = icmp eq i32 %650, 0
-  br i1 %.not661, label %._crit_edge655, label %.lr.ph654
+.preheader:                                       ; preds = %._crit_edge651, %.preheader516
+  %648 = getelementptr inbounds nuw i8, ptr %.0306, i64 12
+  %649 = load i32, ptr %648, align 4
+  %.not665 = icmp eq i32 %649, 0
+  br i1 %.not665, label %._crit_edge659, label %.lr.ph658
 
-.lr.ph654:                                        ; preds = %.preheader
-  %651 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %652 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %682
+.lr.ph658:                                        ; preds = %.preheader
+  %650 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %651 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %681
 
-653:                                              ; preds = %.lr.ph649, %._crit_edge647
-  %654 = phi i32 [ %641, %.lr.ph649 ], [ %679, %._crit_edge647 ]
-  %indvars.iv773 = phi i64 [ 0, %.lr.ph649 ], [ %indvars.iv.next774, %._crit_edge647 ]
-  %655 = load ptr, ptr %639, align 8
-  %656 = getelementptr inbounds nuw %struct.avifTile, ptr %655, i64 %indvars.iv773
-  %657 = load ptr, ptr %656, align 8
-  %658 = getelementptr inbounds nuw i8, ptr %657, i64 12
-  %659 = load i32, ptr %658, align 4
-  %.not660 = icmp eq i32 %659, 0
-  br i1 %.not660, label %._crit_edge647, label %.lr.ph646
+652:                                              ; preds = %.lr.ph653, %._crit_edge651
+  %653 = phi i32 [ %640, %.lr.ph653 ], [ %678, %._crit_edge651 ]
+  %indvars.iv775 = phi i64 [ 0, %.lr.ph653 ], [ %indvars.iv.next776, %._crit_edge651 ]
+  %654 = load ptr, ptr %638, align 8
+  %655 = getelementptr inbounds nuw %struct.avifTile, ptr %654, i64 %indvars.iv775
+  %656 = load ptr, ptr %655, align 8
+  %657 = getelementptr inbounds nuw i8, ptr %656, i64 12
+  %658 = load i32, ptr %657, align 4
+  %.not664 = icmp eq i32 %658, 0
+  br i1 %.not664, label %._crit_edge651, label %.lr.ph650
 
-.lr.ph646:                                        ; preds = %653, %673
-  %indvars.iv770 = phi i64 [ %indvars.iv.next771, %673 ], [ 0, %653 ]
-  %660 = phi ptr [ %674, %673 ], [ %657, %653 ]
-  %661 = load ptr, ptr %660, align 8
-  %662 = getelementptr inbounds nuw %struct.avifDecodeSample, ptr %661, i64 %indvars.iv770, i32 5
-  %663 = load i64, ptr %662, align 8
-  %.not418 = icmp eq i64 %663, 0
-  br i1 %.not418, label %avifMetaFindAlphaItem.exit, label %664
+.lr.ph650:                                        ; preds = %652, %672
+  %indvars.iv772 = phi i64 [ %indvars.iv.next773, %672 ], [ 0, %652 ]
+  %659 = phi ptr [ %673, %672 ], [ %656, %652 ]
+  %660 = load ptr, ptr %659, align 8
+  %661 = getelementptr inbounds nuw %struct.avifDecodeSample, ptr %660, i64 %indvars.iv772, i32 5
+  %662 = load i64, ptr %661, align 8
+  %.not418 = icmp eq i64 %662, 0
+  br i1 %.not418, label %avifMetaFindAlphaItem.exit, label %663
 
-664:                                              ; preds = %.lr.ph646
-  %665 = getelementptr inbounds nuw i8, ptr %660, i64 28
-  %666 = load i32, ptr %665, align 4
-  switch i32 %666, label %673 [
-    i32 0, label %667
-    i32 1, label %670
+663:                                              ; preds = %.lr.ph650
+  %664 = getelementptr inbounds nuw i8, ptr %659, i64 28
+  %665 = load i32, ptr %664, align 4
+  switch i32 %665, label %672 [
+    i32 0, label %666
+    i32 1, label %669
   ]
 
-667:                                              ; preds = %664
-  %668 = load i64, ptr %18, align 8
-  %669 = add i64 %668, %663
-  store i64 %669, ptr %18, align 8
-  br label %673
+666:                                              ; preds = %663
+  %667 = load i64, ptr %18, align 8
+  %668 = add i64 %667, %662
+  store i64 %668, ptr %18, align 8
+  br label %672
 
-670:                                              ; preds = %664
-  %671 = load i64, ptr %642, align 8
-  %672 = add i64 %671, %663
-  store i64 %672, ptr %642, align 8
-  br label %673
+669:                                              ; preds = %663
+  %670 = load i64, ptr %641, align 8
+  %671 = add i64 %670, %662
+  store i64 %671, ptr %641, align 8
+  br label %672
 
-673:                                              ; preds = %664, %667, %670
-  %indvars.iv.next771 = add nuw nsw i64 %indvars.iv770, 1
-  %674 = load ptr, ptr %656, align 8
-  %675 = getelementptr inbounds nuw i8, ptr %674, i64 12
-  %676 = load i32, ptr %675, align 4
-  %677 = zext i32 %676 to i64
-  %678 = icmp samesign ult i64 %indvars.iv.next771, %677
-  br i1 %678, label %.lr.ph646, label %._crit_edge647.loopexit, !llvm.loop !22
+672:                                              ; preds = %663, %666, %669
+  %indvars.iv.next773 = add nuw nsw i64 %indvars.iv772, 1
+  %673 = load ptr, ptr %655, align 8
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 12
+  %675 = load i32, ptr %674, align 4
+  %676 = zext i32 %675 to i64
+  %677 = icmp samesign ult i64 %indvars.iv.next773, %676
+  br i1 %677, label %.lr.ph650, label %._crit_edge651.loopexit, !llvm.loop !22
 
-._crit_edge647.loopexit:                          ; preds = %673
-  %.pre780 = load i32, ptr %640, align 4
-  br label %._crit_edge647
+._crit_edge651.loopexit:                          ; preds = %672
+  %.pre782 = load i32, ptr %639, align 4
+  br label %._crit_edge651
 
-._crit_edge647:                                   ; preds = %._crit_edge647.loopexit, %653
-  %679 = phi i32 [ %.pre780, %._crit_edge647.loopexit ], [ %654, %653 ]
-  %indvars.iv.next774 = add nuw nsw i64 %indvars.iv773, 1
-  %680 = zext i32 %679 to i64
-  %681 = icmp samesign ult i64 %indvars.iv.next774, %680
-  br i1 %681, label %653, label %.preheader, !llvm.loop !23
+._crit_edge651:                                   ; preds = %._crit_edge651.loopexit, %652
+  %678 = phi i32 [ %.pre782, %._crit_edge651.loopexit ], [ %653, %652 ]
+  %indvars.iv.next776 = add nuw nsw i64 %indvars.iv775, 1
+  %679 = zext i32 %678 to i64
+  %680 = icmp samesign ult i64 %indvars.iv.next776, %679
+  br i1 %680, label %652, label %.preheader, !llvm.loop !23
 
-682:                                              ; preds = %.lr.ph654, %724
-  %indvars.iv776 = phi i64 [ 0, %.lr.ph654 ], [ %indvars.iv.next777, %724 ]
-  %.0317652 = phi i32 [ 0, %.lr.ph654 ], [ %.1318, %724 ]
-  %.0319651 = phi i32 [ 0, %.lr.ph654 ], [ %.2321, %724 ]
-  %683 = load ptr, ptr %.0306, align 8
-  %684 = getelementptr inbounds nuw %struct.avifProperty, ptr %683, i64 %indvars.iv776
-  %bcmp410 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %684, ptr noundef nonnull dereferenceable(4) @.str.14, i64 4)
+681:                                              ; preds = %.lr.ph658, %723
+  %indvars.iv778 = phi i64 [ 0, %.lr.ph658 ], [ %indvars.iv.next779, %723 ]
+  %.0317656 = phi i32 [ 0, %.lr.ph658 ], [ %.1318, %723 ]
+  %.0319655 = phi i32 [ 0, %.lr.ph658 ], [ %.2321, %723 ]
+  %682 = load ptr, ptr %.0306, align 8
+  %683 = getelementptr inbounds nuw %struct.avifProperty, ptr %682, i64 %indvars.iv778
+  %bcmp410 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %683, ptr noundef nonnull dereferenceable(4) @.str.14, i64 4)
   %.not411 = icmp eq i32 %bcmp410, 0
-  br i1 %.not411, label %685, label %724
+  br i1 %.not411, label %684, label %723
 
-685:                                              ; preds = %682
-  %686 = getelementptr inbounds nuw i8, ptr %684, i64 8
-  %687 = load i32, ptr %686, align 8
-  %.not412 = icmp eq i32 %687, 0
-  br i1 %.not412, label %703, label %688
+684:                                              ; preds = %681
+  %685 = getelementptr inbounds nuw i8, ptr %683, i64 8
+  %686 = load i32, ptr %685, align 8
+  %.not412 = icmp eq i32 %686, 0
+  br i1 %.not412, label %702, label %687
 
-688:                                              ; preds = %685
-  %.not413 = icmp eq i32 %.0319651, 0
-  br i1 %.not413, label %689, label %avifMetaFindAlphaItem.exit
+687:                                              ; preds = %684
+  %.not413 = icmp eq i32 %.0319655, 0
+  br i1 %.not413, label %688, label %avifMetaFindAlphaItem.exit
 
-689:                                              ; preds = %688
-  %690 = load ptr, ptr %651, align 8
-  %691 = getelementptr inbounds nuw i8, ptr %690, i64 8
-  %692 = load ptr, ptr %691, align 8
-  %693 = getelementptr inbounds nuw i8, ptr %684, i64 16
-  %694 = load i64, ptr %693, align 8
-  %695 = getelementptr inbounds nuw i8, ptr %684, i64 24
-  %696 = load i64, ptr %695, align 8
-  %697 = call i32 %692(ptr noundef %690, i32 noundef 0, i64 noundef %694, i64 noundef %696, ptr noundef nonnull %5) #13
-  %.not414 = icmp eq i32 %697, 0
-  br i1 %.not414, label %698, label %avifMetaFindAlphaItem.exit
+688:                                              ; preds = %687
+  %689 = load ptr, ptr %650, align 8
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 8
+  %691 = load ptr, ptr %690, align 8
+  %692 = getelementptr inbounds nuw i8, ptr %683, i64 16
+  %693 = load i64, ptr %692, align 8
+  %694 = getelementptr inbounds nuw i8, ptr %683, i64 24
+  %695 = load i64, ptr %694, align 8
+  %696 = call i32 %691(ptr noundef %689, i32 noundef 0, i64 noundef %693, i64 noundef %695, ptr noundef nonnull %5) #13
+  %.not414 = icmp eq i32 %696, 0
+  br i1 %.not414, label %697, label %avifMetaFindAlphaItem.exit
 
-698:                                              ; preds = %689
-  %699 = load ptr, ptr %10, align 8
-  %700 = load ptr, ptr %5, align 8
-  %701 = load i64, ptr %652, align 8
-  %702 = call i32 @avifImageSetProfileICC(ptr noundef %699, ptr noundef %700, i64 noundef %701) #13
-  %.not415 = icmp eq i32 %702, 0
-  br i1 %.not415, label %703, label %avifMetaFindAlphaItem.exit
+697:                                              ; preds = %688
+  %698 = load ptr, ptr %10, align 8
+  %699 = load ptr, ptr %5, align 8
+  %700 = load i64, ptr %651, align 8
+  %701 = call i32 @avifImageSetProfileICC(ptr noundef %698, ptr noundef %699, i64 noundef %700) #13
+  %.not415 = icmp eq i32 %701, 0
+  br i1 %.not415, label %702, label %avifMetaFindAlphaItem.exit
 
-703:                                              ; preds = %698, %685
-  %.1320 = phi i32 [ 1, %698 ], [ %.0319651, %685 ]
-  %704 = getelementptr inbounds nuw i8, ptr %684, i64 32
-  %705 = load i32, ptr %704, align 8
-  %.not416 = icmp eq i32 %705, 0
-  br i1 %.not416, label %724, label %706
+702:                                              ; preds = %697, %684
+  %.1320 = phi i32 [ 1, %697 ], [ %.0319655, %684 ]
+  %703 = getelementptr inbounds nuw i8, ptr %683, i64 32
+  %704 = load i32, ptr %703, align 8
+  %.not416 = icmp eq i32 %704, 0
+  br i1 %.not416, label %723, label %705
 
-706:                                              ; preds = %703
-  %.not417 = icmp eq i32 %.0317652, 0
-  br i1 %.not417, label %707, label %avifMetaFindAlphaItem.exit
+705:                                              ; preds = %702
+  %.not417 = icmp eq i32 %.0317656, 0
+  br i1 %.not417, label %706, label %avifMetaFindAlphaItem.exit
 
-707:                                              ; preds = %706
+706:                                              ; preds = %705
   store i32 1, ptr %17, align 8
-  %708 = getelementptr inbounds nuw i8, ptr %684, i64 36
-  %709 = load i16, ptr %708, align 4
-  %710 = load ptr, ptr %10, align 8
-  %711 = getelementptr inbounds nuw i8, ptr %710, i64 104
-  store i16 %709, ptr %711, align 8
-  %712 = getelementptr inbounds nuw i8, ptr %684, i64 38
-  %713 = load i16, ptr %712, align 2
-  %714 = load ptr, ptr %10, align 8
-  %715 = getelementptr inbounds nuw i8, ptr %714, i64 106
-  store i16 %713, ptr %715, align 2
-  %716 = getelementptr inbounds nuw i8, ptr %684, i64 40
-  %717 = load i16, ptr %716, align 8
-  %718 = load ptr, ptr %10, align 8
-  %719 = getelementptr inbounds nuw i8, ptr %718, i64 108
-  store i16 %717, ptr %719, align 4
-  %720 = getelementptr inbounds nuw i8, ptr %684, i64 44
-  %721 = load i32, ptr %720, align 4
-  %722 = load ptr, ptr %10, align 8
-  %723 = getelementptr inbounds nuw i8, ptr %722, i64 16
-  store i32 %721, ptr %723, align 8
-  br label %724
+  %707 = getelementptr inbounds nuw i8, ptr %683, i64 36
+  %708 = load i16, ptr %707, align 4
+  %709 = load ptr, ptr %10, align 8
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 104
+  store i16 %708, ptr %710, align 8
+  %711 = getelementptr inbounds nuw i8, ptr %683, i64 38
+  %712 = load i16, ptr %711, align 2
+  %713 = load ptr, ptr %10, align 8
+  %714 = getelementptr inbounds nuw i8, ptr %713, i64 106
+  store i16 %712, ptr %714, align 2
+  %715 = getelementptr inbounds nuw i8, ptr %683, i64 40
+  %716 = load i16, ptr %715, align 8
+  %717 = load ptr, ptr %10, align 8
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 108
+  store i16 %716, ptr %718, align 4
+  %719 = getelementptr inbounds nuw i8, ptr %683, i64 44
+  %720 = load i32, ptr %719, align 4
+  %721 = load ptr, ptr %10, align 8
+  %722 = getelementptr inbounds nuw i8, ptr %721, i64 16
+  store i32 %720, ptr %722, align 8
+  br label %723
 
-724:                                              ; preds = %682, %707, %703
-  %.2321 = phi i32 [ %.0319651, %682 ], [ %.1320, %707 ], [ %.1320, %703 ]
-  %.1318 = phi i32 [ %.0317652, %682 ], [ 1, %707 ], [ %.0317652, %703 ]
-  %indvars.iv.next777 = add nuw nsw i64 %indvars.iv776, 1
-  %725 = load i32, ptr %649, align 4
-  %726 = zext i32 %725 to i64
-  %727 = icmp samesign ult i64 %indvars.iv.next777, %726
-  br i1 %727, label %682, label %._crit_edge655, !llvm.loop !24
+723:                                              ; preds = %681, %706, %702
+  %.2321 = phi i32 [ %.0319655, %681 ], [ %.1320, %706 ], [ %.1320, %702 ]
+  %.1318 = phi i32 [ %.0317656, %681 ], [ 1, %706 ], [ %.0317656, %702 ]
+  %indvars.iv.next779 = add nuw nsw i64 %indvars.iv778, 1
+  %724 = load i32, ptr %648, align 4
+  %725 = zext i32 %724 to i64
+  %726 = icmp samesign ult i64 %indvars.iv.next779, %725
+  br i1 %726, label %681, label %._crit_edge659, !llvm.loop !24
 
-._crit_edge655:                                   ; preds = %724, %.preheader
-  %728 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.15)
-  %.not399 = icmp eq ptr %728, null
-  br i1 %.not399, label %734, label %729
+._crit_edge659:                                   ; preds = %723, %.preheader
+  %727 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.15)
+  %.not399 = icmp eq ptr %727, null
+  br i1 %.not399, label %733, label %728
 
-729:                                              ; preds = %._crit_edge655
-  %730 = load ptr, ptr %10, align 8
-  %731 = getelementptr inbounds nuw i8, ptr %730, i64 110
-  %732 = getelementptr inbounds nuw i8, ptr %728, i64 8
-  %733 = load i32, ptr %732, align 8
-  store i32 %733, ptr %731, align 2
-  br label %734
+728:                                              ; preds = %._crit_edge659
+  %729 = load ptr, ptr %10, align 8
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 110
+  %731 = getelementptr inbounds nuw i8, ptr %727, i64 8
+  %732 = load i32, ptr %731, align 8
+  store i32 %732, ptr %730, align 2
+  br label %733
 
-734:                                              ; preds = %729, %._crit_edge655
-  %735 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.16)
-  %.not400 = icmp eq ptr %735, null
-  br i1 %.not400, label %745, label %736
+733:                                              ; preds = %728, %._crit_edge659
+  %734 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.16)
+  %.not400 = icmp eq ptr %734, null
+  br i1 %.not400, label %744, label %735
 
-736:                                              ; preds = %734
-  %737 = load ptr, ptr %10, align 8
-  %738 = getelementptr inbounds nuw i8, ptr %737, i64 116
-  %739 = load i32, ptr %738, align 4
-  %740 = or i32 %739, 1
-  store i32 %740, ptr %738, align 4
-  %741 = load ptr, ptr %10, align 8
-  %742 = getelementptr inbounds nuw i8, ptr %741, i64 120
-  %743 = getelementptr inbounds nuw i8, ptr %735, i64 8
-  %744 = load i64, ptr %743, align 8
-  store i64 %744, ptr %742, align 8
-  br label %745
+735:                                              ; preds = %733
+  %736 = load ptr, ptr %10, align 8
+  %737 = getelementptr inbounds nuw i8, ptr %736, i64 116
+  %738 = load i32, ptr %737, align 4
+  %739 = or i32 %738, 1
+  store i32 %739, ptr %737, align 4
+  %740 = load ptr, ptr %10, align 8
+  %741 = getelementptr inbounds nuw i8, ptr %740, i64 120
+  %742 = getelementptr inbounds nuw i8, ptr %734, i64 8
+  %743 = load i64, ptr %742, align 8
+  store i64 %743, ptr %741, align 8
+  br label %744
 
-745:                                              ; preds = %736, %734
-  %746 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.17)
-  %.not401 = icmp eq ptr %746, null
-  br i1 %.not401, label %755, label %747
+744:                                              ; preds = %735, %733
+  %745 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.17)
+  %.not401 = icmp eq ptr %745, null
+  br i1 %.not401, label %754, label %746
 
-747:                                              ; preds = %745
-  %748 = load ptr, ptr %10, align 8
-  %749 = getelementptr inbounds nuw i8, ptr %748, i64 116
-  %750 = load i32, ptr %749, align 4
-  %751 = or i32 %750, 2
-  store i32 %751, ptr %749, align 4
-  %752 = load ptr, ptr %10, align 8
-  %753 = getelementptr inbounds nuw i8, ptr %752, i64 128
-  %754 = getelementptr inbounds nuw i8, ptr %746, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %753, ptr noundef nonnull align 8 dereferenceable(32) %754, i64 32, i1 false)
-  br label %755
+746:                                              ; preds = %744
+  %747 = load ptr, ptr %10, align 8
+  %748 = getelementptr inbounds nuw i8, ptr %747, i64 116
+  %749 = load i32, ptr %748, align 4
+  %750 = or i32 %749, 2
+  store i32 %750, ptr %748, align 4
+  %751 = load ptr, ptr %10, align 8
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 128
+  %753 = getelementptr inbounds nuw i8, ptr %745, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %752, ptr noundef nonnull align 8 dereferenceable(32) %753, i64 32, i1 false)
+  br label %754
 
-755:                                              ; preds = %747, %745
-  %756 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.18)
-  %.not402 = icmp eq ptr %756, null
-  br i1 %.not402, label %766, label %757
+754:                                              ; preds = %746, %744
+  %755 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.18)
+  %.not402 = icmp eq ptr %755, null
+  br i1 %.not402, label %765, label %756
 
-757:                                              ; preds = %755
-  %758 = load ptr, ptr %10, align 8
-  %759 = getelementptr inbounds nuw i8, ptr %758, i64 116
-  %760 = load i32, ptr %759, align 4
-  %761 = or i32 %760, 4
-  store i32 %761, ptr %759, align 4
-  %762 = load ptr, ptr %10, align 8
-  %763 = getelementptr inbounds nuw i8, ptr %762, i64 160
-  %764 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  %765 = load i8, ptr %764, align 8
-  store i8 %765, ptr %763, align 8
-  br label %766
+756:                                              ; preds = %754
+  %757 = load ptr, ptr %10, align 8
+  %758 = getelementptr inbounds nuw i8, ptr %757, i64 116
+  %759 = load i32, ptr %758, align 4
+  %760 = or i32 %759, 4
+  store i32 %760, ptr %758, align 4
+  %761 = load ptr, ptr %10, align 8
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 160
+  %763 = getelementptr inbounds nuw i8, ptr %755, i64 8
+  %764 = load i8, ptr %763, align 8
+  store i8 %764, ptr %762, align 8
+  br label %765
 
-766:                                              ; preds = %757, %755
-  %767 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.19)
-  %.not403 = icmp eq ptr %767, null
-  br i1 %.not403, label %777, label %768
+765:                                              ; preds = %756, %754
+  %766 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.19)
+  %.not403 = icmp eq ptr %766, null
+  br i1 %.not403, label %776, label %767
 
-768:                                              ; preds = %766
-  %769 = load ptr, ptr %10, align 8
-  %770 = getelementptr inbounds nuw i8, ptr %769, i64 116
-  %771 = load i32, ptr %770, align 4
-  %772 = or i32 %771, 8
-  store i32 %772, ptr %770, align 4
-  %773 = load ptr, ptr %10, align 8
-  %774 = getelementptr inbounds nuw i8, ptr %773, i64 161
-  %775 = getelementptr inbounds nuw i8, ptr %767, i64 8
-  %776 = load i8, ptr %775, align 8
-  store i8 %776, ptr %774, align 1
-  br label %777
+767:                                              ; preds = %765
+  %768 = load ptr, ptr %10, align 8
+  %769 = getelementptr inbounds nuw i8, ptr %768, i64 116
+  %770 = load i32, ptr %769, align 4
+  %771 = or i32 %770, 8
+  store i32 %771, ptr %769, align 4
+  %772 = load ptr, ptr %10, align 8
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 161
+  %774 = getelementptr inbounds nuw i8, ptr %766, i64 8
+  %775 = load i8, ptr %774, align 8
+  store i8 %775, ptr %773, align 1
+  br label %776
 
-777:                                              ; preds = %768, %766
-  %778 = load i32, ptr %17, align 8
-  %.not404 = icmp eq i32 %778, 0
-  br i1 %.not404, label %779, label %.loopexit
+776:                                              ; preds = %767, %765
+  %777 = load i32, ptr %17, align 8
+  %.not404 = icmp eq i32 %777, 0
+  br i1 %.not404, label %778, label %.loopexit
 
-779:                                              ; preds = %777
-  %780 = load i32, ptr %640, align 4
-  %.not405 = icmp eq i32 %780, 0
-  br i1 %.not405, label %.loopexit, label %781
+778:                                              ; preds = %776
+  %779 = load i32, ptr %639, align 4
+  %.not405 = icmp eq i32 %779, 0
+  br i1 %.not405, label %.loopexit, label %780
 
-781:                                              ; preds = %779
-  %782 = load ptr, ptr %639, align 8
-  %783 = load ptr, ptr %782, align 8
-  %784 = getelementptr inbounds nuw i8, ptr %783, i64 12
-  %785 = load i32, ptr %784, align 4
-  %.not406 = icmp eq i32 %785, 0
-  br i1 %.not406, label %.loopexit, label %786
+780:                                              ; preds = %778
+  %781 = load ptr, ptr %638, align 8
+  %782 = load ptr, ptr %781, align 8
+  %783 = getelementptr inbounds nuw i8, ptr %782, i64 12
+  %784 = load i32, ptr %783, align 4
+  %.not406 = icmp eq i32 %784, 0
+  br i1 %.not406, label %.loopexit, label %785
 
-786:                                              ; preds = %781
-  %787 = load ptr, ptr %783, align 8
-  %788 = getelementptr inbounds nuw i8, ptr %787, i64 40
-  %789 = getelementptr inbounds nuw i8, ptr %782, i64 8
-  %.pre781 = load i64, ptr %788, align 8
-  br label %790
+785:                                              ; preds = %780
+  %786 = load ptr, ptr %782, align 8
+  %787 = getelementptr inbounds nuw i8, ptr %786, i64 40
+  %788 = getelementptr inbounds nuw i8, ptr %781, i64 8
+  %.pre783 = load i64, ptr %787, align 8
+  br label %789
 
-790:                                              ; preds = %814, %786
-  %791 = phi i64 [ %.pre781, %786 ], [ %815, %814 ]
-  %.0303 = phi i64 [ 0, %786 ], [ %spec.select420, %814 ]
-  %792 = add nuw nsw i64 %.0303, 64
-  %spec.select420 = call i64 @llvm.umin.i64(i64 %792, i64 %791)
-  %793 = call fastcc i32 @avifDecoderPrepareSample(ptr noundef %0, ptr noundef nonnull %787, i64 noundef %spec.select420)
-  %.not407 = icmp eq i32 %793, 0
-  br i1 %.not407, label %794, label %avifMetaFindAlphaItem.exit
+789:                                              ; preds = %813, %785
+  %790 = phi i64 [ %.pre783, %785 ], [ %814, %813 ]
+  %.0303 = phi i64 [ 0, %785 ], [ %spec.select420, %813 ]
+  %791 = add nuw nsw i64 %.0303, 64
+  %spec.select420 = call i64 @llvm.umin.i64(i64 %791, i64 %790)
+  %792 = call fastcc i32 @avifDecoderPrepareSample(ptr noundef %0, ptr noundef nonnull %786, i64 noundef %spec.select420)
+  %.not407 = icmp eq i32 %792, 0
+  br i1 %.not407, label %793, label %avifMetaFindAlphaItem.exit
 
-794:                                              ; preds = %790
-  %795 = load i32, ptr %789, align 8
-  %796 = call i32 @avifSequenceHeaderParse(ptr noundef nonnull %6, ptr noundef nonnull %787, i32 noundef %795) #13
-  %.not408 = icmp eq i32 %796, 0
-  br i1 %.not408, label %814, label %797
+793:                                              ; preds = %789
+  %794 = load i32, ptr %788, align 8
+  %795 = call i32 @avifSequenceHeaderParse(ptr noundef nonnull %6, ptr noundef nonnull %786, i32 noundef %794) #13
+  %.not408 = icmp eq i32 %795, 0
+  br i1 %.not408, label %813, label %796
 
-797:                                              ; preds = %794
+796:                                              ; preds = %793
   store i32 1, ptr %17, align 8
-  %798 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %799 = load i16, ptr %798, align 4
-  %800 = load ptr, ptr %10, align 8
-  %801 = getelementptr inbounds nuw i8, ptr %800, i64 104
-  store i16 %799, ptr %801, align 8
-  %802 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %803 = load i16, ptr %802, align 2
-  %804 = load ptr, ptr %10, align 8
-  %805 = getelementptr inbounds nuw i8, ptr %804, i64 106
-  store i16 %803, ptr %805, align 2
-  %806 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %807 = load i16, ptr %806, align 4
-  %808 = load ptr, ptr %10, align 8
-  %809 = getelementptr inbounds nuw i8, ptr %808, i64 108
-  store i16 %807, ptr %809, align 4
-  %810 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %811 = load i32, ptr %810, align 4
-  %812 = load ptr, ptr %10, align 8
-  %813 = getelementptr inbounds nuw i8, ptr %812, i64 16
-  store i32 %811, ptr %813, align 8
+  %797 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %798 = load i16, ptr %797, align 4
+  %799 = load ptr, ptr %10, align 8
+  %800 = getelementptr inbounds nuw i8, ptr %799, i64 104
+  store i16 %798, ptr %800, align 8
+  %801 = getelementptr inbounds nuw i8, ptr %6, i64 26
+  %802 = load i16, ptr %801, align 2
+  %803 = load ptr, ptr %10, align 8
+  %804 = getelementptr inbounds nuw i8, ptr %803, i64 106
+  store i16 %802, ptr %804, align 2
+  %805 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %806 = load i16, ptr %805, align 4
+  %807 = load ptr, ptr %10, align 8
+  %808 = getelementptr inbounds nuw i8, ptr %807, i64 108
+  store i16 %806, ptr %808, align 4
+  %809 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %810 = load i32, ptr %809, align 4
+  %811 = load ptr, ptr %10, align 8
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 16
+  store i32 %810, ptr %812, align 8
   br label %.loopexit
 
-814:                                              ; preds = %794
-  %815 = load i64, ptr %788, align 8
-  %816 = icmp ne i64 %spec.select420, %815
-  %817 = icmp ult i64 %spec.select420, 4096
-  %818 = and i1 %817, %816
-  br i1 %818, label %790, label %.loopexit, !llvm.loop !25
+813:                                              ; preds = %793
+  %814 = load i64, ptr %787, align 8
+  %815 = icmp ne i64 %spec.select420, %814
+  %816 = icmp ult i64 %spec.select420, 4096
+  %817 = and i1 %816, %815
+  br i1 %817, label %789, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %814, %777, %779, %797, %781
-  %819 = load ptr, ptr %10, align 8
-  %820 = call fastcc i32 @avifReadCodecConfigProperty(ptr noundef %819, ptr noundef nonnull %.0306, i32 noundef %.3)
+.loopexit:                                        ; preds = %813, %776, %778, %796, %780
+  %818 = load ptr, ptr %10, align 8
+  %819 = call fastcc i32 @avifReadCodecConfigProperty(ptr noundef %818, ptr noundef nonnull %.0306)
   br label %avifMetaFindAlphaItem.exit
 
-avifMetaFindAlphaItem.exit:                       ; preds = %465, %avifDecoderItemOperatingPoint.exit.i, %446, %avifDecoderItemOperatingPoint.exit.i.i, %404, %avifPropertyArrayFind.exit.i.i476, %.lr.ph646, %706, %698, %689, %688, %790, %382, %387, %.loopexit.i.i, %432, %445, %avifDecoderItemValidateProperties.exit.thread, %299, %253, %.loopexit, %.thread, %316, %209, %140, %134, %119, %avifSampleTableGetCodecType.exit438._crit_edge.thread, %82, %13, %1, %.loopexit526, %192, %.loopexit517, %avifSampleTableGetCodecType.exit._crit_edge.thread
-  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 9, %.loopexit517 ], [ 10, %192 ], [ 10, %.loopexit526 ], [ 0, %1 ], [ 26, %13 ], [ %84, %82 ], [ 26, %avifSampleTableGetCodecType.exit438._crit_edge.thread ], [ %130, %119 ], [ 26, %134 ], [ %149, %140 ], [ %211, %209 ], [ %319, %316 ], [ %325, %.thread ], [ %820, %.loopexit ], [ %298, %299 ], [ 26, %253 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ 18, %382 ], [ 18, %387 ], [ 18, %.loopexit.i.i ], [ 18, %432 ], [ 18, %445 ], [ %793, %790 ], [ 9, %706 ], [ %702, %698 ], [ %697, %689 ], [ 9, %688 ], [ 9, %.lr.ph646 ], [ 26, %avifPropertyArrayFind.exit.i.i476 ], [ %411, %404 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ 10, %446 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ %472, %465 ]
+avifMetaFindAlphaItem.exit:                       ; preds = %464, %avifDecoderItemOperatingPoint.exit.i, %445, %avifDecoderItemOperatingPoint.exit.i.i, %403, %avifPropertyArrayFind.exit.i.i476, %.lr.ph650, %705, %697, %688, %687, %789, %381, %386, %.loopexit.i.i, %431, %444, %avifDecoderItemValidateProperties.exit.thread, %298, %252, %.loopexit, %.thread, %315, %209, %140, %134, %119, %avifSampleTableGetCodecType.exit438._crit_edge.thread, %82, %13, %1, %.loopexit526, %192, %.loopexit517, %avifSampleTableGetCodecType.exit._crit_edge.thread
+  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 9, %.loopexit517 ], [ 10, %192 ], [ 10, %.loopexit526 ], [ 0, %1 ], [ 26, %13 ], [ %84, %82 ], [ 26, %avifSampleTableGetCodecType.exit438._crit_edge.thread ], [ %130, %119 ], [ 26, %134 ], [ %149, %140 ], [ %211, %209 ], [ %318, %315 ], [ %324, %.thread ], [ %819, %.loopexit ], [ %297, %298 ], [ 26, %252 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ 18, %381 ], [ 18, %386 ], [ 18, %.loopexit.i.i ], [ 18, %431 ], [ 18, %444 ], [ %792, %789 ], [ 9, %705 ], [ %701, %697 ], [ %696, %688 ], [ 9, %687 ], [ 9, %.lr.ph650 ], [ 26, %avifPropertyArrayFind.exit.i.i476 ], [ %410, %403 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ 10, %445 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ %471, %464 ]
   ret i32 %.0
 }
 
@@ -5908,94 +5905,92 @@ define internal fastcc i32 @avifDecoderPrepareSample(ptr noundef %0, ptr noundef
 declare i32 @avifSequenceHeaderParse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 10) i32 @avifReadCodecConfigProperty(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #6 {
-  %cond.i = icmp eq i32 %2, 1
-  %.str.62..i = select i1 %cond.i, ptr @.str.62, ptr null
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %5 = load i32, ptr %4, align 4
-  %.not12.i = icmp eq i32 %5, 0
+define internal fastcc range(i32 0, 10) i32 @avifReadCodecConfigProperty(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %4 = load i32, ptr %3, align 4
+  %.not12.i = icmp eq i32 %4, 0
   br i1 %.not12.i, label %avifPropertyArrayFind.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %3
-  %6 = load ptr, ptr %1, align 8
-  %wide.trip.count.i = zext i32 %5 to i64
-  br label %8
+.lr.ph.i:                                         ; preds = %2
+  %5 = load ptr, ptr %1, align 8
+  %wide.trip.count.i = zext i32 %4 to i64
+  br label %7
 
-7:                                                ; preds = %8
+6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %avifPropertyArrayFind.exit.thread, label %8, !llvm.loop !12
+  br i1 %exitcond.not.i, label %avifPropertyArrayFind.exit.thread, label %7, !llvm.loop !12
 
-8:                                                ; preds = %7, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw %struct.avifProperty, ptr %6, i64 %indvars.iv.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %9, ptr noundef nonnull readonly dereferenceable(4) %.str.62..i, i64 4)
+7:                                                ; preds = %6, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
+  %8 = getelementptr inbounds nuw %struct.avifProperty, ptr %5, i64 %indvars.iv.i
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %8, ptr noundef nonnull readonly dereferenceable(4) @.str.62, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %avifPropertyArrayFind.exit, label %7
+  br i1 %.not.i, label %avifPropertyArrayFind.exit, label %6
 
-avifPropertyArrayFind.exit:                       ; preds = %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %11 = load i8, ptr %10, align 1
-  %.not.i20 = icmp eq i8 %11, 0
-  br i1 %.not.i20, label %12, label %avifCodecConfigurationBoxGetDepth.exit
+avifPropertyArrayFind.exit:                       ; preds = %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = load i8, ptr %9, align 1
+  %.not.i20 = icmp eq i8 %10, 0
+  br i1 %.not.i20, label %11, label %avifCodecConfigurationBoxGetDepth.exit
 
-12:                                               ; preds = %avifPropertyArrayFind.exit
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  %14 = load i8, ptr %13, align 1
-  %.not2.i = icmp eq i8 %14, 0
+11:                                               ; preds = %avifPropertyArrayFind.exit
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 11
+  %13 = load i8, ptr %12, align 1
+  %.not2.i = icmp eq i8 %13, 0
   %..i = select i1 %.not2.i, i32 8, i32 10
   br label %avifCodecConfigurationBoxGetDepth.exit
 
-avifCodecConfigurationBoxGetDepth.exit:           ; preds = %avifPropertyArrayFind.exit, %12
-  %.0.i21 = phi i32 [ 12, %avifPropertyArrayFind.exit ], [ %..i, %12 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.0.i21, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 13
-  %17 = load i8, ptr %16, align 1
-  %.not16 = icmp eq i8 %17, 0
-  br i1 %.not16, label %20, label %18
+avifCodecConfigurationBoxGetDepth.exit:           ; preds = %avifPropertyArrayFind.exit, %11
+  %.0.i21 = phi i32 [ 12, %avifPropertyArrayFind.exit ], [ %..i, %11 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.0.i21, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 13
+  %16 = load i8, ptr %15, align 1
+  %.not16 = icmp eq i8 %16, 0
+  br i1 %.not16, label %19, label %17
 
-18:                                               ; preds = %avifCodecConfigurationBoxGetDepth.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 4, ptr %19, align 4
-  br label %31
+17:                                               ; preds = %avifCodecConfigurationBoxGetDepth.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 4, ptr %18, align 4
+  br label %30
 
-20:                                               ; preds = %avifCodecConfigurationBoxGetDepth.exit
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 14
-  %22 = load i8, ptr %21, align 2
-  %.not17 = icmp eq i8 %22, 0
-  br i1 %.not17, label %29, label %23
+19:                                               ; preds = %avifCodecConfigurationBoxGetDepth.exit
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 14
+  %21 = load i8, ptr %20, align 2
+  %.not17 = icmp eq i8 %21, 0
+  br i1 %.not17, label %28, label %22
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 15
-  %25 = load i8, ptr %24, align 1
-  %.not18 = icmp eq i8 %25, 0
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br i1 %.not18, label %28, label %27
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %24 = load i8, ptr %23, align 1
+  %.not18 = icmp eq i8 %24, 0
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br i1 %.not18, label %27, label %26
 
-27:                                               ; preds = %23
-  store i32 3, ptr %26, align 4
-  br label %31
+26:                                               ; preds = %22
+  store i32 3, ptr %25, align 4
+  br label %30
 
-28:                                               ; preds = %23
-  store i32 2, ptr %26, align 4
-  br label %31
+27:                                               ; preds = %22
+  store i32 2, ptr %25, align 4
+  br label %30
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %30, align 4
-  br label %31
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %29, align 4
+  br label %30
 
-31:                                               ; preds = %27, %29, %28, %18
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %33 = load i8, ptr %32, align 8
-  %34 = zext i8 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %34, ptr %35, align 4
+30:                                               ; preds = %26, %28, %27, %17
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = load i8, ptr %31, align 8
+  %33 = zext i8 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %33, ptr %34, align 4
   br label %avifPropertyArrayFind.exit.thread
 
-avifPropertyArrayFind.exit.thread:                ; preds = %7, %3, %31
-  %.0 = phi i32 [ 0, %31 ], [ 9, %3 ], [ 9, %7 ]
+avifPropertyArrayFind.exit.thread:                ; preds = %6, %2, %30
+  %.0 = phi i32 [ 0, %30 ], [ 9, %2 ], [ 9, %6 ]
   ret i32 %.0
 }
 

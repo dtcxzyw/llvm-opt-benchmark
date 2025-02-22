@@ -19432,7 +19432,7 @@ _ZN4llvm5ErrorD2Ev.exit80:                        ; preds = %_ZN4llvm11raw_ostre
   %127 = icmp eq ptr %125, %126
   %spec.select.i = select i1 %127, ptr null, ptr %116
   %spec.select3.i = select i1 %127, ptr null, ptr %125
-  %128 = call noundef zeroext i1 @_ZN4llvm9DWARFUnit8parseDWOENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(448) %spec.select.i, ptr null, i64 0) #28
+  %128 = call noundef zeroext i1 @_ZN4llvm9DWARFUnit8parseDWOENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(448) %116, ptr null, i64 0) #28
   %129 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 432
   %130 = load ptr, ptr %129, align 8, !tbaa !851
   %.not.i88 = icmp eq ptr %130, null
@@ -19451,7 +19451,7 @@ _ZN4llvm5ErrorD2Ev.exit80:                        ; preds = %_ZN4llvm11raw_ostre
   br i1 %.not3.i89, label %138, label %.loopexit
 
 138:                                              ; preds = %124
-  call void @_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb(ptr noundef nonnull align 8 dereferenceable(448) %spec.select.i6.i, i1 noundef zeroext false) #28
+  call void @_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb(ptr noundef nonnull align 8 dereferenceable(448) %..i, i1 noundef zeroext false) #28
   %139 = getelementptr inbounds nuw i8, ptr %spec.select.i6.i, i64 288
   %140 = load ptr, ptr %139, align 8, !tbaa !102
   %141 = getelementptr inbounds nuw i8, ptr %spec.select.i6.i, i64 296

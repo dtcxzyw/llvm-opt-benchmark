@@ -2842,35 +2842,35 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicI
   %33 = and i64 %32, 31
   %34 = add i64 %6, 8
   %35 = icmp eq i64 %33, 31
-  %36 = select i1 %35, ptr %.0.i, ptr null
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %38 = load atomic i64, ptr %37 monotonic, align 8
-  %39 = shl nuw nsw i64 1, %33
-  %40 = and i64 %38, %39
-  %.not = icmp ne i64 %40, 0
-  br i1 %.not, label %41, label %45
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %37 = load atomic i64, ptr %36 monotonic, align 8
+  %38 = shl nuw nsw i64 1, %33
+  %39 = and i64 %37, %38
+  %.not = icmp ne i64 %39, 0
+  br i1 %.not, label %40, label %44
 
-41:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %43 = getelementptr inbounds nuw [32 x ptr], ptr %42, i64 0, i64 %33
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %1, align 8
-  br label %48
+40:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %42 = getelementptr inbounds nuw [32 x ptr], ptr %41, i64 0, i64 %33
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %1, align 8
+  br label %47
 
-45:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 640
-  %47 = atomicrmw sub ptr %46, i64 1 seq_cst, align 8
-  br label %48
+44:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 640
+  %46 = atomicrmw sub ptr %45, i64 1 seq_cst, align 8
+  br label %47
 
-48:                                               ; preds = %41, %45
-  %49 = icmp ugt ptr %36, inttoptr (i64 1 to ptr)
+47:                                               ; preds = %40, %44
+  %48 = icmp ugt i64 %31, 1
+  %49 = and i1 %35, %48
   br i1 %49, label %50, label %.thread.i
 
-.thread.i:                                        ; preds = %48
+.thread.i:                                        ; preds = %47
   store atomic i64 %34, ptr %7 release, align 8
   br label %_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS6_EEEES6_NS8_INSA_11padded_pageEEEED2Ev.exit
 
-50:                                               ; preds = %48
+50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = atomicrmw xchg ptr %51, i8 1 seq_cst, align 1
   %53 = trunc i8 %52 to i1
@@ -2907,7 +2907,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %60, %_ZN3tbb6
   br i1 %63, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !33
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %50
-  %64 = load ptr, ptr %36, align 8
+  %64 = load ptr, ptr %.0.i, align 8
   %65 = ptrtoint ptr %64 to i64
   store atomic i64 %65, ptr %0 release, align 8
   %66 = icmp ugt ptr %64, inttoptr (i64 1 to ptr)
@@ -2921,7 +2921,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds 
 69:                                               ; preds = %67, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
   store atomic i8 0, ptr %51 release, align 8
   store atomic i64 %34, ptr %7 release, align 8
-  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %36)
+  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i)
           to label %_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS6_EEEES6_NS8_INSA_11padded_pageEEEED2Ev.exit unwind label %70
 
 70:                                               ; preds = %69

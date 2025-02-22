@@ -198,55 +198,55 @@ define internal { ptr, ptr } @"_ZN102_$LT$ide_db..RootDatabase$u20$as$u20$base_d
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$11crate_graph17h5377bd9ef0e5ca7dE"(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
-  %2 = tail call noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$11crate_graph6__shim17h4a74083a6680a573E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4)
+  %2 = tail call noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$11crate_graph6__shim17h4a74083a6680a573E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$11data_layout17hb4abdc5a6f3e8321E"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$11data_layout6__shim17hd8a6e50876580c7fE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$11data_layout6__shim17hd8a6e50876580c7fE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$13set_toolchain17hc1d6e814ffdbc371E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$13set_toolchain6__shim17h4ac8746a2fa0582dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$13set_toolchain6__shim17h4ac8746a2fa0582dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$15set_crate_graph17ha5261a68cdb23ce6E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$15set_crate_graph6__shim17hee1dd74d1906f052E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, ptr noundef nonnull %1)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$15set_crate_graph6__shim17hee1dd74d1906f052E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, ptr noundef nonnull %1)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$15set_data_layout17h3a4893a523702f5eE"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$15set_data_layout6__shim17ha979cb87aa0bc67fE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$15set_data_layout6__shim17ha979cb87aa0bc67fE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 4) i8 @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$17toolchain_channel17he848c470059a243cE"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call noundef i8 @_ZN7base_db17toolchain_channel17ha1af912636b6fdf4E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1), !range !4
+  %3 = tail call noundef i8 @_ZN7base_db17toolchain_channel17ha1af912636b6fdf4E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1), !range !4
   ret i8 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$29set_toolchain_with_durability17h1990732eafc6fa72E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %2, i8 noundef %3) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$29set_toolchain_with_durability6__shim17h41bde073bb1cf9d6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, i8 noundef %3)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$29set_toolchain_with_durability6__shim17h41bde073bb1cf9d6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, i8 noundef %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$31set_crate_graph_with_durability17h9ee4bf53e760c5f3E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1, i8 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$31set_crate_graph_with_durability6__shim17h44083f527f380a53E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, ptr noundef nonnull %1, i8 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$31set_crate_graph_with_durability6__shim17h44083f527f380a53E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, ptr noundef nonnull %1, i8 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$31set_data_layout_with_durability17hfcea2d6a2ec339dcE"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %2, i8 noundef %3) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$31set_data_layout_with_durability6__shim17h77588df4ea5342c4E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, i8 noundef %3)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$31set_data_layout_with_durability6__shim17h77588df4ea5342c4E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, i8 noundef %3)
   ret void
 }
 
@@ -367,11 +367,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$5parse6__shim17haa527da7d79edabaE"(ptr noalias noundef nonnull sret({ ptr, { ptr, [1 x i64] }, {} }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %41)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$5parse6__shim17haa527da7d79edabaE"(ptr noalias noundef nonnull sret({ ptr, { ptr, [1 x i64] }, {} }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.9) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.9) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -394,7 +394,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$9toolchain17h34e54e360646bb40E"(ptr noalias noundef sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$9toolchain6__shim17h9c0492f37e1f588cE"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$9toolchain6__shim17h9c0492f37e1f588cE"(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.4, i32 noundef %2)
   ret void
 }
 
@@ -512,7 +512,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %51, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %34
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread86
 
 .cont:                                            ; preds = %.invoke
@@ -593,7 +593,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %59 = load i32, ptr %20, align 4, !noundef !6
   %60 = load ptr, ptr %18, align 8, !nonnull !6, !noundef !6
   %61 = load ptr, ptr %17, align 8, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10const_eval6__shim17hf3b24e3a90124b8bE"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %60, ptr noundef %61)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10const_eval6__shim17hf3b24e3a90124b8bE"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %60, ptr noundef %61)
           to label %64 unwind label %62
 
 62:                                               ; preds = %57
@@ -772,11 +772,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %45 = load i32, ptr %13, align 4, !noundef !6
   %46 = load i32, ptr %12, align 4, !range !39, !noundef !6
-  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10impl_datum6__shim17hc76558ed76140d16E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
+  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10impl_datum6__shim17hc76558ed76140d16E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
           to label %52 unwind label %50
 
 48:                                               ; preds = %25
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %25
@@ -796,7 +796,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   br i1 %.not57, label %49, label %35
 
 49:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 50:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -934,11 +934,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10impl_trait6__shim17h9a5a8ff4526e0133E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$10impl_trait6__shim17h9a5a8ff4526e0133E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -1079,11 +1079,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !22, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11field_types6__shim17ha2dad6d559afa752E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %42, i32 noundef %43)
+  %44 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11field_types6__shim17ha2dad6d559afa752E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -1234,11 +1234,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %45 = load i32, ptr %13, align 4, !noundef !6
   %46 = load i32, ptr %12, align 4, !range !39, !noundef !6
-  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11trait_datum6__shim17hcfcefc69e4b3d590E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
+  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11trait_datum6__shim17hcfcefc69e4b3d590E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
           to label %52 unwind label %50
 
 48:                                               ; preds = %25
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %25
@@ -1258,7 +1258,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   br i1 %.not57, label %49, label %35
 
 49:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 50:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -1390,7 +1390,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %49, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %32
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread79
 
 .cont:                                            ; preds = %.invoke
@@ -1471,7 +1471,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %57 = load i32, ptr %17, align 4, !noundef !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11trait_solve6__shim17h3ea17f5af744f428E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %56, i32 noundef %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$11trait_solve6__shim17h3ea17f5af744f428E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %56, i32 noundef %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
           to label %60 unwind label %58
 
 58:                                               ; preds = %55
@@ -1622,11 +1622,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %43 = load i32, ptr %11, align 4, !range !22, !noundef !6
   %44 = load i32, ptr %12, align 4, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12adt_variance6__shim17ha99da666311f76e4E"(ptr noalias noundef nonnull sret({ { { [2 x i64] }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12adt_variance6__shim17ha99da666311f76e4E"(ptr noalias noundef nonnull sret({ { { [2 x i64] }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
           to label %48 unwind label %46
 
 45:                                               ; preds = %24
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -1777,11 +1777,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %45 = load i32, ptr %13, align 4, !noundef !6
   %46 = load i32, ptr %12, align 4, !range !39, !noundef !6
-  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12fn_def_datum6__shim17h8819561d9c1e46f3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
+  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12fn_def_datum6__shim17h8819561d9c1e46f3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
           to label %52 unwind label %50
 
 48:                                               ; preds = %25
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %25
@@ -1801,7 +1801,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   br i1 %.not57, label %49, label %35
 
 49:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 50:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -1939,11 +1939,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12impl_self_ty6__shim17h6eb4f6ba4a132c07E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12impl_self_ty6__shim17h6eb4f6ba4a132c07E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -2070,7 +2070,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %28
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread64
 
 .cont:                                            ; preds = %.invoke
@@ -2127,7 +2127,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %49 = load ptr, ptr %14, align 8, !nonnull !6, !noundef !6
   %50 = load ptr, ptr %13, align 8, !nonnull !6, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12layout_of_ty6__shim17h0b664fc3fde49957E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noundef nonnull %49, ptr noundef nonnull %50)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$12layout_of_ty6__shim17h0b664fc3fde49957E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noundef nonnull %49, ptr noundef nonnull %50)
           to label %53 unwind label %51
 
 51:                                               ; preds = %48
@@ -2285,7 +2285,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %51, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %34
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread86
 
 .cont:                                            ; preds = %.invoke
@@ -2366,7 +2366,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %59 = load i32, ptr %20, align 4, !noundef !6
   %60 = load ptr, ptr %18, align 8, !nonnull !6, !noundef !6
   %61 = load ptr, ptr %17, align 8, !nonnull !6, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$13layout_of_adt6__shim17h9b2106cf1ca3c212E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %61)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$13layout_of_adt6__shim17h9b2106cf1ca3c212E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %61)
           to label %64 unwind label %62
 
 62:                                               ; preds = %57
@@ -2527,11 +2527,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %40 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14const_param_ty6__shim17h4b99b4b4ec1069b6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %3)
+  %40 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14const_param_ty6__shim17h4b99b4b4ec1069b6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %3)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -2555,7 +2555,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14intern_closure17h61a12d375f8e2456E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14intern_closure6__shim17hcbf5cc90233ed2bcE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$14intern_closure6__shim17hcbf5cc90233ed2bcE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
   ret i32 %3
 }
 
@@ -2676,11 +2676,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$15fn_def_variance6__shim17ha7dd0fca0e642feaE"(ptr noalias noundef nonnull sret({ { { [2 x i64] }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$15fn_def_variance6__shim17ha7dd0fca0e642feaE"(ptr noalias noundef nonnull sret({ { { [2 x i64] }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -2818,11 +2818,11 @@ common.resume:                                    ; preds = %42, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %.sroa.06.0.copyload = load i64, ptr %9, align 8
-  %40 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16generic_defaults6__shim17hc09239e7aa940482E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
+  %40 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16generic_defaults6__shim17hc09239e7aa940482E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -2845,7 +2845,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16intern_coroutine17h88f728f0b6281da1E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16intern_coroutine6__shim17hb60b18a86855dd4aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$16intern_coroutine6__shim17hb60b18a86855dd4aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
   ret i32 %3
 }
 
@@ -2966,11 +2966,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$17const_eval_static6__shim17hd7af86b13dc9faa8E"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$17const_eval_static6__shim17hd7af86b13dc9faa8E"(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -3108,11 +3108,11 @@ common.resume:                                    ; preds = %42, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %.sroa.06.0.copyload = load i64, ptr %9, align 8
-  %40 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$17trait_environment6__shim17h94448c539cecb31cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
+  %40 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$17trait_environment6__shim17h94448c539cecb31cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -3250,11 +3250,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18associated_ty_data6__shim17h683ffc946e795a38E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18associated_ty_data6__shim17h683ffc946e795a38E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -3392,11 +3392,11 @@ common.resume:                                    ; preds = %42, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %.sroa.06.0.copyload = load i64, ptr %9, align 8
-  %40 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18generic_predicates6__shim17h70015242d69e642bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
+  %40 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18generic_predicates6__shim17h70015242d69e642bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -3529,7 +3529,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %48, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %31
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread86
 
 .cont:                                            ; preds = %.invoke
@@ -3609,7 +3609,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %55 = load ptr, ptr %17, align 8, !nonnull !6, !noundef !6
   %56 = load i32, ptr %16, align 4, !range !39, !noundef !6
   %57 = load ptr, ptr %15, align 8, !nonnull !6, !noundef !6
-  %58 = invoke { i32, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18lookup_impl_method6__shim17hd49c97e255eb20deE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noundef nonnull %55, i32 noundef %56, ptr noundef nonnull %57)
+  %58 = invoke { i32, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18lookup_impl_method6__shim17hd49c97e255eb20deE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noundef nonnull %55, i32 noundef %56, ptr noundef nonnull %57)
           to label %61 unwind label %59
 
 59:                                               ; preds = %54
@@ -3770,11 +3770,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18target_data_layout6__shim17hab20c98f10708199E"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$18target_data_layout6__shim17hab20c98f10708199E"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -3925,11 +3925,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %45 = load i32, ptr %13, align 4, !noundef !6
   %46 = load i32, ptr %12, align 4, !range !39, !noundef !6
-  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19associated_ty_value6__shim17h08e1699cc0aa1b02E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
+  %47 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19associated_ty_value6__shim17h08e1699cc0aa1b02E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %45, i32 noundef %46)
           to label %52 unwind label %50
 
 48:                                               ; preds = %25
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %25
@@ -3949,7 +3949,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   br i1 %.not57, label %49, label %35
 
 49:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 50:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -3972,7 +3972,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19intern_callable_def17hbfb80eeb1bdba366E"(ptr noundef nonnull align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
-  %4 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19intern_callable_def6__shim17h2f5349418c4e725eE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %1, i32 noundef %2), !range !39
+  %4 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19intern_callable_def6__shim17h2f5349418c4e725eE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %1, i32 noundef %2), !range !39
   ret i32 %4
 }
 
@@ -4093,11 +4093,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19trait_impls_in_deps6__shim17h5d3d186df836b5b6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$19trait_impls_in_deps6__shim17h5d3d186df836b5b6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -4120,7 +4120,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20intern_impl_trait_id17h83ac4274e9f2d21dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20intern_impl_trait_id6__shim17h31db09f9e34e25d5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20intern_impl_trait_id6__shim17h31db09f9e34e25d5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
   ret i32 %3
 }
 
@@ -4241,11 +4241,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20mir_body_for_closure6__shim17h4aa43a46b0df13f1E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20mir_body_for_closure6__shim17h4aa43a46b0df13f1E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -4268,7 +4268,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20normalize_projection17h473b4de4f8f0c862E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #1 {
-  %5 = tail call noundef nonnull ptr @_ZN6hir_ty6traits26normalize_projection_query17h348d4bd967500e57E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3)
+  %5 = tail call noundef nonnull ptr @_ZN6hir_ty6traits26normalize_projection_query17h348d4bd967500e57E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3)
   ret ptr %5
 }
 
@@ -4389,11 +4389,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20trait_impls_in_block6__shim17h5e92e45a64e12c1eE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20trait_impls_in_block6__shim17h5e92e45a64e12c1eE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -4531,11 +4531,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20trait_impls_in_crate6__shim17h003c3a4c7d2da2a0E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$20trait_impls_in_crate6__shim17h003c3a4c7d2da2a0E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -4558,7 +4558,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$21lookup_intern_closure17h14bc9ec6f6912efaE"(ptr noalias noundef sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$21lookup_intern_closure6__shim17h8df7cfabc5e8e057E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$21lookup_intern_closure6__shim17h8df7cfabc5e8e057E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
   ret void
 }
 
@@ -4676,7 +4676,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %51, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %34
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread86
 
 .cont:                                            ; preds = %.invoke
@@ -4757,7 +4757,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %59 = load i32, ptr %20, align 4, !noundef !6
   %60 = load ptr, ptr %18, align 8, !nonnull !6, !noundef !6
   %61 = load ptr, ptr %17, align 8, !nonnull !6, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$22monomorphized_mir_body6__shim17h68a31f0bc24b7e78E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %61)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$22monomorphized_mir_body6__shim17h68a31f0bc24b7e78E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %58, i32 noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %61)
           to label %64 unwind label %62
 
 62:                                               ; preds = %57
@@ -4918,11 +4918,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$22type_alias_impl_traits6__shim17hc7ff28e8cdafe8e0E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$22type_alias_impl_traits6__shim17hc7ff28e8cdafe8e0E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -5063,11 +5063,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %43 = load i32, ptr %11, align 4, !range !22, !noundef !6
   %44 = load i32, ptr %12, align 4, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23callable_item_signature6__shim17h28aa16baadbdf823E"(ptr noalias noundef nonnull sret({ ptr, { { { { ptr, i64 } }, {} }, i8, i8, i8, [5 x i8] } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23callable_item_signature6__shim17h28aa16baadbdf823E"(ptr noalias noundef nonnull sret({ ptr, { { { { ptr, i64 } }, {} }, i8, i8, i8, [5 x i8] } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
           to label %48 unwind label %46
 
 45:                                               ; preds = %24
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -5205,11 +5205,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23const_eval_discriminant6__shim17h4689d461a34b5acdE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 16 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23const_eval_discriminant6__shim17h4689d461a34b5acdE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 16 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -5347,11 +5347,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23inherent_impls_in_block6__shim17haa8f1a3a9972256aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23inherent_impls_in_block6__shim17haa8f1a3a9972256aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -5489,11 +5489,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23inherent_impls_in_crate6__shim17h85b70aa4126e3deeE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23inherent_impls_in_crate6__shim17h85b70aa4126e3deeE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -5516,7 +5516,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23lookup_intern_coroutine17h220430f1da4d9378E"(ptr noalias noundef sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23lookup_intern_coroutine6__shim17h9b4ea0bec0f94821E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23lookup_intern_coroutine6__shim17h9b4ea0bec0f94821E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
   ret void
 }
 
@@ -5637,11 +5637,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23return_type_impl_traits6__shim17h9d1ab9ae013d582fE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
+  %41 = invoke noundef ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$23return_type_impl_traits6__shim17h9d1ab9ae013d582fE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -5664,25 +5664,25 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$24intern_lifetime_param_id17h69945b0ba8d7c600E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$24intern_lifetime_param_id6__shim17h32e256d9f2b4a60bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$24intern_lifetime_param_id6__shim17h32e256d9f2b4a60bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i32, i32 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$26lookup_intern_callable_def17h84ce891653dc093eE"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call { i32, i32 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$26lookup_intern_callable_def6__shim17hea325c4c8987dde5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %1)
+  %3 = tail call { i32, i32 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$26lookup_intern_callable_def6__shim17hea325c4c8987dde5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %1)
   ret { i32, i32 } %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$26trait_environment_for_body17hfbfff6887268213cE"(ptr noundef nonnull align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
-  %4 = tail call noundef nonnull ptr @_ZN6hir_ty5lower32trait_environment_for_body_query17hae639263628ee428E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %1, i32 noundef %2)
+  %4 = tail call noundef nonnull ptr @_ZN6hir_ty5lower32trait_environment_for_body_query17hae639263628ee428E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %1, i32 noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$27lookup_intern_impl_trait_id17hfd6cc3217871dda9E"(ptr noalias noundef sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$27lookup_intern_impl_trait_id6__shim17h5e9552c1b25bb518E"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$27lookup_intern_impl_trait_id6__shim17h5e9552c1b25bb518E"(ptr noalias noundef nonnull sret({ i32, [2 x i32] }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
   ret void
 }
 
@@ -5796,7 +5796,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %48, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %31
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread80
 
 .cont:                                            ; preds = %.invoke
@@ -5878,7 +5878,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %55 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$28generic_predicates_for_param6__shim17hc291b605c2324327E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.016.0.copyload, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
+  %55 = invoke { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$28generic_predicates_for_param6__shim17hc291b605c2324327E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.016.0.copyload, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
           to label %58 unwind label %56
 
 56:                                               ; preds = %54
@@ -5912,7 +5912,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29intern_type_or_const_param_id17h10e9831202a406f4E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29intern_type_or_const_param_id6__shim17hc95ce0a7bba7e1baE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29intern_type_or_const_param_id6__shim17hc95ce0a7bba7e1baE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
   ret i32 %3
 }
 
@@ -6028,7 +6028,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %48, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %31
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread79
 
 .cont:                                            ; preds = %.invoke
@@ -6108,7 +6108,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %55 = load i32, ptr %17, align 4, !noundef !6
   %56 = load i32, ptr %16, align 4, !noundef !6
   %57 = load ptr, ptr %15, align 8, !nonnull !6, !noundef !6
-  %58 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29program_clauses_for_chalk_env6__shim17hba3cd33bf58e942dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %55, i32 noundef %56, ptr noundef nonnull %57)
+  %58 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$29program_clauses_for_chalk_env6__shim17hba3cd33bf58e942dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %55, i32 noundef %56, ptr noundef nonnull %57)
           to label %61 unwind label %59
 
 59:                                               ; preds = %54
@@ -6255,11 +6255,11 @@ common.resume:                                    ; preds = %42, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %.sroa.06.0.copyload = load i64, ptr %9, align 8
-  %40 = invoke { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$2ty6__shim17hfd93e155a16f7dfdE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
+  %40 = invoke { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$2ty6__shim17hfd93e155a16f7dfdE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i64 %.sroa.06.0.copyload)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -6410,11 +6410,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %36,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %46 = load i32, ptr %14, align 4, !noundef !6
   %.sroa.011.0.copyload = load i64, ptr %13, align 8
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$31incoherent_inherent_impl_crates6__shim17hfd7841b71fd4ce80E"(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %46, i64 %.sroa.011.0.copyload)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$31incoherent_inherent_impl_crates6__shim17hfd7841b71fd4ce80E"(ptr noalias noundef nonnull sret({ { [2 x i64] }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %46, i64 %.sroa.011.0.copyload)
           to label %51 unwind label %49
 
 47:                                               ; preds = %26
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %26
@@ -6434,7 +6434,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %36,
   br i1 %.not58, label %48, label %36
 
 48:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 49:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -6457,7 +6457,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %36,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$31lookup_intern_lifetime_param_id17h2694b470aa409e85E"(ptr noalias noundef sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$31lookup_intern_lifetime_param_id6__shim17hf9afe14eef5b47bdE"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$31lookup_intern_lifetime_param_id6__shim17hf9afe14eef5b47bdE"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
   ret void
 }
 
@@ -6573,7 +6573,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   unreachable
 
 .invoke:                                          ; preds = %49, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %32
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
           to label %.cont unwind label %.thread86
 
 .cont:                                            ; preds = %.invoke
@@ -6653,7 +6653,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %56 = load i32, ptr %18, align 4, !range !39, !noundef !6
   %57 = load ptr, ptr %17, align 8, !nonnull !6, !noundef !6
   %58 = load ptr, ptr %16, align 8, !nonnull !6, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$34monomorphized_mir_body_for_closure6__shim17hcb0ce34f50cd5c78E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %56, ptr noundef nonnull %57, ptr noundef nonnull %58)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$34monomorphized_mir_body_for_closure6__shim17hcb0ce34f50cd5c78E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %56, ptr noundef nonnull %57, ptr noundef nonnull %58)
           to label %61 unwind label %59
 
 59:                                               ; preds = %55
@@ -6699,7 +6699,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$36lookup_intern_type_or_const_param_id17hcf917a7739375826E"(ptr noalias noundef sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$36lookup_intern_type_or_const_param_id6__shim17he4b0bedbb3d2c5b6E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
+  tail call void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$36lookup_intern_type_or_const_param_id6__shim17he4b0bedbb3d2c5b6E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %2)
   ret void
 }
 
@@ -6823,11 +6823,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !205, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$5infer6__shim17h75aa770b5e2f895cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %42, i32 noundef %43)
+  %44 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$5infer6__shim17h75aa770b5e2f895cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -6968,11 +6968,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %43 = load i32, ptr %11, align 4, !range !205, !noundef !6
   %44 = load i32, ptr %12, align 4, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8borrowck6__shim17hfa6940abb6f4ef39E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8borrowck6__shim17hfa6940abb6f4ef39E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
           to label %48 unwind label %46
 
 45:                                               ; preds = %24
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -7113,11 +7113,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %43 = load i32, ptr %11, align 4, !range !205, !noundef !6
   %44 = load i32, ptr %12, align 4, !noundef !6
-  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8mir_body6__shim17h6a43d0d342a29f6cE"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
+  invoke void @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8mir_body6__shim17h6a43d0d342a29f6cE"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %43, i32 noundef %44)
           to label %48 unwind label %46
 
 45:                                               ; preds = %24
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -7258,11 +7258,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !310, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8value_ty6__shim17hcad6181b317be76aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %42, i32 noundef %43)
+  %44 = invoke { ptr, ptr } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$8value_ty6__shim17hcad6181b317be76aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -7416,11 +7416,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %37,
   %47 = load i32, ptr %14, align 4, !noundef !6
   %48 = load i32, ptr %13, align 4, !range !22, !noundef !6
   %49 = load i32, ptr %15, align 4, !noundef !6
-  %50 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$9adt_datum6__shim17h9243bb68c05f9cb7E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %47, i32 noundef %48, i32 noundef %49)
+  %50 = invoke noundef nonnull ptr @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$9adt_datum6__shim17h9243bb68c05f9cb7E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.23, i32 noundef %47, i32 noundef %48, i32 noundef %49)
           to label %55 unwind label %53
 
 51:                                               ; preds = %27
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %27
@@ -7440,7 +7440,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %37,
   br i1 %.not57, label %52, label %37
 
 52:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.12) #15
   unreachable
 
 53:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -7578,11 +7578,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$10const_data6__shim17hb1637d4c6ea04e3cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$10const_data6__shim17hb1637d4c6ea04e3cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -7720,11 +7720,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$10import_map6__shim17hbf11a4b94eaddd35E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$10import_map6__shim17hbf11a4b94eaddd35E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -7931,11 +7931,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !205, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$11expr_scopes6__shim17h2f7eaafc63db72cfE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
+  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$11expr_scopes6__shim17h2f7eaafc63db72cfE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -8073,11 +8073,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$11macro2_data6__shim17hb29d140f8a2741acE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$11macro2_data6__shim17hb29d140f8a2741acE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -8215,11 +8215,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$11static_data6__shim17h44d12d3fd6ba5497E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$11static_data6__shim17h44d12d3fd6ba5497E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -8393,11 +8393,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !22, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$12fields_attrs6__shim17he8504a459df06cb5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
+  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$12fields_attrs6__shim17he8504a459df06cb5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -8420,7 +8420,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$12variant_data17h0c87305cf07f6b7aE"(ptr noundef nonnull align 8 %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
-  %4 = tail call noundef nonnull ptr @_ZN7hir_def4data3adt11VariantData12variant_data17hc410aebdd9be6db5E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %1, i32 noundef %2)
+  %4 = tail call noundef nonnull ptr @_ZN7hir_def4data3adt11VariantData12variant_data17hc410aebdd9be6db5E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %1, i32 noundef %2)
   ret ptr %4
 }
 
@@ -8541,11 +8541,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$13block_def_map6__shim17h6802d0b8051493a5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$13block_def_map6__shim17h6802d0b8051493a5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -8683,11 +8683,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$13crate_def_map6__shim17h33cb511c52a78a15E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$13crate_def_map6__shim17h33cb511c52a78a15E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -8825,11 +8825,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$13function_data6__shim17h580d8fd7ba96ed3fE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$13function_data6__shim17h580d8fd7ba96ed3fE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -8967,11 +8967,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$14file_item_tree6__shim17h9de205f94f6cac6bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$14file_item_tree6__shim17h9de205f94f6cac6bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -9109,11 +9109,11 @@ common.resume:                                    ; preds = %42, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %.sroa.06.0.copyload = load i64, ptr %9, align 8
-  %40 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$14generic_params6__shim17hb57103ce3faa9bccE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i64 %.sroa.06.0.copyload)
+  %40 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$14generic_params6__shim17hb57103ce3faa9bccE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i64 %.sroa.06.0.copyload)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -9251,11 +9251,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$15block_item_tree6__shim17h0e8d7e95f38d3204E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$15block_item_tree6__shim17h0e8d7e95f38d3204E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -9393,11 +9393,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$15proc_macro_data6__shim17h28c3bba6ef1e9f5dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$15proc_macro_data6__shim17h28c3bba6ef1e9f5dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -9535,11 +9535,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$15type_alias_data6__shim17hd8e16058f6fe64bcE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$15type_alias_data6__shim17hd8e16058f6fe64bcE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -9677,11 +9677,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16const_visibility6__shim17h01e08b6403b1c204E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %41)
+  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16const_visibility6__shim17h01e08b6403b1c204E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -9819,11 +9819,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16crate_lang_items6__shim17h9130c1c9940680e8E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16crate_lang_items6__shim17h9130c1c9940680e8E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -9961,11 +9961,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16macro_rules_data6__shim17h06af048a1f429b9aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16macro_rules_data6__shim17h06af048a1f429b9aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -10103,11 +10103,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16trait_alias_data6__shim17he25eb95758bfc325E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$16trait_alias_data6__shim17he25eb95758bfc325E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -10281,11 +10281,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !22, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$18field_visibilities6__shim17hc4fe4b17ff32d921E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
+  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$18field_visibilities6__shim17hc4fe4b17ff32d921E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -10423,11 +10423,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$19function_visibility6__shim17h8aba0e2c21ea46c9E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %41)
+  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$19function_visibility6__shim17h8aba0e2c21ea46c9E"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -10565,11 +10565,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !noundef !6
-  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$19include_macro_invoc6__shim17h8d48fd6aa8260bacE"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %41)
+  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$19include_macro_invoc6__shim17h8d48fd6aa8260bacE"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -10710,11 +10710,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !205, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$20body_with_source_map6__shim17hdb7324d1547712b6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
+  %44 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$20body_with_source_map6__shim17hdb7324d1547712b6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -10852,11 +10852,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke { ptr, i64 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$20crate_notable_traits6__shim17h719ce14f7388e982E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke { ptr, i64 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$20crate_notable_traits6__shim17h719ce14f7388e982E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -10994,11 +10994,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef zeroext i1 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$21crate_supports_no_std6__shim17h85ba29f7efea796bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef zeroext i1 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$21crate_supports_no_std6__shim17h85ba29f7efea796bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -11136,11 +11136,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$22extern_crate_decl_data6__shim17hc324840eb0d0d0dfE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$22extern_crate_decl_data6__shim17hc324840eb0d0d0dfE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -11278,11 +11278,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke { ptr, i64 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$22notable_traits_in_deps6__shim17hf270cbc5759ec51cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke { ptr, i64 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$22notable_traits_in_deps6__shim17hf270cbc5759ec51cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -11305,7 +11305,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$23expand_proc_attr_macros17he44e84d2204eba3cE"(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
-  %2 = tail call noundef zeroext i1 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$23expand_proc_attr_macros6__shim17h9f26b16c6ed97738E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21)
+  %2 = tail call noundef zeroext i1 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$23expand_proc_attr_macros6__shim17h9f26b16c6ed97738E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21)
   ret i1 %2
 }
 
@@ -11429,11 +11429,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !22, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$23fields_attrs_source_map6__shim17ha1686f879bb17c50E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
+  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$23fields_attrs_source_map6__shim17ha1686f879bb17c50E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -11571,11 +11571,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$26impl_data_with_diagnostics6__shim17h05630618cd3bd067E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$26impl_data_with_diagnostics6__shim17h05630618cd3bd067E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -11598,7 +11598,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$27set_expand_proc_attr_macros17haa4efbd404ceb02dE"(ptr noalias noundef align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #1 {
-  tail call void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$27set_expand_proc_attr_macros6__shim17ha92ccd26e7471353E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i1 noundef zeroext %1)
+  tail call void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$27set_expand_proc_attr_macros6__shim17ha92ccd26e7471353E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i1 noundef zeroext %1)
   ret void
 }
 
@@ -11719,11 +11719,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$27trait_data_with_diagnostics6__shim17hac310f6f4b33ea24E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$27trait_data_with_diagnostics6__shim17hac310f6f4b33ea24E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -11861,11 +11861,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$27union_data_with_diagnostics6__shim17he24484b20fd89a21E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$27union_data_with_diagnostics6__shim17he24484b20fd89a21E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12003,11 +12003,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$28struct_data_with_diagnostics6__shim17hfd3ca32238d48d60E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$28struct_data_with_diagnostics6__shim17hfd3ca32238d48d60E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12145,11 +12145,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$34enum_variant_data_with_diagnostics6__shim17h973609bd00e3ffa3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke { ptr, ptr } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$34enum_variant_data_with_diagnostics6__shim17h973609bd00e3ffa3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12172,7 +12172,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$43set_expand_proc_attr_macros_with_durability17h7274b06ab948f2a1E"(ptr noalias noundef align 8 dereferenceable(64) %0, i1 noundef zeroext %1, i8 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$43set_expand_proc_attr_macros_with_durability6__shim17h4a1164b1708e8f7dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i1 noundef zeroext %1, i8 noundef %2)
+  tail call void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$43set_expand_proc_attr_macros_with_durability6__shim17h4a1164b1708e8f7dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i1 noundef zeroext %1, i8 noundef %2)
   ret void
 }
 
@@ -12296,11 +12296,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %33,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %42 = load i32, ptr %10, align 4, !range !205, !noundef !6
   %43 = load i32, ptr %11, align 4, !noundef !6
-  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$4body6__shim17h52ec662131166844E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
+  %44 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$4body6__shim17h52ec662131166844E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %42, i32 noundef %43)
           to label %48 unwind label %46
 
 45:                                               ; preds = %23
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12438,11 +12438,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %40 = invoke noundef ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$5attrs6__shim17he7c09f066f204849E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %3)
+  %40 = invoke noundef ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$5attrs6__shim17he7c09f066f204849E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %3)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12581,11 +12581,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !range !39, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9enum_data6__shim17h4f9729fefedc9278E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9enum_data6__shim17h4f9729fefedc9278E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12641,7 +12641,7 @@ define hidden noundef nonnull ptr @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefData
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, -125) i8 @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9lang_attr17hb8995bb6c1d304acE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(16) %1) unnamed_addr #1 {
-  %3 = tail call noundef i8 @_ZN7hir_def9lang_item9lang_attr17h64789c5d20ff3828E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %1), !range !592
+  %3 = tail call noundef i8 @_ZN7hir_def9lang_item9lang_attr17h64789c5d20ff3828E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %1), !range !592
   ret i8 %3
 }
 
@@ -12775,11 +12775,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %45 = load i32, ptr %13, align 4, !noundef !6
   %46 = load i8, ptr %12, align 1, !range !599, !noundef !6
-  %47 = invoke { i32, i32 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9lang_item6__shim17hd4354902354621ccE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %45, i8 noundef %46)
+  %47 = invoke { i32, i32 } @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9lang_item6__shim17hd4354902354621ccE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %45, i8 noundef %46)
           to label %52 unwind label %50
 
 48:                                               ; preds = %25
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %25
@@ -12799,7 +12799,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35,
   br i1 %.not57, label %49, label %35
 
 49:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 50:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12940,11 +12940,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %43 = load i32, ptr %11, align 4, !range !22, !noundef !6
   %44 = load i32, ptr %12, align 4, !noundef !6
-  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9macro_def6__shim17h8b427d817c1fde47E"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %43, i32 noundef %44)
+  invoke void @"_ZN47_$LT$DB$u20$as$u20$hir_def..db..DefDatabase$GT$9macro_def6__shim17h8b427d817c1fde47E"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.21, i32 noundef %43, i32 noundef %44)
           to label %48 unwind label %46
 
 45:                                               ; preds = %24
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.55) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -12967,19 +12967,19 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$11source_root17hc20498727fa339f1E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call noundef nonnull ptr @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$11source_root6__shim17h98dea0e0a0e93969E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1)
+  %3 = tail call noundef nonnull ptr @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$11source_root6__shim17h98dea0e0a0e93969E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1)
   ret ptr %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$15set_source_root17h4261227717e4af95E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #1 {
-  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$15set_source_root6__shim17ha224a603040971ecE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2)
+  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$15set_source_root6__shim17ha224a603040971ecE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i32 @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$16file_source_root17hce3be857b02edd91E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$16file_source_root6__shim17he6b5a8a9f8e26b04E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1)
+  %3 = tail call noundef i32 @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$16file_source_root6__shim17he6b5a8a9f8e26b04E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1)
   ret i32 %3
 }
 
@@ -13100,11 +13100,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$18source_root_crates6__shim17h7e630175dd9fcc3aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %40)
+  %41 = invoke { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$18source_root_crates6__shim17h7e630175dd9fcc3aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.72) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.72) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -13127,37 +13127,37 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$20compressed_file_text17ha7efb42101e20ec4E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$20compressed_file_text6__shim17h1845a171b484dc59E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1)
+  %3 = tail call { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$20compressed_file_text6__shim17h1845a171b484dc59E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1)
   ret { ptr, i64 } %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$20set_file_source_root17h2cdce25da57af6e4E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$20set_file_source_root6__shim17h0262b2b2ee2dd2c9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, i32 noundef %2)
+  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$20set_file_source_root6__shim17h0262b2b2ee2dd2c9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$24set_compressed_file_text17he4978301b7a53437E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #1 {
-  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$24set_compressed_file_text6__shim17hd94f888fca32e744E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3)
+  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$24set_compressed_file_text6__shim17hd94f888fca32e744E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$31set_source_root_with_durability17h1edd446fa227d6cbE"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull %2, i8 noundef %3) unnamed_addr #1 {
-  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$31set_source_root_with_durability6__shim17hc8418226e7851e75E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2, i8 noundef %3)
+  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$31set_source_root_with_durability6__shim17hc8418226e7851e75E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2, i8 noundef %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$36set_file_source_root_with_durability17h18f35b360e6ab925E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, i8 noundef %3) unnamed_addr #1 {
-  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$36set_file_source_root_with_durability6__shim17hb93e6d0e69b68738E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, i32 noundef %2, i8 noundef %3)
+  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$36set_file_source_root_with_durability6__shim17hb93e6d0e69b68738E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, i32 noundef %2, i8 noundef %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$40set_compressed_file_text_with_durability17h70744ec0e848564eE"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3, i8 noundef %4) unnamed_addr #1 {
-  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$40set_compressed_file_text_with_durability6__shim17h763a419e891a4955E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3, i8 noundef %4)
+  tail call void @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$40set_compressed_file_text_with_durability6__shim17h763a419e891a4955E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3, i8 noundef %4)
   ret void
 }
 
@@ -13278,11 +13278,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$9file_text6__shim17hd810f981f3485795E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %40)
+  %41 = invoke { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$9file_text6__shim17hd810f981f3485795E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.71, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.72) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.72) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -13832,241 +13832,241 @@ define internal void @"_ZN4core3ptr92drop_in_place$LT$tracing_core..field..Debug
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$10intern_use17h1079aff6beef08fbE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$10intern_use6__shim17h6f54355e2324f97bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$10intern_use6__shim17h6f54355e2324f97bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_enum17hd4516df8c8cf3cd1E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_enum6__shim17haa69b0fc8e5bb850E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_enum6__shim17haa69b0fc8e5bb850E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_impl17ha383cbdadcda559aE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_impl6__shim17h03f9b0d0fc76e3c3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$11intern_impl6__shim17h03f9b0d0fc76e3c3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_block17h9b6ec5893fb7c506E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(20) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_block6__shim17h6022b3f731262565E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_block6__shim17h6022b3f731262565E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_const17h747f7734d7708ed0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(28) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_const6__shim17h51a0718018d3a360E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_const6__shim17h51a0718018d3a360E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_trait17hd7d8a7b78a56e1d0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_trait6__shim17h0d5a8f325ee3f999E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_trait6__shim17h0d5a8f325ee3f999E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_union17h2c9b2e4f7e4e2b37E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_union6__shim17hcba6565942c11196E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$12intern_union6__shim17hcba6565942c11196E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_macro217h848a84d0d6d71ce3E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(28) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_macro26__shim17hce25cb5b323bbbe6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_macro26__shim17hce25cb5b323bbbe6E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_static17h690a47d8ca7babceE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(28) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_static6__shim17hc2681633a3c912c5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_static6__shim17hc2681633a3c912c5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_struct17hcabd44e92fcc8273E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_struct6__shim17h08d65194d5234f85E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$13intern_struct6__shim17h08d65194d5234f85E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$15intern_function17hffc3a199b538517cE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(28) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$15intern_function6__shim17h5289251cf5082b07E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$15intern_function6__shim17h5289251cf5082b07E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_proc_macro17hf388c6740fcb7f04E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_proc_macro6__shim17h36c12c00d84efbfeE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_proc_macro6__shim17h36c12c00d84efbfeE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_type_alias17hfef98e80b117ef30E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(28) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_type_alias6__shim17h57f57537c3ae219aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17intern_type_alias6__shim17h57f57537c3ae219aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17lookup_intern_use17h414d767f74e365d1E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17lookup_intern_use6__shim17hd7126b592cda3837E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$17lookup_intern_use6__shim17hd7126b592cda3837E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_macro_rules17h8124d2dac68fff36E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(28) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_macro_rules6__shim17h00f6abfd2517767bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_macro_rules6__shim17h00f6abfd2517767bE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_trait_alias17h10b0f0eeb6ee6c69E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_trait_alias6__shim17hd8fc1e3f646d0c62E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18intern_trait_alias6__shim17hd8fc1e3f646d0c62E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18lookup_intern_enum17h249b4896e718d847E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18lookup_intern_enum6__shim17hcd88856acb03b891E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18lookup_intern_enum6__shim17hcd88856acb03b891E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18lookup_intern_impl17h42e5342106d5e206E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18lookup_intern_impl6__shim17h86f71017d769b690E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$18lookup_intern_impl6__shim17h86f71017d769b690E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_enum_variant17haba296ee41143f55E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(20) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_enum_variant6__shim17h6de18d33fad71c1dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_enum_variant6__shim17h6de18d33fad71c1dE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_block17h4a6d85558455663fE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_block6__shim17hb942b4ca126079a9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_block6__shim17hb942b4ca126079a9E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_crate17hfbc4bac2c62dc9ffE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_crate6__shim17h7a531e0ec448f1d3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19intern_extern_crate6__shim17h7a531e0ec448f1d3E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_block17h343ab9d0a0b292a9E"(ptr noalias noundef sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_block6__shim17h57d4b9a1b8e1fc09E"(ptr noalias noundef nonnull sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_block6__shim17h57d4b9a1b8e1fc09E"(ptr noalias noundef nonnull sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_const17h4c5fd21b7d168f90E"(ptr noalias noundef sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_const6__shim17h9e3ab09dc6af7579E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_const6__shim17h9e3ab09dc6af7579E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_trait17h06c7da9c61223a85E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_trait6__shim17ha6f275451d071cb6E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_trait6__shim17ha6f275451d071cb6E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_union17h17ae2052fad6bfbaE"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_union6__shim17h49fdc91becacf98eE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$19lookup_intern_union6__shim17h49fdc91becacf98eE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20intern_in_type_const17h11c70c10eb3d9721E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20intern_in_type_const6__shim17hbf63265c4b309b16E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20intern_in_type_const6__shim17hbf63265c4b309b16E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_macro217h0893dc3e68948de3E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_macro26__shim17hb961b5af930a546bE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_macro26__shim17hb961b5af930a546bE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_static17h1588a94e7c35a7d5E"(ptr noalias noundef sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_static6__shim17h180ada5e99d04b21E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_static6__shim17h180ada5e99d04b21E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_struct17h742ca6f6cd4f0ee1E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_struct6__shim17h65929ea810c91105E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$20lookup_intern_struct6__shim17h65929ea810c91105E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22intern_anonymous_const17h32da725a1aebb004E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22intern_anonymous_const6__shim17h982cf37ce01f6b65E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22intern_anonymous_const6__shim17h982cf37ce01f6b65E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22lookup_intern_function17hcec0e549e7ff4345E"(ptr noalias noundef sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22lookup_intern_function6__shim17hf8afdf8840a4e0f7E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$22lookup_intern_function6__shim17hf8afdf8840a4e0f7E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$24lookup_intern_proc_macro17h816453ec2d0d49c5E"(ptr noalias noundef sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$24lookup_intern_proc_macro6__shim17h4e14d65a7ac0e2ecE"(ptr noalias noundef nonnull sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$24lookup_intern_proc_macro6__shim17h4e14d65a7ac0e2ecE"(ptr noalias noundef nonnull sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$24lookup_intern_type_alias17h28144fc8e678e74cE"(ptr noalias noundef sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$24lookup_intern_type_alias6__shim17h72a98f8133eb36e4E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$24lookup_intern_type_alias6__shim17h72a98f8133eb36e4E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$25lookup_intern_macro_rules17hef8e445475689486E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$25lookup_intern_macro_rules6__shim17h9e8102514b8314acE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$25lookup_intern_macro_rules6__shim17h9e8102514b8314acE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$25lookup_intern_trait_alias17hfe735f5720d22894E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$25lookup_intern_trait_alias6__shim17h540eef589bf7c8eaE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$25lookup_intern_trait_alias6__shim17h540eef589bf7c8eaE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_enum_variant17ha7c7e72d00e20e3dE"(ptr noalias noundef sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_enum_variant6__shim17had1b8500b15c50eaE"(ptr noalias noundef nonnull sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_enum_variant6__shim17had1b8500b15c50eaE"(ptr noalias noundef nonnull sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_extern_block17h276866859ad628f9E"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_extern_block6__shim17h6381cb7f759a7648E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_extern_block6__shim17h6381cb7f759a7648E"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_extern_crate17h1fddf7516ce940dfE"(ptr noalias noundef sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_extern_crate6__shim17hfc0f3650cd6dea9dE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$26lookup_intern_extern_crate6__shim17hfc0f3650cd6dea9dE"(ptr noalias noundef nonnull sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$27lookup_intern_in_type_const17h3689314d1721ea2fE"(ptr noalias noundef sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$27lookup_intern_in_type_const6__shim17h9aaea6f5ccc29fb4E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$27lookup_intern_in_type_const6__shim17h9aaea6f5ccc29fb4E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$29lookup_intern_anonymous_const17h2d4a288824c5b28fE"(ptr noalias noundef sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$29lookup_intern_anonymous_const6__shim17hbdf0b73254ad4f10E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
+  tail call void @"_ZN50_$LT$DB$u20$as$u20$hir_def..db..InternDatabase$GT$29lookup_intern_anonymous_const6__shim17hbdf0b73254ad4f10E"(ptr noalias noundef nonnull sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.19, i32 noundef %2)
   ret void
 }
 
@@ -14187,11 +14187,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$10ast_id_map6__shim17he3cbed18502266d8E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$10ast_id_map6__shim17he3cbed18502266d8E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -14214,7 +14214,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$11proc_macros17h202cc5683c925271E"(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
-  %2 = tail call noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$11proc_macros6__shim17h74f28e34b018ee12E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5)
+  %2 = tail call noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$11proc_macros6__shim17h74f28e34b018ee12E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5)
   ret ptr %2
 }
 
@@ -14335,11 +14335,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$13real_span_map6__shim17h1399795d2574f802E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$13real_span_map6__shim17h1399795d2574f802E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -14362,13 +14362,13 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$14macro_expander17h85325e81b68e3f1cE"(ptr noalias noundef sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 4 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
-  tail call void @_ZN10hir_expand2db13TokenExpander14macro_expander17had45477f6c30e39eE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %2)
+  tail call void @_ZN10hir_expand2db13TokenExpander14macro_expander17had45477f6c30e39eE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$15parse_or_expand17h6cca84c6aae4373aE"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call noundef nonnull ptr @_ZN10hir_expand2db15parse_or_expand17he9d15e33c35875b6E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %1)
+  %3 = tail call noundef nonnull ptr @_ZN10hir_expand2db15parse_or_expand17he9d15e33c35875b6E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %1)
   ret ptr %3
 }
 
@@ -14492,11 +14492,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !noalias !6
   %43 = load i32, ptr %11, align 4, !noundef !6
   %44 = load i32, ptr %12, align 4, !noundef !6
-  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$15proc_macro_span6__shim17h31459d11626b2fcdE"(ptr noalias noundef nonnull sret({ i32, { i32, i32 }, { i32, i32 } }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %43, i32 noundef %44)
+  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$15proc_macro_span6__shim17h31459d11626b2fcdE"(ptr noalias noundef nonnull sret({ i32, { i32, i32 }, { i32, i32 } }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %43, i32 noundef %44)
           to label %48 unwind label %46
 
 45:                                               ; preds = %24
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 46:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -14519,7 +14519,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %34,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$15set_proc_macros17h5219b19cdab414f7E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #1 {
-  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$15set_proc_macros6__shim17hefbe982f530e1340E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noundef nonnull %1)
+  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$15set_proc_macros6__shim17hefbe982f530e1340E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noundef nonnull %1)
   ret void
 }
 
@@ -14640,11 +14640,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17expand_proc_macro6__shim17h4432f4450b1812fdE"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, ptr }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
+  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17expand_proc_macro6__shim17h4432f4450b1812fdE"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, ptr }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -14667,13 +14667,13 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17intern_macro_call17h8ee4c83727466b95E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17intern_macro_call6__shim17h2ee23be936a9d4feE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$17intern_macro_call6__shim17h2ee23be936a9d4feE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %1), !range !39
   ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$18expansion_span_map17hddcf078b6f6a08e7E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call noundef nonnull ptr @_ZN10hir_expand8span_map18expansion_span_map17h20670d584e297a0fE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %1)
+  %3 = tail call noundef nonnull ptr @_ZN10hir_expand8span_map18expansion_span_map17h20670d584e297a0fE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %1)
   ret ptr %3
 }
 
@@ -14810,11 +14810,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %37,
   %47 = load i32, ptr %14, align 4, !noundef !6
   %48 = load i32, ptr %13, align 4, !noundef !6
   %49 = load i32, ptr %15, align 4, !noundef !6
-  %50 = invoke noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$19decl_macro_expander6__shim17h56365e078aca6629E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %47, i32 noundef %48, i32 noundef %49)
+  %50 = invoke noundef nonnull ptr @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$19decl_macro_expander6__shim17h56365e078aca6629E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %47, i32 noundef %48, i32 noundef %49)
           to label %55 unwind label %53
 
 51:                                               ; preds = %27
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %27
@@ -14834,7 +14834,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %37,
   br i1 %.not57, label %52, label %37
 
 52:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 53:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -14857,13 +14857,13 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %37,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$20dump_syntax_contexts17h16e1ac4119c42d38E"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
-  tail call void @_ZN10hir_expand7hygiene20dump_syntax_contexts17h1eb5022101245c87E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5)
+  tail call void @_ZN10hir_expand7hygiene20dump_syntax_contexts17h1eb5022101245c87E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21intern_syntax_context17h4a7eabea7e93843cE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 4 captures(none) dereferenceable(20) %1) unnamed_addr #1 {
-  %3 = tail call noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21intern_syntax_context6__shim17h57e49a127386b9dfE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %1), !range !39
+  %3 = tail call noundef i32 @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21intern_syntax_context6__shim17h57e49a127386b9dfE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %1), !range !39
   ret i32 %3
 }
 
@@ -14984,11 +14984,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21parse_macro_expansion6__shim17h677e09065c8faf17E"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
+  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$21parse_macro_expansion6__shim17h677e09065c8faf17E"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, { { ptr, { ptr, [1 x i64] }, {} }, ptr } }) align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -15011,19 +15011,19 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$24lookup_intern_macro_call17hfef5330fe6958236E"(ptr noalias noundef sret({ { i8, [23 x i8] }, i32, i32, { { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] } }) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$24lookup_intern_macro_call6__shim17hee603571db7a6514E"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] }, i32, i32, { { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] } }) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2)
+  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$24lookup_intern_macro_call6__shim17hee603571db7a6514E"(ptr noalias noundef nonnull sret({ { i8, [23 x i8] }, i32, i32, { { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] } }) align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$24parse_or_expand_with_err17h8e36926520085497E"(ptr noalias noundef sret({ { i8, [15 x i8] }, { ptr, { ptr, [1 x i64] }, {} } }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @_ZN10hir_expand2db24parse_or_expand_with_err17h8c48ad61e81b7c7aE(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, { ptr, { ptr, [1 x i64] }, {} } }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2)
+  tail call void @_ZN10hir_expand2db24parse_or_expand_with_err17h8c48ad61e81b7c7aE(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, { ptr, { ptr, [1 x i64] }, {} } }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$25setup_syntax_context_root17h3ec993c97cafdd58E"(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
-  tail call void @_ZN10hir_expand2db25setup_syntax_context_root17h562c601da495d9fbE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5)
+  tail call void @_ZN10hir_expand2db25setup_syntax_context_root17h562c601da495d9fbE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5)
   ret void
 }
 
@@ -15144,11 +15144,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$27parse_macro_expansion_error6__shim17h0d2755b714143ce1E"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, { { { { ptr, i64 } }, {} }, {} } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
+  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$27parse_macro_expansion_error6__shim17h0d2755b714143ce1E"(ptr noalias noundef nonnull sret({ { i8, [15 x i8] }, { { { { ptr, i64 } }, {} }, {} } }) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -15171,19 +15171,19 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$28lookup_intern_syntax_context17h5995d1223f2beaf0E"(ptr noalias noundef sret({ i32, i32, i32, i32, i8, [3 x i8] }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 %1, i32 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$28lookup_intern_syntax_context6__shim17h0a5d4715c6df47eaE"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32, i8, [3 x i8] }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2)
+  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$28lookup_intern_syntax_context6__shim17h0a5d4715c6df47eaE"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32, i8, [3 x i8] }) align 4 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$29macro_arg_considering_derives17hd78527b71844b489E"(ptr noalias noundef sret({ ptr, ptr, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
-  tail call void @_ZN10hir_expand2db29macro_arg_considering_derives17hde26bbda31c6e3deE(ptr noalias noundef nonnull sret({ ptr, ptr, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
+  tail call void @_ZN10hir_expand2db29macro_arg_considering_derives17hde26bbda31c6e3deE(ptr noalias noundef nonnull sret({ ptr, ptr, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$31set_proc_macros_with_durability17hd8e5e9a194eb3df3E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1, i8 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$31set_proc_macros_with_durability6__shim17h1dc40c20ea693c5aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noundef nonnull %1, i8 noundef %2)
+  tail call void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$31set_proc_macros_with_durability6__shim17h1dc40c20ea693c5aE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, ptr noundef nonnull %1, i8 noundef %2)
   ret void
 }
 
@@ -15446,11 +15446,11 @@ common.resume:                                    ; preds = %43, %37
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   %41 = load i32, ptr %10, align 4, !range !39, !noundef !6
-  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$9macro_arg6__shim17h4f3a726f81f51ed0E"(ptr noalias noundef nonnull sret({ ptr, ptr, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
+  invoke void @"_ZN53_$LT$DB$u20$as$u20$hir_expand..db..ExpandDatabase$GT$9macro_arg6__shim17h4f3a726f81f51ed0E"(ptr noalias noundef nonnull sret({ ptr, ptr, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }) align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.5, i32 noundef %41)
           to label %45 unwind label %43
 
 42:                                               ; preds = %22
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.92) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -15559,7 +15559,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not, label %39, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
 
 39:                                               ; preds = %29
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.99) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.99) #15
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit": ; preds = %29
@@ -15623,19 +15623,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$11local_roots17h323b2a26feea0ca6E"(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
-  %2 = tail call noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$11local_roots6__shim17h27212074de406460E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106)
+  %2 = tail call noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$11local_roots6__shim17h27212074de406460E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106)
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$13crate_symbols17h2645bb86123dada2E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = tail call { ptr, i64 } @_ZN6ide_db12symbol_index13crate_symbols17h73c1c03918dbe25cE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, i32 noundef %1)
+  %3 = tail call { ptr, i64 } @_ZN6ide_db12symbol_index13crate_symbols17h73c1c03918dbe25cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, i32 noundef %1)
   ret { ptr, i64 } %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$13library_roots17h278c459e1f981f04E"(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
-  %2 = tail call noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$13library_roots6__shim17hf1ef39f208ac6948E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106)
+  %2 = tail call noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$13library_roots6__shim17hf1ef39f208ac6948E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106)
   ret ptr %2
 }
 
@@ -15756,11 +15756,11 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !6
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %40 = invoke noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$14module_symbols6__shim17h60f2326b4061f6f1E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %3)
+  %40 = invoke noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$14module_symbols6__shim17h60f2326b4061f6f1E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %3)
           to label %44 unwind label %42
 
 41:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.108) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.108) #15
   unreachable
 
 42:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -15899,11 +15899,11 @@ common.resume:                                    ; preds = %43, %36
 _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !6
   %40 = load i32, ptr %9, align 4, !noundef !6
-  %41 = invoke noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$15library_symbols6__shim17hd31d9ddf4b2cc24cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, i32 noundef %40)
+  %41 = invoke noundef nonnull ptr @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$15library_symbols6__shim17hd31d9ddf4b2cc24cE"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, i32 noundef %40)
           to label %45 unwind label %43
 
 42:                                               ; preds = %21
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.108) #15
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1c37dd4461034cf5c6ceb46bf6c34049.7, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.108) #15
   unreachable
 
 43:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
@@ -15926,25 +15926,25 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %31,
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$15set_local_roots17h89306589ba9f8f72E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #1 {
-  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$15set_local_roots6__shim17hda16b2b45136aed4E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1)
+  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$15set_local_roots6__shim17hda16b2b45136aed4E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$17set_library_roots17hf933c47b684df1f8E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #1 {
-  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$17set_library_roots6__shim17hb3bb03ed3e1c85f1E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1)
+  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$17set_library_roots6__shim17hb3bb03ed3e1c85f1E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$31set_local_roots_with_durability17hb9b39e286a347ad2E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1, i8 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$31set_local_roots_with_durability6__shim17h7d8b5d993d4247d5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1, i8 noundef %2)
+  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$31set_local_roots_with_durability6__shim17h7d8b5d993d4247d5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1, i8 noundef %2)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$33set_library_roots_with_durability17h5599d76e32c60921E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull %1, i8 noundef %2) unnamed_addr #1 {
-  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$33set_library_roots_with_durability6__shim17h2b6c9992c7839fd5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1, i8 noundef %2)
+  tail call void @"_ZN60_$LT$DB$u20$as$u20$ide_db..symbol_index..SymbolsDatabase$GT$33set_library_roots_with_durability6__shim17h2b6c9992c7839fd5E"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1c37dd4461034cf5c6ceb46bf6c34049.106, ptr noundef nonnull %1, i8 noundef %2)
   ret void
 }
 

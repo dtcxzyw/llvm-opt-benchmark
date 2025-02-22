@@ -660,7 +660,7 @@ define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) 
   br i1 %201, label %202, label %203, !prof !10
 
 202:                                              ; preds = %195
-  tail call fastcc void @tcpm_suck_dst(ptr noundef nonnull %103, ptr noundef %1, i1 noundef zeroext false)
+  tail call fastcc void @tcpm_suck_dst(ptr noundef nonnull %101, ptr noundef %1, i1 noundef zeroext false)
   br label %203
 
 203:                                              ; preds = %202, %195, %194, %192, %3

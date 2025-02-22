@@ -457,10 +457,10 @@ define hidden noundef ptr @_ZN5Parse22check_interpreter_typeEP4NodePK4TypeRP13Sa
   br i1 %.not, label %.thread, label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %9, align 8
+  %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 264
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(80) %9) #14
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(80) %2) #14
   br i1 %17, label %.thread37, label %18
 
 18:                                               ; preds = %13, %4
@@ -749,18 +749,18 @@ _ZN4NodenwEm.exit34:                              ; preds = %166, %168
 .thread37:                                        ; preds = %13, %178
   %.040 = phi ptr [ %187, %178 ], [ %1, %13 ]
   %188 = load ptr, ptr @_ZN11TypeInstPtr6BOTTOME, align 8
-  %189 = load ptr, ptr %9, align 8
+  %189 = load ptr, ptr %2, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 240
   %191 = load ptr, ptr %190, align 8
-  %192 = tail call noundef zeroext i1 %191(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef %188) #14
+  %192 = tail call noundef zeroext i1 %191(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %188) #14
   br i1 %192, label %.thread, label %193
 
 193:                                              ; preds = %.thread37
   store ptr null, ptr %5, align 8
-  %194 = load ptr, ptr %9, align 8
+  %194 = load ptr, ptr %2, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 296
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call noundef ptr %196(ptr noundef nonnull align 8 dereferenceable(80) %9, i1 noundef zeroext false) #14
+  %197 = tail call noundef ptr %196(ptr noundef nonnull align 8 dereferenceable(80) %2, i1 noundef zeroext false) #14
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 288
   %200 = load ptr, ptr %199, align 8

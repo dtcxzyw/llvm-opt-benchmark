@@ -4892,7 +4892,7 @@ _ZN5clang4Decl14getDeclContextEv.exit127:         ; preds = %_ZN5clang4Decl14get
   br label %449
 
 447:                                              ; preds = %435
-  %448 = call noundef ptr @_ZNK5clang16ObjCCategoryDecl17getImplementationEv(ptr noundef nonnull align 8 dereferenceable(148) %spec.select.i.i128) #22
+  %448 = call noundef ptr @_ZNK5clang16ObjCCategoryDecl17getImplementationEv(ptr noundef nonnull align 8 dereferenceable(148) %426) #22
   br label %449
 
 449:                                              ; preds = %447, %445, %431
@@ -41258,10 +41258,10 @@ _ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.th
   br label %_ZN5clang17ObjCInterfaceDecl26filtered_category_iteratorIXadL_ZNS0_18isVisibleExtensionEPNS_16ObjCCategoryDeclEEEEppEv.exit
 
 ._crit_edge761:                                   ; preds = %_ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i, %._crit_edge757, %_ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i
-  call void @_ZN5clang8SemaObjC25ImplMethodsVsClassMethodsEPNS_5ScopeEPNS_12ObjCImplDeclEPNS_17ObjCContainerDeclEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %spec.select.i.i370, ptr noundef nonnull %604, i1 noundef zeroext false)
-  call void @_ZN5clang8SemaObjC31AtomicPropertySetterGetterRulesEPNS_12ObjCImplDeclEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %spec.select.i.i370, ptr noundef nonnull %604) #22
-  call void @_ZN5clang8SemaObjC37DiagnoseOwningPropertyGetterSynthesisEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %spec.select.i.i370) #22
-  call void @_ZN5clang8SemaObjC35DiagnoseUnusedBackingIvarInAccessorEPNS_5ScopeEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %spec.select.i.i370)
+  call void @_ZN5clang8SemaObjC25ImplMethodsVsClassMethodsEPNS_5ScopeEPNS_12ObjCImplDeclEPNS_17ObjCContainerDeclEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %72, ptr noundef nonnull %604, i1 noundef zeroext false)
+  call void @_ZN5clang8SemaObjC31AtomicPropertySetterGetterRulesEPNS_12ObjCImplDeclEPNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %72, ptr noundef nonnull %604) #22
+  call void @_ZN5clang8SemaObjC37DiagnoseOwningPropertyGetterSynthesisEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %72) #22
+  call void @_ZN5clang8SemaObjC35DiagnoseUnusedBackingIvarInAccessorEPNS_5ScopeEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %72)
   %638 = call noundef zeroext i1 @_ZNK5clang17ObjCInterfaceDecl25hasDesignatedInitializersEv(ptr noundef nonnull align 8 dereferenceable(128) %604) #22
   br i1 %638, label %812, label %813
 
@@ -41345,7 +41345,7 @@ _ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.th
   %677 = and i64 %676, 16384
   %.not.i = icmp eq i64 %677, 0
   %678 = select i1 %.not.i, i8 1, i8 2
-  %679 = call noundef ptr @_ZNK5clang12ObjCImplDecl20FindPropertyImplDeclEPNS_14IdentifierInfoENS_21ObjCPropertyQueryKindE(ptr noundef nonnull align 8 dereferenceable(96) %spec.select.i.i370, ptr noundef %.0.i.i397, i8 noundef zeroext %678) #22
+  %679 = call noundef ptr @_ZNK5clang12ObjCImplDecl20FindPropertyImplDeclEPNS_14IdentifierInfoENS_21ObjCPropertyQueryKindE(ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef %.0.i.i397, i8 noundef zeroext %678) #22
   %.not283 = icmp eq ptr %679, null
   br i1 %.not283, label %.critedge, label %680
 
@@ -41635,7 +41635,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_16ObjCPropertyDeclEXadL_ZNKS2_
   br i1 %.not715, label %._crit_edge757, label %.lr.ph756
 
 812:                                              ; preds = %._crit_edge761
-  call void @_ZN5clang8SemaObjC38DiagnoseMissingDesignatedInitOverridesEPKNS_22ObjCImplementationDeclEPKNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %spec.select.i.i370, ptr noundef nonnull %604) #22
+  call void @_ZN5clang8SemaObjC38DiagnoseMissingDesignatedInitOverridesEPKNS_22ObjCImplementationDeclEPKNS_17ObjCInterfaceDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %72, ptr noundef nonnull %604) #22
   br label %813
 
 813:                                              ; preds = %812, %._crit_edge761
@@ -42269,7 +42269,7 @@ _ZNK5clang11ObjCRuntime12isNonFragileEv.exit:     ; preds = %_ZNK5clang4Decl7has
   br i1 %.not277, label %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit.thread, label %.lr.ph764, !llvm.loop !1577
 
 _ZNK5clang11ObjCRuntime12isNonFragileEv.exit.thread: ; preds = %.lr.ph764, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit, %_ZNK5clang4Decl7hasAttrINS_17ObjCClassStubAttrEEEbv.exit.thread, %_ZNK5clang4Decl7hasAttrINS_17ObjCClassStubAttrEEEbv.exit.thread, %601
-  call void @_ZN5clang8SemaObjC19SetIvarInitializersEPNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %spec.select.i.i370)
+  call void @_ZN5clang8SemaObjC19SetIvarInitializersEPNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %72)
   br label %_ZNK5clang4Decl7hasAttrINS_17ObjCClassStubAttrEEEbv.exit511.thread
 
 1098:                                             ; preds = %598
@@ -42367,7 +42367,7 @@ _ZNK5clang4Decl7hasAttrINS_29ObjCSubclassingRestrictedAttrEEEbv.exit500.thread: 
   br i1 %.not.i503, label %_ZNK5clang4Decl7hasAttrINS_17ObjCClassStubAttrEEEbv.exit511.thread, label %1140
 
 1140:                                             ; preds = %1136
-  %1141 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i491) #22
+  %1141 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %72) #22
   %1142 = load ptr, ptr %1141, align 8, !tbaa !724
   %1143 = getelementptr inbounds nuw i8, ptr %1141, i64 8
   %1144 = load i32, ptr %1143, align 8, !tbaa !725
@@ -42400,7 +42400,7 @@ _ZNK5clang4Decl7hasAttrINS_17ObjCClassStubAttrEEEbv.exit511: ; preds = %.lr.ph.i
   br i1 %.not.i512, label %_ZNK5clang4Decl7hasAttrINS_29ObjCSubclassingRestrictedAttrEEEbv.exit520.thread, label %1156
 
 1156:                                             ; preds = %1153
-  %1157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i491) #22
+  %1157 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %72) #22
   %1158 = load ptr, ptr %1157, align 8, !tbaa !724
   %1159 = getelementptr inbounds nuw i8, ptr %1157, i64 8
   %1160 = load i32, ptr %1159, align 8, !tbaa !725
@@ -47781,7 +47781,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodLis
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %44 = load ptr, ptr %43, align 8, !tbaa !781
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %106, label %45
+  br i1 %.not, label %107, label %45
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %34, align 8, !tbaa !32
@@ -47848,7 +47848,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodLis
   %80 = zext i32 %79 to i64
   %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1406", ptr %77, i64 %80
   %82 = icmp eq ptr %.sroa.0.1.i36, %81
-  br i1 %82, label %106, label %83
+  br i1 %82, label %107, label %83
 
 83:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodListES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit44, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodListES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit
   %.sroa.049.0 = phi ptr [ %.sroa.0.1.i36, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodListES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit44 ], [ %.sroa.0.1.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodListES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit ]
@@ -47860,7 +47860,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodLis
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.049.0, i64 %.v
   %.0.copyload.i.i.i.i = load i64, ptr %87, align 8
   %.not21 = icmp ult i64 %.0.copyload.i.i.i.i, 8
-  br i1 %.not21, label %106, label %88
+  br i1 %.not21, label %107, label %88
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -47885,21 +47885,20 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %88, %94
   %101 = and i32 %100, 127
   %102 = icmp ne i32 %101, 21
   %.not22 = or i1 %96, %102
-  br i1 %.not22, label %.sink.split, label %103
+  tail call fastcc void @_ZN12_GLOBAL__N_114OverrideSearch19searchFromContainerEPKN5clang17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %97)
+  br i1 %.not22, label %107, label %103
 
 103:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_114OverrideSearch19searchFromContainerEPKN5clang17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %97)
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %105 = load ptr, ptr %104, align 8, !tbaa !825
   %.not23 = icmp eq ptr %105, null
-  br i1 %.not23, label %106, label %.sink.split
+  br i1 %.not23, label %107, label %106
 
-.sink.split:                                      ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %103
-  %.sink = phi ptr [ %105, %103 ], [ %98, %_ZNK5clang4Decl14getDeclContextEv.exit ]
-  tail call fastcc void @_ZN12_GLOBAL__N_114OverrideSearch19searchFromContainerEPKN5clang17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %.sink)
-  br label %106
+106:                                              ; preds = %103
+  tail call fastcc void @_ZN12_GLOBAL__N_114OverrideSearch19searchFromContainerEPKN5clang17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %105)
+  br label %107
 
-106:                                              ; preds = %.sink.split, %83, %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodListES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit44, %42
+107:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %83, %103, %106, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorESt4pairINS2_14ObjCMethodListES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit44, %42
   ret void
 }
 
@@ -54180,7 +54179,7 @@ _ZN5clang10ASTContext24getLifetimeQualifiedTypeENS_8QualTypeENS_10Qualifiers12Ob
   br i1 %or.cond28, label %150, label %236
 
 150:                                              ; preds = %144
-  %151 = call noundef i32 @_ZNK5clang7VarDecl10getTLSKindEv(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i36) #22
+  %151 = call noundef i32 @_ZNK5clang7VarDecl10getTLSKindEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #22
   %.not27 = icmp eq i32 %151, 0
   br i1 %.not27, label %236, label %152
 

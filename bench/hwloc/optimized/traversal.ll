@@ -1426,12 +1426,11 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @hwloc_get_type_depth_with_attr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
-  %5 = icmp ult i64 %3, 48
-  %spec.select = select i1 %5, ptr null, ptr %2
-  %6 = icmp ugt i32 %1, 19
-  br i1 %6, label %hwloc_get_type_depth.exit.thread, label %hwloc_get_type_depth.exit
+  %5 = icmp ugt i32 %1, 19
+  br i1 %5, label %hwloc_get_type_depth.exit.thread, label %hwloc_get_type_depth.exit
 
 hwloc_get_type_depth.exit:                        ; preds = %4
+  %6 = icmp ugt i64 %3, 47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = zext nneg i32 %1 to i64
   %9 = getelementptr inbounds nuw [20 x i32], ptr %7, i64 0, i64 %8
@@ -1439,54 +1438,55 @@ hwloc_get_type_depth.exit:                        ; preds = %4
   %11 = icmp eq i32 %1, 13
   %12 = icmp eq i32 %10, -2
   %or.cond = select i1 %11, i1 %12, i1 false
-  %13 = icmp ne ptr %spec.select, null
-  %or.cond3 = and i1 %13, %or.cond
-  br i1 %or.cond3, label %14, label %hwloc_get_type_depth.exit.thread
+  %13 = icmp ne ptr %2, null
+  %14 = and i1 %13, %6
+  %or.cond3 = and i1 %14, %or.cond
+  br i1 %or.cond3, label %15, label %hwloc_get_type_depth.exit.thread
 
-14:                                               ; preds = %hwloc_get_type_depth.exit
-  %15 = load i32, ptr %spec.select, align 8, !tbaa !60
-  %.not = icmp eq i32 %15, -1
+15:                                               ; preds = %hwloc_get_type_depth.exit
+  %16 = load i32, ptr %2, align 8, !tbaa !60
+  %.not = icmp eq i32 %16, -1
   br i1 %.not, label %hwloc_get_type_depth.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !7
-  %.not28 = icmp eq i32 %17, 0
+.preheader:                                       ; preds = %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !7
+  %.not28 = icmp eq i32 %18, 0
   br i1 %.not28, label %hwloc_get_type_depth.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %wide.trip.count = zext i32 %17 to i64
-  br label %20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %wide.trip.count = zext i32 %18 to i64
+  br label %21
 
-20:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !33
-  %23 = load ptr, ptr %22, align 8, !tbaa !35
-  %24 = load i32, ptr %23, align 8, !tbaa !37
-  %25 = icmp eq i32 %24, 13
-  br i1 %25, label %26, label %31
+21:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
+  %24 = load ptr, ptr %23, align 8, !tbaa !35
+  %25 = load i32, ptr %24, align 8, !tbaa !37
+  %26 = icmp eq i32 %25, 13
+  br i1 %26, label %27, label %32
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !62
-  %29 = load i32, ptr %28, align 8, !tbaa !60
-  %30 = icmp eq i32 %29, %15
-  br i1 %30, label %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30, label %31
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %29 = load ptr, ptr %28, align 8, !tbaa !62
+  %30 = load i32, ptr %29, align 8, !tbaa !60
+  %31 = icmp eq i32 %30, %16
+  br i1 %31, label %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30, label %32
 
-31:                                               ; preds = %20, %26
+32:                                               ; preds = %21, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %hwloc_get_type_depth.exit.thread, label %20, !llvm.loop !63
+  br i1 %exitcond.not, label %hwloc_get_type_depth.exit.thread, label %21, !llvm.loop !63
 
-hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30: ; preds = %26
-  %32 = trunc nuw i64 %indvars.iv to i32
+hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30: ; preds = %27
+  %33 = trunc nuw i64 %indvars.iv to i32
   br label %hwloc_get_type_depth.exit.thread
 
-hwloc_get_type_depth.exit.thread:                 ; preds = %31, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30, %.preheader, %4, %14, %hwloc_get_type_depth.exit
-  %.019 = phi i32 [ -2, %14 ], [ %10, %hwloc_get_type_depth.exit ], [ -1, %4 ], [ -1, %.preheader ], [ %32, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30 ], [ -1, %31 ]
+hwloc_get_type_depth.exit.thread:                 ; preds = %32, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30, %.preheader, %4, %15, %hwloc_get_type_depth.exit
+  %.019 = phi i32 [ -2, %15 ], [ %10, %hwloc_get_type_depth.exit ], [ -1, %4 ], [ -1, %.preheader ], [ %33, %hwloc_get_type_depth.exit.thread.loopexit.split.loop.exit30 ], [ -1, %32 ]
   ret i32 %.019
 }
 

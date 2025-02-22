@@ -1578,7 +1578,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i38.i:     ; preds = %63, %58
   br i1 %spec.select.i.i.i.i.i.i.i.i5.i.i, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.i, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i
 
 _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.i: ; preds = %83
-  %91 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.0.i43.i) #8
+  %91 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %79) #8
   %.not.i37 = icmp eq ptr %91, null
   br i1 %.not.i37, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i, label %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i
 
@@ -1588,7 +1588,7 @@ _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i: ; preds = %_ZNK5clang
   br label %94
 
 _ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.i, %83
-  %93 = call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %.0.i43.i) #8
+  %93 = call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %79) #8
   br label %94
 
 94:                                               ; preds = %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread.i, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread57.i

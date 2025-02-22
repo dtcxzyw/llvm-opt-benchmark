@@ -36780,14 +36780,14 @@ define dso_local void @_ZN5clang4Sema22completeExprArrayBoundEPNS_4ExprE(ptr nou
   br i1 %.not35, label %43, label %18
 
 18:                                               ; preds = %10
-  %19 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i40) #24
+  %19 = tail call noundef i32 @_ZNK5clang7VarDecl29getTemplateSpecializationKindEv(ptr noundef nonnull align 8 dereferenceable(100) %12) #24
   %20 = and i32 %19, -3
   %.not54 = icmp eq i32 %20, 0
   br i1 %.not54, label %43, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i40) #28
-  %23 = tail call noundef ptr @_ZN5clang7VarDecl13getDefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i40, ptr noundef nonnull align 8 dereferenceable(23216) %22) #24
+  %22 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(100) %12) #28
+  %23 = tail call noundef ptr @_ZN5clang7VarDecl13getDefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %12, ptr noundef nonnull align 8 dereferenceable(23216) %22) #24
   %.not36 = icmp eq ptr %23, null
   br i1 %.not36, label %24, label %.thread
 

@@ -2700,7 +2700,7 @@ switch.lookup:                                    ; preds = %60
   %spec.select.i.i95 = select i1 %119, ptr %2, ptr null
   %.not87 = icmp ne ptr %spec.select.i.i95, null
   tail call void @llvm.assume(i1 %.not87)
-  %120 = tail call noundef ptr @_ZN5clang4ento7SMTConv13getSymBinExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_13BinarySymExprEPbPNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %spec.select.i.i95, ptr noundef %4, ptr noundef %3)
+  %120 = tail call noundef ptr @_ZN5clang4ento7SMTConv13getSymBinExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_13BinarySymExprEPbPNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3)
   %.not88 = icmp eq ptr %4, null
   br i1 %.not88, label %127, label %121
 

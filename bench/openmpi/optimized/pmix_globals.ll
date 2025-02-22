@@ -1391,7 +1391,6 @@ define internal void @keyindex_destruct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !61
   %.not.i = icmp eq ptr %3, null
-  %..i = select i1 %.not.i, ptr null, ptr %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !64
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -1400,6 +1399,7 @@ define internal void @keyindex_destruct(ptr noundef %0) #0 {
   br i1 %8, label %pmix_pointer_array_get_item.exit.lr.ph, label %._crit_edge
 
 pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %1
+  %..i = select i1 %.not.i, ptr null, ptr %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = getelementptr inbounds nuw i8, ptr %..i, i64 40
   br label %pmix_pointer_array_get_item.exit
@@ -1508,7 +1508,7 @@ pmix_tma_free.exit11.us.i:                        ; preds = %.lr.ph.i, %pmix_tma
 
 ._crit_edge.thread.i:                             ; preds = %pmix_tma_free.exit11.i, %._crit_edge.i
   %47 = load ptr, ptr %10, align 8, !tbaa !77
-  tail call void %47(ptr noundef nonnull %..i, ptr noundef nonnull %41) #15
+  tail call void %47(ptr noundef nonnull %2, ptr noundef nonnull %41) #15
   br label %pmix_bfrops_base_tma_argv_free.exit
 
 pmix_bfrops_base_tma_argv_free.exit.thread:       ; preds = %._crit_edge.i
@@ -1519,7 +1519,7 @@ pmix_tma_free.exit11.i:                           ; preds = %.lr.ph.i, %pmix_tma
   %48 = phi ptr [ %51, %pmix_tma_free.exit11.i ], [ %43, %.lr.ph.i ]
   %.013.i = phi ptr [ %50, %pmix_tma_free.exit11.i ], [ %41, %.lr.ph.i ]
   %49 = load ptr, ptr %10, align 8, !tbaa !77
-  tail call void %49(ptr noundef nonnull %..i, ptr noundef nonnull %48) #15
+  tail call void %49(ptr noundef nonnull %2, ptr noundef nonnull %48) #15
   %50 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !79
   %.not.i37 = icmp eq ptr %51, null

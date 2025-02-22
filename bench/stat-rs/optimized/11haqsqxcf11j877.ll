@@ -91,7 +91,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
           to label %.body unwind label %23, !noalias !11
 
 21:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit"
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %22 unwind label %19, !noalias !16
 
 22:                                               ; preds = %21
@@ -186,7 +186,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
           to label %.body unwind label %25, !noalias !23
 
 23:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit"
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %24 unwind label %21, !noalias !28
 
 24:                                               ; preds = %23
@@ -254,7 +254,7 @@ define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$na
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %.noexc
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.0, i64 noundef 90, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.2) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.0, i64 noundef 90, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.2) #12
           to label %22 unwind label %23, !noalias !29
 
 12:                                               ; preds = %.noexc
@@ -273,7 +273,7 @@ define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$na
           to label %.body unwind label %20, !noalias !48
 
 18:                                               ; preds = %12
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %19 unwind label %16, !noalias !50
 
 19:                                               ; preds = %18
@@ -328,7 +328,7 @@ define internal fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..ar
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.21, i64 noundef 26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.22) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.21, i64 noundef 26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.22) #12
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %8
@@ -523,7 +523,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
   %25 = phi ptr [ @anon.392abbc42e3e188bf9171d2333145ab3.21, %.noexc15 ], [ @anon.392abbc42e3e188bf9171d2333145ab3.27, %.noexc10 ], [ @anon.392abbc42e3e188bf9171d2333145ab3.27, %.noexc9.us.us ], [ @anon.392abbc42e3e188bf9171d2333145ab3.27, %.noexc9.us ], [ @anon.392abbc42e3e188bf9171d2333145ab3.27, %.noexc10.us ]
   %26 = phi i64 [ 26, %.noexc15 ], [ 29, %.noexc10 ], [ 29, %.noexc9.us.us ], [ 29, %.noexc9.us ], [ 29, %.noexc10.us ]
   %27 = phi ptr [ @anon.392abbc42e3e188bf9171d2333145ab3.22, %.noexc15 ], [ @anon.392abbc42e3e188bf9171d2333145ab3.30, %.noexc10 ], [ @anon.392abbc42e3e188bf9171d2333145ab3.30, %.noexc9.us.us ], [ @anon.392abbc42e3e188bf9171d2333145ab3.30, %.noexc9.us ], [ @anon.392abbc42e3e188bf9171d2333145ab3.30, %.noexc10.us ]
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %26, ptr noalias noundef readonly align 8 dereferenceable(24) %27) #12
           to label %.noexc15.cont unwind label %.loopexit.split-lp
 
 .noexc15.cont:                                    ; preds = %.noexc15.invoke
@@ -550,7 +550,7 @@ _ZN8nalgebra4base11blas_uninit11gemm_uninit17h4d4cb16ce8b489d0E.exit: ; preds = 
           to label %38 unwind label %35, !noalias !106
 
 33:                                               ; preds = %_ZN8nalgebra4base11blas_uninit11gemm_uninit17h4d4cb16ce8b489d0E.exit
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %34 unwind label %31, !noalias !109
 
 34:                                               ; preds = %33
@@ -655,7 +655,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
           to label %common.resume unwind label %30, !noalias !123
 
 28:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17hcbe8b3213ffbd486E.exit.i"
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %29 unwind label %26, !noalias !125
 
 29:                                               ; preds = %28
@@ -714,7 +714,7 @@ common.resume:                                    ; preds = %65, %58, %26, %32
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !133
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !133
-  invoke void @_ZN4core9panicking13assert_failed17hbed56fd62690c35eE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.38) #12
+  invoke void @_ZN4core9panicking13assert_failed17hbed56fd62690c35eE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.38) #12
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %40
@@ -771,7 +771,7 @@ common.resume:                                    ; preds = %65, %58, %26, %32
           to label %common.resume unwind label %62, !noalias !150
 
 60:                                               ; preds = %"_ZN8nalgebra4base3ops72_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$34sub_to_statically_unchecked_uninit17hb9a3cac7ad4a631bE.exit"
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %61 unwind label %58, !noalias !153
 
 61:                                               ; preds = %60
@@ -829,7 +829,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   br label %.critedge.i
 
 9:                                                ; preds = %1
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.41, i64 noundef 37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.43) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.41, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.43) #12
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %9
@@ -865,7 +865,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
           to label %.body unwind label %21, !noalias !165
 
 19:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit"
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %20 unwind label %17, !noalias !168
 
 20:                                               ; preds = %19
@@ -916,7 +916,7 @@ define internal fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$i
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %1
-  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.44, i64 noundef 57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.46) #12
+  tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.44, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.46) #12
   unreachable
 
 10:                                               ; preds = %1
@@ -985,7 +985,7 @@ define internal fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$i
   br label %32
 
 31:                                               ; preds = %"_ZN184_$LT$nalgebra..base..vec_storage..VecStorage$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$u20$as$u20$nalgebra..base..storage..Storage$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$11clone_owned17h142175d0cee6fe97E.exit"
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.ba66670e107886fb46f812a430fe3510.56.llvm.7000602076408091711, i64 noundef 73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ba66670e107886fb46f812a430fe3510.57.llvm.7000602076408091711) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.ba66670e107886fb46f812a430fe3510.56.llvm.7000602076408091711, i64 noundef 73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ba66670e107886fb46f812a430fe3510.57.llvm.7000602076408091711) #12
           to label %.noexc unwind label %88
 
 .noexc:                                           ; preds = %31
@@ -1177,7 +1177,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal3n
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %.noexc
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.0, i64 noundef 90, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.2) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.0, i64 noundef 90, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.2) #12
           to label %29 unwind label %30, !noalias !265
 
 19:                                               ; preds = %.noexc
@@ -1196,7 +1196,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal3n
           to label %.body.thread unwind label %27, !noalias !284
 
 25:                                               ; preds = %19
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %26 unwind label %23, !noalias !286
 
 26:                                               ; preds = %25
@@ -1500,7 +1500,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   br i1 %exitcond22.not.i.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h823487a0aad7fa4bE.exit.i", label %.lr.ph.us.i.i
 
 87:                                               ; preds = %.noexc49
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.41, i64 noundef 37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.43) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.41, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.43) #12
           to label %.noexc.i unwind label %98, !noalias !350
 
 .noexc.i:                                         ; preds = %87
@@ -1527,7 +1527,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
           to label %.body unwind label %96, !noalias !370
 
 94:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h823487a0aad7fa4bE.exit.i"
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %95 unwind label %92, !noalias !373
 
 95:                                               ; preds = %94
@@ -2083,7 +2083,7 @@ define { i64, double } @_ZN6statrs12distribution19multivariate_normal18Multivari
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %"_ZN353_$LT$statrs..distribution..multivariate_normal..MultivariateNormal$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance17ha57db5ede4b2ba23E.exit"
-  tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.63) #12
+  tail call void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.63) #12
   unreachable
 
 25:                                               ; preds = %"_ZN353_$LT$statrs..distribution..multivariate_normal..MultivariateNormal$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance17ha57db5ede4b2ba23E.exit"
@@ -2162,7 +2162,7 @@ define { i64, double } @_ZN6statrs12distribution19multivariate_normal18Multivari
           to label %.body unwind label %46, !noalias !565
 
 44:                                               ; preds = %._crit_edge.i.i
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %45 unwind label %42, !noalias !568
 
 45:                                               ; preds = %44
@@ -2571,7 +2571,7 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
   br i1 %56, label %58, label %57
 
 57:                                               ; preds = %.noexc10
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.0, i64 noundef 90, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.2) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.0, i64 noundef 90, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.2) #12
           to label %68 unwind label %69, !noalias !633
 
 58:                                               ; preds = %.noexc10
@@ -2590,7 +2590,7 @@ define void @"_ZN383_$LT$statrs..distribution..multivariate_normal..Multivariate
           to label %.thread25 unwind label %66, !noalias !655
 
 64:                                               ; preds = %58
-  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
+  invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %65 unwind label %62, !noalias !657
 
 65:                                               ; preds = %64

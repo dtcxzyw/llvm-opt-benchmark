@@ -8308,7 +8308,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
   br i1 %13, label %38, label %15
 
 14:                                               ; preds = %2
-  tail call void @_ZN3std9panicking11begin_panic17h76bb776413ffc8aaE(ptr noalias noundef nonnull readonly align 1 @anon.c61cc75985482a6a3667714a0acce176.16, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c61cc75985482a6a3667714a0acce176.18) #31
+  tail call void @_ZN3std9panicking11begin_panic17h76bb776413ffc8aaE(ptr noalias noundef nonnull readonly align 1 @anon.c61cc75985482a6a3667714a0acce176.16, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c61cc75985482a6a3667714a0acce176.18) #31
   unreachable
 
 15:                                               ; preds = %7

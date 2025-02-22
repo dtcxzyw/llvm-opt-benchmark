@@ -510,7 +510,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi4ELi1ELi0ELi
   %166 = getelementptr inbounds double, ptr %164, i64 %165
   %167 = select i1 %.not.i.i.i.i, ptr null, ptr %166
   %168 = load <2 x double>, ptr %17, align 16
-  %169 = load <2 x double>, ptr %167, align 1
+  %169 = load <2 x double>, ptr %166, align 1
   %170 = fsub <2 x double> %168, %169
   %171 = fmul <2 x double> %170, %170
   %172 = load <2 x double>, ptr %151, align 16
@@ -1214,7 +1214,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %14
   %58 = getelementptr inbounds double, ptr %57, i64 %.05.i.i.i.i.i.i.i.i
   %59 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr null, ptr %58
   %60 = load i64, ptr %24, align 8
-  %61 = load double, ptr %59, align 8
+  %61 = load double, ptr %58, align 8
   %62 = load double, ptr %20, align 8
   %63 = fmul double %61, %62
   br label %64

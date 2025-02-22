@@ -3562,7 +3562,7 @@ define dso_local void @_ZN4llvm9DbgMarker12removeMarkerEv(ptr noundef nonnull al
 
 _ZN4llvm9DbgMarker15eraseFromParentEv.exit:       ; preds = %6, %7
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 24) #19
-  br label %56
+  br label %54
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -3639,7 +3639,7 @@ _ZN4llvm9DbgMarker17absorbDebugValuesERS0_b.exit: ; preds = %13, %._crit_edge.i,
 
 _ZN4llvm9DbgMarker15eraseFromParentEv.exit21:     ; preds = %.lr.ph.i.i20, %32
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 24) #19
-  br label %56
+  br label %54
 
 .preheader.i.i.i:                                 ; preds = %9
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -3653,24 +3653,22 @@ _ZN4llvm9DbgMarker15eraseFromParentEv.exit21:     ; preds = %.lr.ph.i.i20, %32
 
 49:                                               ; preds = %.preheader.i.i.i
   tail call void @_ZN4llvm10BasicBlock21setTrailingDbgRecordsEPNS_9DbgMarkerE(ptr noundef nonnull align 8 dereferenceable(80) %46, ptr noundef nonnull %0) #18
-  br label %55
+  br label %53
 
 50:                                               ; preds = %.preheader.i.i.i
-  %51 = icmp eq ptr %43, null
-  %52 = getelementptr inbounds i8, ptr %43, i64 -24
-  %53 = select i1 %51, ptr null, ptr %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  store ptr %0, ptr %54, align 8, !tbaa !201
-  br label %55
+  %51 = getelementptr inbounds i8, ptr %43, i64 -24
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  store ptr %0, ptr %52, align 8, !tbaa !201
+  br label %53
 
-55:                                               ; preds = %50, %49
-  %storemerge = phi ptr [ %52, %50 ], [ null, %49 ]
+53:                                               ; preds = %50, %49
+  %storemerge = phi ptr [ %51, %50 ], [ null, %49 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !184
-  br label %56
+  br label %54
 
-56:                                               ; preds = %_ZN4llvm9DbgMarker15eraseFromParentEv.exit21, %55, %_ZN4llvm9DbgMarker15eraseFromParentEv.exit
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr null, ptr %57, align 8, !tbaa !201
+54:                                               ; preds = %_ZN4llvm9DbgMarker15eraseFromParentEv.exit21, %53, %_ZN4llvm9DbgMarker15eraseFromParentEv.exit
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr null, ptr %55, align 8, !tbaa !201
   ret void
 }
 

@@ -355,7 +355,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit67: ; preds = %45
   store ptr %6, ptr %67, align 8, !alias.scope !69, !noalias !72
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %68, align 8, !alias.scope !69, !noalias !72
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed64ec15ac7ce5460f2b94d2670740dd.23) #12
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed64ec15ac7ce5460f2b94d2670740dd.23) #12
   unreachable
 
 69:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9952151890eff5ffE.exit87"

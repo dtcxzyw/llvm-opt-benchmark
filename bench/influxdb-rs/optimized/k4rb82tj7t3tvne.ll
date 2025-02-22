@@ -939,7 +939,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN56_$LT$i64$u20$as$u20$integer_enc
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 11:                                               ; preds = %.loopexit
-  tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.5, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.7) #16
+  tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.5, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.7) #16
   unreachable
 
 ._crit_edge:                                      ; preds = %18, %.preheader
@@ -962,7 +962,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN56_$LT$i64$u20$as$u20$integer_enc
   ret i64 %16
 
 17:                                               ; preds = %._crit_edge
-  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %.018.lcssa, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.8) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %.018.lcssa, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.8) #16
   unreachable
 
 18:                                               ; preds = %.lr.ph31
@@ -976,7 +976,7 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN56_$LT$i64$u20$as$u20$integer_enc
   br i1 %24, label %.lr.ph31, label %._crit_edge
 
 25:                                               ; preds = %.lr.ph31
-  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %2, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.9) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.9) #16
   unreachable
 }
 
@@ -1014,7 +1014,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 13:                                               ; preds = %.loopexit.i
-  tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.5, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.7) #16, !noalias !178
+  tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.5, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.7) #16, !noalias !178
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
@@ -1028,7 +1028,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %exitcond.not.i, label %23, label %16, !prof !177
 
 15:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.8) #16, !noalias !178
+  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %20, i64 noundef 10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.8) #16, !noalias !178
   unreachable
 
 16:                                               ; preds = %.lr.ph31.i
@@ -1042,7 +1042,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %22, label %.lr.ph31.i, label %._crit_edge.i
 
 23:                                               ; preds = %.lr.ph31.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.9) #16, !noalias !178
+  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef 10, i64 noundef 10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.9) #16, !noalias !178
   unreachable
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit": ; preds = %._crit_edge.i
@@ -1382,7 +1382,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 13:                                               ; preds = %.loopexit.i
-  tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.5, i64 noundef 52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.7) #16, !noalias !303
+  tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.5, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.7) #16, !noalias !303
   unreachable
 
 ._crit_edge.i:                                    ; preds = %16
@@ -1396,7 +1396,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %exitcond.not.i, label %23, label %16, !prof !177
 
 15:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %20, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.8) #16, !noalias !303
+  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef %20, i64 noundef 10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.8) #16, !noalias !303
   unreachable
 
 16:                                               ; preds = %.lr.ph31.i
@@ -1410,7 +1410,7 @@ define hidden void @"_ZN64_$LT$Inner$u20$as$u20$integer_encoding..writer..VarInt
   br i1 %22, label %.lr.ph31.i, label %._crit_edge.i
 
 23:                                               ; preds = %.lr.ph31.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.9) #16, !noalias !303
+  tail call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef 10, i64 noundef 10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.9) #16, !noalias !303
   unreachable
 
 "_ZN56_$LT$i64$u20$as$u20$integer_encoding..varint..VarInt$GT$10encode_var17h87f22350f4fbe9beE.llvm.7649464633611531201.exit": ; preds = %._crit_edge.i
@@ -3269,7 +3269,7 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %83
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.20, i64 noundef 47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.21) #16
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.20, i64 noundef 47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.21) #16
           to label %.noexc157.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !572
 
 .noexc157.i:                                      ; preds = %87
@@ -5643,7 +5643,7 @@ define hidden void @"_ZN7parquet4file6writer33SerializedRowGroupWriter$LT$W$GT$5
   br label %.thread234
 
 151:                                              ; preds = %.thread234
-  invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.37, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.38) #16
+  invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.37, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fbb7c0310d617ca8bbd70c4f89efb2b3.38) #16
           to label %155 unwind label %32
 
 .thread:                                          ; preds = %2, %.thread234

@@ -5061,7 +5061,7 @@ _ZN4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit: ; preds = %213, %2
 
 240:                                              ; preds = %_ZN4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit
   store i64 0, ptr %205, align 8, !tbaa !96
-  %.sroa.087.0.copyload = load i64, ptr %233, align 8, !tbaa !96
+  %.sroa.087.0.copyload = load i64, ptr %231, align 8, !tbaa !96
   %.sroa.2.0.copyload = load i64, ptr %234, align 8, !tbaa !96
   call void @_ZN4llvm9LiveRange13removeSegmentENS_9SlotIndexES1_b(ptr noundef nonnull align 8 dereferenceable(104) %1, i64 %.sroa.087.0.copyload, i64 %.sroa.2.0.copyload, i1 noundef zeroext false) #20
   br label %241

@@ -921,7 +921,7 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
           to label %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h7f68ce861a665e1fE.exit43" unwind label %.loopexit.split-lp64
 
 85:                                               ; preds = %75
-  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.7f75af4656809b7e57137b5ca6f6cdb4.21, i64 noundef 31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.23) #16
+  invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.7f75af4656809b7e57137b5ca6f6cdb4.21, i64 noundef 31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.23) #16
           to label %97 unwind label %.loopexit.split-lp
 
 86:                                               ; preds = %75
@@ -1111,7 +1111,7 @@ define void @_ZN6assets6Assets15load_test_fonts17h6b4ff595f123bb5fE(ptr noalias 
   %.sroa.6.015 = phi ptr [ %18, %.thread ], [ %.sroa.6.0.copyload, %22 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !138
   store ptr %.sroa.6.015, ptr %5, align 8, !noalias !138
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.7f75af4656809b7e57137b5ca6f6cdb4.14, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.7f75af4656809b7e57137b5ca6f6cdb4.13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.25) #16
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.7f75af4656809b7e57137b5ca6f6cdb4.14, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.7f75af4656809b7e57137b5ca6f6cdb4.13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.25) #16
           to label %27 unwind label %25, !noalias !138
 
 25:                                               ; preds = %24
@@ -1130,7 +1130,7 @@ define void @_ZN6assets6Assets15load_test_fonts17h6b4ff595f123bb5fE(ptr noalias 
   unreachable
 
 30:                                               ; preds = %22
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.26) #16
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.26) #16
           to label %43 unwind label %20
 
 31:                                               ; preds = %22
@@ -1153,7 +1153,7 @@ define void @_ZN6assets6Assets15load_test_fonts17h6b4ff595f123bb5fE(ptr noalias 
 37:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %35, ptr %6, align 8
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.7f75af4656809b7e57137b5ca6f6cdb4.14, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.7f75af4656809b7e57137b5ca6f6cdb4.13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.27) #16
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.7f75af4656809b7e57137b5ca6f6cdb4.14, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.7f75af4656809b7e57137b5ca6f6cdb4.13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.27) #16
           to label %40 unwind label %38
 
 38:                                               ; preds = %37
@@ -1528,7 +1528,7 @@ define void @_ZN6assets6Assets3get17hd575262a9aea793bE(ptr dead_on_unwind noalia
   br i1 %139, label %141, label %140
 
 140:                                              ; preds = %138, %134
-  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.1240.0.copyload.i, i64 noundef %.sroa.1341.0.copyload.i, i64 noundef %.sroa.4.1.i, i64 noundef %.sroa.1341.0.copyload.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.15) #16
+  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.1240.0.copyload.i, i64 noundef %.sroa.1341.0.copyload.i, i64 noundef %.sroa.4.1.i, i64 noundef %.sroa.1341.0.copyload.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f75af4656809b7e57137b5ca6f6cdb4.15) #16
           to label %.noexc.i unwind label %.loopexit.split-lp.i, !noalias !151
 
 .noexc.i:                                         ; preds = %140

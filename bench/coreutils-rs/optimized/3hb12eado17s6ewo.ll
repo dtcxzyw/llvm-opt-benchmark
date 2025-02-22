@@ -139,7 +139,7 @@ define hidden noundef align 2 dereferenceable_or_null(98) ptr @_ZN12clap_builder
   br i1 %.not.i, label %_ZN12clap_builder7builder3ext14BoxedExtension6as_ref17hab46cc0e72a55c03E.llvm.7061736889813945443.exit, label %17
 
 17:                                               ; preds = %5
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3e99a24f8b6139fd2c89f3f90f4e048f.8.llvm.7061736889813945443) #11, !noalias !22
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3e99a24f8b6139fd2c89f3f90f4e048f.8.llvm.7061736889813945443) #11, !noalias !22
   unreachable
 
 _ZN12clap_builder7builder3ext14BoxedExtension6as_ref17hab46cc0e72a55c03E.llvm.7061736889813945443.exit: ; preds = %5, %1
@@ -166,7 +166,7 @@ define hidden noundef nonnull align 2 dereferenceable(98) ptr @_ZN12clap_builder
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %1
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3e99a24f8b6139fd2c89f3f90f4e048f.8.llvm.7061736889813945443) #11
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3e99a24f8b6139fd2c89f3f90f4e048f.8.llvm.7061736889813945443) #11
   unreachable
 
 14:                                               ; preds = %1

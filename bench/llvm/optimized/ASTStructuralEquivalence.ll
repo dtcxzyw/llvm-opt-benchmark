@@ -5638,7 +5638,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %3, %9
 19:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !29
-  %22 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %21, ptr noundef nonnull %13) #19
+  %22 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %21, ptr noundef nonnull %12) #19
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %16, %19
@@ -6505,8 +6505,8 @@ _ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContext
   br i1 %or.cond, label %426, label %446
 
 426:                                              ; preds = %_ZL37IsRecordContextStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_10RecordDeclES3_.exit
-  %427 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %spec.select.i.i307) #19
-  %428 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %spec.select.i.i308) #19
+  %427 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %1) #19
+  %428 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %2) #19
   %429 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %427, ptr noundef %428)
   br i1 %429, label %430, label %.critedge279
 
@@ -11043,8 +11043,8 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %.not.i.i.i.i.i = icmp eq i64 %3, 0
   %4 = and i64 %.40.val, -8
   %5 = inttoptr i64 %4 to ptr
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %5
-  %.not = icmp eq ptr %.0.i.i.i.i.i, null
+  %.not4 = icmp eq i64 %4, 0
+  %.not = or i1 %.not.i.i.i.i.i, %.not4
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
@@ -11054,12 +11054,12 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %9 = icmp ne i64 %8, 0
   %.not161 = icmp ult i64 %.sroa.0.0.copyload.i.i.i.i.i23, 8
   %.not16 = or i1 %.not161, %9
-  br i1 %.not16, label %10, label %31
+  br i1 %.not16, label %14, label %.thread10
 
-10:                                               ; preds = %6, %2
-  %.0.i.i.i.i.i26 = select i1 %.not.i.i.i.i.i, ptr %5, ptr null
-  %.not17 = icmp eq ptr %.0.i.i.i.i.i26, null
-  br i1 %.not17, label %14, label %11
+10:                                               ; preds = %2
+  %.not176 = icmp ne i64 %4, 0
+  %.not17.not = and i1 %.not176, %.not.i.i.i.i.i
+  br i1 %.not17.not, label %11, label %.thread10
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -11068,48 +11068,45 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %.not.i.i.i.i.i28 = icmp eq i64 %13, 0
   %.not182 = icmp ult i64 %.sroa.0.0.copyload.i.i.i.i.i27, 8
   %.not18 = or i1 %.not182, %.not.i.i.i.i.i28
-  br i1 %.not18, label %14, label %31
+  br i1 %.not18, label %.thread10.thread, label %.thread10
 
-14:                                               ; preds = %11, %10
-  br i1 %.not, label %22, label %15
-
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i.i.i.i.i33 = load i64, ptr %16, align 8
-  %17 = and i64 %.sroa.0.0.copyload.i.i.i.i.i33, 4
-  %.not.i.i.i.i.i34 = icmp eq i64 %17, 0
-  %18 = and i64 %.sroa.0.0.copyload.i.i.i.i.i33, -8
-  %.not203 = icmp eq i64 %18, 0
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i.i.i.i.i33 = load i64, ptr %15, align 8
+  %16 = and i64 %.sroa.0.0.copyload.i.i.i.i.i33, 4
+  %.not.i.i.i.i.i34 = icmp eq i64 %16, 0
+  %17 = and i64 %.sroa.0.0.copyload.i.i.i.i.i33, -8
+  %.not203 = icmp eq i64 %17, 0
   %.not20 = or i1 %.not.i.i.i.i.i34, %.not203
-  br i1 %.not20, label %22, label %19
+  br i1 %.not20, label %21, label %18
 
-19:                                               ; preds = %15
-  %20 = inttoptr i64 %18 to ptr
-  %.sroa.0.0.copyload.i = load i64, ptr %.0.i.i.i.i.i, align 8, !tbaa !82
-  %.sroa.0.0.copyload.i42 = load i64, ptr %20, align 8, !tbaa !82
-  %21 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.i42)
-  br label %31
+18:                                               ; preds = %14
+  %19 = inttoptr i64 %17 to ptr
+  %.sroa.0.0.copyload.i = load i64, ptr %5, align 8, !tbaa !82
+  %.sroa.0.0.copyload.i42 = load i64, ptr %19, align 8, !tbaa !82
+  %20 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.i42)
+  br label %.thread10
 
-22:                                               ; preds = %15, %14
-  br i1 %.not17, label %31, label %23
+21:                                               ; preds = %14
+  br i1 %.not.i.i.i.i.i, label %.thread10.thread, label %.thread10
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i.i.i.i.i45 = load i64, ptr %24, align 8
-  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i.i45, 4
-  %26 = icmp ne i64 %25, 0
-  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i.i45, -8
-  %.not224 = icmp eq i64 %27, 0
-  %.not22 = or i1 %26, %.not224
-  br i1 %.not22, label %31, label %28
+.thread10.thread:                                 ; preds = %11, %21
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i.i.i.i.i45 = load i64, ptr %22, align 8
+  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i.i45, 4
+  %24 = icmp ne i64 %23, 0
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i.i45, -8
+  %.not225 = icmp eq i64 %25, 0
+  %.not22 = or i1 %24, %.not225
+  br i1 %.not22, label %.thread10, label %26
 
-28:                                               ; preds = %23
-  %29 = inttoptr i64 %27 to ptr
-  %30 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %.0.i.i.i.i.i26, ptr noundef nonnull %29)
-  br label %31
+26:                                               ; preds = %.thread10.thread
+  %27 = inttoptr i64 %25 to ptr
+  %28 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %5, ptr noundef nonnull %27)
+  br label %.thread10
 
-31:                                               ; preds = %22, %23, %6, %11, %28, %19
-  %.0 = phi i1 [ %21, %19 ], [ %30, %28 ], [ false, %11 ], [ false, %6 ], [ false, %23 ], [ false, %22 ]
+.thread10:                                        ; preds = %10, %21, %.thread10.thread, %6, %11, %26, %18
+  %.0 = phi i1 [ %20, %18 ], [ %28, %26 ], [ false, %11 ], [ false, %6 ], [ false, %.thread10.thread ], [ false, %21 ], [ false, %10 ]
   ret i1 %.0
 }
 

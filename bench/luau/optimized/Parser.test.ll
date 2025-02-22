@@ -101987,7 +101987,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EmiEEbRKT0_RKT1_.exit.i: ; p
           to label %81 unwind label %91
 
 81:                                               ; preds = %80
-  %82 = invoke noundef zeroext i1 @_ZNK4Luau22AstStatDeclareFunction17isCheckedFunctionEv(ptr noundef nonnull align 8 dereferenceable(152) %..i.i)
+  %82 = invoke noundef zeroext i1 @_ZNK4Luau22AstStatDeclareFunction17isCheckedFunctionEv(ptr noundef nonnull align 8 dereferenceable(152) %74)
           to label %83 unwind label %91
 
 83:                                               ; preds = %81

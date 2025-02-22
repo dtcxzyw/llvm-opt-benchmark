@@ -41,10 +41,10 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %10 = icmp eq ptr %3, null
   %11 = select i1 %6, ptr %1, ptr %0
   %12 = zext i32 %2 to i64
-  br i1 %6, label %.split.us, label %.split
+  br i1 %10, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %9
-  br i1 %10, label %.split.us.split.us, label %.split.us.split
+  br i1 %6, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %31
   %13 = phi i64 [ %33, %31 ], [ 0, %.split.us ]
@@ -69,75 +69,75 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %30 = add i32 %29, %14
   br label %31
 
-31:                                               ; preds = %.split.us.split.us, %24
+31:                                               ; preds = %24, %.split.us.split.us
   %32 = phi i32 [ %30, %24 ], [ %14, %.split.us.split.us ]
   %33 = add nuw nsw i64 %13, 1
   %34 = icmp eq i64 %33, %12
   br i1 %34, label %.split4.us, label %.split.us.split.us, !llvm.loop !5
 
-.split.us.split:                                  ; preds = %.split.us, %65
-  %35 = phi i64 [ %67, %65 ], [ 0, %.split.us ]
-  %36 = phi i32 [ %66, %65 ], [ 0, %.split.us ]
-  %37 = getelementptr [32 x i8], ptr %3, i64 %35
-  %38 = lshr i64 %35, 5
-  %39 = and i64 %38, 134217727
-  %40 = getelementptr i32, ptr %11, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = trunc i64 %35 to i32
-  %43 = and i32 %42, 31
-  %44 = shl nuw i32 1, %43
-  %45 = and i32 %44, %41
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %65, label %47
-
-47:                                               ; preds = %.split.us.split
-  %48 = icmp eq ptr %37, null
-  br i1 %48, label %54, label %49
-
-49:                                               ; preds = %47
-  %50 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %37, i64 noundef 32)
-  %51 = trunc i64 %50 to i32
-  %52 = and i32 %51, -4
-  %53 = add i32 %52, 16
-  br label %54
-
-54:                                               ; preds = %49, %47
-  %55 = phi i32 [ %53, %49 ], [ 8, %47 ]
-  %56 = getelementptr i32, ptr %0, i64 %39
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, %44
-  %59 = icmp eq i32 %58, 0
-  %60 = add i32 %55, 4
-  %61 = select i1 %59, i32 %55, i32 %60
-  %62 = add i32 %61, 7
-  %63 = and i32 %62, -4
-  %64 = add i32 %63, %36
-  br label %65
-
-65:                                               ; preds = %54, %.split.us.split
-  %66 = phi i32 [ %64, %54 ], [ %36, %.split.us.split ]
-  %67 = add nuw nsw i64 %35, 1
-  %68 = icmp eq i64 %67, %12
-  br i1 %68, label %.split4.us, label %.split.us.split, !llvm.loop !5
+.split.us.split:                                  ; preds = %.split.us, %.split.us.split
+  %35 = phi i64 [ %47, %.split.us.split ], [ 0, %.split.us ]
+  %36 = phi i32 [ %spec.select, %.split.us.split ], [ 0, %.split.us ]
+  %37 = lshr i64 %35, 5
+  %38 = and i64 %37, 134217727
+  %39 = getelementptr i32, ptr %11, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = trunc i64 %35 to i32
+  %42 = and i32 %41, 31
+  %43 = shl nuw i32 1, %42
+  %44 = and i32 %43, %40
+  %45 = icmp eq i32 %44, 0
+  %46 = add i32 %36, 12
+  %spec.select = select i1 %45, i32 %36, i32 %46
+  %47 = add nuw nsw i64 %35, 1
+  %48 = icmp eq i64 %47, %12
+  br i1 %48, label %.split4.us, label %.split.us.split, !llvm.loop !5
 
 .split:                                           ; preds = %9
-  br i1 %10, label %.split.split.us, label %.split.split
+  br i1 %6, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %.split.split.us
-  %69 = phi i64 [ %81, %.split.split.us ], [ 0, %.split ]
-  %70 = phi i32 [ %spec.select, %.split.split.us ], [ 0, %.split ]
-  %71 = lshr i64 %69, 5
-  %72 = and i64 %71, 134217727
-  %73 = getelementptr i32, ptr %11, i64 %72
-  %74 = load i32, ptr %73, align 4
-  %75 = trunc i64 %69 to i32
-  %76 = and i32 %75, 31
-  %77 = shl nuw i32 1, %76
-  %78 = and i32 %77, %74
-  %79 = icmp eq i32 %78, 0
-  %80 = add i32 %70, 12
-  %spec.select = select i1 %79, i32 %70, i32 %80
-  %81 = add nuw nsw i64 %69, 1
+.split.split.us:                                  ; preds = %.split, %79
+  %49 = phi i64 [ %81, %79 ], [ 0, %.split ]
+  %50 = phi i32 [ %80, %79 ], [ 0, %.split ]
+  %51 = getelementptr [32 x i8], ptr %3, i64 %49
+  %52 = lshr i64 %49, 5
+  %53 = and i64 %52, 134217727
+  %54 = getelementptr i32, ptr %11, i64 %53
+  %55 = load i32, ptr %54, align 4
+  %56 = trunc i64 %49 to i32
+  %57 = and i32 %56, 31
+  %58 = shl nuw i32 1, %57
+  %59 = and i32 %58, %55
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %79, label %61
+
+61:                                               ; preds = %.split.split.us
+  %62 = icmp eq ptr %51, null
+  br i1 %62, label %68, label %63
+
+63:                                               ; preds = %61
+  %64 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %51, i64 noundef 32)
+  %65 = trunc i64 %64 to i32
+  %66 = and i32 %65, -4
+  %67 = add i32 %66, 16
+  br label %68
+
+68:                                               ; preds = %63, %61
+  %69 = phi i32 [ %67, %63 ], [ 8, %61 ]
+  %70 = getelementptr i32, ptr %0, i64 %53
+  %71 = load i32, ptr %70, align 4
+  %72 = and i32 %71, %58
+  %73 = icmp eq i32 %72, 0
+  %74 = add i32 %69, 4
+  %75 = select i1 %73, i32 %69, i32 %74
+  %76 = add i32 %75, 7
+  %77 = and i32 %76, -4
+  %78 = add i32 %77, %50
+  br label %79
+
+79:                                               ; preds = %68, %.split.split.us
+  %80 = phi i32 [ %78, %68 ], [ %50, %.split.split.us ]
+  %81 = add nuw nsw i64 %49, 1
   %82 = icmp eq i64 %81, %12
   br i1 %82, label %.split4.us, label %.split.split.us, !llvm.loop !5
 
@@ -189,8 +189,8 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %117 = icmp eq i64 %116, %12
   br i1 %117, label %.split4.us, label %.split.split, !llvm.loop !5
 
-.split4.us:                                       ; preds = %114, %.split.split.us, %65, %31
-  %.us-phi = phi i32 [ %32, %31 ], [ %66, %65 ], [ %spec.select, %.split.split.us ], [ %115, %114 ]
+.split4.us:                                       ; preds = %114, %79, %.split.us.split, %31
+  %.us-phi = phi i32 [ %32, %31 ], [ %spec.select, %.split.us.split ], [ %80, %79 ], [ %115, %114 ]
   %118 = add i32 %.us-phi, 7
   %119 = and i32 %118, -4
   br label %120
@@ -321,43 +321,43 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
 78:                                               ; preds = %133, %74
   %79 = phi i64 [ 0, %74 ], [ %134, %133 ]
   %80 = getelementptr [32 x i8], ptr %5, i64 %79
-  %81 = select i1 %75, ptr null, ptr %80
-  %82 = lshr i64 %79, 5
-  %83 = and i64 %82, 134217727
-  %84 = getelementptr i32, ptr %76, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %86 = trunc i64 %79 to i32
-  %87 = and i32 %86, 31
-  %88 = shl nuw i32 1, %87
-  %89 = and i32 %88, %85
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %133, label %91
+  %81 = lshr i64 %79, 5
+  %82 = and i64 %81, 134217727
+  %83 = getelementptr i32, ptr %76, i64 %82
+  %84 = load i32, ptr %83, align 4
+  %85 = trunc i64 %79 to i32
+  %86 = and i32 %85, 31
+  %87 = shl nuw i32 1, %86
+  %88 = and i32 %87, %84
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %133, label %90
 
-91:                                               ; preds = %78
-  %92 = load ptr, ptr %11, align 8
-  %93 = load i32, ptr %13, align 8
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr i8, ptr %92, i64 %94
-  %96 = call i32 @nla_put(ptr noundef %0, i32 noundef 32769, i32 noundef 0, ptr noundef null) #8
-  %97 = icmp slt i32 %96, 0
-  %98 = icmp eq ptr %95, null
-  %99 = select i1 %97, i1 true, i1 %98
-  br i1 %99, label %.thread12, label %100
+90:                                               ; preds = %78
+  %91 = load ptr, ptr %11, align 8
+  %92 = load i32, ptr %13, align 8
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr i8, ptr %91, i64 %93
+  %95 = call i32 @nla_put(ptr noundef %0, i32 noundef 32769, i32 noundef 0, ptr noundef null) #8
+  %96 = icmp slt i32 %95, 0
+  %97 = icmp eq ptr %94, null
+  %98 = select i1 %96, i1 true, i1 %97
+  br i1 %98, label %.thread12, label %99
 
-100:                                              ; preds = %91
+99:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  store i32 %86, ptr %8, align 4
-  %101 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %8) #8
+  store i32 %85, ptr %8, align 4
+  %100 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.thread12
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %.thread12
 
-103:                                              ; preds = %100
-  %104 = icmp eq ptr %81, null
+102:                                              ; preds = %99
+  %103 = icmp eq ptr %80, null
+  %104 = or i1 %75, %103
   br i1 %104, label %115, label %105
 
-105:                                              ; preds = %103
-  %106 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %81, i64 noundef 32)
+105:                                              ; preds = %102
+  %106 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %80, i64 noundef 32)
   %107 = trunc i64 %106 to i32
   %108 = add i32 %107, 1
   %109 = call ptr @nla_reserve(ptr noundef %0, i32 noundef 2, i32 noundef %108) #8
@@ -367,18 +367,18 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
 111:                                              ; preds = %105
   %112 = getelementptr i8, ptr %109, i64 4
   %113 = and i64 %106, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr nonnull align 1 %81, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr nonnull align 1 %80, i64 %113, i1 false)
   %114 = getelementptr i8, ptr %112, i64 %113
   store i8 0, ptr %114, align 1
   br label %115
 
-115:                                              ; preds = %111, %103
+115:                                              ; preds = %111, %102
   br i1 %22, label %124, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr i32, ptr %2, i64 %83
+  %117 = getelementptr i32, ptr %2, i64 %82
   %118 = load i32, ptr %117, align 4
-  %119 = and i32 %118, %88
+  %119 = and i32 %118, %87
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %124, label %121
 
@@ -393,10 +393,10 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   %127 = zext i32 %126 to i64
   %128 = getelementptr i8, ptr %125, i64 %127
   %129 = ptrtoint ptr %128 to i64
-  %130 = ptrtoint ptr %95 to i64
+  %130 = ptrtoint ptr %94 to i64
   %131 = sub i64 %129, %130
   %132 = trunc i64 %131 to i16
-  store i16 %132, ptr %95, align 2
+  store i16 %132, ptr %94, align 2
   br label %133
 
 133:                                              ; preds = %78, %124
@@ -428,7 +428,7 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   store i16 %152, ptr %16, align 2
   br label %163
 
-.thread12:                                        ; preds = %105, %121, %100, %91, %63, %50, %30, %26, %23
+.thread12:                                        ; preds = %105, %121, %99, %90, %63, %50, %30, %26, %23
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %154 = load ptr, ptr %153, align 8
   %155 = icmp ugt ptr %154, %16
@@ -1518,23 +1518,23 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nounde
   br label %56
 
 36:                                               ; preds = %28
-  %37 = icmp eq ptr %5, null
+  %37 = icmp ne ptr %5, null
   %38 = sext i32 %30 to i64
   %39 = getelementptr [32 x i8], ptr %5, i64 %38
-  %40 = select i1 %37, ptr null, ptr %39
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %42 = load ptr, ptr %41, align 16
-  %43 = icmp ne ptr %42, null
-  %44 = icmp ne ptr %40, null
-  %45 = and i1 %44, %43
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %41 = load ptr, ptr %40, align 16
+  %42 = icmp ne ptr %41, null
+  %43 = icmp ne ptr %39, null
+  %44 = and i1 %37, %43
+  %45 = and i1 %44, %42
   br i1 %45, label %46, label %96
 
 46:                                               ; preds = %36
-  %47 = getelementptr i8, ptr %42, i64 4
-  %48 = load i16, ptr %42, align 2
+  %47 = getelementptr i8, ptr %41, i64 4
+  %48 = load i16, ptr %41, align 2
   %49 = add i16 %48, -4
   %50 = zext i16 %49 to i64
-  %51 = call i32 @strncmp(ptr noundef %47, ptr noundef nonnull %40, i64 noundef %50) #8
+  %51 = call i32 @strncmp(ptr noundef %47, ptr noundef nonnull %39, i64 noundef %50) #8
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %96, label %53
 
@@ -1652,10 +1652,10 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %10 = icmp eq ptr %3, null
   %11 = select i1 %6, ptr %1, ptr %0
   %12 = zext i32 %2 to i64
-  br i1 %6, label %.split.us, label %.split
+  br i1 %10, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %9
-  br i1 %10, label %.split.us.split.us, label %.split.us.split
+  br i1 %6, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %31
   %13 = phi i64 [ %33, %31 ], [ 0, %.split.us ]
@@ -1680,75 +1680,75 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %30 = add i32 %29, %14
   br label %31
 
-31:                                               ; preds = %.split.us.split.us, %24
+31:                                               ; preds = %24, %.split.us.split.us
   %32 = phi i32 [ %30, %24 ], [ %14, %.split.us.split.us ]
   %33 = add nuw nsw i64 %13, 1
   %34 = icmp eq i64 %33, %12
   br i1 %34, label %.split4.us, label %.split.us.split.us, !llvm.loop !5
 
-.split.us.split:                                  ; preds = %.split.us, %65
-  %35 = phi i64 [ %67, %65 ], [ 0, %.split.us ]
-  %36 = phi i32 [ %66, %65 ], [ 0, %.split.us ]
-  %37 = getelementptr [32 x i8], ptr %3, i64 %35
-  %38 = lshr i64 %35, 5
-  %39 = and i64 %38, 134217727
-  %40 = getelementptr i32, ptr %11, i64 %39
-  %41 = load i32, ptr %40, align 4
-  %42 = trunc i64 %35 to i32
-  %43 = and i32 %42, 31
-  %44 = shl nuw i32 1, %43
-  %45 = and i32 %44, %41
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %65, label %47
-
-47:                                               ; preds = %.split.us.split
-  %48 = icmp eq ptr %37, null
-  br i1 %48, label %54, label %49
-
-49:                                               ; preds = %47
-  %50 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %37, i64 noundef 32)
-  %51 = trunc i64 %50 to i32
-  %52 = and i32 %51, -4
-  %53 = add i32 %52, 16
-  br label %54
-
-54:                                               ; preds = %49, %47
-  %55 = phi i32 [ %53, %49 ], [ 8, %47 ]
-  %56 = getelementptr i32, ptr %0, i64 %39
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, %44
-  %59 = icmp eq i32 %58, 0
-  %60 = add i32 %55, 4
-  %61 = select i1 %59, i32 %55, i32 %60
-  %62 = add i32 %61, 7
-  %63 = and i32 %62, -4
-  %64 = add i32 %63, %36
-  br label %65
-
-65:                                               ; preds = %54, %.split.us.split
-  %66 = phi i32 [ %64, %54 ], [ %36, %.split.us.split ]
-  %67 = add nuw nsw i64 %35, 1
-  %68 = icmp eq i64 %67, %12
-  br i1 %68, label %.split4.us, label %.split.us.split, !llvm.loop !5
+.split.us.split:                                  ; preds = %.split.us, %.split.us.split
+  %35 = phi i64 [ %47, %.split.us.split ], [ 0, %.split.us ]
+  %36 = phi i32 [ %spec.select, %.split.us.split ], [ 0, %.split.us ]
+  %37 = lshr i64 %35, 5
+  %38 = and i64 %37, 134217727
+  %39 = getelementptr i32, ptr %11, i64 %38
+  %40 = load i32, ptr %39, align 4
+  %41 = trunc i64 %35 to i32
+  %42 = and i32 %41, 31
+  %43 = shl nuw i32 1, %42
+  %44 = and i32 %43, %40
+  %45 = icmp eq i32 %44, 0
+  %46 = add i32 %36, 12
+  %spec.select = select i1 %45, i32 %36, i32 %46
+  %47 = add nuw nsw i64 %35, 1
+  %48 = icmp eq i64 %47, %12
+  br i1 %48, label %.split4.us, label %.split.us.split, !llvm.loop !5
 
 .split:                                           ; preds = %9
-  br i1 %10, label %.split.split.us, label %.split.split
+  br i1 %6, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %.split.split.us
-  %69 = phi i64 [ %81, %.split.split.us ], [ 0, %.split ]
-  %70 = phi i32 [ %spec.select, %.split.split.us ], [ 0, %.split ]
-  %71 = lshr i64 %69, 5
-  %72 = and i64 %71, 134217727
-  %73 = getelementptr i32, ptr %11, i64 %72
-  %74 = load i32, ptr %73, align 4
-  %75 = trunc i64 %69 to i32
-  %76 = and i32 %75, 31
-  %77 = shl nuw i32 1, %76
-  %78 = and i32 %77, %74
-  %79 = icmp eq i32 %78, 0
-  %80 = add i32 %70, 12
-  %spec.select = select i1 %79, i32 %70, i32 %80
-  %81 = add nuw nsw i64 %69, 1
+.split.split.us:                                  ; preds = %.split, %79
+  %49 = phi i64 [ %81, %79 ], [ 0, %.split ]
+  %50 = phi i32 [ %80, %79 ], [ 0, %.split ]
+  %51 = getelementptr [32 x i8], ptr %3, i64 %49
+  %52 = lshr i64 %49, 5
+  %53 = and i64 %52, 134217727
+  %54 = getelementptr i32, ptr %11, i64 %53
+  %55 = load i32, ptr %54, align 4
+  %56 = trunc i64 %49 to i32
+  %57 = and i32 %56, 31
+  %58 = shl nuw i32 1, %57
+  %59 = and i32 %58, %55
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %79, label %61
+
+61:                                               ; preds = %.split.split.us
+  %62 = icmp eq ptr %51, null
+  br i1 %62, label %68, label %63
+
+63:                                               ; preds = %61
+  %64 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %51, i64 noundef 32)
+  %65 = trunc i64 %64 to i32
+  %66 = and i32 %65, -4
+  %67 = add i32 %66, 16
+  br label %68
+
+68:                                               ; preds = %63, %61
+  %69 = phi i32 [ %67, %63 ], [ 8, %61 ]
+  %70 = getelementptr i32, ptr %0, i64 %53
+  %71 = load i32, ptr %70, align 4
+  %72 = and i32 %71, %58
+  %73 = icmp eq i32 %72, 0
+  %74 = add i32 %69, 4
+  %75 = select i1 %73, i32 %69, i32 %74
+  %76 = add i32 %75, 7
+  %77 = and i32 %76, -4
+  %78 = add i32 %77, %50
+  br label %79
+
+79:                                               ; preds = %68, %.split.split.us
+  %80 = phi i32 [ %78, %68 ], [ %50, %.split.split.us ]
+  %81 = add nuw nsw i64 %49, 1
   %82 = icmp eq i64 %81, %12
   br i1 %82, label %.split4.us, label %.split.split.us, !llvm.loop !5
 
@@ -1800,8 +1800,8 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %117 = icmp eq i64 %116, %12
   br i1 %117, label %.split4.us, label %.split.split, !llvm.loop !5
 
-.split4.us:                                       ; preds = %114, %.split.split.us, %65, %31
-  %.us-phi = phi i32 [ %32, %31 ], [ %66, %65 ], [ %spec.select, %.split.split.us ], [ %115, %114 ]
+.split4.us:                                       ; preds = %114, %79, %.split.us.split, %31
+  %.us-phi = phi i32 [ %32, %31 ], [ %spec.select, %.split.us.split ], [ %80, %79 ], [ %115, %114 ]
   %118 = add i32 %.us-phi, 7
   %119 = and i32 %118, -4
   br label %120

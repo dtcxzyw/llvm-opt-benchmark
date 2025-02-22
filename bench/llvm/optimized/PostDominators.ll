@@ -448,15 +448,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17PostDominatorTree9dominatesEPKNS
   br label %18
 
 18:                                               ; preds = %18, %16
-  %.sroa.0.0.in = phi ptr [ %17, %16 ], [ %22, %18 ]
+  %.sroa.0.0.in = phi ptr [ %17, %16 ], [ %20, %18 ]
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !tbaa !68
-  %19 = icmp eq ptr %.sroa.0.0, null
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 -24
-  %21 = select i1 %19, ptr null, ptr %20
-  %.not9 = icmp eq ptr %21, %1
-  %.not10 = icmp eq ptr %21, %2
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 -24
+  %.not9 = icmp eq ptr %19, %1
+  %.not10 = icmp eq ptr %19, %2
   %or.cond = or i1 %.not9, %.not10
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   br i1 %or.cond, label %.critedge, label %18, !llvm.loop !71
 
 .critedge:                                        ; preds = %18, %13, %8

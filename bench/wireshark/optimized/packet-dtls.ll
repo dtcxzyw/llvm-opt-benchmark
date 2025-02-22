@@ -2489,19 +2489,19 @@ select.unfold.i.i.i:                              ; preds = %181, %180, %178, %1
   ]
 
 212:                                              ; preds = %211
-  call void @tls13_change_key(ptr noundef nonnull %spec.select, ptr noundef nonnull %209, i1 noundef zeroext %51, i32 noundef 0)
+  call void @tls13_change_key(ptr noundef nonnull %.1, ptr noundef nonnull %209, i1 noundef zeroext %51, i32 noundef 0)
   br label %216
 
 213:                                              ; preds = %211
-  call void @tls13_change_key(ptr noundef nonnull %spec.select, ptr noundef nonnull %209, i1 noundef zeroext %51, i32 noundef 1)
+  call void @tls13_change_key(ptr noundef nonnull %.1, ptr noundef nonnull %209, i1 noundef zeroext %51, i32 noundef 1)
   br label %216
 
 214:                                              ; preds = %211
-  call void @tls13_change_key(ptr noundef nonnull %spec.select, ptr noundef nonnull %209, i1 noundef zeroext %51, i32 noundef 2)
+  call void @tls13_change_key(ptr noundef nonnull %.1, ptr noundef nonnull %209, i1 noundef zeroext %51, i32 noundef 2)
   br label %216
 
 215:                                              ; preds = %211
-  call void @tls13_key_update(ptr noundef nonnull %spec.select, i1 noundef zeroext %51)
+  call void @tls13_key_update(ptr noundef nonnull %.1, i1 noundef zeroext %51)
   br label %216
 
 216:                                              ; preds = %215, %214, %213, %212
@@ -2542,7 +2542,7 @@ dtls13_setup_keys.exit.i.i:                       ; preds = %197, %195
   %228 = select i1 %.not.i167.i.i, ptr @.str.948, ptr @.str.949
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.947, ptr noundef nonnull %228)
   %229 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
-  %230 = call ptr @tls13_load_secret(ptr noundef nonnull %spec.select, ptr noundef %229, i1 noundef zeroext false, i32 noundef 0)
+  %230 = call ptr @tls13_load_secret(ptr noundef nonnull %.1, ptr noundef %229, i1 noundef zeroext false, i32 noundef 0)
   %.not34.i.i.i = icmp eq ptr %230, null
   br i1 %.not34.i.i.i, label %232, label %.preheader.i.i.i
 
@@ -2563,11 +2563,11 @@ dtls13_setup_keys.exit.i.i:                       ; preds = %197, %195
   store i32 %236, ptr %67, align 8
   %237 = call ptr @ssl_find_cipher(i32 noundef %236)
   store ptr %237, ptr %68, align 8
-  %238 = call zeroext i1 @tls13_generate_keys(ptr noundef nonnull %spec.select, ptr noundef nonnull %230, i1 noundef zeroext false)
+  %238 = call zeroext i1 @tls13_generate_keys(ptr noundef nonnull %.1, ptr noundef nonnull %230, i1 noundef zeroext false)
   br i1 %238, label %239, label %243
 
 239:                                              ; preds = %233
-  %240 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext false, ptr noundef nonnull %spec.select, i32 noundef %231, i8 noundef zeroext %9, i16 noundef zeroext %.0147.i.i, i8 noundef zeroext range(i8 1, 3) %.0149.i.i)
+  %240 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext false, ptr noundef nonnull %.1, i32 noundef %231, i8 noundef zeroext %9, i16 noundef zeroext %.0147.i.i, i8 noundef zeroext range(i8 1, 3) %.0149.i.i)
   br i1 %240, label %.thread38.i.i.i, label %243
 
 .thread38.i.i.i:                                  ; preds = %239
@@ -2587,7 +2587,7 @@ dtls13_setup_keys.exit.i.i:                       ; preds = %197, %195
   br label %dtls13_decrypt_early_data.exit.i.i
 
 dtls13_setup_keys.exit.thread.i.i:                ; preds = %dtls13_setup_keys.exit.i.i, %222, %220, %dtls13_setup_keys.exit.thread178.i.i, %.critedge.i.i.i, %207, %201
-  %245 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext %51, ptr noundef %spec.select, i32 noundef %.0150.i.i, i8 noundef zeroext %9, i16 noundef zeroext %.0147.i.i, i8 noundef zeroext %.0149.i.i)
+  %245 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext %51, ptr noundef %.1, i32 noundef %.0150.i.i, i8 noundef zeroext %9, i16 noundef zeroext %.0147.i.i, i8 noundef zeroext %.0149.i.i)
   br label %dtls13_decrypt_early_data.exit.i.i
 
 dtls13_decrypt_early_data.exit.i.i:               ; preds = %dtls13_setup_keys.exit.thread.i.i, %244, %.thread38.i.i.i, %232, %224, %194, %190, %187, %172, %proto_item_set_generated.exit.i.i
@@ -2883,7 +2883,7 @@ dissect_dtls13_record.exit.i:                     ; preds = %295, %294, %292, %2
 403:                                              ; preds = %401
   %404 = load i16, ptr %6, align 2
   %405 = trunc nuw i32 %.0257.i to i16
-  %406 = call fastcc zeroext i1 @decrypt_dtls_record(ptr noundef %0, ptr noundef %1, i32 noundef %370, ptr noundef %spec.select, i8 noundef zeroext %86, i16 noundef zeroext %404, i16 noundef zeroext %405, i8 noundef zeroext %9, ptr noundef %.0256.i, i8 noundef zeroext %.0.i.i)
+  %406 = call fastcc zeroext i1 @decrypt_dtls_record(ptr noundef %0, ptr noundef %1, i32 noundef %370, ptr noundef %.1, i8 noundef zeroext %86, i16 noundef zeroext %404, i16 noundef zeroext %405, i8 noundef zeroext %9, ptr noundef %.0256.i, i8 noundef zeroext %.0.i.i)
   br label %407
 
 407:                                              ; preds = %403, %401, %396
@@ -2959,8 +2959,8 @@ proto_item_set_generated.exit.i:                  ; preds = %423, %420, %413, %4
 
 440:                                              ; preds = %438
   %441 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
-  call void @ssl_finalize_decryption(ptr noundef nonnull %spec.select, ptr noundef %441)
-  call void @ssl_change_cipher(ptr noundef nonnull %spec.select, i1 noundef zeroext %51)
+  call void @ssl_finalize_decryption(ptr noundef nonnull %.1, ptr noundef %441)
+  call void @ssl_change_cipher(ptr noundef nonnull %.1, i1 noundef zeroext %51)
   br label %442
 
 442:                                              ; preds = %440, %438

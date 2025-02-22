@@ -94,7 +94,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %bf.load.i.i.i.i = load i32, ptr %cond.i.i.i.i.i, align 4
+  %bf.load.i.i.i.i = load i32, ptr %1, align 4
   %3 = and i32 %bf.load.i.i.i.i, 16777216
   %cmp.i.i = icmp eq i32 %3, 0
   %cmp.i.i.i = icmp ugt i32 %bf.load.i.i.i.i, 150994943

@@ -4658,19 +4658,19 @@ _ZN4Luau8TypePackD2Ev.exit:                       ; preds = %89, %91
   %.not.i.i53 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %.not.i.i53)
   %98 = load i32, ptr %97, align 8
-  %99 = icmp eq i32 %98, 4
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %101 = select i1 %99, ptr %100, ptr null
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %18, align 8
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %.046.lcssa
-  %105 = load ptr, ptr %19, align 8
-  invoke void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEvNS8_IPS3_S5_EET_SE_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr %102, ptr %104, ptr %105)
-          to label %106 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %18, align 8
+  %102 = getelementptr inbounds ptr, ptr %101, i64 %.046.lcssa
+  %103 = load ptr, ptr %19, align 8
+  invoke void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEvNS8_IPS3_S5_EET_SE_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr %100, ptr %102, ptr %103)
+          to label %104 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-106:                                              ; preds = %.noexc54
+104:                                              ; preds = %.noexc54
+  %105 = icmp eq i32 %98, 4
+  %106 = select i1 %105, ptr %99, ptr null
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %108 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %88, ptr %109, align 8
@@ -5197,7 +5197,7 @@ _ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PKNS_11TypePackVarE.exit._crit_edg
   store i8 1, ptr %9, align 8
   br label %.loopexit176
 
-.loopexit176:                                     ; preds = %119, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit._crit_edge, %_ZN4Luau8TypePackD2Ev.exit95, %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PKNS_11TypePackVarE.exit._crit_edge, %317, %106, %83
+.loopexit176:                                     ; preds = %119, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit._crit_edge, %_ZN4Luau8TypePackD2Ev.exit95, %_ZN4Luau10getMutableINS_9Unifiable5ErrorEEEPT_PKNS_11TypePackVarE.exit._crit_edge, %317, %104, %83
   ret void
 
 _ZN4Luau8TypePackD2Ev.exit57:                     ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %197, %195, %.thread154, %113, %110

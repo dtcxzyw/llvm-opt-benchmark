@@ -374,7 +374,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hb5f6f30a4d6bd5f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !135
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.f639c54e5f2f7f5fb121cd2c3bbd5364.22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !130
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.f639c54e5f2f7f5fb121cd2c3bbd5364.22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !130
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !133
   ret i1 %3
 }
@@ -2797,7 +2797,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
 .invoke:                                          ; preds = %.lr.ph.i.i, %73
   %145 = phi i64 [ %74, %73 ], [ %13, %.lr.ph.i.i ]
   %146 = phi ptr [ @anon.f639c54e5f2f7f5fb121cd2c3bbd5364.28, %73 ], [ @anon.f639c54e5f2f7f5fb121cd2c3bbd5364.27, %.lr.ph.i.i ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val.i.i.i, i64 noundef %145, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %146) #28
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val.i.i.i, i64 noundef %145, ptr noalias noundef readonly align 8 dereferenceable(24) %146) #28
           to label %.cont unwind label %153
 
 .cont:                                            ; preds = %.invoke
@@ -3154,7 +3154,7 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h5ac2ae42596d
 .invoke:                                          ; preds = %.lr.ph.i.i, %73
   %145 = phi i64 [ %74, %73 ], [ %13, %.lr.ph.i.i ]
   %146 = phi ptr [ @anon.f639c54e5f2f7f5fb121cd2c3bbd5364.28, %73 ], [ @anon.f639c54e5f2f7f5fb121cd2c3bbd5364.27, %.lr.ph.i.i ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val.i.i.i, i64 noundef %145, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %146) #28
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val.i.i.i, i64 noundef %145, ptr noalias noundef readonly align 8 dereferenceable(24) %146) #28
           to label %.cont unwind label %153
 
 .cont:                                            ; preds = %.invoke

@@ -7291,29 +7291,28 @@ _ZN4llvm9DWARFUnit10getUnitDIEEb.exit:            ; preds = %_ZN4llvm9DWARFUnit1
   %55 = load ptr, ptr %54, align 8, !tbaa !130
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %57 = load ptr, ptr %56, align 8, !tbaa !130
-  %58 = icmp eq ptr %55, %57
-  %spec.select3.i = select i1 %58, ptr null, ptr %55
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 408
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #24
-  %60 = load i64, ptr %spec.select3.i, align 8, !tbaa !321
-  store i64 %60, ptr %9, align 8, !tbaa !10
+  %59 = load i64, ptr %55, align 8, !tbaa !321
+  store i64 %59, ptr %9, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #24, !noalias !560
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24, !noalias !560
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorImS3_S5_S7_Lb0EEEbEOmDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.445") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !560
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %62 = load i8, ptr %61, align 8, !tbaa !18, !range !127, !noalias !560, !noundef !128
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorImS3_S5_S7_Lb0EEEbEOmDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.445") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !560
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %61 = load i8, ptr %60, align 8, !tbaa !18, !range !127, !noalias !560, !noundef !128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24, !noalias !560
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #24, !noalias !560
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %65
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %65
 
-64:                                               ; preds = %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
-  %spec.select.i = select i1 %58, ptr null, ptr %0
-  call void @_ZN4llvm9DWARFUnit20updateVariableDieMapENS_8DWARFDieE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr %spec.select.i, ptr nonnull %spec.select3.i)
+63:                                               ; preds = %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
+  %64 = icmp eq ptr %55, %57
+  %spec.select.i = select i1 %64, ptr null, ptr %0
+  call void @_ZN4llvm9DWARFUnit20updateVariableDieMapENS_8DWARFDieE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr %spec.select.i, ptr nonnull %55)
   br label %65
 
-65:                                               ; preds = %64, %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
+65:                                               ; preds = %63, %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %67 = load ptr, ptr %66, align 8, !tbaa !122
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 368

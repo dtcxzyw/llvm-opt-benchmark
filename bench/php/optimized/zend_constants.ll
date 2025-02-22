@@ -1804,7 +1804,7 @@ zend_hash_str_find_ptr.exit:                      ; preds = %63, %70
   br i1 %.not109, label %99, label %87
 
 87:                                               ; preds = %85
-  %88 = tail call ptr @zend_hash_find(ptr noundef %86, ptr noundef nonnull %.099) #11
+  %88 = tail call ptr @zend_hash_find(ptr noundef %86, ptr noundef nonnull %0) #11
   %.not.i.i120 = icmp eq ptr %88, null
   br i1 %.not.i.i120, label %89, label %zend_get_constant_str_impl.exit.thread.sink.split
 

@@ -5231,7 +5231,7 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %22, %17,
   br i1 %switch.i.i, label %39, label %32
 
 32:                                               ; preds = %29
-  %.sroa.01.0.copyload.i.i = load i32, ptr %spec.select.i, align 8, !tbaa !223
+  %.sroa.01.0.copyload.i.i = load i32, ptr %2, align 8, !tbaa !223
   %33 = icmp slt i32 %.sroa.01.0.copyload.i.i, 0
   br i1 %33, label %34, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 

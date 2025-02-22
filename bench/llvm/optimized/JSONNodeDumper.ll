@@ -29919,13 +29919,13 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
   br label %125
 
 61:                                               ; preds = %47
-  %.0.i.i.i17.i.i = select i1 %49, ptr %51, ptr null
-  %62 = icmp ne ptr %.0.i.i.i17.i.i, null
+  %62 = icmp ne i64 %50, 0
+  call void @llvm.assume(i1 %49)
   call void @llvm.assume(i1 %62)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #23
-  call void @_ZN5clang14JSONNodeDumper27createPointerRepresentationB5cxx11EPKv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull align 8 poison, ptr noundef nonnull %.0.i.i.i17.i.i)
+  call void @_ZN5clang14JSONNodeDumper27createPointerRepresentationB5cxx11EPKv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr nonnull align 8 poison, ptr noundef nonnull %51)
   store i16 6, ptr %7, align 8, !tbaa !3
   %63 = load ptr, ptr %8, align 8, !tbaa !9
   %64 = load i64, ptr %33, align 8, !tbaa !15
@@ -30039,7 +30039,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #23
-  %102 = call noundef ptr @_ZNK5clang4Stmt16getStmtClassNameEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i17.i.i) #23
+  %102 = call noundef ptr @_ZNK5clang4Stmt16getStmtClassNameEv(ptr noundef nonnull align 8 dereferenceable(8) %51) #23
   %.not.i.i18.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i18.i.i, label %_ZN4llvm4json5ValueC2EPKc.exit.i.i, label %103
 

@@ -4661,66 +4661,62 @@ _ZN7QStringaSEPKc.exit29:                         ; preds = %_ZN7QStringaSEPKc.e
   %141 = load ptr, ptr %29, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 56
   %143 = load ptr, ptr %142, align 8
-  %144 = icmp eq ptr %143, null
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %spec.select.i = select i1 %144, ptr null, ptr %145
-  %146 = call noundef i32 @_ZNK12MeshDocument10meshNumberEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i)
-  %147 = zext i32 %146 to i64
-  call void @_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %140, i64 noundef %147)
-  %148 = load ptr, ptr %29, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 56
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp eq ptr %150, null
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 48
-  %spec.select.i30 = select i1 %151, ptr null, ptr %152
-  %153 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i30)
-  %154 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %153)
-  %155 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %153)
-  %.not40 = icmp eq ptr %154, %155
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
+  %145 = call noundef i32 @_ZNK12MeshDocument10meshNumberEv(ptr noundef nonnull align 8 dereferenceable(192) %144)
+  %146 = zext i32 %145 to i64
+  call void @_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %140, i64 noundef %146)
+  %147 = load ptr, ptr %29, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 48
+  %151 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %150)
+  %152 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %151)
+  %153 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %151)
+  %.not40 = icmp eq ptr %152, %153
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7QStringaSEPKc.exit29, %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit ], [ 0, %_ZN7QStringaSEPKc.exit29 ]
-  %.sroa.035.041 = phi ptr [ %163, %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit ], [ %154, %_ZN7QStringaSEPKc.exit29 ]
-  %156 = load ptr, ptr %140, align 8
-  %157 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %156, i64 %indvars.iv
-  %158 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 1148
-  br label %159
+  %.sroa.035.041 = phi ptr [ %161, %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit ], [ %152, %_ZN7QStringaSEPKc.exit29 ]
+  %154 = load ptr, ptr %140, align 8
+  %155 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %154, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 1148
+  br label %157
 
-159:                                              ; preds = %159, %.lr.ph
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %159 ]
-  %160 = getelementptr inbounds nuw float, ptr %158, i64 %indvars.iv.i
-  %161 = load float, ptr %160, align 4
-  %162 = getelementptr inbounds nuw [16 x float], ptr %157, i64 0, i64 %indvars.iv.i
-  store float %161, ptr %162, align 4
+157:                                              ; preds = %157, %.lr.ph
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %157 ]
+  %158 = getelementptr inbounds nuw float, ptr %156, i64 %indvars.iv.i
+  %159 = load float, ptr %158, align 4
+  %160 = getelementptr inbounds nuw [16 x float], ptr %155, i64 0, i64 %indvars.iv.i
+  store float %159, ptr %160, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit, label %159, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit, label %157, !llvm.loop !56
 
-_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit:  ; preds = %159
+_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit:  ; preds = %157
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = load ptr, ptr %.sroa.035.041, align 8
-  %.not = icmp eq ptr %163, %155
+  %161 = load ptr, ptr %.sroa.035.041, align 8
+  %.not = icmp eq ptr %161, %153
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit, %_ZN7QStringaSEPKc.exit29
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 1132
-  br label %166
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 1132
+  br label %164
 
-166:                                              ; preds = %166, %._crit_edge
-  %indvars.iv.i31 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i32, %166 ]
-  %167 = getelementptr inbounds nuw float, ptr %165, i64 %indvars.iv.i31
-  %168 = load float, ptr %167, align 4
-  %169 = getelementptr inbounds nuw [16 x float], ptr %164, i64 0, i64 %indvars.iv.i31
-  store float %168, ptr %169, align 4
+164:                                              ; preds = %164, %._crit_edge
+  %indvars.iv.i31 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i32, %164 ]
+  %165 = getelementptr inbounds nuw float, ptr %163, i64 %indvars.iv.i31
+  %166 = load float, ptr %165, align 4
+  %167 = getelementptr inbounds nuw [16 x float], ptr %162, i64 0, i64 %indvars.iv.i31
+  store float %166, ptr %167, align 4
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 16
-  br i1 %exitcond.not.i33, label %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit34, label %166, !llvm.loop !56
+  br i1 %exitcond.not.i33, label %_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit34, label %164, !llvm.loop !56
 
-_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit34: ; preds = %166
-  %170 = load ptr, ptr %29, align 8
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %170)
+_ZN3vcg8Matrix44IfE6ImportIfEEvRKNS0_IT_EE.exit34: ; preds = %164
+  %168 = load ptr, ptr %29, align 8
+  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %168)
   ret i1 true
 }
 
@@ -23015,145 +23011,143 @@ _ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit:  ; preds = %13
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef i32 @_ZNK9QCheckBox10checkStateEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
   %25 = icmp eq i32 %24, 2
-  br i1 %25, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %59
+  br i1 %25, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %58
 
 _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %_ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %spec.select.i = select i1 %30, ptr null, ptr %31
-  %32 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i)
-  %33 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %32)
-  %34 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %32)
-  %.not33 = icmp eq ptr %33, %34
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %31 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %30)
+  %32 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %31)
+  %33 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %31)
+  %.not33 = icmp eq ptr %32, %33
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %35
 
-36:                                               ; preds = %.lr.ph, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+35:                                               ; preds = %.lr.ph, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %.sroa.027.034 = phi ptr [ %33, %.lr.ph ], [ %58, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 1220
-  %38 = load i8, ptr %37, align 4
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+  %.sroa.027.034 = phi ptr [ %32, %.lr.ph ], [ %57, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 1220
+  %37 = load i8, ptr %36, align 4
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %41, i64 %indvars.iv
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %34, align 8
+  %41 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %40, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !547)
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %56, %40
-  %indvars.iv29.i = phi i64 [ 0, %40 ], [ %indvars.iv.next30.i, %56 ]
-  %43 = shl nuw nsw i64 %indvars.iv29.i, 2
+.preheader19.i:                                   ; preds = %55, %39
+  %indvars.iv29.i = phi i64 [ 0, %39 ], [ %indvars.iv.next30.i, %55 ]
+  %42 = shl nuw nsw i64 %indvars.iv29.i, 2
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %53, %.preheader19.i
-  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %53 ]
-  br label %44
+.preheader.i:                                     ; preds = %52, %.preheader19.i
+  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %52 ]
+  br label %43
 
-44:                                               ; preds = %44, %.preheader.i
-  %indvars.iv.i11 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i12, %44 ]
-  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %52, %44 ]
-  %45 = add nuw nsw i64 %indvars.iv.i11, %43
-  %46 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %45
-  %47 = load float, ptr %46, align 4, !noalias !547
-  %48 = shl nuw nsw i64 %indvars.iv.i11, 2
-  %49 = add nuw nsw i64 %48, %indvars.iv25.i
-  %50 = getelementptr inbounds nuw [16 x float], ptr %42, i64 0, i64 %49
-  %51 = load float, ptr %50, align 4, !noalias !547
-  %52 = call float @llvm.fmuladd.f32(float %47, float %51, float %.01620.i)
+43:                                               ; preds = %43, %.preheader.i
+  %indvars.iv.i11 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i12, %43 ]
+  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %51, %43 ]
+  %44 = add nuw nsw i64 %indvars.iv.i11, %42
+  %45 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %44
+  %46 = load float, ptr %45, align 4, !noalias !547
+  %47 = shl nuw nsw i64 %indvars.iv.i11, 2
+  %48 = add nuw nsw i64 %47, %indvars.iv25.i
+  %49 = getelementptr inbounds nuw [16 x float], ptr %41, i64 0, i64 %48
+  %50 = load float, ptr %49, align 4, !noalias !547
+  %51 = call float @llvm.fmuladd.f32(float %46, float %50, float %.01620.i)
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 4
-  br i1 %exitcond.not.i13, label %53, label %44, !llvm.loop !550
+  br i1 %exitcond.not.i13, label %52, label %43, !llvm.loop !550
 
-53:                                               ; preds = %44
-  %54 = add nuw nsw i64 %indvars.iv25.i, %43
-  %55 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %54
-  store float %52, ptr %55, align 4, !alias.scope !547
+52:                                               ; preds = %43
+  %53 = add nuw nsw i64 %indvars.iv25.i, %42
+  %54 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %53
+  store float %51, ptr %54, align 4, !alias.scope !547
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %56, label %.preheader.i, !llvm.loop !551
+  br i1 %exitcond28.not.i, label %55, label %.preheader.i, !llvm.loop !551
 
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
   br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !552
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %56
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 1148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %57, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %55
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.027.034, i64 1148
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %56, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   br label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
-_ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %36
+_ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = load ptr, ptr %.sroa.027.034, align 8
-  %.not = icmp eq ptr %58, %34
-  br i1 %.not, label %.loopexit, label %36
+  %57 = load ptr, ptr %.sroa.027.034, align 8
+  %.not = icmp eq ptr %57, %33
+  br i1 %.not, label %.loopexit, label %35
 
-59:                                               ; preds = %_ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
+58:                                               ; preds = %_ZN3vcg8Matrix44IfE6ImportIdEEvRKNS0_IT_EE.exit
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !553)
   br label %.preheader19.i14
 
-.preheader19.i14:                                 ; preds = %74, %59
-  %indvars.iv29.i15 = phi i64 [ 0, %59 ], [ %indvars.iv.next30.i24, %74 ]
-  %61 = shl nuw nsw i64 %indvars.iv29.i15, 2
+.preheader19.i14:                                 ; preds = %73, %58
+  %indvars.iv29.i15 = phi i64 [ 0, %58 ], [ %indvars.iv.next30.i24, %73 ]
+  %60 = shl nuw nsw i64 %indvars.iv29.i15, 2
   br label %.preheader.i16
 
-.preheader.i16:                                   ; preds = %71, %.preheader19.i14
-  %indvars.iv25.i17 = phi i64 [ 0, %.preheader19.i14 ], [ %indvars.iv.next26.i22, %71 ]
-  br label %62
+.preheader.i16:                                   ; preds = %70, %.preheader19.i14
+  %indvars.iv25.i17 = phi i64 [ 0, %.preheader19.i14 ], [ %indvars.iv.next26.i22, %70 ]
+  br label %61
 
-62:                                               ; preds = %62, %.preheader.i16
-  %indvars.iv.i18 = phi i64 [ 0, %.preheader.i16 ], [ %indvars.iv.next.i20, %62 ]
-  %.01620.i19 = phi float [ 0.000000e+00, %.preheader.i16 ], [ %70, %62 ]
-  %63 = add nuw nsw i64 %indvars.iv.i18, %61
-  %64 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %63
-  %65 = load float, ptr %64, align 4, !noalias !553
-  %66 = shl nuw nsw i64 %indvars.iv.i18, 2
-  %67 = add nuw nsw i64 %66, %indvars.iv25.i17
-  %68 = getelementptr inbounds nuw [16 x float], ptr %60, i64 0, i64 %67
-  %69 = load float, ptr %68, align 4, !noalias !553
-  %70 = call float @llvm.fmuladd.f32(float %65, float %69, float %.01620.i19)
+61:                                               ; preds = %61, %.preheader.i16
+  %indvars.iv.i18 = phi i64 [ 0, %.preheader.i16 ], [ %indvars.iv.next.i20, %61 ]
+  %.01620.i19 = phi float [ 0.000000e+00, %.preheader.i16 ], [ %69, %61 ]
+  %62 = add nuw nsw i64 %indvars.iv.i18, %60
+  %63 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %62
+  %64 = load float, ptr %63, align 4, !noalias !553
+  %65 = shl nuw nsw i64 %indvars.iv.i18, 2
+  %66 = add nuw nsw i64 %65, %indvars.iv25.i17
+  %67 = getelementptr inbounds nuw [16 x float], ptr %59, i64 0, i64 %66
+  %68 = load float, ptr %67, align 4, !noalias !553
+  %69 = call float @llvm.fmuladd.f32(float %64, float %68, float %.01620.i19)
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, 4
-  br i1 %exitcond.not.i21, label %71, label %62, !llvm.loop !550
+  br i1 %exitcond.not.i21, label %70, label %61, !llvm.loop !550
 
-71:                                               ; preds = %62
-  %72 = add nuw nsw i64 %indvars.iv25.i17, %61
-  %73 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %72
-  store float %70, ptr %73, align 4, !alias.scope !553
+70:                                               ; preds = %61
+  %71 = add nuw nsw i64 %indvars.iv25.i17, %60
+  %72 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %71
+  store float %69, ptr %72, align 4, !alias.scope !553
   %indvars.iv.next26.i22 = add nuw nsw i64 %indvars.iv25.i17, 1
   %exitcond28.not.i23 = icmp eq i64 %indvars.iv.next26.i22, 4
-  br i1 %exitcond28.not.i23, label %74, label %.preheader.i16, !llvm.loop !551
+  br i1 %exitcond28.not.i23, label %73, label %.preheader.i16, !llvm.loop !551
 
-74:                                               ; preds = %71
+73:                                               ; preds = %70
   %indvars.iv.next30.i24 = add nuw nsw i64 %indvars.iv29.i15, 1
   %exitcond32.not.i25 = icmp eq i64 %indvars.iv.next30.i24, 4
   br i1 %exitcond32.not.i25, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit26, label %.preheader19.i14, !llvm.loop !552
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit26:              ; preds = %74
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  %78 = load ptr, ptr %77, align 8, !nonnull !556, !noundef !556
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
-  %80 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %79)
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %81, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit26:              ; preds = %73
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
+  %77 = load ptr, ptr %76, align 8, !nonnull !556, !noundef !556
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %79 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %78)
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1132
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %80, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit26
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %83 = load ptr, ptr %82, align 8
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %83)
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %82 = load ptr, ptr %81, align 8
+  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %82)
   ret void
 }
 
@@ -24555,145 +24549,143 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef i32 @_ZNK9QCheckBox10checkStateEv(ptr noundef nonnull align 8 dereferenceable(48) %30)
   %32 = icmp eq i32 %31, 2
-  br i1 %32, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %66
+  br i1 %32, label %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, label %65
 
 _ZN12MeshDocument17MeshRangeIterator5beginEv.exit: ; preds = %17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %spec.select.i = select i1 %37, ptr null, ptr %38
-  %39 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i)
-  %40 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %39)
-  %41 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %39)
-  %.not30 = icmp eq ptr %40, %41
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %38 = call ptr @_ZN12MeshDocument12meshIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %37)
+  %39 = call ptr @_ZN12MeshDocument9meshBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %38)
+  %40 = call ptr @_ZN12MeshDocument7meshEndEv(ptr noundef nonnull align 8 dereferenceable(192) %38)
+  %.not30 = icmp eq ptr %39, %40
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %43
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %42
 
-43:                                               ; preds = %.lr.ph, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+42:                                               ; preds = %.lr.ph, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %.sroa.024.031 = phi ptr [ %40, %.lr.ph ], [ %65, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 1220
-  %45 = load i8, ptr %44, align 4
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
+  %.sroa.024.031 = phi ptr [ %39, %.lr.ph ], [ %64, %_ZN12MeshDocument17MeshRangeIterator3endEv.exit ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 1220
+  %44 = load i8, ptr %43, align 4
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %42, align 8
-  %49 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %48, i64 %indvars.iv
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %41, align 8
+  %48 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %47, i64 %indvars.iv
   call void @llvm.experimental.noalias.scope.decl(metadata !567)
   br label %.preheader19.i
 
-.preheader19.i:                                   ; preds = %63, %47
-  %indvars.iv29.i = phi i64 [ 0, %47 ], [ %indvars.iv.next30.i, %63 ]
-  %50 = shl nuw nsw i64 %indvars.iv29.i, 2
+.preheader19.i:                                   ; preds = %62, %46
+  %indvars.iv29.i = phi i64 [ 0, %46 ], [ %indvars.iv.next30.i, %62 ]
+  %49 = shl nuw nsw i64 %indvars.iv29.i, 2
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %60, %.preheader19.i
-  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %60 ]
-  br label %51
+.preheader.i:                                     ; preds = %59, %.preheader19.i
+  %indvars.iv25.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next26.i, %59 ]
+  br label %50
 
-51:                                               ; preds = %51, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %51 ]
-  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %59, %51 ]
-  %52 = add nuw nsw i64 %indvars.iv.i, %50
-  %53 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %52
-  %54 = load float, ptr %53, align 4, !noalias !567
-  %55 = shl nuw nsw i64 %indvars.iv.i, 2
-  %56 = add nuw nsw i64 %55, %indvars.iv25.i
-  %57 = getelementptr inbounds nuw [16 x float], ptr %49, i64 0, i64 %56
-  %58 = load float, ptr %57, align 4, !noalias !567
-  %59 = call float @llvm.fmuladd.f32(float %54, float %58, float %.01620.i)
+50:                                               ; preds = %50, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %50 ]
+  %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %58, %50 ]
+  %51 = add nuw nsw i64 %indvars.iv.i, %49
+  %52 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %51
+  %53 = load float, ptr %52, align 4, !noalias !567
+  %54 = shl nuw nsw i64 %indvars.iv.i, 2
+  %55 = add nuw nsw i64 %54, %indvars.iv25.i
+  %56 = getelementptr inbounds nuw [16 x float], ptr %48, i64 0, i64 %55
+  %57 = load float, ptr %56, align 4, !noalias !567
+  %58 = call float @llvm.fmuladd.f32(float %53, float %57, float %.01620.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %60, label %51, !llvm.loop !550
+  br i1 %exitcond.not.i, label %59, label %50, !llvm.loop !550
 
-60:                                               ; preds = %51
-  %61 = add nuw nsw i64 %indvars.iv25.i, %50
-  %62 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %61
-  store float %59, ptr %62, align 4, !alias.scope !567
+59:                                               ; preds = %50
+  %60 = add nuw nsw i64 %indvars.iv25.i, %49
+  %61 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %60
+  store float %58, ptr %61, align 4, !alias.scope !567
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %63, label %.preheader.i, !llvm.loop !551
+  br i1 %exitcond28.not.i, label %62, label %.preheader.i, !llvm.loop !551
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
   br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !552
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %63
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 1148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %64, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %62
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 1148
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %63, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   br label %_ZN12MeshDocument17MeshRangeIterator3endEv.exit
 
-_ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %43
+_ZN12MeshDocument17MeshRangeIterator3endEv.exit:  ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = load ptr, ptr %.sroa.024.031, align 8
-  %.not = icmp eq ptr %65, %41
-  br i1 %.not, label %.loopexit, label %43
+  %64 = load ptr, ptr %.sroa.024.031, align 8
+  %.not = icmp eq ptr %64, %40
+  br i1 %.not, label %.loopexit, label %42
 
-66:                                               ; preds = %17
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
+65:                                               ; preds = %17
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.experimental.noalias.scope.decl(metadata !570)
   br label %.preheader19.i11
 
-.preheader19.i11:                                 ; preds = %81, %66
-  %indvars.iv29.i12 = phi i64 [ 0, %66 ], [ %indvars.iv.next30.i21, %81 ]
-  %68 = shl nuw nsw i64 %indvars.iv29.i12, 2
+.preheader19.i11:                                 ; preds = %80, %65
+  %indvars.iv29.i12 = phi i64 [ 0, %65 ], [ %indvars.iv.next30.i21, %80 ]
+  %67 = shl nuw nsw i64 %indvars.iv29.i12, 2
   br label %.preheader.i13
 
-.preheader.i13:                                   ; preds = %78, %.preheader19.i11
-  %indvars.iv25.i14 = phi i64 [ 0, %.preheader19.i11 ], [ %indvars.iv.next26.i19, %78 ]
-  br label %69
+.preheader.i13:                                   ; preds = %77, %.preheader19.i11
+  %indvars.iv25.i14 = phi i64 [ 0, %.preheader19.i11 ], [ %indvars.iv.next26.i19, %77 ]
+  br label %68
 
-69:                                               ; preds = %69, %.preheader.i13
-  %indvars.iv.i15 = phi i64 [ 0, %.preheader.i13 ], [ %indvars.iv.next.i17, %69 ]
-  %.01620.i16 = phi float [ 0.000000e+00, %.preheader.i13 ], [ %77, %69 ]
-  %70 = add nuw nsw i64 %indvars.iv.i15, %68
-  %71 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %70
-  %72 = load float, ptr %71, align 4, !noalias !570
-  %73 = shl nuw nsw i64 %indvars.iv.i15, 2
-  %74 = add nuw nsw i64 %73, %indvars.iv25.i14
-  %75 = getelementptr inbounds nuw [16 x float], ptr %67, i64 0, i64 %74
-  %76 = load float, ptr %75, align 4, !noalias !570
-  %77 = call float @llvm.fmuladd.f32(float %72, float %76, float %.01620.i16)
+68:                                               ; preds = %68, %.preheader.i13
+  %indvars.iv.i15 = phi i64 [ 0, %.preheader.i13 ], [ %indvars.iv.next.i17, %68 ]
+  %.01620.i16 = phi float [ 0.000000e+00, %.preheader.i13 ], [ %76, %68 ]
+  %69 = add nuw nsw i64 %indvars.iv.i15, %67
+  %70 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %69
+  %71 = load float, ptr %70, align 4, !noalias !570
+  %72 = shl nuw nsw i64 %indvars.iv.i15, 2
+  %73 = add nuw nsw i64 %72, %indvars.iv25.i14
+  %74 = getelementptr inbounds nuw [16 x float], ptr %66, i64 0, i64 %73
+  %75 = load float, ptr %74, align 4, !noalias !570
+  %76 = call float @llvm.fmuladd.f32(float %71, float %75, float %.01620.i16)
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
-  br i1 %exitcond.not.i18, label %78, label %69, !llvm.loop !550
+  br i1 %exitcond.not.i18, label %77, label %68, !llvm.loop !550
 
-78:                                               ; preds = %69
-  %79 = add nuw nsw i64 %indvars.iv25.i14, %68
-  %80 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %79
-  store float %77, ptr %80, align 4, !alias.scope !570
+77:                                               ; preds = %68
+  %78 = add nuw nsw i64 %indvars.iv25.i14, %67
+  %79 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %78
+  store float %76, ptr %79, align 4, !alias.scope !570
   %indvars.iv.next26.i19 = add nuw nsw i64 %indvars.iv25.i14, 1
   %exitcond28.not.i20 = icmp eq i64 %indvars.iv.next26.i19, 4
-  br i1 %exitcond28.not.i20, label %81, label %.preheader.i13, !llvm.loop !551
+  br i1 %exitcond28.not.i20, label %80, label %.preheader.i13, !llvm.loop !551
 
-81:                                               ; preds = %78
+80:                                               ; preds = %77
   %indvars.iv.next30.i21 = add nuw nsw i64 %indvars.iv29.i12, 1
   %exitcond32.not.i22 = icmp eq i64 %indvars.iv.next30.i21, 4
   br i1 %exitcond32.not.i22, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit23, label %.preheader19.i11, !llvm.loop !552
 
-_ZNK3vcg8Matrix44IfEmlERKS1_.exit23:              ; preds = %81
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
-  %85 = load ptr, ptr %84, align 8, !nonnull !556, !noundef !556
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  %87 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %86)
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %88, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
+_ZNK3vcg8Matrix44IfEmlERKS1_.exit23:              ; preds = %80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
+  %84 = load ptr, ptr %83, align 8, !nonnull !556, !noundef !556
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  %86 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %85)
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1132
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %87, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12MeshDocument17MeshRangeIterator3endEv.exit, %_ZN12MeshDocument17MeshRangeIterator5beginEv.exit, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit23
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %90 = load ptr, ptr %89, align 8
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %90)
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %89 = load ptr, ptr %88, align 8
+  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %89)
   ret void
 }
 

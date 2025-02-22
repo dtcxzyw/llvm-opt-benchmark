@@ -17969,7 +17969,7 @@ define void @_ZN5arrow3ipc8internal17GetTensorMetadataERKNS_6BufferEPSt10shared_
   br i1 %24, label %25, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
 25:                                               ; preds = %6
-  %26 = load i32, ptr %17, align 4, !tbaa !13, !noalias !800
+  %26 = load i32, ptr %16, align 4, !tbaa !13, !noalias !800
   %or.cond.i.i.i.i.i = icmp sgt i32 %26, 0
   br i1 %or.cond.i.i.i.i.i, label %27, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
@@ -17990,7 +17990,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br i1 %31, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i
-  %32 = load i32, ptr %17, align 4, !tbaa !13, !noalias !800
+  %32 = load i32, ptr %16, align 4, !tbaa !13, !noalias !800
   %33 = zext i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %33
   store ptr null, ptr %0, align 8, !tbaa !21, !alias.scope !808
@@ -19059,7 +19059,7 @@ define void @_ZN5arrow3ipc8internal23GetSparseTensorMetadataERKNS_6BufferEPSt10s
   br i1 %25, label %26, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
 26:                                               ; preds = %7
-  %27 = load i32, ptr %18, align 4, !tbaa !13, !noalias !848
+  %27 = load i32, ptr %17, align 4, !tbaa !13, !noalias !848
   %or.cond.i.i.i.i.i = icmp sgt i32 %27, 0
   br i1 %or.cond.i.i.i.i.i, label %28, label %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.thread.i
 
@@ -19080,7 +19080,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br i1 %32, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %_ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i
-  %33 = load i32, ptr %18, align 4, !tbaa !13, !noalias !848
+  %33 = load i32, ptr %17, align 4, !tbaa !13, !noalias !848
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 %34
   store ptr null, ptr %0, align 8, !tbaa !21, !alias.scope !851

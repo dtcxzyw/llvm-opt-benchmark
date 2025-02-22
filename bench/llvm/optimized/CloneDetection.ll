@@ -2917,7 +2917,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   %415 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #21
-  call void @_ZN5clang12StmtSequenceC1EPKNS_12CompoundStmtEPKNS_4DeclEjj(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %1, i32 noundef %.03074, i32 noundef %414) #21
+  call void @_ZN5clang12StmtSequenceC1EPKNS_12CompoundStmtEPKNS_4DeclEjj(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.03074, i32 noundef %414) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.558, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !424
   %416 = load ptr, ptr %354, align 8, !tbaa !403
   %417 = load ptr, ptr %355, align 8, !tbaa !407

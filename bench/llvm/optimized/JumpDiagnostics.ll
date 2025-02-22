@@ -2920,11 +2920,11 @@ _ZN12_GLOBAL__N_116JumpScopeChecker21BuildScopeInformationEPN5clang7VarDeclEPKNS
   br i1 %.not218, label %.loopexit, label %430
 
 471:                                              ; preds = %416
-  %.0.i.i.i360 = select i1 %419, ptr %421, ptr null
-  %472 = icmp ne ptr %.0.i.i.i360, null
+  %472 = icmp ne i64 %420, 0
+  tail call void @llvm.assume(i1 %419)
   tail call void @llvm.assume(i1 %472)
   %473 = load i32, ptr %2, align 4, !tbaa !40
-  %474 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i360) #16
+  %474 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %421) #16
   %475 = load i32, ptr %412, align 8, !tbaa !39
   %476 = load i32, ptr %413, align 4, !tbaa !38
   %.not.not.i.i.i.i361 = icmp ult i32 %475, %476

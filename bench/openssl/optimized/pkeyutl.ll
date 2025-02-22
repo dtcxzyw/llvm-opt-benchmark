@@ -1287,7 +1287,7 @@ define internal fastcc ptr @init_ctx(ptr noundef %0, ptr noundef nonnull writeon
   br i1 %.not76, label %22, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef %.062, ptr noundef nonnull %spec.select) #7
+  %21 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef %.062, ptr noundef nonnull %3) #7
   br label %.thread
 
 22:                                               ; preds = %19
@@ -1310,7 +1310,7 @@ define internal fastcc ptr @init_ctx(ptr noundef %0, ptr noundef nonnull writeon
   br i1 %.not75, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %6, ptr noundef nonnull %spec.select) #7
+  %32 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %6, ptr noundef nonnull %3) #7
   br label %.thread
 
 33:                                               ; preds = %29

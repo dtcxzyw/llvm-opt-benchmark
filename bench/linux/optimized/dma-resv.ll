@@ -808,11 +808,11 @@ define internal fastcc void @dma_resv_iter_walk_unlocked(ptr noundef captures(no
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %73
-  %80 = tail call zeroext i1 %77(ptr noundef nonnull %57) #9
+  %80 = tail call zeroext i1 %77(ptr noundef nonnull %36) #9
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %79
-  %82 = tail call i32 @dma_fence_signal(ptr noundef nonnull %57) #9
+  %82 = tail call i32 @dma_fence_signal(ptr noundef nonnull %36) #9
   br label %.backedge
 
 83:                                               ; preds = %79, %73
@@ -1771,15 +1771,15 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %32
 
 32:                                               ; preds = %.preheader, %114
-  %.promoted730 = phi i32 [ %.promoted728, %114 ], [ %.promoted25, %.preheader ]
-  %.promoted624 = phi i32 [ %.promoted622, %114 ], [ %.promoted, %.preheader ]
+  %.promoted830 = phi i32 [ %.promoted828, %114 ], [ %.promoted25, %.preheader ]
+  %.promoted724 = phi i32 [ %.promoted722, %114 ], [ %.promoted, %.preheader ]
   %.promoted20 = phi ptr [ %.promoted18, %114 ], [ %28, %.preheader ]
-  %.promoted815 = phi ptr [ %.promoted813, %114 ], [ %24, %.preheader ]
+  %.promoted915 = phi ptr [ %.promoted913, %114 ], [ %24, %.preheader ]
   tail call void @dma_fence_set_deadline(ptr noundef nonnull %.promoted20, i64 noundef %2) #9
   tail call void @__rcu_read_lock() #9
   store i8 0, ptr %11, align 4
   %33 = load volatile ptr, ptr %27, align 8
-  %34 = icmp eq ptr %33, %.promoted815
+  %34 = icmp eq ptr %33, %.promoted915
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %dma_resv_iter_walk_unlocked.exit, %32
@@ -1798,29 +1798,29 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %41
 
 41:                                               ; preds = %38, %35
-  %.promoted731 = phi i32 [ %40, %38 ], [ 0, %35 ]
+  %.promoted831 = phi i32 [ %40, %38 ], [ 0, %35 ]
   store i8 1, ptr %11, align 4
   br label %42
 
 42:                                               ; preds = %41, %32
-  %.promoted729 = phi i32 [ %.promoted731, %41 ], [ %.promoted730, %32 ]
-  %.promoted623 = phi i32 [ 0, %41 ], [ %.promoted624, %32 ]
+  %.promoted829 = phi i32 [ %.promoted831, %41 ], [ %.promoted830, %32 ]
+  %.promoted723 = phi i32 [ 0, %41 ], [ %.promoted724, %32 ]
   %.promoted19 = phi ptr [ %.promoted17, %41 ], [ %.promoted20, %32 ]
-  %.promoted814 = phi ptr [ %36, %41 ], [ %.promoted815, %32 ]
-  %43 = icmp eq ptr %.promoted814, null
+  %.promoted914 = phi ptr [ %36, %41 ], [ %.promoted915, %32 ]
+  %43 = icmp eq ptr %.promoted914, null
   br i1 %43, label %dma_resv_iter_walk_unlocked.exit, label %.preheader36.outer
 
 .preheader36.outer:                               ; preds = %42, %93
-  %.promoted621.ph = phi i32 [ 0, %93 ], [ %.promoted623, %42 ]
-  %.ph54 = phi ptr [ %88, %93 ], [ %.promoted814, %42 ]
-  %.ph55 = phi i32 [ %94, %93 ], [ %.promoted729, %42 ]
-  %.ph56 = phi ptr [ %85, %93 ], [ %.promoted19, %42 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.ph54, i64 24
+  %.promoted721.ph = phi i32 [ 0, %93 ], [ %.promoted723, %42 ]
+  %.ph55 = phi ptr [ %88, %93 ], [ %.promoted914, %42 ]
+  %.ph56 = phi i32 [ %94, %93 ], [ %.promoted829, %42 ]
+  %.ph57 = phi ptr [ %85, %93 ], [ %.promoted19, %42 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.ph55, i64 24
   br label %.preheader36
 
 .preheader36:                                     ; preds = %.preheader36.backedge, %.preheader36.outer
-  %.promoted621 = phi i32 [ %.promoted621.ph, %.preheader36.outer ], [ %58, %.preheader36.backedge ]
-  %45 = phi ptr [ %.ph56, %.preheader36.outer ], [ %85, %.preheader36.backedge ]
+  %.promoted721 = phi i32 [ %.promoted721.ph, %.preheader36.outer ], [ %58, %.preheader36.backedge ]
+  %45 = phi ptr [ %.ph57, %.preheader36.outer ], [ %85, %.preheader36.backedge ]
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread.i, label %47
 
@@ -1844,7 +1844,7 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %.thread.i
 
 .thread.i:                                        ; preds = %54, %53, %51, %.preheader36
-  %55 = icmp ult i32 %.promoted621, %.ph55
+  %55 = icmp ult i32 %.promoted721, %.ph56
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %.thread.i
@@ -1852,9 +1852,9 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %dma_resv_iter_walk_unlocked.exit
 
 57:                                               ; preds = %.thread.i
-  %58 = add nuw i32 %.promoted621, 1
+  %58 = add nuw i32 %.promoted721, 1
   store i32 %58, ptr %8, align 4
-  %59 = zext i32 %.promoted621 to i64
+  %59 = zext i32 %.promoted721 to i64
   %60 = getelementptr [0 x ptr], ptr %44, i64 0, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
   %62 = ptrtoint ptr %61 to i64
@@ -1936,11 +1936,11 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %100
-  %107 = tail call zeroext i1 %104(ptr noundef nonnull %85) #9
+  %107 = tail call zeroext i1 %104(ptr noundef nonnull %64) #9
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
-  %109 = tail call i32 @dma_fence_signal(ptr noundef nonnull %85) #9
+  %109 = tail call i32 @dma_fence_signal(ptr noundef nonnull %64) #9
   br label %.preheader36.backedge
 
 110:                                              ; preds = %106, %100
@@ -1951,12 +1951,12 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %.preheader36, !llvm.loop !29
 
 dma_resv_iter_walk_unlocked.exit:                 ; preds = %110, %42, %56
-  %.promoted728 = phi i32 [ %.promoted729, %42 ], [ %.ph55, %56 ], [ %.ph55, %110 ]
-  %.promoted622 = phi i32 [ %.promoted623, %42 ], [ %.promoted621, %56 ], [ %58, %110 ]
+  %.promoted828 = phi i32 [ %.promoted829, %42 ], [ %.ph56, %56 ], [ %.ph56, %110 ]
+  %.promoted722 = phi i32 [ %.promoted723, %42 ], [ %.promoted721, %56 ], [ %58, %110 ]
   %.promoted18 = phi ptr [ %.promoted19, %42 ], [ null, %56 ], [ %64, %110 ]
-  %.promoted813 = phi ptr [ null, %42 ], [ %.ph54, %56 ], [ %.ph54, %110 ]
+  %.promoted913 = phi ptr [ null, %42 ], [ %.ph55, %56 ], [ %.ph55, %110 ]
   %112 = load volatile ptr, ptr %27, align 8
-  %113 = icmp eq ptr %112, %.promoted813
+  %113 = icmp eq ptr %112, %.promoted913
   br i1 %113, label %114, label %35, !llvm.loop !30
 
 114:                                              ; preds = %dma_resv_iter_walk_unlocked.exit

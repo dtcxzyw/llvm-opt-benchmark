@@ -63400,8 +63400,8 @@ _ZN4Luau8TypePackD2Ev.exit:                       ; preds = %_ZN4Luau7VariantIJN
   %172 = icmp eq i32 %171, 4
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %174 = select i1 %172, ptr %173, ptr null
-  %175 = load ptr, ptr %174, align 8
-  %176 = invoke ptr @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EERS8_(ptr noundef nonnull align 8 dereferenceable(24) %174, ptr %175, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %175 = load ptr, ptr %173, align 8
+  %176 = invoke ptr @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EERS8_(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr %175, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %177 unwind label %110
 
 177:                                              ; preds = %.noexc
@@ -63487,7 +63487,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeT
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %190
   %216 = phi ptr [ %189, %190 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
   %.078 = phi ptr [ %19, %190 ], [ %8, %.thread-pre-split_crit_edge ]
-  %.074 = phi ptr [ %173, %190 ], [ %7, %.thread-pre-split_crit_edge ]
+  %.074 = phi ptr [ %174, %190 ], [ %7, %.thread-pre-split_crit_edge ]
   %.0 = phi ptr [ %147, %190 ], [ %6, %.thread-pre-split_crit_edge ]
   %.not.i.i126 = icmp eq ptr %216, null
   br i1 %.not.i.i126, label %221, label %thread-pre-split.thread

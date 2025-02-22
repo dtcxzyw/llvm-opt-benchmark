@@ -645,7 +645,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 .lr.ph442.split.i.i.i.i:                          ; preds = %.lr.ph442.i.i.i.i, %.lr.ph442.split.i.i.i.i
   %indvars.iv470.i.i.i.i = phi i64 [ %indvars.iv.next471.i.i.i.i, %.lr.ph442.split.i.i.i.i ], [ 0, %.lr.ph442.i.i.i.i ]
-  %292 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %66) #10
+  %292 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #10
   %293 = trunc nuw i64 %indvars.iv470.i.i.i.i to i32
   %294 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.39, i32 noundef %293) #10
   %295 = load ptr, ptr %283, align 8, !tbaa !32
@@ -835,13 +835,13 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.lr.ph.split.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %411 = load ptr, ptr %397, align 8, !tbaa !50
   %412 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %411, i64 %indvars.iv.i.i.i.i
-  %413 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %66) #10
+  %413 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #10
   %414 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %415 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.56, i32 noundef %414) #10
-  %416 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %66) #10
+  %416 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #10
   %417 = load i64, ptr %412, align 8, !tbaa !51
   %418 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.57, i64 noundef %417) #10
-  %419 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %66) #10
+  %419 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #10
   %420 = getelementptr inbounds nuw i8, ptr %412, i64 8
   %421 = load i8, ptr %420, align 8, !tbaa !53
   %422 = zext i8 %421 to i32

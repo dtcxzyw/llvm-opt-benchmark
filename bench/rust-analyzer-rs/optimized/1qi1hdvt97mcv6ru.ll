@@ -199,7 +199,7 @@ define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17he0df60fed
 
 .invoke:                                          ; preds = %15, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9is_unique17hf62c432b7ccf64ebE.exit", %.noexc
   %18 = phi ptr [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.9.llvm.14517926847443944930, %.noexc ], [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.9.llvm.14517926847443944930, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9is_unique17hf62c432b7ccf64ebE.exit" ], [ @anon.8e1c7397de9a49defed4f04e7ab77c7a.10.llvm.14517926847443944930, %15 ]
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18) #14
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %18) #14
           to label %.cont unwind label %4
 
 .cont:                                            ; preds = %.invoke
@@ -419,7 +419,7 @@ define hidden void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.14517926
   store ptr @anon.8e1c7397de9a49defed4f04e7ab77c7a.11, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8e1c7397de9a49defed4f04e7ab77c7a.39) #14
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8e1c7397de9a49defed4f04e7ab77c7a.39) #14
   unreachable
 
 9:                                                ; preds = %1

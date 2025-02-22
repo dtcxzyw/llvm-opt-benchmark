@@ -854,7 +854,7 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.thread94
 
 74:                                               ; preds = %53
-  invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %13, ptr noundef nonnull %spec.select, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
+  invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %13, ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
           to label %75 unwind label %27
 
 75:                                               ; preds = %74
@@ -864,7 +864,7 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %.not107, label %95, label %78
 
 78:                                               ; preds = %75
-  %79 = load i32, ptr %spec.select, align 8
+  %79 = load i32, ptr %1, align 8
   %80 = icmp eq i32 %79, 144
   br i1 %80, label %81, label %95
 
@@ -875,7 +875,7 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %.not77, label %95, label %84
 
 84:                                               ; preds = %81
-  %85 = invoke i32 @cvGetImageCOI(ptr noundef nonnull %spec.select)
+  %85 = invoke i32 @cvGetImageCOI(ptr noundef nonnull %1)
           to label %86 unwind label %91
 
 86:                                               ; preds = %84
@@ -888,7 +888,7 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   store i64 0, ptr %90, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %13, ptr %89, align 8
-  invoke void @_ZN2cv15extractImageCOIEPKvRKNS_12_OutputArrayEi(ptr noundef nonnull %spec.select, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef -1)
+  invoke void @_ZN2cv15extractImageCOIEPKvRKNS_12_OutputArrayEi(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef -1)
           to label %95 unwind label %93
 
 91:                                               ; preds = %84

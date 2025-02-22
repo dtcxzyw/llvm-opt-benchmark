@@ -2184,7 +2184,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %154 = load i32, ptr %114, align 8
   %155 = add i32 %154, %153
   %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %151, i32 noundef %155) #22
-  tail call void @ata_qc_free(ptr noundef nonnull %96) #19
+  tail call void @ata_qc_free(ptr noundef nonnull %95) #19
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 458752, ptr %157, align 8
   tail call void @scsi_done(ptr noundef %0) #19
@@ -2193,7 +2193,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
 158:                                              ; preds = %143
   %159 = load ptr, ptr %123, align 8
   %160 = load i32, ptr %125, align 8
-  tail call void @ata_sg_init(ptr noundef nonnull %96, ptr noundef %159, i32 noundef %160) #19
+  tail call void @ata_sg_init(ptr noundef nonnull %95, ptr noundef %159, i32 noundef %160) #19
   %161 = load i32, ptr %139, align 8
   store i32 %161, ptr %100, align 8
   br label %162
@@ -2201,7 +2201,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
 162:                                              ; preds = %158, %138
   %163 = getelementptr inbounds nuw i8, ptr %96, i64 216
   store ptr @ata_scsi_qc_complete, ptr %163, align 8
-  %164 = tail call i32 %.ph(ptr noundef nonnull %96) #19
+  %164 = tail call i32 %.ph(ptr noundef nonnull %95) #19
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %175
 
@@ -2213,21 +2213,21 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %166
-  %172 = tail call i32 %169(ptr noundef nonnull %96) #19
+  %172 = tail call i32 %169(ptr noundef nonnull %95) #19
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %171, %166
-  tail call void @ata_qc_issue(ptr noundef nonnull %96) #19
+  tail call void @ata_qc_issue(ptr noundef nonnull %95) #19
   br label %180
 
 175:                                              ; preds = %162
-  tail call void @ata_qc_free(ptr noundef nonnull %96) #19
+  tail call void @ata_qc_free(ptr noundef nonnull %95) #19
   tail call void @scsi_done(ptr noundef %0) #19
   br label %180
 
 176:                                              ; preds = %171
-  tail call void @ata_qc_free(ptr noundef nonnull %96) #19
+  tail call void @ata_qc_free(ptr noundef nonnull %95) #19
   %177 = icmp eq i32 %172, 1
   %178 = select i1 %177, i32 4182, i32 4181
   br label %180

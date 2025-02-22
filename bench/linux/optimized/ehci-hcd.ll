@@ -11599,7 +11599,7 @@ define internal fastcc ptr @qh_append_tds(ptr noundef readonly captures(none) %0
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load i64, ptr %34, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 32 dereferenceable(96) %33, ptr noundef nonnull align 32 dereferenceable(96) %15, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 32 dereferenceable(96) %33, ptr noundef nonnull align 32 dereferenceable(96) %14, i64 96, i1 false)
   store i64 %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -11638,7 +11638,7 @@ define internal fastcc ptr @qh_append_tds(ptr noundef readonly captures(none) %0
 54:                                               ; preds = %47, %29
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %56 = load i64, ptr %55, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %15, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %14, i8 0, i64 96, i1 false)
   store i64 %56, ptr %55, align 8
   store i32 64, ptr %30, align 8
   store i32 1, ptr %15, align 32

@@ -3712,42 +3712,38 @@ define dso_local void @_ZN4llvm14DomTreeUpdater16validateDeleteBBEPNS_10BasicBlo
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %18
-  %7 = phi ptr [ %24, %18 ], [ %5, %2 ]
-  %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %7, i64 -24
-  %10 = select i1 %8, ptr null, ptr %9
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !85
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %18, label %14
+.lr.ph:                                           ; preds = %2, %16
+  %7 = phi ptr [ %20, %16 ], [ %5, %2 ]
+  %8 = getelementptr inbounds i8, ptr %7, i64 -8
+  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %16, label %11
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !220
-  %17 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %16) #16
-  tail call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %17) #16
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds i8, ptr %7, i64 -24
+  %13 = getelementptr inbounds i8, ptr %7, i64 -16
+  %14 = load ptr, ptr %13, align 8, !tbaa !220
+  %15 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %14) #16
+  tail call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %15) #16
   %.pre = load ptr, ptr %4, align 8, !tbaa !131
-  br label %18
+  br label %16
 
-18:                                               ; preds = %14, %.lr.ph
-  %19 = phi ptr [ %.pre, %14 ], [ %7, %.lr.ph ]
-  %20 = icmp eq ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %19, i64 -24
-  %22 = select i1 %20, ptr null, ptr %21
-  %23 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %22) #16
-  %24 = load ptr, ptr %4, align 8, !tbaa !131
-  %25 = icmp eq ptr %4, %24
-  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !221
+16:                                               ; preds = %11, %.lr.ph
+  %17 = phi ptr [ %.pre, %11 ], [ %7, %.lr.ph ]
+  %18 = getelementptr inbounds i8, ptr %17, i64 -24
+  %19 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %18) #16
+  %20 = load ptr, ptr %4, align 8, !tbaa !131
+  %21 = icmp eq ptr %4, %20
+  br i1 %21, label %._crit_edge, label %.lr.ph, !llvm.loop !221
 
-._crit_edge:                                      ; preds = %18, %2
-  %26 = tail call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 0) #16
-  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #16
+._crit_edge:                                      ; preds = %16, %2
+  %22 = tail call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 0) #16
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #16
   call void @_ZN4llvm14InsertPositionC1EPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %1) #16
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i64, ptr %29, align 8
-  call void @_ZN4llvm15UnreachableInstC1ERNS_11LLVMContextENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr %28, i64 %30) #16
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %26 = load i64, ptr %25, align 8
+  call void @_ZN4llvm15UnreachableInstC1ERNS_11LLVMContextENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr %24, i64 %26) #16
   ret void
 }
 

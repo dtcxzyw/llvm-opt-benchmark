@@ -38,7 +38,7 @@ define internal fastcc void @_ZN17crossbeam_channel5waker5Waker6notify17hd3e96ea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !alias.scope !4, !noalias !7, !noundef !9
-  %7 = tail call { i64, i64 } @_ZN4core5slice5index5range17h9dc0376246c0fe3eE(i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a5871fde9cf402c8ad91e93c4e72f445.37.llvm.712157615307907702), !noalias !10
+  %7 = tail call { i64, i64 } @_ZN4core5slice5index5range17h9dc0376246c0fe3eE(i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a5871fde9cf402c8ad91e93c4e72f445.37.llvm.712157615307907702), !noalias !10
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
   store i64 %8, ptr %5, align 8, !alias.scope !4, !noalias !7
@@ -192,7 +192,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   store ptr %0, ptr %2, align 8, !noalias !30
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.0.i.i.i, ptr %16, align 8, !noalias !30
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.7) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.7) #17
           to label %19 unwind label %17, !noalias !34
 
 17:                                               ; preds = %15
@@ -358,7 +358,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   store ptr %1, ptr %4, align 8, !noalias !41
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.0.i.i.i, ptr %18, align 8, !noalias !41
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.8) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.8) #17
           to label %21 unwind label %19, !noalias !45
 
 19:                                               ; preds = %17
@@ -536,7 +536,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   store ptr %0, ptr %3, align 8, !noalias !73
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.0.i.i.i, ptr %22, align 8, !noalias !73
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.9) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.9) #17
           to label %25 unwind label %23, !noalias !77
 
 23:                                               ; preds = %21
@@ -827,7 +827,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   store ptr %0, ptr %3, align 8, !noalias !130
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.0.i.i.i, ptr %18, align 8, !noalias !130
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.10) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.58, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.10) #17
           to label %21 unwind label %19, !noalias !134
 
 19:                                               ; preds = %17
@@ -1082,7 +1082,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
           to label %10 unwind label %8
 
 7:                                                ; preds = %0
@@ -1147,7 +1147,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7context7Context4with28_$u7b
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
           to label %10 unwind label %8
 
 7:                                                ; preds = %0
@@ -1236,7 +1236,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$13wit
   store ptr @anon.456d3aded130fa4f9d4c4b9dc0e46bff.18, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %9, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.20) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.20) #17
   unreachable
 
 10:                                               ; preds = %2
@@ -1589,7 +1589,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %114
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
           to label %120 unwind label %.loopexit.split-lp39, !noalias !174
 
 118:                                              ; preds = %114
@@ -1656,7 +1656,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %128
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
           to label %120 unwind label %.loopexit.split-lp, !noalias !174
 
 133:                                              ; preds = %128
@@ -1774,7 +1774,7 @@ _ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; p
   unreachable
 
 32:                                               ; preds = %24
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.25, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.26) #17
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.25, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.26) #17
   unreachable
 
 33:                                               ; preds = %24, %24
@@ -1789,7 +1789,7 @@ _ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; p
   ret void
 
 37:                                               ; preds = %33
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.27) #17
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.27) #17
   unreachable
 
 38:                                               ; preds = %33
@@ -2094,7 +2094,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %.noexc24
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
           to label %118 unwind label %.loopexit.split-lp74, !noalias !232
 
 116:                                              ; preds = %.noexc24
@@ -2164,7 +2164,7 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h308cc92342aa0d1cE.
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %126
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.15) #17
           to label %118 unwind label %.loopexit.split-lp, !noalias !232
 
 131:                                              ; preds = %126
@@ -2337,7 +2337,7 @@ _ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; p
   unreachable
 
 35:                                               ; preds = %27
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.25, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.28) #17
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.456d3aded130fa4f9d4c4b9dc0e46bff.25, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.28) #17
   unreachable
 
 36:                                               ; preds = %27, %27
@@ -2352,7 +2352,7 @@ _ZN17crossbeam_channel7context7Context10try_select17h36bca8daa3d9e4e7E.exit: ; p
   ret void
 
 40:                                               ; preds = %36
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.29) #17
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.456d3aded130fa4f9d4c4b9dc0e46bff.29) #17
   unreachable
 
 41:                                               ; preds = %36

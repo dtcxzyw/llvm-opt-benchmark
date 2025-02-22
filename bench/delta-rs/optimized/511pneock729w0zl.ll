@@ -7097,7 +7097,7 @@ define noundef zeroext i1 @"_ZN71_$LT$deltalake_sql..parser..Statement$u20$as$u2
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13deltalake_sql6parser11DeltaParser3new17h9581213a19fb9fdcE(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
-  tail call void @_ZN13deltalake_sql6parser11DeltaParser16new_with_dialect17h858b9f126229dfaaE(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 @anon.17f8a063f78b443f2b446bd3c345bf95.3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17f8a063f78b443f2b446bd3c345bf95.14)
+  tail call void @_ZN13deltalake_sql6parser11DeltaParser16new_with_dialect17h858b9f126229dfaaE(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 @anon.17f8a063f78b443f2b446bd3c345bf95.3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.17f8a063f78b443f2b446bd3c345bf95.14)
   ret void
 }
 
@@ -7247,7 +7247,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
 
 23:                                               ; preds = %.backedge, %17
   %.0 = phi i1 [ false, %17 ], [ %.0.be, %.backedge ]
-  %24 = invoke noundef zeroext i1 @_ZN9sqlparser6parser6Parser13consume_token17hd39f78f50a9b36adE(ptr noalias noundef nonnull align 8 dereferenceable(64) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.15)
+  %24 = invoke noundef zeroext i1 @_ZN9sqlparser6parser6Parser13consume_token17hd39f78f50a9b36adE(ptr noalias noundef nonnull align 8 dereferenceable(64) %13, ptr noalias noundef readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.15)
           to label %25 unwind label %.loopexit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %44, %29
@@ -7278,7 +7278,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser22parse_sql_with_dialect17h8f
           to label %27 unwind label %.loopexit
 
 27:                                               ; preds = %26
-  %28 = invoke noundef zeroext i1 @"_ZN115_$LT$sqlparser..tokenizer..TokenWithLocation$u20$as$u20$core..cmp..PartialEq$LT$sqlparser..tokenizer..Token$GT$$GT$2eq17hadd6484d87cc7662E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.16)
+  %28 = invoke noundef zeroext i1 @"_ZN115_$LT$sqlparser..tokenizer..TokenWithLocation$u20$as$u20$core..cmp..PartialEq$LT$sqlparser..tokenizer..Token$GT$$GT$2eq17hadd6484d87cc7662E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %10, ptr noalias noundef readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.16)
           to label %31 unwind label %29
 
 29:                                               ; preds = %27
@@ -8491,7 +8491,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %162
   br i1 %167, label %183, label %"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..ObjectName$GT$17h901044000ff48dfaE.exit161"
 
 168:                                              ; preds = %41
-  %169 = invoke noundef zeroext i1 @"_ZN115_$LT$sqlparser..tokenizer..TokenWithLocation$u20$as$u20$core..cmp..PartialEq$LT$sqlparser..tokenizer..Token$GT$$GT$2eq17hadd6484d87cc7662E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.16)
+  %169 = invoke noundef zeroext i1 @"_ZN115_$LT$sqlparser..tokenizer..TokenWithLocation$u20$as$u20$core..cmp..PartialEq$LT$sqlparser..tokenizer..Token$GT$$GT$2eq17hadd6484d87cc7662E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %13, ptr noalias noundef readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.16)
           to label %172 unwind label %170
 
 170:                                              ; preds = %177, %173, %168
@@ -8504,7 +8504,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %162
   br i1 %169, label %176, label %173
 
 173:                                              ; preds = %172
-  %174 = invoke noundef zeroext i1 @"_ZN115_$LT$sqlparser..tokenizer..TokenWithLocation$u20$as$u20$core..cmp..PartialEq$LT$sqlparser..tokenizer..Token$GT$$GT$2eq17hadd6484d87cc7662E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.15)
+  %174 = invoke noundef zeroext i1 @"_ZN115_$LT$sqlparser..tokenizer..TokenWithLocation$u20$as$u20$core..cmp..PartialEq$LT$sqlparser..tokenizer..Token$GT$$GT$2eq17hadd6484d87cc7662E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %13, ptr noalias noundef readonly align 8 dereferenceable(56) @anon.17f8a063f78b443f2b446bd3c345bf95.15)
           to label %175 unwind label %170
 
 175:                                              ; preds = %173

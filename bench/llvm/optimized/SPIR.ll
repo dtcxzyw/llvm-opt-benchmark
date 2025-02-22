@@ -1475,11 +1475,9 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
 
 19:                                               ; preds = %17
   %20 = load i8, ptr %2, align 8, !tbaa !799
-  %21 = icmp eq i8 %20, 0
-  %spec.select.i.i = select i1 %21, ptr %2, ptr null
-  %.not23 = icmp eq ptr %spec.select.i.i, null
+  %21 = icmp ne i8 %20, 0
   %.not.i.i = icmp eq ptr %1, null
-  %or.cond = or i1 %.not.i.i, %.not23
+  %or.cond = or i1 %.not.i.i, %21
   br i1 %or.cond, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %22
 
 22:                                               ; preds = %19
@@ -1490,8 +1488,8 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
   %27 = icmp ult i32 %26, -6
   %28 = and i32 %24, 256
   %.not.i = icmp eq i32 %28, 0
-  %or.cond47 = or i1 %27, %.not.i
-  br i1 %or.cond47, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
+  %or.cond48 = or i1 %27, %.not.i
+  br i1 %or.cond48, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
 
 29:                                               ; preds = %22
   %30 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #13
@@ -1620,7 +1618,7 @@ _ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread: ; p
   store ptr %97, ptr %95, align 16, !tbaa !820
   %98 = load ptr, ptr %87, align 8, !tbaa !779
   %99 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr nonnull %6, i64 3, i32 noundef 0, i1 noundef zeroext true) #13
-  call void @_ZN4llvm5Value11setMetadataENS_9StringRefEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i, ptr nonnull @.str.35, i64 19, ptr noundef %99) #13
+  call void @_ZN4llvm5Value11setMetadataENS_9StringRefEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nonnull @.str.35, i64 19, ptr noundef %99) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread
 

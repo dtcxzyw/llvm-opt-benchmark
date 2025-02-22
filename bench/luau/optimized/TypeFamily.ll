@@ -8655,7 +8655,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread167: ; preds 
   %241 = icmp eq i32 %240, 4
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %243 = select i1 %241, ptr %242, ptr null
-  %244 = load ptr, ptr %243, align 8
+  %244 = load ptr, ptr %242, align 8
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 -8

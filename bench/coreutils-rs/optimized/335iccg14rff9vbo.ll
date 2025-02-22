@@ -1427,7 +1427,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %124
   br i1 %499, label %506, label %.invoke411
 
 .invoke411:                                       ; preds = %.noexc263, %.noexc245, %.noexc227, %.noexc209, %.noexc187, %.noexc170, %.noexc154, %.noexc134, %.noexc116, %.noexc103
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.dbaa98ee710d04572505c5b3ac2a29ed.1.llvm.8644829565183548092, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dbaa98ee710d04572505c5b3ac2a29ed.3.llvm.8644829565183548092) #13
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.dbaa98ee710d04572505c5b3ac2a29ed.1.llvm.8644829565183548092, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbaa98ee710d04572505c5b3ac2a29ed.3.llvm.8644829565183548092) #13
           to label %.cont412 unwind label %65
 
 .cont412:                                         ; preds = %.invoke411
@@ -1475,7 +1475,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %124
   store ptr null, ptr %.sink422.sroa.phi433, align 8, !noalias !13
   store ptr %.sink415, ptr %.sink422.sroa.phi445, align 8, !noalias !13
   store i64 %.sink, ptr %.sink422.sroa.phi457, align 8, !noalias !13
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink422, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %505) #13
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink422, ptr noalias noundef readonly align 8 dereferenceable(24) %505) #13
           to label %.cont unwind label %65
 
 .cont:                                            ; preds = %.invoke

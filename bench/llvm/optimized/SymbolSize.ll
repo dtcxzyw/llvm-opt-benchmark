@@ -345,7 +345,6 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit125: 
 
 .critedge84:                                      ; preds = %.critedge82
   %.not330 = icmp eq i32 %13, 22
-  %spec.select.i.i126 = select i1 %.not330, ptr %1, ptr null
   br i1 %.not330, label %108, label %.critedge86
 
 108:                                              ; preds = %.critedge84
@@ -380,7 +379,7 @@ _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit125: 
   %124 = phi ptr [ null, %.lr.ph393 ], [ %151, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit155 ]
   %lhsv.i.i.i.i139391 = phi i64 [ %113, %.lr.ph393 ], [ %lhsv.i.i.i.i139, %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE9push_backEOS4_.exit155 ]
   %.sroa.5288.0.copyload = load ptr, ptr %120, align 8
-  %125 = call noundef i32 @_ZNK4llvm6object14WasmObjectFile13getSymbolSizeENS0_9SymbolRefE(ptr noundef nonnull align 8 dereferenceable(684) %spec.select.i.i126, i64 %lhsv.i.i.i.i139391, ptr %.sroa.5288.0.copyload) #14
+  %125 = call noundef i32 @_ZNK4llvm6object14WasmObjectFile13getSymbolSizeENS0_9SymbolRefE(ptr noundef nonnull align 8 dereferenceable(684) %1, i64 %lhsv.i.i.i.i139391, ptr %.sroa.5288.0.copyload) #14
   %126 = zext i32 %125 to i64
   %127 = load ptr, ptr %122, align 8, !tbaa !25
   %.not.i.i142 = icmp eq ptr %124, %127

@@ -6572,7 +6572,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14TypeSourceInfoELb1EE9push_backES3_.e
   %.sroa.0.0.copyload.i142 = load i32, ptr %368, align 4, !tbaa !9
   %369 = getelementptr inbounds nuw i8, ptr %spec.select.i.i138, i64 24
   %.sroa.0.0.copyload.i143 = load i32, ptr %369, align 8, !tbaa !9
-  %370 = load i24, ptr %spec.select.i.i138, align 8
+  %370 = load i24, ptr %1, align 8
   %371 = and i24 %370, 16384
   %372 = icmp ne i24 %371, 0
   %373 = call noundef ptr @_ZN5clang20GenericSelectionExpr6CreateERKNS_10ASTContextENS_14SourceLocationEPNS_4ExprEN4llvm8ArrayRefIPNS_14TypeSourceInfoEEENS8_IS6_EES4_S4_bj(ptr noundef nonnull align 8 dereferenceable(23216) %324, i32 %.sroa.0.0.copyload.i144, ptr noundef %360, ptr %361, i64 %363, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, i32 %.sroa.0.0.copyload.i142, i32 %.sroa.0.0.copyload.i143, i1 noundef zeroext %372, i32 noundef %292) #22
@@ -6596,7 +6596,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14TypeSourceInfoELb1EE9push_backES3_.e
   %.sroa.0.0.copyload.i145 = load i32, ptr %386, align 4, !tbaa !9
   %387 = getelementptr inbounds nuw i8, ptr %spec.select.i.i138, i64 24
   %.sroa.0.0.copyload.i146 = load i32, ptr %387, align 8, !tbaa !9
-  %388 = load i24, ptr %spec.select.i.i138, align 8
+  %388 = load i24, ptr %1, align 8
   %389 = and i24 %388, 16384
   %390 = icmp ne i24 %389, 0
   %391 = call noundef ptr @_ZN5clang20GenericSelectionExpr6CreateERKNS_10ASTContextENS_14SourceLocationEPNS_14TypeSourceInfoEN4llvm8ArrayRefIS6_EENS8_IPNS_4ExprEEES4_S4_bj(ptr noundef nonnull align 8 dereferenceable(23216) %324, i32 %.sroa.0.0.copyload.i144, ptr noundef %378, ptr %379, i64 %381, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, i32 %.sroa.0.0.copyload.i145, i32 %.sroa.0.0.copyload.i146, i1 noundef zeroext %390, i32 noundef %292) #22

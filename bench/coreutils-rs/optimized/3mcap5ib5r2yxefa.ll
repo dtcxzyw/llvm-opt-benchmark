@@ -83,7 +83,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %15, label %17, label %16, !prof !55
 
 16:                                               ; preds = %12
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %13, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25418ca14dce8434626e1e040e2d5fd1.13) #12
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %13, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.25418ca14dce8434626e1e040e2d5fd1.13) #12
           to label %.noexc.i.i unwind label %27, !noalias !56
 
 .noexc.i.i:                                       ; preds = %16
@@ -377,7 +377,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   br i1 %18, label %20, label %19, !prof !55
 
 19:                                               ; preds = %15
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %16, i64 noundef %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25418ca14dce8434626e1e040e2d5fd1.13) #12
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %16, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.25418ca14dce8434626e1e040e2d5fd1.13) #12
           to label %.noexc.i unwind label %30, !noalias !257
 
 .noexc.i:                                         ; preds = %19
@@ -967,7 +967,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %23, label %25, label %24, !prof !55
 
 24:                                               ; preds = %19
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25418ca14dce8434626e1e040e2d5fd1.13) #12
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.25418ca14dce8434626e1e040e2d5fd1.13) #12
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %24

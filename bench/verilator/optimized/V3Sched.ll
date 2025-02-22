@@ -17021,7 +17021,7 @@ _ZN12VNUser2InUseC2Ev.exit:                       ; preds = %2
           to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc73:                                         ; preds = %.noexc72
-  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0.0.i.i69, ptr noundef nonnull align 8 dereferenceable(112) %56) #26
+  invoke void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %44, ptr noundef nonnull align 8 dereferenceable(112) %56) #26
           to label %.noexc74 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc74:                                         ; preds = %.noexc73
@@ -17324,7 +17324,7 @@ _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %_ZN8AstWhileC2EP8Fi
           to label %158 unwind label %.loopexit
 
 158:                                              ; preds = %156
-  invoke void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(328) %.sroa.0.0.i.i69, ptr noundef nonnull %.051135)
+  invoke void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(328) %44, ptr noundef nonnull %.051135)
           to label %_ZN8AstCFunc9addStmtspEP7AstNode.exit102 unwind label %.loopexit
 
 _ZN8AstCFunc9addStmtspEP7AstNode.exit102:         ; preds = %158, %155, %62

@@ -19829,7 +19829,7 @@ lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
   br label %ehcleanup102
 
 do.end35:                                         ; preds = %do.body28
-  %40 = load ptr, ptr %spec.select.i.i, align 8
+  %40 = load ptr, ptr %action, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %41 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i29.not260 = icmp eq ptr %40, %41

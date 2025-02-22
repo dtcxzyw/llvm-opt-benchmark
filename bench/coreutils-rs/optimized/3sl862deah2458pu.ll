@@ -909,7 +909,7 @@ define noundef ptr @_ZN6uu_seq9print_seq17hfc35238b80ce33d2E(ptr noalias noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !275
   store ptr %25, ptr %13, align 8, !noalias !275
   store ptr null, ptr %44, align 8, !noalias !275
-  %66 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  %66 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
           to label %69 unwind label %67
 
 67:                                               ; preds = %65
@@ -1067,7 +1067,7 @@ select.unfold:                                    ; preds = %69
   br i1 %switch, label %115, label %116
 
 115:                                              ; preds = %113
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b77c0e95c463a95dec2fb730fbdd4138.21) #11
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b77c0e95c463a95dec2fb730fbdd4138.21) #11
           to label %118 unwind label %.loopexit.split-lp
 
 116:                                              ; preds = %113
@@ -1152,7 +1152,7 @@ select.unfold:                                    ; preds = %69
   store ptr %25, ptr %11, align 8, !noalias !320
   %144 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %144, align 8, !noalias !320
-  %145 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
+  %145 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
           to label %148 unwind label %146
 
 146:                                              ; preds = %138

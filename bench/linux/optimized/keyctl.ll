@@ -1608,26 +1608,24 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, null
-  br i1 %8, label %.thread12, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
-  %.fr = freeze i64 %11
-  %12 = icmp eq i64 %.fr, 0
-  %spec.select = select i1 %12, ptr null, ptr %1
-  %13 = icmp ugt i64 %.fr, 1048575
-  br i1 %13, label %81, label %.thread12
+  %12 = icmp eq i64 %11, 0
+  %13 = icmp ugt i64 %11, 1048575
+  br i1 %13, label %81, label %.thread
 
-.thread12:                                        ; preds = %3, %9
-  %14 = phi ptr [ %spec.select, %9 ], [ null, %3 ]
-  %15 = phi i64 [ %.fr, %9 ], [ 0, %3 ]
+.thread:                                          ; preds = %3, %9
+  %14 = phi i1 [ %12, %9 ], [ true, %3 ]
+  %15 = phi i64 [ %11, %9 ], [ 0, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %81, label %19
 
-19:                                               ; preds = %.thread12
+19:                                               ; preds = %.thread
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1638,7 +1636,7 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
   br i1 %26, label %27, label %81
 
 27:                                               ; preds = %19
-  %28 = icmp eq ptr %14, null
+  %28 = or i1 %8, %14
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %27
@@ -1647,18 +1645,18 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
   br i1 %31, label %81, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call i64 @_copy_from_iter(ptr noundef nonnull %30, i64 noundef %15, ptr noundef nonnull %14) #11
+  %33 = tail call i64 @_copy_from_iter(ptr noundef nonnull %30, i64 noundef %15, ptr noundef nonnull %1) #11
   %34 = icmp eq i64 %33, %15
   br i1 %34, label %36, label %35, !prof !13
 
 35:                                               ; preds = %32
-  tail call void @iov_iter_revert(ptr noundef nonnull %14, i64 noundef %33) #11
-  br label %.thread16
+  tail call void @iov_iter_revert(ptr noundef nonnull %1, i64 noundef %33) #11
+  br label %.thread14
 
 36:                                               ; preds = %32, %27
   %37 = phi ptr [ null, %27 ], [ %30, %32 ]
   %38 = icmp eq i32 %2, 0
-  br i1 %38, label %.thread13, label %39
+  br i1 %38, label %.thread11, label %39
 
 39:                                               ; preds = %36
   %40 = icmp sgt i32 %2, 0
@@ -1673,21 +1671,21 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
 45:                                               ; preds = %41
   %46 = and i64 %44, -2
   %47 = inttoptr i64 %46 to ptr
-  br label %.thread13
+  br label %.thread11
 
 48:                                               ; preds = %39
   %49 = icmp eq i32 %2, -7
-  br i1 %49, label %.thread16, label %50
+  br i1 %49, label %.thread14, label %50
 
 50:                                               ; preds = %48
   %51 = icmp samesign ugt i32 %2, -9
-  br i1 %51, label %52, label %.thread16
+  br i1 %51, label %52, label %.thread14
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread13, label %56
+  br i1 %55, label %.thread11, label %56
 
 56:                                               ; preds = %52
   %57 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %54, i32 1, ptr nonnull elementtype(i32) %54) #11, !srcloc !19
@@ -1696,35 +1694,35 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
 
 59:                                               ; preds = %56
   tail call void @refcount_warn_saturate(ptr noundef nonnull %54, i32 noundef 2) #11
-  br label %.thread13
+  br label %.thread11
 
 60:                                               ; preds = %56
   %61 = add i32 %57, 1
   %62 = or i32 %61, %57
   %63 = icmp sgt i32 %62, -1
-  br i1 %63, label %.thread13, label %64, !prof !13
+  br i1 %63, label %.thread11, label %64, !prof !13
 
 64:                                               ; preds = %60
   tail call void @refcount_warn_saturate(ptr noundef nonnull %54, i32 noundef 1) #11
-  br label %.thread13
+  br label %.thread11
 
 65:                                               ; preds = %41
   %66 = icmp slt ptr %42, null
-  br i1 %66, label %.thread16, label %.thread13
+  br i1 %66, label %.thread14, label %.thread11
 
-.thread13:                                        ; preds = %64, %60, %59, %52, %45, %36, %65
+.thread11:                                        ; preds = %64, %60, %59, %52, %45, %36, %65
   %67 = phi ptr [ null, %65 ], [ %54, %64 ], [ %54, %60 ], [ %54, %59 ], [ null, %52 ], [ %47, %45 ], [ null, %36 ]
   %68 = load ptr, ptr %22, align 8
   %69 = tail call i32 @key_instantiate_and_link(ptr noundef %68, ptr noundef %37, i64 noundef %15, ptr noundef %67, ptr noundef nonnull %17) #11
   %70 = sext i32 %69 to i64
   tail call void @key_put(ptr noundef %67) #11
   %71 = icmp eq i32 %69, 0
-  br i1 %71, label %72, label %.thread16
+  br i1 %71, label %72, label %.thread14
 
-72:                                               ; preds = %.thread13
+72:                                               ; preds = %.thread11
   %73 = tail call ptr @prepare_creds() #11
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread16, label %75
+  br i1 %74, label %.thread14, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 120
@@ -1732,16 +1730,16 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
   tail call void @key_put(ptr noundef %77) #11
   store ptr null, ptr %76, align 8
   %78 = tail call i32 @commit_creds(ptr noundef nonnull %73) #11
-  br label %.thread16
+  br label %.thread14
 
-.thread16:                                        ; preds = %50, %48, %75, %72, %.thread13, %65, %35
-  %79 = phi ptr [ %37, %65 ], [ %37, %.thread13 ], [ %30, %35 ], [ %37, %72 ], [ %37, %75 ], [ %37, %48 ], [ %37, %50 ]
-  %80 = phi i64 [ %44, %65 ], [ %70, %.thread13 ], [ -14, %35 ], [ 0, %72 ], [ 0, %75 ], [ -22, %48 ], [ -126, %50 ]
+.thread14:                                        ; preds = %50, %48, %75, %72, %.thread11, %65, %35
+  %79 = phi ptr [ %37, %65 ], [ %37, %.thread11 ], [ %30, %35 ], [ %37, %72 ], [ %37, %75 ], [ %37, %48 ], [ %37, %50 ]
+  %80 = phi i64 [ %44, %65 ], [ %70, %.thread11 ], [ -14, %35 ], [ 0, %72 ], [ 0, %75 ], [ -22, %48 ], [ -126, %50 ]
   tail call void @kvfree_sensitive(ptr noundef %79, i64 noundef %15) #11
   br label %81
 
-81:                                               ; preds = %.thread16, %29, %19, %.thread12, %9
-  %82 = phi i64 [ -22, %9 ], [ -1, %19 ], [ %80, %.thread16 ], [ -12, %29 ], [ -1, %.thread12 ]
+81:                                               ; preds = %.thread14, %29, %19, %.thread, %9
+  %82 = phi i64 [ -22, %9 ], [ -1, %19 ], [ %80, %.thread14 ], [ -12, %29 ], [ -1, %.thread ]
   ret i64 %82
 }
 

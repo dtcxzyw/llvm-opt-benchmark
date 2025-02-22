@@ -318,7 +318,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %19 = load i8, ptr %18, align 8, !range !132, !alias.scope !133, !noalias !134, !noundef !18
   %20 = load i64, ptr %7, align 8, !noalias !136, !noundef !18
   %21 = load i64, ptr %9, align 8, !noalias !136, !noundef !18
-  invoke void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7462a6d7a7a7476E(ptr noalias noundef nonnull sret([8 x i64]) align 8 captures(none) dereferenceable(64) %.sroa.02.32..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.11, i64 noundef %20, i64 noundef %21)
+  invoke void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7462a6d7a7a7476E(ptr noalias noundef nonnull sret([8 x i64]) align 8 captures(none) dereferenceable(64) %.sroa.02.32..sroa_idx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.11, i64 noundef %20, i64 noundef %21)
           to label %22 unwind label %27, !noalias !124
 
 22:                                               ; preds = %16
@@ -704,7 +704,7 @@ define hidden void @_ZN4core9panicking13assert_failed17h043d7bcc1e275f00E(i8 nou
   %7 = alloca ptr, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %6, align 8
-  call void @_ZN4core9panicking19assert_failed_inner17hbec58bc3f09fc0a6E(i8 noundef %0, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.6, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #16
+  call void @_ZN4core9panicking19assert_failed_inner17hbec58bc3f09fc0a6E(i8 noundef %0, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.6, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #16
   unreachable
 }
 
@@ -975,7 +975,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %21 = load i8, ptr %20, align 8, !range !132, !alias.scope !458, !noalias !459, !noundef !18
   %22 = load i64, ptr %.val.i, align 8, !noalias !460, !noundef !18
   %23 = load i64, ptr %.val1.i, align 8, !noalias !460, !noundef !18
-  invoke void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7462a6d7a7a7476E(ptr noalias noundef nonnull sret([8 x i64]) align 8 captures(none) dereferenceable(64) %.sroa.02.32..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.11, i64 noundef %22, i64 noundef %23)
+  invoke void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7462a6d7a7a7476E(ptr noalias noundef nonnull sret([8 x i64]) align 8 captures(none) dereferenceable(64) %.sroa.02.32..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abe94a1bcb786a4e75c663301da1def5.11, i64 noundef %22, i64 noundef %23)
           to label %24 unwind label %31
 
 24:                                               ; preds = %18

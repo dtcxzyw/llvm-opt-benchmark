@@ -265,7 +265,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !52
   store ptr %3, ptr %16, align 8, !noalias !52
   store ptr null, ptr %38, align 8, !noalias !52
-  %160 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27)
+  %160 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27)
           to label %163 unwind label %161
 
 161:                                              ; preds = %159
@@ -357,7 +357,7 @@ common.resume:                                    ; preds = %290, %276, %248, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !79
   store ptr %3, ptr %14, align 8, !noalias !79
   store ptr null, ptr %45, align 8, !noalias !79
-  %180 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24)
+  %180 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24)
           to label %183 unwind label %181
 
 181:                                              ; preds = %179
@@ -513,7 +513,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.th
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !114
   store ptr %3, ptr %12, align 8, !noalias !114
   store ptr null, ptr %70, align 8, !noalias !114
-  %234 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
+  %234 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
           to label %237 unwind label %235
 
 235:                                              ; preds = %.thread150
@@ -575,7 +575,7 @@ select.unfold153:                                 ; preds = %237
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !134
   store ptr %3, ptr %10, align 8, !noalias !134
   store ptr null, ptr %57, align 8, !noalias !134
-  %247 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
+  %247 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
           to label %250 unwind label %248
 
 248:                                              ; preds = %246
@@ -678,7 +678,7 @@ select.unfold155:                                 ; preds = %250
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !159
   store ptr %3, ptr %8, align 8, !noalias !159
   store ptr null, ptr %64, align 8, !noalias !159
-  %275 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
+  %275 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
           to label %278 unwind label %276
 
 276:                                              ; preds = %274
@@ -740,7 +740,7 @@ select.unfold157:                                 ; preds = %278
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !179
   store ptr %3, ptr %6, align 8, !noalias !179
   store ptr null, ptr %51, align 8, !noalias !179
-  %289 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
+  %289 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.642ea48bf09cd07a66a4837d7004ef26.0.llvm.17840098253443372843, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
           to label %292 unwind label %290
 
 290:                                              ; preds = %288

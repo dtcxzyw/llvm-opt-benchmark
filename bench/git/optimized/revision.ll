@@ -7911,7 +7911,7 @@ mark_parents_uninteresting.exit.i:                ; preds = %mark_one_parent_uni
   br i1 %.not.i.i.i71, label %.critedge.i.i.i.preheader, label %438
 
 438:                                              ; preds = %437
-  %439 = load i32, ptr %spec.select.i, align 8
+  %439 = load i32, ptr %.0236.i, align 8
   %440 = and i32 %439, 32
   %.not16.not.i.i.i = icmp eq i32 %440, 0
   br i1 %.not16.not.i.i.i, label %still_interesting.exit.thread.i, label %.critedge.i.i.i.preheader

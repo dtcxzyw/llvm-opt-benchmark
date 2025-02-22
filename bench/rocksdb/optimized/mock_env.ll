@@ -14369,8 +14369,6 @@ entry:
   %1 = load i64, ptr %pos_, align 8
   %use_mmap_read_ = getelementptr inbounds nuw i8, ptr %this, i64 17
   %2 = load i8, ptr %use_mmap_read_, align 1
-  %tobool = trunc i8 %2 to i1
-  %cond = select i1 %tobool, ptr null, ptr %scratch
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   store i8 0, ptr %agg.result, align 8, !alias.scope !183
   %subcode_.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 1
@@ -14391,13 +14389,15 @@ entry:
   br i1 %cmp14.i, label %cleanup30.i, label %if.end19.i
 
 if.end19.i:                                       ; preds = %entry
-  %tobool.not.i = icmp eq ptr %cond, null
+  %tobool = trunc i8 %2 to i1
+  %tobool.not.i2 = icmp eq ptr %scratch, null
+  %tobool.not.i = or i1 %tobool.not.i2, %tobool
   %data_25.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %call26.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %data_25.i, i64 noundef %1) #29, !noalias !183
   br i1 %tobool.not.i, label %cleanup30.i, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end19.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %cond, ptr nonnull align 1 %call26.i, i64 %spec.select.i, i1 false), !noalias !183
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %scratch, ptr nonnull align 1 %call26.i, i64 %spec.select.i, i1 false), !noalias !183
   br label %cleanup30.i
 
 cleanup30.i:                                      ; preds = %if.then20.i, %if.end19.i, %entry

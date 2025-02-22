@@ -5141,8 +5141,8 @@ _Py_NewRef.exit.i:                                ; preds = %_Py_NewRef.exit.sin
   %61 = getelementptr i8, ptr %.063.i, i64 8
   %.063.val100.i = load ptr, ptr %61, align 8, !tbaa !20
   %62 = getelementptr i8, ptr %.063.val100.i, i64 168
-  %.val.i = load i64, ptr %62, align 8, !tbaa !49
-  %63 = and i64 %.val.i, 536870912
+  %.val101.i = load i64, ptr %62, align 8, !tbaa !49
+  %63 = and i64 %.val101.i, 536870912
   %.not.i = icmp eq i64 %63, 0
   br i1 %.not.i, label %64, label %69
 
@@ -5186,15 +5186,15 @@ _Py_NewRef.exit.i:                                ; preds = %_Py_NewRef.exit.sin
   %86 = icmp eq ptr %.072, @_Py_NoneStruct
   %spec.store.select.i = select i1 %86, ptr null, ptr %.072
   %87 = getelementptr i8, ptr %21, i64 8
-  %.val103.i = load ptr, ptr %87, align 8, !tbaa !20
-  %.not23.i = icmp eq ptr %.val103.i, @PyCode_Type
+  %.val104.i = load ptr, ptr %87, align 8, !tbaa !20
+  %.not23.i = icmp eq ptr %.val104.i, @PyCode_Type
   br i1 %.not23.i, label %88, label %120
 
 88:                                               ; preds = %85
   %89 = getelementptr i8, ptr %21, i64 88
-  %.val104.i = load i32, ptr %89, align 8, !tbaa !151
-  %90 = sext i32 %.val104.i to i64
-  %91 = icmp eq i32 %.val104.i, 0
+  %.val105.i = load i32, ptr %89, align 8, !tbaa !151
+  %90 = sext i32 %.val105.i to i64
+  %91 = icmp eq i32 %.val105.i, 0
   %.not93.i = icmp eq ptr %spec.store.select.i, null
   br i1 %91, label %92, label %95
 
@@ -5210,19 +5210,19 @@ _Py_NewRef.exit.i:                                ; preds = %_Py_NewRef.exit.sin
   br i1 %.not93.i, label %.thread.i, label %96
 
 96:                                               ; preds = %95
-  %97 = getelementptr i8, ptr %spec.store.select.i, i64 8
-  %spec.store.select.val102.i = load ptr, ptr %97, align 8, !tbaa !20
-  %.not24.i = icmp eq ptr %spec.store.select.val102.i, @PyTuple_Type
+  %97 = getelementptr i8, ptr %.072, i64 8
+  %.val103.i = load ptr, ptr %97, align 8, !tbaa !20
+  %.not24.i = icmp eq ptr %.val103.i, @PyTuple_Type
   br i1 %.not24.i, label %98, label %.thread.i
 
 98:                                               ; preds = %96
-  %99 = getelementptr i8, ptr %spec.store.select.i, i64 16
-  %spec.store.select.val.i = load i64, ptr %99, align 8, !tbaa !45
-  %100 = icmp eq i64 %spec.store.select.val.i, %90
+  %99 = getelementptr i8, ptr %.072, i64 16
+  %.val.i = load i64, ptr %99, align 8, !tbaa !45
+  %100 = icmp eq i64 %.val.i, %90
   br i1 %100, label %.preheader.i, label %.thread.i
 
 .preheader.i:                                     ; preds = %98
-  %101 = icmp sgt i32 %.val104.i, 0
+  %101 = icmp sgt i32 %.val105.i, 0
   br i1 %101, label %.lr.ph.i, label %.thread7.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -5239,8 +5239,8 @@ _Py_NewRef.exit.i:                                ; preds = %_Py_NewRef.exit.sin
   %106 = getelementptr [1 x ptr], ptr %102, i64 0, i64 %.06426.i
   %107 = load ptr, ptr %106, align 8, !tbaa !39
   %108 = getelementptr i8, ptr %107, i64 8
-  %.val101.i = load ptr, ptr %108, align 8, !tbaa !20
-  %.not25.i = icmp eq ptr %.val101.i, @PyCell_Type
+  %.val102.i = load ptr, ptr %108, align 8, !tbaa !20
+  %.not25.i = icmp eq ptr %.val102.i, @PyCell_Type
   br i1 %.not25.i, label %103, label %.thread10.i
 
 .thread10.i:                                      ; preds = %105
@@ -5268,7 +5268,7 @@ _Py_NewRef.exit.i:                                ; preds = %_Py_NewRef.exit.sin
   br label %136
 
 118:                                              ; preds = %.thread7.i
-  %119 = call ptr @PyEval_EvalCodeEx(ptr noundef %21, ptr noundef nonnull %.063.i, ptr noundef %.167.i, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %spec.store.select.i) #9
+  %119 = call ptr @PyEval_EvalCodeEx(ptr noundef %21, ptr noundef nonnull %.063.i, ptr noundef %.167.i, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %.072) #9
   br label %136
 
 120:                                              ; preds = %85
@@ -5294,8 +5294,8 @@ _Py_NewRef.exit.i:                                ; preds = %_Py_NewRef.exit.sin
   %..i = select i1 %.not88.i, ptr null, ptr %6
   %128 = call ptr @PyRun_StringFlags(ptr noundef nonnull %124, i32 noundef 257, ptr noundef nonnull %.063.i, ptr noundef %.167.i, ptr noundef %..i) #9
   %129 = load ptr, ptr %5, align 8, !tbaa !39
-  %.not.i105.i = icmp eq ptr %129, null
-  br i1 %.not.i105.i, label %Py_XDECREF.exit.thread.i, label %130
+  %.not.i106.i = icmp eq ptr %129, null
+  br i1 %.not.i106.i, label %Py_XDECREF.exit.thread.i, label %130
 
 130:                                              ; preds = %126
   %131 = load i32, ptr %129, align 8, !tbaa !33
@@ -5359,8 +5359,8 @@ Py_DECREF.exit97.i:                               ; preds = %143, %140, %138
 
 .thread16.i:                                      ; preds = %136, %Py_XDECREF.exit.i, %.thread12.i, %.thread7.i, %.thread.i, %.thread10.i, %93, %83, %71, %64
   %149 = load i32, ptr %.167.i, align 8, !tbaa !33
-  %.not.i.i107.i = icmp sgt i32 %149, -1
-  br i1 %.not.i.i107.i, label %150, label %builtin_exec_impl.exit
+  %.not.i.i108.i = icmp sgt i32 %149, -1
+  br i1 %.not.i.i108.i, label %150, label %builtin_exec_impl.exit
 
 150:                                              ; preds = %.thread16.i
   %151 = add nsw i32 %149, -1

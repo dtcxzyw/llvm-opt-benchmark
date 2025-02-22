@@ -81,7 +81,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br i1 %33, label %35, label %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit.i.i"
 
 34:                                               ; preds = %25
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.015.i.i, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.015.i.i, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21
           to label %.noexc.i unwind label %.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %34
@@ -248,7 +248,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
           to label %_ZN4core3ops8function6FnOnce9call_once17h90fbaa0e26eedc87E.exit unwind label %59, !noalias !63
 
 58:                                               ; preds = %45
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.8.0.i.i, i64 noundef %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.13) #21
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.8.0.i.i, i64 noundef %47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.13) #21
           to label %.noexc3.i unwind label %59, !noalias !95
 
 .noexc3.i:                                        ; preds = %58
@@ -1464,7 +1464,7 @@ define hidden void @"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7
   br i1 %29, label %31, label %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit"
 
 30:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.015, i64 noundef %.val5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21, !noalias !338
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.015, i64 noundef %.val5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21, !noalias !338
   unreachable
 
 31:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0706d850b00ac31aE.exit.i"
@@ -1777,7 +1777,7 @@ define hidden void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d
   br label %34
 
 59:                                               ; preds = %46
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.8.0, i64 noundef %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.13) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.8.0, i64 noundef %48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.13) #21
   unreachable
 }
 

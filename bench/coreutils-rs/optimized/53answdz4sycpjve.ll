@@ -245,7 +245,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit37:  ; preds = %4
   store ptr %0, ptr %7, align 8, !noalias !44
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %41, align 8, !noalias !44
-  %42 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
+  %42 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
           to label %45 unwind label %43
 
 43:                                               ; preds = %35

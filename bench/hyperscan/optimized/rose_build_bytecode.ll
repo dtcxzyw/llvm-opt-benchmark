@@ -4217,7 +4217,7 @@ if.end8.i640:                                     ; preds = %for.cond.cleanup.i6
   %triggered_puffettes.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i, i64 24
   %rm.i641 = getelementptr inbounds nuw i8, ptr %this, i64 744
   %284 = load ptr, ptr %rm.i641, align 8
-  invoke void @_ZN3ue210mpvCompileERKSt6vectorINS_8raw_puffESaIS1_EES5_RKNS_13ReportManagerE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %nfa.i, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %triggered_puffettes.i, ptr noundef nonnull align 8 dereferenceable(505) %284)
+  invoke void @_ZN3ue210mpvCompileERKSt6vectorINS_8raw_puffESaIS1_EES5_RKNS_13ReportManagerE(ptr nonnull sret(%"class.ue2::bytecode_ptr.541") align 8 %nfa.i, ptr noundef nonnull align 8 dereferenceable(24) %storage_.i.i.i.i.i.i87.i, ptr noundef nonnull align 8 dereferenceable(24) %triggered_puffettes.i, ptr noundef nonnull align 8 dereferenceable(505) %284)
           to label %.noexc655 unwind label %lpad30.loopexit.split-lp
 
 .noexc655:                                        ; preds = %if.end8.i640
@@ -4384,7 +4384,7 @@ call.i.i.noexc.i:                                 ; preds = %if.end56.i
 invoke.cont59.i:                                  ; preds = %call.i.i.noexc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nfa_offset.i.i) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %qi.i.i) #26
-  %305 = load ptr, ptr %spec.select.i.i.i.i.i.i, align 8
+  %305 = load ptr, ptr %storage_.i.i.i.i.i.i87.i, align 8
   %_M_finish.i.i.i648 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i, i64 8
   %306 = load ptr, ptr %_M_finish.i.i.i648, align 8
   %cmp.i.i93.i.not = icmp eq ptr %305, %306

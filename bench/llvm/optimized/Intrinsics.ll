@@ -1641,7 +1641,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %194 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #19
   %195 = trunc i64 %194 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  %196 = load ptr, ptr %spec.select.i.i90, align 8, !tbaa !145
+  %196 = load ptr, ptr %186, align 8, !tbaa !145
   %197 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %196, i32 noundef %195) #19
   %198 = getelementptr inbounds nuw i8, ptr %spec.select.i.i90, i64 32
   %199 = load i32, ptr %198, align 8, !tbaa !146
@@ -9434,7 +9434,7 @@ define internal fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeER
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !135
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %397, label %10
+  br i1 %9, label %398, label %10
 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
@@ -9449,7 +9449,7 @@ define internal fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeER
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store ptr %13, ptr %1, align 8, !tbaa !138
   store i64 %12, ptr %7, align 8, !tbaa !13
-  switch i32 %.sroa.0255.0.copyload, label %396 [
+  switch i32 %.sroa.0255.0.copyload, label %397 [
     i32 0, label %14
     i32 1, label %_ZN4llvmneENS_9StringRefES0_.exit
     i32 2, label %19
@@ -10140,7 +10140,6 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
   %385 = and i32 %384, 255
   %386 = add nsw i32 %385, -17
   %spec.select.i.i.i.i.i.i.i.i243 = icmp ult i32 %386, 2
-  %spec.select.i.i244 = select i1 %spec.select.i.i.i.i.i.i.i.i243, ptr %382, ptr null
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %388 = load i32, ptr %387, align 8
   %389 = and i32 %388, 255
@@ -10148,16 +10147,17 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
   %spec.select.i.i.i.i.i.i.i.i245 = icmp ult i32 %390, 2
   %spec.select.i.i246 = select i1 %spec.select.i.i.i.i.i.i.i.i245, ptr %0, ptr null
   %391 = icmp ne ptr %spec.select.i.i246, null
-  %392 = icmp ne ptr %spec.select.i.i244, null
-  %or.cond8 = and i1 %392, %391
-  br i1 %or.cond8, label %393, label %_ZN4llvmneENS_9StringRefES0_.exit
+  %392 = icmp ne ptr %382, null
+  %393 = and i1 %392, %spec.select.i.i.i.i.i.i.i.i243
+  %or.cond8 = and i1 %393, %391
+  br i1 %or.cond8, label %394, label %_ZN4llvmneENS_9StringRefES0_.exit
 
-393:                                              ; preds = %378
-  %394 = tail call noundef ptr @_ZN4llvm10VectorType10getIntegerEPS0_(ptr noundef nonnull %spec.select.i.i244)
-  %395 = icmp ne ptr %spec.select.i.i246, %394
+394:                                              ; preds = %378
+  %395 = tail call noundef ptr @_ZN4llvm10VectorType10getIntegerEPS0_(ptr noundef nonnull %382)
+  %396 = icmp ne ptr %spec.select.i.i246, %395
   br label %_ZN4llvmneENS_9StringRefES0_.exit
 
-396:                                              ; preds = %10
+397:                                              ; preds = %10
   unreachable
 
 switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
@@ -10165,12 +10165,12 @@ switch.hole_check:                                ; preds = %_ZNK4llvm4Type13get
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
 
-_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %122, %switch.hole_check, %.preheader, %219, %196, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %296, %.thread333, %.thread330, %.thread327, %.thread, %89, %94, %100, %86, %85, %393, %378, %376, %377, %355, %356, %338, %347, %337, %336, %293, %292, %310, %325, %251, %267, %285, %247, %250, %231, %240, %229, %230, %206, %207, %183, %184, %145, %143, %144, %117, %112, %104, %109, %80, %19, %24, %27, %10, %371, %173, %168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %132, %77, %72, %67, %62, %57, %52, %47, %42, %37, %32, %14
-  %.1 = phi i1 [ %spec.select180, %371 ], [ %137, %132 ], [ %177, %173 ], [ %spec.select.i.i.i.i.i.i.i.i207, %168 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %79, %77 ], [ %76, %72 ], [ %71, %67 ], [ %66, %62 ], [ %61, %57 ], [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %18, %14 ], [ true, %10 ], [ true, %24 ], [ true, %19 ], [ %31, %27 ], [ true, %80 ], [ true, %104 ], [ %111, %109 ], [ true, %117 ], [ true, %112 ], [ false, %144 ], [ true, %143 ], [ false, %145 ], [ false, %184 ], [ true, %183 ], [ false, %207 ], [ true, %206 ], [ false, %230 ], [ true, %229 ], [ true, %231 ], [ %242, %240 ], [ false, %250 ], [ true, %247 ], [ true, %251 ], [ %286, %285 ], [ true, %267 ], [ false, %293 ], [ true, %292 ], [ %331, %325 ], [ true, %310 ], [ true, %336 ], [ false, %337 ], [ true, %338 ], [ %350, %347 ], [ false, %356 ], [ true, %355 ], [ false, %377 ], [ true, %376 ], [ %395, %393 ], [ true, %378 ], [ %88, %86 ], [ true, %85 ], [ true, %94 ], [ true, %89 ], [ %103, %100 ], [ %195, %.thread ], [ %201, %.thread327 ], [ %218, %.thread330 ], [ %224, %.thread333 ], [ true, %296 ], [ %spec.select.i.i204, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ true, %196 ], [ true, %219 ], [ false, %.preheader ], [ false, %switch.hole_check ], [ %126, %122 ]
+_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %122, %switch.hole_check, %.preheader, %219, %196, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %296, %.thread333, %.thread330, %.thread327, %.thread, %89, %94, %100, %86, %85, %394, %378, %376, %377, %355, %356, %338, %347, %337, %336, %293, %292, %310, %325, %251, %267, %285, %247, %250, %231, %240, %229, %230, %206, %207, %183, %184, %145, %143, %144, %117, %112, %104, %109, %80, %19, %24, %27, %10, %371, %173, %168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %132, %77, %72, %67, %62, %57, %52, %47, %42, %37, %32, %14
+  %.1 = phi i1 [ %spec.select180, %371 ], [ %137, %132 ], [ %177, %173 ], [ %spec.select.i.i.i.i.i.i.i.i207, %168 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %79, %77 ], [ %76, %72 ], [ %71, %67 ], [ %66, %62 ], [ %61, %57 ], [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %18, %14 ], [ true, %10 ], [ true, %24 ], [ true, %19 ], [ %31, %27 ], [ true, %80 ], [ true, %104 ], [ %111, %109 ], [ true, %117 ], [ true, %112 ], [ false, %144 ], [ true, %143 ], [ false, %145 ], [ false, %184 ], [ true, %183 ], [ false, %207 ], [ true, %206 ], [ false, %230 ], [ true, %229 ], [ true, %231 ], [ %242, %240 ], [ false, %250 ], [ true, %247 ], [ true, %251 ], [ %286, %285 ], [ true, %267 ], [ false, %293 ], [ true, %292 ], [ %331, %325 ], [ true, %310 ], [ true, %336 ], [ false, %337 ], [ true, %338 ], [ %350, %347 ], [ false, %356 ], [ true, %355 ], [ false, %377 ], [ true, %376 ], [ %396, %394 ], [ true, %378 ], [ %88, %86 ], [ true, %85 ], [ true, %94 ], [ true, %89 ], [ %103, %100 ], [ %195, %.thread ], [ %201, %.thread327 ], [ %218, %.thread330 ], [ %224, %.thread333 ], [ true, %296 ], [ %spec.select.i.i204, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ true, %196 ], [ true, %219 ], [ false, %.preheader ], [ false, %switch.hole_check ], [ %126, %122 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
-  br label %397
+  br label %398
 
-397:                                              ; preds = %5, %_ZN4llvmneENS_9StringRefES0_.exit
+398:                                              ; preds = %5, %_ZN4llvmneENS_9StringRefES0_.exit
   %.0 = phi i1 [ %.1, %_ZN4llvmneENS_9StringRefES0_.exit ], [ true, %5 ]
   ret i1 %.0
 }

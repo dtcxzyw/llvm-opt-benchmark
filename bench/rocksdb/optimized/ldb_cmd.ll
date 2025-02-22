@@ -40886,10 +40886,10 @@ _ZN7rocksdb6StatusD2Ev.exit52:                    ; preds = %if.end52, %_ZNKSt14
   br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIN7rocksdb20BackupEngineReadOnlyEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb20BackupEngineReadOnlyEEclEPS1_.exit.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit52
-  %vtable.i.i = load ptr, ptr %spec.select, align 8
+  %vtable.i.i = load ptr, ptr %.pre70, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %40 = load ptr, ptr %vfn.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %spec.select) #30
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %.pre70) #30
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN7rocksdb20BackupEngineReadOnlyEEclEPS1_.exit.i, %_ZN7rocksdb6StatusD2Ev.exit52, %_ZN7rocksdb6StatusD2Ev.exit

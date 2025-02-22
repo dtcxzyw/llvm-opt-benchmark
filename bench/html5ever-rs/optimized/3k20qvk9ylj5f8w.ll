@@ -249,7 +249,7 @@ default.unreachable2:                             ; preds = %1
   br i1 %15, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer14do_before_name17h4a85a37e2c128fccE.llvm.3862583096090210288.exit, label %17
 
 16:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %7, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.3.llvm.3862583096090210288) #10, !noalias !23
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %7, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.3.llvm.3862583096090210288) #10, !noalias !23
   unreachable
 
 17:                                               ; preds = %10
@@ -281,7 +281,7 @@ default.unreachable2:                             ; preds = %1
   br i1 %or.cond.i, label %34, label %37
 
 33:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %22, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.4) #10, !noalias !31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %22, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.4) #10, !noalias !31
   unreachable
 
 34:                                               ; preds = %25
@@ -315,7 +315,7 @@ default.unreachable2:                             ; preds = %1
   br i1 %48, label %50, label %51
 
 49:                                               ; preds = %39
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %40, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.5.llvm.3862583096090210288) #10, !noalias !37
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %40, i64 noundef %41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.5.llvm.3862583096090210288) #10, !noalias !37
   unreachable
 
 50:                                               ; preds = %43
@@ -354,7 +354,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   br i1 %12, label %_ZN8xml5ever9tokenizer5qname17QualNameTokenizer4incr17h6f4a2f36526cb72aE.llvm.3862583096090210288.exit, label %14
 
 13:                                               ; preds = %1
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.3.llvm.3862583096090210288) #10
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %3, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.3.llvm.3862583096090210288) #10
   unreachable
 
 14:                                               ; preds = %7
@@ -394,7 +394,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   br i1 %or.cond, label %16, label %20
 
 15:                                               ; preds = %1
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.4) #10
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %3, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.4) #10
   unreachable
 
 16:                                               ; preds = %7
@@ -435,7 +435,7 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   br i1 %12, label %14, label %15
 
 13:                                               ; preds = %1
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.5.llvm.3862583096090210288) #10
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %3, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.63ae0913dc05ffa1a7cbd7fc7721ce69.5.llvm.3862583096090210288) #10
   unreachable
 
 14:                                               ; preds = %7

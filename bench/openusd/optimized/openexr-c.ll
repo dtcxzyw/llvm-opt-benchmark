@@ -37507,7 +37507,7 @@ initializeFuncs.exit:                             ; preds = %4, %25, %.sink.spli
   %56 = load i16, ptr %44, align 8
   %57 = sext i16 %56 to i64
   %58 = mul nsw i64 %57, 576
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 32 %.016.i, i8 0, i64 %58, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 32 %53, i8 0, i64 %58, i1 false)
   %59 = sext i16 %56 to i32
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %59, ptr %60, align 8
@@ -37753,7 +37753,7 @@ exr_get_dwa_compression_level.exit:               ; preds = %149, %152
   %197 = load i16, ptr %185, align 8
   %198 = sext i16 %197 to i64
   %199 = mul nsw i64 %198, 576
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 32 %.016.i126, i8 0, i64 %199, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 32 %194, i8 0, i64 %199, i1 false)
   %200 = sext i16 %197 to i32
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %200, ptr %201, align 8

@@ -624,32 +624,30 @@ define dso_local void @_ZN4llvm35ImportedFunctionsInliningStatistics13setModuleI
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %12
 
-._crit_edge:                                      ; preds = %25, %2
+._crit_edge:                                      ; preds = %23, %2
   ret void
 
-12:                                               ; preds = %.lr.ph, %25
-  %.sroa.09.015 = phi ptr [ %.sroa.09.013, %.lr.ph ], [ %.sroa.09.0, %25 ]
-  %13 = icmp eq ptr %.sroa.09.015, null
-  %14 = getelementptr inbounds i8, ptr %.sroa.09.015, i64 -56
-  %15 = select i1 %13, ptr null, ptr %14
-  %16 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #22
-  br i1 %16, label %25, label %17
+12:                                               ; preds = %.lr.ph, %23
+  %.sroa.09.015 = phi ptr [ %.sroa.09.013, %.lr.ph ], [ %.sroa.09.0, %23 ]
+  %13 = getelementptr inbounds i8, ptr %.sroa.09.015, i64 -56
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #22
+  br i1 %14, label %23, label %15
 
-17:                                               ; preds = %12
-  %18 = load i32, ptr %10, align 8, !tbaa !101
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %10, align 8, !tbaa !101
-  %20 = tail call noundef ptr @_ZNK4llvm5Value11getMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull @.str.6, i64 18) #22
-  %21 = icmp ne ptr %20, null
-  %22 = zext i1 %21 to i32
-  %23 = load i32, ptr %11, align 4, !tbaa !109
-  %24 = add nsw i32 %23, %22
-  store i32 %24, ptr %11, align 4, !tbaa !109
-  br label %25
+15:                                               ; preds = %12
+  %16 = load i32, ptr %10, align 8, !tbaa !101
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %10, align 8, !tbaa !101
+  %18 = tail call noundef ptr @_ZNK4llvm5Value11getMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull @.str.6, i64 18) #22
+  %19 = icmp ne ptr %18, null
+  %20 = zext i1 %19 to i32
+  %21 = load i32, ptr %11, align 4, !tbaa !109
+  %22 = add nsw i32 %21, %20
+  store i32 %22, ptr %11, align 4, !tbaa !109
+  br label %23
 
-25:                                               ; preds = %12, %17
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 8
-  %.sroa.09.0 = load ptr, ptr %26, align 8, !tbaa !98
+23:                                               ; preds = %12, %15
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 8
+  %.sroa.09.0 = load ptr, ptr %24, align 8, !tbaa !98
   %.not = icmp eq ptr %.sroa.09.0, %9
   br i1 %.not, label %._crit_edge, label %12
 }

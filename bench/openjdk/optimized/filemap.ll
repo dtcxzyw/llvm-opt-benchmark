@@ -3118,7 +3118,7 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo25validate_boot_class_pathsEv(
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   store ptr %.0.i, ptr %2, align 8
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #26
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #26
   %39 = trunc i64 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %39, ptr %40, align 8
@@ -3185,7 +3185,7 @@ _ZN11FileMapInfo21check_paths_existenceEPKc.exit: ; preds = %44, %48
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %73 = load i64, ptr %72, align 8
-  %74 = tail call noundef ptr @_ZN11FileMapInfo17create_path_arrayEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.0.i)
+  %74 = tail call noundef ptr @_ZN11FileMapInfo17create_path_arrayEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %10)
   %75 = load i32, ptr %74, align 4
   %.not = icmp slt i32 %75, %16
   br i1 %.not, label %_ZN11FileMapInfo11check_pathsEiiP13GrowableArrayIPKcEjj.exit, label %76

@@ -18,7 +18,7 @@ define hidden noundef i32 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
   br i1 %4, label %"_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13sample_single17hd2202a07d3b3981aE.llvm.5489380481392814572.exit", label %5
 
 5:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.2.llvm.5489380481392814572) #10, !noalias !4
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.2.llvm.5489380481392814572) #10, !noalias !4
   unreachable
 
 "_ZN116_$LT$rand..distributions..uniform..UniformInt$LT$u32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13sample_single17hd2202a07d3b3981aE.llvm.5489380481392814572.exit": ; preds = %3
@@ -34,7 +34,7 @@ define hidden noundef i64 @"_ZN103_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.4.llvm.5489380481392814572) #10, !noalias !7
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.4.llvm.5489380481392814572) #10, !noalias !7
   unreachable
 
 6:                                                ; preds = %3
@@ -90,7 +90,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.2.llvm.5489380481392814572) #10
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.2.llvm.5489380481392814572) #10
   unreachable
 
 6:                                                ; preds = %3
@@ -107,7 +107,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.3, i64 noundef 51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.2.llvm.5489380481392814572) #10
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.3, i64 noundef 51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.2.llvm.5489380481392814572) #10
   unreachable
 
 7:                                                ; preds = %3
@@ -259,7 +259,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.4.llvm.5489380481392814572) #10
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.0.llvm.5489380481392814572, i64 noundef 42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.4.llvm.5489380481392814572) #10
   unreachable
 
 6:                                                ; preds = %3
@@ -293,7 +293,7 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.3, i64 noundef 51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.4.llvm.5489380481392814572) #10
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.3, i64 noundef 51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.4.llvm.5489380481392814572) #10
   unreachable
 
 5:                                                ; preds = %3
@@ -507,7 +507,7 @@ define hidden noundef i64 @_ZN4rand3rng3Rng9gen_range17h049e68daa6e4f7acE(ptr no
   ret i64 %17
 
 18:                                               ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.6.llvm.5489380481392814572, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.8.llvm.5489380481392814572) #10
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.6.llvm.5489380481392814572, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.8.llvm.5489380481392814572) #10
   unreachable
 }
 
@@ -522,7 +522,7 @@ define hidden noundef i32 @_ZN4rand3rng3Rng9gen_range17h802626c5ec6b2768E(ptr no
   ret i32 %5
 
 6:                                                ; preds = %3
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.6.llvm.5489380481392814572, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.8.llvm.5489380481392814572) #10
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.74a63e2152b77e7fad3063322043b307.6.llvm.5489380481392814572, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.74a63e2152b77e7fad3063322043b307.8.llvm.5489380481392814572) #10
   unreachable
 }
 

@@ -774,7 +774,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN132_$LT$deltalake_sql
   ret ptr %5
 
 6:                                                ; preds = %1
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.19f31fb185552d6b4fbe871626c80743.23, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.25) #17
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.19f31fb185552d6b4fbe871626c80743.23, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.25) #17
   unreachable
 }
 
@@ -847,7 +847,7 @@ define void @"_ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$
   ]
 
 16:                                               ; preds = %6
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.19f31fb185552d6b4fbe871626c80743.23, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.33) #17
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.19f31fb185552d6b4fbe871626c80743.23, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.33) #17
   unreachable
 
 17:                                               ; preds = %6, %6
@@ -872,7 +872,7 @@ define void @"_ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$
   store ptr @anon.19f31fb185552d6b4fbe871626c80743.3, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i8 0, i64 16, i1 false)
-  call void @_ZN4core9panicking13assert_failed17hdf92dfd716060357E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.19f31fb185552d6b4fbe871626c80743.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.32) #17
+  call void @_ZN4core9panicking13assert_failed17hdf92dfd716060357E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.19f31fb185552d6b4fbe871626c80743.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.32) #17
   unreachable
 
 22:                                               ; preds = %19
@@ -1020,7 +1020,7 @@ default.unreachable:                              ; preds = %22
   store ptr @anon.19f31fb185552d6b4fbe871626c80743.3, ptr %.sroa.53.0..sroa_idx, align 8
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.64.0..sroa_idx, i8 0, i64 16, i1 false)
-  call void @_ZN4core9panicking13assert_failed17hdf92dfd716060357E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.19f31fb185552d6b4fbe871626c80743.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.29) #17
+  call void @_ZN4core9panicking13assert_failed17hdf92dfd716060357E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.19f31fb185552d6b4fbe871626c80743.28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.29) #17
   unreachable
 }
 

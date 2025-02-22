@@ -706,7 +706,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   br i1 %cmp.not.i9.i.i.i, label %if.else19.i.i.i.i, label %if.then.i10.i.i.i
 
 if.then.i10.i.i.i:                                ; preds = %for.body.i.i.i.i
-  %call.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i.i.i19.i, i32 noundef 0) #10
+  %call.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.014.i.i.i.i, i32 noundef 0) #10
   %54 = load i8, ptr %call.i.i.i.i.i, align 8
   switch i8 %54, label %if.end55.sink.split.i.i.i.i [
     i8 49, label %if.end55.sink.split.sink.split.i.i.i.i
@@ -1132,7 +1132,7 @@ if.end61.i.i.i.i:                                 ; preds = %_ZNK6hermes15Scoped
 
 if.end64.i.i.i.i:                                 ; preds = %if.end61.i.i.i.i
   %add.ptr65.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i19.i, i64 16
-  %call.i94.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i.i.i19.i, i32 noundef 0) #10
+  %call.i94.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.014.i.i.i.i, i32 noundef 0) #10
   call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr65.i.i.i.i, ptr noundef %call.i94.i.i.i.i) #10
   %111 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   %112 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i.i.i, align 4
@@ -1154,7 +1154,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i: 
   %116 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i = add i32 %116, 1
   store i32 %add.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
-  %call.i96.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i.i.i19.i, i32 noundef 0) #10
+  %call.i96.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.014.i.i.i.i, i32 noundef 0) #10
   %117 = load i8, ptr %call.i96.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i97.not.i.i.i.i = icmp eq i8 %117, 49
   %sub.ptr.i.i.i98.i.i.i.i = getelementptr inbounds i8, ptr %call.i96.i.i.i.i, i64 -16
@@ -1188,7 +1188,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit109.i.i.i.
   br label %for.inc.i.i.i.i
 
 if.else78.i.i.i.i:                                ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i
-  %call.i110.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i.i.i19.i, i32 noundef 0) #10
+  %call.i110.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.014.i.i.i.i, i32 noundef 0) #10
   %124 = load i8, ptr %call.i110.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i111.not.i.i.i.i = icmp eq i8 %124, 22
   %sub.ptr.i.i.i112.i.i.i.i = getelementptr inbounds i8, ptr %call.i110.i.i.i.i, i64 -16

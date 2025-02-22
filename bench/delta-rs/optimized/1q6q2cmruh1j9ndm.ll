@@ -1028,7 +1028,7 @@ define hidden void @_ZN5tokio7runtime4task3raw15try_read_output17h9fbb1d681a0f8d
   store ptr @anon.bd35db25476204803949a90e13020e64.5, ptr %19, align 8, !noalias !194
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %20, align 8, !noalias !194
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd35db25476204803949a90e13020e64.15) #18
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd35db25476204803949a90e13020e64.15) #18
           to label %23 unwind label %21, !noalias !198
 
 21:                                               ; preds = %16
@@ -1313,7 +1313,7 @@ default.unreachable:                              ; preds = %124, %1
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %.noexc.i.i.i.i.i.i.i
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.0d496bdc3ee15ea75b9aa35a4f206e48.0.llvm.8182007033918664789, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0d496bdc3ee15ea75b9aa35a4f206e48.2.llvm.8182007033918664789) #18
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.0d496bdc3ee15ea75b9aa35a4f206e48.0.llvm.8182007033918664789, i64 noundef 45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d496bdc3ee15ea75b9aa35a4f206e48.2.llvm.8182007033918664789) #18
           to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %41, !noalias !245
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %28
@@ -1358,7 +1358,7 @@ default.unreachable:                              ; preds = %124, %1
   store ptr %2, ptr %39, align 8, !alias.scope !254, !noalias !257
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %40, align 8, !alias.scope !254, !noalias !257
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd35db25476204803949a90e13020e64.18) #18
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd35db25476204803949a90e13020e64.18) #18
           to label %.noexc1.i.i.i.i.i.i.i unwind label %65, !noalias !235
 
 .noexc1.i.i.i.i.i.i.i:                            ; preds = %36

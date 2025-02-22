@@ -679,7 +679,7 @@ define void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turb
   br i1 %9, label %11, label %12
 
 10:                                               ; preds = %3
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert13assert_failed17h410122975adbeb38E"(i64 noundef %1, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd977e911ff30b3e336a6b786c4bfeda.10.llvm.8707740070445408493) #20
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert13assert_failed17h410122975adbeb38E"(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd977e911ff30b3e336a6b786c4bfeda.10.llvm.8707740070445408493) #20
           to label %31 unwind label %17
 
 11:                                               ; preds = %7
@@ -814,7 +814,7 @@ define void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turb
   br i1 %9, label %11, label %12
 
 10:                                               ; preds = %3
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert13assert_failed17h410122975adbeb38E"(i64 noundef %1, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bd977e911ff30b3e336a6b786c4bfeda.10.llvm.8707740070445408493) #20
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert13assert_failed17h410122975adbeb38E"(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd977e911ff30b3e336a6b786c4bfeda.10.llvm.8707740070445408493) #20
   unreachable
 
 11:                                               ; preds = %7

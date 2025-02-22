@@ -388,7 +388,7 @@ define hidden { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h8966
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.273efb721408f3bb13fb3be6494847be.13.llvm.2247408780336021447, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.273efb721408f3bb13fb3be6494847be.16.llvm.2247408780336021447, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.273efb721408f3bb13fb3be6494847be.15.llvm.2247408780336021447) #30, !noalias !98
+  call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.273efb721408f3bb13fb3be6494847be.13.llvm.2247408780336021447, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.273efb721408f3bb13fb3be6494847be.16.llvm.2247408780336021447, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.273efb721408f3bb13fb3be6494847be.15.llvm.2247408780336021447) #30, !noalias !98
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb4712a8b981dd255E.llvm.2247408780336021447.exit": ; preds = %1
@@ -774,7 +774,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb4712
   ret { i64, i64 } %13
 
 14:                                               ; preds = %4
-  call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.273efb721408f3bb13fb3be6494847be.16.llvm.2247408780336021447, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30
+  call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.273efb721408f3bb13fb3be6494847be.16.llvm.2247408780336021447, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30
   unreachable
 }
 

@@ -109,7 +109,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread, label %16
 
 16:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
-  %.val55 = load i32, ptr %spec.select.i, align 8, !noundef !4
+  %.val55 = load i32, ptr %8, align 8, !noundef !4
   %.not = icmp eq i32 %.val55, 17744
   br i1 %.not, label %19, label %22
 
@@ -237,7 +237,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.1655692584469633042.exit.thread, label %16
 
 16:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
-  %.val55 = load i32, ptr %spec.select.i, align 4, !noundef !4
+  %.val55 = load i32, ptr %8, align 4, !noundef !4
   %.not = icmp eq i32 %.val55, 17744
   br i1 %.not, label %19, label %22
 
@@ -359,7 +359,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i.i: ; pre
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef7read_at17hb80828e7c54106e7E.llvm.1655692584469633042.exit.thread, label %12
 
 12:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i.i
-  %13 = load i16, ptr %spec.select.i.i, align 4, !noundef !4
+  %13 = load i16, ptr %5, align 4, !noundef !4
   %.not = icmp eq i16 %13, 23117
   br i1 %.not, label %15, label %17
 
@@ -1774,7 +1774,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef4read17hf55c8d5ff0a948efE.exit.thread, label %15
 
 15:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
-  %16 = load i16, ptr %spec.select.i, align 4, !noundef !4
+  %16 = load i16, ptr %7, align 4, !noundef !4
   %.not = icmp eq i16 %16, 0
   br i1 %.not, label %18, label %22
 

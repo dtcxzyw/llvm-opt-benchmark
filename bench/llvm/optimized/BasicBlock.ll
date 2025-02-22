@@ -24,47 +24,45 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandb
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %9, align 1, !tbaa !18
   %10 = icmp eq ptr %7, %3
-  br i1 %10, label %28, label %11
+  br i1 %10, label %26, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !19
-  %14 = icmp eq ptr %7, null
-  %15 = getelementptr inbounds i8, ptr %7, i64 -24
-  %16 = select i1 %14, ptr null, ptr %15
-  %17 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef nonnull %16) #2
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(36) %17) #2
+  %14 = getelementptr inbounds i8, ptr %7, i64 -24
+  %15 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef nonnull %14) #2
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(36) %15) #2
   %.sroa.01.0.copyload = load ptr, ptr %4, align 8
   %.sroa.22.0.copyload = load i64, ptr %8, align 8
-  %22 = add i32 %21, -1
-  %.not = icmp eq i32 %22, 0
+  %20 = add i32 %19, -1
+  %.not = icmp eq i32 %20, 0
   br i1 %.not, label %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, label %.preheader.i.i.i.preheader
 
 .preheader.i.i.i.preheader:                       ; preds = %11
-  %23 = zext i32 %22 to i64
+  %21 = zext i32 %20 to i64
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %.preheader.i.i.i
-  %.015.i.i.i = phi i64 [ %25, %.preheader.i.i.i ], [ %23, %.preheader.i.i.i.preheader ]
-  %24 = phi ptr [ %27, %.preheader.i.i.i ], [ %.sroa.01.0.copyload, %.preheader.i.i.i.preheader ]
-  %25 = add nsw i64 %.015.i.i.i, -1
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !14
-  %.not6.i.i.i = icmp eq i64 %25, 0
+  %.015.i.i.i = phi i64 [ %23, %.preheader.i.i.i ], [ %21, %.preheader.i.i.i.preheader ]
+  %22 = phi ptr [ %25, %.preheader.i.i.i ], [ %.sroa.01.0.copyload, %.preheader.i.i.i.preheader ]
+  %23 = add nsw i64 %.015.i.i.i, -1
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !14
+  %.not6.i.i.i = icmp eq i64 %23, 0
   br i1 %.not6.i.i.i, label %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, label %.preheader.i.i.i, !llvm.loop !22
 
 _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit: ; preds = %.preheader.i.i.i, %11
   %.sroa.5.0.i = phi i64 [ %.sroa.22.0.copyload, %11 ], [ 0, %.preheader.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.01.0.copyload, %11 ], [ %27, %.preheader.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.01.0.copyload, %11 ], [ %25, %.preheader.i.i.i ]
   %.sroa.2.0.extract.trunc = trunc i64 %.sroa.5.0.i to i16
   store ptr %.sroa.0.0.i, ptr %4, align 8
   store i16 %.sroa.2.0.extract.trunc, ptr %8, align 8
-  br label %28
+  br label %26
 
-28:                                               ; preds = %1, %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit
+26:                                               ; preds = %1, %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit
   ret ptr %0
 }
 
@@ -86,47 +84,45 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandb
   store i8 0, ptr %9, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %10, align 1, !tbaa !18
-  br label %27
+  br label %25
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !19
-  %14 = icmp eq ptr %5, null
-  %15 = getelementptr inbounds i8, ptr %5, i64 -24
-  %16 = select i1 %14, ptr null, ptr %15
-  %17 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef nonnull %16) #2
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(36) %17) #2
+  %14 = getelementptr inbounds i8, ptr %5, i64 -24
+  %15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %13, ptr noundef nonnull %14) #2
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(36) %15) #2
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %.not9.i.i.i = icmp eq i32 %21, 0
+  %.not9.i.i.i = icmp eq i32 %19, 0
   br i1 %.not9.i.i.i, label %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %11
-  %22 = zext i32 %21 to i64
-  %23 = sub nsw i64 0, %22
+  %20 = zext i32 %19 to i64
+  %21 = sub nsw i64 0, %20
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.110.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %23, %.lr.ph.i.i.i.preheader ]
-  %24 = phi ptr [ %26, %.lr.ph.i.i.i ], [ %.sroa.01.0.copyload, %.lr.ph.i.i.i.preheader ]
-  %25 = add nsw i64 %.110.i.i.i, 1
-  %26 = load ptr, ptr %24, align 8, !tbaa !24
-  %.not.i.i.i = icmp eq i64 %25, 0
+  %.110.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i ], [ %21, %.lr.ph.i.i.i.preheader ]
+  %22 = phi ptr [ %24, %.lr.ph.i.i.i ], [ %.sroa.01.0.copyload, %.lr.ph.i.i.i.preheader ]
+  %23 = add nsw i64 %.110.i.i.i, 1
+  %24 = load ptr, ptr %22, align 8, !tbaa !24
+  %.not.i.i.i = icmp eq i64 %23, 0
   br i1 %.not.i.i.i, label %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, label %.lr.ph.i.i.i, !llvm.loop !25
 
 _ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit: ; preds = %.lr.ph.i.i.i, %11
   %.sroa.5.0.i = phi i64 [ %.sroa.22.0.copyload, %11 ], [ 0, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.01.0.copyload, %11 ], [ %26, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.01.0.copyload, %11 ], [ %24, %.lr.ph.i.i.i ]
   %.sroa.2.0.extract.trunc = trunc i64 %.sroa.5.0.i to i16
   store ptr %.sroa.0.0.i, ptr %2, align 8
   store i16 %.sroa.2.0.extract.trunc, ptr %.sroa.22.0..sroa_idx, align 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, %7
+25:                                               ; preds = %_ZSt4prevIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, %7
   ret ptr %0
 }
 
@@ -146,11 +142,9 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir10BBIterator13getNodeParentEv(p
 define dso_local noundef ptr @_ZNK4llvm9sandboxir10BBIterator8getInstrENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !19
-  %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 -24
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %8) #2
-  ret ptr %9
+  %6 = getelementptr inbounds i8, ptr %1, i64 -24
+  %7 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %6) #2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -184,7 +178,7 @@ define dso_local void @_ZN4llvm9sandboxir10BasicBlock25buildBasicBlockFromLLVMIR
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
-.loopexit:                                        ; preds = %29, %_ZN4llvm4User8operandsEv.exit
+.loopexit:                                        ; preds = %27, %_ZN4llvm4User8operandsEv.exit
   %.sroa.036.0 = load ptr, ptr %.sroa.036.047, align 8, !tbaa !24
   %.not = icmp eq ptr %.sroa.036.0, %3
   br i1 %.not, label %._crit_edge, label %5
@@ -194,54 +188,52 @@ define dso_local void @_ZN4llvm9sandboxir10BasicBlock25buildBasicBlockFromLLVMIR
 
 5:                                                ; preds = %.lr.ph48, %.loopexit
   %.sroa.036.047 = phi ptr [ %.sroa.036.045, %.lr.ph48 ], [ %.sroa.036.0, %.loopexit ]
-  %6 = icmp eq ptr %.sroa.036.047, null
-  %7 = getelementptr inbounds i8, ptr %.sroa.036.047, i64 -24
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = load ptr, ptr %4, align 8, !tbaa !52
-  %10 = tail call noundef ptr @_ZN4llvm9sandboxir7Context24getOrCreateValueInternalEPNS_5ValueEPNS_4UserE(ptr noundef nonnull align 8 dereferenceable(432) %9, ptr noundef nonnull %8, ptr noundef null) #2
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 1073741824
-  %.not.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i.i.i, label %17, label %14
+  %6 = getelementptr inbounds i8, ptr %.sroa.036.047, i64 -24
+  %7 = load ptr, ptr %4, align 8, !tbaa !52
+  %8 = tail call noundef ptr @_ZN4llvm9sandboxir7Context24getOrCreateValueInternalEPNS_5ValueEPNS_4UserE(ptr noundef nonnull align 8 dereferenceable(432) %7, ptr noundef nonnull %6, ptr noundef null) #2
+  %9 = getelementptr inbounds i8, ptr %.sroa.036.047, i64 -20
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 1073741824
+  %.not.i.i.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i.i.i, label %15, label %12
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %8, i64 -8
-  %16 = load ptr, ptr %15, align 8, !tbaa !53
-  %.pre.i.i = and i32 %12, 134217727
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds i8, ptr %.sroa.036.047, i64 -32
+  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %.pre.i.i = and i32 %10, 134217727
   %.pre1.i.i = zext nneg i32 %.pre.i.i to i64
   br label %_ZN4llvm4User8operandsEv.exit
 
-17:                                               ; preds = %5
-  %18 = and i32 %12, 134217727
-  %19 = zext nneg i32 %18 to i64
-  %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::Use", ptr %8, i64 %20
+15:                                               ; preds = %5
+  %16 = and i32 %10, 134217727
+  %17 = zext nneg i32 %16 to i64
+  %18 = sub nsw i64 0, %17
+  %19 = getelementptr inbounds %"class.llvm::Use", ptr %6, i64 %18
   br label %_ZN4llvm4User8operandsEv.exit
 
-_ZN4llvm4User8operandsEv.exit:                    ; preds = %14, %17
-  %22 = phi ptr [ %16, %14 ], [ %21, %17 ]
-  %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %14 ], [ %19, %17 ]
-  %23 = getelementptr inbounds nuw %"class.llvm::Use", ptr %22, i64 %.pre-phi2.i.i
+_ZN4llvm4User8operandsEv.exit:                    ; preds = %12, %15
+  %20 = phi ptr [ %14, %12 ], [ %19, %15 ]
+  %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %12 ], [ %17, %15 ]
+  %21 = getelementptr inbounds nuw %"class.llvm::Use", ptr %20, i64 %.pre-phi2.i.i
   %.not4243 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not4243, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN4llvm4User8operandsEv.exit, %29
-  %.sroa.026.044 = phi ptr [ %30, %29 ], [ %22, %_ZN4llvm4User8operandsEv.exit ]
-  %24 = load ptr, ptr %.sroa.026.044, align 8, !tbaa !54
-  %25 = load i8, ptr %24, align 8, !tbaa !58
-  %.off = add i8 %25, -23
+.lr.ph:                                           ; preds = %_ZN4llvm4User8operandsEv.exit, %27
+  %.sroa.026.044 = phi ptr [ %28, %27 ], [ %20, %_ZN4llvm4User8operandsEv.exit ]
+  %22 = load ptr, ptr %.sroa.026.044, align 8, !tbaa !54
+  %23 = load i8, ptr %22, align 8, !tbaa !58
+  %.off = add i8 %23, -23
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %29, label %26
+  br i1 %switch, label %27, label %24
 
-26:                                               ; preds = %.lr.ph
-  %27 = load ptr, ptr %4, align 8, !tbaa !52
-  %28 = tail call noundef ptr @_ZN4llvm9sandboxir7Context24getOrCreateValueInternalEPNS_5ValueEPNS_4UserE(ptr noundef nonnull align 8 dereferenceable(432) %27, ptr noundef nonnull %24, ptr noundef null) #2
-  br label %29
+24:                                               ; preds = %.lr.ph
+  %25 = load ptr, ptr %4, align 8, !tbaa !52
+  %26 = tail call noundef ptr @_ZN4llvm9sandboxir7Context24getOrCreateValueInternalEPNS_5ValueEPNS_4UserE(ptr noundef nonnull align 8 dereferenceable(432) %25, ptr noundef nonnull %22, ptr noundef null) #2
+  br label %27
 
-29:                                               ; preds = %.lr.ph, %26
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.026.044, i64 32
-  %.not42 = icmp eq ptr %30, %23
+27:                                               ; preds = %.lr.ph, %24
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.026.044, i64 32
+  %.not42 = icmp eq ptr %28, %21
   br i1 %.not42, label %.loopexit, label %.lr.ph
 }
 
@@ -259,43 +251,41 @@ define dso_local void @_ZNK4llvm9sandboxir10BasicBlock5beginEv(ptr dead_on_unwin
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !52
-  %13 = icmp eq ptr %6, null
-  %14 = getelementptr inbounds i8, ptr %6, i64 -24
-  %15 = select i1 %13, ptr null, ptr %14
-  %16 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %12, ptr noundef nonnull %15) #2
-  %17 = load ptr, ptr %16, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(36) %16) #2
-  %21 = add i32 %20, -1
-  %.not = icmp eq i32 %21, 0
+  %13 = getelementptr inbounds i8, ptr %6, i64 -24
+  %14 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %12, ptr noundef nonnull %13) #2
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(36) %14) #2
+  %19 = add i32 %18, -1
+  %.not = icmp eq i32 %19, 0
   br i1 %.not, label %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, label %.preheader.i.i.i.preheader
 
 .preheader.i.i.i.preheader:                       ; preds = %10
-  %22 = zext i32 %21 to i64
+  %20 = zext i32 %19 to i64
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %.preheader.i.i.i
-  %.015.i.i.i = phi i64 [ %24, %.preheader.i.i.i ], [ %22, %.preheader.i.i.i.preheader ]
-  %23 = phi ptr [ %26, %.preheader.i.i.i ], [ %6, %.preheader.i.i.i.preheader ]
-  %24 = add nsw i64 %.015.i.i.i, -1
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !14
-  %.not6.i.i.i = icmp eq i64 %24, 0
+  %.015.i.i.i = phi i64 [ %22, %.preheader.i.i.i ], [ %20, %.preheader.i.i.i.preheader ]
+  %21 = phi ptr [ %24, %.preheader.i.i.i ], [ %6, %.preheader.i.i.i.preheader ]
+  %22 = add nsw i64 %.015.i.i.i, -1
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
+  %.not6.i.i.i = icmp eq i64 %22, 0
   br i1 %.not6.i.i.i, label %_ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit, label %.preheader.i.i.i, !llvm.loop !22
 
 _ZSt4nextIN4llvm21ilist_iterator_w_bitsINS0_12ilist_detail12node_optionsINS0_11InstructionELb0ELb0EvLb1ENS0_10BasicBlockEEELb0ELb0EEEET_S8_NSt15iterator_traitsIS8_E15difference_typeE.exit: ; preds = %.preheader.i.i.i, %10, %2
-  %.sroa.015.0 = phi ptr [ %6, %2 ], [ %6, %10 ], [ %26, %.preheader.i.i.i ]
+  %.sroa.015.0 = phi ptr [ %6, %2 ], [ %6, %10 ], [ %24, %.preheader.i.i.i ]
   %.sroa.6.0 = phi i64 [ 1, %2 ], [ 1, %10 ], [ 0, %.preheader.i.i.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !52
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %26 = load ptr, ptr %25, align 8, !tbaa !52
   store ptr %4, ptr %0, align 8, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.015.0, ptr %29, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.015.0, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.6.0, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %28, ptr %30, align 8, !tbaa !19
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %26, ptr %28, align 8, !tbaa !19
   ret void
 }
 
@@ -332,11 +322,9 @@ define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZNK4llvm9sand
   %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !14
-  %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %7, i64 -24
-  %10 = select i1 %8, ptr null, ptr %9
-  %11 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %10) #2
-  ret ptr %11
+  %8 = getelementptr inbounds i8, ptr %7, i64 -24
+  %9 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %8) #2
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -347,11 +335,9 @@ define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZNK4llvm9sand
   %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !24
-  %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %7, i64 -24
-  %10 = select i1 %8, ptr null, ptr %9
-  %11 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %10) #2
-  ret ptr %11
+  %8 = getelementptr inbounds i8, ptr %7, i64 -24
+  %9 = tail call noundef ptr @_ZNK4llvm9sandboxir7Context8getValueEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull %8) #2
+  ret ptr %9
 }
 
 declare noundef ptr @_ZN4llvm9sandboxir7Context24getOrCreateValueInternalEPNS_5ValueEPNS_4UserE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef, ptr noundef) local_unnamed_addr #1

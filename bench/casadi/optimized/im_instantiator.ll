@@ -49989,7 +49989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %_Z
 _ZNK6casadi13GenericMatrixINS_6MatrixIxEEE5numelEv.exit: ; preds = %216
   %221 = add nsw i64 %220, -1
   %222 = load i64, ptr %.sroa.0101.0133, align 8, !tbaa !3
-  %223 = load i64, ptr %spec.select.i, align 8, !tbaa !3
+  %223 = load i64, ptr %217, align 8, !tbaa !3
   %.not9.i = icmp slt i64 %220, 2
   br i1 %.not9.i, label %_ZN6casadi14casadi_polyvalIxEET_PKS1_xS1_.exit, label %.lr.ph.i
 

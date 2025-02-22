@@ -1549,10 +1549,10 @@ _ZN7Compile21optimize_virtual_callEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10T
   br i1 %.not, label %153, label %148
 
 148:                                              ; preds = %_ZN7Compile21optimize_virtual_callEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10TypeOopPtrbRbRib.exit
-  %149 = load ptr, ptr %130, align 8
+  %149 = load ptr, ptr %126, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 96
   %151 = load ptr, ptr %150, align 8
-  %152 = call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(44) %130) #11
+  %152 = call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(44) %126) #11
   br label %153
 
 153:                                              ; preds = %_ZN8GraphKit4pushEP4Node.exit, %148, %_ZN7Compile21optimize_virtual_callEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10TypeOopPtrbRbRib.exit

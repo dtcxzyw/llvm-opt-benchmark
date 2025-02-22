@@ -4518,7 +4518,7 @@ same.exit256.thread:                              ; preds = %113, %106, %same.ex
   br label %reject_merge.exit
 
 143:                                              ; preds = %same.exit256, %same.exit250, %90
-  %144 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %.0195, ptr noundef %20, ptr noundef %1)
+  %144 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %8, ptr noundef %20, ptr noundef %1)
   br label %reject_merge.exit
 
 .thread297:                                       ; preds = %same.exit, %.preheader328, %29, %._crit_edge337
@@ -4626,7 +4626,7 @@ same.exit274:                                     ; preds = %193
   br i1 %.not.i.i273.not, label %201, label %same.exit274.thread
 
 201:                                              ; preds = %same.exit274
-  %202 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %20, ptr noundef %1)
+  %202 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %21, ptr noundef %20, ptr noundef %1)
   br label %reject_merge.exit
 
 same.exit274.thread:                              ; preds = %193, %186, %.thread310, %same.exit274
@@ -4636,7 +4636,7 @@ same.exit274.thread:                              ; preds = %193, %186, %.thread
   br i1 %or.cond9, label %.thread313, label %203
 
 203:                                              ; preds = %same.exit274.thread
-  %204 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %20, ptr noundef %1)
+  %204 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %21, ptr noundef %20, ptr noundef %1)
   br label %reject_merge.exit
 
 205:                                              ; preds = %185
@@ -4728,12 +4728,12 @@ verify_absent.exit.thread:                        ; preds = %222, %verify_absent
   br i1 %or.cond29, label %228, label %232
 
 228:                                              ; preds = %227
-  %229 = tail call fastcc i32 @same(ptr noundef nonnull %spec.select, ptr noundef nonnull %.0195)
+  %229 = tail call fastcc i32 @same(ptr noundef nonnull %21, ptr noundef nonnull %8)
   %.not221 = icmp eq i32 %229, 0
   br i1 %.not221, label %232, label %230
 
 230:                                              ; preds = %228
-  %231 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.select, ptr noundef %20, ptr noundef %1)
+  %231 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %21, ptr noundef %20, ptr noundef %1)
   br label %reject_merge.exit
 
 232:                                              ; preds = %228, %227, %.thread313
@@ -4808,7 +4808,7 @@ verify_uptodate.exit.thread:                      ; preds = %242, %verify_uptoda
   br i1 %27, label %256, label %258
 
 256:                                              ; preds = %.loopexit
-  tail call fastcc void @keep_entry(ptr noundef nonnull %spec.select, ptr noundef nonnull %1)
+  tail call fastcc void @keep_entry(ptr noundef nonnull %21, ptr noundef nonnull %1)
   %257 = add nuw nsw i32 %.0192, 1
   br label %258
 
@@ -4817,7 +4817,7 @@ verify_uptodate.exit.thread:                      ; preds = %242, %verify_uptoda
   br i1 %26, label %259, label %reject_merge.exit
 
 259:                                              ; preds = %258
-  tail call fastcc void @keep_entry(ptr noundef nonnull %.0195, ptr noundef nonnull %1)
+  tail call fastcc void @keep_entry(ptr noundef nonnull %8, ptr noundef nonnull %1)
   %260 = add nuw nsw i32 %.1193, 1
   br label %reject_merge.exit
 
@@ -5320,7 +5320,7 @@ define dso_local i32 @twoway_merge(ptr noundef readonly captures(none) %0, ptr n
   %16 = icmp eq ptr %10, %14
   %spec.store.select16 = select i1 %16, ptr null, ptr %10
   %.not102 = icmp eq ptr %3, null
-  br i1 %.not102, label %132, label %17
+  br i1 %.not102, label %141, label %17
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -5379,7 +5379,7 @@ same.exit.thread:                                 ; preds = %33, %26, %23, %same
   br label %reject_merge.exit
 
 .thread148:                                       ; preds = %same.exit, %43
-  %45 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select16, ptr noundef nonnull %3, ptr noundef nonnull %1)
+  %45 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %10, ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %reject_merge.exit
 
 46:                                               ; preds = %same.exit.thread
@@ -5413,220 +5413,249 @@ same.exit.thread:                                 ; preds = %33, %26, %23, %same
 
 63:                                               ; preds = %17
   %or.cond = select i1 %21, i1 true, i1 %22
-  br i1 %or.cond, label %64, label %96
+  br i1 %or.cond, label %64, label %same.exit131.thread157
 
 64:                                               ; preds = %63
   %65 = icmp eq ptr %spec.store.select, null
   %or.cond3 = select i1 %65, i1 %22, i1 false
-  br i1 %or.cond3, label %66, label %77
+  br i1 %or.cond3, label %66, label %79
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 56
-  %68 = load i32, ptr %67, align 8, !tbaa !4
-  %69 = and i32 %68, 8388608
-  %.not.i122 = icmp eq i32 %69, 0
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %71 = load i32, ptr %70, align 4, !tbaa !4
-  %72 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 52
+  %.not178 = icmp eq ptr %10, null
+  br i1 %.not178, label %same.exit125.thread, label %67
+
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %69 = load i32, ptr %68, align 8, !tbaa !4
+  %70 = and i32 %69, 8388608
+  %.not.i122 = icmp eq i32 %70, 0
+  br i1 %.not.i122, label %71, label %same.exit125.thread
+
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %73 = load i32, ptr %72, align 4, !tbaa !4
-  %74 = icmp eq i32 %71, %73
-  %or.cond174 = select i1 %.not.i122, i1 %74, i1 false
-  br i1 %or.cond174, label %same.exit125, label %same.exit125.thread
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 52
+  %75 = load i32, ptr %74, align 4, !tbaa !4
+  %76 = icmp eq i32 %73, %75
+  br i1 %76, label %same.exit125, label %same.exit125.thread
 
-same.exit125:                                     ; preds = %66
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %76 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 72
-  %bcmp.i.i123 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %75, ptr noundef nonnull readonly dereferenceable(32) %76, i64 32)
+same.exit125:                                     ; preds = %71
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %bcmp.i.i123 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %77, ptr noundef nonnull readonly dereferenceable(32) %78, i64 32)
   %.not.i.i124.not = icmp eq i32 %bcmp.i.i123, 0
-  br i1 %.not.i.i124.not, label %96, label %same.exit125.thread
+  br i1 %.not.i.i124.not, label %same.exit131.thread157, label %same.exit125.thread
 
-77:                                               ; preds = %64
+79:                                               ; preds = %64
   %or.cond5 = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond5, label %78, label %.critedge
+  br i1 %or.cond5, label %80, label %.critedge
 
-78:                                               ; preds = %77
-  %79 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 56
-  %80 = load i32, ptr %79, align 8, !tbaa !4
-  %81 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 56
-  %82 = load i32, ptr %81, align 8, !tbaa !4
-  %83 = or i32 %82, %80
-  %84 = and i32 %83, 8388608
-  %.not.i128 = icmp eq i32 %84, 0
-  br i1 %.not.i128, label %85, label %same.exit131.thread
+80:                                               ; preds = %79
+  %81 = icmp ne ptr %12, null
+  %82 = icmp ne ptr %10, null
+  %83 = xor i1 %82, %81
+  br i1 %83, label %same.exit131.thread, label %84
 
-85:                                               ; preds = %78
-  %86 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
-  %87 = load i32, ptr %86, align 4, !tbaa !4
-  %88 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 52
-  %89 = load i32, ptr %88, align 4, !tbaa !4
-  %90 = icmp eq i32 %87, %89
-  br i1 %90, label %same.exit131, label %same.exit131.thread
+84:                                               ; preds = %80
+  %or.cond.i126 = or i1 %82, %81
+  br i1 %or.cond.i126, label %85, label %same.exit131.thread157
 
-same.exit131:                                     ; preds = %85
-  %91 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
-  %92 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 72
-  %bcmp.i.i129 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %91, ptr noundef nonnull readonly dereferenceable(32) %92, i64 32)
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %87 = load i32, ptr %86, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %89 = load i32, ptr %88, align 8, !tbaa !4
+  %90 = or i32 %89, %87
+  %91 = and i32 %90, 8388608
+  %.not.i128 = icmp eq i32 %91, 0
+  br i1 %.not.i128, label %92, label %same.exit131.thread
+
+92:                                               ; preds = %85
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %94 = load i32, ptr %93, align 4, !tbaa !4
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 52
+  %96 = load i32, ptr %95, align 4, !tbaa !4
+  %97 = icmp eq i32 %94, %96
+  br i1 %97, label %same.exit131, label %same.exit131.thread
+
+same.exit131:                                     ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %bcmp.i.i129 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %98, ptr noundef nonnull readonly dereferenceable(32) %99, i64 32)
   %.not.i.i130.not = icmp eq i32 %bcmp.i.i129, 0
-  br i1 %.not.i.i130.not, label %96, label %same.exit131.thread
+  br i1 %.not.i.i130.not, label %same.exit131.thread157, label %same.exit131.thread
 
-same.exit131.thread:                              ; preds = %85, %78, %same.exit131
-  %93 = tail call fastcc i32 @same(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select16)
-  %.not110 = icmp eq i32 %93, 0
-  br i1 %.not110, label %94, label %113
+same.exit131.thread:                              ; preds = %92, %85, %80, %same.exit131
+  %100 = tail call fastcc i32 @same(ptr noundef nonnull %12, ptr noundef nonnull %10)
+  %.not110 = icmp eq i32 %100, 0
+  br i1 %.not110, label %101, label %119
 
-94:                                               ; preds = %same.exit131.thread
-  %95 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %spec.store.select16)
-  %.not111 = icmp eq i32 %95, 0
-  br i1 %.not111, label %113, label %96
+101:                                              ; preds = %same.exit131.thread
+  %102 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %10)
+  %.not111 = icmp eq i32 %102, 0
+  br i1 %.not111, label %119, label %same.exit131.thread157
 
-96:                                               ; preds = %63, %94, %same.exit131, %same.exit125
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  %98 = tail call ptr @dup_cache_entry(ptr noundef nonnull %3, ptr noundef nonnull %97) #17
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
-  %100 = load i32, ptr %99, align 8, !tbaa !4
-  %101 = and i32 %100, -1048577
-  store i32 %101, ptr %99, align 8, !tbaa !4
-  %102 = tail call i32 @add_index_entry(ptr noundef nonnull %97, ptr noundef %98, i32 noundef 3) #17
-  %103 = load i32, ptr %18, align 8, !tbaa !4
-  %104 = and i32 %103, 12288
-  %.not.i132 = icmp eq i32 %104, 0
+same.exit131.thread157:                           ; preds = %84, %63, %101, %same.exit131, %same.exit125
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 848
+  %104 = tail call ptr @dup_cache_entry(ptr noundef nonnull %3, ptr noundef nonnull %103) #17
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %106 = load i32, ptr %105, align 8, !tbaa !4
+  %107 = and i32 %106, -1048577
+  store i32 %107, ptr %105, align 8, !tbaa !4
+  %108 = tail call i32 @add_index_entry(ptr noundef nonnull %103, ptr noundef %104, i32 noundef 3) #17
+  %109 = load i32, ptr %18, align 8, !tbaa !4
+  %110 = and i32 %109, 12288
+  %.not.i132 = icmp eq i32 %110, 0
   br i1 %.not.i132, label %reject_merge.exit, label %invalidate_ce_path.exit.i
 
-invalidate_ce_path.exit.i:                        ; preds = %96
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %106 = load ptr, ptr %105, align 8, !tbaa !58
-  %107 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  tail call void @cache_tree_invalidate_path(ptr noundef %106, ptr noundef nonnull %107) #17
-  %108 = load ptr, ptr %105, align 8, !tbaa !58
-  tail call void @untracked_cache_invalidate_path(ptr noundef %108, ptr noundef nonnull %107, i32 noundef 1) #17
+invalidate_ce_path.exit.i:                        ; preds = %same.exit131.thread157
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %112 = load ptr, ptr %111, align 8, !tbaa !58
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 108
+  tail call void @cache_tree_invalidate_path(ptr noundef %112, ptr noundef nonnull %113) #17
+  %114 = load ptr, ptr %111, align 8, !tbaa !58
+  tail call void @untracked_cache_invalidate_path(ptr noundef %114, ptr noundef nonnull %113, i32 noundef 1) #17
   br label %reject_merge.exit
 
-.critedge:                                        ; preds = %77
+.critedge:                                        ; preds = %79
   %or.cond9 = select i1 %65, i1 true, i1 %22
-  br i1 %or.cond9, label %.thread167, label %109
+  br i1 %or.cond9, label %.thread170, label %115
 
-109:                                              ; preds = %.critedge
-  %110 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %spec.store.select)
-  %.not112 = icmp eq i32 %110, 0
-  br i1 %.not112, label %.thread167, label %111
-
-111:                                              ; preds = %109
-  %112 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %3, ptr noundef nonnull %1)
-  br label %reject_merge.exit
-
-113:                                              ; preds = %same.exit131.thread, %94
-  %114 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %spec.store.select)
-  %.not113 = icmp eq i32 %114, 0
-  br i1 %.not113, label %.thread167, label %115
-
-115:                                              ; preds = %113
-  %116 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %spec.store.select16)
-  %.not114 = icmp eq i32 %116, 0
-  br i1 %.not114, label %117, label %.thread167
+115:                                              ; preds = %.critedge
+  %116 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %12)
+  %.not112 = icmp eq i32 %116, 0
+  br i1 %.not112, label %.thread170, label %117
 
 117:                                              ; preds = %115
-  %118 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select16, ptr noundef nonnull %3, ptr noundef nonnull %1)
+  %118 = tail call fastcc i32 @deleted_entry(ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %reject_merge.exit
 
-same.exit125.thread:                              ; preds = %66, %same.exit125
-  %119 = phi i32 [ %71, %same.exit125 ], [ %73, %66 ]
-  %120 = icmp eq i32 %71, 16384
-  %121 = icmp eq i32 %119, 16384
-  %.not115.not = xor i1 %120, %121
-  %122 = and i32 %19, 12288
-  %123 = icmp eq i32 %122, 0
-  %or.cond171 = and i1 %123, %.not115.not
-  br i1 %or.cond171, label %124, label %.thread167
+119:                                              ; preds = %same.exit131.thread, %101
+  %120 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %12)
+  %.not113 = icmp eq i32 %120, 0
+  br i1 %.not113, label %.thread170, label %121
 
-124:                                              ; preds = %same.exit125.thread
-  %125 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select16, ptr noundef nonnull %3, ptr noundef nonnull %1)
+121:                                              ; preds = %119
+  %122 = tail call fastcc i32 @same(ptr noundef nonnull %3, ptr noundef nonnull %10)
+  %.not114 = icmp eq i32 %122, 0
+  br i1 %.not114, label %123, label %.thread170
+
+123:                                              ; preds = %121
+  %124 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %10, ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %reject_merge.exit
 
-.thread167:                                       ; preds = %.critedge, %109, %113, %115, %same.exit125.thread
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %127 = load i32, ptr %126, align 4, !tbaa !4
-  %128 = icmp eq i32 %127, 16384
-  br i1 %128, label %129, label %131
+same.exit125.thread:                              ; preds = %71, %67, %66, %same.exit125
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %126 = load i32, ptr %125, align 4, !tbaa !4
+  %127 = icmp eq i32 %126, 16384
+  %128 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 52
+  %129 = load i32, ptr %128, align 4, !tbaa !4
+  %130 = icmp eq i32 %129, 16384
+  %.not115.not = xor i1 %127, %130
+  %131 = and i32 %19, 12288
+  %132 = icmp eq i32 %131, 0
+  %or.cond177 = and i1 %132, %.not115.not
+  br i1 %or.cond177, label %133, label %.thread170
 
-129:                                              ; preds = %.thread167
-  %130 = tail call fastcc i32 @merged_sparse_dir(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %1)
+133:                                              ; preds = %same.exit125.thread
+  %134 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %10, ptr noundef nonnull %3, ptr noundef nonnull %1)
   br label %reject_merge.exit
 
-131:                                              ; preds = %.thread167
+.thread170:                                       ; preds = %.critedge, %115, %119, %121, %same.exit125.thread
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %136 = load i32, ptr %135, align 4, !tbaa !4
+  %137 = icmp eq i32 %136, 16384
+  br i1 %137, label %138, label %140
+
+138:                                              ; preds = %.thread170
+  %139 = tail call fastcc i32 @merged_sparse_dir(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %1)
+  br label %reject_merge.exit
+
+140:                                              ; preds = %.thread170
   tail call fastcc void @reject_merge(ptr noundef %3, ptr noundef nonnull %1)
   br label %reject_merge.exit
 
-132:                                              ; preds = %8
+141:                                              ; preds = %8
   %.not103 = icmp eq ptr %spec.store.select16, null
-  br i1 %.not103, label %154, label %133
+  br i1 %.not103, label %168, label %142
 
-133:                                              ; preds = %132
+142:                                              ; preds = %141
   %.not104 = icmp eq ptr %spec.store.select, null
-  br i1 %.not104, label %152, label %134
+  br i1 %.not104, label %166, label %143
 
-134:                                              ; preds = %133
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %136 = load i32, ptr %135, align 4, !tbaa !209
-  %.not105 = icmp eq i32 %136, 0
-  br i1 %.not105, label %137, label %152
+143:                                              ; preds = %142
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %145 = load i32, ptr %144, align 4, !tbaa !209
+  %.not105 = icmp eq i32 %145, 0
+  br i1 %.not105, label %146, label %166
 
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 56
-  %139 = load i32, ptr %138, align 8, !tbaa !4
-  %140 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 56
-  %141 = load i32, ptr %140, align 8, !tbaa !4
-  %142 = or i32 %141, %139
-  %143 = and i32 %142, 8388608
-  %.not.i135 = icmp eq i32 %143, 0
-  br i1 %.not.i135, label %144, label %same.exit138.thread
+146:                                              ; preds = %143
+  %147 = icmp ne ptr %12, null
+  %148 = icmp ne ptr %10, null
+  %149 = xor i1 %148, %147
+  br i1 %149, label %same.exit138.thread, label %150
 
-144:                                              ; preds = %137
-  %145 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
-  %146 = load i32, ptr %145, align 4, !tbaa !4
-  %147 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 52
-  %148 = load i32, ptr %147, align 4, !tbaa !4
-  %149 = icmp eq i32 %146, %148
-  br i1 %149, label %same.exit138, label %same.exit138.thread
+150:                                              ; preds = %146
+  %or.cond.i133 = or i1 %148, %147
+  br i1 %or.cond.i133, label %151, label %reject_merge.exit
 
-same.exit138:                                     ; preds = %144
-  %150 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
-  %151 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 72
-  %bcmp.i.i136 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %150, ptr noundef nonnull readonly dereferenceable(32) %151, i64 32)
+151:                                              ; preds = %150
+  %152 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %153 = load i32, ptr %152, align 8, !tbaa !4
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %155 = load i32, ptr %154, align 8, !tbaa !4
+  %156 = or i32 %155, %153
+  %157 = and i32 %156, 8388608
+  %.not.i135 = icmp eq i32 %157, 0
+  br i1 %.not.i135, label %158, label %same.exit138.thread
+
+158:                                              ; preds = %151
+  %159 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %160 = load i32, ptr %159, align 4, !tbaa !4
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 52
+  %162 = load i32, ptr %161, align 4, !tbaa !4
+  %163 = icmp eq i32 %160, %162
+  br i1 %163, label %same.exit138, label %same.exit138.thread
+
+same.exit138:                                     ; preds = %158
+  %164 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %bcmp.i.i136 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %164, ptr noundef nonnull readonly dereferenceable(32) %165, i64 32)
   %.not.i.i137.not = icmp eq i32 %bcmp.i.i136, 0
   br i1 %.not.i.i137.not, label %reject_merge.exit, label %same.exit138.thread
 
-same.exit138.thread:                              ; preds = %144, %137, %same.exit138
-  tail call fastcc void @reject_merge(ptr noundef %spec.store.select, ptr noundef nonnull %1)
+same.exit138.thread:                              ; preds = %158, %151, %146, %same.exit138
+  tail call fastcc void @reject_merge(ptr noundef %12, ptr noundef nonnull %1)
   br label %reject_merge.exit
 
-152:                                              ; preds = %134, %133
-  %153 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %spec.store.select16, ptr noundef null, ptr noundef nonnull %1)
+166:                                              ; preds = %143, %142
+  %167 = tail call fastcc i32 @merged_entry(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %1)
   br label %reject_merge.exit
 
-154:                                              ; preds = %132
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %156 = load i32, ptr %155, align 4, !tbaa !78
-  %.not.i.i139 = icmp eq i32 %156, 0
-  br i1 %.not.i.i139, label %157, label %verify_absent.exit.i
+168:                                              ; preds = %141
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %170 = load i32, ptr %169, align 4, !tbaa !78
+  %.not.i.i139 = icmp eq i32 %170, 0
+  br i1 %.not.i.i139, label %171, label %verify_absent.exit.i
 
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 56
-  %159 = load i32, ptr %158, align 8, !tbaa !4
-  %160 = and i32 %159, 33554432
-  %.not5.i.i = icmp eq i32 %160, 0
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 56
+  %173 = load i32, ptr %172, align 8, !tbaa !4
+  %174 = and i32 %173, 33554432
+  %.not5.i.i = icmp eq i32 %174, 0
   br i1 %.not5.i.i, label %verify_absent.exit.i, label %verify_absent.exit.thread.i
 
-verify_absent.exit.i:                             ; preds = %157, %154
-  %161 = tail call fastcc i32 @verify_absent_1(ptr noundef %spec.store.select, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %1)
-  %.fr.i = freeze i32 %161
+verify_absent.exit.i:                             ; preds = %171, %168
+  %175 = tail call fastcc i32 @verify_absent_1(ptr noundef %spec.store.select, i32 noundef 5, i32 noundef 0, ptr noundef nonnull %1)
+  %.fr.i = freeze i32 %175
   %.not13.i = icmp eq i32 %.fr.i, 0
   br i1 %.not13.i, label %verify_absent.exit.thread.i, label %reject_merge.exit
 
-verify_absent.exit.thread.i:                      ; preds = %verify_absent.exit.i, %157
+verify_absent.exit.thread.i:                      ; preds = %verify_absent.exit.i, %171
   br label %reject_merge.exit
 
-reject_merge.exit:                                ; preds = %verify_absent.exit.thread.i, %verify_absent.exit.i, %invalidate_ce_path.exit.i, %96, %60, %53, %46, %same.exit138, %152, %same.exit138.thread, %131, %129, %124, %117, %111, %.thread148, %.thread, %6
-  %.0 = phi i32 [ -1, %6 ], [ %45, %.thread148 ], [ %44, %.thread ], [ %125, %124 ], [ %130, %129 ], [ -1, %131 ], [ %118, %117 ], [ %112, %111 ], [ %153, %152 ], [ -1, %same.exit138.thread ], [ 1, %same.exit138 ], [ -1, %46 ], [ -1, %53 ], [ -1, %60 ], [ 1, %96 ], [ 1, %invalidate_ce_path.exit.i ], [ 0, %verify_absent.exit.thread.i ], [ -1, %verify_absent.exit.i ]
+reject_merge.exit:                                ; preds = %150, %verify_absent.exit.thread.i, %verify_absent.exit.i, %invalidate_ce_path.exit.i, %same.exit131.thread157, %60, %53, %46, %same.exit138, %166, %same.exit138.thread, %140, %138, %133, %123, %117, %.thread148, %.thread, %6
+  %.0 = phi i32 [ -1, %6 ], [ %45, %.thread148 ], [ %44, %.thread ], [ %134, %133 ], [ %139, %138 ], [ -1, %140 ], [ %124, %123 ], [ %118, %117 ], [ %167, %166 ], [ -1, %same.exit138.thread ], [ 1, %same.exit138 ], [ -1, %46 ], [ -1, %53 ], [ -1, %60 ], [ 1, %same.exit131.thread157 ], [ 1, %invalidate_ce_path.exit.i ], [ 0, %verify_absent.exit.thread.i ], [ -1, %verify_absent.exit.i ], [ 1, %150 ]
   ret i32 %.0
 }
 

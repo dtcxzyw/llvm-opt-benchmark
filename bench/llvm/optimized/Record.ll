@@ -767,8 +767,8 @@ define dso_local noundef ptr @_ZNK5clang6interp6Record7getBaseENS_8QualTypeE(ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 16
   %12 = icmp ne i8 %11, 47
-  %.not.not7 = icmp eq ptr %9, null
-  %.not.not = or i1 %.not.not7, %12
+  %.not7 = icmp eq ptr %9, null
+  %.not.not = or i1 %.not7, %12
   br i1 %.not.not, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPKNS2_6interp6Record4BaseENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E6lookupES5_.exit, label %13
 
 13:                                               ; preds = %2

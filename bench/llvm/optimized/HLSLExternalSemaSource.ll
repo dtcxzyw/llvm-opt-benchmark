@@ -3880,7 +3880,7 @@ _ZN5clang4Decl14getDeclContextEv.exit45.i:        ; preds = %49, %_ZN5clang4Decl
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit.i
 
 57:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit45.i
-  %58 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %18, ptr noundef nonnull %spec.select.i.i.i) #15
+  %58 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %18, ptr noundef nonnull %44) #15
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit.i
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit.i: ; preds = %57, %54

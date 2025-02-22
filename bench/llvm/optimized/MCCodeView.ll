@@ -599,7 +599,7 @@ _ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit: ; preds = %38, %_ZN4llvm15C
   store i32 %.sroa.6.0.copyload9, ptr %.sroa.6.0..sroa_idx10, align 4, !tbaa !69
   %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %.sroa.7.0.copyload13, ptr %.sroa.7.0..sroa_idx14, align 4, !tbaa !69
-  %56 = load i32, ptr %spec.select.i, align 8, !tbaa !124
+  %56 = load i32, ptr %51, align 8, !tbaa !124
   %57 = add i32 %56, -1
   %58 = icmp ult i32 %57, -2
   br i1 %58, label %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit, label %.loopexit, !llvm.loop !134

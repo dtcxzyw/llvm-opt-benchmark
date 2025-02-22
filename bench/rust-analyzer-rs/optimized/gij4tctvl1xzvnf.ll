@@ -2754,7 +2754,7 @@ define hidden void @"_ZN162_$LT$cargo_metadata.._..$LT$impl$u20$serde..de..Deser
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %5, align 8
   store i8 1, ptr %3, align 8
-  %6 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hec7d911ac4d68341E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.264edbf4720c70079ba4e1d8c5dc9f28.20.llvm.11964692271494333599, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.21.llvm.11964692271494333599)
+  %6 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hec7d911ac4d68341E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.264edbf4720c70079ba4e1d8c5dc9f28.20.llvm.11964692271494333599, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.21.llvm.11964692271494333599)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
@@ -2836,7 +2836,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !410
   store ptr %.sroa.0.05.i, ptr %4, align 8, !noalias !410
-  %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c262eefa0fda666e5b9674ca5f8b4712.13.llvm.5232973679748665674)
+  %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c262eefa0fda666e5b9674ca5f8b4712.13.llvm.5232973679748665674)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !410
   %10 = icmp eq ptr %8, %6
   br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h10e30461ae332588E.exit, label %.lr.ph.i
@@ -5840,7 +5840,7 @@ define hidden void @_ZN4core9panicking13assert_failed17h6de9b45838e60437E(i8 nou
   %7 = alloca ptr, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %6, align 8
-  call void @_ZN4core9panicking19assert_failed_inner17hbec58bc3f09fc0a6E(i8 noundef %0, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.41, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #24
+  call void @_ZN4core9panicking19assert_failed_inner17hbec58bc3f09fc0a6E(i8 noundef %0, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.41, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #24
   unreachable
 }
 
@@ -6107,7 +6107,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h181dfad594a5deffE(ptr noalia
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %5, ptr %6, align 8, !noalias !828
   store i8 1, ptr %3, align 8, !noalias !828
-  %7 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hec7d911ac4d68341E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.264edbf4720c70079ba4e1d8c5dc9f28.20.llvm.11964692271494333599, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.21.llvm.11964692271494333599), !noalias !828
+  %7 = call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$13invalid_value17hec7d911ac4d68341E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.264edbf4720c70079ba4e1d8c5dc9f28.20.llvm.11964692271494333599, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.21.llvm.11964692271494333599), !noalias !828
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !828
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8, !alias.scope !828
@@ -6487,7 +6487,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %39, label %42, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h7875465c7dd93fecE.exit.i.i"
 
 42:                                               ; preds = %41
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.264edbf4720c70079ba4e1d8c5dc9f28.24, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.26) #24
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.264edbf4720c70079ba4e1d8c5dc9f28.24, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.264edbf4720c70079ba4e1d8c5dc9f28.26) #24
           to label %.noexc.i.i.i unwind label %.loopexit.split-lp, !noalias !854
 
 .noexc.i.i.i:                                     ; preds = %42

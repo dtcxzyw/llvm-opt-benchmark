@@ -56,7 +56,7 @@ define dso_local void @_ZN4llvm25PGOForceFunctionAttrsPass3runERNS_6ModuleERNS_1
   store i8 1, ptr %17, align 4, !tbaa !18, !alias.scope !13
   store i32 1, ptr %9, align 4, !tbaa !19, !alias.scope !13, !noalias !20
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !23, !alias.scope !13, !noalias !20
-  br label %72
+  br label %70
 
 18:                                               ; preds = %4
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm22ProfileSummaryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(841) %2) #4
@@ -75,125 +75,123 @@ define dso_local void @_ZN4llvm25PGOForceFunctionAttrsPass3runERNS_6ModuleERNS_1
   br label %27
 
 ._crit_edge:                                      ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread
-  br i1 %.1, label %52, label %.critedge
+  br i1 %.1, label %50, label %.critedge
 
 27:                                               ; preds = %.lr.ph, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread
   %.sroa.017.026 = phi ptr [ %.sroa.017.023, %.lr.ph ], [ %.sroa.017.0, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread ]
   %.025 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread ]
-  %28 = icmp eq ptr %.sroa.017.026, null
-  %29 = getelementptr inbounds i8, ptr %.sroa.017.026, i64 -56
-  %30 = select i1 %28, ptr null, ptr %29
-  %31 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %30) #4
+  %28 = getelementptr inbounds i8, ptr %.sroa.017.026, i64 -56
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #4
+  br i1 %29, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %30
+
+30:                                               ; preds = %27
+  %31 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef 48) #4
   br i1 %31, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %32
 
-32:                                               ; preds = %27
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 48) #4
-  br i1 %33, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %34
+32:                                               ; preds = %30
+  %33 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef 47) #4
+  br i1 %33, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %_ZNK4llvm8Function10hasOptSizeEv.exit.i
 
-34:                                               ; preds = %32
-  %35 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 47) #4
-  br i1 %35, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %_ZNK4llvm8Function10hasOptSizeEv.exit.i
+_ZNK4llvm8Function10hasOptSizeEv.exit.i:          ; preds = %32
+  %34 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef 18) #4
+  br i1 %34, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %35
 
-_ZNK4llvm8Function10hasOptSizeEv.exit.i:          ; preds = %34
-  %36 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 18) #4
+35:                                               ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit.i
+  %36 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef 18) #4
   br i1 %36, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %37
 
-37:                                               ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit.i
-  %38 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 18) #4
-  br i1 %38, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %39
+37:                                               ; preds = %35
+  %38 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef 5) #4
+  br i1 %38, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 5) #4
-  br i1 %40, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, label %41
-
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %26, align 8, !tbaa !30
-  %.not.i = icmp eq ptr %42, null
+  %40 = load ptr, ptr %26, align 8, !tbaa !30
+  %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit
 
-_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit: ; preds = %41
-  %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull @_ZN4llvm22BlockFrequencyAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %30) #4
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = tail call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_8FunctionENS_18BlockFrequencyInfoEEEbPKT_RT0_(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(136) %30, ptr noundef nonnull align 8 dereferenceable(8) %44)
-  br i1 %45, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread
+_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit: ; preds = %39
+  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull @_ZN4llvm22BlockFrequencyAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %28) #4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = tail call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_8FunctionENS_18BlockFrequencyInfoEEEbPKT_RT0_(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(136) %28, ptr noundef nonnull align 8 dereferenceable(8) %42)
+  br i1 %43, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread
 
-_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21: ; preds = %39, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit
-  %46 = load i32, ptr %1, align 4, !tbaa !3
-  switch i32 %46, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread [
-    i32 3, label %48
+_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21: ; preds = %37, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit
+  %44 = load i32, ptr %1, align 4, !tbaa !3
+  switch i32 %44, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread [
+    i32 3, label %46
     i32 1, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split
-    i32 2, label %47
+    i32 2, label %45
   ]
 
-47:                                               ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21
+45:                                               ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21
   br label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split
 
-48:                                               ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21
-  %49 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 3) #4
-  br i1 %49, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %50
+46:                                               ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21
+  %47 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef 3) #4
+  br i1 %47, label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread, label %48
 
-50:                                               ; preds = %48
-  tail call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef 48) #4
+48:                                               ; preds = %46
+  tail call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef 48) #4
   br label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split
 
-_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split: ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, %50, %47
-  %.sink = phi i32 [ 18, %47 ], [ 31, %50 ], [ 47, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21 ]
-  tail call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %30, i32 noundef %.sink) #4
+_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split: ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, %48, %45
+  %.sink = phi i32 [ 18, %45 ], [ 31, %48 ], [ 47, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21 ]
+  tail call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %28, i32 noundef %.sink) #4
   br label %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread
 
-_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread: ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split, %34, %41, %32, %_ZNK4llvm8Function10hasOptSizeEv.exit.i, %37, %27, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, %48, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit
-  %.1 = phi i1 [ %.025, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit ], [ %.025, %48 ], [ true, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21 ], [ %.025, %27 ], [ %.025, %37 ], [ %.025, %_ZNK4llvm8Function10hasOptSizeEv.exit.i ], [ %.025, %32 ], [ %.025, %41 ], [ %.025, %34 ], [ true, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.017.026, i64 8
-  %.sroa.017.0 = load ptr, ptr %51, align 8, !tbaa !27
+_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread: ; preds = %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split, %32, %39, %30, %_ZNK4llvm8Function10hasOptSizeEv.exit.i, %35, %27, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21, %46, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit
+  %.1 = phi i1 [ %.025, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit ], [ %.025, %46 ], [ true, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread21 ], [ %.025, %27 ], [ %.025, %35 ], [ %.025, %_ZNK4llvm8Function10hasOptSizeEv.exit.i ], [ %.025, %30 ], [ %.025, %39 ], [ %.025, %32 ], [ true, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread.sink.split ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.017.026, i64 8
+  %.sroa.017.0 = load ptr, ptr %49, align 8, !tbaa !27
   %.not = icmp eq ptr %.sroa.017.0, %25
   br i1 %.not, label %._crit_edge, label %27
 
-52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false), !alias.scope !32
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %54, ptr %0, align 8, !tbaa !8, !alias.scope !32
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %55, align 8, !tbaa !16, !alias.scope !32
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %56, align 4, !tbaa !19, !alias.scope !32
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %57, align 4, !tbaa !18, !alias.scope !32
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %59, ptr %58, align 8, !tbaa !8, !alias.scope !32
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %60, align 8, !tbaa !16, !alias.scope !32
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %61, align 4, !tbaa !18, !alias.scope !32
-  br label %72
+50:                                               ; preds = %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false), !alias.scope !32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %52, ptr %0, align 8, !tbaa !8, !alias.scope !32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %53, align 8, !tbaa !16, !alias.scope !32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %54, align 4, !tbaa !19, !alias.scope !32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %55, align 4, !tbaa !18, !alias.scope !32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %57, ptr %56, align 8, !tbaa !8, !alias.scope !32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %58, align 8, !tbaa !16, !alias.scope !32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %59, align 4, !tbaa !18, !alias.scope !32
+  br label %70
 
 .critedge:                                        ; preds = %18, %._crit_edge
   %.ptr1.i16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i16, ptr %0, align 8, !tbaa !8, !alias.scope !35
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %62, align 8, !tbaa !16, !alias.scope !35
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %64, align 8, !tbaa !17, !alias.scope !35
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %65, align 4, !tbaa !18, !alias.scope !35
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %67, ptr %66, align 8, !tbaa !8, !alias.scope !35
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %68, align 8, !tbaa !16, !alias.scope !35
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %69, align 4, !tbaa !19, !alias.scope !35
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %70, align 8, !tbaa !17, !alias.scope !35
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %71, align 4, !tbaa !18, !alias.scope !35
-  store i32 1, ptr %63, align 4, !tbaa !19, !alias.scope !35, !noalias !38
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %60, align 8, !tbaa !16, !alias.scope !35
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %62, align 8, !tbaa !17, !alias.scope !35
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %63, align 4, !tbaa !18, !alias.scope !35
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %65, ptr %64, align 8, !tbaa !8, !alias.scope !35
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %66, align 8, !tbaa !16, !alias.scope !35
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %67, align 4, !tbaa !19, !alias.scope !35
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %68, align 8, !tbaa !17, !alias.scope !35
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %69, align 4, !tbaa !18, !alias.scope !35
+  store i32 1, ptr %61, align 4, !tbaa !19, !alias.scope !35, !noalias !38
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i16, align 8, !tbaa !23, !alias.scope !35, !noalias !38
-  br label %72
+  br label %70
 
-72:                                               ; preds = %52, %.critedge, %7
+70:                                               ; preds = %50, %.critedge, %7
   ret void
 }
 
@@ -259,87 +257,80 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %16
 .lr.ph37.i:                                       ; preds = %20, %._crit_edge.i
   %.sroa.022.035.i = phi ptr [ %.sroa.022.0.i, %._crit_edge.i ], [ %.sroa.022.032.i, %20 ]
   %.034.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %20 ]
-  %23 = icmp eq ptr %.sroa.022.035.i, null
-  %24 = getelementptr inbounds i8, ptr %.sroa.022.035.i, i64 -24
-  %25 = select i1 %23, ptr null, ptr %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %.sroa.018.028.i = load ptr, ptr %26, align 8, !tbaa !58
-  %.not2729.i = icmp eq ptr %.sroa.018.028.i, %27
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.022.035.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.022.035.i, i64 24
+  %.sroa.018.028.i = load ptr, ptr %23, align 8, !tbaa !58
+  %.not2729.i = icmp eq ptr %.sroa.018.028.i, %24
   br i1 %.not2729.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %40, %.lr.ph37.i
-  %.1.lcssa.i = phi i64 [ %.034.i, %.lr.ph37.i ], [ %.2.i, %40 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.022.035.i, i64 8
-  %.sroa.022.0.i = load ptr, ptr %28, align 8, !tbaa !27
+._crit_edge.i:                                    ; preds = %35, %.lr.ph37.i
+  %.1.lcssa.i = phi i64 [ %.034.i, %.lr.ph37.i ], [ %.2.i, %35 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.022.035.i, i64 8
+  %.sroa.022.0.i = load ptr, ptr %25, align 8, !tbaa !27
   %.not.i = icmp eq ptr %.sroa.022.0.i, %22
   br i1 %.not.i, label %.loopexit, label %.lr.ph37.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph37.i, %40
-  %.sroa.018.031.i = phi ptr [ %.sroa.018.0.i, %40 ], [ %.sroa.018.028.i, %.lr.ph37.i ]
-  %.130.i = phi i64 [ %.2.i, %40 ], [ %.034.i, %.lr.ph37.i ]
-  %29 = icmp eq ptr %.sroa.018.031.i, null
-  %30 = getelementptr inbounds i8, ptr %.sroa.018.031.i, i64 -24
-  %31 = select i1 %29, ptr null, ptr %30
-  %32 = load i8, ptr %31, align 8, !tbaa !61
-  switch i8 %32, label %40 [
-    i8 85, label %33
-    i8 34, label %33
+.lr.ph.i:                                         ; preds = %.lr.ph37.i, %35
+  %.sroa.018.031.i = phi ptr [ %.sroa.018.0.i, %35 ], [ %.sroa.018.028.i, %.lr.ph37.i ]
+  %.130.i = phi i64 [ %.2.i, %35 ], [ %.034.i, %.lr.ph37.i ]
+  %26 = getelementptr inbounds i8, ptr %.sroa.018.031.i, i64 -24
+  %27 = load i8, ptr %26, align 8, !tbaa !61
+  switch i8 %27, label %35 [
+    i8 85, label %28
+    i8 34, label %28
   ]
 
-33:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %34 = call { i64, i8 } @_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(88) %31, ptr noundef null, i1 noundef zeroext false) #4
-  %35 = extractvalue { i64, i8 } %34, 1
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %40
+28:                                               ; preds = %.lr.ph.i, %.lr.ph.i
+  %29 = call { i64, i8 } @_ZNK4llvm18ProfileSummaryInfo15getProfileCountERKNS_8CallBaseEPNS_18BlockFrequencyInfoEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef null, i1 noundef zeroext false) #4
+  %30 = extractvalue { i64, i8 } %29, 1
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %35
 
-37:                                               ; preds = %33
-  %38 = extractvalue { i64, i8 } %34, 0
-  %39 = add i64 %38, %.130.i
-  br label %40
+32:                                               ; preds = %28
+  %33 = extractvalue { i64, i8 } %29, 0
+  %34 = add i64 %33, %.130.i
+  br label %35
 
-40:                                               ; preds = %37, %33, %.lr.ph.i
-  %.2.i = phi i64 [ %39, %37 ], [ %.130.i, %33 ], [ %.130.i, %.lr.ph.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.018.031.i, i64 8
-  %.sroa.018.0.i = load ptr, ptr %41, align 8, !tbaa !58
-  %.not27.i = icmp eq ptr %.sroa.018.0.i, %27
+35:                                               ; preds = %32, %28, %.lr.ph.i
+  %.2.i = phi i64 [ %34, %32 ], [ %.130.i, %28 ], [ %.130.i, %.lr.ph.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.018.031.i, i64 8
+  %.sroa.018.0.i = load ptr, ptr %36, align 8, !tbaa !58
+  %.not27.i = icmp eq ptr %.sroa.018.0.i, %24
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %._crit_edge.i, %20
   %.sroa.026.0.i.ph = phi i64 [ 0, %20 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %42 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo11isColdCountEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %.sroa.026.0.i.ph) #4
-  br i1 %42, label %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread
+  %37 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo11isColdCountEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %.sroa.026.0.i.ph) #4
+  br i1 %37, label %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread
 
 _ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit: ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i, %16, %.loopexit
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.022.038 = load ptr, ptr %43, align 8, !tbaa !27
-  %.not3739 = icmp eq ptr %.sroa.022.038, %44
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sroa.022.038 = load ptr, ptr %38, align 8, !tbaa !27
+  %.not3739 = icmp eq ptr %.sroa.022.038, %39
   br i1 %.not3739, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph
 
-45:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.022.040, i64 8
-  %.sroa.022.0 = load ptr, ptr %46, align 8, !tbaa !27
-  %.not37 = icmp eq ptr %.sroa.022.0, %44
+40:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.022.040, i64 8
+  %.sroa.022.0 = load ptr, ptr %41, align 8, !tbaa !27
+  %.not37 = icmp eq ptr %.sroa.022.0, %39
   br i1 %.not37, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %45
-  %.sroa.022.040 = phi ptr [ %.sroa.022.0, %45 ], [ %.sroa.022.038, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ]
-  %47 = icmp eq ptr %.sroa.022.040, null
-  %48 = getelementptr inbounds i8, ptr %.sroa.022.040, i64 -24
-  %49 = select i1 %47, ptr null, ptr %48
-  %50 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %49, i1 noundef zeroext false) #4
-  %51 = extractvalue { i64, i8 } %50, 1
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread
+.lr.ph:                                           ; preds = %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %40
+  %.sroa.022.040 = phi ptr [ %.sroa.022.0, %40 ], [ %.sroa.022.038, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.022.040, i64 -24
+  %43 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %42, i1 noundef zeroext false) #4
+  %44 = extractvalue { i64, i8 } %43, 1
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread
 
 _ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit: ; preds = %.lr.ph
-  %53 = extractvalue { i64, i8 } %50, 0
-  %54 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo11isColdCountEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %53) #4
-  br i1 %54, label %45, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread
+  %46 = extractvalue { i64, i8 } %43, 0
+  %47 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo11isColdCountEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %46) #4
+  br i1 %47, label %40, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread
 
-_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread: ; preds = %.lr.ph, %45, %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %.loopexit, %15, %3, %5
-  %.0 = phi i1 [ false, %15 ], [ false, %5 ], [ false, %3 ], [ false, %.loopexit ], [ true, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ], [ false, %.lr.ph ], [ true, %45 ], [ false, %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit ]
+_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread: ; preds = %.lr.ph, %40, %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %.loopexit, %15, %3, %5
+  %.0 = phi i1 [ false, %15 ], [ false, %5 ], [ false, %3 ], [ false, %.loopexit ], [ true, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ], [ false, %.lr.ph ], [ true, %40 ], [ false, %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit ]
   ret i1 %.0
 }
 

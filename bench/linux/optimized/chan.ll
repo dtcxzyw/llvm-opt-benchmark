@@ -2706,7 +2706,7 @@ define internal fastcc i32 @ieee80211_link_use_reserved_reassign(ptr noundef %0)
   br label %79
 
 79:                                               ; preds = %.loopexit, %47
-  tail call fastcc void @_ieee80211_change_chanctx(ptr noundef %7, ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %.ph17, ptr noundef %0)
+  tail call fastcc void @_ieee80211_change_chanctx(ptr noundef %7, ptr noundef nonnull %9, ptr noundef nonnull %13, ptr noundef nonnull %.ph17, ptr noundef %0)
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 4056
   store ptr %80, ptr %2, align 16
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 88
@@ -2886,9 +2886,9 @@ define internal fastcc i32 @ieee80211_link_use_reserved_reassign(ptr noundef %0)
   store ptr %176, ptr %178, align 8
   store volatile ptr %177, ptr %176, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %175, align 8
-  call fastcc void @ieee80211_del_chanctx(ptr noundef %7, ptr noundef nonnull %14)
+  call fastcc void @ieee80211_del_chanctx(ptr noundef %7, ptr noundef nonnull %13)
   %179 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @kvfree_call_rcu(ptr noundef nonnull %179, ptr noundef nonnull %14) #13
+  call void @kvfree_call_rcu(ptr noundef nonnull %179, ptr noundef nonnull %13) #13
   br label %180
 
 180:                                              ; preds = %174, %157

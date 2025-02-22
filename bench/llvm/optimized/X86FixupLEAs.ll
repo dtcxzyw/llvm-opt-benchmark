@@ -1730,7 +1730,6 @@ _ZNK12_GLOBAL__N_112FixupLEAPass13checkRegUsageERN4llvm26MachineInstrBundleItera
   %.1163.i = phi ptr [ %.0162.i, %657 ], [ %.0156.i, %659 ]
   %.1157.i = phi ptr [ %.0156.i, %657 ], [ %.0162.i, %659 ]
   %662 = icmp eq i32 %.sroa.0123.0.i, %.sroa.0117.0.i
-  %spec.select178.i = select i1 %662, ptr null, ptr %.1157.i
   %663 = load i16, ptr %.us-phi.i.i, align 4, !tbaa !323
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   %664 = getelementptr inbounds nuw i8, ptr %.us-phi42.i.i, i64 56
@@ -1773,7 +1772,8 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i105: ; preds = %_ZN4ll
   store i32 67108864, ptr %6, align 8, !alias.scope !394
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %677, ptr noundef nonnull align 8 dereferenceable(1065) %676, ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
-  %.not.i106 = icmp eq ptr %spec.select178.i, null
+  %.not179.i = icmp eq ptr %.1157.i, null
+  %.not.i106 = select i1 %662, i1 true, i1 %.not179.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
   store ptr null, ptr %148, align 8, !tbaa !342, !alias.scope !397
   %678 = select i1 %.not.i106, i32 0, i32 67108864
@@ -1821,8 +1821,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit67.i:               ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit69.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit69.sink.split.i: ; preds = %687, %_ZN4llvm8DebugLocD2Ev.exit.i108
-  %.sink251.i = phi ptr [ %10, %687 ], [ %9, %_ZN4llvm8DebugLocD2Ev.exit.i108 ]
-  store ptr null, ptr %.sink251.i, align 8, !tbaa !340
+  %.sink252.i = phi ptr [ %10, %687 ], [ %9, %_ZN4llvm8DebugLocD2Ev.exit.i108 ]
+  store ptr null, ptr %.sink252.i, align 8, !tbaa !340
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit69.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit69.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit69.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit67.i
@@ -1874,7 +1874,7 @@ _ZN4llvm8DebugLocD2Ev.exit77.i:                   ; preds = %700, %_ZN4llvm10MIM
   br i1 %.not.i106, label %706, label %703
 
 703:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit77.i
-  %704 = load i32, ptr %spec.select178.i, align 8
+  %704 = load i32, ptr %.1157.i, align 8
   %705 = and i32 %704, -67108865
   store i32 %705, ptr %.1157.i, align 8
   br label %706

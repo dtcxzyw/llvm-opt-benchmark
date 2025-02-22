@@ -2003,7 +2003,7 @@ _ZNSt10unique_ptrIN4llvm19DefaultInlineAdviceESt14default_deleteIS1_EED2Ev.exit:
   %33 = load ptr, ptr %32, align 8, !tbaa !216, !noalias !179
   %34 = icmp eq ptr %31, %33
   %spec.select.i.i = select i1 %34, ptr %27, ptr null
-  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %spec.select.i.i) #19, !noalias !179
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %27) #19, !noalias !179
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #19, !noalias !179
   store ptr %spec.select.i.i, ptr %7, align 8, !tbaa !224, !noalias !179
@@ -6267,24 +6267,18 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i:
   %6 = load i8, ptr %5, align 8, !tbaa !214
   %7 = icmp eq i8 %6, 0
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !215
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %11 = load ptr, ptr %10, align 8, !tbaa !216
-  %12 = icmp eq ptr %9, %11
-  %spec.select.i = select i1 %12, ptr %5, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   store ptr %1, ptr %3, align 8, !tbaa !209
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %spec.select.i) #19
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = ptrtoint ptr %3 to i64
-  %16 = call { ptr, i8 } @_ZN4llvm33getAttributeBasedInliningDecisionERNS_8CallBaseEPNS_8FunctionERNS_19TargetTransformInfoENS_12function_refIFRKNS_17TargetLibraryInfoERS2_EEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %spec.select.i, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr nonnull @"_ZN4llvm12function_refIFRKNS_17TargetLibraryInfoERNS_8FunctionEEE11callback_fnIZNS_13InlineAdvisor16getMandatoryKindERNS_8CallBaseERNS_15AnalysisManagerIS4_JEEERNS_25OptimizationRemarkEmitterEE3$_0EES3_lS5_", i64 %15) #19
-  %17 = extractvalue { ptr, i8 } %16, 0
-  %18 = extractvalue { ptr, i8 } %16, 1
-  %19 = trunc nuw i8 %18 to i1
-  %20 = icmp eq ptr %17, null
-  %. = select i1 %20, i32 1, i32 2
-  %.0 = select i1 %19, i32 %., i32 0
+  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %5) #19
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = ptrtoint ptr %3 to i64
+  %11 = call { ptr, i8 } @_ZN4llvm33getAttributeBasedInliningDecisionERNS_8CallBaseEPNS_8FunctionERNS_19TargetTransformInfoENS_12function_refIFRKNS_17TargetLibraryInfoERS2_EEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr nonnull @"_ZN4llvm12function_refIFRKNS_17TargetLibraryInfoERNS_8FunctionEEE11callback_fnIZNS_13InlineAdvisor16getMandatoryKindERNS_8CallBaseERNS_15AnalysisManagerIS4_JEEERNS_25OptimizationRemarkEmitterEE3$_0EES3_lS5_", i64 %10) #19
+  %12 = extractvalue { ptr, i8 } %11, 0
+  %13 = extractvalue { ptr, i8 } %11, 1
+  %14 = trunc nuw i8 %13 to i1
+  %15 = icmp eq ptr %12, null
+  %. = select i1 %15, i32 1, i32 2
+  %.0 = select i1 %14, i32 %., i32 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
   ret i32 %.0
 }
@@ -6301,7 +6295,7 @@ define dso_local void @_ZN4llvm13InlineAdvisor9getAdviceERNS_8CallBaseEb(ptr dea
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.61") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) #19
-  br label %50
+  br label %45
 
 10:                                               ; preds = %4
   %11 = tail call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
@@ -6327,7 +6321,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %14
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %10, %14, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
   %22 = phi ptr [ null, %14 ], [ null, %10 ], [ %spec.select.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ]
   %.not = icmp eq ptr %11, %22
-  br i1 %.not, label %45, label %23
+  br i1 %.not, label %40, label %23
 
 23:                                               ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6338,35 +6332,29 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %10, %14, %_ZN4llvm1
   %29 = load i8, ptr %28, align 8, !tbaa !214
   %30 = icmp eq i8 %29, 0
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !215
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %34 = load ptr, ptr %33, align 8, !tbaa !216
-  %35 = icmp eq ptr %32, %34
-  %spec.select.i.i = select i1 %35, ptr %28, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr %25, ptr %5, align 8, !tbaa !209
-  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %spec.select.i.i) #19
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = ptrtoint ptr %5 to i64
-  %39 = call { ptr, i8 } @_ZN4llvm33getAttributeBasedInliningDecisionERNS_8CallBaseEPNS_8FunctionERNS_19TargetTransformInfoENS_12function_refIFRKNS_17TargetLibraryInfoERS2_EEE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr nonnull @"_ZN4llvm12function_refIFRKNS_17TargetLibraryInfoERNS_8FunctionEEE11callback_fnIZNS_13InlineAdvisor16getMandatoryKindERNS_8CallBaseERNS_15AnalysisManagerIS4_JEEERNS_25OptimizationRemarkEmitterEE3$_0EES3_lS5_", i64 %38) #19
-  %40 = extractvalue { ptr, i8 } %39, 0
-  %41 = extractvalue { ptr, i8 } %39, 1
-  %42 = trunc nuw i8 %41 to i1
-  %43 = icmp eq ptr %40, null
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %28) #19
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = ptrtoint ptr %5 to i64
+  %34 = call { ptr, i8 } @_ZN4llvm33getAttributeBasedInliningDecisionERNS_8CallBaseEPNS_8FunctionERNS_19TargetTransformInfoENS_12function_refIFRKNS_17TargetLibraryInfoERS2_EEE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr nonnull @"_ZN4llvm12function_refIFRKNS_17TargetLibraryInfoERNS_8FunctionEEE11callback_fnIZNS_13InlineAdvisor16getMandatoryKindERNS_8CallBaseERNS_15AnalysisManagerIS4_JEEERNS_25OptimizationRemarkEmitterEE3$_0EES3_lS5_", i64 %33) #19
+  %35 = extractvalue { ptr, i8 } %34, 0
+  %36 = extractvalue { ptr, i8 } %34, 1
+  %37 = trunc nuw i8 %36 to i1
+  %38 = icmp eq ptr %35, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  %44 = select i1 %42, i1 %43, i1 false
+  %39 = select i1 %37, i1 %38, i1 false
+  br label %40
+
+40:                                               ; preds = %23, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
+  %41 = phi i1 [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ %39, %23 ]
+  %42 = load ptr, ptr %1, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %44 = load ptr, ptr %43, align 8
+  call void %44(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.61") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i1 noundef zeroext %41) #19
   br label %45
 
-45:                                               ; preds = %23, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
-  %46 = phi i1 [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ %44, %23 ]
-  %47 = load ptr, ptr %1, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %49 = load ptr, ptr %48, align 8
-  call void %49(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.61") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i1 noundef zeroext %46) #19
-  br label %50
-
-50:                                               ; preds = %45, %6
+45:                                               ; preds = %40, %6
   ret void
 }
 
@@ -8321,7 +8309,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm8CallBase
   %30 = load ptr, ptr %29, align 8, !tbaa !216, !noalias !537
   %31 = icmp eq ptr %28, %30
   %spec.select.i.i.i.i.i = select i1 %31, ptr %24, ptr null
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %spec.select.i.i.i.i.i) #19, !noalias !537
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %24) #19, !noalias !537
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #19, !noalias !537
   store ptr %spec.select.i.i.i.i.i, ptr %7, align 8, !tbaa !224, !noalias !537

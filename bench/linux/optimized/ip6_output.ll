@@ -5477,7 +5477,7 @@ define dso_local ptr @__ip6_make_skb(ptr noundef %0, ptr noundef %1, ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store volatile ptr %26, ptr %27, align 8
   store volatile ptr %24, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 192
@@ -5661,7 +5661,7 @@ define dso_local ptr @__ip6_make_skb(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %152, label %154, label %153
 
 153:                                              ; preds = %149
-  call void @ipv6_push_frag_opts(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef nonnull %7) #13
+  call void @ipv6_push_frag_opts(ptr noundef %18, ptr noundef nonnull %10, ptr noundef nonnull %7) #13
   br label %154
 
 154:                                              ; preds = %153, %149
@@ -5672,11 +5672,11 @@ define dso_local ptr @__ip6_make_skb(ptr noundef %0, ptr noundef %1, ptr noundef
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  call void @ipv6_push_nfrag_opts(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %159) #13
+  call void @ipv6_push_nfrag_opts(ptr noundef %18, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %159) #13
   br label %160
 
 160:                                              ; preds = %158, %154, %143
-  %161 = call ptr @skb_push(ptr noundef nonnull %18, i32 noundef 40) #13
+  %161 = call ptr @skb_push(ptr noundef %18, i32 noundef 40) #13
   %162 = load ptr, ptr %35, align 8
   %163 = load ptr, ptr %28, align 8
   %164 = ptrtoint ptr %162 to i64

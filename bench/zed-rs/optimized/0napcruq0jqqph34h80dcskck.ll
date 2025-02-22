@@ -93,7 +93,7 @@ common.resume:                                    ; preds = %114, %29, %95
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %14
-  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1bfa65ef1309b877E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.1) #22
+  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1bfa65ef1309b877E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.1) #22
   unreachable
 
 36:                                               ; preds = %14
@@ -466,11 +466,11 @@ default.unreachable12:                            ; preds = %3
   ret void
 
 18:                                               ; preds = %3
-  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.9) #22
+  tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.9) #22
   unreachable
 
 19:                                               ; preds = %3
-  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.9) #22
+  tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17haed46230f705cc23E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.9) #22
   unreachable
 }
 
@@ -517,7 +517,7 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   store ptr inttoptr (i64 8 to ptr), ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %16, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.6) #22
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04da66298cccba9598fadf38a75d268.6) #22
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17hd22e741b6106048dE.exit: ; preds = %5, %9
@@ -997,7 +997,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %14, ptr noundef nonnull %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.35)
+  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %14, ptr noundef nonnull %5, ptr noalias noundef readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.35)
           to label %15 unwind label %7
 
 15:                                               ; preds = %13
@@ -1012,7 +1012,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 1, ptr %.sroa.426.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %21, ptr noundef nonnull %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.36)
+  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %21, ptr noundef nonnull %18, ptr noalias noundef readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.36)
           to label %22 unwind label %7
 
 22:                                               ; preds = %20
@@ -1027,7 +1027,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 1, ptr %.sroa.428.0..sroa_idx, align 8
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %28, ptr noundef nonnull %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.37)
+  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %28, ptr noundef nonnull %25, ptr noalias noundef readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.37)
           to label %29 unwind label %7
 
 29:                                               ; preds = %27
@@ -1042,7 +1042,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 1, ptr %.sroa.430.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %35, ptr noundef nonnull %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.38)
+  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %35, ptr noundef nonnull %32, ptr noalias noundef readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.38)
           to label %36 unwind label %7
 
 36:                                               ; preds = %34
@@ -1057,7 +1057,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 1, ptr %.sroa.432.0..sroa_idx, align 8
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %42, ptr noundef nonnull %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.39)
+  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %42, ptr noundef nonnull %39, ptr noalias noundef readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.39)
           to label %43 unwind label %7
 
 43:                                               ; preds = %41
@@ -1079,7 +1079,7 @@ define void @_ZN21git_hosting_providers4init17h0922a85bcc3a2ec6E(ptr noalias nou
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 1, ptr %.sroa.434.0..sroa_idx, align 8
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %49, ptr noundef nonnull %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.40)
+  invoke void @_ZN3git16hosting_provider26GitHostingProviderRegistry25register_hosting_provider17h80c54a11e8f516fcE(ptr noundef nonnull align 8 %49, ptr noundef nonnull %46, ptr noalias noundef readonly align 8 dereferenceable(112) @anon.a04da66298cccba9598fadf38a75d268.40)
           to label %50 unwind label %7
 
 50:                                               ; preds = %48

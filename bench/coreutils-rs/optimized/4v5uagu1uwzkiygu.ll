@@ -246,7 +246,7 @@ define hidden void @_ZN6uucore8features5fsext6statfs17hb1909cd80ef79724E(ptr noa
   br i1 %27, label %31, label %84
 
 31:                                               ; preds = %30
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.760847f33721009ea47d4fec38cc712f.5, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.760847f33721009ea47d4fec38cc712f.21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.760847f33721009ea47d4fec38cc712f.7) #13
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.760847f33721009ea47d4fec38cc712f.5, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.760847f33721009ea47d4fec38cc712f.21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.760847f33721009ea47d4fec38cc712f.7) #13
           to label %.noexc.i unwind label %28, !noalias !40
 
 .noexc.i:                                         ; preds = %31

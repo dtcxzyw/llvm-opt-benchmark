@@ -347,7 +347,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
   %115 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %61, ptr %115, align 8, !noalias !42
   store i64 3, ptr %38, align 8, !noalias !42
-  %116 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h4676b468233e0422E.llvm.3445054059876624322"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.160c4a0b0bc7ab702bd775dcdd21f150.64.llvm.3445054059876624322, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38), !noalias !38
+  %116 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h4676b468233e0422E.llvm.3445054059876624322"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.160c4a0b0bc7ab702bd775dcdd21f150.64.llvm.3445054059876624322, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38), !noalias !38
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38), !noalias !39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39), !noalias !39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !33
@@ -1105,11 +1105,11 @@ common.resume:                                    ; preds = %344, %341, %67, %11
   br i1 %338, label %345, label %340
 
 339:                                              ; preds = %3
-  tail call void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.2) #11
+  tail call void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.2) #11
   unreachable
 
 340:                                              ; preds = %"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4f73ffb94fae7fbdE.exit"
-  invoke void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.1) #11
+  invoke void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.1) #11
           to label %346 unwind label %341
 
 341:                                              ; preds = %340
@@ -1357,7 +1357,7 @@ common.resume:                                    ; preds = %344, %341, %67, %11
   %115 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %61, ptr %115, align 8, !noalias !250
   store i64 3, ptr %38, align 8, !noalias !250
-  %116 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h4676b468233e0422E.llvm.3445054059876624322"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.160c4a0b0bc7ab702bd775dcdd21f150.64.llvm.3445054059876624322, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38), !noalias !246
+  %116 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h4676b468233e0422E.llvm.3445054059876624322"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.160c4a0b0bc7ab702bd775dcdd21f150.64.llvm.3445054059876624322, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38), !noalias !246
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38), !noalias !247
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39), !noalias !247
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !241
@@ -2115,11 +2115,11 @@ common.resume:                                    ; preds = %344, %341, %67, %11
   br i1 %338, label %345, label %340
 
 339:                                              ; preds = %3
-  tail call void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.2) #11
+  tail call void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.2) #11
   unreachable
 
 340:                                              ; preds = %"_ZN5sqlez22thread_safe_connection29ThreadSafeConnection$LT$M$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbdb44a5f1775df60E.exit"
-  invoke void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.1) #11
+  invoke void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d40b5ee8e7e0ffecc6185ed475e03fc9.1) #11
           to label %346 unwind label %341
 
 341:                                              ; preds = %340

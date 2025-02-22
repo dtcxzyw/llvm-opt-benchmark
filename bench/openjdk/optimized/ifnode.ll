@@ -4529,40 +4529,35 @@ _ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread: ; preds = %68, %64,
 108:                                              ; preds = %104
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 44
+  %109 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 15
   %112 = icmp eq i32 %111, 8
-  %spec.select.i = select i1 %112, ptr %107, ptr null
-  %113 = getelementptr inbounds nuw i8, ptr %50, i64 44
-  %114 = load i32, ptr %113, align 4
-  %115 = and i32 %114, 15
-  %116 = icmp eq i32 %115, 8
-  %spec.select.i37 = select i1 %116, ptr %50, ptr null
-  %117 = tail call noundef zeroext i1 @_ZN6IfNode13is_ctrl_foldsEP4NodeP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %107, ptr noundef nonnull %1)
+  %spec.select.i37 = select i1 %112, ptr %50, ptr null
+  %113 = tail call noundef zeroext i1 @_ZN6IfNode13is_ctrl_foldsEP4NodeP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %107, ptr noundef nonnull %1)
+  br i1 %113, label %114, label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
+
+114:                                              ; preds = %108
+  %115 = call noundef zeroext i1 @_ZN6IfNode23has_only_uncommon_trapsEP8ProjNodeRS1_S2_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %1)
+  br i1 %115, label %116, label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
+
+116:                                              ; preds = %114
+  %117 = tail call noundef zeroext i1 @_ZN6IfNode24is_side_effect_free_testEP8ProjNodeP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i37, ptr noundef nonnull %1)
   br i1 %117, label %118, label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
 
-118:                                              ; preds = %108
-  %119 = call noundef zeroext i1 @_ZN6IfNode23has_only_uncommon_trapsEP8ProjNodeRS1_S2_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %1)
-  br i1 %119, label %120, label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
-
-120:                                              ; preds = %118
-  %121 = tail call noundef zeroext i1 @_ZN6IfNode24is_side_effect_free_testEP8ProjNodeP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i37, ptr noundef nonnull %1)
+118:                                              ; preds = %116
+  %119 = load ptr, ptr %5, align 8
+  %120 = load ptr, ptr %6, align 8
+  %121 = tail call noundef zeroext i1 @_ZN6IfNode20fold_compares_helperEP8ProjNodeS1_S1_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %107, ptr noundef %119, ptr noundef %120, ptr noundef nonnull %1)
   br i1 %121, label %122, label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
 
-122:                                              ; preds = %120
-  %123 = load ptr, ptr %5, align 8
-  %124 = load ptr, ptr %6, align 8
-  %125 = tail call noundef zeroext i1 @_ZN6IfNode20fold_compares_helperEP8ProjNodeS1_S1_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i, ptr noundef %123, ptr noundef %124, ptr noundef nonnull %1)
-  br i1 %125, label %126, label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
-
-126:                                              ; preds = %122
-  tail call void @_ZN6IfNode28reroute_side_effect_free_uncEP8ProjNodeS1_P12PhaseIterGVN(ptr nonnull align 8 poison, ptr noundef %spec.select.i37, ptr noundef %spec.select.i, ptr noundef nonnull %1)
-  %127 = tail call noundef ptr @_ZN6IfNode20merge_uncommon_trapsEP8ProjNodeS1_S1_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i, ptr noundef %123, ptr noundef %124, ptr noundef nonnull %1)
+122:                                              ; preds = %118
+  tail call void @_ZN6IfNode28reroute_side_effect_free_uncEP8ProjNodeS1_P12PhaseIterGVN(ptr nonnull align 8 poison, ptr noundef %spec.select.i37, ptr noundef %107, ptr noundef nonnull %1)
+  %123 = tail call noundef ptr @_ZN6IfNode20merge_uncommon_trapsEP8ProjNodeS1_S1_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %107, ptr noundef %119, ptr noundef %120, ptr noundef nonnull %1)
   br label %_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread
 
-_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread: ; preds = %47, %10, %15, %20, %25, %30, %42, %100, %104, %122, %120, %118, %108, %_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread, %94, %91, %2, %126, %98
-  %.0 = phi ptr [ %99, %98 ], [ %127, %126 ], [ null, %2 ], [ %0, %91 ], [ null, %94 ], [ null, %_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread ], [ null, %108 ], [ null, %118 ], [ null, %120 ], [ null, %122 ], [ null, %104 ], [ null, %100 ], [ null, %42 ], [ null, %30 ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %10 ], [ null, %47 ]
+_ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread: ; preds = %47, %10, %15, %20, %25, %30, %42, %100, %104, %118, %116, %114, %108, %_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread, %94, %91, %2, %122, %98
+  %.0 = phi ptr [ %99, %98 ], [ %123, %122 ], [ null, %2 ], [ %0, %91 ], [ null, %94 ], [ null, %_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_.exit.thread ], [ null, %108 ], [ null, %114 ], [ null, %116 ], [ null, %118 ], [ null, %104 ], [ null, %100 ], [ null, %42 ], [ null, %30 ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %10 ], [ null, %47 ]
   ret ptr %.0
 }
 
@@ -4781,11 +4776,11 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %119, %108, %_ZN4Nod
   br i1 %.not46.i, label %132, label %131
 
 131:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit.i
-  tail call void @_ZN12PhaseIterGVN25remove_globally_dead_nodeEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i.i, ptr noundef nonnull %87) #8
+  tail call void @_ZN12PhaseIterGVN25remove_globally_dead_nodeEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %87) #8
   br label %133
 
 132:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit.i
-  tail call void @_ZN11PhaseValues15set_type_bottomEPK4Node(ptr noundef nonnull align 8 dereferenceable(2400) %..i.i, ptr noundef nonnull %87)
+  tail call void @_ZN11PhaseValues15set_type_bottomEPK4Node(ptr noundef nonnull align 8 dereferenceable(2400) %1, ptr noundef nonnull %87)
   br label %133
 
 133:                                              ; preds = %132, %131
@@ -4935,16 +4930,16 @@ _ZN4NodenwEm.exit55.i:                            ; preds = %205, %203
   br label %_ZL13idealize_testP8PhaseGVNP6IfNode.exit
 
 _ZL13idealize_testP8PhaseGVNP6IfNode.exit:        ; preds = %_ZN4NodenwEm.exit55.i, %208
-  %215 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i.i, ptr noundef %.0.i.i.i51.i, ptr noundef null) #8
-  %216 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i.i, ptr noundef %.0.i.i.i54.i, ptr noundef null) #8
-  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i.i, ptr noundef %28) #8
+  %215 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %.0.i.i.i51.i, ptr noundef null) #8
+  %216 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %.0.i.i.i54.i, ptr noundef null) #8
+  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %28) #8
   %217 = load ptr, ptr %128, align 8
   %218 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %217, ptr noundef %28) #8
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i.i, ptr noundef %28, ptr noundef %.0.i.i.i54.i) #8
-  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i.i, ptr noundef %29) #8
+  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %28, ptr noundef %.0.i.i.i54.i) #8
+  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %29) #8
   %219 = load ptr, ptr %128, align 8
   %220 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %219, ptr noundef %29) #8
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i.i, ptr noundef %29, ptr noundef %.0.i.i.i51.i) #8
+  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %29, ptr noundef %.0.i.i.i51.i) #8
   br label %226
 
 221:                                              ; preds = %26, %27, %34, %42, %75
@@ -7150,7 +7145,7 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 192
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %14) #8
-  br i1 %21, label %22, label %90
+  br i1 %21, label %22, label %88
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7164,7 +7159,7 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %._crit_edge, label %90
+  br i1 %30, label %._crit_edge, label %88
 
 ._crit_edge:                                      ; preds = %22, %27, %2
   %31 = phi ptr [ %26, %27 ], [ %5, %2 ], [ %26, %22 ]
@@ -7172,19 +7167,19 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 63
   %35 = icmp eq i32 %34, 53
-  br i1 %35, label %36, label %84
+  br i1 %35, label %36, label %82
 
 36:                                               ; preds = %._crit_edge
   %37 = tail call noundef ptr @_ZNK4Node23unique_ctrl_out_or_nullEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   %.not19 = icmp eq ptr %37, null
-  br i1 %.not19, label %84, label %38
+  br i1 %.not19, label %82, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 44
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 511
   %42 = icmp eq i32 %41, 352
-  br i1 %42, label %43, label %84
+  br i1 %42, label %43, label %82
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -7192,7 +7187,7 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %0
-  br i1 %48, label %49, label %84
+  br i1 %48, label %49, label %82
 
 49:                                               ; preds = %43
   %50 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -7236,30 +7231,27 @@ _ZN4NodenwEm.exit:                                ; preds = %65, %67
 
 74:                                               ; preds = %70, %_ZN4NodenwEm.exit
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %76 = load i8, ptr %75, align 8
-  %77 = trunc i8 %76 to i1
-  %..i20 = select i1 %77, ptr %1, ptr null
-  %78 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i20, ptr noundef %.0.i.i.i, ptr noundef null) #8
-  %79 = load i8, ptr %75, align 8
-  %80 = trunc i8 %79 to i1
-  %..i21 = select i1 %80, ptr %1, ptr null
-  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i21, ptr noundef nonnull %37) #8
-  %81 = getelementptr inbounds nuw i8, ptr %..i21, i64 32
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull %37) #8
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %..i21, ptr noundef nonnull %37, ptr noundef %.0.i.i.i) #8
-  br label %84
+  %76 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %.0.i.i.i, ptr noundef null) #8
+  %77 = load i8, ptr %75, align 8
+  %78 = trunc i8 %77 to i1
+  %..i21 = select i1 %78, ptr %1, ptr null
+  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %37) #8
+  %79 = getelementptr inbounds nuw i8, ptr %..i21, i64 32
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull %37) #8
+  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %37, ptr noundef %.0.i.i.i) #8
+  br label %82
 
-84:                                               ; preds = %36, %38, %43, %74, %._crit_edge
-  %85 = load ptr, ptr %3, align 8
+82:                                               ; preds = %36, %38, %43, %74, %._crit_edge
+  %83 = load ptr, ptr %3, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %88, align 8
-  br label %90
+  %87 = load ptr, ptr %86, align 8
+  br label %88
 
-90:                                               ; preds = %17, %27, %84
-  %.0 = phi ptr [ %89, %84 ], [ %0, %27 ], [ %0, %17 ]
+88:                                               ; preds = %17, %27, %82
+  %.0 = phi ptr [ %87, %82 ], [ %0, %27 ], [ %0, %17 ]
   ret ptr %.0
 }
 

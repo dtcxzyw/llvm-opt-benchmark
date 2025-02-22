@@ -6679,11 +6679,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   br i1 %133, label %.lr.ph, label %.loopexit231, !llvm.loop !52
 
 134:                                              ; preds = %129
-  %135 = load float, ptr %spec.select, align 4
+  %135 = load float, ptr %38, align 4
   br i1 %79, label %136, label %.lr.ph243.preheader
 
 136:                                              ; preds = %134
-  %137 = load i32, ptr %47, align 4
+  %137 = load i32, ptr %43, align 4
   br label %.lr.ph243.preheader
 
 .lr.ph243.preheader:                              ; preds = %136, %134
@@ -6722,9 +6722,9 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   ]
 
 .lr.ph249.preheader:                              ; preds = %147
-  %158 = load float, ptr %spec.select, align 4
+  %158 = load float, ptr %38, align 4
   %159 = load float, ptr %80, align 4
-  %160 = load i32, ptr %47, align 4
+  %160 = load i32, ptr %43, align 4
   %161 = load i32, ptr %81, align 4
   br label %.lr.ph249
 
@@ -6763,7 +6763,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   br i1 %183, label %.lr.ph247, label %.loopexit231, !llvm.loop !55
 
 .lr.ph245.preheader:                              ; preds = %147
-  %184 = load float, ptr %spec.select, align 4
+  %184 = load float, ptr %38, align 4
   %185 = load float, ptr %80, align 4
   br label %.lr.ph245
 

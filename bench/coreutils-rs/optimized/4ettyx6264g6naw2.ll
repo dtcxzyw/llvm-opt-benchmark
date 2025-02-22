@@ -76,7 +76,7 @@ default.unreachable91:                            ; preds = %80, %77, %30
   store ptr %.val.i, ptr %14, align 8, !noalias !10
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %38, align 8, !noalias !10
-  %39 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %26)
+  %39 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %26)
           to label %42 unwind label %40
 
 40:                                               ; preds = %33
@@ -145,7 +145,7 @@ common.resume:                                    ; preds = %.body, %59, %40
   store ptr %.val.i53, ptr %12, align 8, !noalias !34
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %57, align 8, !noalias !34
-  %58 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25)
+  %58 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25)
           to label %61 unwind label %59
 
 59:                                               ; preds = %52
@@ -311,7 +311,7 @@ common.resume:                                    ; preds = %.body, %59, %40
   store ptr %.val.i60, ptr %10, align 8, !noalias !58
   %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %126, align 8, !noalias !58
-  %127 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23)
+  %127 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23)
           to label %130 unwind label %128
 
 128:                                              ; preds = %116
@@ -398,7 +398,7 @@ common.resume:                                    ; preds = %.body, %59, %40
   store ptr %.val.i68, ptr %8, align 8, !noalias !80
   %150 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %150, align 8, !noalias !80
-  %151 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
+  %151 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20)
           to label %154 unwind label %152
 
 152:                                              ; preds = %140
@@ -485,7 +485,7 @@ common.resume:                                    ; preds = %.body, %59, %40
   store ptr %.val.i79, ptr %6, align 8, !noalias !102
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %174, align 8, !noalias !102
-  %175 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
+  %175 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.55cec760ead9d95b5652aef36820f46e.0.llvm.14168879113689993346, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
           to label %178 unwind label %176
 
 176:                                              ; preds = %164

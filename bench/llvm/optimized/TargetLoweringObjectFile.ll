@@ -820,7 +820,6 @@ define internal fastcc noundef zeroext i1 @_ZL22IsNullTerminatedStringPKN4llvm8C
   %2 = load i8, ptr %0, align 8, !tbaa !323
   %3 = add i8 %2, -15
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %3, 2
-  %spec.select.i.i = select i1 %spec.select.i.i.i.i.i.i.i.i, ptr %0, ptr null
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %4, label %.thread
 
 4:                                                ; preds = %1
@@ -836,7 +835,7 @@ define internal fastcc noundef zeroext i1 @_ZL22IsNullTerminatedStringPKN4llvm8C
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.025 = phi i32 [ %9, %.lr.ph ], [ 0, %.preheader ]
-  %8 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %spec.select.i.i, i32 noundef %.025) #18
+  %8 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.025) #18
   %.not = icmp ne i64 %8, 0
   %9 = add nuw i32 %.025, 1
   %.not17 = icmp ne i32 %9, %6

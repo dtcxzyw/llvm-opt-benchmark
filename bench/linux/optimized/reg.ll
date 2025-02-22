@@ -5998,7 +5998,7 @@ define internal fastcc void @reset_regdomains(i1 noundef zeroext %0, ptr noundef
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %15
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %12, ptr noundef nonnull %12) #23
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %9, ptr noundef nonnull %9) #23
   %.pre = load ptr, ptr @cfg80211_world_regdom, align 8
   br label %21
 

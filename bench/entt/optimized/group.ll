@@ -87013,7 +87013,7 @@ _ZNK4entt11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS
   %594 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %spec.select.i370, ptr %594, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #27
-  %595 = load ptr, ptr %spec.select17.i371, align 8, !tbaa !110
+  %595 = load ptr, ptr %.pn6.i.i368, align 8, !tbaa !110
   %596 = getelementptr i32, ptr %595, i64 %spec.select.i370
   %597 = getelementptr i8, ptr %596, i64 -4
   %598 = load i32, ptr %597, align 4, !tbaa !96, !noalias !2466

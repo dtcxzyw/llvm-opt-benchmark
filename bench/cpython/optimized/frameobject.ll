@@ -4600,7 +4600,7 @@ define internal i32 @frame_settrace(ptr noundef %0, ptr noundef %1, ptr readnone
   br i1 %.not.i.i, label %_Py_XNewRef.exit, label %8
 
 8:                                                ; preds = %7
-  %9 = load i32, ptr %spec.store.select, align 8, !tbaa !9
+  %9 = load i32, ptr %1, align 8, !tbaa !9
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %_Py_XNewRef.exit, label %11
 

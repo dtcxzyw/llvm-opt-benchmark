@@ -277,11 +277,11 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   ret { i1, i1 } %73
 
 74:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit"
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.22) #13
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.22) #13
   unreachable
 
 select.unfold:                                    ; preds = %37, %51
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.23) #13
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.23) #13
   unreachable
 
 75:                                               ; preds = %54
@@ -353,7 +353,7 @@ select.unfold:                                    ; preds = %37, %51
   br i1 %.not61, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %110
 
 109:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit"
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i70, i64 noundef %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.25) #13
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i70, i64 noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.25) #13
   unreachable
 
 110:                                              ; preds = %105
@@ -387,7 +387,7 @@ select.unfold:                                    ; preds = %37, %51
   br i1 %128, label %select.unfold105, label %129
 
 select.unfold105:                                 ; preds = %.noexc, %110
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.24) #13
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.24) #13
           to label %131 unwind label %.loopexit.split-lp
 
 129:                                              ; preds = %.noexc
@@ -476,7 +476,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 21:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  invoke void @_ZN4core9panicking13assert_failed17hdc032fdcb945adf5E(i8 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.26) #13
+  invoke void @_ZN4core9panicking13assert_failed17hdc032fdcb945adf5E(i8 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.26) #13
           to label %96 unwind label %99
 
 22:                                               ; preds = %16
@@ -886,7 +886,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 
 18:                                               ; preds = %.noexc2, %.noexc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i)
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.f309c0c276216067398eff0f085bab25.27, i64 noundef 11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.28) #13
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.f309c0c276216067398eff0f085bab25.27, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.28) #13
           to label %24 unwind label %85
 
 19:                                               ; preds = %.noexc2

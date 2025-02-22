@@ -3312,15 +3312,15 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS0_20HdSceneInd
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.loopexit119
   %160 = phi i64 [ %.pre, %.preheader.loopexit ], [ %116, %.loopexit119 ]
-  %.not138 = icmp eq i64 %160, 0
-  br i1 %.not138, label %.preheader.._crit_edge137_crit_edge, label %.lr.ph136.preheader
+  %.not = icmp eq i64 %160, 0
+  br i1 %.not, label %.preheader.._crit_edge137_crit_edge, label %.lr.ph136.preheader
 
 .preheader.._crit_edge137_crit_edge:              ; preds = %.preheader
-  %.pre152 = load ptr, ptr %10, align 8
+  %.pre151 = load ptr, ptr %10, align 8
   br label %._crit_edge137
 
 .lr.ph136.preheader:                              ; preds = %.preheader
-  %.pre151 = load ptr, ptr %9, align 8
+  %.pre150 = load ptr, ptr %9, align 8
   br label %.lr.ph136
 
 161:                                              ; preds = %.lr.ph134, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit
@@ -3767,7 +3767,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %363
   %.0135 = phi i64 [ %364, %363 ], [ 0, %.lr.ph136.preheader ]
-  %351 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector", ptr %.pre151, i64 %.0135
+  %351 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector", ptr %.pre150, i64 %.0135
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 256
   %353 = load i32, ptr %352, align 8
   %354 = icmp eq i32 %353, 0
@@ -3796,7 +3796,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.
   br i1 %366, label %.lr.ph136, label %._crit_edge137, !llvm.loop !31
 
 ._crit_edge137:                                   ; preds = %363, %.preheader.._crit_edge137_crit_edge
-  %367 = phi ptr [ %.pre152, %.preheader.._crit_edge137_crit_edge ], [ %357, %363 ]
+  %367 = phi ptr [ %.pre151, %.preheader.._crit_edge137_crit_edge ], [ %357, %363 ]
   %368 = load ptr, ptr %141, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS2_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEEEvT_S8_(ptr noundef %367, ptr noundef %368)
           to label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS0_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEES4_EvT_S6_RSaIT0_E.exit.i unwind label %375

@@ -3215,7 +3215,7 @@ define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, p
 
 .lr.ph111:                                        ; preds = %.preheader, %39
   %.in = phi i32 [ %40, %39 ], [ %.061.lcssa, %.preheader ]
-  %38 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.165, i32 noundef 47) #11
+  %38 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 47) #11
   %.not95 = icmp eq ptr %38, null
   br i1 %.not95, label %41, label %39
 
@@ -3265,7 +3265,7 @@ define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, p
 .loopexit:                                        ; preds = %39, %.preheader, %41, %.critedge, %11, %11, %46, %53, %54, %51
   %55 = phi i1 [ false, %46 ], [ true, %51 ], [ true, %54 ], [ true, %53 ], [ true, %11 ], [ true, %11 ], [ true, %.critedge ], [ true, %41 ], [ true, %.preheader ], [ true, %39 ]
   %.369 = phi ptr [ %47, %46 ], [ %1, %51 ], [ %1, %54 ], [ %1, %53 ], [ %1, %11 ], [ %1, %11 ], [ %.167.lcssa, %.critedge ], [ %.167.lcssa, %41 ], [ %.167.lcssa, %.preheader ], [ %.167.lcssa, %39 ]
-  %.3 = phi ptr [ %.064, %46 ], [ %.064, %51 ], [ %.064, %54 ], [ %.064, %53 ], [ %.064, %11 ], [ %.064, %11 ], [ null, %.critedge ], [ %19, %41 ], [ %19, %.preheader ], [ %19, %39 ]
+  %.3 = phi ptr [ %.064, %46 ], [ %.064, %51 ], [ %.064, %54 ], [ %.064, %53 ], [ %.064, %11 ], [ %.064, %11 ], [ null, %.critedge ], [ %19, %41 ], [ %19, %.preheader ], [ %.165, %39 ]
   %.163 = phi i1 [ false, %46 ], [ false, %51 ], [ false, %54 ], [ false, %53 ], [ true, %11 ], [ true, %11 ], [ false, %.critedge ], [ false, %41 ], [ false, %.preheader ], [ false, %39 ]
   call void @Curl_dyn_init(ptr noundef nonnull %4, i64 noundef 8000000) #10
   %56 = call i32 @Curl_dyn_add(ptr noundef nonnull %4, ptr noundef nonnull %0) #10

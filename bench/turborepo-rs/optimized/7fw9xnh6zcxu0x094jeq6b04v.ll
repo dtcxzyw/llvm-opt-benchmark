@@ -113,7 +113,7 @@ define hidden noundef range(i64 0, 3) i64 @_RNvNtNtCs1GgERC5BdQ8_13unicode_width
   br i1 %22, label %24, label %33
 
 23:                                               ; preds = %2
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %12, i64 noundef 2432, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.5.llvm.6172016698289805888) #19
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %12, i64 noundef 2432, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.5.llvm.6172016698289805888) #19
   unreachable
 
 24:                                               ; preds = %14
@@ -131,7 +131,7 @@ define hidden noundef range(i64 0, 3) i64 @_RNvNtNtCs1GgERC5BdQ8_13unicode_width
   ret i64 %.sroa.0.0
 
 33:                                               ; preds = %14
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %21, i64 noundef 3808, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.6.llvm.6172016698289805888) #19
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %21, i64 noundef 3808, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.6.llvm.6172016698289805888) #19
   unreachable
 }
 
@@ -223,7 +223,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb
   store ptr %5, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 3, ptr %20, align 8
-  call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.14) #19
+  call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.14) #19
   unreachable
 
 21:                                               ; preds = %3
@@ -561,7 +561,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   br i1 %73, label %74, label %_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrBI1stz4_15turborepo_vt100.exit
 
 74:                                               ; preds = %70
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h48e61fa034112f42E(i64 noundef %72, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.16.llvm.6172016698289805888) #19, !noalias !25
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h48e61fa034112f42E(i64 noundef %72, i64 noundef 6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.16.llvm.6172016698289805888) #19, !noalias !25
   unreachable
 
 _RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpScINtB5_14SlicePartialEqcE5equalCs8mTrBI1stz4_15turborepo_vt100.exit: ; preds = %70
@@ -615,11 +615,11 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set(
   br i1 %26, label %29, label %28
 
 27:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %16, i64 noundef 2432, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.5.llvm.6172016698289805888) #19
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %16, i64 noundef 2432, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.5.llvm.6172016698289805888) #19
   unreachable
 
 28:                                               ; preds = %18
-  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %25, i64 noundef 3808, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.6.llvm.6172016698289805888) #19
+  tail call void @_ZN4core9panicking18panic_bounds_check17hffbf36a137714b2dE(i64 noundef %25, i64 noundef 3808, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7d74d77b1b749013308229cf81e3bc3e.6.llvm.6172016698289805888) #19
   unreachable
 
 29:                                               ; preds = %18

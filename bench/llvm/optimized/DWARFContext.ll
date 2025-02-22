@@ -1898,7 +1898,6 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %4, %_ZN4llvmeqENS_9
   %118 = load i32, ptr %117, align 8, !tbaa !261
   %119 = add i32 %118, -21
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %119, -4
-  %spec.select.i.i.i = select i1 %spec.select.i.i.i.i.i.i.i.i.i.i, ptr null, ptr %114
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZL8dumpUUIDRN4llvm11raw_ostreamERKNS_6object10ObjectFileE.exit, label %120
 
 120:                                              ; preds = %116
@@ -1974,7 +1973,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29.i:             ; preds = %147, %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(16) %150, i64 16, i1 false)
   %151 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream10write_uuidEPKh(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %41) #26
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %42) #26
-  call void @_ZNK4llvm6object15MachOObjectFile13getArchTripleEPPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Triple") align 8 %42, ptr noundef nonnull align 8 dereferenceable(360) %spec.select.i.i.i, ptr noundef null) #26
+  call void @_ZNK4llvm6object15MachOObjectFile13getArchTripleEPPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Triple") align 8 %42, ptr noundef nonnull align 8 dereferenceable(360) %114, ptr noundef null) #26
   %152 = load ptr, ptr %124, align 8, !tbaa !264
   %153 = load ptr, ptr %125, align 8, !tbaa !268
   %154 = ptrtoint ptr %152 to i64
@@ -2063,7 +2062,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %185, %183
 
 _ZN4llvm11raw_ostreamlsEc.exit37.i:               ; preds = %192, %190
   %.0.i36.i = phi ptr [ %191, %190 ], [ %1, %192 ]
-  %194 = call { ptr, i64 } @_ZNK4llvm6object6Binary11getFileNameEv(ptr noundef nonnull align 8 dereferenceable(48) %spec.select.i.i.i) #26
+  %194 = call { ptr, i64 } @_ZNK4llvm6object6Binary11getFileNameEv(ptr noundef nonnull align 8 dereferenceable(48) %114) #26
   %195 = extractvalue { ptr, i64 } %194, 0
   %196 = extractvalue { ptr, i64 } %194, 1
   %197 = getelementptr inbounds nuw i8, ptr %.0.i36.i, i64 24
@@ -10320,7 +10319,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 
 153:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #26
-  call void @_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb(ptr noundef nonnull align 8 dereferenceable(448) %spec.select.i6.i, i1 noundef zeroext false) #26
+  call void @_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb(ptr noundef nonnull align 8 dereferenceable(448) %..i, i1 noundef zeroext false) #26
   %154 = getelementptr inbounds nuw i8, ptr %spec.select.i6.i, i64 288
   %155 = load ptr, ptr %154, align 8, !tbaa !366
   %156 = getelementptr inbounds nuw i8, ptr %spec.select.i6.i, i64 296
@@ -14419,7 +14418,7 @@ _ZN4llvm16dyn_cast_or_nullINS_16DWARFCompileUnitENS_9DWARFUnitEEEDaPT0_.exit: ; 
   br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i, label %53, label %46
 
 46:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_16DWARFCompileUnitENS_9DWARFUnitEEEDaPT0_.exit
-  %47 = tail call { ptr, ptr } @_ZN4llvm9DWARFUnit23getSubroutineForAddressEm(ptr noundef nonnull align 8 dereferenceable(448) %spec.select.i6.i, i64 noundef %2) #26
+  %47 = tail call { ptr, ptr } @_ZN4llvm9DWARFUnit23getSubroutineForAddressEm(ptr noundef nonnull align 8 dereferenceable(448) %..i, i64 noundef %2) #26
   %48 = extractvalue { ptr, ptr } %47, 0
   %49 = extractvalue { ptr, ptr } %47, 1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8

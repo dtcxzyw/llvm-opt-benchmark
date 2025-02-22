@@ -8174,15 +8174,14 @@ _ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.
   br label %127
 
 89:                                               ; preds = %2
-  %90 = add nsw i32 %18, -38
-  %91 = icmp ult i32 %90, 7
-  %spec.select.i.i26 = select i1 %91, ptr %11, ptr null
-  %.not15 = icmp eq ptr %spec.select.i.i26, null
+  %90 = add nsw i32 %18, -45
+  %91 = icmp ult i32 %90, -7
+  %.not15 = select i1 %91, i1 true, i1 %.not1440
   %brmerge = select i1 %.not15, i1 true, i1 %.not
   br i1 %brmerge, label %127, label %92
 
 92:                                               ; preds = %89
-  %93 = call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i26)
+  %93 = call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %11)
   br i1 %93, label %94, label %127
 
 94:                                               ; preds = %92
@@ -8205,7 +8204,7 @@ _ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.
   br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit28
 
 _ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit28: ; preds = %94, %101
-  call void @_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %96, ptr noundef nonnull %9, ptr noundef nonnull %spec.select.i.i26)
+  call void @_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %96, ptr noundef nonnull %9, ptr noundef nonnull %11)
   %105 = load ptr, ptr %97, align 8, !tbaa !318
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %8, align 8, !tbaa !55

@@ -11009,97 +11009,94 @@ thread-pre-split:                                 ; preds = %_ZNK4llvm12MachineI
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %15, %thread-pre-split
   %20 = phi ptr [ %16, %15 ], [ %.pre, %thread-pre-split ]
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %20, align 8
-  %21 = and i64 %.sroa.0.0.copyload.i.i.i.i, 4
-  %.not.i.i.i.i = icmp eq i64 %21, 0
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
-  %23 = inttoptr i64 %22 to ptr
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %23
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !886
-  %26 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i.i, ptr noundef %25) #25
-  br i1 %29, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread, label %30
+  %21 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
+  %22 = inttoptr i64 %21 to ptr
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = load ptr, ptr %23, align 8, !tbaa !886
+  %25 = load ptr, ptr %22, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %24) #25
+  br i1 %28, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread, label %29
 
-30:                                               ; preds = %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !952
-  %33 = tail call { i64, i8 } @_ZNK4llvm12MachineInstr12getSpillSizeEPKNS_15TargetInstrInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef %32) #25
-  %34 = extractvalue { i64, i8 } %33, 1
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %.critedge, label %36
+29:                                               ; preds = %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !952
+  %32 = tail call { i64, i8 } @_ZNK4llvm12MachineInstr12getSpillSizeEPKNS_15TargetInstrInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef %31) #25
+  %33 = extractvalue { i64, i8 } %32, 1
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %.critedge, label %35
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %31, align 8, !tbaa !952
-  %38 = tail call { i64, i8 } @_ZNK4llvm12MachineInstr18getFoldedSpillSizeEPKNS_15TargetInstrInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef %37) #25
-  %39 = extractvalue { i64, i8 } %38, 1
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %.critedge, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %30, align 8, !tbaa !952
+  %37 = tail call { i64, i8 } @_ZNK4llvm12MachineInstr18getFoldedSpillSizeEPKNS_15TargetInstrInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef %36) #25
+  %38 = extractvalue { i64, i8 } %37, 1
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %.critedge, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread
 
-.critedge:                                        ; preds = %30, %36
+.critedge:                                        ; preds = %29, %35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %41 = load i64, ptr %6, align 8, !tbaa !77
-  %42 = icmp ugt i64 %41, 7
-  tail call void @llvm.assume(i1 %42)
-  %43 = and i64 %41, 7
-  %switch.i = icmp eq i64 %43, 0
-  br i1 %switch.i, label %44, label %46
+  %40 = load i64, ptr %6, align 8, !tbaa !77
+  %41 = icmp ugt i64 %40, 7
+  tail call void @llvm.assume(i1 %41)
+  %42 = and i64 %40, 7
+  %switch.i = icmp eq i64 %42, 0
+  br i1 %switch.i, label %43, label %45
 
-44:                                               ; preds = %.critedge
-  %45 = inttoptr i64 %41 to ptr
-  store ptr %45, ptr %6, align 8, !tbaa !77
+43:                                               ; preds = %.critedge
+  %44 = inttoptr i64 %40 to ptr
+  store ptr %44, ptr %6, align 8, !tbaa !77
   br label %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit
 
-46:                                               ; preds = %.critedge
-  %47 = and i64 %41, -8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.pre.i = load ptr, ptr %49, align 8, !tbaa !567
+45:                                               ; preds = %.critedge
+  %46 = and i64 %40, -8
+  %47 = inttoptr i64 %46 to ptr
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %.pre.i = load ptr, ptr %48, align 8, !tbaa !567
   br label %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit
 
-_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit: ; preds = %44, %46
-  %50 = phi ptr [ %45, %44 ], [ %.pre.i, %46 ]
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %50, align 8
-  %51 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
-  %.not.i.i.i.i.i = icmp eq i64 %51, 0
-  %52 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %53 = inttoptr i64 %52 to ptr
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %53
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  %55 = load i32, ptr %54, align 8, !tbaa !569
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !572
+_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit: ; preds = %43, %45
+  %49 = phi ptr [ %44, %43 ], [ %.pre.i, %45 ]
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %49, align 8
+  %50 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
+  %.not.i.i.i.i.i = icmp eq i64 %50, 0
+  %51 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
+  %52 = inttoptr i64 %51 to ptr
+  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %52
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
+  %54 = load i32, ptr %53, align 8, !tbaa !569
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %56 = load ptr, ptr %55, align 8, !tbaa !572
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
   store i32 0, ptr %4, align 4, !tbaa !158
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !587
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !588
-  %62 = load ptr, ptr %59, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 216
-  %64 = load ptr, ptr %63, align 8
-  %65 = call { i64, i64 } %64(ptr noundef nonnull align 8 dereferenceable(21) %59, ptr noundef nonnull align 8 dereferenceable(1065) %61, i32 noundef %55, ptr noundef nonnull align 4 dereferenceable(4) %4) #25
-  %66 = extractvalue { i64, i64 } %65, 0
-  %67 = extractvalue { i64, i64 } %65, 1
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %69 = load ptr, ptr %68, align 8, !tbaa !513
-  %70 = load i32, ptr %4, align 4, !tbaa !158
-  store i32 %70, ptr %5, align 8, !tbaa !333
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %66, ptr %71, align 8, !tbaa !47
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %58 = load ptr, ptr %57, align 8, !tbaa !587
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %60 = load ptr, ptr %59, align 8, !tbaa !588
+  %61 = load ptr, ptr %58, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 216
+  %63 = load ptr, ptr %62, align 8
+  %64 = call { i64, i64 } %63(ptr noundef nonnull align 8 dereferenceable(21) %58, ptr noundef nonnull align 8 dereferenceable(1065) %60, i32 noundef %54, ptr noundef nonnull align 4 dereferenceable(4) %4) #25
+  %65 = extractvalue { i64, i64 } %64, 0
+  %66 = extractvalue { i64, i64 } %64, 1
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %68 = load ptr, ptr %67, align 8, !tbaa !513
+  %69 = load i32, ptr %4, align 4, !tbaa !158
+  store i32 %69, ptr %5, align 8, !tbaa !333
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %65, ptr %70, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %67, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !47
-  %72 = call range(i64 0, 8589934592) i64 @_ZN15LiveDebugValues11MLocTracker18getOrTrackSpillLocENS_8SpillLocE(ptr noundef nonnull align 8 dereferenceable(872) %69, ptr noundef nonnull byval(%"struct.LiveDebugValues::SpillLoc") align 8 %5)
+  store i64 %66, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !47
+  %71 = call range(i64 0, 8589934592) i64 @_ZN15LiveDebugValues11MLocTracker18getOrTrackSpillLocENS_8SpillLocE(ptr noundef nonnull align 8 dereferenceable(872) %68, ptr noundef nonnull byval(%"struct.LiveDebugValues::SpillLoc") align 8 %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.sroa.2.0.extract.shift = and i64 %72, 4294967296
-  %73 = and i64 %72, 4294967295
+  %.sroa.2.0.extract.shift = and i64 %71, 4294967296
+  %72 = and i64 %71, 4294967295
   br label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread
 
-_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread: ; preds = %9, %3, %36, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit, %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit
-  %.sroa.011.0 = phi i64 [ %73, %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit ], [ 0, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit ], [ 0, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ 0, %36 ], [ 0, %3 ], [ 0, %9 ]
-  %.sroa.2.0 = phi i64 [ %.sroa.2.0.extract.shift, %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit ], [ 0, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit ], [ 0, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ 0, %36 ], [ 0, %3 ], [ 0, %9 ]
+_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread: ; preds = %9, %3, %35, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit, %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit
+  %.sroa.011.0 = phi i64 [ %72, %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit ], [ 0, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit ], [ 0, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ 0, %35 ], [ 0, %3 ], [ 0, %9 ]
+  %.sroa.2.0 = phi i64 [ %.sroa.2.0.extract.shift, %_ZN15LiveDebugValues16InstrRefBasedLDV28extractSpillBaseRegAndOffsetERKN4llvm12MachineInstrE.exit ], [ 0, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit ], [ 0, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ 0, %35 ], [ 0, %3 ], [ 0, %9 ]
   %.sroa.011.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.011.0
   ret i64 %.sroa.011.0.insert.insert
 }

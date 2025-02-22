@@ -1447,7 +1447,7 @@ _ZNRSt8optionalIN5clang4ento6NonLocEE5valueEv.exit: ; preds = %39
   %52 = load ptr, ptr %51, align 8, !tbaa !75
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !76
-  %55 = call noundef ptr @_ZN5clang4ento16MemRegionManager16getElementRegionENS_8QualTypeENS0_6NonLocEPKNS0_9SubRegionERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(152) %52, i64 %1, ptr %.fca.0.extract24, i8 %.fca.1.extract25, ptr noundef nonnull %spec.select.i.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %54) #13
+  %55 = call noundef ptr @_ZN5clang4ento16MemRegionManager16getElementRegionENS_8QualTypeENS0_6NonLocEPKNS0_9SubRegionERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(152) %52, i64 %1, ptr %.fca.0.extract24, i8 %.fca.1.extract25, ptr noundef nonnull %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %54) #13
   br label %_ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit
 
 56:                                               ; preds = %_ZNRSt8optionalIN5clang4ento6NonLocEE5valueEv.exit
@@ -1463,7 +1463,7 @@ _ZNRSt8optionalIN5clang4ento6NonLocEE5valueEv.exit: ; preds = %39
   br i1 %60, label %74, label %61
 
 61:                                               ; preds = %59
-  %62 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48) %spec.select.i.i.i, i1 noundef zeroext true) #13
+  %62 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0.copyload.i.i.i, i1 noundef zeroext true) #13
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8, !tbaa !81
   %65 = icmp eq i32 %64, 24

@@ -1403,7 +1403,7 @@ define noundef ptr @_ZN11uu_readlink4show17hcfdf7b2be0ced16eE(ptr noalias nounde
   br i1 %trunc, label %17, label %18
 
 17:                                               ; preds = %3
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d5bd740aac1cc4bfe7a41501a7456d61.27) #9
+  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d5bd740aac1cc4bfe7a41501a7456d61.27) #9
   unreachable
 
 18:                                               ; preds = %3

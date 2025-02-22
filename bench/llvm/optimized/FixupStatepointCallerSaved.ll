@@ -6946,8 +6946,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   %.0.i.i = select i1 %42, ptr null, ptr %44
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull %.0.i.i) #21
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.0.i.i, align 8
+  call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull %44) #21
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
   %47 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
   %48 = inttoptr i64 %47 to ptr
   %49 = load ptr, ptr %46, align 8, !tbaa !196
@@ -6957,7 +6957,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   store i64 %51, ptr %49, align 8
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %49, ptr %52, align 8, !tbaa !196
-  %.0.copyload.i.i.i.i9.i.i.i.i.i.i = load i64, ptr %.0.i.i, align 8
+  %.0.copyload.i.i.i.i9.i.i.i.i.i.i = load i64, ptr %44, align 8
   %53 = and i64 %.0.copyload.i.i.i.i9.i.i.i.i.i.i, 7
   store i64 %53, ptr %44, align 8
   store ptr null, ptr %46, align 8, !tbaa !196
@@ -6970,12 +6970,12 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   %.sink17.in.i.i = select i1 %56, ptr %58, ptr %57
   %.sink17.i.i = load ptr, ptr %.sink17.in.i.i, align 8, !tbaa !196
   %59 = ptrtoint ptr %.0.i.i to i64
-  call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull %.0.i.i) #21
+  call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef %.0.i.i) #21
   %.0.copyload.i.i.i.i.i.i.i.i5.i.i = load i64, ptr %.sink17.i.i, align 8
   %60 = and i64 %.0.copyload.i.i.i.i.i.i.i.i5.i.i, -8
   %61 = inttoptr i64 %60 to ptr
   store ptr %.sink17.i.i, ptr %46, align 8, !tbaa !196
-  %.0.copyload.i.i.i.i9.i.i.i.i6.i.i = load i64, ptr %.0.i.i, align 8
+  %.0.copyload.i.i.i.i9.i.i.i.i6.i.i = load i64, ptr %44, align 8
   %62 = and i64 %.0.copyload.i.i.i.i9.i.i.i.i6.i.i, 7
   %63 = or disjoint i64 %62, %60
   store i64 %63, ptr %44, align 8

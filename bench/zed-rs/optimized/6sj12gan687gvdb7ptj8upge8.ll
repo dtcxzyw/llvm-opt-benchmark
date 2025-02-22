@@ -111,7 +111,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he670292c9b012ff9E(pt
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %.split19.us
-  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fed15eb7140697eae985617ca7c78cfd.7) #11
+  invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fed15eb7140697eae985617ca7c78cfd.7) #11
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %32

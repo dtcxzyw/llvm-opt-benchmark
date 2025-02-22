@@ -8528,7 +8528,6 @@ record_ieot.exit:                                 ; preds = %115
   %144 = getelementptr i8, ptr %64, i64 8
   %145 = getelementptr i8, ptr %64, i64 2416
   %.not349 = icmp eq i32 %106, 4
-  %. = select i1 %.not349, ptr %46, ptr null
   br i1 %68, label %.lr.ph367, label %.thread393
 
 .thread393:                                       ; preds = %143
@@ -8780,7 +8779,7 @@ is_racy_timestamp.exit.thread:                    ; preds = %165, %160, %ce_smud
   %255 = load i32, ptr %252, align 8, !tbaa !32
   %256 = sub i32 %255, %.055.lcssa.i
   %257 = zext i32 %256 to i64
-  call void @strbuf_splice(ptr noundef nonnull %., i64 noundef %.lcssa.i, i64 noundef %249, ptr noundef nonnull %251, i64 noundef %257) #30
+  call void @strbuf_splice(ptr noundef nonnull %46, i64 noundef %.lcssa.i, i64 noundef %249, ptr noundef nonnull %251, i64 noundef %257) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #30
   br label %258
 

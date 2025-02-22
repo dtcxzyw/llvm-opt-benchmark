@@ -1544,7 +1544,7 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$std..collections..hash..map
 define hidden void @"_ZN4core3ptr141drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$$LP$usize$C$$RF$tt..Subtree$LT$proc_macro_api..msg..flat..TokenId$GT$$RP$$GT$$GT$17he9e60d61554a1760E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !alias.scope !696, !noalias !701, !noundef !4
-  %4 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522)
+  %4 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522)
           to label %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88b7cfc99ea0bd2eE.llvm.5062853439722839227.exit" unwind label %5
 
 5:                                                ; preds = %1
@@ -1695,7 +1695,7 @@ define hidden void @"_ZN4core3ptr158drop_in_place$LT$hashbrown..map..HashMap$LT$
 define hidden void @"_ZN4core3ptr159drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$$LP$usize$C$$RF$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$RP$$GT$$GT$17h31cc4ec67743b821E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !alias.scope !773, !noalias !778, !noundef !4
-  %4 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522)
+  %4 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522)
           to label %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadde87d35fac73ebE.llvm.5062853439722839227.exit" unwind label %5
 
 5:                                                ; preds = %1
@@ -6871,7 +6871,7 @@ define hidden void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.50628534
   store ptr @anon.fe3893a519242c70b731c7164145e81b.4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %8, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fe3893a519242c70b731c7164145e81b.12) #19
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fe3893a519242c70b731c7164145e81b.12) #19
   unreachable
 
 9:                                                ; preds = %1
@@ -6951,7 +6951,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3639)
-  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3642
+  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3642
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = sub i64 %7, %6
@@ -7001,7 +7001,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3648)
-  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3651
+  %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3651
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = sub i64 %7, %6
@@ -8782,7 +8782,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3966)
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i64, ptr %1, align 8, !alias.scope !3966, !noalias !3969, !noundef !4
-  %3 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3971
+  %3 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3971
   ret void
 }
 
@@ -8792,7 +8792,7 @@ define hidden void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3975)
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i64, ptr %1, align 8, !alias.scope !3975, !noalias !3978, !noundef !4
-  %3 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3980
+  %3 = tail call { i64, i64 } @_ZN4core5slice5index5range17hb2b5946a1b3c7ca2E(i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.59a0b0f4270fcbe4599202082a83263a.48.llvm.13596285354236136522), !noalias !3980
   ret void
 }
 

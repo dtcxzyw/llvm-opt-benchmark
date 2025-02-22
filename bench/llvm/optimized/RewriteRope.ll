@@ -436,7 +436,6 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i = load i8, ptr %4, align 4, !tbaa !3, !range !9, !noundef !10
   %5 = trunc nuw i8 %.val.val.i.i to i1
-  %spec.select.i.i = select i1 %5, ptr %0, ptr null
   %6 = icmp eq i32 %1, 0
   %.val.i = load i32, ptr %0, align 4
   %7 = icmp eq i32 %1, %.val.i
@@ -495,7 +494,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i: ; preds = %26
   %32 = sub i32 %.neg.i, %14
   %33 = add i32 %32, %16
   store i32 %33, ptr %0, align 8, !tbaa !27
-  %34 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeLeaf6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 8 dereferenceable(280) %spec.select.i.i, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %34 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeLeaf6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br i1 %.not.i.i.i, label %_ZN4llvm9RopePieceD2Ev.exit.i, label %35
 
 35:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEED2Ev.exit.i

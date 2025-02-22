@@ -545,7 +545,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_9ReplicateINS0_IdLi12ELi1ELi0EL
   %180 = getelementptr inbounds double, ptr %178, i64 %179
   %181 = select i1 %.not.i.i.i.i, ptr null, ptr %180
   %182 = load <2 x double>, ptr %16, align 16
-  %183 = load <2 x double>, ptr %181, align 1
+  %183 = load <2 x double>, ptr %180, align 1
   %184 = fsub <2 x double> %182, %183
   %185 = fmul <2 x double> %184, %184
   %186 = load <2 x double>, ptr %160, align 16

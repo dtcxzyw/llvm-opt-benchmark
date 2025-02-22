@@ -7965,101 +7965,101 @@ _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit:
   %.not.i.i = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %.not.i.i)
   %11 = load i32, ptr %2, align 8
-  %12 = icmp eq i32 %11, 10
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = select i1 %12, ptr %13, ptr null
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not.i.i15 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %.not.i.i15)
-  %15 = load i32, ptr %3, align 8
-  %16 = icmp eq i32 %15, 10
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = select i1 %16, ptr %17, ptr null
-  %19 = load ptr, ptr %14, align 8
-  %20 = load ptr, ptr %18, align 8
-  call fastcc void @_ZN4LuauL12diffUsingEnvERNS_17DifferEnvironmentEPKNS_4TypeES4_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef %19, ptr noundef %20)
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 272
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %62
+  %13 = load i32, ptr %3, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = load ptr, ptr %12, align 8
+  %16 = load ptr, ptr %14, align 8
+  call fastcc void @_ZN4LuauL12diffUsingEnvERNS_17DifferEnvironmentEPKNS_4TypeES4_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef %15, ptr noundef %16)
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 272
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %58
 
-24:                                               ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i8 0, ptr %25, align 8
-  %26 = load i32, ptr %6, align 8
-  store i32 %26, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %30, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %33, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull align 8 dereferenceable(88) %37, i64 16, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 0, ptr %39, align 8
-  %40 = load i8, ptr %38, align 8
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i
+20:                                               ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i8 0, ptr %21, align 8
+  %22 = load i32, ptr %6, align 8
+  store i32 %22, ptr %0, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %29, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull align 8 dereferenceable(88) %33, i64 16, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 0, ptr %35, align 8
+  %36 = load i8, ptr %34, align 8
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i
 
-42:                                               ; preds = %24
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %44) #24
-  store i8 1, ptr %39, align 8
+38:                                               ; preds = %20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %40) #24
+  store i8 1, ptr %35, align 8
   br label %_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %42, %24
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false)
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %47, ptr noundef nonnull align 8 dereferenceable(88) %48, i64 16, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 0, ptr %50, align 8
-  %51 = load i8, ptr %49, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %_ZN4Luau12DifferResultC2EOS0_.exit
+_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %38, %20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %43, ptr noundef nonnull align 8 dereferenceable(88) %44, i64 16, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 0, ptr %46, align 8
+  %47 = load i8, ptr %45, align 8
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %_ZN4Luau12DifferResultC2EOS0_.exit
 
-53:                                               ; preds = %_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %55) #24
-  store i8 1, ptr %50, align 8
+49:                                               ; preds = %_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %51) #24
+  store i8 1, ptr %46, align 8
   br label %_ZN4Luau12DifferResultC2EOS0_.exit
 
-_ZN4Luau12DifferResultC2EOS0_.exit:               ; preds = %_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i, %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 208
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %59) #24
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 240
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %61) #24
-  store i8 1, ptr %25, align 8
+_ZN4Luau12DifferResultC2EOS0_.exit:               ; preds = %_ZN4Luau16DiffPathNodeLeafC2EOS0_.exit.i.i.i.i.i.i.i.i.i, %49
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %53, i64 32, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 208
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %55) #24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 240
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %57) #24
+  store i8 1, ptr %21, align 8
   br label %_ZN4Luau12DifferResultC2EOS0_.exit23
 
-62:                                               ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
-  %63 = getelementptr inbounds nuw i8, ptr %14, i64 8
+58:                                               ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
+  %59 = icmp eq i32 %13, 10
+  %60 = select i1 %59, ptr %14, ptr null
+  %61 = icmp eq i32 %11, 10
+  %62 = select i1 %61, ptr %12, ptr null
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %66 = load ptr, ptr %65, align 8
   invoke fastcc void @_ZN4LuauL12diffUsingEnvERNS_17DifferEnvironmentEPKNS_4TypeES4_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(312) %1, ptr noundef %64, ptr noundef %66)
           to label %67 unwind label %141
 
-67:                                               ; preds = %62
+67:                                               ; preds = %58
   call void @_ZNSt22_Optional_payload_baseIN4Luau9DiffErrorEE14_M_move_assignEOS2_(ptr noundef nonnull align 8 dereferenceable(280) %6, ptr noundef nonnull align 8 dereferenceable(280) %7) #24
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %69 = load i8, ptr %68, align 8
@@ -8072,7 +8072,7 @@ _ZN4Luau12DifferResultC2EOS0_.exit:               ; preds = %_ZN4Luau16DiffPathN
   br label %_ZN4Luau12DifferResultD2Ev.exit
 
 _ZN4Luau12DifferResultD2Ev.exit:                  ; preds = %67, %71
-  %72 = load i8, ptr %21, align 8
+  %72 = load i8, ptr %17, align 8
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %152
 
@@ -8177,7 +8177,7 @@ _ZN4Luau12DiffPathNodeD2Ev.exit:                  ; preds = %97, %100
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i8 0, ptr %101, align 8
-  %102 = load i8, ptr %21, align 8
+  %102 = load i8, ptr %17, align 8
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %_ZN4Luau12DifferResultC2EOS0_.exit23
 
@@ -8248,7 +8248,7 @@ _ZNSt22_Optional_payload_baseIN4Luau9DiffErrorEE12_M_constructIJS1_EEEvDpOT_.exi
   store i8 1, ptr %101, align 8
   br label %_ZN4Luau12DifferResultC2EOS0_.exit23
 
-141:                                              ; preds = %62
+141:                                              ; preds = %58
   %142 = landingpad { ptr, i32 }
           cleanup
   br label %157
@@ -8291,12 +8291,12 @@ _ZNSt22_Optional_payload_baseIN4Luau9DiffErrorEE12_M_constructIJS1_EEEvDpOT_.exi
   br label %_ZN4Luau12DifferResultC2EOS0_.exit23
 
 _ZN4Luau12DifferResultC2EOS0_.exit23:             ; preds = %_ZNSt22_Optional_payload_baseIN4Luau9DiffErrorEE12_M_constructIJS1_EEEvDpOT_.exit.i.i.i.i.i.i22, %_ZN4Luau12DiffPathNodeD2Ev.exit, %152, %_ZN4Luau12DifferResultC2EOS0_.exit
-  %154 = load i8, ptr %21, align 8
+  %154 = load i8, ptr %17, align 8
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %_ZN4Luau12DifferResultD2Ev.exit25
 
 156:                                              ; preds = %_ZN4Luau12DifferResultC2EOS0_.exit23
-  store i8 0, ptr %21, align 8
+  store i8 0, ptr %17, align 8
   call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #24
   br label %_ZN4Luau12DifferResultD2Ev.exit25
 
@@ -8305,12 +8305,12 @@ _ZN4Luau12DifferResultD2Ev.exit25:                ; preds = %_ZN4Luau12DifferRes
 
 157:                                              ; preds = %.body, %141
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %142, %141 ]
-  %158 = load i8, ptr %21, align 8
+  %158 = load i8, ptr %17, align 8
   %159 = trunc i8 %158 to i1
   br i1 %159, label %160, label %_ZN4Luau12DifferResultD2Ev.exit26
 
 160:                                              ; preds = %157
-  store i8 0, ptr %21, align 8
+  store i8 0, ptr %17, align 8
   call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %6) #24
   br label %_ZN4Luau12DifferResultD2Ev.exit26
 

@@ -2831,28 +2831,23 @@ define hidden noundef ptr @_ZNK8AddPNode5ValueEP8PhaseGVN(ptr noundef nonnull re
   %24 = icmp eq ptr %15, %23
   %25 = icmp eq ptr %22, %23
   %or.cond = or i1 %24, %25
-  br i1 %or.cond, label %40, label %26
+  br i1 %or.cond, label %36, label %26
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %28 = load i32, ptr %27, align 8
-  %29 = add i32 %28, -18
-  %or.cond.i = icmp ult i32 %29, 9
-  %30 = select i1 %or.cond.i, ptr %15, ptr null
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %34 = load i64, ptr %33, align 8
-  %35 = icmp eq i64 %32, %34
-  %spec.select = select i1 %35, i64 %32, i64 -2000000001
-  %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 192
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(44) %30, i64 noundef %spec.select) #7
-  br label %40
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp eq i64 %28, %30
+  %spec.select = select i1 %31, i64 %28, i64 -2000000001
+  %32 = load ptr, ptr %15, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 192
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(44) %15, i64 noundef %spec.select) #7
+  br label %36
 
-40:                                               ; preds = %2, %26
-  %.011 = phi ptr [ %39, %26 ], [ %23, %2 ]
+36:                                               ; preds = %2, %26
+  %.011 = phi ptr [ %35, %26 ], [ %23, %2 ]
   ret ptr %.011
 }
 
@@ -6356,17 +6351,17 @@ define hidden noundef ptr @_ZNK8MinFNode8add_ringEPK4TypeS2_(ptr noundef nonnull
   br label %42
 
 17:                                               ; preds = %3
-  %18 = load ptr, ptr %..i, align 8
+  %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(24) %..i) #7
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(24) %1) #7
   br i1 %21, label %42, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %..i29, align 8
+  %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(24) %..i29) #7
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(24) %2) #7
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %22
@@ -6419,17 +6414,17 @@ define hidden noundef ptr @_ZNK8MinDNode8add_ringEPK4TypeS2_(ptr noundef nonnull
   br label %42
 
 17:                                               ; preds = %3
-  %18 = load ptr, ptr %..i, align 8
+  %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %..i) #7
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
   br i1 %21, label %42, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %..i29, align 8
+  %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %..i29) #7
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %22
@@ -6482,17 +6477,17 @@ define hidden noundef ptr @_ZNK8MaxFNode8add_ringEPK4TypeS2_(ptr noundef nonnull
   br label %42
 
 17:                                               ; preds = %3
-  %18 = load ptr, ptr %..i, align 8
+  %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(24) %..i) #7
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(24) %1) #7
   br i1 %21, label %42, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %..i29, align 8
+  %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(24) %..i29) #7
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(24) %2) #7
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %22
@@ -6545,17 +6540,17 @@ define hidden noundef ptr @_ZNK8MaxDNode8add_ringEPK4TypeS2_(ptr noundef nonnull
   br label %42
 
 17:                                               ; preds = %3
-  %18 = load ptr, ptr %..i, align 8
+  %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %..i) #7
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
   br i1 %21, label %42, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %..i29, align 8
+  %23 = load ptr, ptr %2, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %..i29) #7
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   br i1 %26, label %42, label %27
 
 27:                                               ; preds = %22

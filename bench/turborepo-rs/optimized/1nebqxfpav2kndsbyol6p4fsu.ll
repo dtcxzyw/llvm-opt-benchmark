@@ -147,7 +147,7 @@ common.resume:                                    ; preds = %114, %29, %95
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %14
-  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17hbe61e8e3d1c5b499E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.458d915caea2e53d49fa0ef03c1118fc.21) #11
+  tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17hbe61e8e3d1c5b499E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.458d915caea2e53d49fa0ef03c1118fc.21) #11
   unreachable
 
 36:                                               ; preds = %14

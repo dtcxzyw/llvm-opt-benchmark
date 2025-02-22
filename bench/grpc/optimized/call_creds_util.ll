@@ -63,7 +63,7 @@ entry:
   %cmp.i.i.not.i.i.i = icmp eq i16 %and2.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.call.i = select i1 %cmp.i.i.not.i.i.i, ptr null, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %2 = load ptr, ptr %.call.i, align 8
+  %2 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   %bytes.i.i = getelementptr inbounds nuw i8, ptr %.call.i, i64 16
   %3 = load ptr, ptr %bytes.i.i, align 8
@@ -114,7 +114,7 @@ if.end13:                                         ; preds = %_ZNKSt17basic_strin
   %cmp.i.i.not.i.i.i25 = icmp eq i16 %and2.i.i.i.i.i24, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 104
   %.call.i26 = select i1 %cmp.i.i.not.i.i.i25, ptr null, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %8 = load ptr, ptr %.call.i26, align 8
+  %8 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i27 = icmp eq ptr %8, null
   %bytes.i.i28 = getelementptr inbounds nuw i8, ptr %.call.i26, i64 16
   %9 = load ptr, ptr %bytes.i.i28, align 8

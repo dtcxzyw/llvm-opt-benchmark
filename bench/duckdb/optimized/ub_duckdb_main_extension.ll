@@ -54224,7 +54224,7 @@ _ZNSt10unique_ptrIN14duckdb_httplib8ResponseESt14default_deleteIS1_EED2Ev.exit: 
   br i1 %.0.in.i, label %_ZNSt10unique_ptrIN14duckdb_httplib8ResponseESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN14duckdb_httplib8ResponseEEclEPS1_.exit.i6
 
 _ZNKSt14default_deleteIN14duckdb_httplib8ResponseEEclEPS1_.exit.i6: ; preds = %_ZNSt10unique_ptrIN14duckdb_httplib8ResponseESt14default_deleteIS1_EED2Ev.exit
-  call void @_ZN14duckdb_httplib8ResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(258) %spec.select) #31
+  call void @_ZN14duckdb_httplib8ResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(258) %6) #31
   call void @_ZdlPv(ptr noundef nonnull %spec.select) #33
   br label %_ZNSt10unique_ptrIN14duckdb_httplib8ResponseESt14default_deleteIS1_EED2Ev.exit7
 

@@ -272,7 +272,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not300, label %102, label %100
 
 100:                                              ; preds = %98
-  %101 = call ptr @list_iterator_create(ptr noundef nonnull %spec.select335) #11
+  %101 = call ptr @list_iterator_create(ptr noundef nonnull %93) #11
   br label %102
 
 102:                                              ; preds = %.thread355, %100, %98

@@ -133,30 +133,27 @@ define dso_local void @_ZNK4llvm21ValueProfileCollector3getENS_18InstrProfValueK
   %.sroa.02.04.i.i.i.i = phi ptr [ %13, %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_10BasicBlockE.exit.i.i.i.i ], [ %10, %.split5.i ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !16
-  %14 = icmp eq ptr %.sroa.02.04.i.i.i.i, null
-  %15 = getelementptr inbounds i8, ptr %.sroa.02.04.i.i.i.i, i64 -24
-  %16 = select i1 %14, ptr null, ptr %15
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !19
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.not4.i.i.i.i.i.i = icmp eq ptr %18, %19
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i, i64 24
+  %.not4.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_10BasicBlockE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i
-  %.sroa.02.05.i.i.i.i.i.i = phi ptr [ %21, %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i.i.i, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !19
-  %22 = getelementptr inbounds i8, ptr %.sroa.02.05.i.i.i.i.i.i, i64 -24
-  %23 = load i8, ptr %22, align 8, !tbaa !22
-  %switch.i.i.i.i.i.i.i = icmp eq i8 %23, 85
-  br i1 %switch.i.i.i.i.i.i.i, label %24, label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i
+  %.sroa.02.05.i.i.i.i.i.i = phi ptr [ %18, %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i ], [ %15, %.lr.ph.i.i.i.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i.i.i, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  %19 = getelementptr inbounds i8, ptr %.sroa.02.05.i.i.i.i.i.i, i64 -24
+  %20 = load i8, ptr %19, align 8, !tbaa !22
+  %switch.i.i.i.i.i.i.i = icmp eq i8 %20, 85
+  br i1 %switch.i.i.i.i.i.i.i, label %21, label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i
 
-24:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  tail call void @_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE16delegateCallInstERNS_8CallInstE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(88) %22)
+21:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  tail call void @_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE16delegateCallInstERNS_8CallInstE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(88) %19)
   br label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i
 
-_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i: ; preds = %24, %.lr.ph.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i = icmp eq ptr %21, %19
+_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i: ; preds = %21, %.lr.ph.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq ptr %18, %16
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_10BasicBlockE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !28
 
 _ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_10BasicBlockE.exit.i.i.i.i: ; preds = %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
@@ -727,22 +724,19 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisit
   %.sroa.02.04 = phi ptr [ %5, %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_10BasicBlockE.exit ], [ %1, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
-  %6 = icmp eq ptr %.sroa.02.04, null
-  %7 = getelementptr inbounds i8, ptr %.sroa.02.04, i64 -24
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %.not4.i.i = icmp eq ptr %10, %11
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 24
+  %.not4.i.i = icmp eq ptr %7, %8
   br i1 %.not4.i.i, label %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_10BasicBlockE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit
-  %.sroa.02.05.i.i = phi ptr [ %13, %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit ], [ %10, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !19
-  %14 = getelementptr inbounds i8, ptr %.sroa.02.05.i.i, i64 -24
-  %15 = load i8, ptr %14, align 8, !tbaa !22
-  switch i8 %15, label %16 [
+  %.sroa.02.05.i.i = phi ptr [ %10, %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit ], [ %7, %.lr.ph ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %11 = getelementptr inbounds i8, ptr %.sroa.02.05.i.i, i64 -24
+  %12 = load i8, ptr %11, align 8, !tbaa !22
+  switch i8 %12, label %13 [
     i8 30, label %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit
     i8 31, label %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit
     i8 32, label %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit
@@ -812,15 +806,15 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisit
     i8 96, label %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit
   ]
 
-16:                                               ; preds = %.lr.ph.i.i
+13:                                               ; preds = %.lr.ph.i.i
   unreachable
 
 .sink.split.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
-  tail call void @_ZN4llvm22PGOIndirectCallVisitor13visitCallBaseERNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(88) %14)
+  tail call void @_ZN4llvm22PGOIndirectCallVisitor13visitCallBaseERNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(88) %11)
   br label %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit
 
 _ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.sink.split.i
-  %.not.i.i = icmp eq ptr %13, %11
+  %.not.i.i = icmp eq ptr %10, %8
   br i1 %.not.i.i, label %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_10BasicBlockE.exit, label %.lr.ph.i.i, !llvm.loop !101
 
 _ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_10BasicBlockE.exit: ; preds = %_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitERNS_11InstructionE.exit, %.lr.ph

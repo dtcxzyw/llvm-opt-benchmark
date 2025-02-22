@@ -19005,25 +19005,24 @@ entry:
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i.i to ptr
-  %cond.i.i.i.i = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %2
   %gc.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %gc.i, align 8
   %youngGen_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 800
   %4 = load ptr, ptr %youngGen_.i.i, align 8
-  %5 = ptrtoint ptr %cond.i.i.i.i to i64
-  %and.i.i.i = and i64 %5, -4194304
-  %6 = inttoptr i64 %and.i.i.i to ptr
-  %cmp.i.i = icmp eq ptr %4, %6
+  %5 = and i64 %add.i.i.i.i.i, -4194304
+  %6 = inttoptr i64 %5 to ptr
+  %7 = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %6
+  %cmp.i.i = icmp eq ptr %4, %7
   br i1 %cmp.i.i, label %if.end, label %_ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit
 
 _ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit: ; preds = %entry
   %evacStart.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8104
-  %7 = load ptr, ptr %evacStart.i.i, align 8
-  %cmp.i3.i = icmp eq ptr %7, %6
+  %8 = load ptr, ptr %evacStart.i.i, align 8
+  %cmp.i3.i = icmp eq ptr %8, %7
   br i1 %cmp.i3.i, label %if.end, label %if.end11
 
 if.end:                                           ; preds = %entry, %_ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit
-  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %cond.i.i.i.i, align 4
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %2, align 4
   %and.i.i = and i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 1
   %tobool.i.i.not = icmp eq i32 %and.i.i, 0
   %sub.i = add nsw i32 %agg.tmp.sroa.0.0.copyload.i.i.i, -1
@@ -19141,25 +19140,24 @@ entry:
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %2
   %gc.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %gc.i.i, align 8
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 800
   %4 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %5 = ptrtoint ptr %cond.i.i.i.i.i to i64
-  %and.i.i.i.i = and i64 %5, -4194304
-  %6 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %4, %6
+  %5 = and i64 %add.i.i.i.i.i.i, -4194304
+  %6 = inttoptr i64 %5 to ptr
+  %7 = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %6
+  %cmp.i.i.i = icmp eq ptr %4, %7
   br i1 %cmp.i.i.i, label %if.end.i, label %_ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit.i
 
 _ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit.i: ; preds = %entry
   %evacStart.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8104
-  %7 = load ptr, ptr %evacStart.i.i.i, align 8
-  %cmp.i3.i.i = icmp eq ptr %7, %6
+  %8 = load ptr, ptr %evacStart.i.i.i, align 8
+  %cmp.i3.i.i = icmp eq ptr %8, %7
   br i1 %cmp.i3.i.i, label %if.end.i, label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb1EE10acceptWeakERNS0_12WeakRootBaseE.exit
 
 if.end.i:                                         ; preds = %_ZNK6hermes2vm7HadesGC12EvacAcceptorILb1EE13shouldForwardEPKv.exit.i, %entry
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %cond.i.i.i.i.i, align 4
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %2, align 4
   %and.i.i.i = and i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 1
   %tobool.i.i.not.i = icmp eq i32 %and.i.i.i, 0
   %sub.i.i = add nsw i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, -1
@@ -21590,20 +21588,19 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %conv.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %1
-  %2 = inttoptr i64 %add.i.i.i.i.i to ptr
-  %cond.i.i.i.i = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %2
   %gc.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %3 = load ptr, ptr %gc.i, align 8
-  %youngGen_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 800
-  %4 = load ptr, ptr %youngGen_.i.i, align 8
-  %5 = ptrtoint ptr %cond.i.i.i.i to i64
-  %and.i.i.i = and i64 %5, -4194304
-  %6 = inttoptr i64 %and.i.i.i to ptr
-  %cmp.i.i = icmp eq ptr %4, %6
+  %2 = load ptr, ptr %gc.i, align 8
+  %youngGen_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 800
+  %3 = load ptr, ptr %youngGen_.i.i, align 8
+  %4 = and i64 %add.i.i.i.i.i, -4194304
+  %5 = inttoptr i64 %4 to ptr
+  %6 = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %5
+  %cmp.i.i = icmp eq ptr %3, %6
   br i1 %cmp.i.i, label %if.end, label %if.end11
 
 if.end:                                           ; preds = %entry
-  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %cond.i.i.i.i, align 4
+  %7 = inttoptr i64 %add.i.i.i.i.i to ptr
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %7, align 4
   %and.i.i = and i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 1
   %tobool.i.i.not = icmp eq i32 %and.i.i, 0
   %sub.i = add nsw i32 %agg.tmp.sroa.0.0.copyload.i.i.i, -1
@@ -21756,20 +21753,19 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %1
-  %2 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %2
   %gc.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %gc.i.i, align 8
-  %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 800
-  %4 = load ptr, ptr %youngGen_.i.i.i, align 8
-  %5 = ptrtoint ptr %cond.i.i.i.i.i to i64
-  %and.i.i.i.i = and i64 %5, -4194304
-  %6 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %4, %6
+  %2 = load ptr, ptr %gc.i.i, align 8
+  %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 800
+  %3 = load ptr, ptr %youngGen_.i.i.i, align 8
+  %4 = and i64 %add.i.i.i.i.i.i, -4194304
+  %5 = inttoptr i64 %4 to ptr
+  %6 = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %5
+  %cmp.i.i.i = icmp eq ptr %3, %6
   br i1 %cmp.i.i.i, label %if.end.i, label %_ZN6hermes2vm7HadesGC12EvacAcceptorILb0EE10acceptWeakERNS0_12WeakRootBaseE.exit
 
 if.end.i:                                         ; preds = %entry
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %cond.i.i.i.i.i, align 4
+  %7 = inttoptr i64 %add.i.i.i.i.i.i to ptr
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %7, align 4
   %and.i.i.i = and i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 1
   %tobool.i.i.not.i = icmp eq i32 %and.i.i.i, 0
   %sub.i.i = add nsw i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, -1

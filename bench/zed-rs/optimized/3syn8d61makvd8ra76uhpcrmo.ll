@@ -3943,9 +3943,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   %17 = sub i64 %spec.select.i.i, %spec.select.i.i62
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
-  %19 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13)
+  %19 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13)
   store i64 0, ptr %19, align 8
-  %20 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14)
+  %20 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14)
   store i64 0, ptr %20, align 8
   %21 = add i64 %spec.select.i.i, 1
   %22 = add i64 %21, %spec.select.i.i62
@@ -3956,7 +3956,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br i1 %.not49.not, label %27, label %26
 
 26:                                               ; preds = %13
-  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57
+  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57
   unreachable
 
 27:                                               ; preds = %13
@@ -3985,7 +3985,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %39
 
 38:                                               ; preds = %27
-  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57
+  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57
   unreachable
 
 39:                                               ; preds = %.lr.ph144, %._crit_edge140
@@ -4096,21 +4096,21 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
 
 68:                                               ; preds = %._crit_edge150, %74
   %.pre-phi = phi i64 [ %.pre, %._crit_edge150 ], [ %77, %74 ]
-  %69 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22)
+  %69 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre-phi, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22)
   %70 = load i64, ptr %69, align 8, !noundef !4
   br label %81
 
 ._crit_edge149:                                   ; preds = %67, %74
-  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
+  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre151, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
   %72 = load i64, ptr %71, align 8, !noundef !4
   %73 = add i64 %72, 1
   br label %81
 
 74:                                               ; preds = %67
-  %75 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
+  %75 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre151, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
   %76 = load i64, ptr %75, align 8, !noundef !4
   %77 = add i64 %59, 1
-  %78 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20)
+  %78 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %77, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20)
   %79 = load i64, ptr %78, align 8, !noundef !4
   %80 = icmp ult i64 %76, %79
   br i1 %80, label %68, label %._crit_edge149
@@ -4126,7 +4126,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
 85:                                               ; preds = %81, %_ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit
   %.sroa.019.1 = phi i64 [ %94, %_ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit ], [ %.sroa.019.0, %81 ]
   %.sroa.025.0 = phi i64 [ %95, %_ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit ], [ %82, %81 ]
-  %86 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23)
+  %86 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23)
   store i64 %.sroa.019.1, ptr %86, align 8
   br i1 %.not, label %96, label %98
 
@@ -4179,9 +4179,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit: ; pre
 
 99:                                               ; preds = %96
   %100 = sub i64 0, %97
-  %101 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24)
+  %101 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24)
   %102 = load i64, ptr %101, align 8, !noundef !4
-  %103 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %100, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25)
+  %103 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %100, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25)
   %104 = load i64, ptr %103, align 8, !noundef !4
   %105 = add i64 %104, %102
   %.not58 = icmp ult i64 %105, %spec.select.i.i
@@ -4199,21 +4199,21 @@ _ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit: ; pre
 
 110:                                              ; preds = %._crit_edge148, %116
   %.pre-phi154 = phi i64 [ %.pre153, %._crit_edge148 ], [ %119, %116 ]
-  %111 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre-phi154, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
+  %111 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre-phi154, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
   %112 = load i64, ptr %111, align 8, !noundef !4
   br label %123
 
 ._crit_edge147:                                   ; preds = %109, %116
-  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
+  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre155, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
   %114 = load i64, ptr %113, align 8, !noundef !4
   %115 = add i64 %114, 1
   br label %123
 
 116:                                              ; preds = %109
-  %117 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
+  %117 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre155, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
   %118 = load i64, ptr %117, align 8, !noundef !4
   %119 = add i64 %51, 1
-  %120 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27)
+  %120 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %119, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27)
   %121 = load i64, ptr %120, align 8, !noundef !4
   %122 = icmp ult i64 %118, %121
   br i1 %122, label %110, label %._crit_edge147
@@ -4228,7 +4228,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit: ; pre
 
 127:                                              ; preds = %123, %129
   %.sroa.09.1 = phi i64 [ %133, %129 ], [ %.sroa.09.0, %123 ]
-  %128 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30)
+  %128 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30)
   store i64 %.sroa.09.1, ptr %128, align 8
   br i1 %.not, label %134, label %135
 
@@ -4255,9 +4255,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit: ; pre
 
 137:                                              ; preds = %135
   %138 = sub i64 0, %136
-  %139 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31)
+  %139 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31)
   %140 = load i64, ptr %139, align 8, !noundef !4
-  %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %138, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32)
+  %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %138, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32)
   %142 = load i64, ptr %141, align 8, !noundef !4
   %143 = add i64 %142, %140
   %.not55 = icmp ult i64 %143, %spec.select.i.i
@@ -4279,9 +4279,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   %15 = sub i64 %spec.select.i.i, %spec.select.i.i62
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
-  %17 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13)
+  %17 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13)
   store i64 0, ptr %17, align 8
-  %18 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14)
+  %18 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14)
   store i64 0, ptr %18, align 8
   %19 = add i64 %spec.select.i.i, 1
   %20 = add i64 %19, %spec.select.i.i62
@@ -4292,7 +4292,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br i1 %.not49.not, label %25, label %24
 
 24:                                               ; preds = %11
-  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57
+  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57
   unreachable
 
 25:                                               ; preds = %11
@@ -4319,7 +4319,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %35
 
 34:                                               ; preds = %25
-  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57
+  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57
   unreachable
 
 35:                                               ; preds = %.lr.ph144, %._crit_edge140
@@ -4430,21 +4430,21 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
 
 64:                                               ; preds = %._crit_edge150, %70
   %.pre-phi = phi i64 [ %.pre, %._crit_edge150 ], [ %73, %70 ]
-  %65 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22)
+  %65 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22)
   %66 = load i64, ptr %65, align 8, !noundef !4
   br label %77
 
 ._crit_edge149:                                   ; preds = %63, %70
-  %67 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
+  %67 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
   %68 = load i64, ptr %67, align 8, !noundef !4
   %69 = add i64 %68, 1
   br label %77
 
 70:                                               ; preds = %63
-  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
+  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
   %72 = load i64, ptr %71, align 8, !noundef !4
   %73 = add i64 %55, 1
-  %74 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20)
+  %74 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20)
   %75 = load i64, ptr %74, align 8, !noundef !4
   %76 = icmp ult i64 %72, %75
   br i1 %76, label %64, label %._crit_edge149
@@ -4460,7 +4460,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
 81:                                               ; preds = %77, %_ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit
   %.sroa.019.1 = phi i64 [ %90, %_ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit ], [ %.sroa.019.0, %77 ]
   %.sroa.025.0 = phi i64 [ %91, %_ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit ], [ %78, %77 ]
-  %82 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23)
+  %82 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23)
   store i64 %.sroa.019.1, ptr %82, align 8
   br i1 %.not, label %92, label %94
 
@@ -4511,9 +4511,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit: ; pre
 
 95:                                               ; preds = %92
   %96 = sub i64 0, %93
-  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24)
+  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24)
   %98 = load i64, ptr %97, align 8, !noundef !4
-  %99 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25)
+  %99 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %96, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25)
   %100 = load i64, ptr %99, align 8, !noundef !4
   %101 = add i64 %100, %98
   %.not58 = icmp ult i64 %101, %spec.select.i.i
@@ -4531,21 +4531,21 @@ _ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit: ; pre
 
 106:                                              ; preds = %._crit_edge148, %112
   %.pre-phi154 = phi i64 [ %.pre153, %._crit_edge148 ], [ %115, %112 ]
-  %107 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
+  %107 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
   %108 = load i64, ptr %107, align 8, !noundef !4
   br label %119
 
 ._crit_edge147:                                   ; preds = %105, %112
-  %109 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
+  %109 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
   %110 = load i64, ptr %109, align 8, !noundef !4
   %111 = add i64 %110, 1
   br label %119
 
 112:                                              ; preds = %105
-  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
+  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
   %114 = load i64, ptr %113, align 8, !noundef !4
   %115 = add i64 %47, 1
-  %116 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27)
+  %116 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %115, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27)
   %117 = load i64, ptr %116, align 8, !noundef !4
   %118 = icmp ult i64 %114, %117
   br i1 %118, label %106, label %._crit_edge147
@@ -4560,7 +4560,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit: ; pre
 
 123:                                              ; preds = %119, %125
   %.sroa.09.1 = phi i64 [ %129, %125 ], [ %.sroa.09.0, %119 ]
-  %124 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30)
+  %124 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30)
   store i64 %.sroa.09.1, ptr %124, align 8
   br i1 %.not, label %130, label %131
 
@@ -4587,9 +4587,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit: ; pre
 
 133:                                              ; preds = %131
   %134 = sub i64 0, %132
-  %135 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31)
+  %135 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31)
   %136 = load i64, ptr %135, align 8, !noundef !4
-  %137 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32)
+  %137 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %134, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32)
   %138 = load i64, ptr %137, align 8, !noundef !4
   %139 = add i64 %138, %136
   %.not55 = icmp ult i64 %139, %spec.select.i.i
@@ -5012,9 +5012,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   %45 = sub i64 %spec.select.i.i.i, %spec.select.i.i62.i
   %46 = and i64 %45, 1
   %.not.i = icmp eq i64 %46, 0
-  %47 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13), !noalias !1609
+  %47 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13), !noalias !1609
   store i64 0, ptr %47, align 8, !noalias !1609
-  %48 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14), !noalias !1613
+  %48 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14), !noalias !1613
   store i64 0, ptr %48, align 8, !noalias !1613
   %49 = add i64 %spec.select.i.i.i, 1
   %50 = add i64 %49, %spec.select.i.i62.i
@@ -5025,7 +5025,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   br i1 %.not49.not.i, label %55, label %54
 
 54:                                               ; preds = %44
-  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57, !noalias !1614
+  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57, !noalias !1614
   unreachable
 
 55:                                               ; preds = %44
@@ -5051,7 +5051,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   br label %64
 
 63:                                               ; preds = %55
-  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57, !noalias !1614
+  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57, !noalias !1614
   unreachable
 
 64:                                               ; preds = %._crit_edge140.i, %.lr.ph144.i
@@ -5145,21 +5145,21 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
 
 ._crit_edge150.i:                                 ; preds = %88, %96
   %.pre-phi.i = phi i64 [ %99, %96 ], [ %.pre.i, %88 ]
-  %91 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22), !noalias !1614
+  %91 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22), !noalias !1614
   %92 = load i64, ptr %91, align 8, !noalias !1614, !noundef !4
   br label %103
 
 ._crit_edge149.i:                                 ; preds = %96, %90
-  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1614
+  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1614
   %94 = load i64, ptr %93, align 8, !noalias !1614, !noundef !4
   %95 = add i64 %94, 1
   br label %103
 
 96:                                               ; preds = %90
-  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1614
+  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1614
   %98 = load i64, ptr %97, align 8, !noalias !1614, !noundef !4
   %99 = add i64 %82, 1
-  %100 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20), !noalias !1614
+  %100 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20), !noalias !1614
   %101 = load i64, ptr %100, align 8, !noalias !1614, !noundef !4
   %102 = icmp ult i64 %98, %101
   br i1 %102, label %._crit_edge150.i, label %._crit_edge149.i
@@ -5175,7 +5175,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
 107:                                              ; preds = %_ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i, %103
   %.sroa.019.1.i = phi i64 [ %116, %_ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i ], [ %.sroa.019.0.i, %103 ]
   %.sroa.025.0.i = phi i64 [ %117, %_ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i ], [ %104, %103 ]
-  %108 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23), !noalias !1614
+  %108 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23), !noalias !1614
   store i64 %.sroa.019.1.i, ptr %108, align 8, !noalias !1614
   br i1 %.not.i, label %118, label %120
 
@@ -5226,9 +5226,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
 
 121:                                              ; preds = %118
   %122 = sub i64 0, %119
-  %123 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24), !noalias !1614
+  %123 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24), !noalias !1614
   %124 = load i64, ptr %123, align 8, !noalias !1614, !noundef !4
-  %125 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25), !noalias !1614
+  %125 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %122, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25), !noalias !1614
   %126 = load i64, ptr %125, align 8, !noalias !1614, !noundef !4
   %127 = add i64 %126, %124
   %.not58.i = icmp ult i64 %127, %spec.select.i.i.i
@@ -5246,21 +5246,21 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
 
 ._crit_edge148.i:                                 ; preds = %80, %137
   %.pre-phi154.i = phi i64 [ %140, %137 ], [ %.pre153.i, %80 ]
-  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1614
+  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1614
   %133 = load i64, ptr %132, align 8, !noalias !1614, !noundef !4
   br label %144
 
 ._crit_edge147.i:                                 ; preds = %137, %131
-  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1614
+  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1614
   %135 = load i64, ptr %134, align 8, !noalias !1614, !noundef !4
   %136 = add i64 %135, 1
   br label %144
 
 137:                                              ; preds = %131
-  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1614
+  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1614
   %139 = load i64, ptr %138, align 8, !noalias !1614, !noundef !4
   %140 = add i64 %74, 1
-  %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27), !noalias !1614
+  %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %140, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27), !noalias !1614
   %142 = load i64, ptr %141, align 8, !noalias !1614, !noundef !4
   %143 = icmp ult i64 %139, %142
   br i1 %143, label %._crit_edge148.i, label %._crit_edge147.i
@@ -5275,7 +5275,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
 
 148:                                              ; preds = %150, %144
   %.sroa.09.1.i = phi i64 [ %154, %150 ], [ %.sroa.09.0.i, %144 ]
-  %149 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30), !noalias !1614
+  %149 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30), !noalias !1614
   store i64 %.sroa.09.1.i, ptr %149, align 8, !noalias !1614
   br i1 %.not.i, label %155, label %156
 
@@ -5299,9 +5299,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
 
 158:                                              ; preds = %156
   %159 = sub i64 0, %157
-  %160 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31), !noalias !1614
+  %160 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31), !noalias !1614
   %161 = load i64, ptr %160, align 8, !noalias !1614, !noundef !4
-  %162 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %159, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32), !noalias !1614
+  %162 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %159, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32), !noalias !1614
   %163 = load i64, ptr %162, align 8, !noalias !1614, !noundef !4
   %164 = add i64 %163, %161
   %.not55.i = icmp ult i64 %164, %spec.select.i.i.i
@@ -6093,9 +6093,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   %45 = sub i64 %spec.select.i.i.i, %spec.select.i.i62.i
   %46 = and i64 %45, 1
   %.not.i = icmp eq i64 %46, 0
-  %47 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13), !noalias !1728
+  %47 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.13), !noalias !1728
   store i64 0, ptr %47, align 8, !noalias !1728
-  %48 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14), !noalias !1732
+  %48 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.14), !noalias !1732
   store i64 0, ptr %48, align 8, !noalias !1732
   %49 = add i64 %spec.select.i.i.i, 1
   %50 = add i64 %49, %spec.select.i.i62.i
@@ -6106,7 +6106,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   br i1 %.not49.not.i, label %55, label %54
 
 54:                                               ; preds = %44
-  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57, !noalias !1733
+  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.15, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.16) #57, !noalias !1733
   unreachable
 
 55:                                               ; preds = %44
@@ -6132,7 +6132,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   br label %64
 
 63:                                               ; preds = %55
-  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57, !noalias !1733
+  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57, !noalias !1733
   unreachable
 
 64:                                               ; preds = %._crit_edge140.i, %.lr.ph144.i
@@ -6226,21 +6226,21 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
 
 ._crit_edge150.i:                                 ; preds = %88, %96
   %.pre-phi.i = phi i64 [ %99, %96 ], [ %.pre.i, %88 ]
-  %91 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22), !noalias !1733
+  %91 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22), !noalias !1733
   %92 = load i64, ptr %91, align 8, !noalias !1733, !noundef !4
   br label %103
 
 ._crit_edge149.i:                                 ; preds = %96, %90
-  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1733
+  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1733
   %94 = load i64, ptr %93, align 8, !noalias !1733, !noundef !4
   %95 = add i64 %94, 1
   br label %103
 
 96:                                               ; preds = %90
-  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1733
+  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1733
   %98 = load i64, ptr %97, align 8, !noalias !1733, !noundef !4
   %99 = add i64 %82, 1
-  %100 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20), !noalias !1733
+  %100 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20), !noalias !1733
   %101 = load i64, ptr %100, align 8, !noalias !1733, !noundef !4
   %102 = icmp ult i64 %98, %101
   br i1 %102, label %._crit_edge150.i, label %._crit_edge149.i
@@ -6256,7 +6256,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
 107:                                              ; preds = %_ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i, %103
   %.sroa.019.1.i = phi i64 [ %116, %_ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i ], [ %.sroa.019.0.i, %103 ]
   %.sroa.025.0.i = phi i64 [ %117, %_ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i ], [ %104, %103 ]
-  %108 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23), !noalias !1733
+  %108 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.23), !noalias !1733
   store i64 %.sroa.019.1.i, ptr %108, align 8, !noalias !1733
   br i1 %.not.i, label %118, label %120
 
@@ -6307,9 +6307,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
 
 121:                                              ; preds = %118
   %122 = sub i64 0, %119
-  %123 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24), !noalias !1733
+  %123 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %82, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.24), !noalias !1733
   %124 = load i64, ptr %123, align 8, !noalias !1733, !noundef !4
-  %125 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25), !noalias !1733
+  %125 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %122, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.25), !noalias !1733
   %126 = load i64, ptr %125, align 8, !noalias !1733, !noundef !4
   %127 = add i64 %126, %124
   %.not58.i = icmp ult i64 %127, %spec.select.i.i.i
@@ -6327,21 +6327,21 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
 
 ._crit_edge148.i:                                 ; preds = %80, %137
   %.pre-phi154.i = phi i64 [ %140, %137 ], [ %.pre153.i, %80 ]
-  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1733
+  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1733
   %133 = load i64, ptr %132, align 8, !noalias !1733, !noundef !4
   br label %144
 
 ._crit_edge147.i:                                 ; preds = %137, %131
-  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1733
+  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1733
   %135 = load i64, ptr %134, align 8, !noalias !1733, !noundef !4
   %136 = add i64 %135, 1
   br label %144
 
 137:                                              ; preds = %131
-  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1733
+  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1733
   %139 = load i64, ptr %138, align 8, !noalias !1733, !noundef !4
   %140 = add i64 %74, 1
-  %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27), !noalias !1733
+  %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %140, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27), !noalias !1733
   %142 = load i64, ptr %141, align 8, !noalias !1733, !noundef !4
   %143 = icmp ult i64 %139, %142
   br i1 %143, label %._crit_edge148.i, label %._crit_edge147.i
@@ -6356,7 +6356,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
 
 148:                                              ; preds = %150, %144
   %.sroa.09.1.i = phi i64 [ %154, %150 ], [ %.sroa.09.0.i, %144 ]
-  %149 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30), !noalias !1733
+  %149 = call noundef align 8 dereferenceable(8) ptr @"_ZN89_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..IndexMut$LT$isize$GT$$GT$9index_mut17h032472a3224e75e8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.30), !noalias !1733
   store i64 %.sroa.09.1.i, ptr %149, align 8, !noalias !1733
   br i1 %.not.i, label %155, label %156
 
@@ -6380,9 +6380,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
 
 158:                                              ; preds = %156
   %159 = sub i64 0, %157
-  %160 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31), !noalias !1733
+  %160 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %74, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.31), !noalias !1733
   %161 = load i64, ptr %160, align 8, !noalias !1733, !noundef !4
-  %162 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %159, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32), !noalias !1733
+  %162 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %159, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.32), !noalias !1733
   %163 = load i64, ptr %162, align 8, !noalias !1733, !noundef !4
   %164 = add i64 %163, %161
   %.not55.i = icmp ult i64 %164, %spec.select.i.i.i
@@ -7821,7 +7821,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h088a18474d
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h36f6a553bcc83145E.exit"
-  %39 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h74cc7757a2870265E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43b24cd0aec9a4e19647f49cee82725c.62.llvm.17800909824106940392)
+  %39 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h74cc7757a2870265E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.43b24cd0aec9a4e19647f49cee82725c.62.llvm.17800909824106940392)
           to label %"_ZN4core3ptr71drop_in_place$LT$$LP$gpui..taffy..LayoutId$C$gpui..style..Style$RP$$GT$17h11ea7c1d5fd85137E.exit" unwind label %44
 
 40:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h36f6a553bcc83145E.exit"
@@ -9988,7 +9988,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hc2c02a1d26
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdc83c4331bf0eadaE.exit"
-  %38 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h6731b71bd1a047deE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.43b24cd0aec9a4e19647f49cee82725c.62.llvm.17800909824106940392)
+  %38 = invoke { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h6731b71bd1a047deE"(ptr noalias noundef nonnull align 8 dereferenceable(1064) %33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.43b24cd0aec9a4e19647f49cee82725c.62.llvm.17800909824106940392)
           to label %.noexc.i unwind label %49
 
 .noexc.i:                                         ; preds = %37
@@ -31769,7 +31769,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   br i1 %107, label %109, label %108
 
 108:                                              ; preds = %._crit_edge
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val3.i, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.34) #57
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val3.i, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.34) #57
           to label %.noexc4 unwind label %74
 
 .noexc4:                                          ; preds = %108
@@ -31929,7 +31929,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3ab99f543ccb79b2E.exit.loopexit.i: ; preds =
 
 ._crit_edge.i8:                                   ; preds = %171, %_ZN4core3ptr19swap_nonoverlapping17h3ab99f543ccb79b2E.exit.loopexit.i
   %.val3.i.lcssa.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17h3ab99f543ccb79b2E.exit.loopexit.i ], [ %.val3.i15.i, %171 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val3.i.lcssa.i, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.34) #57
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.val3.i.lcssa.i, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.34) #57
           to label %.noexc.i unwind label %165
 
 .noexc.i:                                         ; preds = %._crit_edge.i8
@@ -32523,7 +32523,7 @@ common.resume:                                    ; preds = %168, %122
   br i1 %166, label %170, label %167
 
 167:                                              ; preds = %156
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %165, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.34) #57
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %165, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.34) #57
           to label %.noexc unwind label %168
 
 .noexc:                                           ; preds = %167

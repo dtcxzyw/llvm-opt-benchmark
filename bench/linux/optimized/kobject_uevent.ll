@@ -180,11 +180,11 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %58, label %.thread23, label %59
 
 59:                                               ; preds = %57
-  %60 = tail call zeroext i1 @uuid_is_valid(ptr noundef nonnull %22) #12
+  %60 = tail call zeroext i1 @uuid_is_valid(ptr noundef nonnull %20) #12
   br i1 %60, label %61, label %.thread23
 
 61:                                               ; preds = %59
-  %62 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef nonnull %55, ptr noundef nonnull @.str.14, i32 noundef 36, ptr noundef nonnull %22), !range !8
+  %62 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef nonnull %55, ptr noundef nonnull @.str.14, i32 noundef 36, ptr noundef nonnull %20), !range !8
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.thread23
 

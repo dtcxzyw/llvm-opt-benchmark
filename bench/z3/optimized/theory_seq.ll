@@ -39288,7 +39288,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN18dependency_man
   %bf.clear3.i.i.i = and i32 %bf.load.i.i.i306, -1073741824
   %bf.set.i.i.i = or disjoint i32 %bf.value.i.i.i, %bf.clear3.i.i.i
   store i32 %bf.set.i.i.i, ptr %181, align 4
-  %bf.load.i12.i.i = load i32, ptr %180, align 4
+  %bf.load.i12.i.i = load i32, ptr %.pre355, align 4
   %inc.i13.i.i = add i32 %bf.load.i12.i.i, 1
   %bf.value.i14.i.i = and i32 %inc.i13.i.i, 1073741823
   %bf.clear3.i15.i.i = and i32 %bf.load.i12.i.i, -1073741824

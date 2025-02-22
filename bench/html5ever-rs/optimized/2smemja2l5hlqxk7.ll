@@ -70,7 +70,7 @@ define noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..ExpandedName$u20$a
   br i1 %19, label %20, label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8a818541783fc6ecE.exit"
 
 20:                                               ; preds = %16
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %18, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.016dfb9ce9075adca8c7fec1e32a579b.6) #5, !noalias !10
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %18, i64 noundef 7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.016dfb9ce9075adca8c7fec1e32a579b.6) #5, !noalias !10
   unreachable
 
 21:                                               ; preds = %2
@@ -84,7 +84,7 @@ define noundef zeroext i1 @"_ZN73_$LT$markup5ever..interface..ExpandedName$u20$a
   br label %"_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8a818541783fc6ecE.exit"
 
 27:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %22, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.016dfb9ce9075adca8c7fec1e32a579b.7) #5, !noalias !6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %22, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.016dfb9ce9075adca8c7fec1e32a579b.7) #5, !noalias !6
   unreachable
 
 "_ZN82_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8a818541783fc6ecE.exit": ; preds = %16, %12, %24

@@ -5265,13 +5265,11 @@ _Z12qobject_castIP12FilterPluginET_P7QObject.exit.thread: ; preds = %72, %_Z12qo
 90:                                               ; preds = %_Z12qobject_castIP12FilterPluginET_P7QObject.exit
   %91 = getelementptr inbounds nuw i8, ptr %52, i64 1368
   %92 = load ptr, ptr %91, align 8
-  %.not.i34 = icmp eq ptr %92, null
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  %spec.select.i = select i1 %.not.i34, ptr null, ptr %93
   %94 = load ptr, ptr %81, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 88
   %96 = load ptr, ptr %95, align 8
-  invoke void %96(ptr dead_on_unwind nonnull writable sret(%class.RichParameterList) align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef nonnull %71, ptr noundef nonnull align 8 dereferenceable(192) %spec.select.i)
+  invoke void %96(ptr dead_on_unwind nonnull writable sret(%class.RichParameterList) align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef nonnull %71, ptr noundef nonnull align 8 dereferenceable(192) %93)
           to label %97 unwind label %62
 
 97:                                               ; preds = %90

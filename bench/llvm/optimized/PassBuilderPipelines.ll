@@ -78382,7 +78382,7 @@ _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit31
   br i1 %75, label %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit, label %76
 
 76:                                               ; preds = %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit31
-  %77 = load ptr, ptr %spec.select.i11, align 8, !tbaa !2784
+  %77 = load ptr, ptr %41, align 8, !tbaa !2784
   %78 = ptrtoint ptr %spec.select.i33 to i64
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !2779
@@ -78391,7 +78391,7 @@ _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit31
   %83 = or i64 %82, %78
   %84 = inttoptr i64 %83 to ptr
   store ptr %84, ptr %79, align 8, !tbaa !2779
-  %85 = load ptr, ptr %spec.select.i33, align 8, !tbaa !2784
+  %85 = load ptr, ptr %70, align 8, !tbaa !2784
   store ptr %85, ptr %41, align 8, !tbaa !2784
   %86 = getelementptr inbounds nuw i8, ptr %spec.select.i33, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !2779

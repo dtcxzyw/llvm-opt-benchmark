@@ -1922,8 +1922,8 @@ define dso_local noundef zeroext i1 @_ZN4absl24synchronization_internal11GraphCy
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %34 = tail call fastcc noundef zeroext i1 @_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet6insertEi(ptr noundef nonnull align 8 dereferenceable(52) %33, i32 noundef %5)
-  %35 = load i32, ptr %15, align 8, !tbaa !42
-  %36 = load i32, ptr %24, align 8, !tbaa !42
+  %35 = load i32, ptr %9, align 8, !tbaa !42
+  %36 = load i32, ptr %18, align 8, !tbaa !42
   %.not = icmp sgt i32 %35, %36
   br i1 %.not, label %37, label %_ZN4absl24synchronization_internalL7ReorderEPNS0_11GraphCycles3RepE.exit
 
@@ -2297,7 +2297,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit70: ; preds
   br i1 %.not45, label %_ZN4absl24synchronization_internalL7ReorderEPNS0_11GraphCycles3RepE.exit, label %.lr.ph
 
 182:                                              ; preds = %thread-pre-split.i
-  %183 = load i32, ptr %24, align 8, !tbaa !42
+  %183 = load i32, ptr %18, align 8, !tbaa !42
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 1048744
   %185 = load ptr, ptr %184, align 8, !tbaa !22
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 1048752

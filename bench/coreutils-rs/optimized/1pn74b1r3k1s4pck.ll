@@ -348,7 +348,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
   ret void
 
 30:                                               ; preds = %15
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.bbe642b4c901276140c0114239e41448.1.llvm.15128706570840644315, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbe642b4c901276140c0114239e41448.3.llvm.15128706570840644315) #8
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.bbe642b4c901276140c0114239e41448.1.llvm.15128706570840644315, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbe642b4c901276140c0114239e41448.3.llvm.15128706570840644315) #8
   unreachable
 
 31:                                               ; preds = %15
@@ -415,7 +415,7 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
   ret void
 
 30:                                               ; preds = %15
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.bbe642b4c901276140c0114239e41448.1.llvm.15128706570840644315, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbe642b4c901276140c0114239e41448.3.llvm.15128706570840644315) #8
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.bbe642b4c901276140c0114239e41448.1.llvm.15128706570840644315, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbe642b4c901276140c0114239e41448.3.llvm.15128706570840644315) #8
   unreachable
 
 31:                                               ; preds = %15
@@ -608,7 +608,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN12clap_buil
   br i1 %.not.i, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h3deb0b532746e565E.exit, label %12
 
 12:                                               ; preds = %1
-  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.bbe642b4c901276140c0114239e41448.1.llvm.15128706570840644315, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bbe642b4c901276140c0114239e41448.4) #8
+  tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.bbe642b4c901276140c0114239e41448.1.llvm.15128706570840644315, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bbe642b4c901276140c0114239e41448.4) #8
   unreachable
 
 _ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h3deb0b532746e565E.exit: ; preds = %1

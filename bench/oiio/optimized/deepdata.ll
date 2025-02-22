@@ -479,12 +479,12 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 if.else.i:                                        ; preds = %if.end.i
   %m_nsamples.i12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %arrayidx.i5.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %sub.ptr.sub.i6.i.i
-  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_nsamples.i12, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %arrayidx.i5.i)
+  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_nsamples.i12, ptr noundef nonnull %7, ptr noundef nonnull %arrayidx.i5.i)
   %13 = load ptr, ptr %this, align 8
   %m_capacity.i = getelementptr inbounds nuw i8, ptr %13, i64 96
   %14 = load i64, ptr %m_npixels, align 8
   %arrayidx.i7.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %14
-  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_capacity.i, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %arrayidx.i7.i)
+  tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_capacity.i, ptr noundef nonnull %7, ptr noundef nonnull %arrayidx.i7.i)
   %.pre = load i64, ptr %m_npixels, align 8
   br label %_ZN18OpenImageIO_v2_6_08DeepData15set_all_samplesENS_4spanIKjLln1EEE.exit
 

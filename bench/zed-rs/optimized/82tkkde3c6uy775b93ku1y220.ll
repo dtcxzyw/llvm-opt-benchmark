@@ -33,7 +33,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   br i1 %.not, label %14, label %15
 
 14:                                               ; preds = %5
-  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.56d2d27a17ff364705165b40cc464018.0, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.2) #19
+  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.56d2d27a17ff364705165b40cc464018.0, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.2) #19
   unreachable
 
 15:                                               ; preds = %5
@@ -81,7 +81,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   store ptr %8, ptr %32, align 8, !noalias !5
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 2, ptr %33, align 8, !noalias !5
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.10) #19, !noalias !5
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.10) #19, !noalias !5
   unreachable
 
 _ZN14regex_automata4util6search5Input8set_span17h4cafe4b6edcc2417E.exit: ; preds = %20
@@ -196,7 +196,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit
   ret void
 
 91:                                               ; preds = %15
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.3) #19
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.3) #19
   unreachable
 }
 
@@ -574,7 +574,7 @@ define internal fastcc { ptr, i64 } @"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$
   br i1 %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hfaf48543b858755eE.exit.i.i", label %8
 
 8:                                                ; preds = %1
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.56d2d27a17ff364705165b40cc464018.15, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.56d2d27a17ff364705165b40cc464018.14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.17) #19
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.56d2d27a17ff364705165b40cc464018.15, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.56d2d27a17ff364705165b40cc464018.14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.56d2d27a17ff364705165b40cc464018.17) #19
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %8

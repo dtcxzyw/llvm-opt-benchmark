@@ -390,7 +390,7 @@ define void @"_ZN109_$LT$picker..highlighted_match_with_paths..HighlightedMatchW
   %7 = alloca [720 x i8], align 8
   %8 = alloca [720 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %7)
-  invoke void @_ZN2ui10components5stack6v_flex17h8d35346782293709E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.41810ef30080eafbd6bae646d61f3da9.7)
+  invoke void @_ZN2ui10components5stack6v_flex17h8d35346782293709E(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41810ef30080eafbd6bae646d61f3da9.7)
           to label %12 unwind label %10
 
 9:                                                ; preds = %.body, %.body.thread, %10

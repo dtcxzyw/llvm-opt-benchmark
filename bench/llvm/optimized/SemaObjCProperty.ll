@@ -490,7 +490,7 @@ _ZL31deducePropertyOwnershipFromTypeRN5clang4SemaENS_8QualTypeE.exit: ; preds = 
   %80 = load i32, ptr %5, align 8
   %81 = lshr i32 %80, 7
   %82 = and i32 %81, 65535
-  %83 = tail call noundef ptr @_ZN5clang8SemaObjC18CreatePropertyDeclEPNS_5ScopeEPNS_17ObjCContainerDeclENS_14SourceLocationES5_RNS_15FieldDeclaratorENS_8SelectorES5_S8_S5_bjjNS_8QualTypeEPNS_14TypeSourceInfoENS_3tok15ObjCKeywordKindEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %59, i32 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(4592) %4, i64 %6, i32 %.sroa.0.0.copyload.i156, i64 %7, i32 %.sroa.0.0.copyload.i157, i1 noundef zeroext %54, i32 noundef %52, i32 noundef %82, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull %28, i32 noundef %8, ptr noundef null)
+  %83 = tail call noundef ptr @_ZN5clang8SemaObjC18CreatePropertyDeclEPNS_5ScopeEPNS_17ObjCContainerDeclENS_14SourceLocationES5_RNS_15FieldDeclaratorENS_8SelectorES5_S8_S5_bjjNS_8QualTypeEPNS_14TypeSourceInfoENS_3tok15ObjCKeywordKindEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %58, i32 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(4592) %4, i64 %6, i32 %.sroa.0.0.copyload.i156, i64 %7, i32 %.sroa.0.0.copyload.i157, i1 noundef zeroext %54, i32 noundef %52, i32 noundef %82, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull %28, i32 noundef %8, ptr noundef null)
   %.not140 = icmp eq ptr %9, null
   br i1 %.not140, label %85, label %84
 
@@ -1098,7 +1098,6 @@ _ZL30checkPropertyDeclWithOwnershipRN5clang4SemaEPNS_16ObjCPropertyDeclE.exit: ;
   %374 = load i32, ptr %60, align 4
   %375 = and i32 %374, 127
   %376 = icmp ne i32 %375, 18
-  %spec.select.i.i165 = select i1 %376, ptr null, ptr %59
   %.not142 = or i1 %57, %376
   br i1 %.not142, label %406, label %select.unfold.preheader
 
@@ -1152,8 +1151,8 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br i1 %.not149, label %.loopexit, label %.lr.ph
 
 .thread195:                                       ; preds = %select.unfold
-  %401 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl29all_referenced_protocol_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %spec.select.i.i165)
-  %402 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl27all_referenced_protocol_endEv(ptr noundef nonnull align 8 dereferenceable(128) %spec.select.i.i165)
+  %401 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl29all_referenced_protocol_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %58)
+  %402 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl27all_referenced_protocol_endEv(ptr noundef nonnull align 8 dereferenceable(128) %58)
   %.not148226 = icmp eq ptr %401, %402
   br i1 %.not148226, label %.loopexit, label %.lr.ph228
 
@@ -1812,7 +1811,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.thread: ; preds = %_ZNK5clang4Type5g
 .critedge2:                                       ; preds = %252, %45, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %242, %239, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread
   %.sroa.0203.0 = phi i64 [ %.sroa.0203.1, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread ], [ %.sroa.0203.1, %_ZNK5clang8QualType15getObjCLifetimeEv.exit ], [ %.sroa.0203.1, %239 ], [ %.sroa.0203.1, %242 ], [ %.sroa.0203.1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ %5, %45 ], [ %.sroa.0203.1, %252 ]
   %269 = load i32, ptr %10, align 4, !tbaa !3
-  %270 = call noundef ptr @_ZN5clang8SemaObjC18CreatePropertyDeclEPNS_5ScopeEPNS_17ObjCContainerDeclENS_14SourceLocationES5_RNS_15FieldDeclaratorENS_8SelectorES5_S8_S5_bjjNS_8QualTypeEPNS_14TypeSourceInfoENS_3tok15ObjCKeywordKindEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %40, i32 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(4592) %4, i64 %.sroa.0203.0, i32 %6, i64 %7, i32 %8, i1 noundef zeroext %9, i32 noundef %269, i32 noundef %11, i64 %12, ptr noundef %13, i32 noundef %14, ptr noundef %37)
+  %270 = call noundef ptr @_ZN5clang8SemaObjC18CreatePropertyDeclEPNS_5ScopeEPNS_17ObjCContainerDeclENS_14SourceLocationES5_RNS_15FieldDeclaratorENS_8SelectorES5_S8_S5_bjjNS_8QualTypeEPNS_14TypeSourceInfoENS_3tok15ObjCKeywordKindEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %39, i32 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(4592) %4, i64 %.sroa.0203.0, i32 %6, i64 %7, i32 %8, i1 noundef zeroext %9, i32 noundef %269, i32 noundef %11, i64 %12, ptr noundef %13, i32 noundef %14, ptr noundef %37)
   %271 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   br i1 %.not116, label %272, label %273
 
@@ -2547,7 +2546,7 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   br label %261
 
 259:                                              ; preds = %246
-  call void @_ZN5clang11DeclContext7addDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %spec.select, ptr noundef %250) #16
+  call void @_ZN5clang11DeclContext7addDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %248, ptr noundef %250) #16
   %.not136 = icmp eq ptr %16, null
   br i1 %.not136, label %261, label %260
 
@@ -9650,7 +9649,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %2, %31
   %.not633 = icmp eq i64 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.sroa.0.0.copyload.i286 = load i64, ptr %43, align 8, !tbaa !11
-  %44 = tail call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %.sroa.0.0.copyload.i286, i1 noundef zeroext %.not633, i1 noundef zeroext false) #16
+  %44 = tail call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %34, i64 %.sroa.0.0.copyload.i286, i1 noundef zeroext %.not633, i1 noundef zeroext false) #16
   %.not264 = icmp eq ptr %44, null
   br i1 %.not264, label %45, label %60
 
@@ -9662,7 +9661,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %2, %31
   br i1 %.not265, label %60, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %50 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   %51 = load i64, ptr %50, align 8, !tbaa !681
   %52 = and i64 %51, 7
   %53 = icmp ne i64 %52, 0
@@ -9671,7 +9670,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %2, %31
   br i1 %55, label %.sink.split665, label %60
 
 .sink.split665:                                   ; preds = %49
-  %56 = getelementptr inbounds nuw i8, ptr %35, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !755
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.sroa.0.0.copyload.i288 = load i64, ptr %58, align 8, !tbaa !11
@@ -9682,7 +9681,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %2, %31
   %.0614 = phi ptr [ %59, %.sink.split665 ], [ %44, %45 ], [ %44, %49 ], [ %44, %39 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i290 = load i64, ptr %61, align 8, !tbaa !11
-  %62 = tail call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %35, i64 %.sroa.0.0.copyload.i290, i1 noundef zeroext %.not633, i1 noundef zeroext false) #16
+  %62 = tail call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %34, i64 %.sroa.0.0.copyload.i290, i1 noundef zeroext %.not633, i1 noundef zeroext false) #16
   %.not266 = icmp eq ptr %62, null
   br i1 %.not266, label %63, label %78
 
@@ -9694,7 +9693,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %2, %31
   br i1 %.not267, label %78, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %68 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   %69 = load i64, ptr %68, align 8, !tbaa !681
   %70 = and i64 %69, 7
   %71 = icmp ne i64 %70, 0
@@ -9703,7 +9702,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %2, %31
   br i1 %73, label %.sink.split, label %78
 
 .sink.split:                                      ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %35, i64 88
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !755
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i293 = load i64, ptr %76, align 8, !tbaa !11
@@ -14641,7 +14640,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.thread: ; preds = %657, %_ZNK5clang8
 680:                                              ; preds = %653, %672, %675, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.thread, %_ZNK5clang8QualType15getObjCLifetimeEv.exit
   %681 = load ptr, ptr %16, align 8, !tbaa !1156
   %.sroa.0166.0.copyload = load i64, ptr %38, align 8, !tbaa !11
-  %682 = call noundef ptr @_ZN5clang12ObjCIvarDecl6CreateERNS_10ASTContextEPNS_17ObjCContainerDeclENS_14SourceLocationES5_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS0_13AccessControlEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23216) %113, ptr noundef nonnull %spec.select.i.i, i32 %spec.select, i32 %spec.select, ptr noundef %681, i64 %.sroa.0166.0.copyload, ptr noundef null, i32 noundef 1, ptr noundef null, i1 noundef zeroext true) #16
+  %682 = call noundef ptr @_ZN5clang12ObjCIvarDecl6CreateERNS_10ASTContextEPNS_17ObjCContainerDeclENS_14SourceLocationES5_PKNS_14IdentifierInfoENS_8QualTypeEPNS_14TypeSourceInfoENS0_13AccessControlEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(23216) %113, ptr noundef nonnull %122, i32 %spec.select, i32 %spec.select, ptr noundef %681, i64 %.sroa.0166.0.copyload, ptr noundef null, i32 noundef 1, ptr noundef null, i1 noundef zeroext true) #16
   store ptr %682, ptr %35, align 8, !tbaa !1189
   %683 = load ptr, ptr %0, align 8, !tbaa !7
   %.sroa.0164.0.copyload = load i64, ptr %38, align 8, !tbaa !11
@@ -15252,7 +15251,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit610.thread: ; preds = %935, %.critedg
   %969 = load i24, ptr %968, align 8
   %970 = and i24 %969, 131072
   %971 = icmp ne i24 %970, 0
-  %972 = call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i, i64 %.sroa.0.0.copyload.i.i611, i1 noundef zeroext %971, i1 noundef zeroext false) #16
+  %972 = call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %122, i64 %.sroa.0.0.copyload.i.i611, i1 noundef zeroext %971, i1 noundef zeroext false) #16
   %.not438 = icmp eq ptr %972, null
   br i1 %.not438, label %973, label %975
 
@@ -15467,7 +15466,7 @@ _ZNK5clang4Decl7hasAttrINS_24NSReturnsNotRetainedAttrEEEbv.exit.thread: ; preds 
   %1069 = load i24, ptr %1068, align 8
   %1070 = and i24 %1069, 131072
   %1071 = icmp ne i24 %1070, 0
-  %1072 = call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %spec.select.i.i, i64 %.sroa.0.0.copyload.i.i631, i1 noundef zeroext %1071, i1 noundef zeroext false) #16
+  %1072 = call noundef ptr @_ZNK5clang17ObjCContainerDecl9getMethodENS_8SelectorEbb(ptr noundef nonnull align 8 dereferenceable(88) %122, i64 %.sroa.0.0.copyload.i.i631, i1 noundef zeroext %1071, i1 noundef zeroext false) #16
   %.not443 = icmp eq ptr %1072, null
   br i1 %.not443, label %1073, label %1075
 

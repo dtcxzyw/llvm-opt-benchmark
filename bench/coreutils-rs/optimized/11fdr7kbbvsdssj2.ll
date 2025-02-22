@@ -1858,7 +1858,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h90b853b39b127050E.exit.i: 
   br i1 %112, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h90b853b39b127050E.exit67.i, label %.invoke66
 
 .invoke66:                                        ; preds = %.noexc33, %.noexc25
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.a2dc16b2fda139d049aab8a05273705e.3.llvm.4791087693840706519, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2dc16b2fda139d049aab8a05273705e.5.llvm.4791087693840706519) #16
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.a2dc16b2fda139d049aab8a05273705e.3.llvm.4791087693840706519, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2dc16b2fda139d049aab8a05273705e.5.llvm.4791087693840706519) #16
           to label %.cont67 unwind label %36
 
 .cont67:                                          ; preds = %.invoke66
@@ -2044,7 +2044,7 @@ _ZN7uu_head4Mode4from17h11a1c85a530c4291E.exit:   ; preds = %.noexc37, %.noexc30
   store ptr null, ptr %.sink75.sroa.phi85, align 8, !noalias !5
   store ptr %.sink82, ptr %.sink75.sroa.phi89, align 8, !noalias !5
   store i64 2, ptr %.sink75.sroa.phi93, align 8, !noalias !5
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink75, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de2d14fac14f75ea0e2677b8b9a03533.6.llvm.12252005645035583986) #16
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.de2d14fac14f75ea0e2677b8b9a03533.6.llvm.12252005645035583986) #16
           to label %.cont unwind label %36
 
 .cont:                                            ; preds = %.invoke
@@ -2562,7 +2562,7 @@ _ZN7uu_head11is_seekable17h699c151a0377eb01E.exit.i.i: ; preds = %"_ZN4core3ptr4
   ]
 
 181:                                              ; preds = %.noexc61
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ae392c40df82cab58f95e9738c8b86ea.40, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae392c40df82cab58f95e9738c8b86ea.41) #16
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ae392c40df82cab58f95e9738c8b86ea.40, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae392c40df82cab58f95e9738c8b86ea.41) #16
           to label %194 unwind label %.loopexit.split-lp94, !noalias !681
 
 182:                                              ; preds = %.noexc61
@@ -2629,7 +2629,7 @@ _ZN7uu_head32head_backwards_without_seek_file17hc9b021d44a37ba4aE.exit.i.i: ; pr
   ]
 
 198:                                              ; preds = %197
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ae392c40df82cab58f95e9738c8b86ea.40, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae392c40df82cab58f95e9738c8b86ea.42) #16
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.ae392c40df82cab58f95e9738c8b86ea.40, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae392c40df82cab58f95e9738c8b86ea.42) #16
           to label %.noexc63 unwind label %.loopexit.split-lp
 
 .noexc63:                                         ; preds = %198

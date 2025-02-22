@@ -9505,7 +9505,7 @@ if.then.i:                                        ; preds = %_ZSt6get_ifILm0EJSt
 if.end.i:                                         ; preds = %_ZSt6get_ifILm0EJSt8functionIFvvEES0_IFvRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %_handle)
           to label %try.cont unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i, %if.then.i
@@ -9534,7 +9534,7 @@ if.then.i21:                                      ; preds = %_ZSt6get_ifILm1EJSt
 if.end.i19:                                       ; preds = %_ZSt6get_ifILm1EJSt8functionIFvvEES0_IFvRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i20 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %8 = load ptr, ptr %_M_invoker.i20, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(24) %rt)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %_handle, ptr noundef nonnull align 8 dereferenceable(24) %rt)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end.i19
@@ -9676,7 +9676,7 @@ if.then.i:                                        ; preds = %_ZN2tf5Graph6_clear
 if.end.i:                                         ; preds = %_ZN2tf5Graph6_clearEv.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %8 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(33) %sf)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %_handle, ptr noundef nonnull align 8 dereferenceable(33) %sf)
           to label %try.cont unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i, %if.then.i
@@ -9813,7 +9813,7 @@ if.then.i:                                        ; preds = %_ZSt6get_ifILm0EJSt
 if.end.i:                                         ; preds = %_ZSt6get_ifILm0EJSt8functionIFivEES0_IFiRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  %call2.i11 = invoke noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  %call2.i11 = invoke noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(32) %_handle)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
@@ -9885,7 +9885,7 @@ if.then.i22:                                      ; preds = %_ZSt6get_ifILm1EJSt
 if.end.i20:                                       ; preds = %_ZSt6get_ifILm1EJSt8functionIFivEES0_IFiRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %11 = load ptr, ptr %_M_invoker.i21, align 8
-  %call2.i24 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(24) %rt)
+  %call2.i24 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(32) %_handle, ptr noundef nonnull align 8 dereferenceable(24) %rt)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.end.i20
@@ -10042,7 +10042,7 @@ if.then.i:                                        ; preds = %_ZSt6get_ifILm0EJSt
 if.end.i:                                         ; preds = %_ZSt6get_ifILm0EJSt8functionIFN2tf11SmallVectorIiLj2EEEvEES0_IFS3_RNS1_7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSF_.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8, !noalias !98
-  invoke void %5(ptr nonnull sret(%"class.tf::SmallVector.280") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  invoke void %5(ptr nonnull sret(%"class.tf::SmallVector.280") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %_handle)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
@@ -10097,7 +10097,7 @@ if.then.i27:                                      ; preds = %_ZSt6get_ifILm1EJSt
 if.end.i25:                                       ; preds = %_ZSt6get_ifILm1EJSt8functionIFN2tf11SmallVectorIiLj2EEEvEES0_IFS3_RNS1_7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSF_.exit
   %_M_invoker.i26 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %11 = load ptr, ptr %_M_invoker.i26, align 8, !noalias !101
-  invoke void %11(ptr nonnull sret(%"class.tf::SmallVector.280") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(24) %rt)
+  invoke void %11(ptr nonnull sret(%"class.tf::SmallVector.280") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %_handle, ptr noundef nonnull align 8 dereferenceable(24) %rt)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.end.i25
@@ -10242,7 +10242,7 @@ if.then.i:                                        ; preds = %_ZSt6get_ifILm0EJSt
 if.end.i:                                         ; preds = %_ZSt6get_ifILm0EJSt8functionIFvvEES0_IFvRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %_handle)
           to label %try.cont unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i, %if.then.i
@@ -10271,7 +10271,7 @@ if.then.i21:                                      ; preds = %_ZSt6get_ifILm1EJSt
 if.end.i19:                                       ; preds = %_ZSt6get_ifILm1EJSt8functionIFvvEES0_IFvRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i20 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %8 = load ptr, ptr %_M_invoker.i20, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(24) %rt)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %_handle, ptr noundef nonnull align 8 dereferenceable(24) %rt)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end.i19
@@ -10386,7 +10386,7 @@ if.then.i:                                        ; preds = %_ZSt6get_ifILm0EJSt
 if.end.i:                                         ; preds = %_ZSt6get_ifILm0EJSt8functionIFvvEES0_IFvRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %5 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i)
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %_handle)
           to label %try.cont unwind label %lpad
 
 lpad:                                             ; preds = %if.end.i, %if.then.i
@@ -10415,7 +10415,7 @@ if.then.i21:                                      ; preds = %_ZSt6get_ifILm1EJSt
 if.end.i19:                                       ; preds = %_ZSt6get_ifILm1EJSt8functionIFvvEES0_IFvRN2tf7RuntimeEEEEENSt11add_pointerINSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeEE4typeEPSD_.exit
   %_M_invoker.i20 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %8 = load ptr, ptr %_M_invoker.i20, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(24) %rt)
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(32) %_handle, ptr noundef nonnull align 8 dereferenceable(24) %rt)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %if.end.i19

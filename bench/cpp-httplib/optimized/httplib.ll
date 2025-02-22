@@ -56213,7 +56213,7 @@ _ZNSt10unique_ptrIN7httplib8ResponseESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %.0.in.i, label %_ZNSt10unique_ptrIN7httplib8ResponseESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN7httplib8ResponseEEclEPS1_.exit.i6
 
 _ZNKSt14default_deleteIN7httplib8ResponseEEclEPS1_.exit.i6: ; preds = %_ZNSt10unique_ptrIN7httplib8ResponseESt14default_deleteIS1_EED2Ev.exit
-  call void @_ZN7httplib8ResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %spec.select) #47
+  call void @_ZN7httplib8ResponseD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %6) #47
   call void @_ZdlPvm(ptr noundef nonnull %spec.select, i64 noundef 336) #48
   br label %_ZNSt10unique_ptrIN7httplib8ResponseESt14default_deleteIS1_EED2Ev.exit7
 

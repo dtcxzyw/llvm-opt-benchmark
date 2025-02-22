@@ -683,7 +683,7 @@ define internal fastcc void @_ZN5uu_df5table12RowFormatter12scaled_bytes17h99682
   br i1 %25, label %29, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h45d81e956358032cE.exit"
 
 29:                                               ; preds = %28
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.0038b4077a4fc1436dad5fe124ddbe2e.8, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.10) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.0038b4077a4fc1436dad5fe124ddbe2e.8, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.10) #17
           to label %.noexc.i unwind label %26, !noalias !76
 
 .noexc.i:                                         ; preds = %29
@@ -763,7 +763,7 @@ define internal fastcc void @_ZN5uu_df5table12RowFormatter13scaled_inodes17h75f1
   br i1 %18, label %22, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h9cc7708f12cc57ebE.exit"
 
 22:                                               ; preds = %21
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.0038b4077a4fc1436dad5fe124ddbe2e.8, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.10) #17
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.0038b4077a4fc1436dad5fe124ddbe2e.8, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.10) #17
           to label %.noexc.i unwind label %19, !noalias !82
 
 .noexc.i:                                         ; preds = %22
@@ -2314,7 +2314,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit: ; preds = 
   %442 = phi i64 [ %431, %422 ], [ %440, %433 ], [ %352, %343 ], [ %361, %354 ], [ %.sroa.7147.0215, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
   %443 = phi i64 [ 2432, %422 ], [ 3888, %433 ], [ 2432, %343 ], [ 3888, %354 ], [ %373, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
   %444 = phi ptr [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.2, %422 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.3, %433 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.2, %343 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.3, %354 ], [ @anon.0038b4077a4fc1436dad5fe124ddbe2e.51, %_ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %442, i64 noundef %443, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %444) #17
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %442, i64 noundef %443, ptr noalias noundef readonly align 8 dereferenceable(24) %444) #17
           to label %.cont unwind label %194
 
 .cont:                                            ; preds = %.invoke
@@ -2729,7 +2729,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br i1 %trunc93, label %82, label %81
 
 80:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf8f5bfc25b469255E.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.055.0186, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.53) #17
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.055.0186, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.53) #17
   unreachable
 
 81:                                               ; preds = %77
@@ -2790,7 +2790,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br i1 %91, label %.loopexit, label %.thread142
 
 92:                                               ; preds = %84
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.055.0186, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.55) #17
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.055.0186, i64 noundef %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.55) #17
   unreachable
 
 93:                                               ; preds = %94
@@ -2824,7 +2824,7 @@ define noundef zeroext i1 @"_ZN58_$LT$uu_df..table..Table$u20$as$u20$core..fmt..
   br i1 %97, label %.loopexit, label %93
 
 98:                                               ; preds = %82
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.055.0186, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.56) #17
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.055.0186, i64 noundef %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0038b4077a4fc1436dad5fe124ddbe2e.56) #17
   unreachable
 
 .thread142:                                       ; preds = %88, %93

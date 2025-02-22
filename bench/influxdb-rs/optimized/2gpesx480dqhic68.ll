@@ -173,21 +173,21 @@ default.unreachable:                              ; preds = %2
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !12
   store ptr %8, ptr %5, align 8, !noalias !12
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.0, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.1)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.0, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !12
   br label %"_ZN62_$LT$parquet..format..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17heba7ca9e5d99bccdE.exit"
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !12
   store ptr %8, ptr %4, align 8, !noalias !12
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.2, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.3)
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.2, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !12
   br label %"_ZN62_$LT$parquet..format..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17heba7ca9e5d99bccdE.exit"
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !12
   store ptr %8, ptr %3, align 8, !noalias !12
-  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.4, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.5)
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.4, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d482b4e8ebc75c6b4a1a007865bf1c6a.5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !12
   br label %"_ZN62_$LT$parquet..format..TimeUnit$u20$as$u20$core..fmt..Debug$GT$3fmt17heba7ca9e5d99bccdE.exit"
 
@@ -473,7 +473,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..IntType$u20$as$u20$parq
   store ptr %7, ptr %90, align 8, !alias.scope !101, !noalias !104
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %91, align 8, !alias.scope !101, !noalias !104
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc113 unwind label %37
 
 .noexc113:                                        ; preds = %85
@@ -790,7 +790,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
   store ptr %5, ptr %41, align 8, !alias.scope !179, !noalias !182
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !179, !noalias !182
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -803,7 +803,7 @@ define internal fastcc void @"_ZN75_$LT$parquet..format..MapType$u20$as$u20$parq
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -968,7 +968,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
   store ptr %5, ptr %41, align 8, !alias.scope !235, !noalias !238
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !235, !noalias !238
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -981,7 +981,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..BsonType$u20$as$u20$par
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -1146,7 +1146,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
   store ptr %5, ptr %41, align 8, !alias.scope !291, !noalias !294
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !291, !noalias !294
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -1159,7 +1159,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..DateType$u20$as$u20$par
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -1324,7 +1324,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
   store ptr %5, ptr %41, align 8, !alias.scope !347, !noalias !350
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !347, !noalias !350
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -1337,7 +1337,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..EnumType$u20$as$u20$par
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -1502,7 +1502,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$par
   store ptr %5, ptr %41, align 8, !alias.scope !403, !noalias !406
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !403, !noalias !406
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -1515,7 +1515,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..JsonType$u20$as$u20$par
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -1800,7 +1800,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
   store ptr %6, ptr %86, align 8, !alias.scope !497, !noalias !500
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %87, align 8, !alias.scope !497, !noalias !500
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc120 unwind label %34
 
 .noexc120:                                        ; preds = %81
@@ -2193,7 +2193,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..KeyValue$u20$as$u20$par
   store ptr %6, ptr %86, align 8, !alias.scope !581, !noalias !584
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %87, align 8, !alias.scope !581, !noalias !584
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc120 unwind label %34
 
 .noexc120:                                        ; preds = %81
@@ -2466,7 +2466,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
   store ptr %5, ptr %41, align 8, !alias.scope !627, !noalias !630
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !627, !noalias !630
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -2479,7 +2479,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..ListType$u20$as$u20$par
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -2644,7 +2644,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$par
   store ptr %5, ptr %41, align 8, !alias.scope !683, !noalias !686
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !683, !noalias !686
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -2657,7 +2657,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..NullType$u20$as$u20$par
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -3700,7 +3700,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 .invoke.i.invoke:                                 ; preds = %950, %990, %.invoke.i
   %464 = phi ptr [ %.sink495.i, %.invoke.i ], [ %100, %990 ], [ %95, %950 ]
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %464, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %464, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.invoke.i.cont unwind label %.loopexit.split-lp528, !noalias !785
 
 .invoke.i.cont:                                   ; preds = %.invoke.i.invoke
@@ -4008,7 +4008,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   store ptr %23, ptr %542, align 8, !alias.scope !1006, !noalias !1009
   %543 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 1, ptr %543, align 8, !alias.scope !1006, !noalias !1009
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc746.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, !noalias !954
 
 .noexc746.i:                                      ; preds = %537
@@ -6151,7 +6151,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   store ptr %111, ptr %1150, align 8, !alias.scope !1282, !noalias !1285
   %1151 = getelementptr inbounds nuw i8, ptr %112, i64 24
   store i64 1, ptr %1151, align 8, !alias.scope !1282, !noalias !1285
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %112, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %112, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc373 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc373:                                        ; preds = %1145
@@ -7078,7 +7078,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..TimeType$u20$as$u20$par
   store ptr %7, ptr %86, align 8, !alias.scope !1397, !noalias !1400
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %87, align 8, !alias.scope !1397, !noalias !1400
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc111 unwind label %35
 
 .noexc111:                                        ; preds = %81
@@ -7640,7 +7640,7 @@ default.unreachable:                              ; preds = %69
   store ptr %37, ptr %137, align 8, !alias.scope !1540, !noalias !1543
   %138 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 1, ptr %138, align 8, !alias.scope !1540, !noalias !1543
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i unwind label %118, !noalias !1529
 
 .noexc25.i:                                       ; preds = %132
@@ -7653,7 +7653,7 @@ default.unreachable:                              ; preds = %69
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i unwind label %118, !noalias !1529
 
 .noexc26.i:                                       ; preds = %141
@@ -7950,7 +7950,7 @@ default.unreachable:                              ; preds = %69
   store ptr %24, ptr %238, align 8, !alias.scope !1655, !noalias !1658
   %239 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 1, ptr %239, align 8, !alias.scope !1655, !noalias !1658
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i179 unwind label %219, !noalias !1644
 
 .noexc25.i179:                                    ; preds = %233
@@ -7963,7 +7963,7 @@ default.unreachable:                              ; preds = %69
   br i1 %241, label %242, label %243
 
 242:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i.i180"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i183 unwind label %219, !noalias !1644
 
 .noexc26.i183:                                    ; preds = %242
@@ -8230,7 +8230,7 @@ default.unreachable:                              ; preds = %69
   store ptr %12, ptr %329, align 8, !alias.scope !1759, !noalias !1762
   %330 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 1, ptr %330, align 8, !alias.scope !1759, !noalias !1762
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i214 unwind label %310, !noalias !1748
 
 .noexc25.i214:                                    ; preds = %324
@@ -8243,7 +8243,7 @@ default.unreachable:                              ; preds = %69
   br i1 %332, label %333, label %334
 
 333:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i.i215"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i218 unwind label %310, !noalias !1748
 
 .noexc26.i218:                                    ; preds = %333
@@ -8370,7 +8370,7 @@ default.unreachable:                              ; preds = %69
   store ptr null, ptr %.sink42.sroa.phi48, align 8, !noalias !4
   store ptr %.sink44, ptr %.sink42.sroa.phi53, align 8, !noalias !4
   store i64 1, ptr %.sink42.sroa.phi58, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %67
 
 .cont:                                            ; preds = %.invoke
@@ -8383,7 +8383,7 @@ default.unreachable:                              ; preds = %69
   br i1 %370, label %371, label %373
 
 371:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc233 unwind label %67
 
 .noexc233:                                        ; preds = %371
@@ -8530,7 +8530,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$par
   store ptr %5, ptr %41, align 8, !alias.scope !1852, !noalias !1855
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !1852, !noalias !1855
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -8543,7 +8543,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..UUIDType$u20$as$u20$par
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -9079,7 +9079,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   store ptr null, ptr %.sink465.sroa.phi469, align 8, !noalias !4
   store ptr %.sink467, ptr %.sink465.sroa.phi472, align 8, !noalias !4
   store i64 1, ptr %.sink465.sroa.phi475, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink465, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink465, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %70
 
 .cont:                                            ; preds = %.invoke
@@ -10252,7 +10252,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   store ptr null, ptr %.sink465.sroa.phi469, align 8, !noalias !4
   store ptr %.sink467, ptr %.sink465.sroa.phi472, align 8, !noalias !4
   store i64 1, ptr %.sink465.sroa.phi475, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink465, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink465, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %70
 
 .cont:                                            ; preds = %.invoke
@@ -11054,7 +11054,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$p
   store ptr %5, ptr %41, align 8, !alias.scope !2284, !noalias !2287
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !2284, !noalias !2287
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -11067,7 +11067,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..StringType$u20$as$u20$p
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -11428,7 +11428,7 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
   store ptr %9, ptr %108, align 8, !alias.scope !2379, !noalias !2382
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %109, align 8, !alias.scope !2379, !noalias !2382
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc355 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc355:                                        ; preds = %103
@@ -12273,7 +12273,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   store ptr %13, ptr %104, align 8, !alias.scope !2498, !noalias !2501
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %105, align 8, !alias.scope !2498, !noalias !2501
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i unwind label %85, !noalias !2487
 
 .noexc25.i:                                       ; preds = %99
@@ -12286,7 +12286,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i unwind label %85, !noalias !2487
 
 .noexc26.i:                                       ; preds = %108
@@ -12417,7 +12417,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   store ptr null, ptr %.sink22.sroa.phi26, align 8, !noalias !4
   store ptr %.sink24, ptr %.sink22.sroa.phi29, align 8, !noalias !4
   store i64 1, ptr %.sink22.sroa.phi32, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %37
 
 .cont:                                            ; preds = %.invoke
@@ -12430,7 +12430,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..ColumnOrder$u20$as$u20$
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc81 unwind label %37
 
 .noexc81:                                         ; preds = %146
@@ -12721,7 +12721,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..DecimalType$u20$as$u20$
   store ptr %7, ptr %85, align 8, !alias.scope !2640, !noalias !2643
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %86, align 8, !alias.scope !2640, !noalias !2643
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc111 unwind label %35
 
 .noexc111:                                        ; preds = %80
@@ -13035,7 +13035,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
   store ptr %5, ptr %41, align 8, !alias.scope !2718, !noalias !2721
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %42, align 8, !alias.scope !2718, !noalias !2721
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25 unwind label %22
 
 .noexc25:                                         ; preds = %36
@@ -13048,7 +13048,7 @@ define internal fastcc void @"_ZN79_$LT$parquet..format..Float16Type$u20$as$u20$
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26 unwind label %22
 
 .noexc26:                                         ; preds = %45
@@ -14704,7 +14704,7 @@ default.unreachable697:                           ; preds = %96
   store ptr %5, ptr %467, align 8, !alias.scope !2870, !noalias !2873
   %468 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %468, align 8, !alias.scope !2870, !noalias !2873
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc605 unwind label %94
 
 .noexc605:                                        ; preds = %462
@@ -14717,7 +14717,7 @@ default.unreachable697:                           ; preds = %96
   br i1 %470, label %471, label %473
 
 471:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc606 unwind label %94
 
 .noexc606:                                        ; preds = %471
@@ -15245,7 +15245,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   store ptr null, ptr %.sink226.sroa.phi358, align 8, !noalias !2961
   store ptr %.sink228, ptr %.sink226.sroa.phi361, align 8, !noalias !2961
   store i64 1, ptr %.sink226.sroa.phi364, align 8, !noalias !2961
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink226, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink226, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %.loopexit.split-lp143, !noalias !2961
 
 .cont:                                            ; preds = %.invoke
@@ -15586,7 +15586,7 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
   store ptr %10, ptr %266, align 8, !alias.scope !3119, !noalias !3122
   %267 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 1, ptr %267, align 8, !alias.scope !3119, !noalias !3122
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc106 unwind label %.loopexit.split-lp
 
 .noexc106:                                        ; preds = %261
@@ -16053,7 +16053,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   store ptr %80, ptr %189, align 8, !alias.scope !3197, !noalias !3200
   %190 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store i64 1, ptr %190, align 8, !alias.scope !3197, !noalias !3200
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %81, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc514 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc514:                                        ; preds = %184
@@ -16643,7 +16643,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   store ptr null, ptr %.sink559.i.sroa.phi590, align 8, !noalias !3246
   store ptr %.sink561.i, ptr %.sink559.i.sroa.phi593, align 8, !noalias !3246
   store i64 1, ptr %.sink559.i.sroa.phi596, align 8, !noalias !3246
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink559.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink559.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont.i unwind label %.loopexit.split-lp678, !noalias !3259
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -18573,7 +18573,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..SortingColumn$u20$as$u2
   store ptr %9, ptr %92, align 8, !alias.scope !3597, !noalias !3600
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %93, align 8, !alias.scope !3597, !noalias !3600
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc150 unwind label %41
 
 .noexc150:                                        ; preds = %87
@@ -19104,7 +19104,7 @@ define internal fastcc void @"_ZN81_$LT$parquet..format..TimestampType$u20$as$u2
   store ptr %7, ptr %86, align 8, !alias.scope !3719, !noalias !3722
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %87, align 8, !alias.scope !3719, !noalias !3722
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc111 unwind label %35
 
 .noexc111:                                        ; preds = %81
@@ -19671,7 +19671,7 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
   store ptr %21, ptr %154, align 8, !alias.scope !3835, !noalias !3838
   %155 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 1, ptr %155, align 8, !alias.scope !3835, !noalias !3838
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc746 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc746:                                        ; preds = %149
@@ -21568,7 +21568,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   store ptr %13, ptr %104, align 8, !alias.scope !4046, !noalias !4049
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %105, align 8, !alias.scope !4046, !noalias !4049
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i unwind label %85, !noalias !4035
 
 .noexc25.i:                                       ; preds = %99
@@ -21581,7 +21581,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hcd038390ba6f1f9bE.llvm.3086495437288348183.exit.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i unwind label %85, !noalias !4035
 
 .noexc26.i:                                       ; preds = %108
@@ -21712,7 +21712,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   store ptr null, ptr %.sink22.sroa.phi26, align 8, !noalias !4
   store ptr %.sink24, ptr %.sink22.sroa.phi29, align 8, !noalias !4
   store i64 1, ptr %.sink22.sroa.phi32, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %37
 
 .cont:                                            ; preds = %.invoke
@@ -21725,7 +21725,7 @@ define internal fastcc void @"_ZN83_$LT$parquet..format..BloomFilterHash$u20$as$
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hcd038390ba6f1f9bE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc81 unwind label %37
 
 .noexc81:                                         ; preds = %146
@@ -22066,7 +22066,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   store ptr %32, ptr %117, align 8, !alias.scope !4188, !noalias !4191
   %118 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 1, ptr %118, align 8, !alias.scope !4188, !noalias !4191
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc189 unwind label %66
 
 .noexc189:                                        ; preds = %112
@@ -22408,7 +22408,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   store ptr %17, ptr %227, align 8, !alias.scope !4314, !noalias !4317
   %228 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 1, ptr %228, align 8, !alias.scope !4314, !noalias !4317
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i.i unwind label %209, !noalias !4303
 
 .noexc25.i.i:                                     ; preds = %222
@@ -22421,7 +22421,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hcd038390ba6f1f9bE.llvm.3086495437288348183.exit.i.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i.i unwind label %209, !noalias !4303
 
 .noexc26.i.i:                                     ; preds = %231
@@ -22548,7 +22548,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   store ptr null, ptr %.sink22.i.sroa.phi220, align 8, !noalias !4235
   store ptr %.sink24.i, ptr %.sink22.i.sroa.phi223, align 8, !noalias !4235
   store i64 1, ptr %.sink22.i.sroa.phi226, align 8, !noalias !4235
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont.i unwind label %161, !noalias !4248
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -22561,7 +22561,7 @@ define hidden void @"_ZN85_$LT$parquet..format..BloomFilterHeader$u20$as$u20$par
   br i1 %268, label %269, label %271
 
 269:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hcd038390ba6f1f9bE.llvm.3086495437288348183.exit.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc81.i unwind label %161, !noalias !4248
 
 .noexc81.i:                                       ; preds = %269
@@ -23132,7 +23132,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
   store ptr %9, ptr %92, align 8, !alias.scope !4481, !noalias !4484
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %93, align 8, !alias.scope !4481, !noalias !4484
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc150 unwind label %41
 
 .noexc150:                                        ; preds = %87
@@ -23669,7 +23669,7 @@ define internal fastcc void @"_ZN85_$LT$parquet..format..PageEncodingStats$u20$a
   store ptr %9, ptr %92, align 8, !alias.scope !4603, !noalias !4606
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %93, align 8, !alias.scope !4603, !noalias !4606
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc150 unwind label %41
 
 .noexc150:                                        ; preds = %87
@@ -24833,7 +24833,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   store ptr null, ptr %.sink222.i.sroa.phi226, align 8, !noalias !4725
   store ptr %.sink224.i, ptr %.sink222.i.sroa.phi230, align 8, !noalias !4725
   store i64 1, ptr %.sink222.i.sroa.phi234, align 8, !noalias !4725
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink222.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink222.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont.i unwind label %156, !noalias !4738
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -24846,7 +24846,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br i1 %319, label %320, label %322
 
 320:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc190.i unwind label %156, !noalias !4738
 
 .noexc190.i:                                      ; preds = %320
@@ -25585,7 +25585,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   store ptr null, ptr %.sink222.i159.sroa.phi242, align 8, !noalias !4972
   store ptr %.sink224.i158, ptr %.sink222.i159.sroa.phi246, align 8, !noalias !4972
   store i64 1, ptr %.sink222.i159.sroa.phi250, align 8, !noalias !4972
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink222.i159, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink222.i159, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont.i160 unwind label %392, !noalias !4985
 
 .cont.i160:                                       ; preds = %.invoke.i157
@@ -25598,7 +25598,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br i1 %555, label %556, label %558
 
 556:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i.i193"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc190.i196 unwind label %392, !noalias !4985
 
 .noexc190.i196:                                   ; preds = %556
@@ -25704,7 +25704,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   store ptr null, ptr %.sink276.sroa.phi281, align 8, !noalias !4
   store ptr %.sink278, ptr %.sink276.sroa.phi285, align 8, !noalias !4
   store i64 1, ptr %.sink276.sroa.phi289, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink276, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink276, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %103
 
 .cont:                                            ; preds = %.invoke
@@ -25717,7 +25717,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br i1 %585, label %586, label %588
 
 586:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc211 unwind label %103
 
 .noexc211:                                        ; preds = %586
@@ -26087,7 +26087,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   store ptr %37, ptr %136, align 8, !alias.scope !5279, !noalias !5282
   %137 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 1, ptr %137, align 8, !alias.scope !5279, !noalias !5282
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i unwind label %117, !noalias !5268
 
 .noexc25.i:                                       ; preds = %131
@@ -26100,7 +26100,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i unwind label %117, !noalias !5268
 
 .noexc26.i:                                       ; preds = %140
@@ -26529,7 +26529,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   store ptr %13, ptr %276, align 8, !alias.scope !5436, !noalias !5439
   %277 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %277, align 8, !alias.scope !5436, !noalias !5439
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc149.i unwind label %.loopexit.split-lp.i, !noalias !5385
 
 .noexc149.i:                                      ; preds = %271
@@ -26780,7 +26780,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   store ptr null, ptr %.sink179.sroa.phi186, align 8, !noalias !4
   store ptr %.sink181, ptr %.sink179.sroa.phi190, align 8, !noalias !4
   store i64 1, ptr %.sink179.sroa.phi194, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink179, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink179, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %65
 
 .cont:                                            ; preds = %.invoke
@@ -26793,7 +26793,7 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hfe22362fb55ab49fE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc146 unwind label %65
 
 .noexc146:                                        ; preds = %348
@@ -27116,7 +27116,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   store ptr %13, ptr %104, align 8, !alias.scope !5573, !noalias !5576
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %105, align 8, !alias.scope !5573, !noalias !5576
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.noexc25.i unwind label %85, !noalias !5562
 
 .noexc25.i:                                       ; preds = %99
@@ -27129,7 +27129,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hcd038390ba6f1f9bE.llvm.3086495437288348183.exit.i.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc26.i unwind label %85, !noalias !5562
 
 .noexc26.i:                                       ; preds = %108
@@ -27260,7 +27260,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   store ptr null, ptr %.sink22.sroa.phi26, align 8, !noalias !4
   store ptr %.sink24, ptr %.sink22.sroa.phi29, align 8, !noalias !4
   store i64 1, ptr %.sink22.sroa.phi32, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
+  invoke void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.115.llvm.3086495437288348183) #10
           to label %.cont unwind label %37
 
 .cont:                                            ; preds = %.invoke
@@ -27273,7 +27273,7 @@ define internal fastcc void @"_ZN90_$LT$parquet..format..BloomFilterCompression$
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %"_ZN6thrift8protocol7compact31TCompactOutputProtocol$LT$T$GT$28assert_no_pending_bool_write17hcd038390ba6f1f9bE.llvm.3086495437288348183.exit.i"
-  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
+  invoke void @_ZN4core6option13expect_failed17h1ae4bac6b7606972E(ptr noalias noundef nonnull readonly align 1 @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.6.llvm.3086495437288348183, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e2f3afc8f59bc43bd21981ed2f6a2a96.7.llvm.3086495437288348183) #10
           to label %.noexc81 unwind label %37
 
 .noexc81:                                         ; preds = %146

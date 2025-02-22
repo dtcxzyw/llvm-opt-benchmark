@@ -261,7 +261,7 @@ define float @Abc_NodeReadInputDriveWorst(ptr noundef readonly captures(none) %0
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
   %9 = select i1 %.not.i, ptr null, ptr %8
-  %10 = load float, ptr %9, align 4, !tbaa !40
+  %10 = load float, ptr %8, align 4, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !41
   %13 = fcmp ogt float %10, %12
@@ -279,7 +279,7 @@ define float @Abc_NodeReadOutputLoadWorst(ptr noundef readonly captures(none) %0
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
   %9 = select i1 %.not.i, ptr null, ptr %8
-  %10 = load float, ptr %9, align 4, !tbaa !40
+  %10 = load float, ptr %8, align 4, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !41
   %13 = fcmp ogt float %10, %12

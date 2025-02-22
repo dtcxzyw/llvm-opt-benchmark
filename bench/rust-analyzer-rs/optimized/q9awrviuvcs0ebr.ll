@@ -88,7 +88,7 @@ _ZN4core3ptr19swap_nonoverlapping17h74d93f41ae5f507eE.exit._crit_edge: ; preds =
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %39 = invoke { i64, i64 } @_ZN4core5slice5index5range17h5a680efba95c494cE(i64 noundef %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.09c9da00a2142ad6fd6865e3dcf2eae0.12.llvm.2112118809117862300)
+  %39 = invoke { i64, i64 } @_ZN4core5slice5index5range17h5a680efba95c494cE(i64 noundef %38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09c9da00a2142ad6fd6865e3dcf2eae0.12.llvm.2112118809117862300)
           to label %46 unwind label %44
 
 40:                                               ; preds = %.body, %41

@@ -1449,7 +1449,7 @@ _ZN3ozz2io8IArchiversERf.exit:                    ; preds = %49, %59
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load ptr, ptr %244, align 8
-  %246 = call noundef i64 %245(ptr noundef nonnull align 8 dereferenceable(8) %242, ptr noundef nonnull %spec.select164.i, i64 noundef %170)
+  %246 = call noundef i64 %245(ptr noundef nonnull align 8 dereferenceable(8) %242, ptr noundef nonnull %238, i64 noundef %170)
   %247 = load ptr, ptr %24, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 %170
   store i8 0, ptr %248, align 1

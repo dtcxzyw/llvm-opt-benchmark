@@ -1159,7 +1159,7 @@ common.resume:                                    ; preds = %50, %77, %23, %32
   br i1 %49, label %53, label %56
 
 53:                                               ; preds = %52
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.d6aa92c9f19e0b669e7c1c2739acfceb.5, i64 noundef 55, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d6aa92c9f19e0b669e7c1c2739acfceb.21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d6aa92c9f19e0b669e7c1c2739acfceb.7) #18
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.d6aa92c9f19e0b669e7c1c2739acfceb.5, i64 noundef 55, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d6aa92c9f19e0b669e7c1c2739acfceb.21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d6aa92c9f19e0b669e7c1c2739acfceb.7) #18
           to label %.noexc.i.i.i unwind label %50, !noalias !172
 
 .noexc.i.i.i:                                     ; preds = %53
@@ -1270,7 +1270,7 @@ common.resume:                                    ; preds = %50, %77, %23, %32
 
 84:                                               ; preds = %.noexc.i.i
   store i8 %40, ptr %71, align 1, !noalias !174
-  %85 = call noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$16value_validation17h20b2b4a4c26bf601E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.eacffc8d3fc2bd4819df0f9141666d51.1.llvm.10119886234455203687), !noalias !174
+  %85 = call noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$16value_validation17h20b2b4a4c26bf601E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %71, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eacffc8d3fc2bd4819df0f9141666d51.1.llvm.10119886234455203687), !noalias !174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !174
   %86 = call noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$8with_cmd17h725a1cc49d213509E"(ptr noalias noundef nonnull align 8 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1), !noalias !174

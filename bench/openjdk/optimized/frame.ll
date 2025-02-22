@@ -631,7 +631,7 @@ define hidden noundef ptr @_ZNK5frame6raw_pcEv(ptr noundef nonnull readonly alig
   %..i = select i1 %10, ptr %7, ptr null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef zeroext i1 @_ZN7nmethod23is_method_handle_returnEPh(ptr noundef nonnull align 8 dereferenceable(214) %..i, ptr noundef %12) #21
+  %13 = tail call noundef zeroext i1 @_ZN7nmethod23is_method_handle_returnEPh(ptr noundef nonnull align 8 dereferenceable(214) %7, ptr noundef %12) #21
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %5

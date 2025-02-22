@@ -10656,37 +10656,32 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm13BasicAAResult10aliasCheck
   %5 = load ptr, ptr %.0.val, align 8, !tbaa !241
   %6 = load ptr, ptr %.8.val, align 8, !tbaa !255
   %7 = tail call noundef zeroext i1 @_ZN4llvm23isValidAssumeForContextEPKNS_11InstructionES2_PKNS_13DominatorTreeEb(ptr noundef %5, ptr noundef nonnull %0, ptr noundef %6, i1 noundef zeroext true) #24
-  br label %26
+  br label %21
 
 8:                                                ; preds = %1
   %.not = icmp eq i8 %2, 22
-  br i1 %.not, label %9, label %25
+  br i1 %.not, label %9, label %20
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !416
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !418
-  %14 = icmp eq ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %13, i64 -24
-  %16 = select i1 %14, ptr null, ptr %15
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !419
-  %19 = icmp eq ptr %18, null
-  %20 = getelementptr inbounds i8, ptr %18, i64 -24
-  %21 = select i1 %19, ptr null, ptr %20
-  %22 = load ptr, ptr %.0.val, align 8, !tbaa !241
-  %23 = load ptr, ptr %.8.val, align 8, !tbaa !255
-  %24 = tail call noundef zeroext i1 @_ZN4llvm23isValidAssumeForContextEPKNS_11InstructionES2_PKNS_13DominatorTreeEb(ptr noundef %22, ptr noundef nonnull %21, ptr noundef %23, i1 noundef zeroext true) #24
-  br label %25
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !419
+  %16 = getelementptr inbounds i8, ptr %15, i64 -24
+  %17 = load ptr, ptr %.0.val, align 8, !tbaa !241
+  %18 = load ptr, ptr %.8.val, align 8, !tbaa !255
+  %19 = tail call noundef zeroext i1 @_ZN4llvm23isValidAssumeForContextEPKNS_11InstructionES2_PKNS_13DominatorTreeEb(ptr noundef %17, ptr noundef nonnull %16, ptr noundef %18, i1 noundef zeroext true) #24
+  br label %20
 
-25:                                               ; preds = %8, %9
-  %.2 = phi i1 [ %24, %9 ], [ undef, %8 ]
+20:                                               ; preds = %8, %9
+  %.2 = phi i1 [ %19, %9 ], [ undef, %8 ]
   %spec.select = and i1 %.not, %.2
-  br label %26
+  br label %21
 
-26:                                               ; preds = %4, %25
-  %.1 = phi i1 [ %7, %4 ], [ %spec.select, %25 ]
+21:                                               ; preds = %4, %20
+  %.1 = phi i1 [ %7, %4 ], [ %spec.select, %20 ]
   ret i1 %.1
 }
 

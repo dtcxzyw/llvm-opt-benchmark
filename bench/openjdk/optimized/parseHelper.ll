@@ -151,10 +151,10 @@ define hidden void @_ZN5Parse12do_checkcastEv(ptr noundef nonnull align 8 derefe
   br i1 %.not, label %83, label %38
 
 38:                                               ; preds = %37
-  %39 = load ptr, ptr %34, align 8
+  %39 = load ptr, ptr %30, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 264
   %41 = load ptr, ptr %40, align 8
-  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(80) %34) #4
+  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(80) %30) #4
   br i1 %42, label %83, label %43
 
 43:                                               ; preds = %38, %1
@@ -180,17 +180,17 @@ define hidden void @_ZN5Parse12do_checkcastEv(ptr noundef nonnull align 8 derefe
   br i1 %.not14, label %68, label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr %34, align 8
+  %55 = load ptr, ptr %30, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 264
   %57 = load ptr, ptr %56, align 8
-  %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(80) %34) #4
+  %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(80) %30) #4
   br i1 %58, label %68, label %59
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr %34, align 8
+  %60 = load ptr, ptr %30, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 232
   %62 = load ptr, ptr %61, align 8
-  %63 = call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(80) %34) #4
+  %63 = call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(80) %30) #4
   %64 = load ptr, ptr %44, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 368
   %66 = load ptr, ptr %65, align 8

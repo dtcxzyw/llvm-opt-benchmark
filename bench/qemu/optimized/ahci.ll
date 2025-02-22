@@ -2483,7 +2483,7 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
 
 47:                                               ; preds = %.preheader, %handle_cmd.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %handle_cmd.exit ]
-  %48 = phi i32 [ 0, %.preheader ], [ %636, %handle_cmd.exit ]
+  %48 = phi i32 [ 0, %.preheader ], [ %635, %handle_cmd.exit ]
   %49 = load i32, ptr %26, align 4
   %.not14 = icmp eq i32 %49, 0
   br i1 %.not14, label %.critedge, label %50
@@ -2750,7 +2750,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
 168:                                              ; preds = %166, %164, %162
   %169 = load i8, ptr %125, align 1
   %cond.i = icmp eq i8 %169, 39
-  br i1 %cond.i, label %170, label %609
+  br i1 %cond.i, label %170, label %608
 
 170:                                              ; preds = %168
   %171 = load ptr, ptr %0, align 16
@@ -2760,170 +2760,168 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   call void @llvm.assume(i1 %174)
   %175 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %171, i64 %31, i32 8
   %176 = load ptr, ptr %175, align 8
-  %.not.i.i68.i = icmp eq ptr %176, null
   %177 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %176, i64 %indvars.iv
-  %178 = select i1 %.not.i.i68.i, ptr null, ptr %177
-  %179 = getelementptr inbounds %struct.AHCIDevice, ptr %171, i64 %20
-  %180 = load i16, ptr %178, align 1
-  %181 = getelementptr inbounds nuw i8, ptr %125, i64 1
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i32
-  %184 = and i32 %183, 15
-  %.not.i69.i = icmp eq i32 %184, 0
-  br i1 %.not.i69.i, label %211, label %185
+  %178 = getelementptr inbounds %struct.AHCIDevice, ptr %171, i64 %20
+  %179 = load i16, ptr %177, align 1
+  %180 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = and i32 %182, 15
+  %.not.i68.i = icmp eq i32 %183, 0
+  br i1 %.not.i68.i, label %210, label %184
 
-185:                                              ; preds = %170
-  %186 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  %187 = load i8, ptr %186, align 1
-  %188 = getelementptr inbounds nuw i8, ptr %125, i64 3
-  %189 = load i8, ptr %188, align 1
-  %190 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i.i = icmp eq i32 %190, 0
-  br i1 %.not.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %191, !prof !7
+184:                                              ; preds = %170
+  %185 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  %186 = load i8, ptr %185, align 1
+  %187 = getelementptr inbounds nuw i8, ptr %125, i64 3
+  %188 = load i8, ptr %187, align 1
+  %189 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i.i = icmp eq i32 %189, 0
+  br i1 %.not.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %190, !prof !7
 
-191:                                              ; preds = %185
-  %192 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_PMP_DSTATE, align 2
-  %.not9.i.i.i.i = icmp eq i16 %192, 0
-  br i1 %.not9.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %193
+190:                                              ; preds = %184
+  %191 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_PMP_DSTATE, align 2
+  %.not9.i.i.i.i = icmp eq i16 %191, 0
+  br i1 %.not9.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %192
 
-193:                                              ; preds = %191
-  %194 = load i32, ptr @qemu_loglevel, align 4
-  %195 = and i32 %194, 32768
-  %.not10.i.i.i.i = icmp eq i32 %195, 0
-  br i1 %.not10.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %196
+192:                                              ; preds = %190
+  %193 = load i32, ptr @qemu_loglevel, align 4
+  %194 = and i32 %193, 32768
+  %.not10.i.i.i.i = icmp eq i32 %194, 0
+  br i1 %.not10.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %195
 
-196:                                              ; preds = %193
-  %197 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %198 = trunc nuw i8 %197 to i1
-  br i1 %198, label %199, label %207
+195:                                              ; preds = %192
+  %196 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %197 = trunc nuw i8 %196 to i1
+  br i1 %197, label %198, label %206
 
-199:                                              ; preds = %196
+198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !11
-  %200 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #14
-  %201 = call i32 @qemu_get_thread_id() #14
-  %202 = load i64, ptr %12, align 8
-  %203 = load i64, ptr %35, align 8
-  %204 = sext i8 %182 to i32
-  %205 = sext i8 %187 to i32
-  %206 = sext i8 %189 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %201, i64 noundef %202, i64 noundef %203, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %204, i32 noundef %205, i32 noundef %206) #14
+  %199 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #14
+  %200 = call i32 @qemu_get_thread_id() #14
+  %201 = load i64, ptr %12, align 8
+  %202 = load i64, ptr %35, align 8
+  %203 = sext i8 %181 to i32
+  %204 = sext i8 %186 to i32
+  %205 = sext i8 %188 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %200, i64 noundef %201, i64 noundef %202, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %203, i32 noundef %204, i32 noundef %205) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-207:                                              ; preds = %196
-  %208 = sext i8 %182 to i32
-  %209 = sext i8 %187 to i32
-  %210 = sext i8 %189 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %208, i32 noundef %209, i32 noundef %210) #14
+206:                                              ; preds = %195
+  %207 = sext i8 %181 to i32
+  %208 = sext i8 %186 to i32
+  %209 = sext i8 %188 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %207, i32 noundef %208, i32 noundef %209) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-211:                                              ; preds = %170
-  %212 = and i32 %183, 112
-  %.not74.i.i = icmp eq i32 %212, 0
-  br i1 %.not74.i.i, label %239, label %213
+210:                                              ; preds = %170
+  %211 = and i32 %182, 112
+  %.not74.i.i = icmp eq i32 %211, 0
+  br i1 %.not74.i.i, label %238, label %212
 
-213:                                              ; preds = %211
-  %214 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  %215 = load i8, ptr %214, align 1
-  %216 = getelementptr inbounds nuw i8, ptr %125, i64 3
-  %217 = load i8, ptr %216, align 1
-  %218 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i83.i.i = icmp eq i32 %218, 0
-  br i1 %.not.i.i83.i.i, label %trace_handle_cmd_badmap.exit.i, label %219, !prof !7
+212:                                              ; preds = %210
+  %213 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  %214 = load i8, ptr %213, align 1
+  %215 = getelementptr inbounds nuw i8, ptr %125, i64 3
+  %216 = load i8, ptr %215, align 1
+  %217 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i83.i.i = icmp eq i32 %217, 0
+  br i1 %.not.i.i83.i.i, label %trace_handle_cmd_badmap.exit.i, label %218, !prof !7
 
-219:                                              ; preds = %213
-  %220 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_RES_DSTATE, align 2
-  %.not9.i.i84.i.i = icmp eq i16 %220, 0
-  br i1 %.not9.i.i84.i.i, label %trace_handle_cmd_badmap.exit.i, label %221
+218:                                              ; preds = %212
+  %219 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_RES_DSTATE, align 2
+  %.not9.i.i84.i.i = icmp eq i16 %219, 0
+  br i1 %.not9.i.i84.i.i, label %trace_handle_cmd_badmap.exit.i, label %220
 
-221:                                              ; preds = %219
-  %222 = load i32, ptr @qemu_loglevel, align 4
-  %223 = and i32 %222, 32768
-  %.not10.i.i85.i.i = icmp eq i32 %223, 0
-  br i1 %.not10.i.i85.i.i, label %trace_handle_cmd_badmap.exit.i, label %224
+220:                                              ; preds = %218
+  %221 = load i32, ptr @qemu_loglevel, align 4
+  %222 = and i32 %221, 32768
+  %.not10.i.i85.i.i = icmp eq i32 %222, 0
+  br i1 %.not10.i.i85.i.i, label %trace_handle_cmd_badmap.exit.i, label %223
 
-224:                                              ; preds = %221
-  %225 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %226 = trunc nuw i8 %225 to i1
-  br i1 %226, label %227, label %235
+223:                                              ; preds = %220
+  %224 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %225 = trunc nuw i8 %224 to i1
+  br i1 %225, label %226, label %234
 
-227:                                              ; preds = %224
+226:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !11
-  %228 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
-  %229 = call i32 @qemu_get_thread_id() #14
-  %230 = load i64, ptr %11, align 8
-  %231 = load i64, ptr %36, align 8
-  %232 = sext i8 %182 to i32
-  %233 = sext i8 %215 to i32
-  %234 = sext i8 %217 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %229, i64 noundef %230, i64 noundef %231, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %232, i32 noundef %233, i32 noundef %234) #14
+  %227 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
+  %228 = call i32 @qemu_get_thread_id() #14
+  %229 = load i64, ptr %11, align 8
+  %230 = load i64, ptr %36, align 8
+  %231 = sext i8 %181 to i32
+  %232 = sext i8 %214 to i32
+  %233 = sext i8 %216 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %228, i64 noundef %229, i64 noundef %230, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %231, i32 noundef %232, i32 noundef %233) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-235:                                              ; preds = %224
-  %236 = sext i8 %182 to i32
-  %237 = sext i8 %215 to i32
-  %238 = sext i8 %217 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %236, i32 noundef %237, i32 noundef %238) #14
+234:                                              ; preds = %223
+  %235 = sext i8 %181 to i32
+  %236 = sext i8 %214 to i32
+  %237 = sext i8 %216 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %235, i32 noundef %236, i32 noundef %237) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-239:                                              ; preds = %211
-  %.not75.i.i = icmp eq i8 %182, 0
-  br i1 %.not75.i.i, label %240, label %263
+238:                                              ; preds = %210
+  %.not75.i.i = icmp eq i8 %181, 0
+  br i1 %.not75.i.i, label %239, label %262
 
-240:                                              ; preds = %239
-  %241 = getelementptr inbounds %struct.AHCIDevice, ptr %171, i64 %20, i32 3
-  %242 = load i32, ptr %241, align 4
-  switch i32 %242, label %trace_handle_cmd_badmap.exit.i [
-    i32 0, label %243
-    i32 1, label %258
+239:                                              ; preds = %238
+  %240 = getelementptr inbounds %struct.AHCIDevice, ptr %171, i64 %20, i32 3
+  %241 = load i32, ptr %240, align 4
+  switch i32 %241, label %trace_handle_cmd_badmap.exit.i [
+    i32 0, label %242
+    i32 1, label %257
   ]
 
-243:                                              ; preds = %240
-  %244 = getelementptr inbounds nuw i8, ptr %125, i64 15
-  %245 = load i8, ptr %244, align 1
-  %246 = and i8 %245, 4
-  %.not77.i.i = icmp eq i8 %246, 0
-  br i1 %.not77.i.i, label %trace_handle_cmd_badmap.exit.i, label %247
+242:                                              ; preds = %239
+  %243 = getelementptr inbounds nuw i8, ptr %125, i64 15
+  %244 = load i8, ptr %243, align 1
+  %245 = and i8 %244, 4
+  %.not77.i.i = icmp eq i8 %245, 0
+  br i1 %.not77.i.i, label %trace_handle_cmd_badmap.exit.i, label %246
 
-247:                                              ; preds = %243
-  store i32 1, ptr %241, align 4
-  %248 = and i16 %180, 1024
-  %.not78.i.i = icmp eq i16 %248, 0
-  br i1 %.not78.i.i, label %trace_handle_cmd_badmap.exit.i, label %249
+246:                                              ; preds = %242
+  store i32 1, ptr %240, align 4
+  %247 = and i16 %179, 1024
+  %.not78.i.i = icmp eq i16 %247, 0
+  br i1 %.not78.i.i, label %trace_handle_cmd_badmap.exit.i, label %248
 
-249:                                              ; preds = %247
-  %250 = getelementptr inbounds nuw i8, ptr %179, i64 857
-  %251 = load i8, ptr %250, align 1
-  %252 = and i8 %251, -119
-  %or.cond.i86.i.i = icmp eq i8 %252, 0
-  br i1 %or.cond.i86.i.i, label %253, label %trace_handle_cmd_badmap.exit.i
+248:                                              ; preds = %246
+  %249 = getelementptr inbounds nuw i8, ptr %178, i64 857
+  %250 = load i8, ptr %249, align 1
+  %251 = and i8 %250, -119
+  %or.cond.i86.i.i = icmp eq i8 %251, 0
+  br i1 %or.cond.i86.i.i, label %252, label %trace_handle_cmd_badmap.exit.i
 
-253:                                              ; preds = %249
-  %254 = xor i32 %51, -1
-  %255 = getelementptr inbounds nuw i8, ptr %179, i64 2428
-  %256 = load i32, ptr %255, align 4
-  %257 = and i32 %256, %254
-  store i32 %257, ptr %255, align 4
+252:                                              ; preds = %248
+  %253 = xor i32 %51, -1
+  %254 = getelementptr inbounds nuw i8, ptr %178, i64 2428
+  %255 = load i32, ptr %254, align 4
+  %256 = and i32 %255, %253
+  store i32 %256, ptr %254, align 4
   br label %trace_handle_cmd_badmap.exit.i
 
-258:                                              ; preds = %240
-  %259 = getelementptr inbounds nuw i8, ptr %125, i64 15
-  %260 = load i8, ptr %259, align 1
-  %261 = and i8 %260, 4
-  %.not76.i.i = icmp eq i8 %261, 0
-  br i1 %.not76.i.i, label %262, label %trace_handle_cmd_badmap.exit.i
+257:                                              ; preds = %239
+  %258 = getelementptr inbounds nuw i8, ptr %125, i64 15
+  %259 = load i8, ptr %258, align 1
+  %260 = and i8 %259, 4
+  %.not76.i.i = icmp eq i8 %260, 0
+  br i1 %.not76.i.i, label %261, label %trace_handle_cmd_badmap.exit.i
 
-262:                                              ; preds = %258
+261:                                              ; preds = %257
   call fastcc void @ahci_reset_port(ptr noundef nonnull %0, i32 noundef %1)
   br label %trace_handle_cmd_badmap.exit.i
 
-263:                                              ; preds = %239
-  %264 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  %265 = load i8, ptr %264, align 1
-  switch i8 %265, label %556 [
+262:                                              ; preds = %238
+  %263 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  %264 = load i8, ptr %263, align 1
+  switch i8 %264, label %555 [
     i8 96, label %is_ncq.exit.i.i
     i8 97, label %is_ncq.exit.i.i
     i8 99, label %is_ncq.exit.i.i
@@ -2931,14 +2929,14 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
     i8 100, label %is_ncq.exit.i.i
   ]
 
-is_ncq.exit.i.i:                                  ; preds = %263, %263, %263, %263, %263
-  %266 = getelementptr inbounds nuw i8, ptr %125, i64 12
-  %267 = load i8, ptr %266, align 1
-  %268 = lshr i8 %267, 3
-  %269 = getelementptr inbounds nuw i8, ptr %179, i64 2496
-  %270 = zext nneg i8 %268 to i64
-  %271 = getelementptr inbounds nuw [32 x %struct.NCQTransferState], ptr %269, i64 0, i64 %270
-  switch i8 %265, label %272 [
+is_ncq.exit.i.i:                                  ; preds = %262, %262, %262, %262, %262
+  %265 = getelementptr inbounds nuw i8, ptr %125, i64 12
+  %266 = load i8, ptr %265, align 1
+  %267 = lshr i8 %266, 3
+  %268 = getelementptr inbounds nuw i8, ptr %178, i64 2496
+  %269 = zext nneg i8 %267 to i64
+  %270 = getelementptr inbounds nuw [32 x %struct.NCQTransferState], ptr %268, i64 0, i64 %269
+  switch i8 %264, label %271 [
     i8 96, label %is_ncq.exit.i.i.i
     i8 97, label %is_ncq.exit.i.i.i
     i8 99, label %is_ncq.exit.i.i.i
@@ -2946,686 +2944,686 @@ is_ncq.exit.i.i:                                  ; preds = %263, %263, %263, %2
     i8 100, label %is_ncq.exit.i.i.i
   ]
 
-272:                                              ; preds = %is_ncq.exit.i.i
+271:                                              ; preds = %is_ncq.exit.i.i
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1102, ptr noundef nonnull @__func__.process_ncq_command, ptr noundef nonnull @.str.124) #15
   unreachable
 
 is_ncq.exit.i.i.i:                                ; preds = %is_ncq.exit.i.i, %is_ncq.exit.i.i, %is_ncq.exit.i.i, %is_ncq.exit.i.i, %is_ncq.exit.i.i
-  %273 = getelementptr inbounds nuw i8, ptr %271, i64 107
-  %274 = load i8, ptr %273, align 1, !range !9, !noundef !10
-  %275 = trunc nuw i8 %274 to i1
-  br i1 %275, label %276, label %281
+  %272 = getelementptr inbounds nuw i8, ptr %270, i64 107
+  %273 = load i8, ptr %272, align 1, !range !9, !noundef !10
+  %274 = trunc nuw i8 %273 to i1
+  br i1 %274, label %275, label %280
 
-276:                                              ; preds = %is_ncq.exit.i.i.i
-  %277 = load i32, ptr @qemu_loglevel, align 4
-  %278 = and i32 %277, 2048
-  %.not.i90.i.i = icmp eq i32 %278, 0
-  br i1 %.not.i90.i.i, label %trace_handle_cmd_badmap.exit.i, label %279, !prof !7
+275:                                              ; preds = %is_ncq.exit.i.i.i
+  %276 = load i32, ptr @qemu_loglevel, align 4
+  %277 = and i32 %276, 2048
+  %.not.i90.i.i = icmp eq i32 %277, 0
+  br i1 %.not.i90.i.i, label %trace_handle_cmd_badmap.exit.i, label %278, !prof !7
 
-279:                                              ; preds = %276
-  %280 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.125, ptr noundef nonnull @__func__.process_ncq_command, i32 noundef %280) #14
+278:                                              ; preds = %275
+  %279 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.125, ptr noundef nonnull @__func__.process_ncq_command, i32 noundef %279) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-281:                                              ; preds = %is_ncq.exit.i.i.i
-  %282 = getelementptr inbounds nuw i8, ptr %179, i64 857
-  %283 = load i8, ptr %282, align 1
-  %284 = and i8 %283, -119
-  %or.cond.i.i.i.i = icmp eq i8 %284, 0
-  br i1 %or.cond.i.i.i.i, label %285, label %ahci_clear_cmd_issue.exit.i.i.i
+280:                                              ; preds = %is_ncq.exit.i.i.i
+  %281 = getelementptr inbounds nuw i8, ptr %178, i64 857
+  %282 = load i8, ptr %281, align 1
+  %283 = and i8 %282, -119
+  %or.cond.i.i.i.i = icmp eq i8 %283, 0
+  br i1 %or.cond.i.i.i.i, label %284, label %ahci_clear_cmd_issue.exit.i.i.i
 
-285:                                              ; preds = %281
-  %286 = xor i32 %51, -1
-  %287 = getelementptr inbounds nuw i8, ptr %179, i64 2428
-  %288 = load i32, ptr %287, align 4
-  %289 = and i32 %288, %286
-  store i32 %289, ptr %287, align 4
+284:                                              ; preds = %280
+  %285 = xor i32 %51, -1
+  %286 = getelementptr inbounds nuw i8, ptr %178, i64 2428
+  %287 = load i32, ptr %286, align 4
+  %288 = and i32 %287, %285
+  store i32 %288, ptr %286, align 4
   br label %ahci_clear_cmd_issue.exit.i.i.i
 
-ahci_clear_cmd_issue.exit.i.i.i:                  ; preds = %285, %281
-  %290 = getelementptr inbounds nuw i8, ptr %179, i64 2464
-  %291 = load ptr, ptr %290, align 8
-  %.not.i.i88.i.i = icmp eq ptr %291, null
-  br i1 %.not.i.i88.i.i, label %ahci_write_fis_d2h.exit.i.i.i, label %292
+ahci_clear_cmd_issue.exit.i.i.i:                  ; preds = %284, %280
+  %289 = getelementptr inbounds nuw i8, ptr %178, i64 2464
+  %290 = load ptr, ptr %289, align 8
+  %.not.i.i88.i.i = icmp eq ptr %290, null
+  br i1 %.not.i.i88.i.i, label %ahci_write_fis_d2h.exit.i.i.i, label %291
 
-292:                                              ; preds = %ahci_clear_cmd_issue.exit.i.i.i
-  %293 = getelementptr inbounds nuw i8, ptr %179, i64 2396
-  %294 = load i32, ptr %293, align 4
-  %295 = and i32 %294, 16
-  %.not46.i.i.i.i = icmp eq i32 %295, 0
-  br i1 %.not46.i.i.i.i, label %ahci_write_fis_d2h.exit.i.i.i, label %296
+291:                                              ; preds = %ahci_clear_cmd_issue.exit.i.i.i
+  %292 = getelementptr inbounds nuw i8, ptr %178, i64 2396
+  %293 = load i32, ptr %292, align 4
+  %294 = and i32 %293, 16
+  %.not46.i.i.i.i = icmp eq i32 %294, 0
+  br i1 %.not46.i.i.i.i, label %ahci_write_fis_d2h.exit.i.i.i, label %295
 
-296:                                              ; preds = %292
-  %297 = getelementptr inbounds nuw i8, ptr %291, i64 64
-  store i8 52, ptr %297, align 1
-  %298 = getelementptr inbounds nuw i8, ptr %291, i64 65
-  store i8 0, ptr %298, align 1
-  %299 = load i8, ptr %282, align 1
-  %300 = getelementptr inbounds nuw i8, ptr %291, i64 66
-  store i8 %299, ptr %300, align 1
-  %301 = getelementptr inbounds nuw i8, ptr %179, i64 841
-  %302 = load i8, ptr %301, align 1
-  %303 = getelementptr inbounds nuw i8, ptr %291, i64 67
-  store i8 %302, ptr %303, align 1
-  %304 = getelementptr inbounds nuw i8, ptr %179, i64 848
-  %305 = load i8, ptr %304, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %291, i64 68
-  store i8 %305, ptr %306, align 1
-  %307 = getelementptr inbounds nuw i8, ptr %179, i64 849
-  %308 = load i8, ptr %307, align 1
-  %309 = getelementptr inbounds nuw i8, ptr %291, i64 69
-  store i8 %308, ptr %309, align 1
-  %310 = getelementptr inbounds nuw i8, ptr %179, i64 850
-  %311 = load i8, ptr %310, align 2
-  %312 = getelementptr inbounds nuw i8, ptr %291, i64 70
-  store i8 %311, ptr %312, align 1
-  %313 = getelementptr inbounds nuw i8, ptr %179, i64 856
-  %314 = load i8, ptr %313, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %291, i64 71
-  store i8 %314, ptr %315, align 1
-  %316 = getelementptr inbounds nuw i8, ptr %179, i64 853
-  %317 = load i8, ptr %316, align 1
-  %318 = getelementptr inbounds nuw i8, ptr %291, i64 72
-  store i8 %317, ptr %318, align 1
-  %319 = getelementptr inbounds nuw i8, ptr %179, i64 854
-  %320 = load i8, ptr %319, align 2
-  %321 = getelementptr inbounds nuw i8, ptr %291, i64 73
-  store i8 %320, ptr %321, align 1
-  %322 = getelementptr inbounds nuw i8, ptr %179, i64 855
-  %323 = load i8, ptr %322, align 1
-  %324 = getelementptr inbounds nuw i8, ptr %291, i64 74
-  store i8 %323, ptr %324, align 1
-  %325 = getelementptr inbounds nuw i8, ptr %291, i64 75
-  store i8 0, ptr %325, align 1
-  %326 = getelementptr inbounds nuw i8, ptr %179, i64 844
-  %327 = load i32, ptr %326, align 4
-  %328 = trunc i32 %327 to i8
-  %329 = getelementptr inbounds nuw i8, ptr %291, i64 76
-  store i8 %328, ptr %329, align 1
-  %330 = load i32, ptr %326, align 4
-  %331 = lshr i32 %330, 8
-  %332 = trunc i32 %331 to i8
-  %333 = getelementptr inbounds nuw i8, ptr %291, i64 77
-  store i8 %332, ptr %333, align 1
-  %scevgep.i.i.i.i = getelementptr i8, ptr %291, i64 78
+295:                                              ; preds = %291
+  %296 = getelementptr inbounds nuw i8, ptr %290, i64 64
+  store i8 52, ptr %296, align 1
+  %297 = getelementptr inbounds nuw i8, ptr %290, i64 65
+  store i8 0, ptr %297, align 1
+  %298 = load i8, ptr %281, align 1
+  %299 = getelementptr inbounds nuw i8, ptr %290, i64 66
+  store i8 %298, ptr %299, align 1
+  %300 = getelementptr inbounds nuw i8, ptr %178, i64 841
+  %301 = load i8, ptr %300, align 1
+  %302 = getelementptr inbounds nuw i8, ptr %290, i64 67
+  store i8 %301, ptr %302, align 1
+  %303 = getelementptr inbounds nuw i8, ptr %178, i64 848
+  %304 = load i8, ptr %303, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %290, i64 68
+  store i8 %304, ptr %305, align 1
+  %306 = getelementptr inbounds nuw i8, ptr %178, i64 849
+  %307 = load i8, ptr %306, align 1
+  %308 = getelementptr inbounds nuw i8, ptr %290, i64 69
+  store i8 %307, ptr %308, align 1
+  %309 = getelementptr inbounds nuw i8, ptr %178, i64 850
+  %310 = load i8, ptr %309, align 2
+  %311 = getelementptr inbounds nuw i8, ptr %290, i64 70
+  store i8 %310, ptr %311, align 1
+  %312 = getelementptr inbounds nuw i8, ptr %178, i64 856
+  %313 = load i8, ptr %312, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %290, i64 71
+  store i8 %313, ptr %314, align 1
+  %315 = getelementptr inbounds nuw i8, ptr %178, i64 853
+  %316 = load i8, ptr %315, align 1
+  %317 = getelementptr inbounds nuw i8, ptr %290, i64 72
+  store i8 %316, ptr %317, align 1
+  %318 = getelementptr inbounds nuw i8, ptr %178, i64 854
+  %319 = load i8, ptr %318, align 2
+  %320 = getelementptr inbounds nuw i8, ptr %290, i64 73
+  store i8 %319, ptr %320, align 1
+  %321 = getelementptr inbounds nuw i8, ptr %178, i64 855
+  %322 = load i8, ptr %321, align 1
+  %323 = getelementptr inbounds nuw i8, ptr %290, i64 74
+  store i8 %322, ptr %323, align 1
+  %324 = getelementptr inbounds nuw i8, ptr %290, i64 75
+  store i8 0, ptr %324, align 1
+  %325 = getelementptr inbounds nuw i8, ptr %178, i64 844
+  %326 = load i32, ptr %325, align 4
+  %327 = trunc i32 %326 to i8
+  %328 = getelementptr inbounds nuw i8, ptr %290, i64 76
+  store i8 %327, ptr %328, align 1
+  %329 = load i32, ptr %325, align 4
+  %330 = lshr i32 %329, 8
+  %331 = trunc i32 %330 to i8
+  %332 = getelementptr inbounds nuw i8, ptr %290, i64 77
+  store i8 %331, ptr %332, align 1
+  %scevgep.i.i.i.i = getelementptr i8, ptr %290, i64 78
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %scevgep.i.i.i.i, i8 0, i64 6, i1 false)
-  %334 = load i8, ptr %301, align 1
-  %335 = zext i8 %334 to i32
-  %336 = shl nuw nsw i32 %335, 8
-  %337 = load i8, ptr %282, align 1
-  %338 = zext i8 %337 to i32
-  %339 = or disjoint i32 %336, %338
-  %340 = getelementptr inbounds nuw i8, ptr %179, i64 2404
-  store i32 %339, ptr %340, align 4
-  %341 = load i8, ptr %300, align 1
-  %342 = and i8 %341, 1
-  %.not47.i.not.i.i.i = icmp eq i8 %342, 0
+  %333 = load i8, ptr %300, align 1
+  %334 = zext i8 %333 to i32
+  %335 = shl nuw nsw i32 %334, 8
+  %336 = load i8, ptr %281, align 1
+  %337 = zext i8 %336 to i32
+  %338 = or disjoint i32 %335, %337
+  %339 = getelementptr inbounds nuw i8, ptr %178, i64 2404
+  store i32 %338, ptr %339, align 4
+  %340 = load i8, ptr %299, align 1
+  %341 = and i8 %340, 1
+  %.not47.i.not.i.i.i = icmp eq i8 %341, 0
   br i1 %.not47.i.not.i.i.i, label %ahci_write_fis_d2h.exit.i.i.i, label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %296
-  %343 = getelementptr inbounds nuw i8, ptr %179, i64 2440
-  %344 = load ptr, ptr %343, align 8
-  call fastcc void @ahci_trigger_irq(ptr noundef %344, ptr noundef nonnull %179, i32 noundef 30)
+.sink.split.i.i.i.i:                              ; preds = %295
+  %342 = getelementptr inbounds nuw i8, ptr %178, i64 2440
+  %343 = load ptr, ptr %342, align 8
+  call fastcc void @ahci_trigger_irq(ptr noundef %343, ptr noundef nonnull %178, i32 noundef 30)
   br label %ahci_write_fis_d2h.exit.i.i.i
 
-ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i, %296, %292, %ahci_clear_cmd_issue.exit.i.i.i
-  store i8 1, ptr %273, align 1
-  store ptr %179, ptr %271, align 8
-  %345 = getelementptr inbounds nuw i8, ptr %271, i64 106
-  %346 = trunc nuw nsw i64 %indvars.iv to i8
-  store i8 %346, ptr %345, align 2
-  %347 = getelementptr inbounds nuw i8, ptr %179, i64 2456
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %348, i64 %indvars.iv
-  %350 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  store ptr %349, ptr %350, align 8
-  %351 = load i8, ptr %264, align 1
-  %352 = getelementptr inbounds nuw i8, ptr %271, i64 105
-  store i8 %351, ptr %352, align 1
-  %353 = getelementptr i8, ptr %125, i64 9
-  %354 = load i16, ptr %353, align 1
-  %355 = zext i16 %354 to i64
-  %356 = shl nuw nsw i64 %355, 32
-  %357 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %358 = load i8, ptr %357, align 1
-  %359 = zext i8 %358 to i64
-  %360 = shl nuw nsw i64 %359, 24
-  %361 = or disjoint i64 %360, %356
-  %362 = getelementptr inbounds nuw i8, ptr %125, i64 6
-  %363 = load i8, ptr %362, align 1
-  %364 = zext i8 %363 to i64
-  %365 = shl nuw nsw i64 %364, 16
-  %366 = or disjoint i64 %361, %365
-  %367 = getelementptr inbounds nuw i8, ptr %125, i64 5
-  %368 = load i8, ptr %367, align 1
-  %369 = zext i8 %368 to i64
-  %370 = shl nuw nsw i64 %369, 8
-  %371 = or disjoint i64 %366, %370
-  %372 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  %373 = load i8, ptr %372, align 1
-  %374 = zext i8 %373 to i64
-  %375 = or disjoint i64 %371, %374
-  %376 = getelementptr inbounds nuw i8, ptr %271, i64 96
-  store i64 %375, ptr %376, align 8
-  %377 = getelementptr inbounds nuw i8, ptr %271, i64 104
-  store i8 %268, ptr %377, align 8
-  %.not94.i.i.i = icmp eq i64 %indvars.iv, %270
-  %378 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i.i.i = icmp eq i32 %378, 0
+ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i, %295, %291, %ahci_clear_cmd_issue.exit.i.i.i
+  store i8 1, ptr %272, align 1
+  store ptr %178, ptr %270, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %270, i64 106
+  %345 = trunc nuw nsw i64 %indvars.iv to i8
+  store i8 %345, ptr %344, align 2
+  %346 = getelementptr inbounds nuw i8, ptr %178, i64 2456
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds nuw %struct.AHCICmdHdr, ptr %347, i64 %indvars.iv
+  %349 = getelementptr inbounds nuw i8, ptr %270, i64 16
+  store ptr %348, ptr %349, align 8
+  %350 = load i8, ptr %263, align 1
+  %351 = getelementptr inbounds nuw i8, ptr %270, i64 105
+  store i8 %350, ptr %351, align 1
+  %352 = getelementptr i8, ptr %125, i64 9
+  %353 = load i16, ptr %352, align 1
+  %354 = zext i16 %353 to i64
+  %355 = shl nuw nsw i64 %354, 32
+  %356 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %357 = load i8, ptr %356, align 1
+  %358 = zext i8 %357 to i64
+  %359 = shl nuw nsw i64 %358, 24
+  %360 = or disjoint i64 %359, %355
+  %361 = getelementptr inbounds nuw i8, ptr %125, i64 6
+  %362 = load i8, ptr %361, align 1
+  %363 = zext i8 %362 to i64
+  %364 = shl nuw nsw i64 %363, 16
+  %365 = or disjoint i64 %360, %364
+  %366 = getelementptr inbounds nuw i8, ptr %125, i64 5
+  %367 = load i8, ptr %366, align 1
+  %368 = zext i8 %367 to i64
+  %369 = shl nuw nsw i64 %368, 8
+  %370 = or disjoint i64 %365, %369
+  %371 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %372 = load i8, ptr %371, align 1
+  %373 = zext i8 %372 to i64
+  %374 = or disjoint i64 %370, %373
+  %375 = getelementptr inbounds nuw i8, ptr %270, i64 96
+  store i64 %374, ptr %375, align 8
+  %376 = getelementptr inbounds nuw i8, ptr %270, i64 104
+  store i8 %267, ptr %376, align 8
+  %.not94.i.i.i = icmp eq i64 %indvars.iv, %269
+  %377 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i.i.i = icmp eq i32 %377, 0
   %or.cond.i89.i.i = select i1 %.not94.i.i.i, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %or.cond.i89.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %379, !prof !23
+  br i1 %or.cond.i89.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %378, !prof !23
 
-379:                                              ; preds = %ahci_write_fis_d2h.exit.i.i.i
-  %380 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_MISMATCH_DSTATE, align 2
-  %.not7.i.i.i.i.i = icmp eq i16 %380, 0
-  br i1 %.not7.i.i.i.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %381
+378:                                              ; preds = %ahci_write_fis_d2h.exit.i.i.i
+  %379 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_MISMATCH_DSTATE, align 2
+  %.not7.i.i.i.i.i = icmp eq i16 %379, 0
+  br i1 %.not7.i.i.i.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %380
 
-381:                                              ; preds = %379
-  %382 = load i32, ptr @qemu_loglevel, align 4
-  %383 = and i32 %382, 32768
-  %.not8.i.i.i.i.i = icmp eq i32 %383, 0
-  br i1 %.not8.i.i.i.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %384
+380:                                              ; preds = %378
+  %381 = load i32, ptr @qemu_loglevel, align 4
+  %382 = and i32 %381, 32768
+  %.not8.i.i.i.i.i = icmp eq i32 %382, 0
+  br i1 %.not8.i.i.i.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %383
 
-384:                                              ; preds = %381
-  %385 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %386 = trunc nuw i8 %385 to i1
-  br i1 %386, label %387, label %393
+383:                                              ; preds = %380
+  %384 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %385 = trunc nuw i8 %384 to i1
+  br i1 %385, label %386, label %392
 
-387:                                              ; preds = %384
+386:                                              ; preds = %383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !11
-  %388 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
-  %389 = call i32 @qemu_get_thread_id() #14
-  %390 = load i64, ptr %10, align 8
-  %391 = load i64, ptr %37, align 8
-  %392 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i32 noundef %389, i64 noundef %390, i64 noundef %391, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %392, i32 noundef %48) #14
+  %387 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
+  %388 = call i32 @qemu_get_thread_id() #14
+  %389 = load i64, ptr %10, align 8
+  %390 = load i64, ptr %37, align 8
+  %391 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i32 noundef %388, i64 noundef %389, i64 noundef %390, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %391, i32 noundef %48) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
   br label %trace_process_ncq_command_mismatch.exit.i.i.i
 
-393:                                              ; preds = %384
-  %394 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %394, i32 noundef %48) #14
+392:                                              ; preds = %383
+  %393 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %393, i32 noundef %48) #14
   br label %trace_process_ncq_command_mismatch.exit.i.i.i
 
-trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %393, %387, %381, %379, %ahci_write_fis_d2h.exit.i.i.i
-  %395 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %396 = load i8, ptr %395, align 1
-  %.not95.i.i.i = icmp eq i8 %396, 0
-  br i1 %.not95.i.i.i, label %397, label %407
+trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %392, %386, %380, %378, %ahci_write_fis_d2h.exit.i.i.i
+  %394 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %395 = load i8, ptr %394, align 1
+  %.not95.i.i.i = icmp eq i8 %395, 0
+  br i1 %.not95.i.i.i, label %396, label %406
 
-397:                                              ; preds = %trace_process_ncq_command_mismatch.exit.i.i.i
-  %398 = getelementptr inbounds nuw i8, ptr %125, i64 17
-  %399 = load i8, ptr %398, align 1
-  %.not96.i.i.i = icmp eq i8 %399, 0
-  br i1 %.not96.i.i.i, label %400, label %407
+396:                                              ; preds = %trace_process_ncq_command_mismatch.exit.i.i.i
+  %397 = getelementptr inbounds nuw i8, ptr %125, i64 17
+  %398 = load i8, ptr %397, align 1
+  %.not96.i.i.i = icmp eq i8 %398, 0
+  br i1 %.not96.i.i.i, label %399, label %406
 
-400:                                              ; preds = %397
-  %401 = getelementptr inbounds nuw i8, ptr %125, i64 18
-  %402 = load i8, ptr %401, align 1
-  %.not97.i.i.i = icmp eq i8 %402, 0
-  br i1 %.not97.i.i.i, label %403, label %407
+399:                                              ; preds = %396
+  %400 = getelementptr inbounds nuw i8, ptr %125, i64 18
+  %401 = load i8, ptr %400, align 1
+  %.not97.i.i.i = icmp eq i8 %401, 0
+  br i1 %.not97.i.i.i, label %402, label %406
 
-403:                                              ; preds = %400
-  %404 = getelementptr inbounds nuw i8, ptr %125, i64 19
-  %405 = load i8, ptr %404, align 1
-  %.not98.i.i.i = icmp eq i8 %405, 0
-  %406 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i106.i.i.i = icmp eq i32 %406, 0
+402:                                              ; preds = %399
+  %403 = getelementptr inbounds nuw i8, ptr %125, i64 19
+  %404 = load i8, ptr %403, align 1
+  %.not98.i.i.i = icmp eq i8 %404, 0
+  %405 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i106.i.i.i = icmp eq i32 %405, 0
   %or.cond123.i.i.i = select i1 %.not98.i.i.i, i1 true, i1 %.not.i.i106.i.i.i
-  br i1 %or.cond123.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %408, !prof !23
+  br i1 %or.cond123.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !23
 
-407:                                              ; preds = %400, %397, %trace_process_ncq_command_mismatch.exit.i.i.i
+406:                                              ; preds = %399, %396, %trace_process_ncq_command_mismatch.exit.i.i.i
   %.old.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i106.old.i.i.i = icmp eq i32 %.old.i.i.i, 0
-  br i1 %.not.i.i106.old.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %408, !prof !7
+  br i1 %.not.i.i106.old.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !7
 
-408:                                              ; preds = %407, %403
-  %409 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_AUX_DSTATE, align 2
-  %.not5.i.i.i.i.i = icmp eq i16 %409, 0
-  br i1 %.not5.i.i.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %410
+407:                                              ; preds = %406, %402
+  %408 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_AUX_DSTATE, align 2
+  %.not5.i.i.i.i.i = icmp eq i16 %408, 0
+  br i1 %.not5.i.i.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %409
 
-410:                                              ; preds = %408
-  %411 = load i32, ptr @qemu_loglevel, align 4
-  %412 = and i32 %411, 32768
-  %.not6.i.i.i.i.i = icmp eq i32 %412, 0
-  br i1 %.not6.i.i.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %413
+409:                                              ; preds = %407
+  %410 = load i32, ptr @qemu_loglevel, align 4
+  %411 = and i32 %410, 32768
+  %.not6.i.i.i.i.i = icmp eq i32 %411, 0
+  br i1 %.not6.i.i.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %412
 
-413:                                              ; preds = %410
-  %414 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %415 = trunc nuw i8 %414 to i1
-  br i1 %415, label %416, label %422
+412:                                              ; preds = %409
+  %413 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %414 = trunc nuw i8 %413 to i1
+  br i1 %414, label %415, label %421
 
-416:                                              ; preds = %413
+415:                                              ; preds = %412
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !11
-  %417 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
-  %418 = call i32 @qemu_get_thread_id() #14
-  %419 = load i64, ptr %9, align 8
-  %420 = load i64, ptr %38, align 8
-  %421 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %418, i64 noundef %419, i64 noundef %420, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %421) #14
+  %416 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
+  %417 = call i32 @qemu_get_thread_id() #14
+  %418 = load i64, ptr %9, align 8
+  %419 = load i64, ptr %38, align 8
+  %420 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %417, i64 noundef %418, i64 noundef %419, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %420) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
   br label %trace_process_ncq_command_aux.exit.i.i.i
 
-422:                                              ; preds = %413
-  %423 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %423) #14
+421:                                              ; preds = %412
+  %422 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %422) #14
   br label %trace_process_ncq_command_aux.exit.i.i.i
 
-trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %422, %416, %410, %408, %407, %403
-  %424 = getelementptr inbounds nuw i8, ptr %125, i64 13
-  %425 = load i8, ptr %424, align 1
-  %.not99.i.i.i = icmp eq i8 %425, 0
-  br i1 %.not99.i.i.i, label %426, label %430
+trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %421, %415, %409, %407, %406, %402
+  %423 = getelementptr inbounds nuw i8, ptr %125, i64 13
+  %424 = load i8, ptr %423, align 1
+  %.not99.i.i.i = icmp eq i8 %424, 0
+  br i1 %.not99.i.i.i, label %425, label %429
 
-426:                                              ; preds = %trace_process_ncq_command_aux.exit.i.i.i
-  %427 = getelementptr inbounds nuw i8, ptr %125, i64 14
-  %428 = load i8, ptr %427, align 1
-  %.not100.i.i.i = icmp eq i8 %428, 0
-  %429 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i107.i.i.i = icmp eq i32 %429, 0
+425:                                              ; preds = %trace_process_ncq_command_aux.exit.i.i.i
+  %426 = getelementptr inbounds nuw i8, ptr %125, i64 14
+  %427 = load i8, ptr %426, align 1
+  %.not100.i.i.i = icmp eq i8 %427, 0
+  %428 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i107.i.i.i = icmp eq i32 %428, 0
   %or.cond125.i.i.i = select i1 %.not100.i.i.i, i1 true, i1 %.not.i.i107.i.i.i
-  br i1 %or.cond125.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %431, !prof !23
+  br i1 %or.cond125.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !23
 
-430:                                              ; preds = %trace_process_ncq_command_aux.exit.i.i.i
+429:                                              ; preds = %trace_process_ncq_command_aux.exit.i.i.i
   %.old124.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i107.old.i.i.i = icmp eq i32 %.old124.i.i.i, 0
-  br i1 %.not.i.i107.old.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %431, !prof !7
+  br i1 %.not.i.i107.old.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !7
 
-431:                                              ; preds = %430, %426
-  %432 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_PRIOICC_DSTATE, align 2
-  %.not5.i.i108.i.i.i = icmp eq i16 %432, 0
-  br i1 %.not5.i.i108.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %433
+430:                                              ; preds = %429, %425
+  %431 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_PRIOICC_DSTATE, align 2
+  %.not5.i.i108.i.i.i = icmp eq i16 %431, 0
+  br i1 %.not5.i.i108.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %432
 
-433:                                              ; preds = %431
-  %434 = load i32, ptr @qemu_loglevel, align 4
-  %435 = and i32 %434, 32768
-  %.not6.i.i109.i.i.i = icmp eq i32 %435, 0
-  br i1 %.not6.i.i109.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %436
+432:                                              ; preds = %430
+  %433 = load i32, ptr @qemu_loglevel, align 4
+  %434 = and i32 %433, 32768
+  %.not6.i.i109.i.i.i = icmp eq i32 %434, 0
+  br i1 %.not6.i.i109.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %435
 
-436:                                              ; preds = %433
-  %437 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %438 = trunc nuw i8 %437 to i1
-  br i1 %438, label %439, label %445
+435:                                              ; preds = %432
+  %436 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %437 = trunc nuw i8 %436 to i1
+  br i1 %437, label %438, label %444
 
-439:                                              ; preds = %436
+438:                                              ; preds = %435
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
-  %440 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
-  %441 = call i32 @qemu_get_thread_id() #14
-  %442 = load i64, ptr %8, align 8
-  %443 = load i64, ptr %39, align 8
-  %444 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i32 noundef %441, i64 noundef %442, i64 noundef %443, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %444) #14
+  %439 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
+  %440 = call i32 @qemu_get_thread_id() #14
+  %441 = load i64, ptr %8, align 8
+  %442 = load i64, ptr %39, align 8
+  %443 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i32 noundef %440, i64 noundef %441, i64 noundef %442, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %443) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   br label %trace_process_ncq_command_prioicc.exit.i.i.i
 
-445:                                              ; preds = %436
-  %446 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %446) #14
+444:                                              ; preds = %435
+  %445 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %445) #14
   br label %trace_process_ncq_command_prioicc.exit.i.i.i
 
-trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %445, %439, %433, %431, %430, %426
-  %447 = getelementptr inbounds nuw i8, ptr %125, i64 7
-  %448 = load i8, ptr %447, align 1
-  %.not101.i.i.i = icmp sgt i8 %448, -1
-  %449 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i110.i.i.i = icmp eq i32 %449, 0
+trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %444, %438, %432, %430, %429, %425
+  %446 = getelementptr inbounds nuw i8, ptr %125, i64 7
+  %447 = load i8, ptr %446, align 1
+  %.not101.i.i.i = icmp sgt i8 %447, -1
+  %448 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i110.i.i.i = icmp eq i32 %448, 0
   %or.cond127.i.i.i = select i1 %.not101.i.i.i, i1 true, i1 %.not.i.i110.i.i.i
-  br i1 %or.cond127.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %450, !prof !23
+  br i1 %or.cond127.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %449, !prof !23
 
-450:                                              ; preds = %trace_process_ncq_command_prioicc.exit.i.i.i
-  %451 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_FUA_DSTATE, align 2
-  %.not5.i.i111.i.i.i = icmp eq i16 %451, 0
-  br i1 %.not5.i.i111.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %452
+449:                                              ; preds = %trace_process_ncq_command_prioicc.exit.i.i.i
+  %450 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_FUA_DSTATE, align 2
+  %.not5.i.i111.i.i.i = icmp eq i16 %450, 0
+  br i1 %.not5.i.i111.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %451
 
-452:                                              ; preds = %450
-  %453 = load i32, ptr @qemu_loglevel, align 4
-  %454 = and i32 %453, 32768
-  %.not6.i.i112.i.i.i = icmp eq i32 %454, 0
-  br i1 %.not6.i.i112.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %455
+451:                                              ; preds = %449
+  %452 = load i32, ptr @qemu_loglevel, align 4
+  %453 = and i32 %452, 32768
+  %.not6.i.i112.i.i.i = icmp eq i32 %453, 0
+  br i1 %.not6.i.i112.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %454
 
-455:                                              ; preds = %452
-  %456 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %457 = trunc nuw i8 %456 to i1
-  br i1 %457, label %458, label %464
+454:                                              ; preds = %451
+  %455 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %456 = trunc nuw i8 %455 to i1
+  br i1 %456, label %457, label %463
 
-458:                                              ; preds = %455
+457:                                              ; preds = %454
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
-  %459 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
-  %460 = call i32 @qemu_get_thread_id() #14
-  %461 = load i64, ptr %7, align 8
-  %462 = load i64, ptr %40, align 8
-  %463 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %460, i64 noundef %461, i64 noundef %462, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %463) #14
+  %458 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
+  %459 = call i32 @qemu_get_thread_id() #14
+  %460 = load i64, ptr %7, align 8
+  %461 = load i64, ptr %40, align 8
+  %462 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %459, i64 noundef %460, i64 noundef %461, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %462) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
   br label %trace_process_ncq_command_fua.exit.i.i.i
 
-464:                                              ; preds = %455
-  %465 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %465) #14
+463:                                              ; preds = %454
+  %464 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %464) #14
   br label %trace_process_ncq_command_fua.exit.i.i.i
 
-trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %464, %458, %452, %450, %trace_process_ncq_command_prioicc.exit.i.i.i
-  %466 = load i8, ptr %266, align 1
-  %467 = and i8 %466, 1
-  %.not102.i.i.i = icmp eq i8 %467, 0
-  %468 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i113.i.i.i = icmp eq i32 %468, 0
+trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %463, %457, %451, %449, %trace_process_ncq_command_prioicc.exit.i.i.i
+  %465 = load i8, ptr %265, align 1
+  %466 = and i8 %465, 1
+  %.not102.i.i.i = icmp eq i8 %466, 0
+  %467 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i113.i.i.i = icmp eq i32 %467, 0
   %or.cond129.i.i.i = select i1 %.not102.i.i.i, i1 true, i1 %.not.i.i113.i.i.i
-  br i1 %or.cond129.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %469, !prof !23
+  br i1 %or.cond129.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %468, !prof !23
 
-469:                                              ; preds = %trace_process_ncq_command_fua.exit.i.i.i
-  %470 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_RARC_DSTATE, align 2
-  %.not5.i.i114.i.i.i = icmp eq i16 %470, 0
-  br i1 %.not5.i.i114.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %471
+468:                                              ; preds = %trace_process_ncq_command_fua.exit.i.i.i
+  %469 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_RARC_DSTATE, align 2
+  %.not5.i.i114.i.i.i = icmp eq i16 %469, 0
+  br i1 %.not5.i.i114.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %470
 
-471:                                              ; preds = %469
-  %472 = load i32, ptr @qemu_loglevel, align 4
-  %473 = and i32 %472, 32768
-  %.not6.i.i115.i.i.i = icmp eq i32 %473, 0
-  br i1 %.not6.i.i115.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %474
+470:                                              ; preds = %468
+  %471 = load i32, ptr @qemu_loglevel, align 4
+  %472 = and i32 %471, 32768
+  %.not6.i.i115.i.i.i = icmp eq i32 %472, 0
+  br i1 %.not6.i.i115.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %473
 
-474:                                              ; preds = %471
-  %475 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %476 = trunc nuw i8 %475 to i1
-  br i1 %476, label %477, label %483
+473:                                              ; preds = %470
+  %474 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %475 = trunc nuw i8 %474 to i1
+  br i1 %475, label %476, label %482
 
-477:                                              ; preds = %474
+476:                                              ; preds = %473
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
-  %478 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
-  %479 = call i32 @qemu_get_thread_id() #14
-  %480 = load i64, ptr %6, align 8
-  %481 = load i64, ptr %41, align 8
-  %482 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %479, i64 noundef %480, i64 noundef %481, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %482) #14
+  %477 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
+  %478 = call i32 @qemu_get_thread_id() #14
+  %479 = load i64, ptr %6, align 8
+  %480 = load i64, ptr %41, align 8
+  %481 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %478, i64 noundef %479, i64 noundef %480, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %481) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   br label %trace_process_ncq_command_rarc.exit.i.i.i
 
-483:                                              ; preds = %474
-  %484 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %484) #14
+482:                                              ; preds = %473
+  %483 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %483) #14
   br label %trace_process_ncq_command_rarc.exit.i.i.i
 
-trace_process_ncq_command_rarc.exit.i.i.i:        ; preds = %483, %477, %471, %469, %trace_process_ncq_command_fua.exit.i.i.i
-  %485 = getelementptr inbounds nuw i8, ptr %125, i64 11
-  %486 = load i8, ptr %485, align 1
-  %487 = zext i8 %486 to i32
-  %488 = shl nuw nsw i32 %487, 8
-  %489 = getelementptr inbounds nuw i8, ptr %125, i64 3
-  %490 = load i8, ptr %489, align 1
-  %491 = zext i8 %490 to i32
-  %492 = or disjoint i32 %488, %491
-  %493 = getelementptr inbounds nuw i8, ptr %271, i64 88
-  %.not103.i.i.i = icmp eq i32 %492, 0
-  %spec.select.i.i.i = select i1 %.not103.i.i.i, i32 65536, i32 %492
-  store i32 %spec.select.i.i.i, ptr %493, align 8
-  %494 = shl nuw nsw i32 %spec.select.i.i.i, 9
-  %495 = zext nneg i32 %494 to i64
-  %496 = getelementptr inbounds nuw i8, ptr %271, i64 24
-  %497 = load ptr, ptr %350, align 8
-  %498 = call fastcc i32 @ahci_populate_sglist(ptr noundef nonnull %179, ptr noundef nonnull %496, ptr noundef %497, i64 noundef %495, i64 noundef 0)
-  %499 = getelementptr inbounds nuw i8, ptr %271, i64 40
-  %500 = load i64, ptr %499, align 8
-  %501 = icmp ult i64 %500, %495
-  br i1 %501, label %502, label %508
+trace_process_ncq_command_rarc.exit.i.i.i:        ; preds = %482, %476, %470, %468, %trace_process_ncq_command_fua.exit.i.i.i
+  %484 = getelementptr inbounds nuw i8, ptr %125, i64 11
+  %485 = load i8, ptr %484, align 1
+  %486 = zext i8 %485 to i32
+  %487 = shl nuw nsw i32 %486, 8
+  %488 = getelementptr inbounds nuw i8, ptr %125, i64 3
+  %489 = load i8, ptr %488, align 1
+  %490 = zext i8 %489 to i32
+  %491 = or disjoint i32 %487, %490
+  %492 = getelementptr inbounds nuw i8, ptr %270, i64 88
+  %.not103.i.i.i = icmp eq i32 %491, 0
+  %spec.select.i.i.i = select i1 %.not103.i.i.i, i32 65536, i32 %491
+  store i32 %spec.select.i.i.i, ptr %492, align 8
+  %493 = shl nuw nsw i32 %spec.select.i.i.i, 9
+  %494 = zext nneg i32 %493 to i64
+  %495 = getelementptr inbounds nuw i8, ptr %270, i64 24
+  %496 = load ptr, ptr %349, align 8
+  %497 = call fastcc i32 @ahci_populate_sglist(ptr noundef nonnull %178, ptr noundef nonnull %495, ptr noundef %496, i64 noundef %494, i64 noundef 0)
+  %498 = getelementptr inbounds nuw i8, ptr %270, i64 40
+  %499 = load i64, ptr %498, align 8
+  %500 = icmp ult i64 %499, %494
+  br i1 %500, label %501, label %507
 
-502:                                              ; preds = %trace_process_ncq_command_rarc.exit.i.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.126, i64 noundef %500, i64 noundef %495) #14
-  %503 = load ptr, ptr %271, align 8
-  %504 = getelementptr inbounds nuw i8, ptr %503, i64 841
-  store i8 4, ptr %504, align 1
-  %505 = getelementptr inbounds nuw i8, ptr %503, i64 857
-  store i8 65, ptr %505, align 1
-  call void @qemu_sglist_destroy(ptr noundef nonnull %496) #14
-  store i8 0, ptr %273, align 1
-  %506 = getelementptr inbounds nuw i8, ptr %179, i64 2440
-  %507 = load ptr, ptr %506, align 8
-  call fastcc void @ahci_trigger_irq(ptr noundef %507, ptr noundef nonnull %179, i32 noundef 24)
+501:                                              ; preds = %trace_process_ncq_command_rarc.exit.i.i.i
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.126, i64 noundef %499, i64 noundef %494) #14
+  %502 = load ptr, ptr %270, align 8
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 841
+  store i8 4, ptr %503, align 1
+  %504 = getelementptr inbounds nuw i8, ptr %502, i64 857
+  store i8 65, ptr %504, align 1
+  call void @qemu_sglist_destroy(ptr noundef nonnull %495) #14
+  store i8 0, ptr %272, align 1
+  %505 = getelementptr inbounds nuw i8, ptr %178, i64 2440
+  %506 = load ptr, ptr %505, align 8
+  call fastcc void @ahci_trigger_irq(ptr noundef %506, ptr noundef nonnull %178, i32 noundef 24)
   br label %trace_handle_cmd_badmap.exit.i
 
-508:                                              ; preds = %trace_process_ncq_command_rarc.exit.i.i.i
-  %.not104.i.i.i = icmp eq i64 %500, %495
-  br i1 %.not104.i.i.i, label %trace_process_ncq_command_large.exit.i.i.i, label %509
+507:                                              ; preds = %trace_process_ncq_command_rarc.exit.i.i.i
+  %.not104.i.i.i = icmp eq i64 %499, %494
+  br i1 %.not104.i.i.i, label %trace_process_ncq_command_large.exit.i.i.i, label %508
 
-509:                                              ; preds = %508
-  %510 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i116.i.i.i = icmp eq i32 %510, 0
-  br i1 %.not.i.i116.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %511, !prof !7
+508:                                              ; preds = %507
+  %509 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i116.i.i.i = icmp eq i32 %509, 0
+  br i1 %.not.i.i116.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %510, !prof !7
 
-511:                                              ; preds = %509
-  %512 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_LARGE_DSTATE, align 2
-  %.not9.i.i.i.i.i = icmp eq i16 %512, 0
-  br i1 %.not9.i.i.i.i.i, label %trace_process_ncq_command_large.exit.thread121.i.i.i, label %517
+510:                                              ; preds = %508
+  %511 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_LARGE_DSTATE, align 2
+  %.not9.i.i.i.i.i = icmp eq i16 %511, 0
+  br i1 %.not9.i.i.i.i.i, label %trace_process_ncq_command_large.exit.thread121.i.i.i, label %516
 
-trace_process_ncq_command_large.exit.thread121.i.i.i: ; preds = %511
-  %513 = load i64, ptr %376, align 8
-  %514 = load i32, ptr %493, align 8
-  %515 = zext i32 %514 to i64
-  %516 = add i64 %513, %515
-  br label %535
+trace_process_ncq_command_large.exit.thread121.i.i.i: ; preds = %510
+  %512 = load i64, ptr %375, align 8
+  %513 = load i32, ptr %492, align 8
+  %514 = zext i32 %513 to i64
+  %515 = add i64 %512, %514
+  br label %534
 
-517:                                              ; preds = %511
-  %518 = load i32, ptr @qemu_loglevel, align 4
-  %519 = and i32 %518, 32768
-  %.not10.i.i.i.i.i = icmp eq i32 %519, 0
-  br i1 %.not10.i.i.i.i.i, label %trace_process_ncq_command_large.exit.i.i.i, label %520
+516:                                              ; preds = %510
+  %517 = load i32, ptr @qemu_loglevel, align 4
+  %518 = and i32 %517, 32768
+  %.not10.i.i.i.i.i = icmp eq i32 %518, 0
+  br i1 %.not10.i.i.i.i.i, label %trace_process_ncq_command_large.exit.i.i.i, label %519
 
-520:                                              ; preds = %517
-  %521 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %522 = trunc nuw i8 %521 to i1
-  br i1 %522, label %523, label %529
+519:                                              ; preds = %516
+  %520 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %521 = trunc nuw i8 %520 to i1
+  br i1 %521, label %522, label %528
 
-523:                                              ; preds = %520
+522:                                              ; preds = %519
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
-  %524 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
-  %525 = call i32 @qemu_get_thread_id() #14
-  %526 = load i64, ptr %5, align 8
-  %527 = load i64, ptr %42, align 8
-  %528 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.149, i32 noundef %525, i64 noundef %526, i64 noundef %527, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %528, i64 noundef %500, i64 noundef range(i64 0, 2199023255041) %495) #14
+  %523 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
+  %524 = call i32 @qemu_get_thread_id() #14
+  %525 = load i64, ptr %5, align 8
+  %526 = load i64, ptr %42, align 8
+  %527 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.149, i32 noundef %524, i64 noundef %525, i64 noundef %526, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %527, i64 noundef %499, i64 noundef range(i64 0, 2199023255041) %494) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   br label %trace_process_ncq_command_large.exit.i.i.i
 
-529:                                              ; preds = %520
-  %530 = zext nneg i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.150, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %530, i64 noundef %500, i64 noundef range(i64 0, 2199023255041) %495) #14
+528:                                              ; preds = %519
+  %529 = zext nneg i8 %267 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.150, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %529, i64 noundef %499, i64 noundef range(i64 0, 2199023255041) %494) #14
   br label %trace_process_ncq_command_large.exit.i.i.i
 
-trace_process_ncq_command_large.exit.i.i.i:       ; preds = %529, %523, %517, %508
+trace_process_ncq_command_large.exit.i.i.i:       ; preds = %528, %522, %516, %507
   %.pr.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
-  %531 = load i64, ptr %376, align 8
-  %532 = load i32, ptr %493, align 8
-  %533 = zext i32 %532 to i64
-  %534 = add i64 %531, %533
+  %530 = load i64, ptr %375, align 8
+  %531 = load i32, ptr %492, align 8
+  %532 = zext i32 %531 to i64
+  %533 = add i64 %530, %532
   %.not.i.i117.i.i.i = icmp eq i32 %.pr.i.i.i, 0
-  br i1 %.not.i.i117.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %535, !prof !24
+  br i1 %.not.i.i117.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %534, !prof !24
 
-535:                                              ; preds = %trace_process_ncq_command_large.exit.i.i.i, %trace_process_ncq_command_large.exit.thread121.i.i.i
-  %.in.i.i.i = phi i64 [ %516, %trace_process_ncq_command_large.exit.thread121.i.i.i ], [ %534, %trace_process_ncq_command_large.exit.i.i.i ]
-  %536 = phi i64 [ %513, %trace_process_ncq_command_large.exit.thread121.i.i.i ], [ %531, %trace_process_ncq_command_large.exit.i.i.i ]
-  %537 = load i8, ptr %264, align 1
-  %538 = add i64 %.in.i.i.i, -1
-  %539 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_DSTATE, align 2
-  %.not11.i.i.i.i.i = icmp eq i16 %539, 0
-  br i1 %.not11.i.i.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %540
+534:                                              ; preds = %trace_process_ncq_command_large.exit.i.i.i, %trace_process_ncq_command_large.exit.thread121.i.i.i
+  %.in.i.i.i = phi i64 [ %515, %trace_process_ncq_command_large.exit.thread121.i.i.i ], [ %533, %trace_process_ncq_command_large.exit.i.i.i ]
+  %535 = phi i64 [ %512, %trace_process_ncq_command_large.exit.thread121.i.i.i ], [ %530, %trace_process_ncq_command_large.exit.i.i.i ]
+  %536 = load i8, ptr %263, align 1
+  %537 = add i64 %.in.i.i.i, -1
+  %538 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_DSTATE, align 2
+  %.not11.i.i.i.i.i = icmp eq i16 %538, 0
+  br i1 %.not11.i.i.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %539
 
-540:                                              ; preds = %535
-  %541 = load i32, ptr @qemu_loglevel, align 4
-  %542 = and i32 %541, 32768
-  %.not12.i.i.i.i.i = icmp eq i32 %542, 0
-  br i1 %.not12.i.i.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %543
+539:                                              ; preds = %534
+  %540 = load i32, ptr @qemu_loglevel, align 4
+  %541 = and i32 %540, 32768
+  %.not12.i.i.i.i.i = icmp eq i32 %541, 0
+  br i1 %.not12.i.i.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %542
 
-543:                                              ; preds = %540
-  %544 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %545 = trunc nuw i8 %544 to i1
-  br i1 %545, label %546, label %553
+542:                                              ; preds = %539
+  %543 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %544 = trunc nuw i8 %543 to i1
+  br i1 %544, label %545, label %552
 
-546:                                              ; preds = %543
+545:                                              ; preds = %542
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
-  %547 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
-  %548 = call i32 @qemu_get_thread_id() #14
-  %549 = load i64, ptr %4, align 8
-  %550 = load i64, ptr %43, align 8
-  %551 = zext nneg i8 %268 to i32
-  %552 = zext i8 %537 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %548, i64 noundef %549, i64 noundef %550, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %551, i32 noundef %552, i64 noundef %536, i64 noundef %538) #14
+  %546 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
+  %547 = call i32 @qemu_get_thread_id() #14
+  %548 = load i64, ptr %4, align 8
+  %549 = load i64, ptr %43, align 8
+  %550 = zext nneg i8 %267 to i32
+  %551 = zext i8 %536 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %547, i64 noundef %548, i64 noundef %549, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %550, i32 noundef %551, i64 noundef %535, i64 noundef %537) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   br label %trace_process_ncq_command.exit.i.i.i
 
-553:                                              ; preds = %543
-  %554 = zext nneg i8 %268 to i32
-  %555 = zext i8 %537 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %554, i32 noundef %555, i64 noundef %536, i64 noundef %538) #14
+552:                                              ; preds = %542
+  %553 = zext nneg i8 %267 to i32
+  %554 = zext i8 %536 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %553, i32 noundef %554, i64 noundef %535, i64 noundef %537) #14
   br label %trace_process_ncq_command.exit.i.i.i
 
-trace_process_ncq_command.exit.i.i.i:             ; preds = %553, %546, %540, %535, %trace_process_ncq_command_large.exit.i.i.i, %509
-  call fastcc void @execute_ncq_command(ptr noundef nonnull %271)
+trace_process_ncq_command.exit.i.i.i:             ; preds = %552, %545, %539, %534, %trace_process_ncq_command_large.exit.i.i.i, %508
+  call fastcc void @execute_ncq_command(ptr noundef nonnull %270)
   br label %trace_handle_cmd_badmap.exit.i
 
-556:                                              ; preds = %263
-  %557 = getelementptr inbounds nuw i8, ptr %125, i64 3
-  %558 = load i8, ptr %557, align 1
-  %559 = getelementptr inbounds nuw i8, ptr %172, i64 648
-  store i8 %558, ptr %559, align 8
-  %560 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  %561 = load i8, ptr %560, align 1
-  %562 = getelementptr inbounds nuw i8, ptr %172, i64 656
-  store i8 %561, ptr %562, align 8
-  %563 = getelementptr inbounds nuw i8, ptr %125, i64 5
-  %564 = load i8, ptr %563, align 1
-  %565 = getelementptr inbounds nuw i8, ptr %172, i64 657
-  store i8 %564, ptr %565, align 1
-  %566 = getelementptr inbounds nuw i8, ptr %125, i64 6
-  %567 = load i8, ptr %566, align 1
-  %568 = getelementptr inbounds nuw i8, ptr %172, i64 658
-  store i8 %567, ptr %568, align 2
-  %569 = getelementptr inbounds nuw i8, ptr %125, i64 7
-  %570 = load i8, ptr %569, align 1
-  %571 = getelementptr inbounds nuw i8, ptr %172, i64 664
-  store i8 %570, ptr %571, align 8
-  %572 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %573 = load i8, ptr %572, align 1
-  %574 = getelementptr inbounds nuw i8, ptr %172, i64 661
-  store i8 %573, ptr %574, align 1
-  %575 = getelementptr inbounds nuw i8, ptr %125, i64 9
-  %576 = load i8, ptr %575, align 1
-  %577 = getelementptr inbounds nuw i8, ptr %172, i64 662
-  store i8 %576, ptr %577, align 2
-  %578 = getelementptr inbounds nuw i8, ptr %125, i64 10
-  %579 = load i8, ptr %578, align 1
-  %580 = getelementptr inbounds nuw i8, ptr %172, i64 663
-  store i8 %579, ptr %580, align 1
-  %581 = getelementptr inbounds nuw i8, ptr %125, i64 11
-  %582 = load i8, ptr %581, align 1
-  %583 = getelementptr inbounds nuw i8, ptr %172, i64 659
-  store i8 %582, ptr %583, align 1
-  %584 = getelementptr i8, ptr %125, i64 12
-  %585 = load i16, ptr %584, align 1
-  %586 = zext i16 %585 to i32
-  %587 = getelementptr inbounds nuw i8, ptr %172, i64 652
-  store i32 %586, ptr %587, align 4
-  %588 = and i16 %180, 32
-  %.not80.i.i = icmp eq i16 %588, 0
-  br i1 %.not80.i.i, label %599, label %589
+555:                                              ; preds = %262
+  %556 = getelementptr inbounds nuw i8, ptr %125, i64 3
+  %557 = load i8, ptr %556, align 1
+  %558 = getelementptr inbounds nuw i8, ptr %172, i64 648
+  store i8 %557, ptr %558, align 8
+  %559 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %560 = load i8, ptr %559, align 1
+  %561 = getelementptr inbounds nuw i8, ptr %172, i64 656
+  store i8 %560, ptr %561, align 8
+  %562 = getelementptr inbounds nuw i8, ptr %125, i64 5
+  %563 = load i8, ptr %562, align 1
+  %564 = getelementptr inbounds nuw i8, ptr %172, i64 657
+  store i8 %563, ptr %564, align 1
+  %565 = getelementptr inbounds nuw i8, ptr %125, i64 6
+  %566 = load i8, ptr %565, align 1
+  %567 = getelementptr inbounds nuw i8, ptr %172, i64 658
+  store i8 %566, ptr %567, align 2
+  %568 = getelementptr inbounds nuw i8, ptr %125, i64 7
+  %569 = load i8, ptr %568, align 1
+  %570 = getelementptr inbounds nuw i8, ptr %172, i64 664
+  store i8 %569, ptr %570, align 8
+  %571 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %572 = load i8, ptr %571, align 1
+  %573 = getelementptr inbounds nuw i8, ptr %172, i64 661
+  store i8 %572, ptr %573, align 1
+  %574 = getelementptr inbounds nuw i8, ptr %125, i64 9
+  %575 = load i8, ptr %574, align 1
+  %576 = getelementptr inbounds nuw i8, ptr %172, i64 662
+  store i8 %575, ptr %576, align 2
+  %577 = getelementptr inbounds nuw i8, ptr %125, i64 10
+  %578 = load i8, ptr %577, align 1
+  %579 = getelementptr inbounds nuw i8, ptr %172, i64 663
+  store i8 %578, ptr %579, align 1
+  %580 = getelementptr inbounds nuw i8, ptr %125, i64 11
+  %581 = load i8, ptr %580, align 1
+  %582 = getelementptr inbounds nuw i8, ptr %172, i64 659
+  store i8 %581, ptr %582, align 1
+  %583 = getelementptr i8, ptr %125, i64 12
+  %584 = load i16, ptr %583, align 1
+  %585 = zext i16 %584 to i32
+  %586 = getelementptr inbounds nuw i8, ptr %172, i64 652
+  store i32 %585, ptr %586, align 4
+  %587 = and i16 %179, 32
+  %.not80.i.i = icmp eq i16 %587, 0
+  br i1 %.not80.i.i, label %598, label %588
 
-589:                                              ; preds = %556
-  %590 = getelementptr inbounds nuw i8, ptr %172, i64 888
-  %591 = load ptr, ptr %590, align 8
-  %592 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %591, ptr noundef nonnull readonly align 1 dereferenceable(16) %592, i64 noundef 16, i1 noundef false) #14
-  %593 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not81.i.i = icmp eq i32 %593, 0
-  br i1 %.not81.i.i, label %599, label %594, !prof !7
+588:                                              ; preds = %555
+  %589 = getelementptr inbounds nuw i8, ptr %172, i64 888
+  %590 = load ptr, ptr %589, align 8
+  %591 = getelementptr inbounds nuw i8, ptr %125, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %590, ptr noundef nonnull readonly align 1 dereferenceable(16) %591, i64 noundef 16, i1 noundef false) #14
+  %592 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not81.i.i = icmp eq i32 %592, 0
+  br i1 %.not81.i.i, label %598, label %593, !prof !7
 
-594:                                              ; preds = %589
-  %595 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2
-  %.not82.i.i = icmp eq i16 %595, 0
-  br i1 %.not82.i.i, label %599, label %596
+593:                                              ; preds = %588
+  %594 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2
+  %.not82.i.i = icmp eq i16 %594, 0
+  br i1 %.not82.i.i, label %598, label %595
 
-596:                                              ; preds = %594
-  %597 = load ptr, ptr %590, align 8
-  %598 = call fastcc ptr @ahci_pretty_buffer_fis(ptr noundef %597, i32 noundef 16)
-  call fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %598)
-  call void @g_free(ptr noundef %598) #14
-  br label %599
+595:                                              ; preds = %593
+  %596 = load ptr, ptr %589, align 8
+  %597 = call fastcc ptr @ahci_pretty_buffer_fis(ptr noundef %596, i32 noundef 16)
+  call fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %597)
+  call void @g_free(ptr noundef %597) #14
+  br label %598
 
-599:                                              ; preds = %596, %594, %589, %556
-  %600 = getelementptr inbounds nuw i8, ptr %172, i64 649
-  store i8 0, ptr %600, align 1
-  %601 = load ptr, ptr %0, align 16
-  %602 = getelementptr inbounds %struct.AHCIDevice, ptr %601, i64 %20, i32 10
-  store i8 0, ptr %602, align 8
-  %603 = getelementptr inbounds nuw i8, ptr %178, i64 4
-  store i32 0, ptr %603, align 1
-  %604 = getelementptr inbounds nuw i8, ptr %179, i64 2476
-  store i32 %48, ptr %604, align 4
-  %605 = load ptr, ptr %0, align 16
-  %606 = getelementptr inbounds %struct.AHCIDevice, ptr %605, i64 %20, i32 1
-  %607 = load i8, ptr %264, align 1
-  %608 = zext i8 %607 to i32
-  call void @ide_bus_exec_cmd(ptr noundef nonnull %606, i32 noundef %608) #14
+598:                                              ; preds = %595, %593, %588, %555
+  %599 = getelementptr inbounds nuw i8, ptr %172, i64 649
+  store i8 0, ptr %599, align 1
+  %600 = load ptr, ptr %0, align 16
+  %601 = getelementptr inbounds %struct.AHCIDevice, ptr %600, i64 %20, i32 10
+  store i8 0, ptr %601, align 8
+  %602 = getelementptr inbounds nuw i8, ptr %177, i64 4
+  store i32 0, ptr %602, align 1
+  %603 = getelementptr inbounds nuw i8, ptr %178, i64 2476
+  store i32 %48, ptr %603, align 4
+  %604 = load ptr, ptr %0, align 16
+  %605 = getelementptr inbounds %struct.AHCIDevice, ptr %604, i64 %20, i32 1
+  %606 = load i8, ptr %263, align 1
+  %607 = zext i8 %606 to i32
+  call void @ide_bus_exec_cmd(ptr noundef nonnull %605, i32 noundef %607) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-609:                                              ; preds = %168
-  %610 = getelementptr inbounds nuw i8, ptr %125, i64 1
-  %611 = load i8, ptr %610, align 1
-  %612 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  %613 = load i8, ptr %612, align 1
-  %614 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i70.i = icmp eq i32 %614, 0
-  br i1 %.not.i.i70.i, label %trace_handle_cmd_badmap.exit.i, label %615, !prof !7
+608:                                              ; preds = %168
+  %609 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %610 = load i8, ptr %609, align 1
+  %611 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  %612 = load i8, ptr %611, align 1
+  %613 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i69.i = icmp eq i32 %613, 0
+  br i1 %.not.i.i69.i, label %trace_handle_cmd_badmap.exit.i, label %614, !prof !7
 
-615:                                              ; preds = %609
-  %616 = load i16, ptr @_TRACE_HANDLE_CMD_UNHANDLED_FIS_DSTATE, align 2
-  %.not9.i.i.i = icmp eq i16 %616, 0
-  br i1 %.not9.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %617
+614:                                              ; preds = %608
+  %615 = load i16, ptr @_TRACE_HANDLE_CMD_UNHANDLED_FIS_DSTATE, align 2
+  %.not9.i.i.i = icmp eq i16 %615, 0
+  br i1 %.not9.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %616
 
-617:                                              ; preds = %615
-  %618 = load i32, ptr @qemu_loglevel, align 4
-  %619 = and i32 %618, 32768
-  %.not10.i.i.i = icmp eq i32 %619, 0
-  br i1 %.not10.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %620
+616:                                              ; preds = %614
+  %617 = load i32, ptr @qemu_loglevel, align 4
+  %618 = and i32 %617, 32768
+  %.not10.i.i.i = icmp eq i32 %618, 0
+  br i1 %.not10.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %619
 
-620:                                              ; preds = %617
-  %621 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
-  %622 = trunc nuw i8 %621 to i1
-  br i1 %622, label %623, label %631
+619:                                              ; preds = %616
+  %620 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
+  %621 = trunc nuw i8 %620 to i1
+  br i1 %621, label %622, label %630
 
-623:                                              ; preds = %620
+622:                                              ; preds = %619
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
-  %624 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
-  %625 = call i32 @qemu_get_thread_id() #14
-  %626 = load i64, ptr %3, align 8
-  %627 = load i64, ptr %34, align 8
-  %628 = zext i8 %169 to i32
-  %629 = zext i8 %611 to i32
-  %630 = zext i8 %613 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %625, i64 noundef %626, i64 noundef %627, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %628, i32 noundef %629, i32 noundef %630) #14
+  %623 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
+  %624 = call i32 @qemu_get_thread_id() #14
+  %625 = load i64, ptr %3, align 8
+  %626 = load i64, ptr %34, align 8
+  %627 = zext i8 %169 to i32
+  %628 = zext i8 %610 to i32
+  %629 = zext i8 %612 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %624, i64 noundef %625, i64 noundef %626, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %627, i32 noundef %628, i32 noundef %629) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-631:                                              ; preds = %620
-  %632 = zext i8 %169 to i32
-  %633 = zext i8 %611 to i32
-  %634 = zext i8 %613 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.165, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %632, i32 noundef %633, i32 noundef %634) #14
+630:                                              ; preds = %619
+  %631 = zext i8 %169 to i32
+  %632 = zext i8 %610 to i32
+  %633 = zext i8 %612 to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.165, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %631, i32 noundef %632, i32 noundef %633) #14
   br label %trace_handle_cmd_badmap.exit.i
 
-trace_handle_cmd_badmap.exit.i:                   ; preds = %631, %623, %617, %615, %609, %599, %trace_process_ncq_command.exit.i.i.i, %502, %279, %276, %262, %258, %253, %249, %247, %243, %240, %235, %227, %221, %219, %213, %207, %199, %193, %191, %185, %161, %156, %150, %148, %144
-  %635 = load ptr, ptr %32, align 8
-  call void @address_space_unmap(ptr noundef %635, ptr noundef nonnull %125, i64 noundef %126, i1 noundef zeroext false, i64 noundef %126) #14
+trace_handle_cmd_badmap.exit.i:                   ; preds = %630, %622, %616, %614, %608, %598, %trace_process_ncq_command.exit.i.i.i, %501, %278, %275, %261, %257, %252, %248, %246, %242, %239, %234, %226, %220, %218, %212, %206, %198, %192, %190, %184, %161, %156, %150, %148, %144
+  %634 = load ptr, ptr %32, align 8
+  call void @address_space_unmap(ptr noundef %634, ptr noundef nonnull %125, i64 noundef %126, i1 noundef zeroext false, i64 noundef %126) #14
   br label %handle_cmd.exit
 
 handle_cmd.exit:                                  ; preds = %trace_handle_cmd_badmap.exit.i, %142, %137, %131, %129, %127, %120, %115, %109, %107, %105, %93, %88, %82, %80, %78, %74, %69, %63, %61, %59, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %636 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %635 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.critedge, label %47, !llvm.loop !25
 

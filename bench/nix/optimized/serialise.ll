@@ -16366,7 +16366,7 @@ define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12Sou
 
 48:                                               ; preds = %.noexc5
   %49 = extractvalue { ptr, ptr } %47, 0
-  %50 = load ptr, ptr %spec.select.i.i, align 64
+  %50 = load ptr, ptr %29, align 64
   store ptr %49, ptr %29, align 64
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %60, label %51
@@ -16394,7 +16394,7 @@ define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12Sou
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %59, %56
-  call void @_ZN5boost7context5fiberD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %spec.select.i.i) #36
+  call void @_ZN5boost7context5fiberD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #36
   br label %.body
 
 60:                                               ; preds = %51, %48
@@ -17795,7 +17795,7 @@ define internal noundef i64 @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0
 
 48:                                               ; preds = %.noexc9
   %49 = extractvalue { ptr, ptr } %47, 0
-  %50 = load ptr, ptr %spec.select.i.i, align 64
+  %50 = load ptr, ptr %27, align 64
   store ptr %49, ptr %27, align 64
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost7context5fiberD2Ev.exit.i.i.i, label %51
@@ -17852,7 +17852,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %63, %60, %58
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit10.i.i.i: ; preds = %65, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
-  call void @_ZN5boost7context5fiberD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #36
+  call void @_ZN5boost7context5fiberD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %27) #36
   br label %.body
 
 _ZN5boost11coroutines26detail20create_control_blockINS1_14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_blockEN3nix21VirtualStackAllocatorEZZNSC_12sinkToSourceESt8functionIFvRNSC_4SinkEEESE_IFvvEEEN12SinkToSource4readEPcmEUlRNS1_14push_coroutineIS9_EEE_EEPT_OT0_OT1_.exit.i: ; preds = %_ZN5boost7context5fiberD2Ev.exit.i.i.i
@@ -17876,7 +17876,7 @@ _ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not.i3.i, label %_ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IN3nix21VirtualStackAllocatorEZZNSB_12sinkToSourceESt8functionIFvRNSB_4SinkEEESD_IFvvEEEN12SinkToSource4readEPcmEUlRNS1_14push_coroutineIS8_EEE_EEOT_OT0_.exit, label %72
 
 72:                                               ; preds = %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.thread.i
-  call void @_ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block7destroyEPSA_(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #36
+  call void @_ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block7destroyEPSA_(ptr noundef nonnull align 8 dereferenceable(72) %27) #36
   br label %_ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IN3nix21VirtualStackAllocatorEZZNSB_12sinkToSourceESt8functionIFvRNSB_4SinkEEESD_IFvvEEEN12SinkToSource4readEPcmEUlRNS1_14push_coroutineIS8_EEE_EEOT_OT0_.exit
 
 _ZN5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IN3nix21VirtualStackAllocatorEZZNSB_12sinkToSourceESt8functionIFvRNSB_4SinkEEESD_IFvvEEEN12SinkToSource4readEPcmEUlRNS1_14push_coroutineIS8_EEE_EEOT_OT0_.exit: ; preds = %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.i, %72, %_ZNK5boost11coroutines26detail14pull_coroutineINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13control_block5validEv.exit.thread.i

@@ -4222,7 +4222,7 @@ path_length.exit:                                 ; preds = %.lr.ph.i
   br i1 %.not170, label %.critedge, label %74
 
 74:                                               ; preds = %72
-  %75 = load i32, ptr %.0.i178, align 4, !tbaa !151
+  %75 = load i32, ptr %27, align 4, !tbaa !151
   %76 = icmp eq i32 %75, 2
   br i1 %76, label %77, label %.critedge
 
@@ -5555,7 +5555,7 @@ detect_drag.exit.thread:                          ; preds = %142, %164, %detect_
   br i1 %.not174, label %227, label %212
 
 212:                                              ; preds = %211
-  %213 = load i32, ptr %.0.i, align 4, !tbaa !151
+  %213 = load i32, ptr %190, align 4, !tbaa !151
   %214 = icmp eq i32 %213, 3
   br i1 %214, label %215, label %227
 
@@ -5580,7 +5580,7 @@ detect_drag.exit.thread:                          ; preds = %142, %164, %detect_
   br i1 %.not175, label %243, label %228
 
 228:                                              ; preds = %227
-  %229 = load i32, ptr %.0.i191, align 4, !tbaa !151
+  %229 = load i32, ptr %194, align 4, !tbaa !151
   %230 = icmp eq i32 %229, 3
   br i1 %230, label %231, label %243
 
@@ -5640,7 +5640,7 @@ detect_drag.exit.thread:                          ; preds = %142, %164, %detect_
   br i1 %.not173, label %.thread232, label %266
 
 266:                                              ; preds = %263
-  %267 = load i32, ptr %.0.i191, align 4, !tbaa !151
+  %267 = load i32, ptr %194, align 4, !tbaa !151
   %268 = icmp eq i32 %267, 3
   br i1 %268, label %269, label %.thread232
 
@@ -5714,7 +5714,7 @@ detect_drag.exit.thread:                          ; preds = %142, %164, %detect_
   br i1 %.not172, label %.thread232, label %309
 
 309:                                              ; preds = %306
-  %310 = load i32, ptr %.0.i, align 4, !tbaa !151
+  %310 = load i32, ptr %190, align 4, !tbaa !151
   %311 = icmp eq i32 %310, 3
   br i1 %311, label %312, label %.thread232
 

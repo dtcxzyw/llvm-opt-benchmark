@@ -18559,7 +18559,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14RISCVInstrInfo19shouldClusterMem
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !836
   %14 = icmp eq i64 %13, 0
-  br i1 %11, label %89, label %15
+  br i1 %11, label %91, label %15
 
 15:                                               ; preds = %10
   br i1 %14, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread, label %16
@@ -18680,63 +18680,63 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit14.i: ; preds = %63, %61
   %71 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %72 = icmp eq i64 %71, 0
   %73 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %74 = inttoptr i64 %73 to ptr
-  %.0.i.i.i.i.i = select i1 %72, ptr %74, ptr null
   %.sroa.0.0.copyload.i.i.i.i15.i = load i64, ptr %67, align 8
-  %75 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i, 4
-  %76 = icmp eq i64 %75, 0
-  %77 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i, -8
-  %78 = inttoptr i64 %77 to ptr
-  %.0.i.i.i.i16.i = select i1 %76, ptr %78, ptr null
-  %79 = icmp ne ptr %.0.i.i.i.i.i, null
-  %80 = icmp ne ptr %.0.i.i.i.i16.i, null
-  %or.cond.i = and i1 %79, %80
+  %74 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i, 4
+  %75 = icmp eq i64 %74, 0
+  %76 = and i64 %.sroa.0.0.copyload.i.i.i.i15.i, -8
+  %77 = icmp ne i64 %73, 0
+  %78 = and i1 %72, %77
+  %79 = icmp ne i64 %76, 0
+  %80 = and i1 %75, %79
+  %or.cond.i = and i1 %78, %80
   br i1 %or.cond.i, label %81, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread
 
 81:                                               ; preds = %70
-  %82 = tail call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef nonnull %.0.i.i.i.i.i, i32 noundef 6) #27
-  %83 = tail call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef nonnull %.0.i.i.i.i16.i, i32 noundef 6) #27
-  %84 = load i8, ptr %82, align 8, !tbaa !839
-  %85 = and i8 %84, -2
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %85, 12
+  %82 = inttoptr i64 %76 to ptr
+  %83 = inttoptr i64 %73 to ptr
+  %84 = tail call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef nonnull %83, i32 noundef 6) #27
+  %85 = tail call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef nonnull %82, i32 noundef 6) #27
+  %86 = load i8, ptr %84, align 8, !tbaa !839
+  %87 = and i8 %86, -2
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %87, 12
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit
 
 _ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit: ; preds = %81
-  %86 = load i8, ptr %83, align 8, !tbaa !839
-  %87 = and i8 %86, -2
-  %spec.select.i.i.i.i.i.i.i.i17.i = icmp ne i8 %87, 12
-  %88 = icmp eq ptr %82, %83
-  %spec.select.i = and i1 %88, %spec.select.i.i.i.i.i.i.i.i17.i
+  %88 = load i8, ptr %85, align 8, !tbaa !839
+  %89 = and i8 %88, -2
+  %spec.select.i.i.i.i.i.i.i.i17.i = icmp ne i8 %89, 12
+  %90 = icmp eq ptr %84, %85
+  %spec.select.i = and i1 %90, %spec.select.i.i.i.i.i.i.i.i17.i
   br i1 %spec.select.i, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread
 
-89:                                               ; preds = %10
+91:                                               ; preds = %10
   br i1 %14, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread
 
-_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17: ; preds = %16, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit, %89
-  %90 = load ptr, ptr %1, align 8, !tbaa !653
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !256
-  %93 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %92) #27
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !638
-  %96 = load ptr, ptr %95, align 8, !tbaa !24
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 72
-  %98 = load ptr, ptr %97, align 8
-  %99 = tail call noundef i32 %98(ptr noundef nonnull align 8 dereferenceable(304) %95) #27
-  %100 = icmp ult i32 %8, 5
-  br i1 %100, label %101, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread
+_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17: ; preds = %16, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit, %91
+  %92 = load ptr, ptr %1, align 8, !tbaa !653
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !256
+  %95 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %94) #27
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !638
+  %98 = load ptr, ptr %97, align 8, !tbaa !24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 72
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(304) %97) #27
+  %102 = icmp ult i32 %8, 5
+  br i1 %102, label %103, label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread
 
-101:                                              ; preds = %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17
-  %.not = icmp eq i32 %99, 0
-  %102 = select i1 %.not, i32 64, i32 %99
-  %103 = sub nsw i64 %3, %6
-  %104 = tail call noundef i64 @llvm.abs.i64(i64 %103, i1 true)
-  %105 = zext i32 %102 to i64
-  %106 = icmp samesign ult i64 %104, %105
+103:                                              ; preds = %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17
+  %.not = icmp eq i32 %101, 0
+  %104 = select i1 %.not, i32 64, i32 %101
+  %105 = sub nsw i64 %3, %6
+  %106 = tail call noundef i64 @llvm.abs.i64(i64 %105, i1 true)
+  %107 = zext i32 %104 to i64
+  %108 = icmp samesign ult i64 %106, %107
   br label %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread
 
-_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread: ; preds = %40, %36, %29, %25, %81, %70, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit14.i, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.i, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit12.i, %15, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17, %101, %89
-  %.1 = phi i1 [ false, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit ], [ false, %89 ], [ false, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17 ], [ %106, %101 ], [ false, %15 ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit12.i ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.i ], [ false, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit14.i ], [ false, %70 ], [ false, %81 ], [ false, %25 ], [ false, %29 ], [ false, %36 ], [ false, %40 ]
+_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread: ; preds = %40, %36, %29, %25, %81, %70, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit14.i, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.i, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit12.i, %15, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17, %103, %91
+  %.1 = phi i1 [ false, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit ], [ false, %91 ], [ false, %_ZL21memOpsHaveSameBasePtrRKN4llvm12MachineInstrENS_8ArrayRefIPKNS_14MachineOperandEEES2_S7_.exit.thread17 ], [ %108, %103 ], [ false, %15 ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit12.i ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.i ], [ false, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit14.i ], [ false, %70 ], [ false, %81 ], [ false, %25 ], [ false, %29 ], [ false, %36 ], [ false, %40 ]
   ret i1 %.1
 }
 

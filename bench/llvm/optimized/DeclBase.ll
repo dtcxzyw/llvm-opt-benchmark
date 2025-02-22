@@ -16596,7 +16596,6 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Decl17canBeWeakImportedERb(ptr n
   %5 = and i32 %4, 127
   %6 = add nsw i32 %5, -38
   %7 = icmp ult i32 %6, 7
-  %spec.select.i.i = select i1 %7, ptr %0, ptr null
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
@@ -16647,7 +16646,7 @@ _ZNK5clang7VarDecl28isThisDeclarationADefinitionEv.exit: ; preds = %_ZN5clang11D
   %.0.lcssa.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZN5clang4Decl14getDeclContextEv.exit.i.i.i.i ], [ %.0.i.i.i.i.i.i, %_ZN5clang11DeclContext9getParentEv.exit.i.i.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !11
-  %34 = tail call noundef i32 @_ZNK5clang7VarDecl28isThisDeclarationADefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %33) #31
+  %34 = tail call noundef i32 @_ZNK5clang7VarDecl28isThisDeclarationADefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(23216) %33) #31
   %.not14 = icmp eq i32 %34, 0
   br i1 %.not14, label %.thread24, label %35
 
@@ -25372,7 +25371,7 @@ define linkonce_odr hidden void @_ZN5clang15StoredDeclsList16addOrReplaceDeclEPN
   %6 = and i64 %.0.copyload.i.i.i.i, 3
   %7 = or i64 %6, %5
   store i64 %7, ptr %0, align 8
-  br label %165
+  br label %164
 
 8:                                                ; preds = %2
   %9 = and i64 %.0.copyload.i.i.i.i, 4
@@ -25392,7 +25391,7 @@ define linkonce_odr hidden void @_ZN5clang15StoredDeclsList16addOrReplaceDeclEPN
   %17 = and i64 %.0.copyload.i.i.i38, 3
   %18 = or i64 %17, %16
   store i64 %18, ptr %0, align 8
-  br label %165
+  br label %164
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -25520,7 +25519,7 @@ _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit: ; preds = %52,
   %83 = or i64 %82, %81
   %84 = or i64 %83, 4
   store i64 %84, ptr %0, align 8
-  br label %165
+  br label %164
 
 .critedge:                                        ; preds = %8
   %85 = load ptr, ptr %11, align 8, !tbaa !785
@@ -25528,12 +25527,12 @@ _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit: ; preds = %52,
   br i1 %86, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge37, %.critedge
-  %.032.lcssa = phi ptr [ %11, %.critedge ], [ %162, %.critedge37 ]
+  %.032.lcssa = phi ptr [ %11, %.critedge ], [ %.0.i.i.i.i71, %.critedge37 ]
   store ptr %1, ptr %.032.lcssa, align 8, !tbaa !785
-  br label %165
+  br label %164
 
 .lr.ph:                                           ; preds = %.critedge, %.critedge37
-  %.03279 = phi ptr [ %162, %.critedge37 ], [ %11, %.critedge ]
+  %.03279 = phi ptr [ %.0.i.i.i.i71, %.critedge37 ], [ %11, %.critedge ]
   %87 = getelementptr inbounds nuw i8, ptr %.03279, i64 8
   %.sroa.0.0.copyload.i.i.i.i46 = load i64, ptr %87, align 8
   %88 = and i64 %.sroa.0.0.copyload.i.i.i.i46, 4
@@ -25541,21 +25540,21 @@ _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit: ; preds = %52,
   %90 = and i64 %.sroa.0.0.copyload.i.i.i.i46, -8
   %.not3575 = icmp eq i64 %90, 0
   %.not35 = or i1 %89, %.not3575
-  br i1 %.not35, label %.critedge37, label %91
+  %91 = inttoptr i64 %90 to ptr
+  br i1 %.not35, label %.critedge37, label %92
 
-91:                                               ; preds = %.lr.ph
-  %92 = getelementptr inbounds nuw i8, ptr %.03279, i64 8
-  %93 = inttoptr i64 %90 to ptr
-  %94 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19declarationReplacesEPKS0_b(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %93, i1 noundef zeroext true) #31
+92:                                               ; preds = %.lr.ph
+  %93 = getelementptr inbounds nuw i8, ptr %.03279, i64 8
+  %94 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19declarationReplacesEPKS0_b(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %91, i1 noundef zeroext true) #31
   br i1 %94, label %95, label %98
 
-95:                                               ; preds = %91
+95:                                               ; preds = %92
   %96 = ptrtoint ptr %1 to i64
   %97 = and i64 %96, -5
-  store i64 %97, ptr %92, align 8, !tbaa !625
-  br label %165
+  store i64 %97, ptr %93, align 8, !tbaa !625
+  br label %164
 
-98:                                               ; preds = %91
+98:                                               ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 127
@@ -25629,7 +25628,7 @@ _ZNK5clang4Decl13getASTContextEv.exit60:          ; preds = %98, %._crit_edge.i.
   %135 = inttoptr i64 %134 to ptr
   %.0.i.i.i64 = select i1 %.not.i.i.i63, ptr null, ptr %135
   store ptr %.0.i.i.i64, ptr %129, align 8, !tbaa !784
-  store ptr %93, ptr %130, align 8, !tbaa !785
+  store ptr %91, ptr %130, align 8, !tbaa !785
   store i64 0, ptr %132, align 8
   br label %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit69
 
@@ -25664,7 +25663,7 @@ _ZNK5clang4Decl13getASTContextEv.exit60:          ; preds = %98, %._crit_edge.i.
 
 _ZnwmRKN5clang10ASTContextEm.exit.i67:            ; preds = %154, %151
   %.0.i.i.i.i.i68 = phi ptr [ %153, %151 ], [ %155, %154 ]
-  store ptr %93, ptr %.0.i.i.i.i.i68, align 8, !tbaa !785
+  store ptr %91, ptr %.0.i.i.i.i.i68, align 8, !tbaa !785
   %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i68, i64 8
   store i64 0, ptr %156, align 8
   br label %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit69
@@ -25673,20 +25672,21 @@ _ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit69: ; preds = %1
   %.1.i65 = phi ptr [ %130, %131 ], [ %.0.i.i.i.i.i68, %_ZnwmRKN5clang10ASTContextEm.exit.i67 ]
   %157 = ptrtoint ptr %.1.i65 to i64
   %158 = or i64 %157, 4
-  store i64 %158, ptr %92, align 8, !tbaa !625
+  store i64 %158, ptr %93, align 8, !tbaa !625
   %159 = getelementptr inbounds nuw i8, ptr %.1.i65, i64 8
   %160 = ptrtoint ptr %1 to i64
   %161 = and i64 %160, -5
   store i64 %161, ptr %159, align 8, !tbaa !625
-  br label %165
+  br label %164
 
 .critedge37:                                      ; preds = %.lr.ph
-  %162 = inttoptr i64 %90 to ptr
-  %163 = load ptr, ptr %162, align 8, !tbaa !785
-  %164 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19declarationReplacesEPKS0_b(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %163, i1 noundef zeroext true) #31
-  br i1 %164, label %._crit_edge, label %.lr.ph, !llvm.loop !810
+  %.not.i.i.i.i = icmp eq i64 %88, 0
+  %.0.i.i.i.i71 = select i1 %.not.i.i.i.i, ptr null, ptr %91
+  %162 = load ptr, ptr %91, align 8, !tbaa !785
+  %163 = tail call noundef zeroext i1 @_ZNK5clang9NamedDecl19declarationReplacesEPKS0_b(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %162, i1 noundef zeroext true) #31
+  br i1 %163, label %._crit_edge, label %.lr.ph, !llvm.loop !810
 
-165:                                              ; preds = %95, %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit69, %14, %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit, %._crit_edge, %3
+164:                                              ; preds = %95, %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit69, %14, %_ZN5clang10ASTContext20AllocateDeclListNodeEPNS_9NamedDeclE.exit, %._crit_edge, %3
   ret void
 }
 

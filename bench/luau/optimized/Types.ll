@@ -2677,162 +2677,161 @@ _ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal
   %.0.i.i = phi ptr [ null, %18 ], [ null, %23 ], [ null, %43 ], [ null, %41 ], [ %38, %37 ]
   %.not.i.not = icmp eq ptr %.0.i.i, null
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %47 = select i1 %.not.i.not, ptr null, ptr %46
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i64, ptr %50, align 8
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %53
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %52
 
-53:                                               ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %55 = load ptr, ptr %6, align 8
-  %56 = load ptr, ptr %54, align 8
-  %57 = icmp eq ptr %55, %56
-  br i1 %57, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %58
+52:                                               ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %54 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %53, align 8
+  %56 = icmp eq ptr %54, %55
+  br i1 %56, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %57
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %60 = load i64, ptr %59, align 8
-  %61 = add i64 %60, -1
-  %62 = ptrtoint ptr %55 to i64
-  %63 = lshr i64 %62, 4
-  %64 = lshr i64 %62, 9
-  %65 = xor i64 %63, %64
-  %66 = load ptr, ptr %49, align 8
-  br label %67
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, -1
+  %61 = ptrtoint ptr %54 to i64
+  %62 = lshr i64 %61, 4
+  %63 = lshr i64 %61, 9
+  %64 = xor i64 %62, %63
+  %65 = load ptr, ptr %48, align 8
+  br label %66
 
-67:                                               ; preds = %73, %58
-  %.pn.i.i44 = phi i64 [ %65, %58 ], [ %75, %73 ]
-  %.01519.i.i45 = phi i64 [ 0, %58 ], [ %74, %73 ]
-  %.01620.i.i46 = and i64 %.pn.i.i44, %61
-  %68 = getelementptr inbounds %"struct.std::pair.164", ptr %66, i64 %.01620.i.i46
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, %55
-  br i1 %70, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, label %71
+66:                                               ; preds = %72, %57
+  %.pn.i.i44 = phi i64 [ %64, %57 ], [ %74, %72 ]
+  %.01519.i.i45 = phi i64 [ 0, %57 ], [ %73, %72 ]
+  %.01620.i.i46 = and i64 %.pn.i.i44, %60
+  %67 = getelementptr inbounds %"struct.std::pair.164", ptr %65, i64 %.01620.i.i46
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, %54
+  br i1 %69, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, label %70
 
-71:                                               ; preds = %67
-  %72 = icmp eq ptr %69, %56
-  br i1 %72, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %73
+70:                                               ; preds = %66
+  %71 = icmp eq ptr %68, %55
+  br i1 %71, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %72
 
-73:                                               ; preds = %71
-  %74 = add i64 %.01519.i.i45, 1
-  %75 = add i64 %74, %.01620.i.i46
-  %.not.i.i47 = icmp ugt i64 %74, %61
-  br i1 %.not.i.i47, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %67, !llvm.loop !9
+72:                                               ; preds = %70
+  %73 = add i64 %.01519.i.i45, 1
+  %74 = add i64 %73, %.01620.i.i46
+  %.not.i.i47 = icmp ugt i64 %73, %60
+  br i1 %.not.i.i47, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %66, !llvm.loop !9
 
-_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit: ; preds = %67
-  %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  br i1 %.not.i.not, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %77
+_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit: ; preds = %66
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  br i1 %.not.i.not, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %76
 
-77:                                               ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit
-  br i1 %22, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %78
+76:                                               ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit
+  br i1 %22, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %77
 
-78:                                               ; preds = %77
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %80 = load ptr, ptr %10, align 8
-  %81 = load ptr, ptr %79, align 8
-  %82 = icmp eq ptr %80, %81
-  br i1 %82, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %83
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %79 = load ptr, ptr %10, align 8
+  %80 = load ptr, ptr %78, align 8
+  %81 = icmp eq ptr %79, %80
+  br i1 %81, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %82
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %85, -1
-  %87 = ptrtoint ptr %80 to i64
-  %88 = lshr i64 %87, 4
-  %89 = lshr i64 %87, 9
-  %90 = xor i64 %88, %89
-  %91 = load ptr, ptr %19, align 8
-  br label %92
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %84 = load i64, ptr %83, align 8
+  %85 = add i64 %84, -1
+  %86 = ptrtoint ptr %79 to i64
+  %87 = lshr i64 %86, 4
+  %88 = lshr i64 %86, 9
+  %89 = xor i64 %87, %88
+  %90 = load ptr, ptr %19, align 8
+  br label %91
 
-92:                                               ; preds = %98, %83
-  %.pn.i.i50 = phi i64 [ %90, %83 ], [ %100, %98 ]
-  %.01519.i.i51 = phi i64 [ 0, %83 ], [ %99, %98 ]
-  %.01620.i.i52 = and i64 %.pn.i.i50, %86
-  %93 = getelementptr inbounds %"struct.std::pair.158", ptr %91, i64 %.01620.i.i52
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %94, %80
-  br i1 %95, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %96
+91:                                               ; preds = %97, %82
+  %.pn.i.i50 = phi i64 [ %89, %82 ], [ %99, %97 ]
+  %.01519.i.i51 = phi i64 [ 0, %82 ], [ %98, %97 ]
+  %.01620.i.i52 = and i64 %.pn.i.i50, %85
+  %92 = getelementptr inbounds %"struct.std::pair.158", ptr %90, i64 %.01620.i.i52
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp eq ptr %93, %79
+  br i1 %94, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %95
 
-96:                                               ; preds = %92
-  %97 = icmp eq ptr %94, %81
-  br i1 %97, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %98
+95:                                               ; preds = %91
+  %96 = icmp eq ptr %93, %80
+  br i1 %96, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %97
 
-98:                                               ; preds = %96
-  %99 = add i64 %.01519.i.i51, 1
-  %100 = add i64 %99, %.01620.i.i52
-  %.not.i.i53 = icmp ugt i64 %99, %86
-  br i1 %.not.i.i53, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %92, !llvm.loop !5
+97:                                               ; preds = %95
+  %98 = add i64 %.01519.i.i51, 1
+  %99 = add i64 %98, %.01620.i.i52
+  %.not.i.i53 = icmp ugt i64 %98, %85
+  br i1 %.not.i.i53, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, label %91, !llvm.loop !5
 
-_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56: ; preds = %92, %96, %98, %77, %78
-  %.0.i.i54 = phi ptr [ null, %77 ], [ null, %78 ], [ null, %98 ], [ null, %96 ], [ %93, %92 ]
+_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56: ; preds = %91, %95, %97, %76, %77
+  %.0.i.i54 = phi ptr [ null, %76 ], [ null, %77 ], [ null, %97 ], [ null, %95 ], [ %92, %91 ]
   %.not.i55.not = icmp eq ptr %.0.i.i54, null
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %103 = load ptr, ptr %10, align 8
-  %104 = load ptr, ptr %102, align 8
-  %105 = icmp eq ptr %103, %104
-  br i1 %105, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %106
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %102 = load ptr, ptr %10, align 8
+  %103 = load ptr, ptr %101, align 8
+  %104 = icmp eq ptr %102, %103
+  br i1 %104, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %105
 
-106:                                              ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56
-  %107 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %108 = load i64, ptr %107, align 8
-  %109 = add i64 %108, -1
-  %110 = ptrtoint ptr %103 to i64
-  %111 = lshr i64 %110, 4
-  %112 = lshr i64 %110, 9
-  %113 = xor i64 %111, %112
-  %114 = load ptr, ptr %49, align 8
-  br label %115
+105:                                              ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56
+  %106 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %107 = load i64, ptr %106, align 8
+  %108 = add i64 %107, -1
+  %109 = ptrtoint ptr %102 to i64
+  %110 = lshr i64 %109, 4
+  %111 = lshr i64 %109, 9
+  %112 = xor i64 %110, %111
+  %113 = load ptr, ptr %48, align 8
+  br label %114
 
-115:                                              ; preds = %121, %106
-  %.pn.i.i57 = phi i64 [ %113, %106 ], [ %123, %121 ]
-  %.01519.i.i58 = phi i64 [ 0, %106 ], [ %122, %121 ]
-  %.01620.i.i59 = and i64 %.pn.i.i57, %109
-  %116 = getelementptr inbounds %"struct.std::pair.164", ptr %114, i64 %.01620.i.i59
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, %103
-  br i1 %118, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63, label %119
+114:                                              ; preds = %120, %105
+  %.pn.i.i57 = phi i64 [ %112, %105 ], [ %122, %120 ]
+  %.01519.i.i58 = phi i64 [ 0, %105 ], [ %121, %120 ]
+  %.01620.i.i59 = and i64 %.pn.i.i57, %108
+  %115 = getelementptr inbounds %"struct.std::pair.164", ptr %113, i64 %.01620.i.i59
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, %102
+  br i1 %117, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63, label %118
 
-119:                                              ; preds = %115
-  %120 = icmp eq ptr %117, %104
-  br i1 %120, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %121
+118:                                              ; preds = %114
+  %119 = icmp eq ptr %116, %103
+  br i1 %119, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %120
 
-121:                                              ; preds = %119
-  %122 = add i64 %.01519.i.i58, 1
-  %123 = add i64 %122, %.01620.i.i59
-  %.not.i.i60 = icmp ugt i64 %122, %109
-  br i1 %.not.i.i60, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %115, !llvm.loop !9
+120:                                              ; preds = %118
+  %121 = add i64 %.01519.i.i58, 1
+  %122 = add i64 %121, %.01620.i.i59
+  %.not.i.i60 = icmp ugt i64 %121, %108
+  br i1 %.not.i.i60, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %114, !llvm.loop !9
 
-_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63: ; preds = %115
-  %124 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  br i1 %.not.i55.not, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %125
+_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63: ; preds = %114
+  %123 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  br i1 %.not.i55.not, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %124
 
-125:                                              ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63
-  %126 = load i32, ptr %76, align 4
-  %127 = icmp eq i32 %126, 8
-  br i1 %127, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split, label %128
+124:                                              ; preds = %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63
+  %125 = load i32, ptr %75, align 4
+  %126 = icmp eq i32 %125, 8
+  br i1 %126, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split, label %127
 
-128:                                              ; preds = %125
-  %129 = load i32, ptr %124, align 4
-  %130 = icmp eq i32 %129, 8
-  br i1 %130, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split, label %131
+127:                                              ; preds = %124
+  %128 = load i32, ptr %123, align 4
+  %129 = icmp eq i32 %128, 8
+  br i1 %129, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split, label %130
 
-131:                                              ; preds = %128
-  %132 = icmp eq i32 %126, 2
-  %133 = icmp eq i32 %129, 2
-  %or.cond43 = and i1 %132, %133
+130:                                              ; preds = %127
+  %131 = icmp eq i32 %125, 2
+  %132 = icmp eq i32 %128, 2
+  %or.cond43 = and i1 %131, %132
   br i1 %or.cond43, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split, label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread
 
-_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split: ; preds = %131, %128, %125, %16
-  %.sink.in = phi ptr [ %17, %16 ], [ %47, %125 ], [ %101, %128 ], [ %47, %131 ]
+_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split: ; preds = %130, %127, %124, %16
+  %.sink.in = phi ptr [ %17, %16 ], [ %46, %124 ], [ %100, %127 ], [ %46, %130 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %134 = tail call noundef i32 @_ZN4Luau14TypeMapVisitor18recordResolvedTypeEPNS_7AstExprEPKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1, ptr noundef %.sink)
+  %133 = tail call noundef i32 @_ZN4Luau14TypeMapVisitor18recordResolvedTypeEPNS_7AstExprEPKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1, ptr noundef %.sink)
   br label %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread
 
-_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %73, %71, %121, %119, %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split, %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, %53, %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, %131, %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63, %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, %5, %5, %5, %2
+_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %72, %70, %120, %118, %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread.sink.split, %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit56, %52, %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, %130, %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit63, %_ZN4Luau12DenseHashMapIPNS_7AstExprE16LuauBytecodeTypeNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit, %5, %5, %5, %2
   %.0 = xor i1 %4, true
   ret i1 %.0
 }

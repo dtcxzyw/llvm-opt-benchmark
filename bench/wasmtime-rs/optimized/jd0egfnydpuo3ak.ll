@@ -3837,7 +3837,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1156
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %9, ptr %3, align 8, !noalias !1156
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.22, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.24)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.22, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1156
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h94caaf84ff0829f3E.exit"
 
@@ -3863,7 +3863,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1162
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %3, align 8, !noalias !1162
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.22, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.23)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.22, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1162
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h518e96d82708d8eeE.exit"
 
@@ -3897,7 +3897,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %13 = phi ptr [ %15, %.lr.ph.i.i.i ], [ %11, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1170
   store ptr %13, ptr %3, align 8, !noalias !1170
-  %14 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9d80dad64c3932620b256bf6103445cf.7.llvm.17191764028380965858)
+  %14 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d80dad64c3932620b256bf6103445cf.7.llvm.17191764028380965858)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1170
   %15 = call noundef align 4 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ac5e7668c9d0cccE.llvm.17191764028380965858"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %16 = icmp eq ptr %15, null
@@ -7419,7 +7419,7 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   br i1 %.not16.i, label %27, label %28
 
 27:                                               ; preds = %26
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.29) #33
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.29) #33
   unreachable
 
 28:                                               ; preds = %26, %1
@@ -7469,7 +7469,7 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   br i1 %.not16.i20, label %48, label %49
 
 48:                                               ; preds = %47
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.30) #33
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.30) #33
   unreachable
 
 49:                                               ; preds = %47, %28
@@ -7519,7 +7519,7 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   br i1 %.not16.i29, label %69, label %70
 
 69:                                               ; preds = %68
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.31) #33
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.31) #33
   unreachable
 
 70:                                               ; preds = %68, %49
@@ -7569,7 +7569,7 @@ common.resume:                                    ; preds = %87, %66, %45, %24
   br i1 %.not16.i38, label %90, label %91
 
 90:                                               ; preds = %89
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.32) #33
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.32) #33
   unreachable
 
 91:                                               ; preds = %89, %70
@@ -7669,7 +7669,7 @@ define void @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$rand_core.
   br i1 %.not16.i, label %30, label %31
 
 30:                                               ; preds = %29
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.33) #33
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.33) #33
   unreachable
 
 31:                                               ; preds = %29, %12
@@ -7750,7 +7750,7 @@ define { ptr, ptr } @"_ZN73_$LT$wasi_common..random..Deterministic$u20$as$u20$ra
   br i1 %.not16.i.i, label %30, label %31
 
 30:                                               ; preds = %29
-  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.33) #33
+  call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.693ac591c5cc121ba5eabf853a1d1b83.27, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.693ac591c5cc121ba5eabf853a1d1b83.33) #33
   unreachable
 
 31:                                               ; preds = %29, %12

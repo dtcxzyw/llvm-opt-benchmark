@@ -8234,7 +8234,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   br i1 %.not20, label %125, label %12
 
 12:                                               ; preds = %0
-  %13 = invoke i32 @BN_is_zero(ptr noundef nonnull %storemerge.i)
+  %13 = invoke i32 @BN_is_zero(ptr noundef nonnull %11)
           to label %14 unwind label %18
 
 14:                                               ; preds = %12
@@ -8242,7 +8242,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   br i1 %.not, label %125, label %15
 
 15:                                               ; preds = %14
-  %16 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i)
+  %16 = invoke i32 @BN_is_negative(ptr noundef nonnull %11)
           to label %17 unwind label %18
 
 17:                                               ; preds = %15
@@ -8266,7 +8266,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   %storemerge.i21 = select i1 %.not.i20, ptr null, ptr %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19, !noalias !58
   store ptr %storemerge.i21, ptr %9, align 8, !tbaa !19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %11)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %24
 
 24:                                               ; preds = %22
@@ -8281,7 +8281,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   br i1 %.not21, label %125, label %27
 
 27:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
-  %28 = invoke i32 @BN_is_word(ptr noundef nonnull %storemerge.i21, i64 noundef 256)
+  %28 = invoke i32 @BN_is_word(ptr noundef nonnull %23, i64 noundef 256)
           to label %29 unwind label %18
 
 29:                                               ; preds = %27
@@ -8289,7 +8289,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   br i1 %.not5, label %125, label %30
 
 30:                                               ; preds = %29
-  %31 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i21)
+  %31 = invoke i32 @BN_is_negative(ptr noundef nonnull %23)
           to label %32 unwind label %18
 
 32:                                               ; preds = %30
@@ -8313,7 +8313,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   %storemerge.i24 = select i1 %.not.i23, ptr null, ptr %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19, !noalias !61
   store ptr %storemerge.i24, ptr %9, align 8, !tbaa !19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i21)
+  invoke void @BN_free(ptr noundef nonnull %23)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29 unwind label %39
 
 39:                                               ; preds = %37
@@ -8328,7 +8328,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29: ;
   br i1 %.not22, label %125, label %42
 
 42:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29
-  %43 = invoke i32 @BN_abs_is_word(ptr noundef nonnull %storemerge.i24, i64 noundef 42)
+  %43 = invoke i32 @BN_abs_is_word(ptr noundef nonnull %38, i64 noundef 42)
           to label %44 unwind label %18
 
 44:                                               ; preds = %42
@@ -8336,7 +8336,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29: ;
   br i1 %.not7, label %125, label %45
 
 45:                                               ; preds = %44
-  %46 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i24)
+  %46 = invoke i32 @BN_is_negative(ptr noundef nonnull %38)
           to label %47 unwind label %18
 
 47:                                               ; preds = %45
@@ -8360,7 +8360,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29: ;
   %storemerge.i31 = select i1 %.not.i30, ptr null, ptr %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19, !noalias !64
   store ptr %storemerge.i31, ptr %9, align 8, !tbaa !19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i24)
+  invoke void @BN_free(ptr noundef nonnull %38)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36 unwind label %54
 
 54:                                               ; preds = %52
@@ -8375,7 +8375,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36: ;
   br i1 %.not23, label %125, label %57
 
 57:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36
-  %58 = invoke i32 @BN_is_word(ptr noundef nonnull %storemerge.i31, i64 noundef 4660)
+  %58 = invoke i32 @BN_is_word(ptr noundef nonnull %53, i64 noundef 4660)
           to label %59 unwind label %18
 
 59:                                               ; preds = %57
@@ -8383,7 +8383,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36: ;
   br i1 %.not9, label %125, label %60
 
 60:                                               ; preds = %59
-  %61 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i31)
+  %61 = invoke i32 @BN_is_negative(ptr noundef nonnull %53)
           to label %62 unwind label %18
 
 62:                                               ; preds = %60
@@ -8407,7 +8407,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36: ;
   %storemerge.i38 = select i1 %.not.i37, ptr null, ptr %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19, !noalias !67
   store ptr %storemerge.i38, ptr %9, align 8, !tbaa !19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i31)
+  invoke void @BN_free(ptr noundef nonnull %53)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43 unwind label %69
 
 69:                                               ; preds = %67
@@ -8422,7 +8422,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ;
   br i1 %.not24, label %125, label %72
 
 72:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43
-  %73 = invoke i32 @BN_is_word(ptr noundef nonnull %storemerge.i38, i64 noundef 4660)
+  %73 = invoke i32 @BN_is_word(ptr noundef nonnull %68, i64 noundef 4660)
           to label %74 unwind label %18
 
 74:                                               ; preds = %72
@@ -8430,7 +8430,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ;
   br i1 %.not11, label %125, label %75
 
 75:                                               ; preds = %74
-  %76 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i38)
+  %76 = invoke i32 @BN_is_negative(ptr noundef nonnull %68)
           to label %77 unwind label %18
 
 77:                                               ; preds = %75
@@ -8454,7 +8454,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ;
   %storemerge.i45 = select i1 %.not.i44, ptr null, ptr %83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !70
   store ptr %storemerge.i45, ptr %9, align 8, !tbaa !19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i38)
+  invoke void @BN_free(ptr noundef nonnull %68)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 unwind label %84
 
 84:                                               ; preds = %82
@@ -8469,7 +8469,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   br i1 %.not25, label %125, label %87
 
 87:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50
-  %88 = invoke i32 @BN_abs_is_word(ptr noundef nonnull %storemerge.i45, i64 noundef 43981)
+  %88 = invoke i32 @BN_abs_is_word(ptr noundef nonnull %83, i64 noundef 43981)
           to label %89 unwind label %18
 
 89:                                               ; preds = %87
@@ -8477,7 +8477,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   br i1 %.not13, label %125, label %90
 
 90:                                               ; preds = %89
-  %91 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i45)
+  %91 = invoke i32 @BN_is_negative(ptr noundef nonnull %83)
           to label %92 unwind label %18
 
 92:                                               ; preds = %90
@@ -8501,7 +8501,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   %storemerge.i52 = select i1 %.not.i51, ptr null, ptr %98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !73
   store ptr %storemerge.i52, ptr %9, align 8, !tbaa !19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i45)
+  invoke void @BN_free(ptr noundef nonnull %83)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57 unwind label %99
 
 99:                                               ; preds = %97
@@ -8516,7 +8516,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ;
   br i1 %.not26, label %125, label %102
 
 102:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57
-  %103 = invoke i32 @BN_is_zero(ptr noundef nonnull %storemerge.i52)
+  %103 = invoke i32 @BN_is_zero(ptr noundef nonnull %98)
           to label %104 unwind label %18
 
 104:                                              ; preds = %102
@@ -8524,7 +8524,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ;
   br i1 %.not15, label %125, label %105
 
 105:                                              ; preds = %104
-  %106 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i52)
+  %106 = invoke i32 @BN_is_negative(ptr noundef nonnull %98)
           to label %107 unwind label %18
 
 107:                                              ; preds = %105
@@ -8548,7 +8548,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ;
   %storemerge.i59 = select i1 %.not.i58, ptr null, ptr %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !76
   store ptr %storemerge.i59, ptr %9, align 8, !tbaa !19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i52)
+  invoke void @BN_free(ptr noundef nonnull %98)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64 unwind label %114
 
 114:                                              ; preds = %112
@@ -8563,7 +8563,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64: ;
   br i1 %.not27, label %125, label %117
 
 117:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64
-  %118 = invoke i32 @BN_is_word(ptr noundef nonnull %storemerge.i59, i64 noundef 123)
+  %118 = invoke i32 @BN_is_word(ptr noundef nonnull %113, i64 noundef 123)
           to label %119 unwind label %18
 
 119:                                              ; preds = %117
@@ -8571,7 +8571,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64: ;
   br i1 %.not17, label %125, label %120
 
 120:                                              ; preds = %119
-  %121 = invoke i32 @BN_is_negative(ptr noundef nonnull %storemerge.i59)
+  %121 = invoke i32 @BN_is_negative(ptr noundef nonnull %113)
           to label %122 unwind label %18
 
 122:                                              ; preds = %120
@@ -8749,7 +8749,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   br i1 %.not.i49, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50, label %51
 
 51:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %9)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 unwind label %52
 
 52:                                               ; preds = %51
@@ -8789,7 +8789,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   br i1 %.not.i51, label %.critedge45.sink.split, label %61
 
 61:                                               ; preds = %.critedge
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %9)
           to label %.critedge45.sink.split unwind label %62
 
 62:                                               ; preds = %61
@@ -8819,7 +8819,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54: ;
   br i1 %.not.i55, label %.critedge45.sink.split, label %72
 
 72:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %9)
           to label %.critedge45.sink.split unwind label %73
 
 73:                                               ; preds = %72
@@ -9062,7 +9062,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   br label %95
 
 42:                                               ; preds = %36
-  %43 = invoke i32 @BN_cmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull %22)
+  %43 = invoke i32 @BN_cmp(ptr noundef nonnull %20, ptr noundef nonnull %22)
           to label %44 unwind label %40
 
 44:                                               ; preds = %42
@@ -9090,7 +9090,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   br i1 %.not79, label %58, label %52
 
 52:                                               ; preds = %51
-  %53 = invoke i32 @BN_marshal_asn1(ptr noundef nonnull %7, ptr noundef nonnull %storemerge.i)
+  %53 = invoke i32 @BN_marshal_asn1(ptr noundef nonnull %7, ptr noundef nonnull %20)
           to label %54 unwind label %.loopexit
 
 54:                                               ; preds = %52
@@ -9171,7 +9171,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 79:                                               ; preds = %72
-  %80 = invoke i32 @BN_cmp(ptr noundef nonnull %storemerge.i, ptr noundef nonnull %22)
+  %80 = invoke i32 @BN_cmp(ptr noundef nonnull %20, ptr noundef nonnull %22)
           to label %81 unwind label %76
 
 81:                                               ; preds = %79
@@ -9208,7 +9208,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 
 91:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 unwind label %92
 
 92:                                               ; preds = %91
@@ -9250,7 +9250,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134: 
 
 97:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138 unwind label %98
 
 98:                                               ; preds = %97
@@ -9278,7 +9278,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138: 
 
 105:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142 unwind label %106
 
 106:                                              ; preds = %105
@@ -9309,7 +9309,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142: 
 
 113:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146 unwind label %114
 
 114:                                              ; preds = %113
@@ -9348,7 +9348,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: 
 
 122:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i)
+  invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152 unwind label %123
 
 123:                                              ; preds = %122
@@ -9556,7 +9556,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 
 187:                                              ; preds = %181
   %188 = load ptr, ptr %12, align 8, !tbaa !19
-  %189 = invoke i32 @BN_cmp(ptr noundef %188, ptr noundef nonnull %storemerge.i160)
+  %189 = invoke i32 @BN_cmp(ptr noundef %188, ptr noundef nonnull %171)
           to label %190 unwind label %185
 
 190:                                              ; preds = %187
@@ -9569,7 +9569,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
   br label %.critedge122
 
 194:                                              ; preds = %190
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i160)
+  invoke void @BN_free(ptr noundef nonnull %171)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162 unwind label %195
 
 195:                                              ; preds = %194
@@ -9620,7 +9620,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166: 
   br label %.thread
 
 .critedge122:                                     ; preds = %182, %191
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i160)
+  invoke void @BN_free(ptr noundef nonnull %171)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168 unwind label %205
 
 205:                                              ; preds = %.critedge122
@@ -9680,7 +9680,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
   br i1 %.not101, label %223, label %220
 
 220:                                              ; preds = %219
-  %221 = invoke i32 @BN_marshal_asn1(ptr noundef nonnull %16, ptr noundef nonnull %storemerge.i172)
+  %221 = invoke i32 @BN_marshal_asn1(ptr noundef nonnull %16, ptr noundef nonnull %215)
           to label %222 unwind label %226
 
 222:                                              ; preds = %220
@@ -9708,7 +9708,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
 229:                                              ; preds = %228, %223
   %.18 = phi i1 [ false, %223 ], [ true, %228 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #19
-  invoke void @BN_free(ptr noundef nonnull %storemerge.i172)
+  invoke void @BN_free(ptr noundef nonnull %215)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174 unwind label %230
 
 230:                                              ; preds = %229

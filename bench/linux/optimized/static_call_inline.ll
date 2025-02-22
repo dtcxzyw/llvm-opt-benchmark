@@ -461,7 +461,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
 
 .loopexit:                                        ; preds = %89, %99, %78, %.preheader.split.us, %58
   %102 = phi i32 [ 0, %58 ], [ 0, %78 ], [ 1, %.preheader.split.us ], [ 0, %99 ], [ 1, %89 ]
-  tail call void @module_put(ptr noundef nonnull %49) #13
+  tail call void @module_put(ptr noundef nonnull %42) #13
   br label %.loopexit4
 
 .loopexit4:                                       ; preds = %29, %.split.us, %.loopexit, %56

@@ -288,7 +288,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  tail call fastcc void @mi_segment_free(ptr noundef nonnull %9, ptr noundef %2) #7
+  tail call fastcc void @mi_segment_free(ptr noundef nonnull %7, ptr noundef %2) #7
   br label %35
 
 14:                                               ; preds = %3
@@ -298,7 +298,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call fastcc void @mi_segment_abandon(ptr noundef nonnull %9, ptr noundef %2) #7
+  tail call fastcc void @mi_segment_abandon(ptr noundef nonnull %7, ptr noundef %2) #7
   br label %35
 
 19:                                               ; preds = %14
@@ -1199,7 +1199,7 @@ define hidden void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef %1) loc
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %2
-  tail call fastcc void @mi_segment_abandon(ptr noundef nonnull %8, ptr noundef nonnull %1) #7
+  tail call fastcc void @mi_segment_abandon(ptr noundef nonnull %6, ptr noundef nonnull %1) #7
   br label %20
 
 20:                                               ; preds = %19, %2
@@ -1650,7 +1650,7 @@ define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef reado
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %._crit_edge.i
-  tail call fastcc void @mi_segment_free(ptr noundef nonnull %23, ptr noundef %2) #7
+  tail call fastcc void @mi_segment_free(ptr noundef nonnull %21, ptr noundef %2) #7
   br label %mi_segment_force_abandon.exit
 
 51:                                               ; preds = %._crit_edge.i

@@ -6818,7 +6818,7 @@ sw.bb10.i:                                        ; preds = %sw.bb4.i
   br i1 %cmp11.i, label %sw.bb36.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %sw.bb10.i
-  %6 = load i8, ptr %next_expected_header_byte.0.i, align 1
+  %6 = load i8, ptr %4, align 1
   %cmp14.i = icmp eq i8 %6, 31
   br i1 %cmp14.i, label %if.then15.i, label %sw.bb36.sink.split.i
 

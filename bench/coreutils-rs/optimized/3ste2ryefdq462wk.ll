@@ -2018,7 +2018,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h181b397e3eb5f522E
   store ptr @anon.400b50c45937605b64249380eff9ac24.3, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.12) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.12) #17
   unreachable
 
 13:                                               ; preds = %2
@@ -2036,7 +2036,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h181b397e3eb5f522E
   store ptr @anon.400b50c45937605b64249380eff9ac24.3, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.15) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.15) #17
   unreachable
 
 20:                                               ; preds = %2
@@ -2082,7 +2082,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17hd8d2803aac84093fE.llvm.
   store ptr @anon.400b50c45937605b64249380eff9ac24.3, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %13, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.18) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.18) #17
   unreachable
 
 14:                                               ; preds = %3
@@ -2096,7 +2096,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17hd8d2803aac84093fE.llvm.
   store ptr @anon.400b50c45937605b64249380eff9ac24.3, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %18, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.21) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.400b50c45937605b64249380eff9ac24.21) #17
   unreachable
 
 19:                                               ; preds = %3

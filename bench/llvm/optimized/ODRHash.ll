@@ -7934,114 +7934,114 @@ define internal fastcc void @_ZN12_GLOBAL__N_114ODRDeclVisitor15VisitFriendDeclE
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
-  %.not.i.i.i.i.i = icmp eq i64 %4, 0
+  %.not.i.i.i.i.i = icmp ne i64 %4, 0
   %5 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
   %6 = inttoptr i64 %5 to ptr
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !231
-  %9 = icmp ne ptr %.0.i.i.i.i.i, null
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !13
-  %13 = add i64 %12, 1
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !15
-  %.not.i.i.i.i = icmp ugt i64 %13, %15
-  br i1 %.not.i.i.i.i, label %16, label %_ZN5clang7ODRHash10AddBooleanEb.exit, !prof !16
+  %9 = icmp ne i64 %5, 0
+  %10 = and i1 %.not.i.i.i.i.i, %9
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %13 = load i64, ptr %12, align 8, !tbaa !13
+  %14 = add i64 %13, 1
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %16 = load i64, ptr %15, align 8, !tbaa !15
+  %.not.i.i.i.i = icmp ugt i64 %14, %16
+  br i1 %.not.i.i.i.i, label %17, label %_ZN5clang7ODRHash10AddBooleanEb.exit, !prof !16
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %17, i64 noundef %13, i64 noundef 1) #15
-  %.pre.i.i = load i64, ptr %11, align 8, !tbaa !13
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %18, i64 noundef %14, i64 noundef 1) #15
+  %.pre.i.i = load i64, ptr %12, align 8, !tbaa !13
   br label %_ZN5clang7ODRHash10AddBooleanEb.exit
 
-_ZN5clang7ODRHash10AddBooleanEb.exit:             ; preds = %2, %16
-  %18 = phi i64 [ %12, %2 ], [ %.pre.i.i, %16 ]
-  %19 = zext i1 %9 to i8
-  %20 = load ptr, ptr %10, align 8, !tbaa !17
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
-  store i8 %19, ptr %21, align 1
-  %22 = load i64, ptr %11, align 8, !tbaa !13
-  %23 = add i64 %22, 1
-  store i64 %23, ptr %11, align 8, !tbaa !13
-  br i1 %9, label %24, label %25
+_ZN5clang7ODRHash10AddBooleanEb.exit:             ; preds = %2, %17
+  %19 = phi i64 [ %13, %2 ], [ %.pre.i.i, %17 ]
+  %20 = zext i1 %10 to i8
+  %21 = load ptr, ptr %11, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
+  store i8 %20, ptr %22, align 1
+  %23 = load i64, ptr %12, align 8, !tbaa !13
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %12, align 8, !tbaa !13
+  br i1 %10, label %25, label %26
 
-24:                                               ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit
-  %.sroa.0.0.copyload.i = load i64, ptr %.0.i.i.i.i.i, align 8, !tbaa !39
+25:                                               ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit
+  %.sroa.0.0.copyload.i = load i64, ptr %6, align 8, !tbaa !39
   %.val = load ptr, ptr %7, align 8, !tbaa !231
   tail call void @_ZN5clang7ODRHash11AddQualTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(320) %.val, i64 %.sroa.0.0.copyload.i)
   br label %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit
 
-25:                                               ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit
+26:                                               ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit
   %.sroa.0.0.copyload.i.i.i.i.i7 = load i64, ptr %3, align 8
-  %26 = and i64 %.sroa.0.0.copyload.i.i.i.i.i7, 4
-  %27 = icmp eq i64 %26, 0
-  %28 = and i64 %.sroa.0.0.copyload.i.i.i.i.i7, -8
-  %29 = inttoptr i64 %28 to ptr
-  %.0.i.i.i.i.i8 = select i1 %27, ptr %29, ptr null
-  %30 = load ptr, ptr %7, align 8, !tbaa !231
-  %31 = icmp ne ptr %.0.i.i.i.i.i8, null
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %34 = load i64, ptr %33, align 8, !tbaa !13
-  %35 = add i64 %34, 1
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %37 = load i64, ptr %36, align 8, !tbaa !15
-  %.not.i.i.i.i.i9 = icmp ugt i64 %35, %37
-  br i1 %.not.i.i.i.i.i9, label %38, label %_ZN5clang7ODRHash10AddBooleanEb.exit.i, !prof !16
+  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i.i7, 4
+  %28 = icmp eq i64 %27, 0
+  %29 = and i64 %.sroa.0.0.copyload.i.i.i.i.i7, -8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = load ptr, ptr %7, align 8, !tbaa !231
+  %32 = icmp ne i64 %29, 0
+  %33 = and i1 %28, %32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %36 = load i64, ptr %35, align 8, !tbaa !13
+  %37 = add i64 %36, 1
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %39 = load i64, ptr %38, align 8, !tbaa !15
+  %.not.i.i.i.i.i9 = icmp ugt i64 %37, %39
+  br i1 %.not.i.i.i.i.i9, label %40, label %_ZN5clang7ODRHash10AddBooleanEb.exit.i, !prof !16
 
-38:                                               ; preds = %25
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull %39, i64 noundef %35, i64 noundef 1) #15
-  %.pre.i.i.i = load i64, ptr %33, align 8, !tbaa !13
+40:                                               ; preds = %26
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull %41, i64 noundef %37, i64 noundef 1) #15
+  %.pre.i.i.i = load i64, ptr %35, align 8, !tbaa !13
   br label %_ZN5clang7ODRHash10AddBooleanEb.exit.i
 
-_ZN5clang7ODRHash10AddBooleanEb.exit.i:           ; preds = %38, %25
-  %40 = phi i64 [ %34, %25 ], [ %.pre.i.i.i, %38 ]
-  %41 = zext i1 %31 to i8
-  %42 = load ptr, ptr %32, align 8, !tbaa !17
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %40
-  store i8 %41, ptr %43, align 1
-  %44 = load i64, ptr %33, align 8, !tbaa !13
-  %45 = add i64 %44, 1
-  store i64 %45, ptr %33, align 8, !tbaa !13
-  br i1 %31, label %46, label %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit
+_ZN5clang7ODRHash10AddBooleanEb.exit.i:           ; preds = %40, %26
+  %42 = phi i64 [ %36, %26 ], [ %.pre.i.i.i, %40 ]
+  %43 = zext i1 %33 to i8
+  %44 = load ptr, ptr %34, align 8, !tbaa !17
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
+  store i8 %43, ptr %45, align 1
+  %46 = load i64, ptr %35, align 8, !tbaa !13
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %35, align 8, !tbaa !13
+  br i1 %33, label %48, label %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit
 
-46:                                               ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit.i
-  %47 = load ptr, ptr %7, align 8, !tbaa !231
-  tail call void @_ZN5clang7ODRHash7AddDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(320) %47, ptr noundef nonnull %.0.i.i.i.i.i8)
+48:                                               ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit.i
+  %49 = load ptr, ptr %7, align 8, !tbaa !231
+  tail call void @_ZN5clang7ODRHash7AddDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(320) %49, ptr noundef nonnull %30)
   br label %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit
 
-_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit: ; preds = %46, %_ZN5clang7ODRHash10AddBooleanEb.exit.i, %24
-  %48 = load ptr, ptr %7, align 8, !tbaa !231
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %50 = load i32, ptr %49, align 4, !tbaa !292
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %53 = load i64, ptr %52, align 8, !tbaa !13
-  %54 = add i64 %53, 1
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %56 = load i64, ptr %55, align 8, !tbaa !15
-  %.not.i.i.i.i10 = icmp ugt i64 %54, %56
-  br i1 %.not.i.i.i.i10, label %57, label %_ZN5clang7ODRHash10AddBooleanEb.exit12, !prof !16
+_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit: ; preds = %48, %_ZN5clang7ODRHash10AddBooleanEb.exit.i, %25
+  %50 = load ptr, ptr %7, align 8, !tbaa !231
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %52 = load i32, ptr %51, align 4, !tbaa !292
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %55 = load i64, ptr %54, align 8, !tbaa !13
+  %56 = add i64 %55, 1
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %58 = load i64, ptr %57, align 8, !tbaa !15
+  %.not.i.i.i.i10 = icmp ugt i64 %56, %58
+  br i1 %.not.i.i.i.i10, label %59, label %_ZN5clang7ODRHash10AddBooleanEb.exit12, !prof !16
 
-57:                                               ; preds = %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull %58, i64 noundef %54, i64 noundef 1) #15
-  %.pre.i.i11 = load i64, ptr %52, align 8, !tbaa !13
+59:                                               ; preds = %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull %60, i64 noundef %56, i64 noundef 1) #15
+  %.pre.i.i11 = load i64, ptr %54, align 8, !tbaa !13
   br label %_ZN5clang7ODRHash10AddBooleanEb.exit12
 
-_ZN5clang7ODRHash10AddBooleanEb.exit12:           ; preds = %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit, %57
-  %59 = phi i64 [ %53, %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit ], [ %.pre.i.i11, %57 ]
-  %60 = icmp ne i32 %50, 0
-  %61 = zext i1 %60 to i8
-  %62 = load ptr, ptr %51, align 8, !tbaa !17
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %59
-  store i8 %61, ptr %63, align 1
-  %64 = load i64, ptr %52, align 8, !tbaa !13
-  %65 = add i64 %64, 1
-  store i64 %65, ptr %52, align 8, !tbaa !13
+_ZN5clang7ODRHash10AddBooleanEb.exit12:           ; preds = %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit, %59
+  %61 = phi i64 [ %55, %_ZN12_GLOBAL__N_114ODRDeclVisitor7AddDeclEPKN5clang4DeclE.exit ], [ %.pre.i.i11, %59 ]
+  %62 = icmp ne i32 %52, 0
+  %63 = zext i1 %62 to i8
+  %64 = load ptr, ptr %53, align 8, !tbaa !17
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %61
+  store i8 %63, ptr %65, align 1
+  %66 = load i64, ptr %54, align 8, !tbaa !13
+  %67 = add i64 %66, 1
+  store i64 %67, ptr %54, align 8, !tbaa !13
   ret void
 }
 

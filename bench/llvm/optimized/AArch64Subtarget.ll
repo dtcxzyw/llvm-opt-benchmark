@@ -17018,17 +17018,14 @@ define dso_local noundef range(i32 0, 2193) i32 @_ZNK4llvm16AArch64Subtarget31cl
 .thread:                                          ; preds = %10
   %15 = load i8, ptr %1, align 8, !tbaa !660
   %16 = icmp eq i8 %15, 0
-  %spec.select.i.i17 = select i1 %16, ptr %1, ptr null
   br label %20
 
 17:                                               ; preds = %3
   %18 = load i8, ptr %1, align 8, !tbaa !660
   %19 = icmp eq i8 %18, 0
-  %spec.select.i.i = select i1 %19, ptr %1, ptr null
   br i1 %9, label %20, label %24
 
 20:                                               ; preds = %.thread, %17
-  %spec.select.i.i19 = phi ptr [ %spec.select.i.i17, %.thread ], [ %spec.select.i.i, %17 ]
   %21 = phi i1 [ %16, %.thread ], [ %19, %17 ]
   %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19MachOUseNonLazyBind, i64 120), align 8, !tbaa !427, !range !442, !noundef !443
   %23 = trunc nuw i8 %22 to i1
@@ -17036,12 +17033,10 @@ define dso_local noundef range(i32 0, 2193) i32 @_ZNK4llvm16AArch64Subtarget31cl
   br i1 %or.cond, label %25, label %29
 
 24:                                               ; preds = %17
-  %.old1.not = icmp eq ptr %spec.select.i.i, null
-  br i1 %.old1.not, label %29, label %25
+  br i1 %19, label %25, label %29
 
 25:                                               ; preds = %20, %24
-  %spec.select.i.i18 = phi ptr [ %spec.select.i.i19, %20 ], [ %1, %24 ]
-  %26 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %spec.select.i.i18, i32 noundef 42) #24
+  %26 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef 42) #24
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25

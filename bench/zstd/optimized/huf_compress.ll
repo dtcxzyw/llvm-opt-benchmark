@@ -459,10 +459,11 @@ define range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr noundef captures(none) %
 
 18:                                               ; preds = %16
   %19 = icmp eq i32 %3, 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %13, i8 0, i64 4096, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4096
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(768) %20, i8 0, i64 768, i1 false)
   %21 = add nuw nsw i32 %2, 1
   %wide.trip.count.i = zext nneg i32 %21 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4864) %.0.i, i8 0, i64 4864, i1 false)
   br label %22
 
 22:                                               ; preds = %22, %18
@@ -3072,7 +3073,7 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %13, align 4, !tbaa !11
-  %71 = call i32 @HUF_validateCTable(ptr noundef %9, ptr noundef nonnull %.0.i, i32 noundef %70)
+  %71 = call i32 @HUF_validateCTable(ptr noundef %9, ptr noundef nonnull %19, i32 noundef %70)
   %.not171 = icmp eq i32 %71, 0
   br i1 %.not171, label %72, label %.thread222
 
@@ -3096,9 +3097,9 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
 .thread198:                                       ; preds = %.thread222, %65, %73
   %76 = load i32, ptr %13, align 4, !tbaa !11
   %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1024
-  %78 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %3, i32 noundef %76, ptr noundef nonnull %55, i64 noundef 4864, ptr noundef nonnull %77, ptr noundef nonnull %.0.i, i32 noundef %11)
+  %78 = call i32 @HUF_optimalTableLog(i32 noundef %spec.store.select, i64 noundef %3, i32 noundef %76, ptr noundef nonnull %55, i64 noundef 4864, ptr noundef nonnull %77, ptr noundef nonnull %19, i32 noundef %11)
   %79 = load i32, ptr %13, align 4, !tbaa !11
-  %80 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %77, ptr noundef nonnull %.0.i, i32 noundef %79, i32 noundef %78, ptr noundef nonnull %55, i64 noundef 4864)
+  %80 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %77, ptr noundef nonnull %19, i32 noundef %79, i32 noundef %78, ptr noundef nonnull %55, i64 noundef 4864)
   %81 = icmp ult i64 %80, -119
   br i1 %81, label %82, label %.thread
 

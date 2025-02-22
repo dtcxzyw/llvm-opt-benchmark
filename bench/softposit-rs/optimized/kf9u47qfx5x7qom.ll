@@ -174,7 +174,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %75
-  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4540a05e70eb433947f08bd653635aa8.3) #8
+  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4540a05e70eb433947f08bd653635aa8.3) #8
   unreachable
 
 78:                                               ; preds = %75

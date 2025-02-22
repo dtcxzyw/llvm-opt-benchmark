@@ -13136,7 +13136,7 @@ define hidden noundef ptr @_ZNK7TypePtr19cleanup_speculativeEv(ptr noundef nonnu
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %59, label %7
+  br i1 %6, label %57, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
@@ -13151,7 +13151,7 @@ define hidden noundef ptr @_ZNK7TypePtr19cleanup_speculativeEv(ptr noundef nonnu
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(44) %12, i32 noundef %14) #17
   %19 = icmp eq ptr %11, %18
-  br i1 %19, label %59, label %20
+  br i1 %19, label %57, label %20
 
 20:                                               ; preds = %7
   %21 = load ptr, ptr %0, align 8
@@ -13161,7 +13161,7 @@ define hidden noundef ptr @_ZNK7TypePtr19cleanup_speculativeEv(ptr noundef nonnu
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load i32, ptr %25, align 8
   %27 = icmp slt i32 %26, 2
-  br i1 %27, label %59, label %28
+  br i1 %27, label %57, label %28
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %0, align 8
@@ -13170,44 +13170,42 @@ define hidden noundef ptr @_ZNK7TypePtr19cleanup_speculativeEv(ptr noundef nonnu
   %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = add i32 %34, -20
-  %or.cond.i = icmp ult i32 %35, 3
-  %36 = select i1 %or.cond.i, ptr %32, ptr null
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
-  %41 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
-  %.not = icmp eq ptr %40, %41
-  br i1 %.not, label %58, label %42
+  %35 = add i32 %34, -23
+  %or.cond.i = icmp ult i32 %35, -3
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %40 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
+  %.not = icmp eq ptr %39, %40
+  br i1 %.not, label %56, label %41
 
-42:                                               ; preds = %28
-  %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 160
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(44) %46) #17
-  br i1 %50, label %51, label %58
+41:                                               ; preds = %28
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 160
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(44) %45) #17
+  br i1 %49, label %50, label %56
 
-51:                                               ; preds = %42
-  %52 = icmp eq ptr %36, null
-  br i1 %52, label %59, label %53
+50:                                               ; preds = %41
+  br i1 %or.cond.i, label %57, label %51
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %36, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 272
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(80) %36) #17
-  br i1 %57, label %58, label %59
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %32, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 272
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(80) %32) #17
+  br i1 %55, label %56, label %57
 
-58:                                               ; preds = %53, %42, %28
-  br label %59
+56:                                               ; preds = %51, %41, %28
+  br label %57
 
-59:                                               ; preds = %51, %53, %20, %7, %1, %58
-  %.0 = phi ptr [ %0, %58 ], [ %0, %1 ], [ %11, %7 ], [ %11, %20 ], [ %11, %53 ], [ %11, %51 ]
+57:                                               ; preds = %50, %51, %20, %7, %1, %56
+  %.0 = phi ptr [ %0, %56 ], [ %0, %1 ], [ %11, %7 ], [ %11, %20 ], [ %11, %51 ], [ %11, %50 ]
   ret ptr %.0
 }
 
@@ -17353,14 +17351,84 @@ define hidden noundef ptr @_ZNK10TypeOopPtr19cleanup_speculativeEv(ptr noundef n
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
-  br label %18
+  br label %_ZNK7TypePtr19cleanup_speculativeEv.exit
 
 16:                                               ; preds = %6, %1
-  %17 = tail call noundef ptr @_ZNK7TypePtr19cleanup_speculativeEv(ptr noundef nonnull align 8 dereferenceable(44) %0)
-  br label %18
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_ZNK7TypePtr19cleanup_speculativeEv.exit, label %22
 
-18:                                               ; preds = %16, %11
-  %.0 = phi ptr [ %17, %16 ], [ %15, %11 ]
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %27 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load i32, ptr %28, align 8
+  %30 = load ptr, ptr %27, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 216
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(44) %27, i32 noundef %29) #17
+  %34 = icmp eq ptr %26, %33
+  br i1 %34, label %_ZNK7TypePtr19cleanup_speculativeEv.exit, label %35
+
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp slt i32 %41, 2
+  br i1 %42, label %_ZNK7TypePtr19cleanup_speculativeEv.exit, label %43
+
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 88
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load i32, ptr %48, align 8
+  %50 = add i32 %49, -23
+  %or.cond.i.i = icmp ult i32 %50, -3
+  %51 = load ptr, ptr %0, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 88
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %55 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
+  %.not.i = icmp eq ptr %54, %55
+  br i1 %.not.i, label %71, label %56
+
+56:                                               ; preds = %43
+  %57 = load ptr, ptr %0, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(44) %0) #17
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 160
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(44) %60) #17
+  br i1 %64, label %65, label %71
+
+65:                                               ; preds = %56
+  br i1 %or.cond.i.i, label %_ZNK7TypePtr19cleanup_speculativeEv.exit, label %66
+
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %47, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 272
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(80) %47) #17
+  br i1 %70, label %71, label %_ZNK7TypePtr19cleanup_speculativeEv.exit
+
+71:                                               ; preds = %66, %56, %43
+  br label %_ZNK7TypePtr19cleanup_speculativeEv.exit
+
+_ZNK7TypePtr19cleanup_speculativeEv.exit:         ; preds = %71, %66, %65, %35, %22, %16, %11
+  %.0 = phi ptr [ %15, %11 ], [ %0, %71 ], [ %0, %16 ], [ %26, %22 ], [ %26, %35 ], [ %26, %66 ], [ %26, %65 ]
   ret ptr %.0
 }
 
@@ -20470,45 +20538,40 @@ _ZNK4Type8make_ptrEv.exit52:                      ; preds = %123, %126, %129
   %133 = icmp ne ptr %116, null
   %134 = icmp ne ptr %132, null
   %or.cond = and i1 %133, %134
-  br i1 %or.cond, label %135, label %148
+  br i1 %or.cond, label %135, label %144
 
 135:                                              ; preds = %_ZNK4Type8make_ptrEv.exit52
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %137 = load i32, ptr %136, align 8
   %138 = add i32 %137, -20
-  %or.cond.i.i53 = icmp ult i32 %138, 3
-  %139 = select i1 %or.cond.i.i53, ptr %132, ptr null
-  %140 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %141 = load i32, ptr %140, align 8
-  %142 = add i32 %141, -20
-  %or.cond.i.i54 = icmp ult i32 %142, 3
-  %143 = select i1 %or.cond.i.i54, ptr %116, ptr null
-  %144 = load ptr, ptr %139, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 320
-  %146 = load ptr, ptr %145, align 8
-  %147 = tail call noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(80) %139, ptr noundef %143, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
+  %or.cond.i.i54 = icmp ult i32 %138, 3
+  %139 = select i1 %or.cond.i.i54, ptr %116, ptr null
+  %140 = load ptr, ptr %132, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 320
+  %142 = load ptr, ptr %141, align 8
+  %143 = tail call noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(80) %132, ptr noundef %139, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
   br label %.critedge
 
-148:                                              ; preds = %_ZNK4Type8make_ptrEv.exit52
-  %149 = icmp eq ptr %116, null
-  %150 = icmp eq ptr %132, null
-  %or.cond3 = and i1 %149, %150
-  br i1 %or.cond3, label %151, label %.critedge
+144:                                              ; preds = %_ZNK4Type8make_ptrEv.exit52
+  %145 = icmp eq ptr %116, null
+  %146 = icmp eq ptr %132, null
+  %or.cond3 = and i1 %145, %146
+  br i1 %or.cond3, label %147, label %.critedge
 
-151:                                              ; preds = %148
-  %152 = load ptr, ptr %0, align 8
+147:                                              ; preds = %144
+  %148 = load ptr, ptr %0, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 232
+  %150 = load ptr, ptr %149, align 8
+  %151 = tail call noundef ptr %150(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
+  %152 = load ptr, ptr %1, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 232
   %154 = load ptr, ptr %153, align 8
-  %155 = tail call noundef ptr %154(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
-  %156 = load ptr, ptr %1, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 232
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call noundef ptr %158(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
-  %160 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %155, ptr noundef %159) #17
+  %155 = tail call noundef ptr %154(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
+  %156 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %151, ptr noundef %155) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit, %148, %_ZNK10TypeAryPtr17base_element_typeERi.exit49, %21, %28, %11, %151, %135
-  %.0 = phi i1 [ %147, %135 ], [ %160, %151 ], [ true, %11 ], [ false, %21 ], [ %36, %28 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit49 ], [ false, %148 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit ]
+.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit, %144, %_ZNK10TypeAryPtr17base_element_typeERi.exit49, %21, %28, %11, %147, %135
+  %.0 = phi i1 [ %143, %135 ], [ %156, %147 ], [ true, %11 ], [ false, %21 ], [ %36, %28 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit49 ], [ false, %144 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit ]
   ret i1 %.0
 }
 
@@ -20711,45 +20774,40 @@ _ZNK4Type8make_ptrEv.exit40:                      ; preds = %67, %70, %73
   %77 = icmp ne ptr %62, null
   %78 = icmp ne ptr %76, null
   %or.cond = and i1 %77, %78
-  br i1 %or.cond, label %79, label %92
+  br i1 %or.cond, label %79, label %88
 
 79:                                               ; preds = %_ZNK4Type8make_ptrEv.exit40
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, -24
-  %or.cond.i.i41 = icmp ult i32 %82, 3
-  %83 = select i1 %or.cond.i.i41, ptr %76, ptr null
-  %84 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %85 = load i32, ptr %84, align 8
-  %86 = add i32 %85, -24
-  %or.cond.i.i42 = icmp ult i32 %86, 3
-  %87 = select i1 %or.cond.i.i42, ptr %62, ptr null
-  %88 = load ptr, ptr %83, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 320
-  %90 = load ptr, ptr %89, align 8
-  %91 = tail call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef %87, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
+  %or.cond.i.i42 = icmp ult i32 %82, 3
+  %83 = select i1 %or.cond.i.i42, ptr %62, ptr null
+  %84 = load ptr, ptr %76, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 320
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(64) %76, ptr noundef %83, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
   br label %.critedge
 
-92:                                               ; preds = %_ZNK4Type8make_ptrEv.exit40
-  %93 = icmp eq ptr %62, null
-  %94 = icmp eq ptr %76, null
-  %or.cond3 = and i1 %93, %94
-  br i1 %or.cond3, label %95, label %.critedge
+88:                                               ; preds = %_ZNK4Type8make_ptrEv.exit40
+  %89 = icmp eq ptr %62, null
+  %90 = icmp eq ptr %76, null
+  %or.cond3 = and i1 %89, %90
+  br i1 %or.cond3, label %91, label %.critedge
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %0, align 8
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 240
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call noundef ptr %94(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
+  %96 = load ptr, ptr %1, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 240
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call noundef ptr %98(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
-  %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 240
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
-  %104 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %99, ptr noundef %103) #17
+  %99 = tail call noundef ptr %98(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
+  %100 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %95, ptr noundef %99) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, %92, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37, %21, %28, %11, %95, %79
-  %.0 = phi i1 [ %91, %79 ], [ %104, %95 ], [ true, %11 ], [ false, %21 ], [ %36, %28 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37 ], [ false, %92 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ]
+.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, %88, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37, %21, %28, %11, %91, %79
+  %.0 = phi i1 [ %87, %79 ], [ %100, %91 ], [ true, %11 ], [ false, %21 ], [ %36, %28 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37 ], [ false, %88 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ]
   ret i1 %.0
 }
 
@@ -21990,45 +22048,40 @@ _ZNK4Type8make_ptrEv.exit101:                     ; preds = %197, %200, %203
   %207 = icmp ne ptr %206, null
   %208 = icmp ne ptr %190, null
   %or.cond = and i1 %208, %207
-  br i1 %or.cond, label %209, label %222
+  br i1 %or.cond, label %209, label %218
 
 209:                                              ; preds = %_ZNK4Type8make_ptrEv.exit101
-  %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %211 = load i32, ptr %210, align 8
   %212 = add i32 %211, -20
-  %or.cond.i.i102 = icmp ult i32 %212, 3
-  %213 = select i1 %or.cond.i.i102, ptr %206, ptr null
-  %214 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %215 = load i32, ptr %214, align 8
-  %216 = add i32 %215, -20
-  %or.cond.i.i103 = icmp ult i32 %216, 3
-  %217 = select i1 %or.cond.i.i103, ptr %190, ptr null
-  %218 = load ptr, ptr %213, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 248
-  %220 = load ptr, ptr %219, align 8
-  %221 = tail call noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(80) %213, ptr noundef %217, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
+  %or.cond.i.i103 = icmp ult i32 %212, 3
+  %213 = select i1 %or.cond.i.i103, ptr %190, ptr null
+  %214 = load ptr, ptr %206, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 248
+  %216 = load ptr, ptr %215, align 8
+  %217 = tail call noundef zeroext i1 %216(ptr noundef nonnull align 8 dereferenceable(80) %206, ptr noundef %213, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
   br label %.critedge
 
-222:                                              ; preds = %_ZNK4Type8make_ptrEv.exit101
-  %223 = icmp eq ptr %206, null
-  %224 = icmp eq ptr %190, null
-  %or.cond3 = and i1 %224, %223
-  br i1 %or.cond3, label %225, label %.critedge
+218:                                              ; preds = %_ZNK4Type8make_ptrEv.exit101
+  %219 = icmp eq ptr %206, null
+  %220 = icmp eq ptr %190, null
+  %or.cond3 = and i1 %220, %219
+  br i1 %or.cond3, label %221, label %.critedge
 
-225:                                              ; preds = %222
-  %226 = load ptr, ptr %0, align 8
+221:                                              ; preds = %218
+  %222 = load ptr, ptr %0, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 232
+  %224 = load ptr, ptr %223, align 8
+  %225 = tail call noundef ptr %224(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
+  %226 = load ptr, ptr %1, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 232
   %228 = load ptr, ptr %227, align 8
-  %229 = tail call noundef ptr %228(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
-  %230 = load ptr, ptr %1, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 232
-  %232 = load ptr, ptr %231, align 8
-  %233 = tail call noundef ptr %232(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
-  %234 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %229, ptr noundef %233) #17
+  %229 = tail call noundef ptr %228(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
+  %230 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %225, ptr noundef %229) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit80, %101, %222, %_ZNK10TypeAryPtr17base_element_typeERi.exit99, %94, %80, %86, %11, %225, %209
-  %.0 = phi i1 [ %221, %209 ], [ %234, %225 ], [ true, %11 ], [ false, %86 ], [ false, %80 ], [ false, %94 ], [ %spec.select, %101 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit99 ], [ false, %222 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit80 ]
+.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit80, %101, %218, %_ZNK10TypeAryPtr17base_element_typeERi.exit99, %94, %80, %86, %11, %221, %209
+  %.0 = phi i1 [ %217, %209 ], [ %230, %221 ], [ true, %11 ], [ false, %86 ], [ false, %80 ], [ false, %94 ], [ %spec.select, %101 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit99 ], [ false, %218 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit80 ]
   ret i1 %.0
 }
 
@@ -22475,45 +22528,40 @@ _ZNK4Type8make_ptrEv.exit89:                      ; preds = %168, %171, %174
   %178 = icmp ne ptr %161, null
   %179 = icmp ne ptr %177, null
   %or.cond = and i1 %178, %179
-  br i1 %or.cond, label %180, label %193
+  br i1 %or.cond, label %180, label %189
 
 180:                                              ; preds = %_ZNK4Type8make_ptrEv.exit89
-  %181 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %182 = load i32, ptr %181, align 8
   %183 = add i32 %182, -20
-  %or.cond.i.i90 = icmp ult i32 %183, 3
-  %184 = select i1 %or.cond.i.i90, ptr %177, ptr null
-  %185 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %186 = load i32, ptr %185, align 8
-  %187 = add i32 %186, -20
-  %or.cond.i.i91 = icmp ult i32 %187, 3
-  %188 = select i1 %or.cond.i.i91, ptr %161, ptr null
-  %189 = load ptr, ptr %184, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 240
-  %191 = load ptr, ptr %190, align 8
-  %192 = tail call noundef zeroext i1 %191(ptr noundef nonnull align 8 dereferenceable(80) %184, ptr noundef %188) #17
+  %or.cond.i.i91 = icmp ult i32 %183, 3
+  %184 = select i1 %or.cond.i.i91, ptr %161, ptr null
+  %185 = load ptr, ptr %177, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 240
+  %187 = load ptr, ptr %186, align 8
+  %188 = tail call noundef zeroext i1 %187(ptr noundef nonnull align 8 dereferenceable(80) %177, ptr noundef %184) #17
   br label %.critedge
 
-193:                                              ; preds = %_ZNK4Type8make_ptrEv.exit89
-  %194 = icmp eq ptr %161, null
-  %195 = icmp eq ptr %177, null
-  %or.cond3 = and i1 %194, %195
-  br i1 %or.cond3, label %196, label %.critedge
+189:                                              ; preds = %_ZNK4Type8make_ptrEv.exit89
+  %190 = icmp eq ptr %161, null
+  %191 = icmp eq ptr %177, null
+  %or.cond3 = and i1 %190, %191
+  br i1 %or.cond3, label %192, label %.critedge
 
-196:                                              ; preds = %193
-  %197 = load ptr, ptr %0, align 8
+192:                                              ; preds = %189
+  %193 = load ptr, ptr %0, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 232
+  %195 = load ptr, ptr %194, align 8
+  %196 = tail call noundef ptr %195(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
+  %197 = load ptr, ptr %1, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 232
   %199 = load ptr, ptr %198, align 8
-  %200 = tail call noundef ptr %199(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
-  %201 = load ptr, ptr %1, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 232
-  %203 = load ptr, ptr %202, align 8
-  %204 = tail call noundef ptr %203(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
-  %205 = icmp eq ptr %200, %204
+  %200 = tail call noundef ptr %199(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
+  %201 = icmp eq ptr %196, %200
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit68, %193, %_ZNK10TypeAryPtr17base_element_typeERi.exit87, %65, %70, %75, %196, %180
-  %.0 = phi i1 [ %192, %180 ], [ %205, %196 ], [ false, %75 ], [ false, %70 ], [ false, %65 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit87 ], [ false, %193 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit68 ]
+.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit68, %189, %_ZNK10TypeAryPtr17base_element_typeERi.exit87, %65, %70, %75, %192, %180
+  %.0 = phi i1 [ %188, %180 ], [ %201, %192 ], [ false, %75 ], [ false, %70 ], [ false, %65 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit87 ], [ false, %189 ], [ false, %_ZNK10TypeAryPtr17base_element_typeERi.exit68 ]
   ret i1 %.0
 }
 
@@ -22844,7 +22892,7 @@ _ZNK10TypeAryPtr17base_element_typeERi.exit86:    ; preds = %115, %_ZNK4Type8mak
   br i1 %141, label %.critedge, label %142
 
 142:                                              ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit86
-  %143 = call noundef ptr @_ZNK10TypeAryPtr17base_element_typeERi(ptr noundef nonnull align 8 dereferenceable(89) %..i.i67, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %143 = call noundef ptr @_ZNK10TypeAryPtr17base_element_typeERi(ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %144 = icmp eq ptr %143, %108
   br i1 %144, label %.critedge, label %145
 
@@ -22929,45 +22977,40 @@ _ZNK4Type8make_ptrEv.exit88:                      ; preds = %182, %185, %188
   %192 = icmp ne ptr %191, null
   %193 = icmp ne ptr %175, null
   %or.cond = and i1 %193, %192
-  br i1 %or.cond, label %194, label %207
+  br i1 %or.cond, label %194, label %203
 
 194:                                              ; preds = %_ZNK4Type8make_ptrEv.exit88
-  %195 = getelementptr inbounds nuw i8, ptr %175, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %196 = load i32, ptr %195, align 8
   %197 = add i32 %196, -20
-  %or.cond.i.i89 = icmp ult i32 %197, 3
-  %198 = select i1 %or.cond.i.i89, ptr %175, ptr null
-  %199 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %200 = load i32, ptr %199, align 8
-  %201 = add i32 %200, -20
-  %or.cond.i.i90 = icmp ult i32 %201, 3
-  %202 = select i1 %or.cond.i.i90, ptr %191, ptr null
-  %203 = load ptr, ptr %198, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 256
-  %205 = load ptr, ptr %204, align 8
-  %206 = tail call noundef zeroext i1 %205(ptr noundef nonnull align 8 dereferenceable(80) %198, ptr noundef %202, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
+  %or.cond.i.i90 = icmp ult i32 %197, 3
+  %198 = select i1 %or.cond.i.i90, ptr %191, ptr null
+  %199 = load ptr, ptr %175, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 256
+  %201 = load ptr, ptr %200, align 8
+  %202 = tail call noundef zeroext i1 %201(ptr noundef nonnull align 8 dereferenceable(80) %175, ptr noundef %198, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
   br label %.critedge
 
-207:                                              ; preds = %_ZNK4Type8make_ptrEv.exit88
-  %208 = icmp eq ptr %191, null
-  %209 = icmp eq ptr %175, null
-  %or.cond3 = and i1 %209, %208
-  br i1 %or.cond3, label %210, label %.critedge
+203:                                              ; preds = %_ZNK4Type8make_ptrEv.exit88
+  %204 = icmp eq ptr %191, null
+  %205 = icmp eq ptr %175, null
+  %or.cond3 = and i1 %205, %204
+  br i1 %or.cond3, label %206, label %.critedge
 
-210:                                              ; preds = %207
-  %211 = load ptr, ptr %0, align 8
+206:                                              ; preds = %203
+  %207 = load ptr, ptr %0, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 232
+  %209 = load ptr, ptr %208, align 8
+  %210 = tail call noundef ptr %209(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
+  %211 = load ptr, ptr %1, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 232
   %213 = load ptr, ptr %212, align 8
-  %214 = tail call noundef ptr %213(ptr noundef nonnull align 8 dereferenceable(89) %0) #17
-  %215 = load ptr, ptr %1, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 232
-  %217 = load ptr, ptr %216, align 8
-  %218 = tail call noundef ptr %217(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
-  %219 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %214, ptr noundef %218) #17
+  %214 = tail call noundef ptr %213(ptr noundef nonnull align 8 dereferenceable(80) %1) #17
+  %215 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %210, ptr noundef %214) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit86, %_ZNK10TypeAryPtr17base_element_typeERi.exit, %207, %142, %_ZNK10TypeAryPtr17base_element_typeERi.exit66, %32, %39, %19, %24, %12, %210, %194, %146
-  %.0 = phi i1 [ %158, %146 ], [ %206, %194 ], [ %219, %210 ], [ true, %12 ], [ true, %24 ], [ true, %19 ], [ false, %32 ], [ %47, %39 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit66 ], [ true, %142 ], [ false, %207 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit86 ]
+.critedge:                                        ; preds = %_ZNK10TypeAryPtr17base_element_typeERi.exit86, %_ZNK10TypeAryPtr17base_element_typeERi.exit, %203, %142, %_ZNK10TypeAryPtr17base_element_typeERi.exit66, %32, %39, %19, %24, %12, %206, %194, %146
+  %.0 = phi i1 [ %158, %146 ], [ %202, %194 ], [ %215, %206 ], [ true, %12 ], [ true, %24 ], [ true, %19 ], [ false, %32 ], [ %47, %39 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit66 ], [ true, %142 ], [ false, %203 ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit ], [ true, %_ZNK10TypeAryPtr17base_element_typeERi.exit86 ]
   ret i1 %.0
 }
 
@@ -30138,45 +30181,40 @@ _ZNK4Type8make_ptrEv.exit65:                      ; preds = %91, %94, %97
   %101 = icmp ne ptr %100, null
   %102 = icmp ne ptr %86, null
   %or.cond = and i1 %102, %101
-  br i1 %or.cond, label %103, label %116
+  br i1 %or.cond, label %103, label %112
 
 103:                                              ; preds = %_ZNK4Type8make_ptrEv.exit65
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %105 = load i32, ptr %104, align 8
   %106 = add i32 %105, -24
-  %or.cond.i.i66 = icmp ult i32 %106, 3
-  %107 = select i1 %or.cond.i.i66, ptr %100, ptr null
-  %108 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %109 = load i32, ptr %108, align 8
-  %110 = add i32 %109, -24
-  %or.cond.i.i67 = icmp ult i32 %110, 3
-  %111 = select i1 %or.cond.i.i67, ptr %86, ptr null
-  %112 = load ptr, ptr %107, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 256
-  %114 = load ptr, ptr %113, align 8
-  %115 = tail call noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(64) %107, ptr noundef %111, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
+  %or.cond.i.i67 = icmp ult i32 %106, 3
+  %107 = select i1 %or.cond.i.i67, ptr %86, ptr null
+  %108 = load ptr, ptr %100, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 256
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(64) %100, ptr noundef %107, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
   br label %.critedge
 
-116:                                              ; preds = %_ZNK4Type8make_ptrEv.exit65
-  %117 = icmp eq ptr %100, null
-  %118 = icmp eq ptr %86, null
-  %or.cond3 = and i1 %118, %117
-  br i1 %or.cond3, label %119, label %.critedge
+112:                                              ; preds = %_ZNK4Type8make_ptrEv.exit65
+  %113 = icmp eq ptr %100, null
+  %114 = icmp eq ptr %86, null
+  %or.cond3 = and i1 %114, %113
+  br i1 %or.cond3, label %115, label %.critedge
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %0, align 8
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %0, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 240
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
+  %120 = load ptr, ptr %1, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 240
   %122 = load ptr, ptr %121, align 8
-  %123 = tail call noundef ptr %122(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
-  %124 = load ptr, ptr %1, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 240
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef ptr %126(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
-  %128 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %123, ptr noundef %127) #17
+  %123 = tail call noundef ptr %122(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
+  %124 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %119, ptr noundef %123) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit56, %50, %116, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit63, %43, %29, %35, %11, %119, %103
-  %.0 = phi i1 [ %115, %103 ], [ %128, %119 ], [ true, %11 ], [ false, %35 ], [ false, %29 ], [ false, %43 ], [ %spec.select, %50 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit63 ], [ false, %116 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit56 ]
+.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit56, %50, %112, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit63, %43, %29, %35, %11, %115, %103
+  %.0 = phi i1 [ %111, %103 ], [ %124, %115 ], [ true, %11 ], [ false, %35 ], [ false, %29 ], [ false, %43 ], [ %spec.select, %50 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit63 ], [ false, %112 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit56 ]
   ret i1 %.0
 }
 
@@ -30343,45 +30381,40 @@ _ZNK4Type8make_ptrEv.exit53:                      ; preds = %62, %65, %68
   %72 = icmp ne ptr %57, null
   %73 = icmp ne ptr %71, null
   %or.cond = and i1 %72, %73
-  br i1 %or.cond, label %74, label %87
+  br i1 %or.cond, label %74, label %83
 
 74:                                               ; preds = %_ZNK4Type8make_ptrEv.exit53
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = add i32 %76, -24
-  %or.cond.i.i54 = icmp ult i32 %77, 3
-  %78 = select i1 %or.cond.i.i54, ptr %71, ptr null
-  %79 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %80 = load i32, ptr %79, align 8
-  %81 = add i32 %80, -24
-  %or.cond.i.i55 = icmp ult i32 %81, 3
-  %82 = select i1 %or.cond.i.i55, ptr %57, ptr null
-  %83 = load ptr, ptr %78, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 248
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(64) %78, ptr noundef %82) #17
+  %or.cond.i.i55 = icmp ult i32 %77, 3
+  %78 = select i1 %or.cond.i.i55, ptr %57, ptr null
+  %79 = load ptr, ptr %71, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 248
+  %81 = load ptr, ptr %80, align 8
+  %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef %78) #17
   br label %.critedge
 
-87:                                               ; preds = %_ZNK4Type8make_ptrEv.exit53
-  %88 = icmp eq ptr %57, null
-  %89 = icmp eq ptr %71, null
-  %or.cond3 = and i1 %88, %89
-  br i1 %or.cond3, label %90, label %.critedge
+83:                                               ; preds = %_ZNK4Type8make_ptrEv.exit53
+  %84 = icmp eq ptr %57, null
+  %85 = icmp eq ptr %71, null
+  %or.cond3 = and i1 %84, %85
+  br i1 %or.cond3, label %86, label %.critedge
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %0, align 8
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %0, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 240
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
+  %91 = load ptr, ptr %1, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 240
   %93 = load ptr, ptr %92, align 8
-  %94 = tail call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
-  %95 = load ptr, ptr %1, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 240
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
-  %99 = icmp eq ptr %94, %98
+  %94 = tail call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
+  %95 = icmp eq ptr %90, %94
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit44, %87, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit51, %14, %19, %24, %90, %74
-  %.0 = phi i1 [ %86, %74 ], [ %99, %90 ], [ false, %24 ], [ false, %19 ], [ false, %14 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit51 ], [ false, %87 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit44 ]
+.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit44, %83, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit51, %14, %19, %24, %86, %74
+  %.0 = phi i1 [ %82, %74 ], [ %95, %86 ], [ false, %24 ], [ false, %19 ], [ false, %14 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit51 ], [ false, %83 ], [ false, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit44 ]
   ret i1 %.0
 }
 
@@ -30595,45 +30628,40 @@ _ZNK4Type8make_ptrEv.exit71:                      ; preds = %101, %104, %107
   %111 = icmp ne ptr %110, null
   %112 = icmp ne ptr %96, null
   %or.cond = and i1 %112, %111
-  br i1 %or.cond, label %113, label %126
+  br i1 %or.cond, label %113, label %122
 
 113:                                              ; preds = %_ZNK4Type8make_ptrEv.exit71
-  %114 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %115 = load i32, ptr %114, align 8
   %116 = add i32 %115, -24
-  %or.cond.i.i72 = icmp ult i32 %116, 3
-  %117 = select i1 %or.cond.i.i72, ptr %96, ptr null
-  %118 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %119 = load i32, ptr %118, align 8
-  %120 = add i32 %119, -24
-  %or.cond.i.i73 = icmp ult i32 %120, 3
-  %121 = select i1 %or.cond.i.i73, ptr %110, ptr null
-  %122 = load ptr, ptr %117, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 264
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(64) %117, ptr noundef %121, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
+  %or.cond.i.i73 = icmp ult i32 %116, 3
+  %117 = select i1 %or.cond.i.i73, ptr %110, ptr null
+  %118 = load ptr, ptr %96, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 264
+  %120 = load ptr, ptr %119, align 8
+  %121 = tail call noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(64) %96, ptr noundef %117, i1 noundef zeroext %2, i1 noundef zeroext %3) #17
   br label %.critedge
 
-126:                                              ; preds = %_ZNK4Type8make_ptrEv.exit71
-  %127 = icmp eq ptr %110, null
-  %128 = icmp eq ptr %96, null
-  %or.cond3 = and i1 %128, %127
-  br i1 %or.cond3, label %129, label %.critedge
+122:                                              ; preds = %_ZNK4Type8make_ptrEv.exit71
+  %123 = icmp eq ptr %110, null
+  %124 = icmp eq ptr %96, null
+  %or.cond3 = and i1 %124, %123
+  br i1 %or.cond3, label %125, label %.critedge
 
-129:                                              ; preds = %126
-  %130 = load ptr, ptr %0, align 8
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %0, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 240
+  %128 = load ptr, ptr %127, align 8
+  %129 = tail call noundef ptr %128(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
+  %130 = load ptr, ptr %1, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 240
   %132 = load ptr, ptr %131, align 8
-  %133 = tail call noundef ptr %132(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
-  %134 = load ptr, ptr %1, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 240
-  %136 = load ptr, ptr %135, align 8
-  %137 = tail call noundef ptr %136(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
-  %138 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %133, ptr noundef %137) #17
+  %133 = tail call noundef ptr %132(ptr noundef nonnull align 8 dereferenceable(64) %1) #17
+  %134 = tail call noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %129, ptr noundef %133) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit62, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, %126, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit69, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit54, %31, %38, %18, %23, %11, %129, %113, %69
-  %.0 = phi i1 [ %81, %69 ], [ %125, %113 ], [ %138, %129 ], [ true, %11 ], [ true, %23 ], [ true, %18 ], [ false, %31 ], [ %46, %38 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit54 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit69 ], [ false, %126 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit62 ]
+.critedge:                                        ; preds = %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit62, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, %122, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit69, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit54, %31, %38, %18, %23, %11, %125, %113, %69
+  %.0 = phi i1 [ %81, %69 ], [ %121, %113 ], [ %134, %125 ], [ true, %11 ], [ true, %23 ], [ true, %18 ], [ false, %31 ], [ %46, %38 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit54 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit69 ], [ false, %122 ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit ], [ true, %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit62 ]
   ret i1 %.0
 }
 

@@ -4666,11 +4666,11 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
   %360 = load ptr, ptr %359, align 8
   %361 = load ptr, ptr %360, align 8
   %362 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %246)
-  %363 = call noundef ptr @_ZN15StoreVectorNode4makeEiP4NodeS1_S1_PK7TypePtrS1_j(i32 noundef 0, ptr noundef %361, ptr noundef %362, ptr noundef nonnull %246, ptr noundef nonnull %266, ptr noundef %.1, i32 noundef %205) #9
+  %363 = call noundef ptr @_ZN15StoreVectorNode4makeEiP4NodeS1_S1_PK7TypePtrS1_j(i32 noundef 0, ptr noundef %361, ptr noundef %362, ptr noundef nonnull %246, ptr noundef nonnull %262, ptr noundef %.1, i32 noundef %205) #9
   %364 = load ptr, ptr %357, align 8
   %365 = load ptr, ptr %364, align 8
   %366 = call noundef ptr %365(ptr noundef nonnull align 8 dereferenceable(2400) %357, ptr noundef %363) #9
-  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %366, ptr noundef nonnull %266)
+  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %366, ptr noundef nonnull %262)
   br label %399
 
 367:                                              ; preds = %329
@@ -4683,7 +4683,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
   br i1 %223, label %374, label %391
 
 374:                                              ; preds = %367
-  %375 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %372, ptr noundef %373, ptr noundef nonnull %246, ptr noundef nonnull %266, i32 noundef %205, i8 noundef zeroext 4, i32 noundef 2) #9
+  %375 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %372, ptr noundef %373, ptr noundef nonnull %246, ptr noundef nonnull %262, i32 noundef %205, i8 noundef zeroext 4, i32 noundef 2) #9
   %376 = load ptr, ptr %368, align 8
   %377 = load ptr, ptr %376, align 8
   %378 = call noundef ptr %377(ptr noundef nonnull align 8 dereferenceable(2400) %368, ptr noundef %375) #9
@@ -4707,7 +4707,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %2
   br label %396
 
 391:                                              ; preds = %367
-  %392 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %372, ptr noundef %373, ptr noundef nonnull %246, ptr noundef nonnull %266, i32 noundef %205, i8 noundef zeroext %193, i32 noundef 2) #9
+  %392 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %372, ptr noundef %373, ptr noundef nonnull %246, ptr noundef nonnull %262, i32 noundef %205, i8 noundef zeroext %193, i32 noundef 2) #9
   %393 = load ptr, ptr %368, align 8
   %394 = load ptr, ptr %393, align 8
   %395 = call noundef ptr %394(ptr noundef nonnull align 8 dereferenceable(2400) %368, ptr noundef %392) #9
@@ -5711,14 +5711,14 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %309
   %615 = load ptr, ptr %614, align 8
   %616 = load ptr, ptr %615, align 8
   %617 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %275)
-  call void @_ZN21StoreVectorMaskedNodeC2EP4NodeS1_S1_S1_PK7TypePtrS1_(ptr noundef nonnull align 8 dereferenceable(72) %610, ptr noundef %616, ptr noundef %617, ptr noundef nonnull %275, ptr noundef %.0179, ptr noundef nonnull %289, ptr noundef %.0178)
+  call void @_ZN21StoreVectorMaskedNodeC2EP4NodeS1_S1_S1_PK7TypePtrS1_(ptr noundef nonnull align 8 dereferenceable(72) %610, ptr noundef %616, ptr noundef %617, ptr noundef nonnull %275, ptr noundef %.0179, ptr noundef nonnull %285, ptr noundef %.0178)
   br label %618
 
 618:                                              ; preds = %612, %608
   %619 = load ptr, ptr %609, align 8
   %620 = load ptr, ptr %619, align 8
   %621 = call noundef ptr %620(ptr noundef nonnull align 8 dereferenceable(2400) %609, ptr noundef %610) #9
-  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %621, ptr noundef nonnull %289)
+  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %621, ptr noundef nonnull %285)
   br label %715
 
 .thread214:                                       ; preds = %.thread213
@@ -5768,7 +5768,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %309
   %651 = load ptr, ptr %650, align 8
   %652 = load ptr, ptr %651, align 8
   %653 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %275)
-  call void @_ZN20LoadVectorMaskedNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_N8LoadNode17ControlDependencyE(ptr noundef nonnull align 8 dereferenceable(72) %646, ptr noundef %652, ptr noundef %653, ptr noundef nonnull %275, ptr noundef nonnull %289, ptr noundef %644, ptr noundef %.1, i32 noundef 2)
+  call void @_ZN20LoadVectorMaskedNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_N8LoadNode17ControlDependencyE(ptr noundef nonnull align 8 dereferenceable(72) %646, ptr noundef %652, ptr noundef %653, ptr noundef nonnull %275, ptr noundef nonnull %285, ptr noundef %644, ptr noundef %.1, i32 noundef 2)
   br label %654
 
 654:                                              ; preds = %648, %640
@@ -5797,7 +5797,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %309
   %675 = load ptr, ptr %674, align 8
   %676 = load ptr, ptr %675, align 8
   %677 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %275)
-  %678 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %676, ptr noundef %677, ptr noundef nonnull %275, ptr noundef nonnull %289, i32 noundef %339, i8 noundef zeroext %338, i32 noundef 2) #9
+  %678 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %676, ptr noundef %677, ptr noundef nonnull %275, ptr noundef nonnull %285, i32 noundef %339, i8 noundef zeroext %338, i32 noundef 2) #9
   %679 = load ptr, ptr %672, align 8
   %680 = load ptr, ptr %679, align 8
   %681 = call noundef ptr %680(ptr noundef nonnull align 8 dereferenceable(2400) %672, ptr noundef %678) #9
@@ -6662,7 +6662,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %527 = load ptr, ptr %526, align 8
   %528 = load ptr, ptr %527, align 8
   %529 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %372)
-  call void @_ZN28StoreVectorScatterMaskedNodeC2EP4NodeS1_S1_PK7TypePtrS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %521, ptr noundef %528, ptr noundef %529, ptr noundef nonnull %372, ptr noundef nonnull %386, ptr noundef nonnull %515, ptr noundef %.0150, ptr noundef nonnull %.0151)
+  call void @_ZN28StoreVectorScatterMaskedNodeC2EP4NodeS1_S1_PK7TypePtrS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %521, ptr noundef %528, ptr noundef %529, ptr noundef nonnull %372, ptr noundef nonnull %382, ptr noundef nonnull %515, ptr noundef %.0150, ptr noundef nonnull %.0151)
   br label %537
 
 530:                                              ; preds = %518
@@ -6674,14 +6674,14 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %534 = load ptr, ptr %533, align 8
   %535 = load ptr, ptr %534, align 8
   %536 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %372)
-  call void @_ZN22StoreVectorScatterNodeC2EP4NodeS1_S1_PK7TypePtrS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %521, ptr noundef %535, ptr noundef %536, ptr noundef nonnull %372, ptr noundef nonnull %386, ptr noundef nonnull %515, ptr noundef %.0150)
+  call void @_ZN22StoreVectorScatterNodeC2EP4NodeS1_S1_PK7TypePtrS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %521, ptr noundef %535, ptr noundef %536, ptr noundef nonnull %372, ptr noundef nonnull %382, ptr noundef nonnull %515, ptr noundef %.0150)
   br label %537
 
 537:                                              ; preds = %530, %531, %523, %524
   %538 = load ptr, ptr %520, align 8
   %539 = load ptr, ptr %538, align 8
   %540 = call noundef ptr %539(ptr noundef nonnull align 8 dereferenceable(2400) %520, ptr noundef %521) #9
-  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %540, ptr noundef nonnull %386)
+  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %540, ptr noundef nonnull %382)
   br label %618
 
 541:                                              ; preds = %495
@@ -6717,7 +6717,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %564 = load ptr, ptr %563, align 8
   %565 = load ptr, ptr %564, align 8
   %566 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %372)
-  call void @_ZN26LoadVectorGatherMaskedNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %559, ptr noundef %565, ptr noundef %566, ptr noundef nonnull %372, ptr noundef nonnull %386, ptr noundef %499, ptr noundef %557, ptr noundef nonnull %.0151, ptr noundef %546)
+  call void @_ZN26LoadVectorGatherMaskedNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %559, ptr noundef %565, ptr noundef %566, ptr noundef nonnull %372, ptr noundef nonnull %382, ptr noundef %499, ptr noundef %557, ptr noundef nonnull %.0151, ptr noundef %546)
   br label %567
 
 567:                                              ; preds = %561, %556
@@ -6738,7 +6738,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %578 = load ptr, ptr %577, align 8
   %579 = load ptr, ptr %578, align 8
   %580 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %372)
-  call void @_ZN26LoadVectorGatherMaskedNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %573, ptr noundef %579, ptr noundef %580, ptr noundef nonnull %372, ptr noundef nonnull %386, ptr noundef %499, ptr noundef %.0150, ptr noundef nonnull %.0151, ptr noundef null)
+  call void @_ZN26LoadVectorGatherMaskedNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %573, ptr noundef %579, ptr noundef %580, ptr noundef nonnull %372, ptr noundef nonnull %382, ptr noundef %499, ptr noundef %.0150, ptr noundef nonnull %.0151, ptr noundef null)
   br label %581
 
 581:                                              ; preds = %575, %571
@@ -6763,7 +6763,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %594 = load ptr, ptr %593, align 8
   %595 = load ptr, ptr %594, align 8
   %596 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %372)
-  call void @_ZN20LoadVectorGatherNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %589, ptr noundef %595, ptr noundef %596, ptr noundef nonnull %372, ptr noundef nonnull %386, ptr noundef %499, ptr noundef %587, ptr noundef %546)
+  call void @_ZN20LoadVectorGatherNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %589, ptr noundef %595, ptr noundef %596, ptr noundef nonnull %372, ptr noundef nonnull %382, ptr noundef %499, ptr noundef %587, ptr noundef %546)
   br label %597
 
 597:                                              ; preds = %591, %586
@@ -6784,7 +6784,7 @@ _ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %3
   %608 = load ptr, ptr %607, align 8
   %609 = load ptr, ptr %608, align 8
   %610 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %372)
-  call void @_ZN20LoadVectorGatherNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %603, ptr noundef %609, ptr noundef %610, ptr noundef nonnull %372, ptr noundef nonnull %386, ptr noundef %499, ptr noundef %.0150, ptr noundef null)
+  call void @_ZN20LoadVectorGatherNodeC2EP4NodeS1_S1_PK7TypePtrPK8TypeVectS1_S1_(ptr noundef nonnull align 8 dereferenceable(72) %603, ptr noundef %609, ptr noundef %610, ptr noundef nonnull %372, ptr noundef nonnull %382, ptr noundef %499, ptr noundef %.0150, ptr noundef null)
   br label %611
 
 611:                                              ; preds = %605, %601
@@ -8968,7 +8968,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 356:                                              ; preds = %.thread114
   %357 = load i32, ptr %84, align 8
   %358 = load ptr, ptr %2, align 8
-  %359 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %358, ptr noundef nonnull %..i) #9
+  %359 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %358, ptr noundef nonnull %26) #9
   %360 = zext i8 %231 to i64
   %361 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %360
   %362 = load ptr, ptr %361, align 8

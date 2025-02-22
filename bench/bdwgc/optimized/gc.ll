@@ -38052,20 +38052,20 @@ define internal fastcc void @GC_unmap_old(i32 noundef range(i32 0, -2147483648) 
   br label %3
 
 3:                                                ; preds = %1, %._crit_edge
-  %.016 = phi i64 [ 0, %1 ], [ %63, %._crit_edge ]
-  %4 = getelementptr inbounds nuw [61 x ptr], ptr @GC_hblkfreelist, i64 0, i64 %.016
-  %.01113 = load ptr, ptr %4, align 8, !tbaa !69
-  %.not14 = icmp eq ptr %.01113, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
+  %.017 = phi i64 [ 0, %1 ], [ %63, %._crit_edge ]
+  %4 = getelementptr inbounds nuw [61 x ptr], ptr @GC_hblkfreelist, i64 0, i64 %.017
+  %.01114 = load ptr, ptr %4, align 8, !tbaa !69
+  %.not15 = icmp eq ptr %.01114, null
+  br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %.pre17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
+  %.pre19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %5 = phi ptr [ %62, %61 ], [ %.pre17, %.lr.ph.preheader ]
-  %.01115 = phi ptr [ %.011, %61 ], [ %.01113, %.lr.ph.preheader ]
-  %6 = ptrtoint ptr %.01115 to i64
+  %5 = phi ptr [ %62, %61 ], [ %.pre19, %.lr.ph.preheader ]
+  %.01116 = phi ptr [ %.011, %61 ], [ %.01114, %.lr.ph.preheader ]
+  %6 = ptrtoint ptr %.01116 to i64
   %7 = lshr i64 %6, 22
   %8 = and i64 %7, 2047
   %9 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %8
@@ -38107,11 +38107,11 @@ GC_find_header.exit:                              ; preds = %10
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %34 = load i64, ptr %33, align 8, !tbaa !58
   %35 = load i64, ptr @GC_page_size, align 8, !tbaa !10
-  %36 = getelementptr i8, ptr %.01115, i64 %35
+  %36 = getelementptr i8, ptr %.01116, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -1
   %38 = sub i64 0, %35
   %39 = tail call ptr @llvm.ptrmask.p0.i64(ptr readnone %37, i64 %38)
-  %40 = getelementptr inbounds nuw i8, ptr %.01115, i64 %34
+  %40 = getelementptr inbounds nuw i8, ptr %.01116, i64 %34
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %35
   %42 = icmp ult ptr %40, %41
   %..i.i = select i1 %42, ptr null, ptr %39
@@ -38125,14 +38125,14 @@ GC_find_header.exit:                              ; preds = %10
   br i1 %or.cond.i.i, label %49, label %GC_unmap.exit
 
 49:                                               ; preds = %32
-  %50 = tail call i32 @madvise(ptr noundef nonnull %..i.i, i64 noundef %46, i32 noundef 4) #47
+  %50 = tail call i32 @madvise(ptr noundef nonnull %39, i64 noundef %46, i32 noundef 4) #47
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %49
   %53 = tail call ptr @__errno_location() #54
   %54 = load i32, ptr %53, align 4, !tbaa !3
-  tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %..i.i, i64 noundef %46, i32 noundef %54)
+  tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %39, i64 noundef %46, i32 noundef %54)
   %55 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   tail call void %55(ptr noundef nonnull @.str.180) #47
   tail call void @abort() #51
@@ -38142,11 +38142,11 @@ GC_find_header.exit:                              ; preds = %10
   %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 216), align 8, !tbaa !95
   %58 = add i64 %57, %46
   store i64 %58, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 216), align 8, !tbaa !95
-  %.pre18 = load i8, ptr %21, align 1, !tbaa !63
+  %.pre20 = load i8, ptr %21, align 1, !tbaa !63
   br label %GC_unmap.exit
 
 GC_unmap.exit:                                    ; preds = %32, %56
-  %59 = phi i8 [ %22, %32 ], [ %.pre18, %56 ]
+  %59 = phi i8 [ %22, %32 ], [ %.pre20, %56 ]
   %60 = or i8 %59, 2
   store i8 %60, ptr %21, align 1, !tbaa !63
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
@@ -38159,7 +38159,7 @@ GC_unmap.exit:                                    ; preds = %32, %56
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !496
 
 ._crit_edge:                                      ; preds = %61, %3
-  %63 = add nuw nsw i64 %.016, 1
+  %63 = add nuw nsw i64 %.017, 1
   %exitcond.not = icmp eq i64 %63, 61
   br i1 %exitcond.not, label %64, label %3, !llvm.loop !497
 
@@ -39822,21 +39822,21 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %0, i32
   br i1 %25, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %23, %._crit_edge.i
-  %.083113.i = phi i64 [ %333, %._crit_edge.i ], [ 0, %23 ]
-  %26 = getelementptr inbounds nuw [61 x ptr], ptr @GC_hblkfreelist, i64 0, i64 %.083113.i
-  %.084110.i = load ptr, ptr %26, align 8, !tbaa !69
-  %.not111.i = icmp eq ptr %.084110.i, null
-  br i1 %.not111.i, label %._crit_edge.i, label %.lr.ph.i
+  %.083115.i = phi i64 [ %333, %._crit_edge.i ], [ 0, %23 ]
+  %26 = getelementptr inbounds nuw [61 x ptr], ptr @GC_hblkfreelist, i64 0, i64 %.083115.i
+  %.084112.i = load ptr, ptr %26, align 8, !tbaa !69
+  %.not113.i = icmp eq ptr %.084112.i, null
+  br i1 %.not113.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader
-  %27 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.083113.i
-  %.pre115.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
+  %27 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.083115.i
+  %.pre119.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
   br label %28
 
 28:                                               ; preds = %331, %.lr.ph.i
-  %29 = phi ptr [ %.pre115.i, %.lr.ph.i ], [ %332, %331 ]
-  %.084112.i = phi ptr [ %.084110.i, %.lr.ph.i ], [ %.084.i, %331 ]
-  %30 = ptrtoint ptr %.084112.i to i64
+  %29 = phi ptr [ %.pre119.i, %.lr.ph.i ], [ %332, %331 ]
+  %.084114.i = phi ptr [ %.084112.i, %.lr.ph.i ], [ %.084.i, %331 ]
+  %30 = ptrtoint ptr %.084114.i to i64
   %31 = lshr i64 %30, 22
   %32 = and i64 %31, 2047
   %33 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %32
@@ -39860,7 +39860,7 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %0, i32
   %45 = load ptr, ptr %44, align 8, !tbaa !57
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !58
-  %48 = getelementptr inbounds nuw i8, ptr %.084112.i, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %.084114.i, i64 %47
   %49 = ptrtoint ptr %48 to i64
   %50 = lshr i64 %49, 22
   %51 = and i64 %50, 2047
@@ -39939,7 +39939,7 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %0, i32
   br label %GC_remap.exit.i
 
 101:                                              ; preds = %82
-  %102 = getelementptr i8, ptr %.084112.i, i64 %84
+  %102 = getelementptr i8, ptr %.084114.i, i64 %84
   %103 = getelementptr i8, ptr %102, i64 -1
   %104 = tail call ptr @llvm.ptrmask.p0.i64(ptr readnone %103, i64 %85)
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %84
@@ -39954,14 +39954,14 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %0, i32
   br i1 %or.cond.i.i.i, label %112, label %GC_unmap.exit.i
 
 112:                                              ; preds = %101
-  %113 = tail call i32 @madvise(ptr noundef nonnull %..i.i.i, i64 noundef %109, i32 noundef 4) #47
+  %113 = tail call i32 @madvise(ptr noundef nonnull %104, i64 noundef %109, i32 noundef 4) #47
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %112
   %116 = tail call ptr @__errno_location() #54
   %117 = load i32, ptr %116, align 4, !tbaa !3
-  tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %..i.i.i, i64 noundef %109, i32 noundef %117)
+  tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %104, i64 noundef %109, i32 noundef %117)
   %118 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   tail call void %118(ptr noundef nonnull @.str.180) #47
   tail call void @abort() #51
@@ -39974,7 +39974,7 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %0, i32
   br label %GC_unmap.exit.i
 
 GC_unmap.exit.i:                                  ; preds = %119, %101
-  tail call fastcc void @GC_unmap_gap(ptr noundef %.084112.i, i64 noundef %47, ptr noundef %48, i64 noundef %73)
+  tail call fastcc void @GC_unmap_gap(ptr noundef %.084114.i, i64 noundef %47, ptr noundef %48, i64 noundef %73)
   %122 = load i8, ptr %76, align 1, !tbaa !63
   %123 = or i8 %122, 2
   store i8 %123, ptr %76, align 1, !tbaa !63
@@ -40013,14 +40013,14 @@ GC_unmap.exit.i:                                  ; preds = %119, %101
   br i1 %or.cond.i.i96.i, label %146, label %GC_unmap.exit97.i
 
 146:                                              ; preds = %133
-  %147 = tail call i32 @madvise(ptr noundef nonnull %..i.i95.i, i64 noundef %143, i32 noundef 4) #47
+  %147 = tail call i32 @madvise(ptr noundef nonnull %136, i64 noundef %143, i32 noundef 4) #47
   %148 = icmp eq i32 %147, -1
   br i1 %148, label %149, label %153
 
 149:                                              ; preds = %146
   %150 = tail call ptr @__errno_location() #54
   %151 = load i32, ptr %150, align 4, !tbaa !3
-  tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %..i.i95.i, i64 noundef %143, i32 noundef %151)
+  tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.179, ptr noundef nonnull %136, i64 noundef %143, i32 noundef %151)
   %152 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
   tail call void %152(ptr noundef nonnull @.str.180) #47
   tail call void @abort() #51
@@ -40033,11 +40033,11 @@ GC_unmap.exit.i:                                  ; preds = %119, %101
   br label %GC_unmap.exit97.i
 
 GC_unmap.exit97.i:                                ; preds = %153, %133
-  tail call fastcc void @GC_unmap_gap(ptr noundef %.084112.i, i64 noundef %47, ptr noundef %48, i64 noundef %73)
+  tail call fastcc void @GC_unmap_gap(ptr noundef %.084114.i, i64 noundef %47, ptr noundef %48, i64 noundef %73)
   br label %GC_remap.exit.i
 
 156:                                              ; preds = %129
-  %157 = getelementptr i8, ptr %.084112.i, i64 %131
+  %157 = getelementptr i8, ptr %.084114.i, i64 %131
   %158 = getelementptr i8, ptr %157, i64 -1
   %159 = tail call ptr @llvm.ptrmask.p0.i64(ptr readnone %158, i64 %132)
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 %131
@@ -40068,7 +40068,7 @@ GC_remap.exit99.i:                                ; preds = %164, %156
   br i1 %127, label %GC_remap.exit.i, label %174
 
 174:                                              ; preds = %173
-  tail call fastcc void @GC_unmap_gap(ptr noundef %.084112.i, i64 noundef %47, ptr noundef %48, i64 noundef %73)
+  tail call fastcc void @GC_unmap_gap(ptr noundef %.084114.i, i64 noundef %47, ptr noundef %48, i64 noundef %73)
   br label %GC_remap.exit.i
 
 GC_remap.exit.i:                                  ; preds = %174, %173, %GC_remap.exit99.i, %GC_unmap.exit97.i, %128, %GC_unmap.exit.i, %95, %86
@@ -40287,7 +40287,7 @@ GC_hblk_fl_from_blocks.exit.i102.i:               ; preds = %301, %299, %GC_remo
   %.0.i.i103.i = phi i64 [ %304, %301 ], [ %297, %GC_remove_header.exit.i ], [ 60, %299 ]
   %305 = getelementptr inbounds nuw [61 x ptr], ptr @GC_hblkfreelist, i64 0, i64 %.0.i.i103.i
   %306 = load ptr, ptr %305, align 8, !tbaa !69
-  store ptr %.084112.i, ptr %305, align 8, !tbaa !69
+  store ptr %.084114.i, ptr %305, align 8, !tbaa !69
   %307 = getelementptr inbounds nuw [61 x i64], ptr @GC_free_bytes, i64 0, i64 %.0.i.i103.i
   %308 = load i64, ptr %307, align 8, !tbaa !10
   %309 = add i64 %308, %285
@@ -40322,7 +40322,7 @@ GC_hblk_fl_from_blocks.exit.i102.i:               ; preds = %301, %299, %GC_remo
   %326 = getelementptr inbounds nuw [1024 x ptr], ptr %.0.i106.i, i64 0, i64 %325
   %327 = load ptr, ptr %326, align 8, !tbaa !57
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  store ptr %.084112.i, ptr %328, align 8, !tbaa !470
+  store ptr %.084114.i, ptr %328, align 8, !tbaa !470
   br label %GC_add_to_fl.exit.i
 
 GC_add_to_fl.exit.i:                              ; preds = %323, %GC_hblk_fl_from_blocks.exit.i102.i
@@ -40340,18 +40340,18 @@ GC_add_to_fl.exit.i:                              ; preds = %323, %GC_hblk_fl_fr
   br i1 %.not.i, label %._crit_edge.i, label %28
 
 ._crit_edge.i:                                    ; preds = %331, %.preheader
-  %333 = add nuw nsw i64 %.083113.i, 1
+  %333 = add nuw nsw i64 %.083115.i, 1
   %exitcond.not.i = icmp eq i64 %333, 61
   br i1 %exitcond.not.i, label %334, label %.preheader, !llvm.loop !517
 
 334:                                              ; preds = %._crit_edge.i
   %335 = tail call fastcc ptr @GC_allochblk(i64 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3)
-  %cond47 = icmp eq ptr %335, null
-  br i1 %cond47, label %.lr.ph, label %.loopexit, !prof !518
+  %cond49 = icmp eq ptr %335, null
+  br i1 %cond49, label %.lr.ph, label %.loopexit, !prof !518
 
 .lr.ph:                                           ; preds = %334, %337
-  %.049 = phi i8 [ 1, %337 ], [ 0, %334 ]
-  %336 = tail call fastcc signext i8 @GC_collect_or_expand(i64 noundef %9, i32 noundef %2, i8 noundef signext %.049)
+  %.051 = phi i8 [ 1, %337 ], [ 0, %334 ]
+  %336 = tail call fastcc signext i8 @GC_collect_or_expand(i64 noundef %9, i32 noundef %2, i8 noundef signext %.051)
   %.not40 = icmp eq i8 %336, 0
   br i1 %.not40, label %.critedge, label %337
 

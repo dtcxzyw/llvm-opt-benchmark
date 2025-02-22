@@ -3175,7 +3175,7 @@ define linkonce_odr hidden void @_ZN14PSRootsClosureILb1EE6do_oopEP9narrowOop(pt
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %15
-  %22 = tail call noundef ptr @_ZN18PSPromotionManager31copy_unmarked_to_survivor_spaceILb1EEEP7oopDescS2_8markWord(ptr noundef nonnull align 8 dereferenceable(912) %17, ptr noundef nonnull %13, i64 %18)
+  %22 = tail call noundef ptr @_ZN18PSPromotionManager31copy_unmarked_to_survivor_spaceILb1EEEP7oopDescS2_8markWord(ptr noundef nonnull align 8 dereferenceable(912) %17, ptr noundef nonnull %12, i64 %18)
   %23 = ptrtoint ptr %22 to i64
   %.pre.i = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %.pre6.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
@@ -5315,7 +5315,7 @@ define linkonce_odr hidden void @_ZN14PSRootsClosureILb0EE6do_oopEP9narrowOop(pt
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %15
-  %22 = tail call noundef ptr @_ZN18PSPromotionManager31copy_unmarked_to_survivor_spaceILb0EEEP7oopDescS2_8markWord(ptr noundef nonnull align 8 dereferenceable(912) %17, ptr noundef nonnull %13, i64 %18)
+  %22 = tail call noundef ptr @_ZN18PSPromotionManager31copy_unmarked_to_survivor_spaceILb0EEEP7oopDescS2_8markWord(ptr noundef nonnull align 8 dereferenceable(912) %17, ptr noundef nonnull %12, i64 %18)
   %23 = ptrtoint ptr %22 to i64
   %.pre.i = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %.pre6.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8

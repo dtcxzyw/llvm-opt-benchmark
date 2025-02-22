@@ -148,7 +148,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hc348a15d23e4e893E
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.4) #11
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.4) #11
   unreachable
 
 13:                                               ; preds = %2
@@ -166,7 +166,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hc348a15d23e4e893E
   store ptr inttoptr (i64 8 to ptr), ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.7) #11
+  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.7) #11
   unreachable
 
 20:                                               ; preds = %2

@@ -14971,7 +14971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
 _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %60, %62
-  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter17VisitFunctionDeclEPN5clang12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %.0.i.i.i.i.i27)
+  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter17VisitFunctionDeclEPN5clang12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %8)
   br label %100
 
 65:                                               ; preds = %44
@@ -15004,7 +15004,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %60, %62
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit36
 
 _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %78, %80
-  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter25VisitFunctionTemplateDeclEPN5clang20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %.0.i.i.i.i.i27)
+  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter25VisitFunctionTemplateDeclEPN5clang20FunctionTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %8)
   br label %100
 
 83:                                               ; preds = %65
@@ -15036,7 +15036,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %78, %80
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit42
 
 _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %95, %97
-  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter17VisitTemplateDeclEPKN5clang12TemplateDeclE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %.0.i.i.i.i.i27)
+  tail call fastcc void @_ZN12_GLOBAL__N_111DeclPrinter17VisitTemplateDeclEPKN5clang12TemplateDeclE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull %8)
   br label %100
 
 100:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30, %83, %_ZN4llvm11raw_ostreamlsEPKc.exit42, %_ZN4llvm11raw_ostreamlsEPKc.exit36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

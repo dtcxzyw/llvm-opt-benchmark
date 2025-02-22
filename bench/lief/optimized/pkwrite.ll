@@ -562,7 +562,7 @@ pk_write_ec_pubkey.exit:                          ; preds = %91, %109
 139:                                              ; preds = %136
   %140 = zext nneg i32 %134 to i64
   %141 = zext nneg i32 %137 to i64
-  %.val = load i32, ptr %.0.i182, align 8
+  %.val = load i32, ptr %97, align 8
   %142 = call fastcc i32 @pk_write_ec_param(ptr noundef %8, ptr noundef %1, i32 %.val)
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %177, label %144
@@ -579,7 +579,7 @@ pk_write_ec_pubkey.exit:                          ; preds = %91, %109
   br i1 %150, label %177, label %151
 
 151:                                              ; preds = %148
-  %152 = call fastcc i32 @pk_write_ec_private(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %.0.i182)
+  %152 = call fastcc i32 @pk_write_ec_private(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %97)
   %153 = icmp slt i32 %152, 0
   br i1 %153, label %177, label %154
 

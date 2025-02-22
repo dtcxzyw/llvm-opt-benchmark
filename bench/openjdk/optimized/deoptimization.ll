@@ -5104,86 +5104,82 @@ define hidden void @_ZN14Deoptimization23deoptimize_single_frameEP10JavaThread5f
   %15 = load ptr, ptr @xtty, align 8
   %16 = icmp ne ptr %15, null
   %or.cond = select i1 %14, i1 %16, i1 false
-  br i1 %or.cond, label %17, label %61
+  br i1 %or.cond, label %17, label %58
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 52
-  %21 = load i8, ptr %20, align 4
-  %22 = icmp eq i8 %21, 1
-  %..i = select i1 %22, ptr %19, ptr null
-  %23 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #22
-  %24 = load ptr, ptr @xtty, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 192
-  %28 = load i32, ptr %27, align 8
-  %29 = sext i32 %28 to i64
-  %30 = icmp eq i32 %2, -1
-  br i1 %30, label %_ZN14Deoptimization16trap_reason_nameEi.exit, label %31
+  %20 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #22
+  %21 = load ptr, ptr @xtty, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 192
+  %25 = load i32, ptr %24, align 8
+  %26 = sext i32 %25 to i64
+  %27 = icmp eq i32 %2, -1
+  br i1 %27, label %_ZN14Deoptimization16trap_reason_nameEi.exit, label %28
 
-31:                                               ; preds = %17
-  %32 = icmp ult i32 %2, 31
-  br i1 %32, label %33, label %37
+28:                                               ; preds = %17
+  %29 = icmp ult i32 %2, 31
+  br i1 %29, label %30, label %34
 
-33:                                               ; preds = %31
-  %34 = zext nneg i32 %2 to i64
-  %35 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %34
-  %36 = load ptr, ptr %35, align 8
+30:                                               ; preds = %28
+  %31 = zext nneg i32 %2 to i64
+  %32 = getelementptr inbounds nuw [31 x ptr], ptr @_ZN14Deoptimization17_trap_reason_nameE, i64 0, i64 %31
+  %33 = load ptr, ptr %32, align 8
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit
 
-37:                                               ; preds = %31
-  %38 = tail call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull @_ZZN14Deoptimization16trap_reason_nameEiE3buf, i64 noundef 20, ptr noundef nonnull @.str.87, i32 noundef %2) #22
+34:                                               ; preds = %28
+  %35 = tail call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull @_ZZN14Deoptimization16trap_reason_nameEiE3buf, i64 noundef 20, ptr noundef nonnull @.str.87, i32 noundef %2) #22
   br label %_ZN14Deoptimization16trap_reason_nameEi.exit
 
-_ZN14Deoptimization16trap_reason_nameEi.exit:     ; preds = %17, %33, %37
-  %.0.i = phi ptr [ %36, %33 ], [ @_ZZN14Deoptimization16trap_reason_nameEiE3buf, %37 ], [ @.str.86, %17 ]
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = ptrtoint ptr %40 to i64
-  tail call void (ptr, ptr, ...) @_ZN9xmlStream10begin_headEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %24, ptr noundef nonnull @.str.22, i64 noundef %29, ptr noundef %.0.i, i64 noundef %41) #22
+_ZN14Deoptimization16trap_reason_nameEi.exit:     ; preds = %17, %30, %34
+  %.0.i = phi ptr [ %33, %30 ], [ @_ZZN14Deoptimization16trap_reason_nameEiE3buf, %34 ], [ @.str.86, %17 ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = ptrtoint ptr %37 to i64
+  tail call void (ptr, ptr, ...) @_ZN9xmlStream10begin_headEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %21, ptr noundef nonnull @.str.22, i64 noundef %26, ptr noundef %.0.i, i64 noundef %38) #22
+  %39 = load ptr, ptr @xtty, align 8
+  tail call void @_ZNK7nmethod12log_identityEP9xmlStream(ptr noundef nonnull align 8 dereferenceable(214) %19, ptr noundef %39) #22
+  %40 = load ptr, ptr @xtty, align 8
+  tail call void @_ZN9xmlStream8end_headEv(ptr noundef nonnull align 8 dereferenceable(152) %40) #22
+  %41 = tail call noundef ptr @_ZN7nmethod13scope_desc_atEPh(ptr noundef nonnull align 8 dereferenceable(214) %19, ptr noundef %37) #22
   %42 = load ptr, ptr @xtty, align 8
-  tail call void @_ZNK7nmethod12log_identityEP9xmlStream(ptr noundef nonnull align 8 dereferenceable(214) %..i, ptr noundef %42) #22
-  %43 = load ptr, ptr @xtty, align 8
-  tail call void @_ZN9xmlStream8end_headEv(ptr noundef nonnull align 8 dereferenceable(152) %43) #22
-  %44 = tail call noundef ptr @_ZN7nmethod13scope_desc_atEPh(ptr noundef nonnull align 8 dereferenceable(214) %..i, ptr noundef %40) #22
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i32, ptr %43, align 8
+  tail call void (ptr, ptr, ...) @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %42, ptr noundef nonnull @.str.23, i32 noundef %44) #22
   %45 = load ptr, ptr @xtty, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load i32, ptr %46, align 8
-  tail call void (ptr, ptr, ...) @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %45, ptr noundef nonnull @.str.23, i32 noundef %47) #22
-  %48 = load ptr, ptr @xtty, align 8
-  %49 = load ptr, ptr %44, align 8
-  tail call void @_ZN9xmlStream6methodEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %48, ptr noundef %49) #22
-  %50 = load ptr, ptr @xtty, align 8
-  tail call void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %50) #22
-  %51 = tail call noundef zeroext i1 @_ZNK9ScopeDesc6is_topEv(ptr noundef nonnull align 8 dereferenceable(56) %44) #22
-  br i1 %51, label %._crit_edge, label %.lr.ph
+  %46 = load ptr, ptr %41, align 8
+  tail call void @_ZN9xmlStream6methodEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %45, ptr noundef %46) #22
+  %47 = load ptr, ptr @xtty, align 8
+  tail call void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %47) #22
+  %48 = tail call noundef zeroext i1 @_ZNK9ScopeDesc6is_topEv(ptr noundef nonnull align 8 dereferenceable(56) %41) #22
+  br i1 %48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN14Deoptimization16trap_reason_nameEi.exit, %.lr.ph
-  %.011 = phi ptr [ %52, %.lr.ph ], [ %44, %_ZN14Deoptimization16trap_reason_nameEi.exit ]
-  %52 = tail call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.011) #22
+  %.011 = phi ptr [ %49, %.lr.ph ], [ %41, %_ZN14Deoptimization16trap_reason_nameEi.exit ]
+  %49 = tail call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.011) #22
+  %50 = load ptr, ptr @xtty, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %52 = load i32, ptr %51, align 8
+  tail call void (ptr, ptr, ...) @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %50, ptr noundef nonnull @.str.23, i32 noundef %52) #22
   %53 = load ptr, ptr @xtty, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %55 = load i32, ptr %54, align 8
-  tail call void (ptr, ptr, ...) @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull @.str.23, i32 noundef %55) #22
-  %56 = load ptr, ptr @xtty, align 8
-  %57 = load ptr, ptr %52, align 8
-  tail call void @_ZN9xmlStream6methodEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %56, ptr noundef %57) #22
-  %58 = load ptr, ptr @xtty, align 8
-  tail call void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %58) #22
-  %59 = tail call noundef zeroext i1 @_ZNK9ScopeDesc6is_topEv(ptr noundef nonnull align 8 dereferenceable(56) %52) #22
-  br i1 %59, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  %54 = load ptr, ptr %49, align 8
+  tail call void @_ZN9xmlStream6methodEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef %54) #22
+  %55 = load ptr, ptr @xtty, align 8
+  tail call void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %55) #22
+  %56 = tail call noundef zeroext i1 @_ZNK9ScopeDesc6is_topEv(ptr noundef nonnull align 8 dereferenceable(56) %49) #22
+  br i1 %56, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN14Deoptimization16trap_reason_nameEi.exit
-  %60 = load ptr, ptr @xtty, align 8
-  tail call void @_ZN9xmlStream4tailEPKc(ptr noundef nonnull align 8 dereferenceable(152) %60, ptr noundef nonnull @.str.24) #22
-  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %23) #22
-  br label %61
+  %57 = load ptr, ptr @xtty, align 8
+  tail call void @_ZN9xmlStream4tailEPKc(ptr noundef nonnull align 8 dereferenceable(152) %57, ptr noundef nonnull @.str.24) #22
+  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %20) #22
+  br label %58
 
-61:                                               ; preds = %._crit_edge, %3
-  %62 = load ptr, ptr %1, align 8
-  tail call void @_ZN12Continuation12notify_deoptEP10JavaThreadPl(ptr noundef %0, ptr noundef %62) #22
+58:                                               ; preds = %._crit_edge, %3
+  %59 = load ptr, ptr %1, align 8
+  tail call void @_ZN12Continuation12notify_deoptEP10JavaThreadPl(ptr noundef %0, ptr noundef %59) #22
   call void @_ZN5frame10deoptimizeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %0) #22
   ret void
 }
@@ -6847,8 +6843,8 @@ _ZN14Deoptimization16trap_action_nameEi.exit266:  ; preds = %438, %442
   br i1 %456, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0184338 = phi ptr [ %457, %.lr.ph ], [ %68, %.preheader ]
-  %457 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.0184338) #22
+  %.0184339 = phi ptr [ %457, %.lr.ph ], [ %68, %.preheader ]
+  %457 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.0184339) #22
   %458 = load ptr, ptr @xtty, align 8
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %460 = load i32, ptr %459, align 8
@@ -7006,12 +7002,12 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit272: ; preds = %475, %_ZN2
   %.0188 = phi i1 [ false, %520 ], [ false, %519 ], [ true, %518 ], [ false, %513 ], [ false, %517 ]
   %524 = icmp ne ptr %.0.i248, null
   %525 = getelementptr i8, ptr %.0.i248, i64 24
-  %spec.select334 = select i1 %524, ptr %525, ptr null
-  %.not.i.i273 = icmp eq ptr %spec.select334, null
-  br i1 %.not.i.i273, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, label %526
+  %.not.i.i273338 = icmp ne ptr %525, null
+  %.not.i.i273.not = and i1 %524, %.not.i.i273338
+  br i1 %.not.i.i273.not, label %526, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
 
 526:                                              ; preds = %523
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %spec.select334) #22
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %525) #22
   br label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
 
 _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = %523, %526
@@ -7067,7 +7063,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %_ZN22Con
   ]
 
 ._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge: ; preds = %554
-  %.pre339 = load i32, ptr %16, align 4
+  %.pre340 = load i32, ptr %16, align 4
   br label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit
 
 555:                                              ; preds = %554, %554, %554, %554, %547, %554, %554
@@ -7089,7 +7085,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %_ZN22Con
   br label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit
 
 _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit: ; preds = %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge, %562, %555
-  %565 = phi i32 [ %558, %555 ], [ %.pre339, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %558, %562 ]
+  %565 = phi i32 [ %558, %555 ], [ %.pre340, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %558, %562 ]
   %.3 = phi i1 [ false, %555 ], [ true, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ true, %562 ]
   %.1187 = phi i8 [ 0, %555 ], [ 0, %._ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit_crit_edge ], [ %spec.select335, %562 ]
   %566 = add nsw i32 %.0.i, -19
@@ -7124,11 +7120,11 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %_
 
 .thread315.thread:                                ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread
   %579 = call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %66) #22
-  br i1 %579, label %.thread346, label %_ZN7BitData29set_exception_handler_enteredEv.exit
+  br i1 %579, label %.thread347, label %_ZN7BitData29set_exception_handler_enteredEv.exit
 
 580:                                              ; preds = %.thread315
   %.not231 = icmp eq ptr %551, null
-  br i1 %.not231, label %.thread346, label %581
+  br i1 %.not231, label %.thread347, label %581
 
 581:                                              ; preds = %580
   %582 = getelementptr inbounds nuw i8, ptr %551, i64 8
@@ -7137,29 +7133,29 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %_
   %585 = load i32, ptr %584, align 4
   %.0.i276 = or i32 %585, -2147483648
   %.not232 = icmp eq i32 %.0.i276, %585
-  br i1 %.not232, label %.thread346, label %586
+  br i1 %.not232, label %.thread347, label %586
 
 586:                                              ; preds = %581
   store i32 %.0.i276, ptr %584, align 4
-  br label %.thread346
+  br label %.thread347
 
-.thread346:                                       ; preds = %.thread315.thread, %581, %586, %580
-  %.0186323344352 = phi i8 [ %.1187, %581 ], [ %.1187, %586 ], [ %.1187, %580 ], [ 0, %.thread315.thread ]
-  %.1189321345351 = phi i1 [ %.1189321, %581 ], [ %.1189321, %586 ], [ %.1189321, %580 ], [ %.0188, %.thread315.thread ]
+.thread347:                                       ; preds = %.thread315.thread, %581, %586, %580
+  %.0186323345353 = phi i8 [ %.1187, %581 ], [ %.1187, %586 ], [ %.1187, %580 ], [ 0, %.thread315.thread ]
+  %.1189321346352 = phi i1 [ %.1189321, %581 ], [ %.1189321, %586 ], [ %.1189321, %580 ], [ %.0188, %.thread315.thread ]
   %587 = icmp eq i32 %.0.i, 30
   %or.cond8 = and i1 %587, %524
   br i1 %or.cond8, label %588, label %.thread325
 
-588:                                              ; preds = %.thread346
+588:                                              ; preds = %.thread347
   %589 = getelementptr inbounds nuw i8, ptr %.0.i248, i64 260
   %590 = load i32, ptr %589, align 4
   %591 = add i32 %590, 1
   store i32 %591, ptr %589, align 4
   br label %.thread325
 
-.thread325:                                       ; preds = %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit, %.thread346, %588
-  %.0186322 = phi i8 [ %.0186323344352, %.thread346 ], [ %.0186323344352, %588 ], [ %.1187, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit ]
-  %.1189320 = phi i1 [ %.1189321345351, %.thread346 ], [ %.1189321345351, %588 ], [ %.0188, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit ]
+.thread325:                                       ; preds = %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit, %.thread347, %588
+  %.0186322 = phi i8 [ %.0186323345353, %.thread347 ], [ %.0186323345353, %588 ], [ %.1187, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit ]
+  %.1189320 = phi i1 [ %.1189321346352, %.thread347 ], [ %.1189321346352, %588 ], [ %.0188, %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit ]
   %592 = trunc i8 %.0186322 to i1
   br i1 %592, label %593, label %.thread330
 
@@ -7190,16 +7186,16 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %_
   br i1 %.1189320333, label %606, label %610
 
 606:                                              ; preds = %605, %.thread330
-  %.1191354 = phi i1 [ %.0190, %605 ], [ %.1191, %.thread330 ]
+  %.1191355 = phi i1 [ %.0190, %605 ], [ %.1191, %.thread330 ]
   %607 = getelementptr inbounds nuw i8, ptr %66, i64 148
   %608 = load i32, ptr %607, align 4
   %609 = icmp ne i32 %608, -1
   call void @_ZN17CompilationPolicy9reprofileEP9ScopeDescb(ptr noundef nonnull %68, i1 noundef zeroext %609) #22
-  br i1 %.1191354, label %611, label %617
+  br i1 %.1191355, label %611, label %617
 
 610:                                              ; preds = %605, %.thread330
-  %.1191353 = phi i1 [ %.0190, %605 ], [ %.1191, %.thread330 ]
-  br i1 %.1191353, label %611, label %617
+  %.1191354 = phi i1 [ %.0190, %605 ], [ %.1191, %.thread330 ]
+  br i1 %.1191354, label %611, label %617
 
 611:                                              ; preds = %606, %610
   %612 = getelementptr inbounds nuw i8, ptr %66, i64 72
@@ -7242,10 +7238,10 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %_
   br i1 %.not.i.i.i277, label %_ZN7BitData29set_exception_handler_enteredEv.exit, label %626, !llvm.loop !65
 
 _ZN7BitData29set_exception_handler_enteredEv.exit: ; preds = %629, %626, %.thread315.thread, %617, %620, %.thread315
-  br i1 %.not.i.i273, label %_ZN22ConditionalMutexLockerD2Ev.exit, label %632
+  br i1 %.not.i.i273.not, label %632, label %_ZN22ConditionalMutexLockerD2Ev.exit
 
 632:                                              ; preds = %_ZN7BitData29set_exception_handler_enteredEv.exit
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %spec.select334) #22
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %525) #22
   br label %_ZN22ConditionalMutexLockerD2Ev.exit
 
 _ZN22ConditionalMutexLockerD2Ev.exit:             ; preds = %_ZN7BitData29set_exception_handler_enteredEv.exit, %632

@@ -424,7 +424,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.93183
 
 9:                                                ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.11f9ed1708ad007c3d649fd3ee8621a9.12.llvm.9318380955268835496, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.10.llvm.9318380955268835496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.14.llvm.9318380955268835496) #19
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.11f9ed1708ad007c3d649fd3ee8621a9.12.llvm.9318380955268835496, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.10.llvm.9318380955268835496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.14.llvm.9318380955268835496) #19
           to label %.noexc4 unwind label %21
 
 .noexc4:                                          ; preds = %9
@@ -542,7 +542,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !140
   store ptr %.sroa.0.05.i.i, ptr %3, align 8, !noalias !140
-  %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.89d496195775227db4ef3cf0d704f36f.0.llvm.15859092204462515359)
+  %11 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.89d496195775227db4ef3cf0d704f36f.0.llvm.15859092204462515359)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !140
   %12 = icmp eq ptr %10, %8
   br i1 %12, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd67e7be35dd24d7bE.exit", label %.lr.ph.i.i
@@ -1032,7 +1032,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcbb04
   ret { i64, i64 } %13
 
 14:                                               ; preds = %4
-  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.10.llvm.9318380955268835496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #19
+  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.10.llvm.9318380955268835496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #19
   unreachable
 }
 
@@ -1068,7 +1068,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.93183
 
 5:                                                ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.9318380955268835496.exit
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
-  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.11f9ed1708ad007c3d649fd3ee8621a9.12.llvm.9318380955268835496, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.10.llvm.9318380955268835496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.14.llvm.9318380955268835496) #19, !noalias !272
+  call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.11f9ed1708ad007c3d649fd3ee8621a9.12.llvm.9318380955268835496, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.10.llvm.9318380955268835496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.11f9ed1708ad007c3d649fd3ee8621a9.14.llvm.9318380955268835496) #19, !noalias !272
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hcbb04137dd37ec7cE.llvm.9318380955268835496.exit": ; preds = %0, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.9318380955268835496.exit

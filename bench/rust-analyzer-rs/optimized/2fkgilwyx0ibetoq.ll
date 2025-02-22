@@ -173,7 +173,7 @@ define noundef zeroext i1 @"_ZN52_$LT$cfg..CfgOptions$u20$as$u20$core..fmt..Debu
           to label %26 unwind label %23
 
 26:                                               ; preds = %25
-  %27 = invoke noundef align 8 dereferenceable(24) ptr @_ZN4core3fmt8builders10DebugTuple5field17hf8a48d2771b44332E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed49a406a3700145873275f46ab0f926.8)
+  %27 = invoke noundef align 8 dereferenceable(24) ptr @_ZN4core3fmt8builders10DebugTuple5field17hf8a48d2771b44332E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed49a406a3700145873275f46ab0f926.8)
           to label %28 unwind label %23
 
 28:                                               ; preds = %26
@@ -201,7 +201,7 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg10CfgOptions5check17h617370d493fa1ccbE(
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %4 = call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ed49a406a3700145873275f46ab0f926.9), !range !63
+  %4 = call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed49a406a3700145873275f46ab0f926.9), !range !63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i8 %4
 }

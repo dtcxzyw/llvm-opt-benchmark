@@ -6873,7 +6873,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %64, %55
   br i1 %.not177.i, label %73, label %74
 
 73:                                               ; preds = %_ZN9VectorSet8test_setEj.exit.i
-  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %59) #15
+  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %59) #15
   br label %74
 
 74:                                               ; preds = %73, %_ZN9VectorSet8test_setEj.exit.i
@@ -7501,7 +7501,7 @@ _ZN9Node_List4pushEP4Node.exit132.i:              ; preds = %396, %394
   br i1 %413, label %414, label %thread-pre-split.i
 
 414:                                              ; preds = %412
-  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %381) #15
+  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %381) #15
   br label %431
 
 thread-pre-split.i:                               ; preds = %412
@@ -7521,7 +7521,7 @@ thread-pre-split.i:                               ; preds = %412
   br i1 %422, label %423, label %424
 
 423:                                              ; preds = %418
-  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %..i, ptr noundef nonnull %381) #15
+  call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %381) #15
   br label %431
 
 424:                                              ; preds = %418, %415
@@ -7531,7 +7531,7 @@ thread-pre-split.i:                               ; preds = %412
   %428 = load ptr, ptr %427, align 8
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 208
   %430 = load ptr, ptr %429, align 8
-  call void %430(ptr noundef nonnull align 8 dereferenceable(8) %427, ptr noundef nonnull %..i, ptr noundef nonnull %381) #15
+  call void %430(ptr noundef nonnull align 8 dereferenceable(8) %427, ptr noundef nonnull %1, ptr noundef nonnull %381) #15
   br label %431
 
 431:                                              ; preds = %424, %423, %414, %_ZN9Node_List4pushEP4Node.exit132.i, %390, %382, %378

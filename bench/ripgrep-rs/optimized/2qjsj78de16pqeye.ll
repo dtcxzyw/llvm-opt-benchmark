@@ -179,7 +179,7 @@ define void @_ZN12grep_printer5stats5Stats11add_elapsed17had73347d0f91c85aE(ptr 
   store ptr @anon.8483b841128fae6c4fda0dbbe633a183.0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %30, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.10) #13
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.10) #13
   unreachable
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit: ; preds = %20
@@ -189,7 +189,7 @@ _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit: ; preds = %20
   ret void
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread: ; preds = %3, %15
-  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13
+  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13
   unreachable
 }
 
@@ -277,7 +277,7 @@ define void @"_ZN68_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..
   br i1 %22, label %_ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread.i, label %"_ZN106_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..Add$LT$$RF$grep_printer..stats..Stats$GT$$GT$3add17h8ba0765ded2236c7E.exit"
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread.i: ; preds = %18, %3
-  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13, !noalias !19
+  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13, !noalias !19
   unreachable
 
 "_ZN106_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..Add$LT$$RF$grep_printer..stats..Stats$GT$$GT$3add17h8ba0765ded2236c7E.exit": ; preds = %11, %18
@@ -405,7 +405,7 @@ _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit: ; preds = %11, %18
   ret void
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread: ; preds = %3, %18
-  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13
+  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13
   unreachable
 }
 
@@ -439,7 +439,7 @@ define void @"_ZN74_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..
   br i1 %21, label %_ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread.i, label %"_ZN112_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$grep_printer..stats..Stats$GT$$GT$10add_assign17h028b02d7b5a0f15cE.exit"
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread.i: ; preds = %17, %2
-  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13, !noalias !26
+  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13, !noalias !26
   unreachable
 
 "_ZN112_$LT$grep_printer..stats..Stats$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$grep_printer..stats..Stats$GT$$GT$10add_assign17h028b02d7b5a0f15cE.exit": ; preds = %11, %17
@@ -553,7 +553,7 @@ _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit: ; preds = %11, %17
   ret void
 
 _ZN4core4time8Duration11checked_add17h7eb4648105137d8dE.exit.thread: ; preds = %2, %17
-  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13
+  tail call void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.8483b841128fae6c4fda0dbbe633a183.11, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8483b841128fae6c4fda0dbbe633a183.12) #13
   unreachable
 }
 

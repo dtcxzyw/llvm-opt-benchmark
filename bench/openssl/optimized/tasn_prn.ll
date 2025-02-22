@@ -633,47 +633,47 @@ define internal fastcc range(i32 0, 2) i32 @asn1_print_fsname(ptr noundef %0, i3
   %13 = load i64, ptr %4, align 8, !tbaa !3
   %14 = and i64 %13, 256
   %.not24 = icmp eq i64 %14, 0
-  %spec.select = select i1 %.not24, ptr %3, ptr null
   %15 = and i64 %13, 64
   %.not25 = icmp eq i64 %15, 0
-  %.022 = select i1 %.not25, ptr %2, ptr null
-  %16 = icmp ne ptr %spec.select, null
-  %17 = icmp ne ptr %.022, null
-  %or.cond = or i1 %16, %17
-  br i1 %or.cond, label %18, label %.loopexit
+  %16 = icmp ne ptr %3, null
+  %17 = and i1 %16, %.not24
+  %18 = icmp ne ptr %2, null
+  %19 = and i1 %18, %.not25
+  %or.cond = or i1 %17, %19
+  br i1 %or.cond, label %20, label %.loopexit
 
-18:                                               ; preds = %12
-  br i1 %17, label %19, label %.thread
+20:                                               ; preds = %12
+  br i1 %19, label %21, label %.thread
 
-19:                                               ; preds = %18
-  %20 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.022) #5
-  %21 = icmp slt i32 %20, 1
-  br i1 %21, label %.loopexit, label %22
+21:                                               ; preds = %20
+  %22 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %2) #5
+  %23 = icmp slt i32 %22, 1
+  br i1 %23, label %.loopexit, label %24
 
-22:                                               ; preds = %19
-  br i1 %16, label %23, label %29
+24:                                               ; preds = %21
+  br i1 %17, label %25, label %31
 
-.thread:                                          ; preds = %18
-  br i1 %16, label %26, label %29
+.thread:                                          ; preds = %20
+  br i1 %17, label %28, label %31
 
-23:                                               ; preds = %22
-  %24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %spec.select) #5
-  %25 = icmp slt i32 %24, 1
-  br i1 %25, label %.loopexit, label %29
+25:                                               ; preds = %24
+  %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #5
+  %27 = icmp slt i32 %26, 1
+  br i1 %27, label %.loopexit, label %31
 
-26:                                               ; preds = %.thread
-  %27 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %spec.select) #5
-  %28 = icmp slt i32 %27, 1
-  br i1 %28, label %.loopexit, label %29
+28:                                               ; preds = %.thread
+  %29 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %3) #5
+  %30 = icmp slt i32 %29, 1
+  br i1 %30, label %.loopexit, label %31
 
-29:                                               ; preds = %.thread, %23, %26, %22
-  %30 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef 2) #5
-  %.not26 = icmp eq i32 %30, 2
+31:                                               ; preds = %.thread, %25, %28, %24
+  %32 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef 2) #5
+  %.not26 = icmp eq i32 %32, 2
   %. = zext i1 %.not26 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %29, %26, %23, %19, %12, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %12 ], [ 0, %19 ], [ 0, %23 ], [ 0, %26 ], [ %., %29 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %31, %28, %25, %21, %12, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %12 ], [ 0, %21 ], [ 0, %25 ], [ 0, %28 ], [ %., %31 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

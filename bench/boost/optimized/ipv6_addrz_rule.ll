@@ -163,10 +163,10 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %39 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ]
   %40 = or disjoint i64 %39, ptrtoint (ptr @_ZZNK5boost4urls6detail17ipv6_addrz_rule_t5parseERPKcS4_E11loc__LINE__ to i64)
   store i64 5, ptr %0, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.529.0..sroa_idx, align 8, !tbaa !9
-  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %40, ptr %.sroa.630.0..sroa_idx, align 8, !tbaa !10
+  %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.528.0..sroa_idx, align 8, !tbaa !9
+  %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %40, ptr %.sroa.629.0..sroa_idx, align 8, !tbaa !10
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %41, align 8, !tbaa !15
   br label %62
@@ -209,10 +209,10 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit20: ; preds = %_
   %56 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit18.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit18 ]
   %57 = or disjoint i64 %56, ptrtoint (ptr @_ZZNK5boost4urls6detail17ipv6_addrz_rule_t5parseERPKcS4_E11loc__LINE___0 to i64)
   store i64 5, ptr %0, align 8
-  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.523.0..sroa_idx, align 8, !tbaa !9
-  %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %57, ptr %.sroa.624.0..sroa_idx, align 8, !tbaa !10
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.522.0..sroa_idx, align 8, !tbaa !9
+  %.sroa.623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %57, ptr %.sroa.623.0..sroa_idx, align 8, !tbaa !10
   br label %60
 
 58:                                               ; preds = %42

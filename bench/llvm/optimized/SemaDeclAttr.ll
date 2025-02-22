@@ -643,7 +643,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentA
   br i1 %.not17, label %19, label %16
 
 16:                                               ; preds = %15
-  %17 = load i32, ptr %spec.select.i.i, align 8
+  %17 = load i32, ptr %9, align 8
   %18 = and i32 %17, 3670016
   switch i32 %18, label %19 [
     i32 2621440, label %185
@@ -1560,7 +1560,7 @@ _ZNK5clang10ParsedAttr10isArgIdentEj.exit.thread: ; preds = %5
   br i1 %.not42, label %277, label %274
 
 274:                                              ; preds = %273
-  %275 = load i32, ptr %spec.select.i.i, align 8
+  %275 = load i32, ptr %267, align 8
   %276 = and i32 %275, 3670016
   switch i32 %276, label %277 [
     i32 2621440, label %443
@@ -28958,8 +28958,8 @@ define dso_local void @_ZN5clang4Sema34LazyProcessLifetimeCaptureByParamsEPNS_12
   %19 = and i32 %18, 127
   %20 = add nsw i32 %19, -37
   %21 = icmp ult i32 %20, -4
-  %.not.not6.i = icmp eq ptr %1, null
-  %.not.not.not.i.not263 = or i1 %.not.not6.i, %21
+  %.not6.i = icmp eq ptr %1, null
+  %.not.not.not.i.not263 = or i1 %.not6.i, %21
   br i1 %.not.not.not.i.not263, label %_ZN5clang16isInstanceMethodEPKNS_4DeclE.exit, label %22
 
 22:                                               ; preds = %2
@@ -31866,7 +31866,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit83
   br i1 %or.cond54, label %331, label %339
 
 331:                                              ; preds = %321
-  %332 = call noundef i32 @_ZNK5clang7VarDecl10getTLSKindEv(ptr noundef nonnull align 8 dereferenceable(100) %spec.select.i.i84) #24
+  %332 = call noundef i32 @_ZNK5clang7VarDecl10getTLSKindEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #24
   %.not50 = icmp eq i32 %332, 0
   br i1 %.not50, label %339, label %.critedge56
 
@@ -68410,8 +68410,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_22AttributeArgumentNTypeEvEERKS1
   %288 = and i32 %287, 127
   %289 = add nsw i32 %288, -33
   %290 = icmp ult i32 %289, 4
-  %.not.not6.i = icmp ne ptr %1, null
-  %.not.not.not.i = and i1 %.not.not6.i, %290
+  %.not6.i = icmp ne ptr %1, null
+  %.not.not.not.i = and i1 %.not6.i, %290
   br i1 %.not.not.not.i, label %291, label %_ZN5clang16isInstanceMethodEPKNS_4DeclE.exit
 
 291:                                              ; preds = %285
@@ -70404,8 +70404,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   %88 = and i32 %87, 127
   %89 = add nsw i32 %88, -33
   %90 = icmp ult i32 %89, 4
-  %.not.not6.i = icmp ne ptr %1, null
-  %.not.not.not.i = and i1 %.not.not6.i, %90
+  %.not6.i = icmp ne ptr %1, null
+  %.not.not.not.i = and i1 %.not6.i, %90
   br i1 %.not.not.not.i, label %91, label %_ZN5clang16isInstanceMethodEPKNS_4DeclE.exit
 
 91:                                               ; preds = %85
@@ -101364,10 +101364,10 @@ _ZN5clanglsIPNS_12FunctionDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.e
   br i1 %.not17, label %314, label %327
 
 314:                                              ; preds = %311
-  %315 = load ptr, ptr %spec.select.i.i, align 8, !tbaa !66
+  %315 = load ptr, ptr %1, align 8, !tbaa !66
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 32
   %317 = load ptr, ptr %316, align 8
-  %318 = tail call noundef ptr %317(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i) #24
+  %318 = tail call noundef ptr %317(ptr noundef nonnull align 8 dereferenceable(168) %1) #24
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 82
   %320 = load i32, ptr %319, align 2
   %321 = and i32 %320, 12
@@ -103191,7 +103191,7 @@ define internal fastcc void @_ZL20handleNoSanitizeAttrRN5clang4SemaEPNS_4DeclERK
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.not.not6.i = icmp ne ptr %1, null
+  %.not6.i = icmp ne ptr %1, null
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 128
@@ -103286,7 +103286,7 @@ _ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exi
   %61 = and i32 %60, 127
   %62 = add nsw i32 %61, -38
   %63 = icmp ult i32 %62, 7
-  %.not.not.not.i = and i1 %.not.not6.i, %63
+  %.not.not.not.i = and i1 %.not6.i, %63
   br i1 %.not.not.not.i, label %_ZL11isGlobalVarPKN5clang4DeclE.exit, label %_ZL11isGlobalVarPKN5clang4DeclE.exit.thread
 
 _ZL11isGlobalVarPKN5clang4DeclE.exit:             ; preds = %.critedge
@@ -103735,8 +103735,8 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit41: ; 
   %29 = and i32 %28, 127
   %30 = add nsw i32 %29, -38
   %31 = icmp ult i32 %30, 7
-  %.not.not6.i = icmp ne ptr %1, null
-  %.not.not.not.i = and i1 %.not.not6.i, %31
+  %.not6.i = icmp ne ptr %1, null
+  %.not.not.not.i = and i1 %.not6.i, %31
   br i1 %.not.not.not.i, label %_ZL11isGlobalVarPKN5clang4DeclE.exit, label %_ZL11isGlobalVarPKN5clang4DeclE.exit.thread
 
 _ZL11isGlobalVarPKN5clang4DeclE.exit:             ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit41
@@ -132533,7 +132533,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %36, %44
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_14CapabilityAttrEEEbv.exit.thread.i, label %52
 
 52:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit
-  %53 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %48) #24
+  %53 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %47) #24
   %54 = load ptr, ptr %53, align 8, !tbaa !45
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !46
@@ -132585,7 +132585,7 @@ _ZL22checkRecordDeclForAttrIN5clang14CapabilityAttrEEbPKNS0_10RecordDeclE.exit: 
   br i1 %.not.i.i98, label %_ZNK5clang4Decl7hasAttrINS_18ScopedLockableAttrEEEbv.exit.thread.i, label %74
 
 74:                                               ; preds = %_ZL22checkRecordDeclForAttrIN5clang14CapabilityAttrEEbPKNS0_10RecordDeclE.exit
-  %75 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %48) #24
+  %75 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %47) #24
   %76 = load ptr, ptr %75, align 8, !tbaa !45
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i32, ptr %77, align 8, !tbaa !46
@@ -133296,7 +133296,7 @@ _ZL13getRecordTypeN5clang8QualTypeE.exit:         ; preds = %422, %_ZNK5clang4Ty
   br i1 %or.cond, label %446, label %_ZL13getRecordTypeN5clang8QualTypeE.exit.thread
 
 446:                                              ; preds = %437
-  %447 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i.i134) #24
+  %447 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #24
   %448 = getelementptr inbounds nuw i8, ptr %282, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1853)

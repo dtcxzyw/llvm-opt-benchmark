@@ -715,7 +715,7 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   ]
 
 18:                                               ; preds = %9
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17, !noalias !123
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17, !noalias !123
   unreachable
 
 default.unreachable:                              ; preds = %13
@@ -796,7 +796,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter6traits8iterator8Iterator8find_map5che
   ]
 
 11:                                               ; preds = %2
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17, !noalias !137
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17, !noalias !137
   unreachable
 
 default.unreachable:                              ; preds = %7
@@ -857,7 +857,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter8adapters6filter15filter_try_fold28_$u
   ]
 
 17:                                               ; preds = %8
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17, !noalias !152
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17, !noalias !152
   unreachable
 
 default.unreachable:                              ; preds = %12
@@ -1013,7 +1013,7 @@ define hidden { ptr, ptr } @"_ZN10rayon_core8registry12WorkerThread5steal28_$u7b
   ]
 
 11:                                               ; preds = %2
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1e5193481e0f4def8d52ada7935c5b41.10) #17
   unreachable
 
 default.unreachable2:                             ; preds = %7

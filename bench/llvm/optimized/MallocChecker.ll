@@ -15775,7 +15775,7 @@ define internal void @_ZNK12_GLOBAL__N_113MallocChecker12checkReallocEN4llvm18In
   %21 = add nsw i32 %20, -32
   %22 = icmp ult i32 %21, 6
   %spec.select.i.i.i = select i1 %22, ptr %17, ptr null
-  %23 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i.i) #33
+  %23 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %17) #33
   %24 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %24, align 8
   %25 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
@@ -15851,7 +15851,7 @@ _ZL17isStandardReallocRKN5clang4ento9CallEventE.exit.thread: ; preds = %_ZNK5cla
   %66 = add nsw i32 %65, -32
   %67 = icmp ult i32 %66, 6
   %spec.select.i.i.i8 = select i1 %67, ptr %62, ptr null
-  %68 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %spec.select.i.i.i8) #33
+  %68 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %62) #33
   %69 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i8, i64 56
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i9 = load i64, ptr %69, align 8
   %70 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i9, 4

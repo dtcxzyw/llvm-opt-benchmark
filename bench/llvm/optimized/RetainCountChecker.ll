@@ -3946,7 +3946,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156: ; preds 
   %135 = load ptr, ptr %134, align 8
   %136 = call noundef i32 %135(ptr noundef nonnull align 8 dereferenceable(72) %2) #21
   %.not431 = icmp eq i32 %136, 10
-  %spec.select.i.i = select i1 %.not431, ptr %2, ptr null
   br i1 %.not431, label %137, label %175
 
 137:                                              ; preds = %.loopexit.thread
@@ -4049,10 +4048,10 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit178: ; preds 
   br i1 %.not138, label %172, label %166
 
 166:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit178
-  %167 = load ptr, ptr %spec.select.i.i, align 8, !tbaa !231
+  %167 = load ptr, ptr %2, align 8, !tbaa !231
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 64
   %169 = load ptr, ptr %168, align 8
-  %170 = call noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i) #21
+  %170 = call noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(72) %2) #21
   %171 = call i64 @_ZNK5clang15ObjCMessageExpr16getReceiverRangeEv(ptr noundef nonnull align 8 dereferenceable(40) %170) #21
   %.sroa.0292.0.extract.trunc293 = trunc i64 %171 to i32
   %.sroa.7295.0.extract.shift296 = lshr i64 %171, 32
@@ -4072,7 +4071,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit178: ; preds 
   %178 = load ptr, ptr %177, align 8
   %179 = call noundef i32 %178(ptr noundef nonnull align 8 dereferenceable(72) %2) #21
   %.not432 = icmp eq i32 %179, 2
-  %spec.select.i.i180 = select i1 %.not432, ptr %2, ptr null
   br i1 %.not432, label %180, label %220
 
 180:                                              ; preds = %175
@@ -4198,10 +4196,10 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit203: ; preds 
   br i1 %.not135, label %.thread384, label %214
 
 214:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit203
-  %215 = load ptr, ptr %spec.select.i.i180, align 8, !tbaa !231
+  %215 = load ptr, ptr %2, align 8, !tbaa !231
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 64
   %217 = load ptr, ptr %216, align 8
-  %218 = call noundef ptr %217(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i180) #21
+  %218 = call noundef ptr %217(ptr noundef nonnull align 8 dereferenceable(72) %2) #21
   %219 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %218) #22
   %.sroa.0292.0.extract.trunc = trunc i64 %219 to i32
   %.sroa.7295.0.extract.shift = lshr i64 %219, 32
