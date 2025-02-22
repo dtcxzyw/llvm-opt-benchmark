@@ -1552,24 +1552,24 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.6) #12
   br label %48
 
-38:                                               ; preds = %.critedge
+38: ; preds = %.critedge
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !31
   %41 = load ptr, ptr %3, align 8, !tbaa !22
-  %42 = call ptr %40(ptr noundef %41, ptr noundef %.079106) #12
-  %.not74 = icmp eq ptr %42, null
-  br i1 %.not74, label %43, label %46
+  %41 = call ptr %40(ptr noundef %41, ptr noundef %.079106) #12
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %46
 
-43:                                               ; preds = %38
+43:; preds = %38
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !32
   %.not75 = icmp eq ptr %44, null
   br i1 %.not75, label %45, label %48
 
-45:                                               ; preds = %43
+45:; preds = %43
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #12
   br label %48
 
-46:                                               ; preds = %38
+46:; preds = %38
   store ptr %42, ptr %1, align 8, !tbaa !8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %47, align 8, !tbaa !8

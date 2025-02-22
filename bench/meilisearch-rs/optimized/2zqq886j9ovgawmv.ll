@@ -77098,14 +77098,14 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit: ; preds = %2, %18, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i
-  %.sroa.10.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %46, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ null, %18 ], [ @anon.205a70c7052f3cb58a8abae1a1d3bbbc.22.llvm.6955530683240799244, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -77194,14 +77194,14 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit: ; preds = %2, %18, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i
-  %.sroa.10.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %46, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ null, %18 ], [ @anon.205a70c7052f3cb58a8abae1a1d3bbbc.22.llvm.6955530683240799244, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -77291,14 +77291,14 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit: ; preds = %2, %10, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i
-  %.sroa.10.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %13, %10 ], [ 0, %2 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %12, %10 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %13, %10 ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %12, %10 ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %46, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ null, %10 ], [ @anon.205a70c7052f3cb58a8abae1a1d3bbbc.22.llvm.6955530683240799244, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -77385,14 +77385,14 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit: ; preds = %2, %18, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i
-  %.sroa.10.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %41, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %41, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %44, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ null, %18 ], [ @anon.205a70c7052f3cb58a8abae1a1d3bbbc.22.llvm.6955530683240799244, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -77482,14 +77482,14 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit: ; preds = %2, %10, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i
-  %.sroa.10.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %13, %10 ], [ 0, %2 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %12, %10 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %13, %10 ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %12, %10 ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %46, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ null, %10 ], [ @anon.205a70c7052f3cb58a8abae1a1d3bbbc.22.llvm.6955530683240799244, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
@@ -77578,14 +77578,14 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h6313a76ef22841cdE.llvm.6955530683240799244.exit: ; preds = %2, %18, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i
-  %.sroa.10.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.12.049.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %.sroa.05.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %21, %18 ], [ 0, %2 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.7.050.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ %20, %18 ], [ 0, %2 ]
   %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.thread.i ], [ %46, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h1b51a45cf66c43eeE.exit.i ], [ null, %18 ], [ @anon.205a70c7052f3cb58a8abae1a1d3bbbc.22.llvm.6955530683240799244, %2 ]
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void

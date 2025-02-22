@@ -1305,12 +1305,12 @@ define hidden range(i32 -1, 1) i32 @phar_metadata_tracker_unserialize_or_copy(pt
   %13 = load i8, ptr %12, align 8, !tbaa !29
   %14 = icmp eq i8 %13, 0
   %brmerge = select i1 %14, i1 true, i1 %11
-  br i1 %brmerge, label %15, label %26
+  br i1 %brmerge, label %15, label %28
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !105
   %.not26 = icmp eq ptr %16, null
-  br i1 %.not26, label %17, label %34
+  br i1 %.not26, label %17, label %36
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1319,35 +1319,35 @@ define hidden range(i32 -1, 1) i32 @phar_metadata_tracker_unserialize_or_copy(pt
   %20 = load ptr, ptr %18, align 8, !tbaa !77
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !12
+  %22 = load i64, ptr %22, align 8, !tbaa !12
   tail call void @php_unserialize_with_options(ptr noundef %1, ptr noundef nonnull %21, i64 noundef %23, ptr noundef %3, ptr noundef %4) #24
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !105
-  %.not27 = icmp eq ptr %24, null
-  br i1 %.not27, label %34, label %25
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %34, label %25
 
-25:                                               ; preds = %17
+25:; preds = %17
   tail call void @zval_ptr_dtor(ptr noundef nonnull %1) #24
   store i32 0, ptr %19, align 8, !tbaa !29
-  br label %34
+  br label %36
 
-26:                                               ; preds = %10
-  %27 = load ptr, ptr %0, align 8, !tbaa !29
-  %28 = load i32, ptr %12, align 8, !tbaa !29
-  store ptr %27, ptr %1, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %28, ptr %29, align 8, !tbaa !29
-  %30 = and i32 %28, 65280
-  %.not25 = icmp eq i32 %30, 0
-  br i1 %.not25, label %34, label %31
+28:                                               ; preds = %10
+  %29 = load ptr, ptr %0, align 8, !tbaa !29
+  %30 = load i32, ptr %12, align 8, !tbaa !29
+  store ptr %29, ptr %1, align 8, !tbaa !29
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %30, ptr %31, align 8, !tbaa !29
+  %32 = and i32 %30, 65280
+  %.not25 = icmp eq i32 %32, 0
+  br i1 %.not25, label %36, label %33
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %27, align 4, !tbaa !78
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %27, align 4, !tbaa !78
-  br label %34
+33:                                               ; preds = %28
+  %34 = load i32, ptr %29, align 4, !tbaa !78
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %29, align 4, !tbaa !78
+  br label %36
 
-34:                                               ; preds = %26, %31, %25, %17, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %25 ], [ 0, %17 ], [ 0, %31 ], [ 0, %26 ]
+36:                                               ; preds = %28, %33, %25, %17, %15
+  %.0 = phi i32 [ -1, %15 ], [ -1, %25 ], [ 0, %17 ], [ 0, %33 ], [ 0, %28 ]
   ret i32 %.0
 }
 

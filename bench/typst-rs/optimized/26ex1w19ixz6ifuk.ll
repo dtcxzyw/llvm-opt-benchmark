@@ -78010,11 +78010,11 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sy
   %.not.i = icmp eq i64 %2, 2
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h391aa47893af192eE.llvm.4622153547959463051.exit", label %3
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hecd04c1f2db21755E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h391aa47893af192eE.llvm.4622153547959463051.exit"
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h391aa47893af192eE.llvm.4622153547959463051.exit": ; preds = %1, %3
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h391aa47893af192eE.llvm.4622153547959463051.exit": ; preds = %1, %4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %4
 }
@@ -78155,11 +78155,11 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9once_cell4syn
   %.not.i = icmp eq i64 %2, 2
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h7ade7f3f0606140fE.llvm.4622153547959463051.exit", label %3
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h612f65ead891ecc7E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h7ade7f3f0606140fE.llvm.4622153547959463051.exit"
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h7ade7f3f0606140fE.llvm.4622153547959463051.exit": ; preds = %1, %3
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h7ade7f3f0606140fE.llvm.4622153547959463051.exit": ; preds = %1, %4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %4
 }
@@ -78581,11 +78581,11 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sy
   %.not.i = icmp eq i64 %2, 2
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hca0d73ca85ca6cdcE.llvm.4622153547959463051.exit", label %3
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h8814a54bd6772c90E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hca0d73ca85ca6cdcE.llvm.4622153547959463051.exit"
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hca0d73ca85ca6cdcE.llvm.4622153547959463051.exit": ; preds = %1, %3
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hca0d73ca85ca6cdcE.llvm.4622153547959463051.exit": ; preds = %1, %4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %4
 }
@@ -78949,13 +78949,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h391aa47893af192eE.llvm.4622153547959463051"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  br i1 %.not, label %5, label %4
+  br i1 %.not, label %8, label %4
 
-4:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hecd04c1f2db21755E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   br label %5
 
-5:                                                ; preds = %2, %4
+8:                                                ; preds = %2, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %6
 }
@@ -79132,13 +79132,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h7ade7f3f0606140fE.llvm.4622153547959463051"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  br i1 %.not, label %5, label %4
+  br i1 %.not, label %8, label %4
 
-4:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h612f65ead891ecc7E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   br label %5
 
-5:                                                ; preds = %2, %4
+8:                                                ; preds = %2, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %6
 }
@@ -79464,13 +79464,13 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9once_cell4syn
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hca0d73ca85ca6cdcE.llvm.4622153547959463051"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  br i1 %.not, label %5, label %4
+  br i1 %.not, label %8, label %4
 
-4:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h8814a54bd6772c90E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   br label %5
 
-5:                                                ; preds = %2, %4
+8:                                                ; preds = %2, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %6
 }

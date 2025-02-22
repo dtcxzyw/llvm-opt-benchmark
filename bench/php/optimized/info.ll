@@ -2561,8 +2561,8 @@ zend_parse_arg_str_ex.exit:                       ; preds = %9
 
 .critedge.thread:                                 ; preds = %7, %.critedge
   %.0486083 = phi ptr [ %18, %.critedge ], [ @.str.127, %7 ]
-  %22 = load i8, ptr %.0486083, align 1, !tbaa !24
-  switch i8 %22, label %php_is_valid_uname_mode.exit [
+  %24 = load i8, ptr %.0486083, align 1, !tbaa !24
+  switch i8 %24, label %php_is_valid_uname_mode.exit [
     i8 115, label %23
     i8 114, label %23
     i8 110, label %23
@@ -2575,19 +2575,19 @@ php_is_valid_uname_mode.exit:                     ; preds = %.critedge.thread
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.129) #14
   br label %30
 
-23:                                               ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
+23: ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
   %24 = call ptr @php_get_uname(i8 noundef signext %22)
   store ptr %24, ptr %1, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !24
+  %28 = load i32, ptr %25, align 4, !tbaa !24
   %27 = and i32 %26, 64
-  %.not44 = icmp eq i32 %27, 0
-  %28 = select i1 %.not44, i32 262, i32 6
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %28, ptr %29, align 8, !tbaa !24
+  %29 = icmp eq i32 %27, 0
+  %30 = select i1 %29, i32 262, i32 6
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %30, ptr %31, align 8, !tbaa !24
   br label %30
 
-30:                                               ; preds = %16, %php_is_valid_uname_mode.exit, %23, %21
+30: ; preds = %16, %php_is_valid_uname_mode.exit, %23, %21
   ret void
 }
 

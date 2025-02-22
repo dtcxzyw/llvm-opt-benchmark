@@ -2106,14 +2106,14 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h669c5cbd89b26057E.llvm.12199688689760991293.exit
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h669c5cbd89b26057E.llvm.12199688689760991293.exit: ; preds = %20, %2, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.thread.i
-  %.sroa.10.0 = phi i64 [ %.sroa.11.04455.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.thread.i ], [ %.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.i ], [ 0, %2 ], [ %.sroa.6.0.i, %20 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.6.04357.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.i ], [ 0, %2 ], [ %22, %20 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.04455.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.thread.i ], [ %.0.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.i ], [ 0, %2 ], [ %.sroa.6.0.i, %20 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.6.04357.ph.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.thread.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.i ], [ 0, %2 ], [ %22, %20 ]
   %.sroa.0.0 = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.thread.i ], [ %47, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h99b35439e82c5a63E.exit.i ], [ @anon.dce223b64d3e5f92dda614807f794b29.8, %2 ], [ null, %20 ]
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.8.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void

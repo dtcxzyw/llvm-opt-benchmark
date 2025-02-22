@@ -1869,10 +1869,10 @@ define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8
   %.sroa.6.0 = select i1 %6, i64 undef, i64 %.sroa.6.0.copyload.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !330
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %12, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %3, ptr %11, align 8
   store ptr %5, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8

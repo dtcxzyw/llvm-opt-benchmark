@@ -2212,8 +2212,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h9af4492fb73a2a96E.llvm.14431222152625912608.exit", %3, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0 = select i1 %.not.not, ptr null, ptr %8
-  ret ptr %.0
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
+  ret ptr %spec.select
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2254,8 +2254,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h82eb6832b6c66059E.llvm.14431222152625912608.exit", %3, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0 = select i1 %.not.not, ptr null, ptr %8
-  ret ptr %.0
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
+  ret ptr %spec.select
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2296,8 +2296,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h17d47d19dfe5dcd3E.llvm.14431222152625912608.exit", %3, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0 = select i1 %.not.not, ptr null, ptr %8
-  ret ptr %.0
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
+  ret ptr %spec.select
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2338,8 +2338,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
 
 7:                                                ; preds = %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hd266393bc9f4628dE.llvm.14431222152625912608.exit", %3, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0 = select i1 %.not.not, ptr null, ptr %8
-  ret ptr %.0
+  %spec.select = select i1 %.not.not, ptr null, ptr %8
+  ret ptr %spec.select
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16

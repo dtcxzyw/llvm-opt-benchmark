@@ -327,16 +327,16 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.41463
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h72a9d3ffc8575debE"(ptr noalias noundef writeonly sret({ { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
-  %.sroa.0 = alloca { ptr, i64, i64, i64 }, align 8
+  %6 = alloca { ptr, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
-  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hbcbf9a473c334496E.llvm.6509629623965917624(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %.sroa.0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true)
+  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hbcbf9a473c334496E.llvm.6509629623965917624(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %3, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   ret void
 }
@@ -344,16 +344,16 @@ define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17h8bbe0f2185a37cd5E"(ptr noalias noundef writeonly sret({ { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
-  %.sroa.0 = alloca { ptr, i64, i64, i64 }, align 8
+  %6 = alloca { ptr, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
-  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hbcbf9a473c334496E.llvm.6509629623965917624(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %.sroa.0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 24, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true)
+  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hbcbf9a473c334496E.llvm.6509629623965917624(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 24, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %3, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   ret void
 }
@@ -361,16 +361,16 @@ define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17hcfa47345e3e29ef6E"(ptr noalias noundef writeonly sret({ { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
-  %.sroa.0 = alloca { ptr, i64, i64, i64 }, align 8
+  %6 = alloca { ptr, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
-  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hbcbf9a473c334496E.llvm.6509629623965917624(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %.sroa.0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 168, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true)
+  call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hbcbf9a473c334496E.llvm.6509629623965917624(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 168, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %3, ptr %10, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   ret void
 }

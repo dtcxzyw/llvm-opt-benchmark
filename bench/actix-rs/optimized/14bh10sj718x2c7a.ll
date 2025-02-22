@@ -4481,13 +4481,13 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell4sy
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load atomic i64, ptr %3 acquire, align 8
   %.not = icmp eq i64 %4, 2
-  br i1 %.not, label %6, label %5
+  br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17ha37bdb7f7bbbd2abE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
   br label %6
 
-6:                                                ; preds = %2, %5
+8:                                                ; preds = %2, %5
   ret ptr %0
 }
 
