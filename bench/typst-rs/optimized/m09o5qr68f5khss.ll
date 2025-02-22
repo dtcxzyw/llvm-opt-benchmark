@@ -12977,7 +12977,6 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %23 = icmp ult i64 %5, 10
   %24 = add i64 %5, -10
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %.sroa.026.0 = select i1 %23, ptr null, ptr %25
   br i1 %23, label %47, label %.preheader
 
 .preheader:                                       ; preds = %22
@@ -13029,7 +13028,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 48:                                               ; preds = %.lr.ph, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread
   %49 = phi i64 [ 2, %.lr.ph ], [ %219, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread ]
   %.sroa.7116.0218 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %.sroa.7116.0218
+  %50 = getelementptr inbounds i8, ptr %25, i64 %.sroa.7116.0218
   %.val.i.i.i.i = load i16, ptr %50, align 1, !alias.scope !3763, !noalias !3770
   %51 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i)
   %52 = add i64 %.sroa.7116.0218, 4
@@ -13039,7 +13038,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i156.i, label %.loopexit, label %55
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %49
+  %56 = getelementptr inbounds i8, ptr %25, i64 %49
   %.val.i.i.i.i.i = load i16, ptr %56, align 1, !alias.scope !3774, !noalias !3770
   %57 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i)
   %58 = and i16 %51, 2
@@ -13076,11 +13075,11 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i165.not.i, label %73, label %.loopexit
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %52
+  %74 = getelementptr inbounds i8, ptr %25, i64 %52
   %75 = load i8, ptr %74, align 1, !alias.scope !3783, !noalias !3770, !noundef !4
   %76 = sitofp i8 %75 to float
   %77 = add nuw i64 %.sroa.7116.0218, 6
-  %78 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %72
+  %78 = getelementptr inbounds i8, ptr %25, i64 %72
   %79 = load i8, ptr %78, align 1, !alias.scope !3788, !noalias !3770, !noundef !4
   %80 = sitofp i8 %79 to float
   br label %63
@@ -13093,11 +13092,11 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i175.i, label %.loopexit, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %52
+  %86 = getelementptr inbounds i8, ptr %25, i64 %52
   %.val.i.i.i174.i = load i16, ptr %86, align 1, !alias.scope !3793, !noalias !3770
   %87 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i174.i)
   %88 = sitofp i16 %87 to float
-  %89 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %68
+  %89 = getelementptr inbounds i8, ptr %25, i64 %68
   %.val.i.i.i181.i = load i16, ptr %89, align 1, !alias.scope !3800, !noalias !3770
   %90 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i181.i)
   %91 = sitofp i16 %90 to float
@@ -13135,7 +13134,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i189.i, label %.loopexit, label %110
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %.sroa.7116.1
+  %111 = getelementptr inbounds i8, ptr %25, i64 %.sroa.7116.1
   %.val.i.i.i.i195.i = load i16, ptr %111, align 1, !alias.scope !3807, !noalias !3770
   %112 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i195.i)
   %113 = sitofp i16 %112 to float
@@ -13150,12 +13149,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i201.i, label %.loopexit, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %.sroa.7116.1
+  %120 = getelementptr inbounds i8, ptr %25, i64 %.sroa.7116.1
   %.val.i.i.i.i199.i = load i16, ptr %120, align 1, !alias.scope !3816, !noalias !3770
   %121 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i199.i)
   %122 = sitofp i16 %121 to float
   %123 = fmul float %122, 0x3F10000000000000
-  %124 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %103
+  %124 = getelementptr inbounds i8, ptr %25, i64 %103
   %.val.i.i.i.i207.i = load i16, ptr %124, align 1, !alias.scope !3825, !noalias !3770
   %125 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i207.i)
   %126 = sitofp i16 %125 to float
@@ -13175,7 +13174,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %131, label %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread, label %161
 
 132:                                              ; preds = %95
-  %133 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %.sroa.7116.1
+  %133 = getelementptr inbounds i8, ptr %25, i64 %.sroa.7116.1
   %.val.i.i.i.i212.i = load i16, ptr %133, align 1, !alias.scope !3834, !noalias !3770
   %134 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i212.i)
   %135 = sitofp i16 %134 to float
@@ -13187,7 +13186,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i214.i, label %.loopexit, label %140
 
 140:                                              ; preds = %132
-  %141 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %96
+  %141 = getelementptr inbounds i8, ptr %25, i64 %96
   %.val.i.i.i.i220.i = load i16, ptr %141, align 1, !alias.scope !3843, !noalias !3770
   %142 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i220.i)
   %143 = sitofp i16 %142 to float
@@ -13206,12 +13205,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   br i1 %or.cond.i.i230.i, label %.loopexit, label %152
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %137
+  %153 = getelementptr inbounds i8, ptr %25, i64 %137
   %.val.i.i.i.i228.i = load i16, ptr %153, align 1, !alias.scope !3852, !noalias !3770
   %154 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i228.i)
   %155 = sitofp i16 %154 to float
   %156 = fmul float %155, 0x3F10000000000000
-  %157 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 %145
+  %157 = getelementptr inbounds i8, ptr %25, i64 %145
   %.val.i.i.i.i236.i = load i16, ptr %157, align 1, !alias.scope !3861, !noalias !3770
   %158 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i236.i)
   %159 = sitofp i16 %158 to float
@@ -66446,7 +66445,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   %6 = load ptr, ptr %1, align 8, !nonnull !4, !align !36
   %.promoted = load i64, ptr %5, align 8
   %.not13 = icmp ult i64 %.promoted, %4
-  br i1 %.not13, label %.lr.ph, label %19
+  br i1 %.not13, label %.lr.ph, label %18
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -66454,65 +66453,57 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   %9 = icmp eq i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
-  br i1 %9, label %21, label %.lr.ph.split.preheader
+  br i1 %9, label %19, label %.lr.ph.split
 
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %12 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %6, i64 %.promoted
-  br label %.lr.ph.split
-
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.backedge
-  %.015 = phi ptr [ %.0, %.backedge ], [ %12, %.lr.ph.split.preheader ]
-  %13 = phi ptr [ %20, %.backedge ], [ %12, %.lr.ph.split.preheader ]
-  %14 = phi i64 [ %15, %.backedge ], [ %.promoted, %.lr.ph.split.preheader ]
-  %15 = add nuw i64 %14, 1
-  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 8
-  %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %.backedge, label %22
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
+  %12 = phi i64 [ %14, %.backedge ], [ %.promoted, %.lr.ph ]
+  %13 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %6, i64 %12
+  %14 = add nuw i64 %12, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.backedge, label %20
 
 ._crit_edge:                                      ; preds = %.backedge
   store i64 %4, ptr %5, align 8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %._crit_edge, %2
+18:                                               ; preds = %._crit_edge, %2
   store ptr null, ptr %0, align 8
-  br label %32
+  br label %30
 
-.backedge:                                        ; preds = %.lr.ph.split, %22
-  %.not = icmp ult i64 %15, %4
-  %20 = getelementptr inbounds { { ptr, i64 }, i32, [1 x i32] }, ptr %6, i64 %15
-  %.0 = select i1 %.not, ptr %20, ptr null
-  %exitcond.not = icmp eq i64 %15, %4
+.backedge:                                        ; preds = %.lr.ph.split, %20
+  %exitcond.not = icmp eq i64 %14, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
-21:                                               ; preds = %.lr.ph
+19:                                               ; preds = %.lr.ph
   store ptr null, ptr %0, align 8
-  br label %32
+  br label %30
 
-22:                                               ; preds = %.lr.ph.split
-  %23 = getelementptr inbounds nuw i8, ptr %.015, i64 16
-  %24 = load i32, ptr %23, align 4, !alias.scope !18103, !noundef !4
-  %25 = and i32 %11, %24
-  %26 = icmp ne i32 %25, %24
-  %27 = and i32 %24, %8
-  %.not4 = icmp eq i32 %27, 0
-  %or.cond = or i1 %.not4, %26
-  br i1 %or.cond, label %.backedge, label %28
+20:                                               ; preds = %.lr.ph.split
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %22 = load i32, ptr %21, align 8, !alias.scope !18103, !noundef !4
+  %23 = and i32 %11, %22
+  %24 = icmp ne i32 %23, %22
+  %25 = and i32 %22, %8
+  %.not4 = icmp eq i32 %25, 0
+  %or.cond = or i1 %.not4, %24
+  br i1 %or.cond, label %.backedge, label %26
 
-28:                                               ; preds = %22
-  store i64 %15, ptr %5, align 8
-  %29 = xor i32 %24, -1
-  %30 = and i32 %8, %29
-  store i32 %30, ptr %7, align 4, !alias.scope !18106
-  %31 = load ptr, ptr %13, align 8, !nonnull !4, !align !598, !noundef !4
-  store ptr %31, ptr %0, align 8
+26:                                               ; preds = %20
+  store i64 %14, ptr %5, align 8
+  %27 = xor i32 %22, -1
+  %28 = and i32 %8, %27
+  store i32 %28, ptr %7, align 4, !alias.scope !18106
+  %29 = load ptr, ptr %13, align 8, !nonnull !4, !align !598, !noundef !4
+  store ptr %29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %17, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %16, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %24, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %32
+  store i32 %22, ptr %.sroa.5.0..sroa_idx, align 8
+  br label %30
 
-32:                                               ; preds = %21, %28, %19
+30:                                               ; preds = %19, %26, %18
   ret void
 }
 
@@ -83995,7 +83986,7 @@ _ZN5typst6layout6inline7shaping11ShapedGlyph8is_space17h18e7e02daabf95abE.exit.i
 160:                                              ; preds = %_ZN5typst6layout6inline7shaping11ShapedGlyph8is_space17h18e7e02daabf95abE.exit.i
   %161 = getelementptr inbounds nuw i8, ptr %.01640.i, i64 80
   %162 = load i64, ptr %161, align 8, !noalias !21676, !noundef !4
-  %163 = getelementptr inbounds nuw i8, ptr %spec.select49.i, i64 80
+  %163 = getelementptr inbounds nuw i8, ptr %115, i64 80
   %164 = load i64, ptr %163, align 8, !noalias !21676, !noundef !4
   %.not45.i = icmp eq i64 %162, %164
   br i1 %.not45.i, label %.critedge.i.backedge, label %165

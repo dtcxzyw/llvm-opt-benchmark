@@ -4545,7 +4545,7 @@ define internal fastcc void @llvm_emit_call_expr(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %llvm_emit_array_gep_raw.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %llvm_emit_array_gep_raw.exit ]
-  %.3.in802 = getelementptr inbounds nuw ptr, ptr %.992, i64 %indvars.iv
+  %.3.in802 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv
   %.3 = load ptr, ptr %.3.in802, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %.3)
   call void @llvm_value_fold_optional(ptr noundef %0, ptr noundef nonnull %29) #10
@@ -4628,7 +4628,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
   br i1 %or.cond, label %212, label %.loopexit795
 
 212:                                              ; preds = %._crit_edge806
-  %213 = getelementptr inbounds i8, ptr %.992, i64 -8
+  %213 = getelementptr inbounds i8, ptr %93, i64 -8
   %214 = load i32, ptr %213, align 4
   %.not854 = icmp eq i32 %214, 0
   br i1 %.not854, label %.loopexit795, label %.lr.ph809.preheader
@@ -4639,7 +4639,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
 
 .lr.ph809:                                        ; preds = %.lr.ph809.preheader, %.lr.ph809
   %indvars.iv881 = phi i64 [ 0, %.lr.ph809.preheader ], [ %indvars.iv.next882, %.lr.ph809 ]
-  %215 = getelementptr inbounds nuw ptr, ptr %.992, i64 %indvars.iv881
+  %215 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv881
   %216 = load ptr, ptr %215, align 8
   %217 = trunc nuw i64 %indvars.iv881 to i32
   %218 = add i32 %.0676, %217
@@ -4734,7 +4734,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %257, i64 96, i1 false)
   %275 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %.992, i64 -8
+  %276 = getelementptr inbounds i8, ptr %93, i64 -8
   %277 = load i32, ptr %276, align 4
   %.not855 = icmp eq i32 %277, 0
   br i1 %.not855, label %._crit_edge814, label %.lr.ph813.preheader
@@ -4745,7 +4745,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
 
 .lr.ph813:                                        ; preds = %.lr.ph813.preheader, %318
   %indvars.iv886 = phi i64 [ 0, %.lr.ph813.preheader ], [ %indvars.iv.next887, %318 ]
-  %.1.in811 = getelementptr inbounds nuw ptr, ptr %.992, i64 %indvars.iv886
+  %.1.in811 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv886
   %.1 = load ptr, ptr %.1.in811, align 8
   %278 = load ptr, ptr %275, align 8
   %.not.i758 = icmp eq ptr %278, null
@@ -4983,7 +4983,7 @@ expand_.exit:                                     ; preds = %284, %288
   br i1 %brmerge.not, label %383, label %.loopexit792
 
 383:                                              ; preds = %._crit_edge818
-  %384 = getelementptr inbounds i8, ptr %.992, i64 -8
+  %384 = getelementptr inbounds i8, ptr %93, i64 -8
   %385 = load i32, ptr %384, align 4
   %386 = getelementptr inbounds nuw i8, ptr %.0631, i64 80
   %387 = load ptr, ptr %386, align 8
@@ -5089,7 +5089,7 @@ expand_.exit:                                     ; preds = %284, %288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %417, i64 96, i1 false)
   %433 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %433, align 8
-  %434 = getelementptr inbounds i8, ptr %.992, i64 -8
+  %434 = getelementptr inbounds i8, ptr %93, i64 -8
   %435 = load i32, ptr %434, align 4
   %.not859 = icmp eq i32 %435, 0
   br i1 %.not859, label %._crit_edge828, label %.lr.ph827.preheader
@@ -5100,7 +5100,7 @@ expand_.exit:                                     ; preds = %284, %288
 
 .lr.ph827:                                        ; preds = %.lr.ph827.preheader, %476
   %indvars.iv908 = phi i64 [ 0, %.lr.ph827.preheader ], [ %indvars.iv.next909, %476 ]
-  %.1647.in825 = getelementptr inbounds nuw ptr, ptr %.992, i64 %indvars.iv908
+  %.1647.in825 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv908
   %.1647 = load ptr, ptr %.1647.in825, align 8
   %436 = load ptr, ptr %433, align 8
   %.not.i762 = icmp eq ptr %436, null
@@ -5348,7 +5348,7 @@ expand_.exit768:                                  ; preds = %442, %446
   br i1 %brmerge1016.not, label %547, label %.loopexit788
 
 547:                                              ; preds = %._crit_edge832
-  %548 = getelementptr inbounds i8, ptr %.992, i64 -8
+  %548 = getelementptr inbounds i8, ptr %93, i64 -8
   %549 = load i32, ptr %548, align 4
   %550 = getelementptr inbounds nuw i8, ptr %.0645, i64 80
   %551 = load ptr, ptr %550, align 8
@@ -5502,7 +5502,7 @@ expand_.exit768:                                  ; preds = %442, %446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %.1656, i64 96, i1 false)
   %612 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %612, align 8
-  %613 = getelementptr inbounds i8, ptr %.992, i64 -8
+  %613 = getelementptr inbounds i8, ptr %93, i64 -8
   %614 = load i32, ptr %613, align 4
   %.not863 = icmp eq i32 %614, 0
   br i1 %.not863, label %._crit_edge842, label %.lr.ph841.preheader
@@ -5513,7 +5513,7 @@ expand_.exit768:                                  ; preds = %442, %446
 
 .lr.ph841:                                        ; preds = %.lr.ph841.preheader, %655
   %indvars.iv930 = phi i64 [ 0, %.lr.ph841.preheader ], [ %indvars.iv.next931, %655 ]
-  %.1672.in839 = getelementptr inbounds nuw ptr, ptr %.992, i64 %indvars.iv930
+  %.1672.in839 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv930
   %.1672 = load ptr, ptr %.1672.in839, align 8
   %615 = load ptr, ptr %612, align 8
   %.not.i773 = icmp eq ptr %615, null
@@ -5761,7 +5761,7 @@ expand_.exit779:                                  ; preds = %621, %625
   br i1 %brmerge1018.not, label %726, label %.loopexit
 
 726:                                              ; preds = %._crit_edge846
-  %727 = getelementptr inbounds i8, ptr %.992, i64 -8
+  %727 = getelementptr inbounds i8, ptr %93, i64 -8
   %728 = load i32, ptr %727, align 4
   %729 = getelementptr inbounds nuw i8, ptr %.0670, i64 80
   %730 = load ptr, ptr %729, align 8

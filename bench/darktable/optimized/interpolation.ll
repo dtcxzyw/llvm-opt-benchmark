@@ -2339,7 +2339,7 @@ ceil_fast.exit:                                   ; preds = %24, %27
 
 72:                                               ; preds = %71
   %73 = sext i32 %.0144218 to i64
-  %74 = getelementptr inbounds i32, ptr %59, i64 %73
+  %74 = getelementptr i32, ptr %59, i64 %73
   store i32 %indvars268, ptr %74, align 4, !tbaa !81
   %75 = getelementptr i8, ptr %74, i64 4
   store i32 %.0149215, ptr %75, align 4, !tbaa !81
@@ -2388,7 +2388,7 @@ _clip.exit.preheader:                             ; preds = %.lr.ph206
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
   %indvars.iv248 = phi i64 [ 0, %.lr.ph206.preheader ], [ %indvars.iv.next249, %.lr.ph206 ]
   %.0140203 = phi float [ 0.000000e+00, %.lr.ph206.preheader ], [ %103, %.lr.ph206 ]
-  %101 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv248
+  %101 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv248
   %102 = load float, ptr %101, align 4, !tbaa !15
   %103 = fadd reassoc nsz arcp contract afn float %102, %.0140203
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
@@ -2411,7 +2411,7 @@ _clip.exit:                                       ; preds = %_clip.exit.preheade
   %indvars.iv255 = phi i64 [ %98, %_clip.exit.preheader ], [ %indvars.iv.next256, %_clip.exit ]
   %indvars.iv253 = phi i64 [ 0, %_clip.exit.preheader ], [ %indvars.iv.next254, %_clip.exit ]
   %.0182208 = phi i32 [ %87, %_clip.exit.preheader ], [ %110, %_clip.exit ]
-  %106 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv253
+  %106 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv253
   %107 = load float, ptr %106, align 4, !tbaa !15
   %108 = fmul reassoc nsz arcp contract afn float %107, %100
   %indvars.iv.next258 = add nsw i64 %indvars.iv257, 1
@@ -2438,7 +2438,7 @@ _clip.exit:                                       ; preds = %_clip.exit.preheade
 
 115:                                              ; preds = %114
   %116 = sext i32 %.0132200 to i64
-  %117 = getelementptr inbounds i32, ptr %59, i64 %116
+  %117 = getelementptr i32, ptr %59, i64 %116
   store i32 %indvars243, ptr %117, align 4, !tbaa !81
   %118 = getelementptr i8, ptr %117, i64 4
   store i32 %.0136197, ptr %118, align 4, !tbaa !81
@@ -2501,7 +2501,7 @@ _clip.exit163.preheader:                          ; preds = %.lr.ph
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0130189 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %153, %.lr.ph ]
-  %151 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
   %152 = load float, ptr %151, align 4, !tbaa !15
   %153 = fadd reassoc nsz arcp contract afn float %152, %.0130189
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2524,7 +2524,7 @@ _clip.exit163:                                    ; preds = %_clip.exit163.prehe
   %indvars.iv230 = phi i64 [ %148, %_clip.exit163.preheader ], [ %indvars.iv.next231, %_clip.exit163 ]
   %indvars.iv228 = phi i64 [ 0, %_clip.exit163.preheader ], [ %indvars.iv.next229, %_clip.exit163 ]
   %.0183191 = phi i32 [ %137, %_clip.exit163.preheader ], [ %160, %_clip.exit163 ]
-  %156 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv228
+  %156 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv228
   %157 = load float, ptr %156, align 4, !tbaa !15
   %158 = fmul reassoc nsz arcp contract afn float %157, %150
   %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1

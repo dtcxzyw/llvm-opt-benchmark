@@ -1390,14 +1390,14 @@ define hidden { i32, i32 } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load atomic i8, ptr %3 seq_cst, align 4
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %26
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = atomicrmw xchg ptr %8, i8 1 seq_cst, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %26
+  br i1 %.not, label %10, label %25
 
 10:                                               ; preds = %6
   %11 = load i32, ptr %7, align 8, !range !145, !noundef !20
@@ -1406,7 +1406,7 @@ define hidden { i32, i32 } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 12:                                               ; preds = %10
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.27c4a1a8681bb8fc8e04a67213d99c7f.9, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.27c4a1a8681bb8fc8e04a67213d99c7f.11) #31
-          to label %13 unwind label %29
+          to label %13 unwind label %28
 
 13:                                               ; preds = %12
   unreachable
@@ -1419,37 +1419,36 @@ define hidden { i32, i32 } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   store atomic i8 0, ptr %16 seq_cst, align 8, !noalias !146
   %17 = load atomic i8, ptr %3 seq_cst, align 4
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %26, label %19
+  br i1 %18, label %25, label %19
 
 19:                                               ; preds = %14
   %20 = atomicrmw xchg ptr %8, i8 1 seq_cst, align 1
   %.not24 = icmp eq i8 %20, 0
-  br i1 %.not24, label %21, label %26
+  br i1 %.not24, label %21, label %25
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %7, align 8, !range !145, !noundef !20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %24 = load i32, ptr %23, align 4
+  %23 = load i32, ptr %15, align 4
   store i32 0, ptr %7, align 8
   %trunc13 = trunc nuw i32 %22 to i1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store atomic i8 0, ptr %25 seq_cst, align 8, !noalias !20
-  %. = select i1 %trunc13, i32 %24, i32 %1
-  br label %26
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store atomic i8 0, ptr %24 seq_cst, align 8, !noalias !20
+  %. = select i1 %trunc13, i32 %23, i32 %1
+  br label %25
 
-26:                                               ; preds = %21, %6, %14, %19, %2
+25:                                               ; preds = %21, %6, %14, %19, %2
   %.sroa.5.0 = phi i32 [ %1, %2 ], [ %1, %19 ], [ %1, %14 ], [ %1, %6 ], [ %., %21 ]
   %.sroa.0.0 = phi i32 [ 1, %2 ], [ 0, %19 ], [ 0, %14 ], [ 1, %6 ], [ %22, %21 ]
-  %27 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %28 = insertvalue { i32, i32 } %27, i32 %.sroa.5.0, 1
-  ret { i32, i32 } %28
+  %26 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %27 = insertvalue { i32, i32 } %26, i32 %.sroa.5.0, 1
+  ret { i32, i32 } %27
 
-29:                                               ; preds = %12
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %12
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store atomic i8 0, ptr %31 seq_cst, align 8, !noalias !151
-  resume { ptr, i32 } %30
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store atomic i8 0, ptr %30 seq_cst, align 8, !noalias !151
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: nonlazybind uwtable

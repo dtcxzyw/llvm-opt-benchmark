@@ -467,7 +467,7 @@ TrueMotion_SSE2.exit:                             ; preds = %84, %96, %103, %.pr
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @IntraChromaPreds_SSE2(ptr noalias noundef writeonly captures(none) %0, ptr noalias noundef readonly %1, ptr noalias noundef readonly %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
@@ -727,7 +727,6 @@ HorizontalPred_SSE2.exit:                         ; preds = %.preheader.i40
 TrueMotion_SSE2.exit:                             ; preds = %90, %103, %112, %.preheader.i48
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.025 = select i1 %.not12.i, ptr null, ptr %118
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
@@ -870,7 +869,7 @@ VerticalPred_SSE2.exit78:                         ; preds = %177, %.preheader.i7
 184:                                              ; preds = %184, %183
   %indvars.iv.i.i80 = phi i64 [ 0, %183 ], [ %indvars.iv.next.i.i82, %184 ]
   %.08.i.i81 = phi ptr [ %182, %183 ], [ %191, %184 ]
-  %185 = getelementptr inbounds nuw i8, ptr %.025, i64 %indvars.iv.i.i80
+  %185 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv.i.i80
   %186 = load i8, ptr %185, align 1, !tbaa !14, !alias.scope !244, !noalias !245
   %187 = insertelement <16 x i8> poison, i8 %186, i64 0
   %188 = shufflevector <16 x i8> %187, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -880,28 +879,29 @@ VerticalPred_SSE2.exit78:                         ; preds = %177, %.preheader.i7
   %191 = getelementptr inbounds nuw i8, ptr %.08.i.i81, i64 32
   %indvars.iv.next.i.i82 = add nuw nsw i64 %indvars.iv.i.i80, 1
   %exitcond.not.i.i83 = icmp eq i64 %indvars.iv.next.i.i82, 8
-  br i1 %exitcond.not.i.i83, label %HorizontalPred_SSE2.exit88, label %184, !llvm.loop !157
+  br i1 %exitcond.not.i.i83, label %HorizontalPred_SSE2.exit88.thread, label %184, !llvm.loop !157
+
+HorizontalPred_SSE2.exit88.thread:                ; preds = %184
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  br i1 %.not.i, label %217, label %196
 
 .preheader.i84:                                   ; preds = %VerticalPred_SSE2.exit78, %.preheader.i84
   %indvars.iv.i.i.i85 = phi i64 [ %indvars.iv.next.i.i.i86, %.preheader.i84 ], [ 0, %VerticalPred_SSE2.exit78 ]
-  %192 = shl nuw nsw i64 %indvars.iv.i.i.i85, 5
-  %193 = getelementptr inbounds nuw i8, ptr %182, i64 %192
-  store i64 -9114861777597660799, ptr %193, align 1, !tbaa !14, !alias.scope !234, !noalias !237
+  %193 = shl nuw nsw i64 %indvars.iv.i.i.i85, 5
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 %193
+  store i64 -9114861777597660799, ptr %194, align 1, !tbaa !14, !alias.scope !234, !noalias !237
   %indvars.iv.next.i.i.i86 = add nuw nsw i64 %indvars.iv.i.i.i85, 1
   %exitcond.not.i.i.i87 = icmp eq i64 %indvars.iv.next.i.i.i86, 8
   br i1 %exitcond.not.i.i.i87, label %HorizontalPred_SSE2.exit88, label %.preheader.i84, !llvm.loop !127
 
-HorizontalPred_SSE2.exit88:                       ; preds = %184, %.preheader.i84
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+HorizontalPred_SSE2.exit88:                       ; preds = %.preheader.i84
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  br i1 %.not12.i, label %226, label %195
+  br i1 %.not.i, label %.preheader.i103, label %226
 
-195:                                              ; preds = %HorizontalPred_SSE2.exit88
-  br i1 %.not.i, label %217, label %196
-
-196:                                              ; preds = %195
+196:                                              ; preds = %HorizontalPred_SSE2.exit88.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
@@ -917,8 +917,8 @@ HorizontalPred_SSE2.exit88:                       ; preds = %184, %.preheader.i8
 
 205:                                              ; preds = %205, %196
   %indvars.iv44.i.i91 = phi i64 [ 0, %196 ], [ %indvars.iv.next45.i.i93, %205 ]
-  %.041.i.i92 = phi ptr [ %194, %196 ], [ %216, %205 ]
-  %206 = getelementptr inbounds nuw i8, ptr %.025, i64 %indvars.iv44.i.i91
+  %.041.i.i92 = phi ptr [ %192, %196 ], [ %216, %205 ]
+  %206 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv44.i.i91
   %207 = load i8, ptr %206, align 1, !tbaa !14, !alias.scope !262, !noalias !263
   %208 = zext i8 %207 to i16
   %209 = sub nsw i16 %208, %203
@@ -934,7 +934,7 @@ HorizontalPred_SSE2.exit88:                       ; preds = %184, %.preheader.i8
   %exitcond47.not.i.i94 = icmp eq i64 %indvars.iv.next45.i.i93, 8
   br i1 %exitcond47.not.i.i94, label %TrueMotion_SSE2.exit107, label %205, !llvm.loop !178
 
-217:                                              ; preds = %195
+217:                                              ; preds = %HorizontalPred_SSE2.exit88.thread
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
@@ -943,8 +943,8 @@ HorizontalPred_SSE2.exit88:                       ; preds = %184, %.preheader.i8
 
 218:                                              ; preds = %218, %217
   %indvars.iv.i.i.i95 = phi i64 [ 0, %217 ], [ %indvars.iv.next.i.i.i97, %218 ]
-  %.08.i.i.i96 = phi ptr [ %194, %217 ], [ %225, %218 ]
-  %219 = getelementptr inbounds nuw i8, ptr %.025, i64 %indvars.iv.i.i.i95
+  %.08.i.i.i96 = phi ptr [ %192, %217 ], [ %225, %218 ]
+  %219 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv.i.i.i95
   %220 = load i8, ptr %219, align 1, !tbaa !14, !alias.scope !276, !noalias !277
   %221 = insertelement <16 x i8> poison, i8 %220, i64 0
   %222 = shufflevector <16 x i8> %221, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -957,33 +957,30 @@ HorizontalPred_SSE2.exit88:                       ; preds = %184, %.preheader.i8
   br i1 %exitcond.not.i.i.i98, label %TrueMotion_SSE2.exit107, label %218, !llvm.loop !157
 
 226:                                              ; preds = %HorizontalPred_SSE2.exit88
-  br i1 %.not.i, label %.preheader.i103, label %227
-
-227:                                              ; preds = %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %.val.i.i99 = load i64, ptr %117, align 1, !tbaa !14, !alias.scope !285, !noalias !286
-  br label %228
+  br label %227
 
-228:                                              ; preds = %228, %227
-  %indvars.iv.i.i21.i100 = phi i64 [ 0, %227 ], [ %indvars.iv.next.i.i22.i101, %228 ]
-  %229 = shl nuw nsw i64 %indvars.iv.i.i21.i100, 5
-  %230 = getelementptr inbounds nuw i8, ptr %194, i64 %229
-  store i64 %.val.i.i99, ptr %230, align 1, !tbaa !14, !alias.scope !287, !noalias !290
+227:                                              ; preds = %227, %226
+  %indvars.iv.i.i21.i100 = phi i64 [ 0, %226 ], [ %indvars.iv.next.i.i22.i101, %227 ]
+  %228 = shl nuw nsw i64 %indvars.iv.i.i21.i100, 5
+  %229 = getelementptr inbounds nuw i8, ptr %195, i64 %228
+  store i64 %.val.i.i99, ptr %229, align 1, !tbaa !14, !alias.scope !287, !noalias !290
   %indvars.iv.next.i.i22.i101 = add nuw nsw i64 %indvars.iv.i.i21.i100, 1
   %exitcond.not.i.i23.i102 = icmp eq i64 %indvars.iv.next.i.i22.i101, 8
-  br i1 %exitcond.not.i.i23.i102, label %TrueMotion_SSE2.exit107, label %228, !llvm.loop !144
+  br i1 %exitcond.not.i.i23.i102, label %TrueMotion_SSE2.exit107, label %227, !llvm.loop !144
 
-.preheader.i103:                                  ; preds = %226, %.preheader.i103
-  %indvars.iv.i.i32.i104 = phi i64 [ %indvars.iv.next.i.i33.i105, %.preheader.i103 ], [ 0, %226 ]
-  %231 = shl nuw nsw i64 %indvars.iv.i.i32.i104, 5
-  %232 = getelementptr inbounds nuw i8, ptr %194, i64 %231
-  store i64 -9114861777597660799, ptr %232, align 1, !tbaa !14, !alias.scope !246, !noalias !291
+.preheader.i103:                                  ; preds = %HorizontalPred_SSE2.exit88, %.preheader.i103
+  %indvars.iv.i.i32.i104 = phi i64 [ %indvars.iv.next.i.i33.i105, %.preheader.i103 ], [ 0, %HorizontalPred_SSE2.exit88 ]
+  %230 = shl nuw nsw i64 %indvars.iv.i.i32.i104, 5
+  %231 = getelementptr inbounds nuw i8, ptr %195, i64 %230
+  store i64 -9114861777597660799, ptr %231, align 1, !tbaa !14, !alias.scope !246, !noalias !291
   %indvars.iv.next.i.i33.i105 = add nuw nsw i64 %indvars.iv.i.i32.i104, 1
   %exitcond.not.i.i34.i106 = icmp eq i64 %indvars.iv.next.i.i33.i105, 8
   br i1 %exitcond.not.i.i34.i106, label %TrueMotion_SSE2.exit107, label %.preheader.i103, !llvm.loop !127
 
-TrueMotion_SSE2.exit107:                          ; preds = %205, %218, %228, %.preheader.i103
+TrueMotion_SSE2.exit107:                          ; preds = %205, %218, %227, %.preheader.i103
   ret void
 }
 
@@ -3092,7 +3089,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

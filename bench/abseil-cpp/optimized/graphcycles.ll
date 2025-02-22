@@ -1750,26 +1750,26 @@ define dso_local void @_ZN4absl24synchronization_internal11GraphCycles10RemoveEd
   %10 = lshr i64 %1, 32
   %11 = trunc nuw i64 %10 to i32
   %12 = icmp eq i32 %9, %11
-  %13 = select i1 %12, ptr %7, ptr null
-  %14 = and i64 %2, 4294967295
-  %15 = getelementptr inbounds nuw ptr, ptr %.val18, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !47
-  %19 = lshr i64 %2, 32
-  %20 = trunc nuw i64 %19 to i32
-  %21 = icmp eq i32 %18, %20
-  %22 = select i1 %21, ptr %16, ptr null
-  %23 = icmp ne ptr %13, null
-  %24 = icmp ne ptr %22, null
-  %or.cond = and i1 %23, %24
+  %13 = and i64 %2, 4294967295
+  %14 = getelementptr inbounds nuw ptr, ptr %.val18, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !47
+  %18 = lshr i64 %2, 32
+  %19 = trunc nuw i64 %18 to i32
+  %20 = icmp eq i32 %17, %19
+  %21 = icmp ne ptr %7, null
+  %22 = and i1 %21, %12
+  %23 = icmp ne ptr %15, null
+  %24 = and i1 %23, %20
+  %or.cond = and i1 %22, %24
   br i1 %or.cond, label %25, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit34
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %27 = trunc i64 %2 to i32
   %.val15 = load ptr, ptr %26, align 8
-  %28 = getelementptr i8, ptr %13, i64 120
+  %28 = getelementptr i8, ptr %7, i64 120
   %.val16 = load i32, ptr %28, align 8, !tbaa !25
   %29 = add i32 %.val16, -1
   %30 = mul i32 %27, 41
@@ -1822,10 +1822,10 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.threa
   br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.thread.i
-  %48 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %49 = trunc i64 %1 to i32
   %.val = load ptr, ptr %48, align 8
-  %50 = getelementptr i8, ptr %22, i64 64
+  %50 = getelementptr i8, ptr %15, i64 64
   %.val14 = load i32, ptr %50, align 8, !tbaa !25
   %51 = add i32 %.val14, -1
   %52 = mul i32 %49, 41
@@ -2170,7 +2170,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit63.i: 
 
 _ZN4absl24synchronization_internalL10ForwardDFSEPNS0_11GraphCycles3RepEii.exit: ; preds = %97
   %.val51 = load ptr, ptr %30, align 8
-  %134 = getelementptr i8, ptr %15, i64 120
+  %134 = getelementptr i8, ptr %9, i64 120
   %.val52 = load i32, ptr %134, align 8, !tbaa !25
   %135 = add i32 %.val52, -1
   %136 = mul i32 %6, 41
@@ -2224,7 +2224,7 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.threa
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.thread.i
   %.val49 = load ptr, ptr %33, align 8
-  %154 = getelementptr i8, ptr %24, i64 64
+  %154 = getelementptr i8, ptr %18, i64 64
   %.val50 = load i32, ptr %154, align 8, !tbaa !25
   %155 = add i32 %.val50, -1
   %156 = mul i32 %5, 41

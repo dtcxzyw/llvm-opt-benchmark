@@ -17984,7 +17984,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i: ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 %28
   %31 = call noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf7Message6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(72) %8), !noalias !800
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #21, !noalias !800
   br i1 %31, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit
@@ -19074,7 +19074,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i: ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %18, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 %29
   %32 = call noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf7Message6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(72) %9), !noalias !848
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #21, !noalias !848
   br i1 %32, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit

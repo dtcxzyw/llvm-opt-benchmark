@@ -5915,14 +5915,13 @@ _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
   %92 = load ptr, ptr %.sroa.0121.0198, align 8
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0121.0198, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  %..i169 = select i1 %94, ptr %.sroa.0121.0198, ptr null
   %95 = load ptr, ptr %89, align 8
-  %.not145 = icmp ne ptr %..i169, %95
+  %.not145 = icmp ne ptr %.sroa.0121.0198, %95
   %or.cond.not = select i1 %94, i1 %.not145, i1 false
   br i1 %or.cond.not, label %96, label %100
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %..i169, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0198, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i, label %99, label %100
@@ -5967,21 +5966,20 @@ define linkonce_odr dso_local void @_ZN12TraceVisitor13graphOptimizeEv(ptr nound
   %10 = load ptr, ptr %.sroa.0.034.i, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.034.i, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  %..i.i = select i1 %12, ptr %.sroa.0.034.i, ptr null
   %13 = load ptr, ptr %5, align 8
-  %.not29.i = icmp ne ptr %..i.i, %13
+  %.not29.i = icmp ne ptr %.sroa.0.034.i, %13
   %or.cond.not.i = select i1 %12, i1 %.not29.i, i1 false
   br i1 %or.cond.not.i, label %.sink.split.i, label %19
 
 .sink.split.i:                                    ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %..i.i, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 92
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
   %.sink.i = select i1 %16, i32 0, i32 %.033.i
   %not..i = xor i1 %16, true
   %17 = zext i1 %not..i to i32
   %.1.ph.i = add i32 %.033.i, %17
-  %18 = getelementptr inbounds nuw i8, ptr %..i.i, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 88
   store i32 %.sink.i, ptr %18, align 8
   br label %19
 
@@ -6311,21 +6309,20 @@ define linkonce_odr dso_local void @_ZN12TraceVisitor19createActivityFlagsEv(ptr
   %11 = load ptr, ptr %.sroa.0.034.i, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.034.i, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  %..i.i = select i1 %13, ptr %.sroa.0.034.i, ptr null
   %14 = load ptr, ptr %6, align 8
-  %.not29.i = icmp ne ptr %..i.i, %14
+  %.not29.i = icmp ne ptr %.sroa.0.034.i, %14
   %or.cond.not.i = select i1 %13, i1 %.not29.i, i1 false
   br i1 %or.cond.not.i, label %.sink.split.i, label %20
 
 .sink.split.i:                                    ; preds = %7
-  %15 = getelementptr inbounds nuw i8, ptr %..i.i, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 92
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   %.sink.i = select i1 %17, i32 0, i32 %.033.i
   %not..i = xor i1 %17, true
   %18 = zext i1 %not..i to i32
   %.1.ph.i = add i32 %.033.i, %18
-  %19 = getelementptr inbounds nuw i8, ptr %..i.i, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 88
   store i32 %.sink.i, ptr %19, align 8
   br label %20
 

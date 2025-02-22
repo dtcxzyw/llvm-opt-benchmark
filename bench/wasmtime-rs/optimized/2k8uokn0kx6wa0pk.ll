@@ -13807,7 +13807,6 @@ define hidden noundef ptr @_ZN18wasmtime_cranelift5debug9transform8simulate24gen
   %129 = load ptr, ptr %128, align 8, !noalias !2441, !nonnull !34, !align !336
   %130 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %131 = load i64, ptr %130, align 8, !noalias !2441
-  %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr null, ptr %129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !2441
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77), !noalias !2441
   store i64 %112, ptr %77, align 8, !noalias !2438
@@ -13839,7 +13838,7 @@ define hidden noundef ptr @_ZN18wasmtime_cranelift5debug9transform8simulate24gen
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %136, %140
   %.05.i.i.i.i.i.i = phi i64 [ %141, %140 ], [ 0, %136 ]
-  %137 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.0.i.i, i64 0, i64 %.05.i.i.i.i.i.i
+  %137 = getelementptr inbounds nuw [0 x i8], ptr %129, i64 0, i64 %.05.i.i.i.i.i.i
   %138 = load i8, ptr %137, align 1, !alias.scope !2464, !noalias !2461, !noundef !34
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread5.i.i.i.i", label %140
@@ -15253,7 +15252,6 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   %.04.i196 = phi ptr [ %.0.i.i195, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf808d3de2b47e479E.exit.i" ], [ null, %581 ]
   %614 = icmp eq ptr %.04.i196, null
   %615 = getelementptr inbounds nuw i8, ptr %.04.i196, i64 8
-  %.0.i197 = select i1 %614, ptr null, ptr %615
   %616 = getelementptr inbounds nuw [0 x { { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} } }], ptr %582, i64 0, i64 %491
   call void @llvm.experimental.noalias.scope.decl(metadata !2720)
   call void @llvm.experimental.noalias.scope.decl(metadata !2723)
@@ -15320,10 +15318,10 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   %.not35.i.i = icmp eq i64 %641, 0
   %642 = trunc i64 %637 to i32
   %643 = load ptr, ptr %616, align 8, !alias.scope !2725, !noalias !2753, !nonnull !34, !align !366
-  %644 = getelementptr inbounds nuw i8, ptr %.0.i197, i64 24
-  %645 = getelementptr inbounds nuw i8, ptr %.0.i197, i64 32
-  %646 = getelementptr inbounds nuw i8, ptr %.0.i197, i64 40
-  %647 = getelementptr inbounds nuw i8, ptr %.0.i197, i64 8
+  %644 = getelementptr inbounds nuw i8, ptr %.04.i196, i64 32
+  %645 = getelementptr inbounds nuw i8, ptr %.04.i196, i64 40
+  %646 = getelementptr inbounds nuw i8, ptr %.04.i196, i64 48
+  %647 = getelementptr inbounds nuw i8, ptr %.04.i196, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i

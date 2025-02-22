@@ -2394,32 +2394,31 @@ define dso_local zeroext i1 @acpi_storage_d3(ptr noundef readonly captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %4) #6
-  %6 = getelementptr i8, ptr %4, i64 -16
-  %7 = select i1 %5, ptr %6, ptr null
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  %8 = tail call zeroext i1 @force_storage_d3() #6
-  br i1 %8, label %18, label %9
+  %6 = tail call zeroext i1 @force_storage_d3() #6
+  br i1 %6, label %16, label %7
 
-9:                                                ; preds = %1
-  %10 = icmp eq ptr %7, null
-  br i1 %10, label %18, label %11
+7:                                                ; preds = %1
+  %8 = getelementptr i8, ptr %4, i64 -16
+  %9 = icmp ne ptr %8, null
+  %.not1 = and i1 %5, %9
+  br i1 %.not1, label %10, label %16
 
-11:                                               ; preds = %9
+10:                                               ; preds = %7
   store i8 0, ptr %2, align 1, !annotation !5
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %13 = call i32 @fwnode_property_read_u8_array(ptr noundef nonnull %12, ptr noundef nonnull @.str.7, ptr noundef nonnull %2, i64 noundef 1) #6
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %18
+  %11 = call i32 @fwnode_property_read_u8_array(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull %2, i64 noundef 1) #6
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %16
 
-15:                                               ; preds = %11
-  %16 = load i8, ptr %2, align 1
-  %17 = icmp eq i8 %16, 1
-  br label %18
+13:                                               ; preds = %10
+  %14 = load i8, ptr %2, align 1
+  %15 = icmp eq i8 %14, 1
+  br label %16
 
-18:                                               ; preds = %15, %11, %9, %1
-  %19 = phi i1 [ %17, %15 ], [ true, %1 ], [ false, %9 ], [ false, %11 ]
+16:                                               ; preds = %13, %10, %7, %1
+  %17 = phi i1 [ %15, %13 ], [ true, %1 ], [ false, %7 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i1 %19
+  ret i1 %17
 }
 
 ; Function Attrs: null_pointer_is_valid

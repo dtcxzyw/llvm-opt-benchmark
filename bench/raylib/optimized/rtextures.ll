@@ -56768,7 +56768,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %81, %86, %88, %90, 
   br label %379
 
 379:                                              ; preds = %372, %360
-  %380 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 368
+  %380 = getelementptr inbounds nuw i8, ptr %170, i64 368
   store i32 %.0.val, ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 372
   store i32 %.4.val, ptr %381, align 4
@@ -57436,11 +57436,11 @@ stbir__pack_coefficients.exit:                    ; preds = %614, %646, %.loopex
   %658 = getelementptr inbounds nuw i8, ptr %652, i64 48
   %659 = load <4 x float>, ptr %658, align 1
   store <4 x float> %653, ptr %170, align 1
-  %660 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 16
+  %660 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store <4 x float> %655, ptr %660, align 1
-  %661 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 32
+  %661 = getelementptr inbounds nuw i8, ptr %170, i64 32
   store <4 x float> %657, ptr %661, align 1
-  %662 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 48
+  %662 = getelementptr inbounds nuw i8, ptr %170, i64 48
   store <4 x float> %659, ptr %662, align 1
   %663 = and i64 %650, -64
   %664 = add i64 %663, 64
@@ -57494,11 +57494,11 @@ stbir_simd_memcpy.exit:                           ; preds = %669
   %694 = getelementptr inbounds nuw i8, ptr %688, i64 48
   %695 = load <4 x float>, ptr %694, align 1
   store <4 x float> %689, ptr %648, align 1
-  %696 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 168
+  %696 = getelementptr inbounds nuw i8, ptr %170, i64 168
   store <4 x float> %691, ptr %696, align 1
-  %697 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 184
+  %697 = getelementptr inbounds nuw i8, ptr %170, i64 184
   store <4 x float> %693, ptr %697, align 1
-  %698 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 200
+  %698 = getelementptr inbounds nuw i8, ptr %170, i64 200
   store <4 x float> %695, ptr %698, align 1
   %699 = and i64 %686, -64
   %700 = add i64 %699, 64
@@ -57551,11 +57551,11 @@ stbir_simd_memcpy.exit:                           ; preds = %669
   %731 = getelementptr inbounds nuw i8, ptr %725, i64 48
   %732 = load <4 x float>, ptr %731, align 1
   store <4 x float> %726, ptr %648, align 1
-  %733 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 168
+  %733 = getelementptr inbounds nuw i8, ptr %170, i64 168
   store <4 x float> %728, ptr %733, align 1
-  %734 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 184
+  %734 = getelementptr inbounds nuw i8, ptr %170, i64 184
   store <4 x float> %730, ptr %734, align 1
-  %735 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 200
+  %735 = getelementptr inbounds nuw i8, ptr %170, i64 200
   store <4 x float> %732, ptr %735, align 1
   %736 = and i64 %723, -64
   %737 = add i64 %736, 64
@@ -57596,17 +57596,17 @@ stbir_simd_memcpy.exit:                           ; preds = %669
 stbir_simd_memcpy.exit389:                        ; preds = %705, %742
   %757 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 416
   %758 = load ptr, ptr %757, align 8
-  %759 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 468
+  %759 = getelementptr inbounds nuw i8, ptr %170, i64 468
   %760 = load i32, ptr %759, align 4
   %761 = icmp sgt i32 %760, 0
   br i1 %761, label %.lr.ph.i395, label %stbir__get_split_info.exit
 
 .lr.ph.i395:                                      ; preds = %stbir_simd_memcpy.exit389
-  %762 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 184
+  %762 = getelementptr inbounds nuw i8, ptr %170, i64 184
   %763 = load i32, ptr %762, align 8
-  %764 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 252
+  %764 = getelementptr inbounds nuw i8, ptr %170, i64 252
   %765 = load i32, ptr %764, align 4
-  %766 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 188
+  %766 = getelementptr inbounds nuw i8, ptr %170, i64 188
   %767 = load i32, ptr %766, align 4
   %768 = sub nsw i32 0, %765
   %769 = add nsw i32 %765, %763
@@ -57636,10 +57636,11 @@ stbir_simd_memcpy.exit389:                        ; preds = %705, %742
   br i1 %exitcond.not.i398, label %stbir__get_split_info.exit, label %770
 
 stbir__get_split_info.exit:                       ; preds = %770, %stbir_simd_memcpy.exit389
-  %781 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 276
+  %781 = getelementptr inbounds nuw i8, ptr %170, i64 276
   %782 = load i32, ptr %781, align 4
   %783 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 332
-  %784 = getelementptr inbounds nuw i8, ptr %spec.select366, i64 280
+  store i32 %782, ptr %783, align 4
+  %784 = getelementptr inbounds nuw i8, ptr %170, i64 280
   %785 = load i32, ptr %784, align 8
   %.not364 = icmp eq i32 %785, 0
   %786 = tail call i32 @llvm.smin.i32(i32 %782, i32 %.012.lcssa.i)
@@ -57652,7 +57653,7 @@ stbir__get_split_info.exit:                       ; preds = %770, %stbir_simd_me
   %788 = tail call i32 @llvm.smax.i32(i32 %787, i32 4)
   %spec.store.select = add nsw i32 %788, -4
   %789 = icmp sge i32 %spec.store.select, %787
-  %790 = getelementptr i8, ptr %spec.select366, i64 328
+  %790 = getelementptr i8, ptr %170, i64 328
   %791 = zext nneg i32 %788 to i64
   %792 = add nsw i64 %791, -4
   %wide.trip.count105 = zext nneg i32 %4 to i64

@@ -2020,7 +2020,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i89: ; preds = %190, %_ZNSt6vectorI
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %209 = select i1 %207, ptr %208, ptr null
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 104
-  %211 = getelementptr inbounds nuw i8, ptr %209, i64 112
+  %211 = getelementptr inbounds nuw i8, ptr %205, i64 120
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %203, align 8
   %214 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -2035,7 +2035,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i89: ; preds = %190, %_ZNSt6vectorI
 
 221:                                              ; preds = %.noexc93
   %222 = getelementptr inbounds nuw i8, ptr %209, i64 128
-  %223 = getelementptr inbounds nuw i8, ptr %209, i64 136
+  %223 = getelementptr inbounds nuw i8, ptr %205, i64 144
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %226 = load ptr, ptr %225, align 8
@@ -2908,7 +2908,7 @@ define dso_local void @_ZN4Luau8quantifyEPNS_9TypeArenaEPKNS_4TypeEPNS_5ScopeE(p
   %22 = icmp eq i32 %21, 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = select i1 %22, ptr %23, ptr null
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 216
   store ptr %3, ptr %25, align 8
   %26 = load ptr, ptr %10, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 488
@@ -3101,17 +3101,17 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
   br i1 %.not44, label %._crit_edge54, label %73
 
 ._crit_edge54:                                    ; preds = %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit, %._crit_edge
-  %104 = getelementptr inbounds nuw i8, ptr %24, i64 104
+  %104 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %24, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %105, %107
   br i1 %108, label %109, label %_ZN4Luau16QuantifierResultD2Ev.exit.thread
 
 109:                                              ; preds = %._crit_edge54
-  %110 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %110 = getelementptr inbounds nuw i8, ptr %20, i64 136
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %24, i64 136
+  %112 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %111, %113
   br i1 %114, label %115, label %_ZN4Luau16QuantifierResultD2Ev.exit.thread
@@ -3129,7 +3129,7 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
 
 _ZN4Luau16QuantifierResultD2Ev.exit.thread:       ; preds = %118, %115, %109, %._crit_edge54
   %122 = phi i8 [ 0, %115 ], [ 0, %109 ], [ 0, %._crit_edge54 ], [ %121, %118 ]
-  %123 = getelementptr inbounds nuw i8, ptr %24, i64 305
+  %123 = getelementptr inbounds nuw i8, ptr %20, i64 313
   store i8 %122, ptr %123, align 1
   %124 = load ptr, ptr %10, align 8
   %125 = load ptr, ptr %27, align 8
@@ -5319,7 +5319,7 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %5
           cleanup
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
-  br label %58
+  br label %55
 
 19:                                               ; preds = %5
   %20 = icmp eq i32 %6, 9
@@ -5358,57 +5358,54 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %19
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 328
   store i64 0, ptr %37, align 8
   %38 = invoke noundef ptr @_ZN4Luau9TypeArena7addTypeINS_9TableTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef nonnull %4)
-          to label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit unwind label %54
+          to label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit unwind label %51
 
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
   call void @_ZN4Luau9TableTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %4) #16
   %39 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %38)
   %.not.i.i30 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %.not.i.i30)
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, 9
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = select i1 %41, ptr %42, ptr null
-  %44 = call noundef nonnull align 8 dereferenceable(336) ptr @_ZN4Luau9TableTypeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %42, ptr noundef nonnull align 8 dereferenceable(336) %21)
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 76
-  store i32 0, ptr %45, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = call noundef nonnull align 8 dereferenceable(336) ptr @_ZN4Luau9TableTypeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %40, ptr noundef nonnull align 8 dereferenceable(336) %21)
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 84
+  store i32 0, ptr %42, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 88
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %50 = load i32, ptr %49, align 8
-  switch i32 %50, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread [
-    i32 2, label %51
-    i32 1, label %56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 96
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %47 = load i32, ptr %46, align 8
+  switch i32 %47, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread [
+    i32 2, label %48
+    i32 1, label %53
   ]
 
-51:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  store i32 3, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  call void @_ZN4Luau10OrderedMapIPKNS_4TypeES3_E4pushES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull %1, ptr noundef %38)
+48:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 80
+  store i32 3, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  call void @_ZN4Luau10OrderedMapIPKNS_4TypeES3_E4pushES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull %1, ptr noundef %38)
   br label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread
 
-54:                                               ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
-  %55 = landingpad { ptr, i32 }
+51:                                               ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau9TableTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %4) #16
-  br label %58
+  br label %55
 
-56:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
-  %57 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  store i32 0, ptr %57, align 8
+53:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 80
+  store i32 0, ptr %54, align 8
   br label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread
 
-_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %2, %19, %51, %56, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, %13
-  %.0 = phi ptr [ %12, %13 ], [ %38, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit ], [ %38, %56 ], [ %38, %51 ], [ %1, %19 ], [ null, %2 ]
+_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %2, %19, %48, %53, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, %13
+  %.0 = phi ptr [ %12, %13 ], [ %38, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit ], [ %38, %53 ], [ %38, %48 ], [ %1, %19 ], [ null, %2 ]
   ret ptr %.0
 
-58:                                               ; preds = %54, %16
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %55, %54 ]
+55:                                               ; preds = %51, %16
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %52, %51 ]
   resume { ptr, i32 } %.pn
 }
 

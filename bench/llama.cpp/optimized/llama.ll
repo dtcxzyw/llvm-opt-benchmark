@@ -14215,15 +14215,15 @@ invoke.cont210.i.i:                               ; preds = %for.body205.i.i
           to label %call.i.i68.noexc.i unwind label %lpad.i164.i.i
 
 call.i.i68.noexc.i:                               ; preds = %.noexc165.i.i
-  %cmp.i.not.i.i = icmp eq ptr %call.i.i6874.i, null
-  %second.i69.i = getelementptr inbounds nuw i8, ptr %call.i.i6874.i, i64 40
-  %cond.i70.i = select i1 %cmp.i.not.i.i, ptr null, ptr %second.i69.i
   %53 = load ptr, ptr %ctx_gguf.i.i, align 8
   %call.i5.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i161.i.i) #47
   %call.i.i.i75.i = invoke i32 @gguf_find_key(ptr noundef %53, ptr noundef %call.i5.i.i)
           to label %call.i.i.i.noexc.i unwind label %lpad.i164.i.i
 
 call.i.i.i.noexc.i:                               ; preds = %call.i.i68.noexc.i
+  %cmp.i.not.i.i = icmp eq ptr %call.i.i6874.i, null
+  %second.i69.i = getelementptr inbounds nuw i8, ptr %call.i.i6874.i, i64 40
+  %cond.i70.i = select i1 %cmp.i.not.i.i, ptr null, ptr %second.i69.i
   %call.i.i.i.i.i7276.i = invoke noundef zeroext i1 @_ZN8GGUFMeta3GKVIjE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef 0, ptr noundef %cond.i70.i)
           to label %call.i.i.i.i.i72.noexc.i unwind label %lpad.i164.i.i
 
@@ -14231,7 +14231,7 @@ call.i.i.i.i.i72.noexc.i:                         ; preds = %call.i.i.i.noexc.i
   br i1 %call.i.i.i.i.i7276.i, label %_ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 _ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i.i: ; preds = %call.i.i.i.i.i72.noexc.i
-  %54 = getelementptr inbounds nuw i8, ptr %cond.i70.i, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %call.i.i6874.i, i64 176
   %55 = load i64, ptr %54, align 8
   %conv.i.i.i.i.i.i = trunc i64 %55 to i32
   br label %if.end217.i.i
@@ -33416,15 +33416,15 @@ _ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit175: ; preds = %_ZN18llama_m
           to label %call.i.i325.noexc unwind label %lpad.i179
 
 call.i.i325.noexc:                                ; preds = %_ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit175
-  %cmp.i.not.i326 = icmp eq ptr %call.i.i325328, null
-  %second.i327 = getelementptr inbounds nuw i8, ptr %call.i.i325328, i64 40
-  %cond.i = select i1 %cmp.i.not.i326, ptr null, ptr %second.i327
   %9 = load ptr, ptr %ctx_gguf, align 8
   %call.i5.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i176) #47
   %call.i.i.i329 = invoke i32 @gguf_find_key(ptr noundef %9, ptr noundef %call.i5.i)
           to label %call.i.i.i.noexc unwind label %lpad.i179
 
 call.i.i.i.noexc:                                 ; preds = %call.i.i325.noexc
+  %cmp.i.not.i326 = icmp eq ptr %call.i.i325328, null
+  %second.i327 = getelementptr inbounds nuw i8, ptr %call.i.i325328, i64 40
+  %cond.i = select i1 %cmp.i.not.i326, ptr null, ptr %second.i327
   %call.i.i.i.i.i330 = invoke noundef zeroext i1 @_ZN8GGUFMeta3GKVIjE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef 0, ptr noundef %cond.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad.i179
 
@@ -33432,7 +33432,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %call.i.i.i.noexc
   br i1 %call.i.i.i.i.i330, label %_ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i, label %if.end.i.i.i.i
 
 _ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i: ; preds = %call.i.i.i.i.i.noexc
-  %10 = getelementptr inbounds nuw i8, ptr %cond.i, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %call.i.i325328, i64 176
   %11 = load i64, ptr %10, align 8
   %conv.i.i.i.i.i = trunc i64 %11 to i32
   br label %_ZN8GGUFMeta3GKVIjE3setEPK12gguf_contextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjPK23llama_model_kv_override.exit.thread.i
@@ -33466,15 +33466,15 @@ _ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit180: ; preds = %_ZN8GGUFMeta
           to label %call.i.i333.noexc unwind label %lpad.i184
 
 call.i.i333.noexc:                                ; preds = %_ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit180
-  %cmp.i.not.i334 = icmp eq ptr %call.i.i333348, null
-  %second.i335 = getelementptr inbounds nuw i8, ptr %call.i.i333348, i64 40
-  %cond.i336 = select i1 %cmp.i.not.i334, ptr null, ptr %second.i335
   %13 = load ptr, ptr %ctx_gguf, align 8
   %call.i5.i338 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i181) #47
   %call.i.i.i350 = invoke i32 @gguf_find_key(ptr noundef %13, ptr noundef %call.i5.i338)
           to label %call.i.i.i.noexc349 unwind label %lpad.i184
 
 call.i.i.i.noexc349:                              ; preds = %call.i.i333.noexc
+  %cmp.i.not.i334 = icmp eq ptr %call.i.i333348, null
+  %second.i335 = getelementptr inbounds nuw i8, ptr %call.i.i333348, i64 40
+  %cond.i336 = select i1 %cmp.i.not.i334, ptr null, ptr %second.i335
   %call.i.i.i.i.i352 = invoke noundef zeroext i1 @_ZN8GGUFMeta3GKVIjE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef 0, ptr noundef %cond.i336)
           to label %call.i.i.i.i.i.noexc351 unwind label %lpad.i184
 
@@ -33482,7 +33482,7 @@ call.i.i.i.i.i.noexc351:                          ; preds = %call.i.i.i.noexc349
   br i1 %call.i.i.i.i.i352, label %_ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i346, label %if.end.i.i.i.i339
 
 _ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i346: ; preds = %call.i.i.i.i.i.noexc351
-  %14 = getelementptr inbounds nuw i8, ptr %cond.i336, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %call.i.i333348, i64 176
   %15 = load i64, ptr %14, align 8
   %conv.i.i.i.i.i347 = trunc i64 %15 to i32
   br label %_ZN8GGUFMeta3GKVIjE3setEPK12gguf_contextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjPK23llama_model_kv_override.exit.thread.i342
@@ -33561,15 +33561,15 @@ if.end50:                                         ; preds = %do.end30
           to label %call.i.i357.noexc unwind label %lpad.i189
 
 call.i.i357.noexc:                                ; preds = %if.end50
-  %cmp.i.not.i358 = icmp eq ptr %call.i.i357372, null
-  %second.i359 = getelementptr inbounds nuw i8, ptr %call.i.i357372, i64 40
-  %cond.i360 = select i1 %cmp.i.not.i358, ptr null, ptr %second.i359
   %26 = load ptr, ptr %ctx_gguf, align 8
   %call.i5.i362 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i186) #47
   %call.i.i.i374 = invoke i32 @gguf_find_key(ptr noundef %26, ptr noundef %call.i5.i362)
           to label %call.i.i.i.noexc373 unwind label %lpad.i189
 
 call.i.i.i.noexc373:                              ; preds = %call.i.i357.noexc
+  %cmp.i.not.i358 = icmp eq ptr %call.i.i357372, null
+  %second.i359 = getelementptr inbounds nuw i8, ptr %call.i.i357372, i64 40
+  %cond.i360 = select i1 %cmp.i.not.i358, ptr null, ptr %second.i359
   %call.i.i.i.i.i376 = invoke noundef zeroext i1 @_ZN8GGUFMeta3GKVIjE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef 0, ptr noundef %cond.i360)
           to label %call.i.i.i.i.i.noexc375 unwind label %lpad.i189
 
@@ -33577,7 +33577,7 @@ call.i.i.i.i.i.noexc375:                          ; preds = %call.i.i.i.noexc373
   br i1 %call.i.i.i.i.i376, label %_ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i370, label %if.end.i.i.i.i363
 
 _ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i370: ; preds = %call.i.i.i.i.i.noexc375
-  %27 = getelementptr inbounds nuw i8, ptr %cond.i360, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %call.i.i357372, i64 176
   %28 = load i64, ptr %27, align 8
   %conv.i.i.i.i.i371 = trunc i64 %28 to i32
   br label %_ZN8GGUFMeta3GKVIjE3setEPK12gguf_contextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjPK23llama_model_kv_override.exit.thread.i366
@@ -33623,15 +33623,15 @@ _ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit190: ; preds = %_ZN8GGUFMeta
           to label %call.i.i381.noexc unwind label %lpad.i194
 
 call.i.i381.noexc:                                ; preds = %_ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit190
-  %cmp.i.not.i382 = icmp eq ptr %call.i.i381396, null
-  %second.i383 = getelementptr inbounds nuw i8, ptr %call.i.i381396, i64 40
-  %cond.i384 = select i1 %cmp.i.not.i382, ptr null, ptr %second.i383
   %33 = load ptr, ptr %ctx_gguf, align 8
   %call.i5.i386 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i191) #47
   %call.i.i.i398 = invoke i32 @gguf_find_key(ptr noundef %33, ptr noundef %call.i5.i386)
           to label %call.i.i.i.noexc397 unwind label %lpad.i194
 
 call.i.i.i.noexc397:                              ; preds = %call.i.i381.noexc
+  %cmp.i.not.i382 = icmp eq ptr %call.i.i381396, null
+  %second.i383 = getelementptr inbounds nuw i8, ptr %call.i.i381396, i64 40
+  %cond.i384 = select i1 %cmp.i.not.i382, ptr null, ptr %second.i383
   %call.i.i.i.i.i400 = invoke noundef zeroext i1 @_ZN8GGUFMeta3GKVIjE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef 0, ptr noundef %cond.i384)
           to label %call.i.i.i.i.i.noexc399 unwind label %lpad.i194
 
@@ -33639,7 +33639,7 @@ call.i.i.i.i.i.noexc399:                          ; preds = %call.i.i.i.noexc397
   br i1 %call.i.i.i.i.i400, label %_ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i394, label %if.end.i.i.i.i387
 
 _ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i.i394: ; preds = %call.i.i.i.i.i.noexc399
-  %34 = getelementptr inbounds nuw i8, ptr %cond.i384, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %call.i.i381396, i64 176
   %35 = load i64, ptr %34, align 8
   %conv.i.i.i.i.i395 = trunc i64 %35 to i32
   br label %_ZN8GGUFMeta3GKVIjE3setEPK12gguf_contextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjPK23llama_model_kv_override.exit.thread.i390
@@ -33674,15 +33674,15 @@ _ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit195: ; preds = %_ZN8GGUFMeta
           to label %call.i.i405.noexc unwind label %lpad.i199
 
 call.i.i405.noexc:                                ; preds = %_ZN18llama_model_loader7get_keyIjEEb6llm_kvRT_b.exit195
-  %cmp.i.not.i406 = icmp eq ptr %call.i.i405417, null
-  %second.i407 = getelementptr inbounds nuw i8, ptr %call.i.i405417, i64 40
-  %cond.i408 = select i1 %cmp.i.not.i406, ptr null, ptr %second.i407
   %37 = load ptr, ptr %ctx_gguf, align 8
   %call.i5.i410 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i196) #47
   %call.i.i.i419 = invoke i32 @gguf_find_key(ptr noundef %37, ptr noundef %call.i5.i410)
           to label %call.i.i.i.noexc418 unwind label %lpad.i199
 
 call.i.i.i.noexc418:                              ; preds = %call.i.i405.noexc
+  %cmp.i.not.i406 = icmp eq ptr %call.i.i405417, null
+  %second.i407 = getelementptr inbounds nuw i8, ptr %call.i.i405417, i64 40
+  %cond.i408 = select i1 %cmp.i.not.i406, ptr null, ptr %second.i407
   %call.i.i.i.i.i421 = invoke noundef zeroext i1 @_ZN8GGUFMeta3GKVIfE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef 1, ptr noundef %cond.i408)
           to label %call.i.i.i.i.i.noexc420 unwind label %lpad.i199
 
@@ -33690,7 +33690,7 @@ call.i.i.i.i.i.noexc420:                          ; preds = %call.i.i.i.noexc418
   br i1 %call.i.i.i.i.i421, label %_ZN8GGUFMeta3GKVIfE12try_overrideIfEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEbE4typeERfPK23llama_model_kv_override.exit.thread.i.i.i.i, label %if.end.i.i.i.i411
 
 _ZN8GGUFMeta3GKVIfE12try_overrideIfEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEbE4typeERfPK23llama_model_kv_override.exit.thread.i.i.i.i: ; preds = %call.i.i.i.i.i.noexc420
-  %38 = getelementptr inbounds nuw i8, ptr %cond.i408, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %call.i.i405417, i64 176
   %39 = load double, ptr %38, align 8
   %conv.i.i.i.i.i416 = fptrunc double %39 to float
   br label %_ZN8GGUFMeta3GKVIfE3setEPK12gguf_contextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERfPK23llama_model_kv_override.exit.thread.i
@@ -49882,9 +49882,6 @@ entry:
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %entry
-  %cmp.i.not.i = icmp eq ptr %call.i.i1, null
-  %second.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 40
-  %cond.i = select i1 %cmp.i.not.i, ptr null, ptr %second.i
   %ctx_gguf.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %ctx_gguf.i, align 8
   %call.i5.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
@@ -49892,6 +49889,9 @@ call.i.i.noexc:                                   ; preds = %entry
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %call.i.i.noexc
+  %cmp.i.not.i = icmp eq ptr %call.i.i1, null
+  %second.i = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 40
+  %cond.i = select i1 %cmp.i.not.i, ptr null, ptr %second.i
   %call.i.i.i.i.i3 = invoke noundef zeroext i1 @_ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override(i32 noundef 2, ptr noundef %cond.i)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
 
@@ -49899,7 +49899,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %call.i.i.i.noexc
   br i1 %call.i.i.i.i.i3, label %if.then.i.i.i.i.i, label %invoke.cont
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.i.noexc
-  %1 = getelementptr inbounds nuw i8, ptr %cond.i, i64 136
+  %1 = getelementptr inbounds nuw i8, ptr %call.i.i1, i64 176
   %2 = load i8, ptr %1, align 8
   %frombool.i.i.i.i.i = and i8 %2, 1
   store i8 %frombool.i.i.i.i.i, ptr %result, align 1
@@ -50526,7 +50526,7 @@ entry:
   br i1 %call.i.i.i.i, label %_ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i, label %if.end.i.i.i
 
 _ZN8GGUFMeta3GKVIjE12try_overrideIjEENSt9enable_ifIXaantsr3std7is_sameIT_bEE5valuesr3std11is_integralIS4_EE5valueEbE4typeERS4_PK23llama_model_kv_override.exit.thread.i.i.i: ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %cond, i64 136
+  %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   %2 = load i64, ptr %1, align 8
   %conv.i.i.i.i = trunc i64 %2 to i32
   br label %_ZN8GGUFMeta3GKVIjE3setEPK12gguf_contextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjPK23llama_model_kv_override.exit.thread
@@ -50956,7 +50956,7 @@ entry:
   br i1 %call.i.i.i.i, label %_ZN8GGUFMeta3GKVIfE12try_overrideIfEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEbE4typeERfPK23llama_model_kv_override.exit.thread.i.i.i, label %if.end.i.i.i
 
 _ZN8GGUFMeta3GKVIfE12try_overrideIfEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEbE4typeERfPK23llama_model_kv_override.exit.thread.i.i.i: ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %cond, i64 136
+  %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   %2 = load double, ptr %1, align 8
   %conv.i.i.i.i = fptrunc double %2 to float
   br label %_ZN8GGUFMeta3GKVIfE3setEPK12gguf_contextRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERfPK23llama_model_kv_override.exit.thread

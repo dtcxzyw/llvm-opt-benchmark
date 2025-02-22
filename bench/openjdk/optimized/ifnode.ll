@@ -4785,7 +4785,7 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %119, %108, %_ZN4Nod
 
 133:                                              ; preds = %132, %131
   %.041.i = phi ptr [ %130, %131 ], [ %87, %132 ]
-  %134 = getelementptr inbounds nuw i8, ptr %..i.i, i64 2408
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 2408
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = getelementptr inbounds nuw i8, ptr %.041.i, i64 40
@@ -7145,7 +7145,7 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 192
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %14) #8
-  br i1 %21, label %22, label %88
+  br i1 %21, label %22, label %85
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7159,7 +7159,7 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %._crit_edge, label %88
+  br i1 %30, label %._crit_edge, label %85
 
 ._crit_edge:                                      ; preds = %22, %27, %2
   %31 = phi ptr [ %26, %27 ], [ %5, %2 ], [ %26, %22 ]
@@ -7167,19 +7167,19 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 63
   %35 = icmp eq i32 %34, 53
-  br i1 %35, label %36, label %82
+  br i1 %35, label %36, label %79
 
 36:                                               ; preds = %._crit_edge
   %37 = tail call noundef ptr @_ZNK4Node23unique_ctrl_out_or_nullEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   %.not19 = icmp eq ptr %37, null
-  br i1 %.not19, label %82, label %38
+  br i1 %.not19, label %79, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 44
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 511
   %42 = icmp eq i32 %41, 352
-  br i1 %42, label %43, label %82
+  br i1 %42, label %43, label %79
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -7187,7 +7187,7 @@ define hidden noundef ptr @_ZN10IfProjNode8IdentityEP8PhaseGVN(ptr noundef nonnu
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %0
-  br i1 %48, label %49, label %82
+  br i1 %48, label %49, label %79
 
 49:                                               ; preds = %43
   %50 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -7230,28 +7230,24 @@ _ZN4NodenwEm.exit:                                ; preds = %65, %67
   br label %74
 
 74:                                               ; preds = %70, %_ZN4NodenwEm.exit
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %76 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %.0.i.i.i, ptr noundef null) #8
-  %77 = load i8, ptr %75, align 8
-  %78 = trunc i8 %77 to i1
-  %..i21 = select i1 %78, ptr %1, ptr null
+  %75 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %.0.i.i.i, ptr noundef null) #8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %37) #8
-  %79 = getelementptr inbounds nuw i8, ptr %..i21, i64 32
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull %37) #8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull %37) #8
   tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %37, ptr noundef %.0.i.i.i) #8
-  br label %82
+  br label %79
 
-82:                                               ; preds = %36, %38, %43, %74, %._crit_edge
-  %83 = load ptr, ptr %3, align 8
+79:                                               ; preds = %36, %38, %43, %74, %._crit_edge
+  %80 = load ptr, ptr %3, align 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr %86, align 8
-  br label %88
+  br label %85
 
-88:                                               ; preds = %17, %27, %82
-  %.0 = phi ptr [ %87, %82 ], [ %0, %27 ], [ %0, %17 ]
+85:                                               ; preds = %17, %27, %79
+  %.0 = phi ptr [ %84, %79 ], [ %0, %27 ], [ %0, %17 ]
   ret ptr %.0
 }
 

@@ -484,7 +484,7 @@ define range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr noundef captures(none) %
   br i1 %exitcond.not.i, label %.preheader49.preheader.i, label %22, !llvm.loop !23
 
 .preheader49.preheader.i:                         ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 4860
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %13, i64 4860
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2, !tbaa !21
   br label %.preheader49.i
 
@@ -580,7 +580,7 @@ HUF_sort.exit:                                    ; preds = %64
   %76 = getelementptr i8, ptr %73, i64 -8
   %77 = load i32, ptr %76, align 4, !tbaa !26
   %78 = add i32 %77, %70
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2056
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 2056
   store i32 %78, ptr %79, align 4, !tbaa !26
   %80 = getelementptr i8, ptr %73, i64 -4
   store i16 256, ptr %80, align 4, !tbaa !32
@@ -3135,7 +3135,7 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
   %94 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv.i
   %95 = load i64, ptr %94, align 8, !tbaa !8
   %96 = and i64 %95, 255
-  %97 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
   %98 = load i32, ptr %97, align 4, !tbaa !11
   %99 = zext i32 %98 to i64
   %100 = mul nuw nsw i64 %96, %99
@@ -3154,7 +3154,7 @@ HUF_estimateCompressedSize.exit:                  ; preds = %.lr.ph.i
   %103 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv.i188
   %104 = load i64, ptr %103, align 8, !tbaa !8
   %105 = and i64 %104, 255
-  %106 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv.i188
+  %106 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i188
   %107 = load i32, ptr %106, align 4, !tbaa !11
   %108 = zext i32 %107 to i64
   %109 = mul nuw nsw i64 %105, %108

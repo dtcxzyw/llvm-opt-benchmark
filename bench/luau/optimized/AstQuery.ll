@@ -3536,7 +3536,6 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exi
 260:                                              ; preds = %82
   %261 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstExprFunctionEE5valueE, align 4
   %262 = icmp eq i32 %84, %261
-  %..i157 = select i1 %262, ptr %49, ptr null
   %263 = icmp ne ptr %50, null
   %or.cond = and i1 %263, %262
   br i1 %or.cond, label %264, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit174
@@ -3570,8 +3569,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exi
 
 .lr.ph232:                                        ; preds = %.preheader
   %279 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %280 = getelementptr inbounds nuw i8, ptr %..i157, i64 96
-  %281 = getelementptr inbounds nuw i8, ptr %..i157, i64 88
+  %280 = getelementptr inbounds nuw i8, ptr %49, i64 96
+  %281 = getelementptr inbounds nuw i8, ptr %49, i64 88
   br label %282
 
 282:                                              ; preds = %.lr.ph232, %343

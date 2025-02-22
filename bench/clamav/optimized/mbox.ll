@@ -788,7 +788,7 @@ getline_from_mbox.exit.i:                         ; preds = %149, %148, %136
 
 183:                                              ; preds = %181, %.lr.ph.i.i.i
   %.01422.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %182, %181 ]
-  %184 = getelementptr inbounds nuw i8, ptr %..i116.i, i64 %.01422.i.i.i
+  %184 = getelementptr inbounds nuw i8, ptr %3, i64 %.01422.i.i.i
   %185 = load i8, ptr %184, align 1, !tbaa !43
   %186 = sext i8 %185 to i64
   %187 = getelementptr inbounds i16, ptr %180, i64 %186

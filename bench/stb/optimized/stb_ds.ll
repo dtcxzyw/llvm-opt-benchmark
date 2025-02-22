@@ -1052,27 +1052,27 @@ stbds_hmget_key_ts.exit:                          ; preds = %14, %20, %23, %7
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define ptr @stbds_hmput_default(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  %.pre = sub i64 0, %1
-  br i1 %3, label %._crit_edge, label %4
+  %.pre15 = sub i64 0, %1
+  br i1 %3, label %._crit_edge14, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 %.pre
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.pre15
   %6 = getelementptr inbounds i8, ptr %5, i64 -32
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %._crit_edge, label %32
+  br i1 %8, label %._crit_edge14, label %32
 
-._crit_edge:                                      ; preds = %2, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 %.pre
+._crit_edge14:                                    ; preds = %2, %4
+  %9 = getelementptr inbounds i8, ptr %0, i64 %.pre15
   %10 = select i1 %3, ptr null, ptr %9
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.thread44.i, label %.thread36.i
 
-.thread36.i:                                      ; preds = %._crit_edge
-  %11 = getelementptr inbounds i8, ptr %10, i64 -32
+.thread36.i:                                      ; preds = %._crit_edge14
+  %11 = getelementptr inbounds i8, ptr %9, i64 -32
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %10, i64 -24
+  %13 = getelementptr inbounds i8, ptr %9, i64 -24
   %14 = load i64, ptr %13, align 8, !tbaa !9
   %.not3338.i = icmp ugt i64 %spec.select.i, %14
   br i1 %.not3338.i, label %.thread40.i, label %stbds_arrgrowf.exit
@@ -1082,8 +1082,8 @@ define ptr @stbds_hmput_default(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %16 = icmp ult i64 %spec.select.i, %15
   br i1 %16, label %17, label %.thread44.i
 
-.thread44.i:                                      ; preds = %._crit_edge, %.thread40.i
-  %spec.select35394346.i = phi i64 [ %spec.select.i, %.thread40.i ], [ 1, %._crit_edge ]
+.thread44.i:                                      ; preds = %._crit_edge14, %.thread40.i
+  %spec.select35394346.i = phi i64 [ %spec.select.i, %.thread40.i ], [ 1, %._crit_edge14 ]
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %spec.select35394346.i, i64 4)
   br label %17
 
@@ -1095,7 +1095,11 @@ define ptr @stbds_hmput_default(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %21 = add i64 %20, 32
   %22 = tail call ptr @realloc(ptr noundef %19, i64 noundef %21) #20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  br i1 %.not.i, label %24, label %26
+  br i1 %.not.i, label %24, label %._crit_edge
+
+._crit_edge:                                      ; preds = %17
+  %.pre.pre = load i64, ptr %22, align 8, !tbaa !3
+  br label %26
 
 24:                                               ; preds = %17
   store i64 0, ptr %22, align 8, !tbaa !3
@@ -1103,18 +1107,19 @@ define ptr @stbds_hmput_default(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %26
 
-26:                                               ; preds = %24, %17
+26:                                               ; preds = %._crit_edge, %24
+  %.pre = phi i64 [ %.pre.pre, %._crit_edge ], [ 0, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %.1.i, ptr %27, align 8, !tbaa !9
   br label %stbds_arrgrowf.exit
 
 stbds_arrgrowf.exit:                              ; preds = %.thread36.i, %26
+  %28 = phi i64 [ %.pre, %26 ], [ %12, %.thread36.i ]
   %.0.i = phi ptr [ %23, %26 ], [ %9, %.thread36.i ]
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 -32
-  %29 = load i64, ptr %28, align 8, !tbaa !3
-  %30 = add i64 %29, 1
-  store i64 %30, ptr %28, align 8, !tbaa !3
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i, i8 0, i64 %1, i1 false)
+  %29 = getelementptr inbounds i8, ptr %.0.i, i64 -32
+  %30 = add i64 %28, 1
+  store i64 %30, ptr %29, align 8, !tbaa !3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i, i8 0, i64 %1, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %1
   br label %32
 

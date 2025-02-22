@@ -445,8 +445,6 @@ if.end:                                           ; preds = %entry
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 80
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8
   %7 = load ptr, ptr %m_nsamples.i, align 8
-  %tobool.not.i.i = icmp eq ptr %6, %7
-  %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %7
   %sub.ptr.lhs.cast.i4.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i5.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i6.i.i = sub i64 %sub.ptr.lhs.cast.i4.i.i, %sub.ptr.rhs.cast.i5.i.i
@@ -468,7 +466,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %p.013.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %spec.select.i.i, i64 %p.013.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %7, i64 %p.013.i
   %11 = load i32, ptr %arrayidx.i.i, align 4
   tail call void @_ZN18OpenImageIO_v2_6_08DeepData11set_samplesEli(ptr noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %p.013.i, i32 noundef %11)
   %inc.i = add nuw nsw i64 %p.013.i, 1
@@ -478,12 +476,12 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 if.else.i:                                        ; preds = %if.end.i
   %m_nsamples.i12 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %sub.ptr.sub.i6.i.i
+  %arrayidx.i5.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i6.i.i
   tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_nsamples.i12, ptr noundef nonnull %7, ptr noundef nonnull %arrayidx.i5.i)
   %13 = load ptr, ptr %this, align 8
   %m_capacity.i = getelementptr inbounds nuw i8, ptr %13, i64 96
   %14 = load i64, ptr %m_npixels, align 8
-  %arrayidx.i7.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %14
+  %arrayidx.i7.i = getelementptr inbounds i32, ptr %7, i64 %14
   tail call void @_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %m_capacity.i, ptr noundef nonnull %7, ptr noundef nonnull %arrayidx.i7.i)
   %.pre = load i64, ptr %m_npixels, align 8
   br label %_ZN18OpenImageIO_v2_6_08DeepData15set_all_samplesENS_4spanIKjLln1EEE.exit

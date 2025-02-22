@@ -1658,7 +1658,7 @@ _ZN4absl4Cord9InlineRep8set_dataEPKcm.exit:       ; preds = %19, %26, %43
   br label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit
 
 _ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit: ; preds = %78, %82
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %84 = load i8, ptr %83, align 4, !tbaa !23
   %85 = icmp ugt i8 %84, 5
   br i1 %85, label %86, label %106
@@ -1684,7 +1684,7 @@ _ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTra
   br i1 %97, label %.critedge32, label %106
 
 .critedge32:                                      ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 13
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 13
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %2, i64 %1, i1 false)
   store i64 %1, ptr %8, align 8, !tbaa !22
   %99 = load ptr, ptr %4, align 8, !tbaa !35
@@ -3162,20 +3162,20 @@ _ZN4absl4Cord13ChunkIteratorppEv.exit:            ; preds = %178, %_ZNK4absl13co
   tail call void @llvm.assume(i1 %249)
   %250 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 8
   %251 = atomicrmw add ptr %250, i32 2 monotonic, align 4
-  %252 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 12
+  %252 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %253 = load i8, ptr %252, align 4, !tbaa !23
   %254 = icmp eq i8 %253, 2
   br i1 %254, label %255, label %_ZN4absl13cord_internal13RemoveCrcNodeEPNS0_7CordRepE.exit46, !prof !59
 
 255:                                              ; preds = %248
-  %256 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %257 = load ptr, ptr %256, align 8, !tbaa !55
   %258 = load atomic i32, ptr %250 acquire, align 4
   %259 = icmp eq i32 %258, 2
   br i1 %259, label %260, label %262
 
 260:                                              ; preds = %255
-  %261 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %84, i64 24
   tail call void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %261) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %.0.i.i42, i64 noundef 32) #25
   br label %_ZN4absl13cord_internal13RemoveCrcNodeEPNS0_7CordRepE.exit46
@@ -8963,8 +8963,7 @@ define dso_local noundef signext i8 @_ZNK4absl4CordixEm(ptr noundef nonnull read
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %spec.select.i = select i1 %.not.i, ptr %10, ptr null
-  %11 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %1
   %12 = load i8, ptr %11, align 1, !tbaa !13
   br label %42
 

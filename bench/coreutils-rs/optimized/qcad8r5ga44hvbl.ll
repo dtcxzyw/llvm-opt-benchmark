@@ -5395,7 +5395,6 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread214: ; 
   %389 = load ptr, ptr %223, align 8, !noalias !1412, !nonnull !16, !align !1413
   %390 = load i64, ptr %224, align 8, !noalias !1412
   %.sroa.7.0.i = select i1 %trunc.i130, i64 undef, i64 %390
-  %.sroa.06.0.i = select i1 %trunc.i130, ptr null, ptr %389
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1412
   br i1 %trunc.i130, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread23.i", label %393
 
@@ -5414,7 +5413,7 @@ _ZN5uu_wc9TotalWhen20is_total_row_visible17h54db5cfaf9827f0bE.exit.thread214: ; 
 
 .lr.ph.i.i.i:                                     ; preds = %395, %399
   %.05.i.i.i = phi i64 [ %400, %399 ], [ 0, %395 ]
-  %396 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.06.0.i, i64 0, i64 %.05.i.i.i
+  %396 = getelementptr inbounds nuw [0 x i8], ptr %389, i64 0, i64 %.05.i.i.i
   %397 = load i8, ptr %396, align 1, !alias.scope !1414, !noalias !1412, !noundef !16
   %398 = icmp eq i8 %397, 10
   br i1 %398, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread23.i", label %399

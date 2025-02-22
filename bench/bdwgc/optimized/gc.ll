@@ -39116,7 +39116,7 @@ GC_reclaim_small_nonempty_block.exit:             ; preds = %54
 define internal fastcc void @GC_print_all_smashed_proc() unnamed_addr #2 {
   %1 = load i32, ptr @GC_n_smashed, align 4, !tbaa !3
   %2 = icmp eq i32 %1, 0
-  br i1 %2, label %64, label %3
+  br i1 %2, label %59, label %3
 
 3:                                                ; preds = %0
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.188, i32 noundef %1)
@@ -39153,13 +39153,16 @@ define internal fastcc void @GC_print_all_smashed_proc() unnamed_addr #2 {
   %21 = and i64 %20, 1023
   %22 = getelementptr inbounds nuw [1024 x ptr], ptr %.0.i, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !57, !nonnull !372, !noundef !372
-  %24 = tail call align 4096 ptr @llvm.ptrmask.p0.i64(ptr %6, i64 -4096)
-  %25 = icmp ult ptr %23, inttoptr (i64 4096 to ptr)
-  br i1 %25, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i
+  %24 = icmp ult ptr %23, inttoptr (i64 4096 to ptr)
+  br i1 %24, label %.lr.ph.i.i.preheader, label %GC_find_starting_hblk.exit.i
 
-.lr.ph.i.i:                                       ; preds = %19, %GC_find_header.exit.i.i
-  %.012.i.i = phi ptr [ %.0.i.i, %GC_find_header.exit.i.i ], [ %23, %19 ]
-  %.0811.i.i = phi ptr [ %28, %GC_find_header.exit.i.i ], [ %24, %19 ]
+.lr.ph.i.i.preheader:                             ; preds = %19
+  %25 = tail call align 4096 ptr @llvm.ptrmask.p0.i64(ptr %6, i64 -4096)
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %GC_find_header.exit.i.i
+  %.012.i.i = phi ptr [ %.0.i.i, %GC_find_header.exit.i.i ], [ %23, %.lr.ph.i.i.preheader ]
+  %.0811.i.i = phi ptr [ %28, %GC_find_header.exit.i.i ], [ %25, %.lr.ph.i.i.preheader ]
   %26 = ptrtoint ptr %.012.i.i to i64
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds %struct.GC_hblk_s, ptr %.0811.i.i, i64 %27
@@ -39190,7 +39193,6 @@ GC_find_header.exit.i.i:                          ; preds = %33
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %19
   %.031.i = phi ptr [ %23, %19 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
-  %.028.i = phi ptr [ %24, %19 ], [ %28, %GC_find_header.exit.i.i ]
   %.027.i = phi ptr [ %6, %19 ], [ %28, %GC_find_header.exit.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.031.i, i64 25
   %45 = load i8, ptr %44, align 1, !tbaa !63
@@ -39205,28 +39207,20 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %52 = urem i64 %51, %49
   %53 = sub nsw i64 0, %52
   %54 = getelementptr inbounds i8, ptr %47, i64 %53
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %49
-  %56 = getelementptr inbounds nuw i8, ptr %.028.i, i64 4096
-  %57 = icmp uge ptr %56, %55
-  %58 = icmp ugt i64 %49, 4096
-  %or.cond.not34.i = or i1 %58, %57
-  %59 = icmp ult ptr %6, %55
-  %or.cond30.i = and i1 %59, %or.cond.not34.i
-  %spec.select.i = select i1 %or.cond30.i, ptr %54, ptr null
-  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
-  tail call fastcc void @GC_print_smashed_obj(ptr noundef nonnull @.str.10, ptr noundef nonnull %60, ptr noundef %6)
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  tail call fastcc void @GC_print_smashed_obj(ptr noundef nonnull @.str.10, ptr noundef nonnull %55, ptr noundef %6)
   store ptr null, ptr %5, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load i32, ptr @GC_n_smashed, align 4, !tbaa !3
-  %62 = zext i32 %61 to i64
-  %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !506
+  %56 = load i32, ptr @GC_n_smashed, align 4, !tbaa !3
+  %57 = zext i32 %56 to i64
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !506
 
 ._crit_edge:                                      ; preds = %GC_find_starting_hblk.exit.i, %3
   store i32 0, ptr @GC_n_smashed, align 4, !tbaa !3
-  br label %64
+  br label %59
 
-64:                                               ; preds = %0, %._crit_edge
+59:                                               ; preds = %0, %._crit_edge
   ret void
 }
 

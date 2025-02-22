@@ -2046,9 +2046,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, ptr } @_ZN4Luau13getBaseSymbolERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
-  %.not7 = icmp eq i32 %2, 1
+  %.not6 = icmp eq i32 %2, 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not7, label %.lr.ph, label %._crit_edge
+  br i1 %.not6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %4 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
@@ -2059,12 +2059,10 @@ define dso_local { ptr, ptr } @_ZN4Luau13getBaseSymbolERKNS_7VariantIJNS_6Symbol
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.lcssa6 = phi i32 [ %2, %1 ], [ %6, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %0, %1 ], [ %5, %.lr.ph ]
   %.lcssa = phi ptr [ %3, %1 ], [ %7, %.lr.ph ]
-  %8 = icmp eq i32 %.lcssa6, 0
-  %9 = select i1 %8, ptr %.lcssa, ptr null
   %.sroa.0.0.copyload = load ptr, ptr %.lcssa, align 8
-  %.sroa.2.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.2.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.2.0.copyload, 1

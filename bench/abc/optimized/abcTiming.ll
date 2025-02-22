@@ -257,16 +257,14 @@ define float @Abc_NodeReadInputDriveWorst(ptr noundef readonly captures(none) %0
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !42
-  %.not.i = icmp eq ptr %6, null
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
-  %9 = select i1 %.not.i, ptr null, ptr %8
-  %10 = load float, ptr %8, align 4, !tbaa !40
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %12 = load float, ptr %11, align 4, !tbaa !41
-  %13 = fcmp ogt float %10, %12
-  %14 = select i1 %13, float %10, float %12
-  ret float %14
+  %9 = load float, ptr %8, align 4, !tbaa !40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !41
+  %12 = fcmp ogt float %9, %11
+  %13 = select i1 %12, float %9, float %11
+  ret float %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -275,16 +273,14 @@ define float @Abc_NodeReadOutputLoadWorst(ptr noundef readonly captures(none) %0
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !43
-  %.not.i = icmp eq ptr %6, null
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
-  %9 = select i1 %.not.i, ptr null, ptr %8
-  %10 = load float, ptr %8, align 4, !tbaa !40
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %12 = load float, ptr %11, align 4, !tbaa !41
-  %13 = fcmp ogt float %10, %12
-  %14 = select i1 %13, float %10, float %12
-  ret float %14
+  %9 = load float, ptr %8, align 4, !tbaa !40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !41
+  %12 = fcmp ogt float %9, %11
+  %13 = select i1 %12, float %9, float %11
+  ret float %13
 }
 
 ; Function Attrs: nounwind uwtable
