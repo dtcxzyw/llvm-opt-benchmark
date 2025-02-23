@@ -107715,8 +107715,8 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %12 = add nuw nsw i64 %.sroa.6.0.lcssa, 1
   br i1 %.not.i.not.i, label %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17ha9cd38c3b01b2952E.exit", label %13
 
-13:                                               ; preds = %._crit_edge
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 544
+12:                                               ; preds = %._crit_edge
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 544
   %15 = icmp ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %12

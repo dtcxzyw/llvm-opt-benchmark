@@ -9531,7 +9531,7 @@ if.then8:                                         ; preds = %_ZN4llvh3sys2fs8Tem
   call void @_ZN4llvh12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr nonnull sret(%"class.llvh::Error") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp1.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   %13 = load ptr, ptr %agg.tmp.i.i, align 8
   %14 = ptrtoint ptr %13 to i64
-  %and.i.i.i.i.i = and i64 %14, -2
+  %and.i.i1.i.i = and i64 %14, -2
   %cmp.i.not.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %15 = inttoptr i64 %and.i.i.i.i.i to ptr
   store ptr %15, ptr %agg.tmp.i.i, align 8
@@ -9543,29 +9543,29 @@ if.then8:                                         ; preds = %_ZN4llvh3sys2fs8Tem
   br i1 %isnull.i2.i.i, label %_ZN4llvh12consumeErrorENS_5ErrorE.exit, label %delete.notnull.i3.i.i
 
 delete.notnull.i3.i.i:                            ; preds = %if.then8
-  %18 = inttoptr i64 %and.i.i1.i.i to ptr
-  %vtable.i4.i.i = load ptr, ptr %18, align 8
+  %15 = inttoptr i64 %and.i.i1.i.i to ptr
+  %vtable.i4.i.i = load ptr, ptr %15, align 8
   %vfn.i5.i.i = getelementptr inbounds nuw i8, ptr %vtable.i4.i.i, i64 8
-  %19 = load ptr, ptr %vfn.i5.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18) #29
+  %16 = load ptr, ptr %vfn.i5.i.i, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %15) #29
   br label %_ZN4llvh12consumeErrorENS_5ErrorE.exit
 
 _ZN4llvh12consumeErrorENS_5ErrorE.exit:           ; preds = %if.then8, %delete.notnull.i3.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %20 = load ptr, ptr %agg.tmp9, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %and.i.i7 = and i64 %21, -2
+  %17 = load ptr, ptr %agg.tmp9, align 8
+  %18 = ptrtoint ptr %17 to i64
+  %and.i.i7 = and i64 %18, -2
   %isnull.i8 = icmp eq i64 %and.i.i7, 0
   br i1 %isnull.i8, label %_ZN4llvh5ErrorD2Ev.exit22, label %delete.notnull.i9
 
 delete.notnull.i9:                                ; preds = %_ZN4llvh12consumeErrorENS_5ErrorE.exit
-  %22 = inttoptr i64 %and.i.i7 to ptr
-  %vtable.i10 = load ptr, ptr %22, align 8
+  %19 = inttoptr i64 %and.i.i7 to ptr
+  %vtable.i10 = load ptr, ptr %19, align 8
   %vfn.i11 = getelementptr inbounds nuw i8, ptr %vtable.i10, i64 8
-  %23 = load ptr, ptr %vfn.i11, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #29
+  %20 = load ptr, ptr %vfn.i11, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %19) #29
   br label %_ZN4llvh5ErrorD2Ev.exit22
 
 _ZN4llvh5ErrorD2Ev.exit22:                        ; preds = %delete.notnull.i9, %_ZN4llvh12consumeErrorENS_5ErrorE.exit
@@ -9576,11 +9576,11 @@ _ZN4llvh5ErrorD2Ev.exit22:                        ; preds = %delete.notnull.i9, 
   %bf.set.i15 = or i8 %bf.load.i14, 1
   store i8 %bf.set.i15, ptr %HasError.i13, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %24 = load ptr, ptr %agg.tmp11, align 8, !noalias !126
-  %25 = ptrtoint ptr %24 to i64
-  %and.i.i.i16 = and i64 %25, -2
-  %26 = inttoptr i64 %and.i.i.i16 to ptr
-  store ptr %26, ptr %agg.result, align 8, !alias.scope !126
+  %21 = load ptr, ptr %agg.tmp11, align 8, !noalias !126
+  %22 = ptrtoint ptr %21 to i64
+  %and.i.i.i16 = and i64 %22, -2
+  %23 = inttoptr i64 %and.i.i.i16 to ptr
+  store ptr %23, ptr %agg.result, align 8, !alias.scope !126
   store ptr null, ptr %agg.tmp11, align 8, !noalias !126
   br label %cleanup
 
@@ -9595,8 +9595,8 @@ if.end13:                                         ; preds = %_ZN4llvh3sys2fs8Tem
   %FD.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i32 -1, ptr %FD.i.i, align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %TmpName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %TmpName.i) #29
-  %27 = load i32, ptr %FD2.i, align 8
-  store i32 %27, ptr %FD.i.i, align 8
+  %24 = load i32, ptr %FD2.i, align 8
+  store i32 %24, ptr %FD.i.i, align 8
   store i8 1, ptr %Ret, align 8
   br label %cleanup
 
@@ -9605,12 +9605,12 @@ cleanup:                                          ; preds = %if.end13, %_ZN4llvh
   br label %cleanup14
 
 cleanup14:                                        ; preds = %cleanup, %_ZN4llvh5ErrorD2Ev.exit
-  %28 = load ptr, ptr %ResultPath, align 8
-  %cmp.i.i.i.i = icmp eq ptr %28, %add.ptr.i.i.i.i.i.i
+  %25 = load ptr, ptr %ResultPath, align 8
+  %cmp.i.i.i.i = icmp eq ptr %25, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %cleanup14
-  call void @free(ptr noundef %28) #29
+  call void @free(ptr noundef %25) #29
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit
 
 _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %cleanup14, %if.then.i.i.i26

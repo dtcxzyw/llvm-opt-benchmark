@@ -2173,12 +2173,12 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
-  %10 = icmp eq i64 %5, 0
-  br i1 %10, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i
+  %9 = icmp eq i64 %5, 0
+  br i1 %9, label %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i
 
 _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i: ; preds = %2
-  %11 = icmp ult i64 %6, 576460752303423488
-  tail call void @llvm.assume(i1 %11)
+  %10 = icmp ult i64 %6, 576460752303423488
+  tail call void @llvm.assume(i1 %9)
   %12 = shl nuw i64 %6, 5
   %13 = add nsw i64 %5, 17
   %14 = add nuw i64 %13, %12
@@ -2188,23 +2188,23 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13
   %17 = getelementptr inbounds i8, ptr %3, i64 %16
   br label %18
 
-18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i, %2
+15:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i, %2
   %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i.i ], [ 0, %2 ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %20 = icmp slt <16 x i8> %7, zeroinitializer
-  %21 = bitcast <16 x i1> %20 to i16
-  %22 = xor i16 %21, -1
-  %23 = getelementptr inbounds i8, ptr %3, i64 %6
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %24, align 8, !alias.scope !467, !noalias !469
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %17 = icmp slt <16 x i8> %7, zeroinitializer
+  %18 = bitcast <16 x i1> %17 to i16
+  %19 = xor i16 %18, -1
+  %20 = getelementptr inbounds i8, ptr %3, i64 %6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %3, ptr %21, align 8, !alias.scope !467, !noalias !469
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %19, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !467, !noalias !469
+  store ptr %16, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8, !alias.scope !467, !noalias !469
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %23, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !467, !noalias !469
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %22, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !467, !noalias !469
+  store i16 %19, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !467, !noalias !469
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %9, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !467, !noalias !469
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !471, !noalias !472
@@ -4853,8 +4853,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13
   %5 = add i64 %.sroa.4.0.copyload, 1
   %6 = icmp ult i64 %5, 576460752303423488
   tail call void @llvm.assume(i1 %6)
-  %7 = shl nuw i64 %5, 5
-  %8 = add nsw i64 %.sroa.4.0.copyload, 17
+  %8 = shl nuw i64 %5, 5
+  %9 = add nsw i64 %.sroa.4.0.copyload, 17
   %9 = add nuw i64 %8, %7
   %10 = icmp ult i64 %9, 9223372036854775793
   tail call void @llvm.assume(i1 %10)
@@ -4866,8 +4866,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13
   %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13299765037273942663.exit.i ], [ 0, %3 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -5522,10 +5522,10 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.13
   %6 = add i64 %4, 1
   %7 = icmp ult i64 %6, 576460752303423488
   tail call void @llvm.assume(i1 %7)
-  %8 = shl nuw i64 %6, 5
+  %9 = shl nuw i64 %6, 5
   %9 = add nsw i64 %4, 17
   %10 = add nuw i64 %8, %9
-  %11 = icmp ult i64 %10, 9223372036854775793
+  %11 = icmp ult i64 %9, 9223372036854775793
   tail call void @llvm.assume(i1 %11)
   %12 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %13 = sub nsw i64 0, %8

@@ -658,27 +658,27 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %81
   tail call void @llvm.assume(i1 %106)
   %107 = icmp samesign ult i32 %105, %13
   tail call void @llvm.assume(i1 %107)
-  %108 = zext nneg i32 %105 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %75, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !106
-  %111 = zext i8 %110 to i32
-  %112 = or disjoint i64 %indvars.iv, 1
-  %113 = shl nuw nsw i32 %111, 4
-  %114 = lshr i32 %99, 4
+  %109 = zext nneg i32 %105 to i64
+  %110 = getelementptr inbounds nuw i8, ptr %75, i64 %109
+  %111 = load i8, ptr %109, align 1, !tbaa !106
+  %112 = zext i8 %110 to i32
+  %113 = or disjoint i64 %indvars.iv, 1
+  %114 = shl nuw nsw i32 %112, 4
+  %.0.i39 = lshr i32 %99, 4
   %115 = or disjoint i32 %113, %114
   %.0.i39 = trunc nuw nsw i32 %115 to i16
   %116 = icmp samesign ult i64 %112, %64
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw i16, ptr %80, i64 %112
   store i16 %.0.i39, ptr %117, align 2, !tbaa !114
-  %118 = trunc nuw nsw i64 %indvars.iv to i32
-  %119 = urem i32 %118, 10
+  %119 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select.v = urem i32 %119, 10
   %120 = icmp eq i32 %119, 8
   %spec.select.v = select i1 %120, i32 4, i32 3
   %spec.select = add nuw i32 %spec.select.v, %.026137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %121 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %121, label %89, label %88, !llvm.loop !121
+  %120 = icmp samesign ult i64 %indvars.iv.next, %65
+  br i1 %120, label %89, label %88, !llvm.loop !121
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -938,27 +938,27 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %81
   tail call void @llvm.assume(i1 %106)
   %107 = icmp samesign ult i32 %105, %13
   tail call void @llvm.assume(i1 %107)
-  %108 = zext nneg i32 %105 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %75, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !106
-  %111 = zext i8 %110 to i32
-  %112 = or disjoint i64 %indvars.iv, 1
-  %113 = shl nuw nsw i32 %99, 8
-  %114 = and i32 %113, 3840
-  %115 = or disjoint i32 %114, %111
+  %109 = zext nneg i32 %105 to i64
+  %110 = getelementptr inbounds nuw i8, ptr %75, i64 %109
+  %111 = load i8, ptr %109, align 1, !tbaa !106
+  %112 = zext i8 %110 to i32
+  %113 = or disjoint i64 %indvars.iv, 1
+  %114 = shl nuw nsw i32 %99, 8
+  %.0.i39 = and i32 %114, 3840
+  %115 = or disjoint i32 %114, %112
   %.0.i39 = trunc nuw nsw i32 %115 to i16
   %116 = icmp samesign ult i64 %112, %64
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw i16, ptr %80, i64 %112
   store i16 %.0.i39, ptr %117, align 2, !tbaa !114
-  %118 = trunc nuw nsw i64 %indvars.iv to i32
-  %119 = urem i32 %118, 10
+  %119 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select.v = urem i32 %119, 10
   %120 = icmp eq i32 %119, 8
   %spec.select.v = select i1 %120, i32 4, i32 3
   %spec.select = add nuw i32 %spec.select.v, %.026137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %121 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %121, label %89, label %88, !llvm.loop !126
+  %120 = icmp samesign ult i64 %indvars.iv.next, %65
+  br i1 %120, label %89, label %88, !llvm.loop !126
 }
 
 ; Function Attrs: mustprogress uwtable

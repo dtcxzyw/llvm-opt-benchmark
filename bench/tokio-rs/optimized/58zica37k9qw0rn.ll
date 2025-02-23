@@ -76,8 +76,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13
   %5 = add i64 %.sroa.43.0.copyload, 1
   %6 = icmp ult i64 %5, 576460752303423488
   tail call void @llvm.assume(i1 %6)
-  %7 = shl nuw i64 %5, 5
-  %8 = add nsw i64 %.sroa.43.0.copyload, 17
+  %8 = shl nuw i64 %5, 5
+  %9 = add nsw i64 %.sroa.43.0.copyload, 17
   %9 = add nuw i64 %8, %7
   %10 = icmp ult i64 %9, 9223372036854775793
   tail call void @llvm.assume(i1 %10)
@@ -89,12 +89,12 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13
   %.sroa.5.sroa.0.0.i.i.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i.i ], [ undef, %2 ]
   %.sroa.5.sroa.4.0.i.i.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i.i ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 16
-  %14 = icmp slt <16 x i8> %3, zeroinitializer
-  %15 = bitcast <16 x i1> %14 to i16
-  %16 = xor i16 %15, -1
-  %17 = getelementptr i8, ptr %.sroa.02.0.copyload, i64 %.sroa.43.0.copyload
-  %18 = getelementptr i8, ptr %17, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 16
+  %11 = icmp slt <16 x i8> %3, zeroinitializer
+  %12 = bitcast <16 x i1> %11 to i16
+  %13 = xor i16 %12, -1
+  %14 = getelementptr i8, ptr %.sroa.02.0.copyload, i64 %.sroa.43.0.copyload
+  %15 = getelementptr i8, ptr %14, i64 1
   store i64 %.sroa.0.0.i.i.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i.i.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -103,11 +103,11 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.02.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %13, ptr %.sroa.7.0..sroa_idx, align 8
+  store ptr %10, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %18, ptr %.sroa.8.0..sroa_idx, align 8
+  store ptr %15, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %16, ptr %.sroa.9.0..sroa_idx, align 8
+  store i16 %13, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.55.0.copyload, ptr %.sroa.101.0..sroa_idx, align 8
   ret void
@@ -2471,14 +2471,14 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %8 = load i64, ptr %7, align 8, !alias.scope !324, !noalias !327, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   %9 = icmp eq i64 %5, 0
-  br i1 %9, label %18, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i
+  br i1 %9, label %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i
 
 _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i: ; preds = %2
   %10 = add i64 %5, 1
   %11 = icmp ult i64 %10, 576460752303423488
   tail call void @llvm.assume(i1 %11)
-  %12 = shl nuw i64 %10, 5
-  %13 = add nsw i64 %5, 17
+  %13 = shl nuw i64 %10, 5
+  %14 = add nsw i64 %5, 17
   %14 = add nuw i64 %13, %12
   %15 = icmp ult i64 %14, 9223372036854775793
   tail call void @llvm.assume(i1 %15)
@@ -2486,24 +2486,24 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13
   %17 = getelementptr inbounds i8, ptr %3, i64 %16
   br label %18
 
-18:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i, %2
+15:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i, %2
   %.sroa.5.sroa.0.0.i.i = phi i64 [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i ], [ undef, %2 ]
-  %.sroa.5.sroa.4.0.i.i = phi ptr [ %17, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i ], [ undef, %2 ]
+  %.sroa.5.sroa.4.0.i.i = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i ], [ undef, %2 ]
   %.sroa.0.0.i.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i.i ], [ 0, %2 ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %20 = icmp slt <16 x i8> %6, zeroinitializer
-  %21 = bitcast <16 x i1> %20 to i16
-  %22 = xor i16 %21, -1
-  %23 = getelementptr i8, ptr %3, i64 %5
-  %24 = getelementptr i8, ptr %23, i64 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %25, align 8, !alias.scope !337, !noalias !339
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %17 = icmp slt <16 x i8> %6, zeroinitializer
+  %18 = bitcast <16 x i1> %17 to i16
+  %19 = xor i16 %18, -1
+  %20 = getelementptr i8, ptr %3, i64 %5
+  %21 = getelementptr i8, ptr %20, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %3, ptr %22, align 8, !alias.scope !337, !noalias !339
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %19, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !337, !noalias !339
+  store ptr %16, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !337, !noalias !339
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %24, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !337, !noalias !339
+  store ptr %21, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !337, !noalias !339
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %22, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !337, !noalias !339
+  store i16 %19, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !337, !noalias !339
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %8, ptr %.sroa.52.0..sroa_idx, align 8, !alias.scope !337, !noalias !339
   store i64 %.sroa.0.0.i.i, ptr %0, align 8, !alias.scope !341, !noalias !342
@@ -4259,8 +4259,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13
   %5 = add i64 %.sroa.4.0.copyload, 1
   %6 = icmp ult i64 %5, 576460752303423488
   tail call void @llvm.assume(i1 %6)
-  %7 = shl nuw i64 %5, 5
-  %8 = add nsw i64 %.sroa.4.0.copyload, 17
+  %8 = shl nuw i64 %5, 5
+  %9 = add nsw i64 %.sroa.4.0.copyload, 17
   %9 = add nuw i64 %8, %7
   %10 = icmp ult i64 %9, 9223372036854775793
   tail call void @llvm.assume(i1 %10)
@@ -4272,8 +4272,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13
   %.sroa.5.sroa.0.0.i = phi i64 [ %9, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i ], [ undef, %3 ]
   %.sroa.5.sroa.4.0.i = phi ptr [ %12, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit.i ], [ 0, %3 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   store i64 %.sroa.0.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -5031,23 +5031,23 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %15, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit
+  br i1 %5, label %13, label %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit
 
 _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit: ; preds = %2
   %6 = add i64 %4, 1
   %7 = icmp ult i64 %6, 576460752303423488
   tail call void @llvm.assume(i1 %7)
-  %8 = shl nuw i64 %6, 5
+  %9 = shl nuw i64 %6, 5
   %9 = add nsw i64 %4, 17
   %10 = add nuw i64 %8, %9
   %11 = icmp ult i64 %10, 9223372036854775793
   tail call void @llvm.assume(i1 %11)
-  %12 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %13 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %13 = sub nsw i64 0, %8
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
   br label %15
 
-15:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit
+13:                                               ; preds = %2, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit
   %.sroa.5.sroa.0.0 = phi i64 [ %10, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit ], [ undef, %2 ]
   %.sroa.5.sroa.4.0 = phi ptr [ %14, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 16, %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.13045902235258919337.exit ], [ 0, %2 ]
@@ -6589,7 +6589,7 @@ attributes #29 = { mustprogress nofree norecurse nosync nounwind nonlazybind wil
 attributes #30 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #31 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #32 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #33 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #33 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #34 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #35 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #36 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
